@@ -1,0 +1,4029 @@
+﻿{
+	"version": "28.4. alex",
+	"rooms": [{
+		"comment": "Intro animations",
+		"alias": "intro",
+		"gui": "empty",
+		"background": "",
+		"scaleNear": 1,
+		"scaleFar": 1,
+		"rgb": "255,255,255",
+		"border": "spr_various_token",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[video intro.avi][stop] > [room title_viktorsRoom start]"
+		}],
+		"objects": []
+
+	}, {
+		"comment": "Martins room over the phone",
+		"alias": "martinsRoom",
+		"gui": "empty",
+		"background": "bcg_martinsRoom",
+		"scaleNear": 1,
+		"scaleFar": 1,
+		"rgb": "255,255,255",
+		"border": "spr_various_token",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[position player 200 850][set mood phone][active martinsRoom_martin] > [if previousRoom viktorsRoom][conversation martin beginning] > [if previousRoom viktorsRoom][skip 3] > [if previousRoom station_down][conversation martin station] > [if previousRoom station_down][skip 1] > [if previousRoom station_up][conversation martin_station beginning] > [room previous martinHangsUp]"
+		}],
+		"objects": [{
+			"alias": "martinsRoom_martin",
+			"x": 710,
+			"y": 500,
+			"idle": 1,
+			"xCloud": 860,
+			"yCloud": 400
+		}, {
+			"alias": "martinsRoom_boat",
+			"x": 780,
+			"y": 660,
+			"path": "path_small",
+			"pathAction": "reverse",
+			"movementSpeed": 0.5
+		}, {
+			"alias": "martinsRoom_pipe",
+			"x": 710,
+			"y": 500
+		}, {
+			"alias": "martinsRoom_smoke",
+			"object": "obj_martinsRoom_smoke",
+			"x": 0,
+			"y": 0,
+			"subimage": 0,
+			"depth": 0
+		}, {
+			"alias": "martinsRoom_smoke",
+			"object": "obj_martinsRoom_smoke",
+			"x": 0,
+			"y": 0,
+			"subimage": 1,
+			"depth": 1
+		}, {
+			"alias": "martinsRoom_smoke",
+			"object": "obj_martinsRoom_smoke",
+			"x": 0,
+			"y": 0,
+			"subimage": 2,
+			"depth": 2
+		}, {
+			"alias": "martinsRoom_smoke",
+			"object": "obj_martinsRoom_smoke",
+			"x": 0,
+			"y": 0,
+			"subimage": 3,
+			"depth": 3
+		}, {
+			"alias": "martinsRoom_smoke",
+			"object": "obj_martinsRoom_smoke",
+			"x": 0,
+			"y": 0,
+			"subimage": 4,
+			"depth": 4
+		}, {
+			"alias": "martinsRoom_smoke",
+			"object": "obj_martinsRoom_smoke",
+			"x": 0,
+			"y": 0,
+			"subimage": 5,
+			"depth": 5
+		}, {
+			"alias": "martinsRoom_smoke",
+			"object": "obj_martinsRoom_smoke",
+			"x": 0,
+			"y": 0,
+			"subimage": 6,
+			"depth": 6
+		}, {
+			"alias": "martinsRoom_smoke",
+			"object": "obj_martinsRoom_smoke",
+			"x": 0,
+			"y": 0,
+			"subimage": 7,
+			"depth": 7
+		}, {
+			"alias": "martinsRoom_smoke",
+			"object": "obj_martinsRoom_smoke",
+			"x": 0,
+			"y": 0,
+			"subimage": 8,
+			"depth": 8
+		}]
+	}, {
+		"comment": "Cutscene - coupe",
+		"alias": "coupe",
+		"gui": "default",
+		"background": "bcg_coupe",
+		"yBackground": 20,
+		"scaleNear": 0.9,
+		"scaleFar": 0.9,
+		"rgb": "255,255,255",
+		"border": "spr_various_token",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[soundtrack saens][cloud player 100 0][position player 577 290][direction left][set mood coupe] Hi > [active coupe_walrus][conversation walrus falling_dirigible] > [set mood default][mood default][cloud player 50 300][set dirigible_type travel][room dirigibles start]"
+		}, {
+			"alias": "won",
+			"entrance": "[cloud player 100 0][position player 577 290][direction left][set mood coupe] I saved the day! > And now to become the emperor. > [set mood default][cloud player 50 300][room map_agram_vienna start]"
+		}, {
+			"alias": "lost",
+			"entrance": "[cloud player 100 0][position player 577 290][direction left][set mood coupe] It seems I'm not as skilled as I thought? > [active coupe_walrus][other] Oh never mind that, you can try again, I have a timemachine! > [fade in 0.03 -9999 spr_various_token][time 40] > [fade][room dirigibles start]"
+		}],
+		"objects": [{
+			"x": -10,
+			"y": 150,
+			"xCloud": 400,
+			"yCloud": 200,
+			"direction": "left",
+			"alias": "coupe_walrus"
+		},
+		{
+			"alias" : "coupe_megaphone",
+			"x" : 600,
+			"y" : 320
+		},
+		{
+			"alias" : "coupe_background",
+			"x" : 300,
+			"y" : 300,
+			"depth" : 2100
+		},
+		{
+			"alias" : "coupe_clouds",
+			"subimage" : 0,
+			"path" : "path_left",
+			"x" : 900,
+			"y" : 200,
+			"depth" : 2050
+		},
+		{
+			"alias" : "coupe_clouds",
+			"subimage" : 1,
+			"path" : "path_left",
+			"x" : 1100,
+			"y" : 300,
+			"depth" : 2050
+		},
+		{
+			"alias" : "coupe_clouds",
+			"subimage" : 2,
+			"path" : "path_left",
+			"x" : 800,
+			"y" : 250,
+			"depth" : 2050
+		},
+		{
+			"alias" : "coupe_clouds",
+			"subimage" : 3,
+			"path" : "path_left",
+			"x" : 850,
+			"y" : 220,
+			"depth" : 2050
+		},
+		{
+			"alias" : "coupe_clouds",
+			"subimage" : 4,
+			"path" : "path_left",
+			"x" : 1000,
+			"y" : 200,
+			"depth" : 2050
+		},
+		{
+			"alias" : "coupe_clouds",
+			"subimage" : 5,
+			"path" : "path_left",
+			"x" : 850,
+			"y" : 250,
+			"depth" : 2050
+		},
+		{
+			"alias" : "coupe_clouds",
+			"subimage" : 6,
+			"path" : "path_left",
+			"x" : 900,
+			"y" : 200,
+			"depth" : 2050
+		},
+		{
+			"alias" : "coupe_clouds",
+			"subimage" : 7,
+			"path" : "path_left",
+			"x" : 1100,
+			"y" : 300,
+			"depth" : 2050
+		},
+		{
+			"alias" : "coupe_clouds",
+			"subimage" : 8,
+			"path" : "path_left",
+			"x" : 1200,
+			"y" : 260,
+			"depth" : 2050
+		},
+		{
+			"alias" : "coupe_clouds",
+			"subimage" : 9,
+			"path" : "path_left",
+			"x" : 1310,
+			"y" : 210,
+			"depth" : 2050
+		}
+		]
+	}, {
+		"comment": "Cutscene - AU map - Agram to Vienna",
+		"alias": "map_agram_vienna",
+		"gui": "empty",
+		"background": "bcg_map",
+		"rgb": "255,255,255",
+		"border": "spr_various_token",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[time 110] > [room title_palace start]"
+		}],
+		"objects": [{
+			"alias": "map_agram_vienna",
+			"x": 500,
+			"y": 340,
+			"xScale": 0.54,
+			"yScale": 0.54,
+			"imageSpeed": 0.1
+		}]
+	}, {
+		"comment": "Title - Agram ",
+		"alias": "title_viktorsRoom",
+		"gui": "empty",
+		"background": "bcg_title",
+		"rgb": "255,255,255",
+		"border": "spr_various_token",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[soundtrack mozart][record mozart][time 90] > [room viktorsRoom start]"
+		}],
+		"objects": [{
+			"alias": "various_title",
+			"x": 400,
+			"y": 290,
+			"subimage": 2
+		}, {
+			"alias": "various_title",
+			"x": 400,
+			"y": 400,
+			"subimage": 3
+		}, {
+			"alias": "various_title",
+			"x": 400,
+			"y": 510,
+			"subimage": 4
+		}]
+	}, {
+		"comment": "Title - Station",
+		"alias": "title_station",
+		"gui": "empty",
+		"background": "bcg_title",
+		"rgb": "255,255,255",
+		"border": "spr_various_token",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[soundtrack dvorak][sound snd_gramophone][time 90] > [room station_down start]"
+		}],
+		"objects": [{
+			"alias": "various_title",
+			"x": 400,
+			"y": 290,
+			"subimage": 2
+		}, {
+			"alias": "various_title",
+			"x": 400,
+			"y": 400,
+			"subimage": 3
+		}, {
+			"alias": "various_title",
+			"x": 400,
+			"y": 510,
+			"subimage": 1
+		}]
+	}, {
+		"comment": "Title - Tavern in prague",
+		"alias": "title_tavern",
+		"gui": "empty",
+		"background": "bcg_title",
+		"rgb": "255,255,255",
+		"border": "spr_various_token",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[time 90] > [room tavern start]"
+		}],
+		"objects": [{
+			"alias": "various_title",
+			"x": 400,
+			"y": 290,
+			"subimage": 2
+		}, {
+			"alias": "various_title",
+			"x": 400,
+			"y": 400,
+			"subimage": 10
+		}, {
+			"alias": "various_title",
+			"x": 400,
+			"y": 510,
+			"subimage": 11
+		}]
+	}, 
+	{
+		"comment": "Title - Palace in Vienna",
+		"alias": "title_palace",
+		"gui": "empty",
+		"background": "bcg_title",
+		"rgb": "255,255,255",
+		"border": "spr_various_token",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[time 90] > [room pallace_outside start]"
+		}],
+		"objects": [{
+			"alias": "various_title",
+			"x": 400,
+			"y": 290,
+			"subimage": 2
+		}, {
+			"alias": "various_title",
+			"x": 400,
+			"y": 400,
+			"subimage": 14
+		}, {
+			"alias": "various_title",
+			"x": 400,
+			"y": 520,
+			"subimage": 15
+		}]
+	}, 
+	{
+		"comment": "Cutscene - AU map - Vienna to Prague",
+		"alias": "map_vienna_prague",
+		"gui": "empty",
+		"background": "bcg_map",
+		"rgb": "255,255,255",
+		"border": "spr_various_token",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[time 150] > [room title_tavern start]"
+		}],
+		"objects": [{
+			"alias": "map_vienna_prague",
+			"x": 440,
+			"y": 150,
+			"xScale": 0.54,
+			"yScale": 0.54,
+			"imageSpeed": 0.1
+		}]
+	}, {
+		"comment": "Cutscene - tram to agram",
+		"alias": "agram",
+		"gui": "default",
+		"background": "bcg_agram",
+		"rgb": "255,255,255",
+		"border": "spr_various_token",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[set tram_scale -0.003][move agram_tram 170 5][time 50] > [set tram_scale -0.0076][move agram_tram 172][time 25] > [set tram_scale -0.007][move agram_tram 174][time 27.5] > [set tram_scale -0.0058][move agram_tram 176][time 45] > [room title_station start]"
+		}],
+		"objects": [{
+			"object": "obj_agram_tram",
+			"alias": "agram_tram",
+			"x": 1100,
+			"y": 590,
+			"comment": "pocinje na 1100 550 s scale 0.5, zatim je 900, 560 scale isto 0.5 pa 600 530 scale 0.7",
+			"xScale": 0.4,
+			"yScale": 0.4,
+			"movementSpeed": 10,
+			"depth": 0
+		}, {
+			"alias": "agram_gentleman",
+			"x": 545,
+			"y": 780
+		}, {
+			"alias": "agram_lamp",
+			"x": 988,
+			"y": 485,
+			"depth": -100
+		}, {
+			"alias": "agram_wire",
+			"x": 0,
+			"y": 432
+		}, {
+			"alias": "agram_people",
+			"x": 85,
+			"y": 630,
+			"depth": 100
+		}]
+	}, {
+		"comment": "Minigame - guess the phone number",
+		"alias": "phone",
+		"gui": "empty",
+		"background": "bcg_phone",
+		"rgb": "255,255,255",
+		"border": "spr_various_token",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[stop] > [if phone_win = 1][room viktorsRoom callMartin] > [room viktorsRoom callRandom]"
+		}],
+		"objects": [{
+			"comment": "Alias is the number you have to type in to set phone_win = 1",
+			"available": 1,
+			"alias": "32055",
+			"object": "obj_phone_controller",
+			"picture": "spr_menu_back",
+			"x": 0,
+			"y": 800
+		}, {
+			"available": 1,
+			"alias": "0",
+			"object": "obj_phone_button",
+			"picture": "spr_phone_button",
+			"subimage": 0,
+			"x": 615,
+			"y": 330
+		}, {
+			"available": 1,
+			"alias": "1",
+			"object": "obj_phone_button",
+			"picture": "spr_phone_button",
+			"subimage": 1,
+			"x": 620,
+			"y": 380
+		}, {
+			"available": 1,
+			"alias": "2",
+			"object": "obj_phone_button",
+			"picture": "spr_phone_button",
+			"subimage": 2,
+			"x": 615,
+			"y": 440
+		}, {
+			"available": 1,
+			"alias": "3",
+			"object": "obj_phone_button",
+			"picture": "spr_phone_button",
+			"subimage": 3,
+			"x": 615,
+			"y": 490
+		}, {
+			"available": 1,
+			"alias": "4",
+			"object": "obj_phone_button",
+			"picture": "spr_phone_button",
+			"subimage": 4,
+			"x": 615,
+			"y": 550
+		}, {
+			"available": 1,
+			"alias": "5",
+			"object": "obj_phone_button",
+			"picture": "spr_phone_button",
+			"subimage": 5,
+			"x": 615,
+			"y": 610
+		}]
+	}, {
+		"comment": "Minigame - drive the dirigible",
+		"alias": "dirigibles",
+		"gui": "dirigibles",
+		"background": "bcg_dirigibles",
+		"border": "spr_various_token",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[stop] > [if dirigibles_win = 1][room previous won] > [room previous lost]"
+		}],
+		"objects": [{
+			"alias": "just_testing_delete_later",
+			"available": 0,
+			"inventory": {
+				"alias": "cell",
+				"name": "A battery cell",
+				"description": "This battery cell is some powerful stuff.",
+				"default": "That doesn't need to be powered up.",
+				"picture": "spr_dirigibles_power"
+			}
+		}, {
+			"available": 1,
+			"object": "obj_dirigibles_controller",
+			"picture": "spr_dirigibles_use",
+			"sounds": {
+				"soundtrack": "snd_verdi",
+				"legend": 120
+			},
+			"x": 700,
+			"y": 400,
+			"depth": -2000
+		}, {
+			"alias": "",
+			"available": 1,
+			"object": "obj_animation",
+			"picture": "spr_dirigibles_controls",
+			"x": 5,
+			"y": 660,
+			"xScale": 0.7,
+			"yScale": 0.7,
+			"depth": -10100
+		}, {
+			"alias": "dirigibles_panel",
+			"available": 1,
+			"object": "obj_animation",
+			"picture": "spr_dirigibles_panel",
+			"x": 773,
+			"y": 858,
+			"xScale": 0.7,
+			"yScale": 0.7,
+			"depth": -10150
+		}, {
+			"available": 1,
+			"object": "obj_dirigibles_leverHeight",
+			"picture": "spr_dirigibles_lever_vertical",
+			"xScale": 0.7,
+			"yScale": 0.7,
+			"x": 10,
+			"y": 835,
+			"depth": -11001
+		}, {
+			"available": 1,
+			"object": "obj_dirigibles_leverHeight2",
+			"picture": "spr_dirigibles_hook_vertical",
+			"xScale": 0.7,
+			"yScale": 0.7,
+			"x": 44,
+			"y": 815,
+			"depth": -11001
+		}, {
+			"available": 1,
+			"object": "obj_dirigibles_leverSpeed",
+			"picture": "spr_dirigibles_lever_horizontal",
+			"xScale": 0.7,
+			"yScale": 0.7,
+			"x": 316,
+			"y": 903,
+			"depth": -11001
+		}, {
+			"available": 1,
+			"object": "obj_dirigibles_leverSpeed2",
+			"picture": "spr_dirigibles_hook_horizontal",
+			"xScale": 0.7,
+			"yScale": 0.7,
+			"x": 303,
+			"y": 942,
+			"depth": -11001
+		}, {
+			"alias": "dirigibles_hooks",
+			"available": 1,
+			"object": "obj_animation",
+			"picture": "spr_dirigibles_hooks",
+			"xScale": 0.7,
+			"yScale": 0.7,
+			"x": 774,
+			"y": 962,
+			"depth": -11001
+		}, {
+			"available": 1,
+			"object": "obj_animation",
+			"picture": "spr_dirigibles_counter",
+			"xScale": 0.7,
+			"yScale": 0.7,
+			"x": 242,
+			"y": 902,
+			"depth": -11001
+		}, {
+			"alias": "dirigibles_button_red",
+			"available": 1,
+			"object": "obj_animation",
+			"picture": "spr_dirigibles_button_red",
+			"xScale": 0.7,
+			"yScale": 0.7,
+			"x": 820,
+			"y": 947,
+			"depth": -11001
+		}, {
+			"alias": "dirigibles_button_red",
+			"available": 1,
+			"object": "obj_animation",
+			"picture": "spr_dirigibles_button_red",
+			"xScale": 0.7,
+			"yScale": 0.7,
+			"x": 790,
+			"y": 947,
+			"depth": -11001
+		}, {
+			"available": 1,
+			"object": "obj_animation",
+			"picture": "spr_dirigibles_button",
+			"xScale": 0.7,
+			"yScale": 0.7,
+			"x": 132,
+			"y": 908,
+			"depth": -11001
+		}, {
+			"alias": "dirigible_power",
+			"available": 1,
+			"depth": 200,
+			"object": "obj_animation",
+			"picture": "spr_dirigibles_power",
+			"xScale": 0.7,
+			"yScale": 0.7,
+			"x": 850,
+			"y": 879,
+			"depth": -10001
+		}]
+	}, {
+		"comment": "Map of all the countries",
+		"alias": "viktorsMap",
+		"gui": "map",
+		"background": "bcg_world",
+		"border": "spr_border_viktorsRoom",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[position 500 500] What a map!"
+		}],
+		"objects": [{
+			"comment": "Alias is the entrance of the previous room to return to",
+			"alias": "map",
+			"object": "obj_map_controller",
+			"available": 1,
+			"visible": 1,
+			"picture": "spr_menu_back",
+			"x": 0,
+			"y": 800,
+			"xInteract": 500,
+			"yInteract": 500,
+			"description": "Go back"
+		}, {
+			"comment": "Austria Hungary",
+			"alias": "viktorsMap_austriaHungary",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_austriaHungary",
+			"x": 523,
+			"y": 279,
+			"description": "Austria Hungary",
+			"combinations": {
+				"look": "My homeland! Basically, a bunch of countries that hate each other connected into an industrial hell."
+			}
+		}, {
+			"comment": "Folder",
+			"alias": "viktorsMap_folder",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_folder",
+			"x": 284,
+			"y": 124,
+			"description": "Folder",
+			"combinations": {
+				"look": "Magical ice kingdom of goblins faeries and butt trolls."
+			}
+		}, {
+			"comment": "Unwanted Kingdom",
+			"alias": "viktorsMap_unwantedKingdom",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_unwantedKingdom",
+			"x": 347,
+			"y": 136,
+			"description": "Unwanted Kingdom",
+			"combinations": {
+				"look": "A rainy tea-obsessed reinessance getting rich on it's mining colonies around the world."
+			}
+		}, {
+			"comment": "Nordland",
+			"alias": "viktorsMap_nordland",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_nordland",
+			"x": 477,
+			"y": 74,
+			"description": "Nordland",
+			"combinations": {
+				"look": "No need for a fridge here. Cold hearts of horned vikings are enough to keep anything frozen."
+			}
+		}, {
+			"comment": "France",
+			"alias": "viktorsMap_france",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_france",
+			"x": 443,
+			"y": 256,
+			"description": "France",
+			"combinations": {
+				"look": "Liberté, égalité, fraternité ou la mort! I don't know what that means, but they love their guillotines."
+			}
+		}, {
+			"comment": "Asspain",
+			"alias": "viktorsMap_asspain",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_asspain",
+			"x": 399,
+			"y": 311,
+			"description": "Asspain",
+			"combinations": {
+				"look": "In their god and king you trust or you die in the bull-fighting ring. Olé!"
+			}
+		}, {
+			"comment": "Roman empire",
+			"alias": "viktorsMap_romanEmpire",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_romanEmpire",
+			"x": 417,
+			"y": 326,
+			"description": "Roman empire",
+			"combinations": {
+				"look": "Philosophical wonderland ruled by a facist mafia where you act like a Roman or get barbecued like a barbarian."
+			}
+		}, {
+			"comment": "Republic of Macedonia",
+			"alias": "viktorsMap_macedonia",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_macedonia",
+			"x": 568,
+			"y": 352,
+			"description": "Republic of Macedonia",
+			"combinations": {
+				"look": "A democratic heaven full of great inventions, beautiful art and an eternal financial debt"
+			}
+		}, {
+			"comment": "Germland",
+			"alias": "viktorsMap_germland",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_germland",
+			"x": 502,
+			"y": 209,
+			"description": "Germland",
+			"combinations": {
+				"look": "do you call a Blind German? : a Not see. Hahahahaha."
+			}
+		}, {
+			"comment": "Texas",
+			"alias": "viktorsMap_texas",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_texas",
+			"x": 99,
+			"y": 215,
+			"description": "Texas",
+			"combinations": {
+				"look": "Highly advanced culture of oil-drinking mutants. In money they trust, but they bomb you for free."
+			}
+		}, {
+			"comment": "Mexico",
+			"alias": "viktorsMap_mexico",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_mexico",
+			"x": 131,
+			"y": 445,
+			"description": "Mexico",
+			"combinations": {
+				"look": "Revolutionary gangs fighting each other while surviving on beans, beer and selling illegal plantlife to Texas."
+			}
+		}, {
+			"comment": "Ban-an-as",
+			"alias": "viktorsMap_ban_an_as",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_ban_an_as",
+			"x": 265,
+			"y": 447,
+			"description": "Ban-an-as",
+			"combinations": {
+				"look": "Enjoy the beautiful tourist heaven until you get robbed by multiple pirate gangs at once."
+			}
+		}, {
+			"comment": "Mayana",
+			"alias": "viktorsMap_mayana",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_mayana",
+			"x": 168,
+			"y": 469,
+			"description": "Mayana",
+			"combinations": {
+				"look": "Land of bees and cannibals feeding on each other through sacrifices."
+			}
+		}, {
+			"comment": "Inkanland",
+			"alias": "viktorsMap_inkanland",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_inkanland",
+			"x": 198,
+			"y": 500,
+			"description": "Inkanland",
+			"combinations": {
+				"look": "Like Mayana, but with alpacas instead of bees."
+			}
+		}, {
+			"comment": "Brassiere",
+			"alias": "viktorsMap_brassiere",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_brassiere",
+			"x": 247,
+			"y": 543,
+			"description": "Brassiere",
+			"combinations": {
+				"look": "Land of soccer players with big butts. Their rulership is chosen each year through a huge soccer tournament. "
+			}
+		}, {
+			"comment": "South Asspain",
+			"alias": "viktorsMap_southAsspain",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_southAsspain",
+			"x": 351,
+			"y": 677,
+			"description": "South Asspain",
+			"combinations": {
+				"look": "A sad colony forced to love Asspain"
+			}
+		}, {
+			"comment": "Russian socialist kingdom of soviets",
+			"alias": "viktorsMap_russia",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_russia",
+			"x": 575,
+			"y": 55,
+			"description": "Russian socialist kingdom of soviets",
+			"combinations": {
+				"look": "A giant icy prison system connected by trains that run on vodka. Zdravstvuj!"
+			}
+		}, {
+			"comment": "Persia",
+			"alias": "viktorsMap_persia",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_persia",
+			"x": 619,
+			"y": 324,
+			"description": "Persia",
+			"combinations": {
+				"look": "Land of eternal riches and brutal slavery run by an evil parkour-loving prince."
+			}
+		}, {
+			"comment": "Khanat",
+			"alias": "viktorsMap_khanat",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_khanat",
+			"x": 747,
+			"y": 234,
+			"description": "Khanat",
+			"combinations": {
+				"look": "A wonderful place to visit if you want to run away from everything and everyone."
+			}
+		}, {
+			"comment": "Gangrene",
+			"alias": "viktorsMap_gangrene",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_gangrene",
+			"x": 731,
+			"y": 369,
+			"description": "Gangrene",
+			"combinations": {
+				"look": "World's biggest exporter of curry, spiritualists and new languages."
+			}
+		}, {
+			"comment": "Khmer",
+			"alias": "viktorsMap_khmer",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_khmer",
+			"x": 839,
+			"y": 403,
+			"description": "Khmer",
+			"combinations": {
+				"look": "They say that north Khmer is the best Khmer."
+			}
+		}, {
+			"comment": "Mei-din",
+			"alias": "viktorsMap_mei-din",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_mei_din",
+			"x": 778,
+			"y": 258,
+			"description": "Mei-din",
+			"combinations": {
+				"look": "Not really a country, but an industrial corporation that exports cheap gadgets and imports oxygen."
+			}
+		}, {
+			"comment": "Nippleon",
+			"alias": "viktorsMap_nippleon",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_nippleon",
+			"x": 995,
+			"y": 261,
+			"description": "Nippleon",
+			"combinations": {
+				"look": "Tecnology-obsessed shogunat full of extremely fat gladiators and extremely thin girls."
+			}
+		}, {
+			"comment": "Salike",
+			"alias": "viktorsMap_salike",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_salike",
+			"x": 775,
+			"y": 524,
+			"description": "Salike",
+			"combinations": {
+				"look": "A land of buddhist monks who refuse to fight the colonists from Unwanted Kingdom."
+			}
+		}, {
+			"comment": "Sri Vijaya",
+			"alias": "viktorsMap_sriVijaya",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_sriVijaya",
+			"x": 854,
+			"y": 496,
+			"description": "Sri Vijaya",
+			"combinations": {
+				"look": "Tourist heaven. Literally. No tourist ever came back from there."
+			}
+		}, {
+			"comment": "German Guinea",
+			"alias": "viktorsMap_germanGuinea",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_germanGuinea",
+			"x": 965,
+			"y": 507,
+			"description": "German Guinea",
+			"combinations": {
+				"look": "Name is self-explanatory."
+			}
+		}, {
+			"comment": "Tasmania",
+			"alias": "viktorsMap_tasmania",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_tasmania",
+			"x": 960,
+			"y": 702,
+			"description": "Tasmania",
+			"combinations": {
+				"look": "Nothing there but insane monsters that turn into tornados."
+			}
+		}, {
+			"comment": "Maori land",
+			"alias": "viktorsMap_maoriLand",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_maoriLand",
+			"x": 1024,
+			"y": 639,
+			"description": "Maori land",
+			"combinations": {
+				"look": "Sheep, depression, hobbit holes and giant stone heads."
+			}
+		}, {
+			"comment": "Senile land",
+			"alias": "viktorsMap_senileLand",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_senileLand",
+			"x": 550,
+			"y": 454,
+			"description": "Senile land",
+			"combinations": {
+				"look": "Self proclaimed gods ruling from their giant pyramid tombs and making people build more pyramids."
+			}
+		}, {
+			"comment": "Zululand",
+			"alias": "viktorsMap_zululand",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_zululand",
+			"x": 537,
+			"y": 673,
+			"description": "Zululand",
+			"combinations": {
+				"look": "Once a proud nation of tribes ruled by voodoo shamans, now a property of Unwanted Kingdom."
+			}
+		}, {
+			"comment": "Khongo",
+			"alias": "viktorsMap_khongo",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_khongo",
+			"x": 494,
+			"y": 563,
+			"description": "Khongo",
+			"combinations": {
+				"look": "Dark jungles with mystical tribes, diamond mines and an occasional dinosaur"
+			}
+		}, {
+			"comment": "Songhai",
+			"alias": "viktorsMap_songhai",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_songhai",
+			"x": 356,
+			"y": 492,
+			"description": "Songhai",
+			"combinations": {
+				"look": "I got a letter from their prince recently, but with a wrong return address... It's a long story."
+			}
+		}, {
+			"comment": "Akan",
+			"alias": "viktorsMap_akan",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_akan",
+			"x": 379,
+			"y": 537,
+			"description": "Akan",
+			"combinations": {
+				"look": "A desert kingdom, currently in war with... Texas, I think. Or was it Unwanted Kingdom?"
+			}
+		}, {
+			"comment": "Abyssinia",
+			"alias": "viktorsMap_abyssinia",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_abyssinia",
+			"x": 601,
+			"y": 512,
+			"description": "Abyssinia",
+			"combinations": {
+				"look": "Land of extreme poverty and hunger. Most European countries send armies to battle it's hunger."
+			}
+		}, {
+			"comment": "Rhodesia",
+			"alias": "viktorsMap_rhodesia",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_rhodesia",
+			"x": 570,
+			"y": 622,
+			"description": "Rhodesia",
+			"combinations": {
+				"look": "I started avoiding all news about it ever since I heard that their insects are bigger then people."
+			}
+		}, {
+			"comment": "Madagascar",
+			"alias": "viktorsMap_madagascar",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_madagascar",
+			"x": 643,
+			"y": 619,
+			"description": "Madagascar",
+			"combinations": {
+				"look": "Land inhabited by really strange animals, plants and Frenchmen."
+			}
+		}, {
+			"comment": "France Africa",
+			"alias": "viktorsMap_franceAfrika",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_franceAfrika",
+			"x": 380,
+			"y": 430,
+			"description": "France Afrika",
+			"combinations": {
+				"look": "They named it French Africa, then African France, then Frafrica... Eventually, they settled on this."
+			}
+		}, {
+			"comment": "Also Unwanted Kingdom",
+			"alias": "viktorsMap_alsoUK",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_alsoUK",
+			"x": 871,
+			"y": 566,
+			"description": "Also Unwanted Kingdom",
+			"combinations": {
+				"look": "UK's prisoner colony where everything is upside down and full of giant spiders."
+			}
+		}, {
+			"comment": "Hole",
+			"alias": "viktorsMap_hole",
+			"available": 1,
+			"visible": 0,
+			"picture": "spr_viktorsMap_hole",
+			"x": 622,
+			"y": 433,
+			"description": "?!?",
+			"combinations": {
+				"look": "Something burned a hole on my map. Oh well, there's probably nothing important here.."
+			}
+		}]
+	}, {
+		"comment": "Minigame - kill the roaches",
+		"alias": "roaches",
+		"gui": "empty",
+		"background": "bcg_roaches",
+		"border": "spr_border_roaches",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[soundtrack joplin][stop] > [room viktorsRoom roaches]"
+		}],
+		"objects": [{
+			"available": 1,
+			"object": "obj_roaches_umbrella",
+			"picture": "spr_cursor_roaches",
+			"sounds": {
+				"hit": "snd_roaches_hit",
+				"miss": "snd_roaches_miss"
+			},
+			"x": 0,
+			"y": 0
+		}, {
+			"available": 1,
+			"object": "obj_roaches_sinkhole",
+			"picture": "spr_roaches_sinkhole",
+			"x": 840,
+			"y": 425
+		}, 
+		
+		{
+			"available": 1,
+			"object": "obj_roaches_roach",
+			"picture": "spr_roaches_roach",
+			"pictures": {
+				"death": "spr_roaches_roach_dead"
+			},
+			"x": 256,
+			"y": 480
+		},
+		{
+			"available": 1,
+			"object": "obj_roaches_roach",
+			"picture": "spr_roaches_roach",
+			"pictures": {
+				"death": "spr_roaches_roach_dead"
+			},
+			"x": 356,
+			"y": 495
+		},
+		{
+			"available": 1,
+			"object": "obj_roaches_roach",
+			"picture": "spr_roaches_roach",
+			"pictures": {
+				"death": "spr_roaches_roach_dead"
+			},
+			"x": 456,
+			"y": 680
+		},
+		{
+			"available": 1,
+			"object": "obj_roaches_roach",
+			"picture": "spr_roaches_roach",
+			"pictures": {
+				"death": "spr_roaches_roach_dead"
+			},
+			"x": 550,
+			"y": 650
+		},
+		{
+			"available": 1,
+			"object": "obj_roaches_roach",
+			"picture": "spr_roaches_roach",
+			"pictures": {
+				"death": "spr_roaches_roach_dead"
+			},
+			"x": 658,
+			"y": 253
+		},
+		{
+			"available": 1,
+			"object": "obj_roaches_roach",
+			"picture": "spr_roaches_roach",
+			"pictures": {
+				"death": "spr_roaches_roach_dead"
+			},
+			"x": 949,
+			"y": 312
+		},
+		{
+			"available": 1,
+			"object": "obj_roaches_roach",
+			"picture": "spr_roaches_roach",
+			"pictures": {
+				"death": "spr_roaches_roach_dead"
+			},
+			"x": 734,
+			"y": 714
+		},
+		{
+			"available": 1,
+			"object": "obj_roaches_roach",
+			"picture": "spr_roaches_roach",
+			"pictures": {
+				"death": "spr_roaches_roach_dead"
+			},
+			"x": 654,
+			"y": 421
+		},
+		{
+			"available": 1,
+			"object": "obj_roaches_roach",
+			"picture": "spr_roaches_roach",
+			"pictures": {
+				"death": "spr_roaches_roach_dead"
+			},
+			"x": 760,
+			"y": 225
+		},
+		{
+			"available": 1,
+			"object": "obj_roaches_roach",
+			"picture": "spr_roaches_roach",
+			"pictures": {
+				"death": "spr_roaches_roach_dead"
+			},
+			"x": 962,
+			"y": 654
+		},
+		{
+			"available": 1,
+			"object": "obj_roaches_roach",
+			"picture": "spr_roaches_roach",
+			"pictures": {
+				"death": "spr_roaches_roach_dead"
+			},
+			"x": 374,
+			"y": 345
+		}
+		]
+	}, {
+		"comment": "demo - prva soba - viktorova soba",
+		"alias": "viktorsRoom",
+		"gui": "default",
+		"scaleNear": 0.75,
+		"scaleFar": 0.75,
+		"background": "bcg_viktorsRoom",
+		"border": "spr_border_viktorsRoom",
+		"rgb": "200,232,235",
+		"entrances": [{
+			"alias": "roaches",
+			"entrance": "[soundtrack mozart] And now to wash away the roaches and take a bath.."
+		}, {
+			"alias": "start",
+			"entrance": "[set mood angry][animation spr_viktor_angry][position player 732 795][fade out 0.03][time 30] > [fade] I can't believe I lost my job... > I should take a bath and relax. > But first, I'm going to vent!"
+		}, {
+			"alias": "map",
+			"entrance": "[position player 313 625] Well, that was educational."
+		}, {
+			"alias": "door",
+			"entrance": "[position player 199 675][soundtrack mozart][sound snd_gramophone]Home, sweet home!"
+		}, {
+			"alias": "callRandom",
+			"entrance": "[animation player spr_viktor_phone_down] > Nobody's answering. > [if phone = 2] I need to find where I wrote Martin's phone number."
+		}, {
+			"alias": "phone",
+			"entrance": "[animation player spr_viktor_phone_up] > [animation player spr_viktor_talk_right_phone] Who is it? > [cloud phone][blocksound][animation player spr_viktor_listen_right_phone] It's Martin, who else would it be? > [cloud phone][blocksound][animation player spr_viktor_listen_right_phone] Anyway, I got no money for phone calls, so call me back, bye! > [animation player spr_viktor_talk_right_phone] OK, but I forgot your phone number... > [blocksound][cloud phone][animation player spr_viktor_listen_right_phone] TOOT-TOOT > [animation player spr_viktor_phone_down] > Now where did I write his number down?! > [set phone 2]"
+		}, {
+			"alias": "callMartin",
+			"entrance": "[if phone = 0][animation player spr_viktor_phone_down] > [if phone = 0] That was the phone number of my good friend Martin, but he's not answering right now... > [if phone = 0][skip] > [animation player spr_viktor_phone_up] > [room martinsRoom start]"
+		}, {
+			"alias": "martinHangsUp",
+			"entrance": "[position player 199 675][animation player spr_viktor_phone_down] > He hung up... > [set phone 3] > [if phone = 3][destroy viktorsRoom_door_closed_angry][create viktorsRoom_door_closed_happy] Time to conquer the world! > [set phone 3][not item phone][take phone]"
+		}],
+		"objects": [{
+				"comment": "Pots in viktors room",
+				"alias": "viktorsRoom_pots",
+				"available": 1,
+				"x": 324,
+				"y": 821,
+				"xInteract": 307,
+				"yInteract": 787,
+				"description": "Pots of cold water",
+				"order": "look,use",
+				"combinations": {
+					"look": "[mood]Pots of water for my bath",
+					"use": "[mood]I'll need is for the bath. [animation player spr_viktor_pot1_take1] > [destroy viktorsRoom_pots][create viktorsRoom_pot2][animation player spr_viktor_pot1_take2] > [animations player spr_viktor_pot1_carry][move player 65 2][time 90] > [animation player spr_viktor_pot1_lift] > [create viktorsRoom_pot1] > [if available viktorsRoom_oven_hot][create viktorsRoom_pot1_boil]"
+				}
+			},
+
+			{
+				"comment": "Large pot in viktors room",
+				"alias": "viktorsRoom_pot2",
+				"available": 0,
+				"x": 324,
+				"y": 821,
+				"xInteract": 335,
+				"yInteract": 820,
+				"description": "A large pot of water",
+				"order": "use",
+				"combinations": {
+					"use": "[if available viktorsRoom_tub_clean][skip 2] > [mood]I can't bathe in my bed! > [skip] > [destroy][animation player spr_viktor_pot2_take] > [time 100][move player 40 3][animations player spr_viktor_pot2_carry] > [animation player spr_viktor_pot2_throw][time 66] > [sound snd_pot_water] > [if available viktorsRoom_pot1] [mood]Too cold. > [not available viktorsRoom_pot1] [mood]Perfect."
+				}
+			}, {
+				"comment": "Small pot in viktors room",
+				"available": 0,
+				"alias": "viktorsRoom_pot1",
+				"x": 384,
+				"y": 470,
+				"xInteract": 384,
+				"yInteract": 650,
+				"description": "A small pot of water.",
+				"order": "use",
+				"combinations": {
+					"use": "[not available viktorsRoom_tub_clean] [mood]I can't bathe in my bed! > [not available viktorsRoom_tub_clean][skip] > [if available viktorsRoom_oven_hot][skip 2] > [mood]I should heat it up first. > [skip] > [destroy other 12][destroy viktorsRoom_pot1_boil 12][animation player spr_viktor_pot1_lower] > [time 80][move player 10 2.5][animations player spr_viktor_pot1_carry] > [animation player spr_viktor_pot1_throw] > [sound snd_pot_water] [mood]I like my bath warm. > [if available viktorsRoom_pot2] [mood]But now it's too hot. > [not available viktorsRoom_pot2] [mood]It's perfect now."
+				}
+			}, {
+				"alias": "viktorsRoom_pot1_boil",
+				"available": 0,
+				"x": 384,
+				"y": 470,
+				"depth": -2000
+			}, {
+				"comment": "Airship flying bigger",
+				"depth": 2023,
+				"alias": "viktorsRoom_background_zeppelin_1",
+				"available": 1,
+				"visible": 1,
+				"path": "path_left",
+				"picture": "spr_viktorsRoom_dirigible_large",
+				"x": 690,
+				"y": 316
+			}, {
+				"comment": "Keys in Viktor's room",
+				"alias": "viktorsRoom_keys",
+				"available": 1,
+				"visible": 1,
+				"picture": "spr_viktorsRoom_keys",
+				"x": 66,
+				"y": 468,
+				"xOffset": 0,
+				"yOffset": 0,
+				"xScale": 1,
+				"yScale": 1,
+				"xInteract": 170,
+				"yInteract": 700,
+				"description": "Keys",
+				"order": "look,use",
+				"combinations": {
+					"look": "[mood]I'm not really sure what those keys open. > [set clock_coin 0] [mood]Probably something in this room.",
+					"use": "[pickup]",
+					"talk": "Are you the keymaster?",
+					"log": "A... Keylogger? > Get it, get it!?"
+				},
+				"inventory": {
+					"alias": "keys",
+					"name": "Keys",
+					"description": "These keys open something, I'm just not sure what.",
+					"default": "Not the right key for that. Or not the right lock?",
+					"picture": "spr_item_keys"
+				}
+			}, {
+				"comment": "Logs",
+				"alias": "viktorsRoom_logs",
+				"available": 1,
+				"visible": 0,
+				"pair": "viktorsRoom_logs",
+				"picture": "spr_various_token",
+				"x": 100,
+				"y": 700,
+				"xScale": 100,
+				"yScale": 100,
+				"xInteract": 300,
+				"yInteract": 800,
+				"description": "Firewood",
+				"order": "kick,look_2",
+				"combinations": {
+					"look": "[mood]Logs of wood for making fire.",
+					"look_2": "They used to be trees. > I already have one.",
+					"kick": "Stupid logs! > [mood] Wait, I'll need this to warm up my bath water. > [pick]",
+					"keys": "No",
+					"log": "log with log?!"
+				},
+				"inventory": {
+					"alias": "log",
+					"name": "Captain's log",
+					"description": "This log probably belonged to a Captain.",
+					"default": "I logged it in.",
+					"picture": "spr_item_log"
+				}
+			}, {
+				"comment": "Clock, viktor is angry",
+				"alias": "viktorsRoom_clock_angry",
+				"available": 1,
+				"visible": 0,
+				"pair": "viktorsRoom_clock_happy",
+				"picture": "spr_various_token",
+				"x": 717,
+				"y": 151,
+				"xOffset": 0,
+				"yOffset": 0,
+				"xScale": 95,
+				"yScale": 441,
+				"xInteract": 758,
+				"yInteract": 621,
+				"description": "Grandfather clock",
+				"order": "kick,look_2,talk,look_2",
+				"combinations": {
+					"look": "It's broken. > I bet I can make it more broken.",
+					"look_2": "[mood]Now it's totally broken.",
+					"kick": "[direction right] Stupid grandpa clock! > [create viktorsRoom_clock_broken_decoration 15][kick right snd_clock_break] > ",
+					"use": "It's locked",
+					"talk": "[mood angry] Damn you, grandpa clock!",
+					"log": "I can't log a clock.",
+					"keys": "[if clock_coin = 0][skip 2] > I don't think I can find anything else in there. > [skip] > Maybe these keys open the little clock lock? > [pickup back middle] > Ooh, there's a coin in here > [set clock_coin 1]"
+				},
+				"inventory": {
+					"alias": "coin",
+					"name": "Coin",
+					"description": "Copper crowns.",
+					"default": "Can't bribe my way out of this",
+					"picture": "spr_item_coin"
+				}
+			}, {
+				"comment": "Clock broken slikica",
+				"alias": "viktorsRoom_clock_broken_decoration",
+				"available": 0,
+				"visible": 1,
+				"pair": "viktorsRoom_clock_happy",
+				"picture": "spr_viktorsRoom_clock_broken",
+				"x": 770,
+				"y": 270
+			}, {
+				"comment": "Clock happy",
+				"alias": "viktorsRoom_clock_happy",
+				"available": 0,
+				"visible": 0,
+				"pair": "viktorsRoom_clock_angry",
+				"picture": "spr_various_token",
+				"x": 717,
+				"y": 151,
+				"xOffset": 0,
+				"yOffset": 0,
+				"xScale": 95,
+				"yScale": 441,
+				"xInteract": 788,
+				"yInteract": 621,
+				"description": "Grandfather clock",
+				"order": "look,use",
+				"combinations": {
+					"look": "The clock is broken. > It has always been broken. > Gives me a feeling of timelessness freedom. > It also sometimes made me late for work.",
+					"kick": "Good guy grandpa!",
+					"use": "It's locked.",
+					"log": "I can't log a clock.",
+					"keys": "[if clock_coin = 0][skip 2] > I don't think I can find anything else in there. > [skip] > Maybe these keys open the little clock lock? > [pickup back middle] > Ooh, there's a coin in here > [set clock_coin 1]"
+				},
+				"inventory": {
+					"alias": "coin",
+					"name": "Coin",
+					"description": "Copper crowns.",
+					"default": "Can't bribe my way out of this",
+					"picture": "spr_item_coin"
+				}
+			},
+
+			{
+				"comment": "Window in Viktor's room",
+				"alias": "viktorsRoom_window",
+				"available": 1,
+				"visible": 0,
+				"picture": "spr_various_token",
+				"x": 460,
+				"y": 211,
+				"xCloud": 560,
+				"yCloud": 250,
+				"xScale": 209,
+				"yScale": 243,
+				"xInteract": 574,
+				"yInteract": 644,
+				"description": "Window",
+				"order": "kick,talk,look,use,look",
+				"combinations": {
+					"look": "Blimps are flying low. Rain is coming.",
+					"kick": "[mood]I broke that one the last time I was angry... > ...at a person who failed to connect the oven to the chimney.",
+					"use": "It's already opened. > and closed.",
+					"talk": "[if mood angry][direction left] Stupid world outside! > [if mood] Hello, world! > [talk other][soundblock snd_window] Shut up pig!",
+					"log": "[mood]Nah",
+					"keys": "It's not locked, it's... > never mind."
+				}
+			},
+
+			{
+				"comment": "Door in Viktor's room before bath",
+				"alias": "viktorsRoom_door_closed_angry",
+				"available": 1,
+				"visible": 0,
+				"picture": "spr_various_token",
+				"x": 108,
+				"y": 331,
+				"xOffset": 0,
+				"yOffset": 0,
+				"xScale": 93,
+				"yScale": 369,
+				"xInteract": 199,
+				"yInteract": 675,
+				"description": "Door",
+				"order": "use,look,use",
+				"combinations": {
+					"look": "Stupid door! > Stupid world outside!",
+					"use": "[mood]I got back here so I wouldn't kill anyone. > [mood]Bath first, leaving the house later.",
+					"log": "I don't need to build another door",
+					"keys": "I can't conquer the world smelling like this."
+				}
+			}, {
+				"comment": "Door in Viktor's room after bath",
+				"alias": "viktorsRoom_door_closed_happy",
+				"available": 0,
+				"visible": 0,
+				"picture": "spr_various_token",
+				"x": 108,
+				"y": 331,
+				"xOffset": 0,
+				"yOffset": 0,
+				"xScale": 93,
+				"yScale": 369,
+				"xInteract": 240,
+				"yInteract": 690,
+				"description": "Door",
+				"order": "look,use,look_2,use_2",
+				"combinations": {
+					"look": "Never could clean off all the blood from that murder. > Just kidding, it's ketchup.",
+					"use": "[if phone = 1] I'd love to go but the phone is ringing... > [if phone = 2] I'd love to go conquer the world, but first I should return my friend Martin's call... > [if phone = 3][skip 1] > [if phone < 3][skip] > Time to go out and conquer the world! > [sound snd_door_open][create viktorsRoom_door_open1][create viktorsRoom_door_open2][sound snd_door_open] > [create viktorsRoom_crow][position viktorsRoom_crow 0 690][move viktorsRoom_crow 0 5][move player 0 5][animation player spr_viktor_back_off] > [move viktorsRoom_crow 0 0][active viktorsRoom_crow][other] Not so fast! > [conversation crow start] > [animation player spr_viktor][destroy viktorsRoom_crow][create viktorsRoom_crow_walk][position viktorsRoom_crow_talk 300 690][move viktorsRoom_crow_walk 180 5][time 60] > Every month we have the same stupid conversation. > Senile old crow.> Oh well, time to go and conquer this kingdom once and for all.",
+					"log": "I don't need to build another door",
+					"look_2" : "The door is open! Beware, Austria-Hungary!",
+					"use_2": "[room agram start]"
+				}
+			}, {
+				"alias": "viktorsRoom_crow",
+				"idle": 1,
+				"available": 0,
+				"direction": "left",
+				"xScale": 0.7,
+				"yScale": 0.7,
+				"xCloud": 279,
+				"yCloud": 444,
+				"x": -200,
+				"y": 690,
+				"depth": -1500
+			}, {
+				"alias": "viktorsRoom_crow_walk",
+				"idle": 0,
+				"available": 0,
+				"xScale": -0.7,
+				"yScale": 0.7,
+				"x": -200,
+				"y": 690,
+				"depth": -1500
+			}, {
+				"alias": "viktorsRoom_door_open1",
+				"available": 0,
+				"x": 25,
+				"y": 333,
+				"depth": -2000
+
+			}, {
+				"alias": "viktorsRoom_door_open2",
+				"available": 0,
+				"x": 96,
+				"y": 320,
+				"depth": -1000,
+
+			}, {
+				"comment": "Map in Viktor's room",
+				"alias": "viktorsRoom_map",
+				"available": 1,
+				"visible": 1,
+				"picture": "spr_viktorsRoom_map",
+				"x": 250,
+				"y": 440,
+				"xOffset": 0,
+				"yOffset": 0,
+				"xScale": 1,
+				"yScale": 1,
+				"xInteract": 313,
+				"yInteract": 625,
+				"description": "Map",
+				"order": "look,use",
+				"combinations": {
+					"look": "[mood]Some day, this will all be mine.",
+					"kick": "Can't reach it",
+					"use": "[room viktorsMap start]",
+					"kick": "Stupid world! > This whole world needs fixing!",
+					"log": "It's flat enough",
+					"keys": "Yes, to unlock the secrets of this world, all I need is... > Wait, what?"
+				}
+
+			}, {
+				"comment": "Picture in Viktor's room",
+				"alias": "viktorsRoom_picture",
+				"object": "obj_viktorsRoom_picture",
+				"available": 1,
+				"visible": 1,
+				"picture": "spr_viktorsRoom_picture1",
+				"x": 935,
+				"y": 330,
+				"xOffset": 0,
+				"yOffset": 0,
+				"xScale": 1,
+				"yScale": 1,
+				"xInteract": 860,
+				"yInteract": 415,
+				"description": "Picture",
+				"order": "look",
+				"combinations": {
+					"look": "[if viktorsRoom_picture = 1] My EX. > [if viktorsRoom_picture = 2][mood] My best friend Martin. > [if viktorsRoom_picture = 3][mood] My parents."
+				}
+			}, {
+				"comment": "Phone in Viktor's room",
+				"alias": "viktorsRoom_phone",
+				"available": 1,
+				"visible": 1,
+				"picture": "spr_viktorsRoom_phone",
+				"x": 1167,
+				"y": 445,
+				"xOffset": 0,
+				"yOffset": 0,
+				"xScale": 1,
+				"yScale": 1,
+				"xInteract": 910,
+				"yInteract": 720,
+				"subimage": 0,
+				"description": "Phone",
+				"order": "kick,look,look_2",
+				"combinations": {
+					"look": "[mood]My coal powered cordless telephone. > [mood]What's it doing up there?",
+					"kick": "[mood]Oh, no no no. > [mood]Last time I tried climbing up there, my foot got stuck in the toilet.",
+					"look_2": "[mood]My coal powered cordless telephone.",
+					"talk": "I need to press some buttons first",
+					"log": "Too heavy, I might break it.",
+					"keys": "What?",
+					"umbrella": "Here goes nothing! > [animation player spr_viktor_umbrella1] > [destroy][position viktorsRoom_trin 1000 650] > [animation player spr_viktor_umbrella2] > [destroy viktorsRoom_toilet_nophone][create viktorsRoom_toilet_ringing] Oops."
+				}
+			}, {
+				"comment": "Phone in Viktor's room ringing",
+				"alias": "viktorsRoom_phone_ringing",
+				"available": 0,
+				"visible": 1,
+				"picture": "spr_viktorsRoom_phone",
+				"x": 1167,
+				"y": 445,
+				"xOffset": 0,
+				"yOffset": 0,
+				"xScale": 1,
+				"yScale": 1,
+				"xInteract": 910,
+				"yInteract": 720,
+				"description": "Phone",
+				"order": "look,use,look_2",
+				"combinations": {
+					"look": "My coal powered cordless telephone. > It's ringing",
+					"use": "It's too far. I can't reach it.  > How did it get there? > Probably during the party I had on Saturday. > With myself.",
+					"look_2": "Still ringing, still can't reach it.",
+					"talk": "I need to press some buttons first",
+					"log": "Too heavy, I might break it.",
+					"keys": "What?",
+					"umbrella": "Here goes nothing... > [animation player spr_viktor_umbrella1] > [destroy] > [animation player spr_viktor_umbrella2] > [destroy viktorsRoom_toilet_nophone][create viktorsRoom_toilet_ringing] Oops."
+				}
+			}, {
+				"comment": "Teapot in Viktor's room when Viktor is angry",
+				"alias": "viktorsRoom_teapot",
+				"available": 1,
+				"visible": 1,
+				"pair": "viktorsRoom_teapot_happy",
+				"picture": "spr_viktorsRoom_teapot",
+				"x": 814,
+				"y": 455,
+				"xInteract": 835,
+				"yInteract": 628,
+				"description": "Teapot",
+				"order": "kick",
+				"combinations": {
+					"kick": "[destroy][animation player spr_viktor_teapot_angry] > [sound snd_vase_break][create viktorsRoom_teapot_broken]",
+					"log": "Nah.",
+					"keys": "Hmm... > No."
+				}
+			}, {
+				"comment": "Teapot in Viktor's room when Viktor is happy",
+				"alias": "viktorsRoom_teapot_happy",
+				"available": 1,
+				"visible": 1,
+				"picture": "spr_viktorsRoom_teapot",
+				"x": 814,
+				"y": 455,
+				"xInteract": 835,
+				"yInteract": 628,
+				"description": "Teapot",
+				"order": "look,use",
+				"combinations": {
+					"look": "It's a teapot. > For making coffee.",
+					"use": "[destroy][animation player spr_viktor_teapot] > [sound snd_vase_break][create viktorsRoom_teapot_broken]",
+					"log": "Nah.",
+					"keys": "Hmm... > No."
+				}
+			}, {
+				"alias": "viktorsRoom_teapot_broken",
+				"available": 0,
+				"x": 755,
+				"y": 605
+			}, {
+				"comment": "Desk and chair in Viktor's room when Viktor is happy",
+				"alias": "viktorsRoom_desk_happy",
+				"available": 1,
+				"visible": 0,
+				"pair": "viktorsRoom_desk",
+				"picture": "spr_various_token",
+				"x": 814,
+				"y": 480,
+				"xOffset": 0,
+				"yOffset": 0,
+				"xScale": 175,
+				"yScale": 130,
+				"xInteract": 775,
+				"yInteract": 628,
+				"description": "Desk and chair.",
+				"order": "kick,look",
+				"combinations": {
+					"kick": "Stupid desk and chair! > [kick auto]",
+					"look": "[mood]It used to be a desk with chair. > [mood]Then my landlady nailed them to the floor ''so it wouldn't get stolen''. > [mood]Stupid old crow. > [mood]Now it's more of a kitsch installation.",
+					"log": "[mood]Nah.",
+					"keys": "Good idea. > But no. > Drawers are nailed, not locked."
+				}
+			}, {
+				"comment": "Bathtub in Viktor's room, angry, bed",
+				"alias": "viktorsRoom_bath_noroaches",
+				"available": 1,
+				"visible": 1,
+				"picture2": "spr_various_token",
+				"picture": "spr_viktorsRoom_bed",
+				"x": 625,
+				"y": 510,
+				"xScale": 1,
+				"2": 248,
+				"yScale": 1,
+				"3": 157,
+				"xInteract": 580,
+				"yInteract": 625,
+				"description": "Bed",
+				"order": "look,use",
+				"combinations": {
+					"kick" : "Stupid bed! > [kick auto]",
+					"look": "[mood]It's my bathtub... and bed. > [mood]Currently it's a bed. > [mood]And I need to bathe.",
+					"use": "[destroy other 15][animation player spr_viktor_use_back_low] > [mood] Wait a minute... > [mood] This pillow is mostly eaten by roaches. > [mood]Wait a minute... roaches? > [create viktorsRoom_bath_roaches][create viktorsRoom_tub_roaches2] > [mood]Oh no.",
+					"talk": "Stupid bed!!!",
+					"log": "I don't need to log my bed.",
+					"keys": "The bed is not locked."
+				},
+				"inventory": {
+					"alias": "pillow",
+					"picture": "spr_item_pillow",
+					"description": "My pillow.",
+					"default": "My pillow isn't gonna help here."
+				}
+			}, {
+				"alias": "viktorsRoom_tub_roaches2",
+				"available": 0,
+				"x": 448,
+				"y": 422
+			}, {
+				"comment": "Bathtub in Viktor's room, angry, roaches",
+				"alias": "viktorsRoom_bath_roaches",
+				"available": 0,
+				"visible": 0,
+				"picture": "spr_various_token",
+				"x": 460,
+				"y": 460,
+				"xScale": 248,
+				"yScale": 157,
+				"xInteract": 580,
+				"yInteract": 625,
+				"description": "Bed full of roaches",
+				"order": "look,talk,use,kick",
+				"combinations": {
+					"look": "[mood]Eww, it's full of roaches!",
+					"use": "[mood]I don't want to squish them with my hands...",
+					"talk": "[direction left]Stupid roaches, go away!!!",
+					"log": "I don't need to log my bed.",
+					"keys": "The bed is not locked.",
+					"umbrella": "[mood]Oh, no! > The roaches almost ate away my favourite Scott Joplin record! > [direction left] It's time to rain terror!!! > [mood]Heh, rain... > [record joplin][destroy][destroy viktorsRoom_tub_roaches2][create viktorsRoom_tub_clean][room roaches start]",
+					"kick": "[mood]I'm not getting roaches on my only boots"
+				}
+			}, {
+				"comment": "Bathtub in Viktor's room, clean",
+				"alias": "viktorsRoom_tub_clean",
+				"available": 0,
+				"visible": 0,
+				"picture": "spr_various_token",
+				"x": 460,
+				"y": 460,
+				"xScale": 248,
+				"yScale": 157,
+				"xInteract": 580,
+				"yInteract": 625,
+				"description": "A clean bath tub",
+				"order": "look,use",
+				"combinations": {
+					"look": "Finally, time to bathe!",
+					"use": "[if available viktorsRoom_pots] I need to pour water inside > [if available viktorsRoom_pots][skip] > [not available viktorsRoom_pot1][not available viktorsRoom_pot2][skip 4] > [animation player spr_viktor_use_back_middle] > [not available viktorsRoom_pot1] This is too hot. > [not available viktorsRoom_pot2] This is too cold. > [skip] > [animation player spr_viktor_use_back_middle][fade in 0.03][time 35] > [position player 630 680][animation player spr_viktor_tub_sigh][fade out 0.03] > [animation player spr_viktor_tub_sigh 7][time 15] > [fade][animation player spr_viktor_tub_unsigh] > [create viktorsRoom_trin][if available viktorsRoom_toilet_ringing][position viktorsRoom_trin 1000 650] > [if item phone][position viktorsRoom_trin 1000 950] > [animation player spr_viktor_tub_unsigh 11][time 10] > [animation player spr_viktor_tub_angry] Who is always calling when I'm in the bath!? > [fade in 0.03][time 35] > [animation player spr_viktor][position player 700 700] > [set mood default][fade out 0.03][time 30] > Now to answer that phone... > [if available viktorsRoom_teapot][destroy viktorsRoom_teapot][create viktorsRoom_teapot_happy] > [destroy viktorsRoom_clock_angry][create viktorsRoom_clock_happy][destroy viktorsRoom_vase_angry][create viktorsRoom_vase_happy][destroy viktorsRoom_trash_angry][create viktorsRoom_trash_happy][destroy viktorsRoom_umbrellastand_angry][create viktorsRoom_umbrellastand_happy][destroy viktorsRoom_door_closed_angry][create viktorsRoom_door_closed_happy][set phone 1]",
+					"log": "Just use the bathtub and let me bathe!",
+					"keys": "Just use the bathtub and let me bathe!",
+					"umbrella": "I wiped them out... > All of them."
+				}
+			}, {
+				"alias": "viktorsRoom_trin",
+				"available": 0,
+				"imageSpeed" : 0.1,
+				"depth": -11000,
+				"x": 1050,
+				"y": 400,
+				"sounds": {
+					"default": "snd_phone_ring"
+				}
+			}, {
+				"comment": "Carpet",
+				"alias": "viktorsRoom_carpet",
+				"available": 1,
+				"visible": 0,
+				"picture": "spr_various_token",
+				"x": 380,
+				"y": 640,
+				"xOffset": 0,
+				"yOffset": 0,
+				"xScale": 325,
+				"yScale": 110,
+				"xInteract": 400,
+				"yInteract": 700,
+				"description": "Carpet",
+				"order": "kick,look,look_2,talk",
+				"combinations": {
+					"look": "[mood]It's a carpet. > [mood]Actually, it was a carpet. > [mood]Now it's just a hole with some carpet around it.",
+					"kick": "[mood]Better not... > [mood]I might wake the neighbours below.",
+					"talk_carpet": "[mood]Carpet diem.",
+					"talk": "[mood]It's dead... > [destroy]",
+					"log": "I don't need to log my bed.",
+					"keys": "The bed is not locked."
+				}
+			}, {
+				"comment": "Oven in Viktor's room, unbroken",
+				"alias": "viktorsRoom_oven_unbroken",
+				"available": 1,
+				"visible": 0,
+				"picture": "spr_various_token",
+				"x": 325,
+				"y": 440,
+				"xScale": 120,
+				"yScale": 160,
+				"xInteract": 390,
+				"yInteract": 615,
+				"description": "Oven",
+				"order": "kick,look",
+				"combinations": {
+					"look": "[mood]The oven serves three purposes... > [mood]Cooking, heating water and burning my fingers.",
+					"kick": "Die evil hellspawn oven!!! > [create viktorsRoom_oven_broken 15][kick auto snd_oven_break]",
+					"use": "It has been stuck since the last time I kicked it",
+					"log": "[not available viktorsRoom_oven_broken] The oven door is stuck. > [not available viktorsRoom_oven_broken][skip] > [animation player spr_viktor_use_back_low] > [destroy viktorsRoom_oven_broken][create viktorsRoom_oven_hot][sound snd_log] > [if available viktorsRoom_pot1][create viktorsRoom_pot1_boil]",
+					"keys": "It's not locked, it's stuck"
+				}
+			}, {
+				"available": 0,
+				"alias": "viktorsRoom_oven_broken",
+				"x": 330,
+				"y": 490
+			}, {
+				"available": 0,
+				"alias": "viktorsRoom_oven_hot",
+				"sounds": {
+					"default": "snd_oven_burn"
+				},
+				"x": 330,
+				"y": 490
+			}, {
+				"comment": "Toilet in Viktor's room, no phone",
+				"alias": "viktorsRoom_toilet_nophone",
+				"available": 1,
+				"visible": 0,
+				"picture": "spr_various_token",
+				"x": 1006,
+				"y": 635,
+				"xCloud": 1006,
+				"yCloud": 550,
+				"xScale": 207,
+				"yScale": 108,
+				"xInteract": 910,
+				"yInteract": 720,
+				"description": "Toilet",
+				"order": "kick,use,look",
+				"combinations": {
+					"look": "[mood]It's a toilet. > [mood]So lovely to have one in the bedroom. > [mood]Which is also a kitchen.",
+					"kick": "Stupid toilet!!! > [kick auto]",
+					"use": "[mood]I already went at work. > [mood]Into the filing cabinet.",
+					"talk": "Hello toilet. > [talk other][soundblock snd_toilet_hello][animation player snd_viktor_listen_right_scared] Hello, Viktor.",
+					"log": "So, you want me to ''drop a log?''... > Heh heh.",
+					"keys": "It's a toilet, not a door."
+				}
+			}, {
+				"comment": "Toilet in Viktor's room, phone ringing",
+				"alias": "viktorsRoom_toilet_ringing",
+				"available": 0,
+				"visible": 0,
+				"picture": "spr_various_token",
+				"x": 1006,
+				"y": 635,
+				"xScale": 207,
+				"yScale": 108,
+				"xCloud": 1006,
+				"yCloud": 550,
+				"xInteract": 910,
+				"yInteract": 720,
+				"description": "Toilet",
+				"order": "look,use,talk",
+				"combinations": {
+					"look": "It's a toilet. > And my phone's in it.",
+					"kick": "[mood angry][direction right] Stupid toilet!!! > Now my phone stinks... > [kick]",
+					"use": "[position viktorsRoom_trin 1000 950][pickup]",
+					"talk": "Hello toilet. > [talk other][soundblock snd_toilet_hello][animation player snd_viktor_listen_right_scared] Hello, Viktor.",
+					"log": "So, you want me to ''drop a log?''... > Heh heh.",
+					"keys": "It's a toilet, not a door."
+				},
+				"inventory": {
+					"alias": "phone",
+					"name": "Phone",
+					"description": "Coal gauge is a bit low.",
+					"special": "[destroy viktorsRoom_trin] > [if phone = 0][room phone start] > [if phone = 1][room viktorsRoom phone] > [if phone = 2][room phone start] > [if phone = 3][if currentRoom viktorsRoom] I just talked to him. > [if phone = 3][if currentRoom viktorsRoom][skip] > [room martinsRoom start]",
+					"picture": "spr_item_phone"
+				}
+			}, {
+				"comment": "Trash can in Viktor's room",
+				"alias": "viktorsRoom_trash_angry",
+				"available": 1,
+				"visible": 0,
+				"picture": "spr_various_token",
+				"x": 987,
+				"y": 574,
+				"xOffset": 0,
+				"yOffset": 0,
+				"xScale": 65,
+				"yScale": 90,
+				"xInteract": 942,
+				"yInteract": 662,
+				"description": "Trash",
+				"order": "kick",
+				"combinations": {
+					"look": "Recycle bin.",
+					"kick": "[direction right] Stupid trash can!!! > [kick right] > [direction right] Stupid room!!! > [kick right] > [direction right] Stupid job!!! > [kick right] > [direction right] Stupid world!!! > [kick right] > I need a bath.",
+					"use": "I throw stuff in it for a reason.",
+					"talk": "I don't want to wake up whatever lives at the bottom.",
+					"log": "I need this log",
+					"keys": "I don't want to throw these away."
+				}
+			}, {
+				"comment": "Trash can in Viktor's room",
+				"alias": "viktorsRoom_trash_happy",
+				"available": 0,
+				"visible": 0,
+				"picture": "spr_various_token",
+				"x": 987,
+				"y": 574,
+				"xOffset": 0,
+				"yOffset": 0,
+				"xScale": 65,
+				"yScale": 90,
+				"xInteract": 942,
+				"yInteract": 662,
+				"description": "Trash",
+				"order": "look",
+				"combinations": {
+					"look": "Ah, my very own garbage. > After a fresh bath even garbage looks wonderful.",
+					"log": "I need this log",
+					"keys": "I don't want to throw these away."
+				}
+			},
+
+			{
+				"comment": "Vase in Viktor's room, angry",
+				"alias": "viktorsRoom_vase_angry",
+				"available": 1,
+				"visible": 0,
+				"picture": "spr_various_token",
+				"x": 247,
+				"y": 472,
+				"xOffset": 0,
+				"yOffset": 0,
+				"xScale": 65,
+				"yScale": 127,
+				"xInteract": 335,
+				"yInteract": 610,
+				"pair": "viktorsRoom_vase_happy",
+				"description": "Priceless Mei Din vase",
+				"order": "kick,look_2",
+				"combinations": {
+					"look": "[mood]A priceless vase. > [mood]Mostly because nobody wants to buy it",
+					"kick": "[direction left][mood angry]Stupid priceless vase!!! > [create viktorsRoom_vase_broken_decoration 15][kick left snd_vase_break] > [if vase_coin = 0] But maybe it's not so priceless, what's that inside? > [if vase_coin = 0] A coin! > [if vase_coin = 0][pick left low][set vase_coin 1]",
+					"look_2": "[mood]Now it's totally priceless",
+					"use": "[if vase_coin = 0] Hmm, maybe there's a coin inside. > [if vase_coin = 0][pick left low][set vase_coin 1]",
+					"use_2": "Maybe there's another coin inside. > [animation player spr_viktor_use_left_low] > Nah, that was it... ",
+					"talk": "[blocksound snd_vase_sing]My little Mei Din girl... > [blocksound snd_vase_sing] La la la la la la... > [blocksound snd_vase_sing2] Oh oh oh oh!",
+					"log": "No log for you.",
+					"keys": "It's not locked, it's a vase."
+				},
+				"inventory": {
+					"alias": "coin",
+					"name": "Coin",
+					"description": "A coin from the vase",
+					"default": "Money can't buy everything.",
+					"picture": "spr_item_coin"
+
+				}
+			}, {
+				"comment": "Vase broken slikica",
+				"alias": "viktorsRoom_vase_broken_decoration",
+				"available": 0,
+				"visible": 1,
+				"picture": "spr_viktorsRoom_vase_broken",
+				"x": 247,
+				"y": 490
+			}, {
+				"comment": "Vase in Viktor's room, happy",
+				"alias": "viktorsRoom_vase_happy",
+				"available": 0,
+				"visible": 0,
+				"picture": "spr_various_token",
+				"x": 247,
+				"y": 472,
+				"xOffset": 0,
+				"yOffset": 0,
+				"xScale": 65,
+				"yScale": 127,
+				"xInteract": 335,
+				"yInteract": 625,
+				"pair": "viktorsRoom_vase_angry",
+				"description": "Priceless Mei Din vase",
+				"order": "look,use,talk,look_2",
+				"combinations": {
+					"look": "[set vase_coin 0] A priceless vase. > Mostly because nobody wants to buy it.",
+					"kick": "Stupid priceless vase!!! [viktor spr_viktor_udara_lijevo][create viktorsRoom_vase_broken_decoration]",
+					"look_2": "So priceless",
+					"use": "[if vase_coin = 1] No more coins inside... > [if vase_coin = 0] Maybe there's a coin inside. > [if vase_coin = 0][pick left low] > [set vase_coin 1]",
+					"talk": "[blocksound snd_vase_sing]My little Mei Din girl... > [blocksound snd_vase_sing] La la la la la la... > [blocksound snd_vase_sing2] Oh oh oh oh!",
+					"log": "No log for you, vase.",
+					"keys": "It's not locked, it's a vase."
+				},
+				"inventory": {
+					"alias": "coin",
+					"name": "Coin",
+					"description": "A coin from the vase",
+					"default": "Money can't buy everything.",
+					"picture": "spr_item_coin"
+
+				}
+			}, {
+				"comment": "Umbrella stand, Viktor is angry.",
+				"alias": "viktorsRoom_umbrellastand_angry",
+				"available": 1,
+				"visible": 0,
+				"picture": "spr_various_token",
+				"x": 212,
+				"y": 463,
+				"xOffset": 0,
+				"yOffset": 0,
+				"xScale": 57,
+				"yScale": 162,
+				"xInteract": 325,
+				"yInteract": 625,
+				"pair": "viktorsRoom_umbrellastand_happy",
+				"description": "Umbrella stand",
+				"order": "kick,look_2",
+				"combinations": {
+					"look": "Umbrella stand with my favorite umbrella. > Umbrellas can do anything ever.",
+					"kick": "Stupid umbrella stand!! > [mood happy] Oh wait, this is my favorite umbrella! > [destroy viktorsRoom_umbrella_decoration][pick]",
+					"look_2": "[mood]Whose umbrella is the other one? > [mood]Maybe Martin left it when he visited last time?",
+					"log": "Logs are not umbrellas.",
+					"keys": "Umbrellas don't work that way"
+				},
+				"inventory": {
+					"alias": "umbrella",
+					"name": "Umbrella",
+					"description": "My favorite rain protection device.",
+					"default": "Not everything can be solved with an umbrella.",
+					"picture": "spr_item_umbrella"
+				}
+			}, {
+				"comment": "Pic of umbrella in a stand",
+				"alias": "viktorsRoom_umbrella_decoration",
+				"available": 1,
+				"visible": 1,
+				"picture": "spr_viktorsRoom_umbrella",
+				"x": 243,
+				"y": 544
+			}, {
+				"comment": "Umbrella stand, viktor is happy",
+				"alias": "viktorsRoom_umbrellastand_happy",
+				"available": 0,
+				"visible": 0,
+				"picture": "spr_various_token",
+				"x": 212,
+				"y": 463,
+				"xOffset": 0,
+				"yOffset": 0,
+				"xScale": 57,
+				"yScale": 162,
+				"xInteract": 325,
+				"yInteract": 625,
+				"description": "Umbrella stand",
+				"order": "look,look_2",
+				"combinations": {
+					"look": "Umbrella stand with... > Someone forgot the umbrella. > Probably Martin.",
+					"look_2": "Umbrellas are great tools for shielding against rain. > Also, a decent improvised weapon. > And a terrible parachute.",
+					"log": "Logs are not umbrellas.",
+					"keys": "Umbrellas don't work that way"
+				}
+			}
+		]
+	},  {
+		"comment": "Aerodrom dolje",
+		"alias": "station_down",
+		"gui": "default",
+		"scaleNear": 0.85,
+		"scaleFar": 0.65,
+		"background": "bcg_station",
+		"border": "spr_border_station",
+		"rgb": "229,229,180",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[set phone 3] > [not item phone][take phone] > [set wig_flag 0][set bought_cell_flag 0][create rhino_sweeping][position station_tram 200 299][position player 400 700][position station_fence1 87 512][move station_fence1 0 3][time 20][position station_fence2 365 512][move station_fence2 180 3][time 20] > [move station_fence1 0 0][move station_fence2 0 0] Ah, the Agram Dirigibledrome. > I swept these streets too often for my own good."
+		}, 
+		{
+			"alias" : "martinHangsUp",
+			"entrance" : "[position player 840 450] Always a good conversation."
+		},
+		{
+			"alias": "lift",
+			"entrance": "[destroy rhino_sweeping][destroy rhino_magical][destroy rhinos_broom][if random 2][skip 1] > [create rhino_sweeping][skip 1] > [create rhino_magical][create rhinos_broom] > [position 9000 9000][position station_down_lift_cabin 970 -600][move station_down_lift_cabin 270 5][time 128] > [move station_down_lift_cabin 270 0][position player 970 710][animations player spr_viktor_walk_left][move player 180 5][time 50] > This lift really smells. > "
+		}],
+		"objects": [{
+				"comment": "Smoke behind the tram",
+				"depth": 1999,
+				"alias": "station_smoke1",
+				"available": 1,
+				"visible": 1,
+				"subimage": 0,
+				"picture": "spr_station_smoke",
+				"path": "path_float_big",
+				"x": 122,
+				"y": 370
+			}, {
+				"comment": "Another smoke behind the tram",
+				"depth": 1998,
+				"alias": "station_smoke2",
+				"available": 1,
+				"visible": 1,
+				"subimage": 1,
+				"picture": "spr_station_smoke",
+				"path": "path_float_big",
+				"x": 132,
+				"y": 370,
+				"comment" : "i just want the phone here so i can pick it up for testing developing debugging purposes",
+				"inventory": {
+					"alias": "phone",
+					"name": "Phone",
+					"description": "Coal gauge is a bit low.",
+					"special": "[destroy viktorsRoom_trin] > [if phone = 0][room phone start] > [if phone = 1][room viktorsRoom phone] > [if phone = 2][room phone start] > [if phone = 3][if currentRoom viktorsRoom] I just talked to him. > [if phone = 3][if currentRoom viktorsRoom][skip] > [room martinsRoom start]",
+					"picture": "spr_item_phone"
+				}
+				
+			}, {
+				"comment": "Columns behind the tram",
+				"depth": 1990,
+				"alias": "station_columns_back",
+				"available": 1,
+				"visible": 1,
+				"picture": "spr_station_columns_back",
+				"x": 0,
+				"y": 10
+			}, {
+				"comment": "Smoke in front of columns, behind the tram",
+				"depth": 1985,
+				"alias": "station_smoke3",
+				"available": 1,
+				"visible": 1,
+				"subimage": 2,
+				"picture": "spr_station_smoke",
+				"path": "path_float",
+				"x": 681,
+				"y": 370
+			}, {
+				"comment": "The tram!!!!1",
+				"depth": 1980,
+				"alias": "station_tram",
+				"available": 1,
+				"visible": 1,
+				"path": "path_left",
+				"pathAction": "stop",
+				"pathDelay": 60,
+				"picture": "spr_station_tram",
+				"x": 1200,
+				"y": 299
+			}, {
+				"comment": "Tram wire",
+				"depth": 1975,
+				"alias": "station_wire",
+				"available": 1,
+				"visible": 1,
+				"picture": "spr_station_wire",
+				"x": 0,
+				"y": 299
+			}, {
+				"comment": "Tram fence 1 of many",
+				"depth": 1970,
+				"alias": "station_fence1",
+				"visible": 1,
+				"picture": "spr_station_fence",
+				"x": 158,
+				"y": 512
+			}, {
+				"comment": "Tram fence 2 of many",
+				"depth": 1970,
+				"alias": "station_fence2",
+				"visible": 1,
+				"picture": "spr_station_fence",
+				"x": 321,
+				"y": 512
+			}, {
+				"comment": "Tram fence 3 of many",
+				"depth": 1970,
+				"alias": "station_fence3",
+				"visible": 1,
+				"picture": "spr_station_fence",
+				"x": 486,
+				"y": 512
+			}, {
+				"comment": "Tram fence 4 of many",
+				"depth": 1970,
+				"alias": "station_fence4",
+				"visible": 1,
+				"picture": "spr_station_fence",
+				"x": 650,
+				"y": 512
+			}, {
+				"comment": "Tram fence 5 of many",
+				"depth": 1970,
+				"alias": "station_fence5",
+				"visible": 1,
+				"picture": "spr_station_fence",
+				"x": 840,
+				"y": 512
+			}, {
+				"comment": "Tram fence 6 of many",
+				"depth": 1970,
+				"alias": "station_fence6",
+				"visible": 1,
+				"picture": "spr_station_fence",
+				"x": 1004,
+				"y": 512
+			}, {
+				"comment": "Columns in front of tram",
+				"depth": 1950,
+				"alias": "station_columns_front",
+				"visible": 1,
+				"picture": "spr_station_columns_front",
+				"x": 0,
+				"y": 0
+			}, {
+				"comment": "Behind the lift",
+				"depth": -1000,
+				"alias": "station_lift_back",
+				"visible": 1,
+				"picture": "spr_station_lift_back",
+				"x": 964,
+				"y": 357
+			}, {
+				"comment": "Lift cabin",
+				"alias": "station_down_lift_cabin",
+				"visible": 1,
+				"picture": "spr_station_lift_cabin",
+				"depth": -1100,
+				"x": 970,
+				"y": 35,
+				"xInteract": 865,
+				"yInteract": 710,
+				"description": "Lift",
+				"order": "look,use,use_2,use_2,useanywhere",
+				"combinations": {
+					"look": "For some people it's a lift that leads to dirgible docks. > For others, it's an emergency toilet.",
+					"kick": "Stupid lift! > [viktor spr_viktor_udara_desno]",
+					"use": "[direction right][move player 0 5][time 50] > [position 9000 9000][move station_down_lift_cabin 90 5][time 120] > [room station_up start]",
+					"use_2": "[direction right][move player 0 5][time 30] > [room station_up start]",
+					"useanywhere": "[room station_up lift]",
+					"talk": "Hello",
+					"keys": "It's unlocked",
+					"ball": "[animation player spr_viktor_use_right_low] > [move station_down_lift_cabin 90 5]",
+					"pants": "I'm not a superhero. > And these pants don't fit me",
+					"cake": "I think it's too light to make the lift go by itself.",
+					"cell": "It works well enough already"
+				}
+			}, {
+				"comment": "Coin under the lift",
+				"alias": "coin_lift",
+				"visible": 1,
+				"x": 975,
+				"y": 699,
+				"xScale": 0.3,
+				"yScale": 0.15,
+				"xInteract": 869,
+				"yInteract": 715,
+				"depth": -1099,
+				"picture": "spr_item_coin",
+				"description": "A coin",
+				"order": "use",
+				"combinations": {
+					"use": "[destroy other 15][animation player spr_viktor_use_right_low][take coin] > [position station_down_lift_cabin 970 -600][move station_down_lift_cabin 270 5][time 128] > [move station_down_lift_cabin 270 0]",
+					"keys": "[mood angry] Just pick up the coin with your hand!",
+					"pants": "[mood angry] Just pick up the coin with your hand!",
+					"cake": "[mood angry] Just pick up the coin with your hand!",
+					"cell": "[mood angry] Just pick up the coin with your hand!"
+				}
+			}, {
+				"comment": "In front of lift",
+				"depth": -1200,
+				"alias": "station_lift_front",
+				"visible": 1,
+				"picture": "spr_station_lift_front",
+				"x": 958,
+				"y": 58
+			}, {
+				"comment": "Station dog Noam",
+				"alias": "station_dog",
+				"visible": 1,
+				"x": 470,
+				"y": 540,
+				"xScale": 1,
+				"yScale": 1,
+				"xInteract": 400,
+				"yInteract": 840,
+				"xCloud": 550,
+				"yCloud": 500,
+				"idle": 1,
+				"depth": -830,
+				"description": "A Jewish Scottsman",
+				"order": "look,talk",
+				"combinations": {
+					"look": "This is new.",
+					"talk": "[direction right][conversation noam hello] > [move player 90 5][animations player spr_viktor_walk_back][time 15] > [move player 0 0]",
+					"keys": "[direction left][conversation noam keys_test]",
+					"wig": "Look at me now. I'm completely Jewish! I have a hair thing and everything! > [talk station_dog] Ach, a fine payot it be. But ye still don' look Scottish, boy",
+					"pants": "[talk station_dog] Thank ye, lad. > [talk station_dog] But I prefer me kilt. > [talk station_dog] It provides me with exquisite warmth. > [talk station_dog] While giving complete freedom for the unmentionables. > I wear this coat for exact same reasons!",
+					"cake": "[talk station_dog] Thank ye, boy. > [talk station_dog] But meh be needin' to stay fit fer the olympics.",
+					"ball": "[talk station_dog] I be havin' a bigga' one back home. > Of course you do.",
+					"cell": "[talk_station_dog] Interesting battery, lad. > Hm, right."
+				},
+				"inventory": {
+					"alias": "ticket",
+					"picture": "spr_item_ticket",
+					"name": "Ticket",
+					"description": "A dirigible ticket I was given.",
+					"default": "I have to give this ticket to the conducter, not lose it."
+				}
+			}, {
+				"comment": "Station sweeper Attar not sweeping",
+				"alias": "rhino_magical",
+				"available": 0,
+				"visible": 1,
+				"x": 920,
+				"y": 790,
+				"xScale": 0.5,
+				"yScale": 0.5,
+				"xInteract": 730,
+				"yInteract": 780,
+				"xCloud": 840,
+				"yCloud": 450,
+				"picture": "spr_rhino",
+				"idle": 1,
+				"depth": -830,
+				"description": "Attar!",
+				"order": "look,talk",
+				"combinations": {
+					"look": "[set attar_seen 0] Oh man, this is insane. > Boss warned him about magically controlling the broom with the Indian dog whistle. > Attar is awesome.",
+					"talk": "[conversation rhino start]",
+					"keys": "[direction left][conversation noam keys_test]",
+					"pants": "[talk rhino_magical] My wife has something against our daughters wearing pants. > [talk rhino_magical] But thank you for offering.",
+					"cake": "[talk rhino_magical] Thank you, friend. > [talk rhino_magical] But I cannot eat sugar > Is that the Sikh thing?. > [talk rhino_magical] No, it's diabetes thing. > [mood scared] Oh, right, I forgot. So sorry. > [talk rhino_magical] Fret not, Viktor. Sugar is a thing I miss the least.",
+					"ball": "[talk rhino_magical] Hey, that's the ball you use for training. > It's a completely different one. Want it? > [talk rhino_magical] Not really, but thank you for offering.",
+					"cell": "Look, attar! A battery for Nippleonian automatons! > [talk rhino_magical] It's beautiful and only slightly broken > [talk rhino_magical] People sometimes use them to overcharge blimp engines. > Wanna buy it for two coins? > [talk rhino_magical] No. > [conversation rhino haggler]"
+				},
+				"inventory": {
+					"alias": "cell",
+					"name": "Battery cell",
+					"description": "Some kind of battery thing",
+					"default": "I don't think it's the right voltage",
+					"picture": "spr_dirigibles_power"
+				}
+			}, {
+				"comment": "Station magical broom",
+				"NOTobject": "obj_broom",
+				"alias": "rhinos_broom",
+				"available": 0,
+				"visible": 1,
+				"x": 700,
+				"y": 580,
+				"xScale": 0.5,
+				"yScale": 0.5,
+				"picture": "spr_broom",
+				"idle": 1,
+				"depth": -1400
+			},
+
+			{
+				"comment": "Station sweeper Attar sweeping",
+				"alias": "rhino_sweeping",
+				"available": 0,
+				"visible": 1,
+				"x": 920,
+				"y": 790,
+				"xScale": 0.5,
+				"yScale": 0.5,
+				"xInteract": 730,
+				"yInteract": 780,
+				"xCloud": 840,
+				"yCloud": 450,
+				"picture": "spr_rhino_broom",
+				"idle": 1,
+				"depth": -830,
+				"description": "Attar!",
+				"order": "look,talk",
+				"combinations": {
+					"look": "[set attar_seen 0] Is that Attar? > Yes, it's him!!",
+					"talk": "[conversation rhino start]",
+					"keys": "[direction left][conversation noam keys_test]",
+					"pants": "[talk rhino_sweeping] My wife has something against our daughters wearing pants. > [talk rhino_sweeping] But thank you for offering",
+					"cake": "[talk rhino_sweeping] Thank you, friend. > [talk rhino_sweeping] But I cannot eat sugar > Is that the Sikh thing?. > [talk rhino_sweeping] No, it's diabetes thing. > [mood scared] Oh, right, I forgot. So sorry. > [talk rhino_sweeping] Fret not, Viktor. Sugar is a thing I miss the least.",
+					"ball": "[talk rhino_sweeping] Hey, that's the ball you use for training. > It's a completely different one. Want it? > [talk rhino_sweeping] Not really, but thank you for offering.",
+					"cell": "Look, attar! A battery for Nippleonian automatons! > [talk rhino_sweeping] It's beautiful and only slightly broken > [talk rhino_sweeping] People sometimes use them to overcharge blimp engines. > Wanna buy it for two coins? > [talk rhino_sweeping] No. > [conversation rhino haggler]"
+				},
+				"inventory": {
+					"alias": "coin",
+					"name": "Coin",
+					"description": "Copper crowns.",
+					"default": "Can't bribe my way out of this",
+					"picture": "spr_item_coin"
+				}
+			}, {
+				"comment": "Ticket office",
+				"alias": "station_office",
+				"visible": 1,
+				"picture": "spr_station_office",
+				"x": 0,
+				"y": 403,
+				"xCloud": 100,
+				"yCloud": 350,
+				"depth": 1500,
+				"xScale": 1,
+				"yScale": 1,
+				"xInteract": 300,
+				"yInteract": 815,
+				"description": "Ticket office",
+				"order": "look,talk",
+				"combinations": {
+					"look": "It's the ticket office. > For buying airship tickets. > They don't sell tram tickets. > Not that anyone ever buys those. > But I still like to annoy them by asking.",
+					"talk": "[conversation kiosk start]",
+					"keys": "It's always open.",
+					"pants": "[talk station_office] I don't want them anymore.",
+					"cake": "[talk station_office] I don't want to eat it. It's made with my own milk. > [mood scared] Eww... > [talk station_office] Enjoy",
+					"ball": "[talk station office] Keep it. > [talk station office] Eat it for all I care.",
+					"cell": "[conversation kiosk away]",
+					"ticket": "[other] Did you steal that? > [player] No, I got it fair and square. > [other] Great, then go to the dirigible upstairs and get out of my sight."
+				},
+				"inventory": {
+					"alias": "ticket",
+					"picture": "spr_item_ticket",
+					"name": "Ticket",
+					"description": "A dirigible ticket I bought.",
+					"default": "I have to give this ticket to the conducter, not lose it."
+				}
+			}, {
+				"comment": "Ticket sign, English",
+				"depth": 1000,
+				"alias": "station_sign",
+				"visible": 1,
+				"x": 30,
+				"y": 455
+			}, {
+				"alias": "station_pants",
+				"available": 0,
+				"x": 250,
+				"y": 750,
+				"xInteract": 300,
+				"yInteract": 750,
+				"description": "Pants",
+				"order": "look,use",
+				"combinations": {
+					"look": "Lady pants.",
+					"use": "[pickup] > Suprisingly, they're not my size. > [talk station_office] Yeah, I don't wear XXXXXXXXXL. > That's what's so suprising...",
+					"ball": "It's lady pants. > They are not meant to have balls inside.",
+					"cell": "They are not electrical in any way."
+				},
+				"inventory": {
+					"alias": "pants",
+					"name": "Pants",
+					"description": "Pink lady pants.",
+					"default": "I'm saving this for someone special.",
+					"picture": "spr_item_pants"
+				}
+			}, {
+				"alias": "station_stuck",
+				"available": 0,
+				"x": 800,
+				"y": 470,
+				"xInteract": 800,
+				"yInteract": 670,
+				"description": "An old gramophone record.",
+				"order": "look,use",
+				"combinations": {
+					"look": "Hey, another record!",
+					"use": "[animation player spr_viktor_use_right_high][destroy other 15] > This is going straight to my gramophone! > [talk station_office] It was supposed to go straight to your head! [record rossini]",
+					"pants": "Don't complicate things, just pick it up.",
+					"cake": "That would be a good place for a cake. > But I'm not going to do this.",
+					"ball": "I don't want to damage it any further.",
+					"cell": "I think my hands would be enough to pull it out"
+				}
+			}, {
+				"alias": "station_plant",
+				"available": 0,
+				"subimage": 13,
+				"x": 330,
+				"y": 740,
+				"xInteract": 380,
+				"yInteract": 780,
+				"depth": -824,
+				"description": "A potted plant.",
+				"order": "look,use",
+				"combinations": {
+					"look": "[cloud talk][animations spr_viktor_talk_front] Another helpless victim of the angry kiosk lady. > [talk station_office] I was aiming at your head!",
+					"use": "I can't help it now.",
+					"pants": "It's not cold, it's dead.",
+					"cake": "It's not hungry, it's dead.",
+					"ball": "It's dead enough:",
+					"cell": "I don't think that works on plants."
+				}
+			}, {
+				"alias": "station_cake",
+				"available": 0,
+				"x": 450,
+				"y": 605,
+				"xInteract": 450,
+				"yInteract": 665,
+				"subimage": 0,
+				"description": "Something delicious",
+				"combinations": {
+					"look": "Just like momma use to make 'em!",
+					"use": "[pickup]",
+					"pants": "Strange idea. Try picking it up instead.",
+					"ball": "I don't want to ruin the ball. > I mean, cake!",
+					"cell": "It's already baked."
+				},
+				"inventory": {
+					"alias": "cake",
+					"picture": "spr_item_cake",
+					"name": "Piece of cake",
+					"description": "A very default-looking cake.",
+					"default": "Nah, I'm saving it for later."
+				}
+			}
+		]
+	}, {
+		"comment": "Dirgibledrome, upper floor",
+		"alias": "station_up",
+		"gui": "default",
+		"scaleNear": 0.75,
+		"scaleFar": 0.75,
+		"background": "bcg_stationup",
+		"border": "spr_border_stationup",
+		"rgb": "200,232,235",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[if cleanup = 1][if ballandbattery = 0][set ballandbattery 1][create station_ball][create battery_poking] > [position 9000 9000][position station_up_lift_cabin 1057 300][move station_up_lift_cabin 90 5][time 60] > [move station_up_lift_cabin 90 0][position player 1100 673][animations player spr_viktor_walk_left][move player 180 5][time 50]"
+		}, {
+			"alias": "won",
+			"entrance": "[soundtrack dvorak][sound snd_gramophone][position 400 700][active donkey][conversation donkey won]"
+		}, {
+			"alias": "lost",
+			"entrance": "[soundtrack dvorak][sound snd_gramophone][position 400 700][active donkey][conversation donkey lost]"
+		},
+		{
+			"alias" : "martinHangsUp",
+			"entrance" : "[position player 600 685] Always a good conversation."
+		}
+		
+		],
+		"objects": [{
+			"alias": "battery_poking",
+			"available": 0,
+			"visible": 1,
+			"x": 410,
+			"y": 515,
+			"xInteract": 600,
+			"yInteract": 680,
+			"xScale": 0.6,
+			"yScale": 0.6,
+			"xCloud": 450,
+			"yCloud": 250,
+			"idle": 1,
+			"picture": "spr_dirigibles_power",
+			"description": "battery",
+			"order": "look, use",
+			"combinations": {
+				"look": "I think the robot's auxilliary battery is poking out. > And the robot still works. > Wow.",
+				"use": "[pickup]",
+				"cake": "Not on the battery.",
+				"ball": "I don't want to cause an international incident just yet."
+			},
+			"inventory": {
+				"alias": "cell",
+				"name": "A battery cell",
+				"description": "This battery cell is some powerful stuff.",
+				"default": "That doesn't need to be powered up.",
+				"picture": "spr_dirigibles_power"
+			}
+		}, {
+			"alias": "station_ball",
+			"available": 0,
+			"visible": 1,
+			"x": 500,
+			"y": 640,
+			"xInteract": 600,
+			"yInteract": 680,
+			"xScale": 0.7,
+			"yScale": 0.7,
+			"xCloud": 450,
+			"yCloud": 250,
+			"idle": 1,
+			"description": "Weight ball",
+			"order": "look, use",
+			"combinations": {
+				"look": "How the hell did that cow throw this so high?",
+				"use": "[pickup]",
+				"pants": "I don't get it.",
+				"cake": "Why and how? > And what?",
+				"cell": "This is no time for funniest home experiments."
+			},
+			"inventory": {
+				"alias": "ball",
+				"name": "Weight ball",
+				"description": "Sometimes I train with a similar one",
+				"default": "Nah",
+				"picture": "spr_item_ball"
+			}
+		}, {
+			"alias": "rabbit",
+			"available": 1,
+			"visible": 1,
+			"x": 280,
+			"y": 310,
+			"xInteract": 580,
+			"yInteract": 680,
+			"xScale": 0.7,
+			"yScale": 0.7,
+			"xCloud": 450,
+			"yCloud": 250,
+			"idle": 1,
+			"description": "Mecha bunny",
+			"order": "look, talk",
+			"combinations": {
+				"look": "A small girl on a huge robot. > Looks too young for me. > Also, the robot looks very scary.",
+				"talk": "[conversation rabbit start]",
+				"pants": "[talk rabbit] Yes, that is the exactly pants I want! > (ADD CONTENT!!!!!!!!!!!)",
+				"cake": "(ANIMIRANI KAOS TEBRA!!!11",
+				"ball": "I don't want to cause an international incident just yet.",
+				"cell": "Hell no!"
+			}
+		}, {
+			"alias": "frog",
+			"available": 1,
+			"visible": 1,
+			"x": 540,
+			"y": 460,
+			"xInteract": 840,
+			"yInteract": 680,
+			"xScale": 0.8,
+			"yScale": 0.8,
+			"xCloud": 640,
+			"yCloud": 350,
+			"imageSpeed": 0.6,
+			"idle": 1,
+			"description": "Drunken frog in a toga",
+			"order": "look, talk",
+			"combinations": {
+				"look": "He doesn't look very sober. > Lucky bastard.",
+				"talk": "[conversation frog excuse]",
+				"pants": "[talk frog] I think you lost the rest of the girl.",
+				"cake": "Want some cake? > [talk frog] Is it with rum? > I have no idea. > Then I will not take chances with a possibly non-alcoholic cake.",
+				"ball": "[talk frog] This is the biggest ball of wine I ever saw! > It's actually an iron ball for muscle training. > [talk frog] Get that thing out of my face, I don't do sports.",
+				"cell": "[talk frog] Oh no no no, I'm not drinking from that thing again. > [talk frog] Fool me once, shame on you. > [talk frog] Fool me twice a week... > [talk frog] Wait, does it have any wine inside? > No. > [talk frog] I'm not drinking from that thing again!"
+			},
+			"inventory": {
+				"alias": "wig",
+				"name": "Wig",
+				"description": "A slightly smelly curly wig",
+				"default": "I can't wig these things to wigger.",
+				"picture": "spr_item_wig"
+			}
+		}, {
+			"alias": "donkey",
+			"available": 1,
+			"visible": 1,
+			"x": 100,
+			"y": 400,
+			"xInteract": 400,
+			"yInteract": 700,
+			"xScale": 0.8,
+			"yScale": 0.8,
+			"xCloud": 160,
+			"yCloud": 300,
+			"imageSpeed": 0.6,
+			"idle": 1,
+			"description": "Ticket officer",
+			"order": "look, talk",
+			"combinations": {
+				"look": "He looks like he's from somewhere around here. > Probably local.",
+				"talk": "[conversation donkey start]",
+				"pants": "[talk donkey] No ticket no service! > [talk donkey] Pants is optional!",
+				"cake": "[talk donkey] This isnt sarma it isnt! > No deal!",
+				"ball": "[talk donkey] What? No.",
+				"cell": "My dirigible already has one. Hahaha shame on you.",
+				"ticket": "Can I go in with this ticket? > [give ticket] > [other] OK, the ticket is good, go on! > [animations player player spr_player_walk_left][move 0 3][time 60] > [room coupe start]"
+			},
+			"inventory": {
+				"alias": "ticket",
+				"picture": "spr_item_ticket",
+				"name": "Ticket",
+				"description": "A dirigible ticket I won in a race.",
+				"default": "I have to give this ticket to the conducter, not lose it."
+			}
+		}, {
+			"comment": "Station up background dirigible",
+			"alias": "stationup_dirigible",
+			"depth": 101,
+			"available": 1,
+			"visible": 1,
+			"picture": "spr_stationup_dirigible",
+			"path": "path_float",
+			"x": 9,
+			"y": 2,
+			"xInteract": 400,
+			"yInteract": 700,
+			"description": "A dirigible",
+			"order": "look",
+			"combinations": {
+				"look": "My prefered way of transport when ousting the emperor of Austria-Hungary is by dirigible."
+			}
+		}, {
+			"comment": "Station up sign temp",
+			"alias": "stationup_post",
+			"depth": -101,
+			"available": 1,
+			"visible": 1,
+			"picture": "spr_stationup_post",
+			"x": 705,
+			"y": 333
+		}, {
+			"comment": "Station up fence back",
+			"alias": "stationup_fence_back",
+			"depth": -200,
+			"available": 1,
+			"visible": 1,
+			"picture": "spr_stationup_fence_back",
+			"x": 1,
+			"y": 525
+		}, {
+			"comment": "Lift cabin",
+			"alias": "station_up_lift_cabin",
+			"available": 1,
+			"visible": 1,
+			"picture": "spr_station_lift_cabin",
+			"depth": -1100,
+			"x": 1057,
+			"y": -4,
+			"xScale": 1,
+			"yScale": 1,
+			"xInteract": 950,
+			"yInteract": 673,
+			"description": "Lift",
+			"order": "use",
+			"combinations": {
+				"look": "For some people it's a lift that leads to dirgible docks. > For other people, it's an emergency toilet.",
+				"kick": "Stupid lift! > [viktor spr_viktor_udara_desno]",
+				"use": "[direction right][move player 0 5][time 50] > [position 9000 9000][move station_up_lift_cabin 270 5][time 50] > [room station_down lift]",
+				"use_2": "[direction right][move player 0 5][time 30] > [room station_down lift]",
+				"useanywhere": "[room station_down lift]",
+				"talk": "Hello",
+				"log": "You want to log a lift? > Or lug a lift?",
+				"keys": "It's unlocked",
+				"pants": "I'm not a superhero. > Plus, these pants don't fit.",
+				"cake": "I don't want to make this cake smelly.",
+				"ball": "Why would I want to send the lift down?",
+				"cell": "It already works well enough"
+			}
+		}, {
+			"comment": "In front of lift",
+			"depth": -1150,
+			"alias": "station_lift_front",
+			"available": 1,
+			"visible": 1,
+			"picture": "spr_station_lift_front",
+			"x": 1045,
+			"y": 25
+		}, {
+			"comment": "Lift hole, tananananananana",
+			"depth": -1200,
+			"alias": "station_lift_hole",
+			"available": 1,
+			"visible": 1,
+			"picture": "spr_stationup_lift_hole",
+			"x": 1045,
+			"y": 673
+		}, {
+			"comment": "Front fence on upper station",
+			"depth": -1250,
+			"alias": "station_fence_front",
+			"available": 1,
+			"visible": 1,
+			"picture": "spr_stationup_fence_front",
+			"x": 17,
+			"y": 626
+		}]
+	}, {
+		"comment": "Pallace Outside",
+		"alias": "pallace_outside",
+		"gui": "default",
+		"scaleNear": 0.65,
+		"scaleFar": 0.55,
+		"background": "bcg_palaceDay",
+		"border": "spr_border_palaceOutside",
+		"rgb": "200,232,235",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[position player 700 830][record strauss][soundtrack strauss] This was actually a lot less dangerous then I thought it would be. > Now I just go through these insane members of Emperor's elite murder machinery... > And the crown can be mine."
+		}],
+		"objects": [{
+			"alias": "beaver",
+			"available": 1,
+			"visible": 1,
+			"x": 450,
+			"y": 600,
+			"xInteract": 650,
+			"yInteract": 810,
+			"xScale": -1,
+			"yScale": 1,
+			"xCloud": 400,
+			"yCloud": 500,
+			"idle": 1,
+			"description": "Beaver pallace guard",
+			"order": "look, talk",
+			"combinations": {
+				"look": "This one looks extremely pompous",
+				"talk": "[conversation beaver hello]"
+			}
+		}, {
+			"alias": "hyena",
+			"available": 1,
+			"visible": 1,
+			"x": 830,
+			"y": 580,
+			"xInteract": 650,
+			"yInteract": 810,
+			"xScale": 1,
+			"yScale": 1,
+			"xCloud": 860,
+			"yCloud": 500,
+			"imageSpeed": 0.6,
+			"idle": 1,
+			"description": "Hyena pallace guard",
+			"order": "look, look_2",
+			"combinations": {
+				"look": "This guy is just weird. > Must be from the war.",
+				"look_2": "I feel less sane just by looking at him.",
+				"talk": "[active beaver][conversation beaver hello]"
+			}
+		}, {
+			"comment": "Pallace gate left",
+			"alias": "pallaceOutside_gate_left",
+			"depth": -101,
+			"available": 1,
+			"visible": 1,
+			"picture": "spr_palaceOutside_gate_left",
+			"x": 405,
+			"y": 85,
+			"xInteract": 350,
+			"yInteract": 700,
+			"description": "Pallace gate",
+			"order": "look",
+			"combinations": {
+				"look": "This gate is all that stands between me and the crown of Austria-Hungary."
+			}
+		}, {
+			"comment": "Pallace gate right",
+			"alias": "pallaceOutside_gate_right",
+			"depth": -102,
+			"available": 1,
+			"visible": 1,
+			"picture": "spr_palaceOutside_gate_right",
+			"x": 614,
+			"y": 85,
+			"xInteract": 350,
+			"yInteract": 700,
+			"description": "Pallace gate",
+			"order": "look",
+			"combinations": {
+				"look": "This gate is all that stands between me and the crown of Austria-Hungary."
+			}
+		}, {
+			"comment": "Pallace front walls",
+			"alias": "palaceOutside_walls_day",
+			"depth": -114,
+			"available": 1,
+			"visible": 1,
+			"picture": "spr_palaceOutside_walls_day",
+			"x": 0,
+			"y": 0
+		}]
+	}, {
+		"comment": "Vienna palace",
+		"alias": "palace_far",
+		"gui": "default",
+		"backgroundScale": 1,
+		"scaleNear": 0.5,
+		"scaleFar": 0.3,
+		"background": "",
+		"border": "spr_border_viktorsRoom",
+		"rgb": "200,232,235",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[position player 600 950][animations player spr_viktor_walk_back][move player 80 1][zoom 595 5][time 170] > [move player 0 0][room palace_near start]"
+		}],
+		"objects": [{
+			"alias": "usporedba_palaca",
+			"x": -10,
+			"y": 80,
+			"image_xScale": 1.1,
+			"image_yScale": 1.1
+		}]
+	}, {
+		"comment": "Vienna palace",
+		"alias": "palace_near",
+		"gui": "default",
+		"backgroundScale": 1.1,
+		"xBackground": -74,
+		"yBackground": -63,
+		"scaleNear": 0.97,
+		"scaleFar": 0.97,
+		"background": "bcg_palace",
+		"border": "spr_border_viktorsRoom",
+		"rgb": "200,232,235",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[zoom 0 0][position player 617 952][animation player spr_viktor_walk_back 0][direction back][active emperor][conversation emperor start] > [fade in 0.03][time 35][stop]"
+		}],
+		"objects": [{
+			"alias": "usporedba_palaca",
+			"x": 0,
+			"y": 0,
+			"transparency": 0
+		}, {
+			"alias": "emperor",
+			"xCloud": 600,
+			"yCloud": 300,
+			"xScale": 0.66,
+			"yScale": 0.66,
+			"x": 453,
+			"y": 376,
+			"direction": "back"
+		}]
+	}, {
+		"comment": "A bar in prague",
+		"alias": "tavern",
+		"gui": "default",
+		"scaleNear": 0.8,
+		"scaleFar": 0.7,
+		"background": "bcg_tavern",
+		"border": "spr_border_viktorsRoom",
+		"xBackground": -15,
+		"yBackground": 5,
+		"rgb": "200,232,235",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[set passguess 0][position player 300 670][sound snd_gramophone][set alreadywent 0][set tried_dumb_flag 0] This looks cozy. > Now to find those anarchists. > They probably have armies, bombs and whatnot."
+		}, {
+			"alias": "toilet_exit",
+			"entrance": "[position player 1114 592][sound snd_gramophone] > [if alreadywent = 0] This was quite inspirational. Except for the smell. > [set alreadywent 1]"
+		}],
+		"objects": [{
+			"comment": "tavern bar",
+			"alias": "tavern_bar",
+			"depth": -180,
+			"available": 1,
+			"visible": 1,
+			"picture": "spr_tavern_bar",
+			"x": 806,
+			"y": 445
+		}, {
+			"alias": "return_to_pallace_from_tavern",
+			"depth": -1200,
+			"available": 1,
+			"visible": 0,
+			"x": 175,
+			"y": 197,
+			"xInteract": 600,
+			"yInteract": 700,
+			"picture": "spr_various_token",
+			"xScale": 100,
+			"yScale": 100,
+			"description": "Exit",
+			"order": "look, look_2, look_3, look_4, look_5, look_6, look_7, look_8, look_9, use, look_2",
+			"combinations": {
+				"look": "It's cold outside.",
+				"look_2": "I have to find those anarchists in this tavern before going out.",
+				"look_3": "There is so much to do inside this tavern, why would I go out now?",
+				"look_4": "Going out of those doors would be tantamount to abandoning my quest to become emperor of Austria-Hungary.",
+				"look_5": "Perhaps I will never become the emperor of Austria-Hungary, but one has to dream.",
+				"look_6": "Who am I kidding, this quest is pointless...",
+				"look_7": "I should just get out of here before I get arrested by the jandars.",
+				"look_8": "I should never have left Agram.",
+				"look_9": "Life is just a series of disappointments.",
+				"use": "Goodbye... > [fade in 0.03][time 35] > [fade out 0.03][time 35] > Not."
+			}
+		}, {
+			"comment": "pic of emperor",
+			"alias": "portrait_emperor",
+			"depth": -1200,
+			"available": 1,
+			"visible": 0,
+			"x": 515,
+			"y": 240,
+			"xInteract": 600,
+			"yInteract": 700,
+			"picture": "spr_various_token",
+			"xScale": 110,
+			"yScale": 125,
+			"description": "Emperor's portrait",
+			"order": "look",
+			"combinations": {
+				"look": "That's the bastard behind the electric field. > He's going down soon."
+			}
+		}, {
+			"comment": "tavern barrels front",
+			"alias": "tavern_barrels_front",
+			"depth": -1000,
+			"available": 1,
+			"visible": 1,
+			"picture": "spr_tavern_barrels_front",
+			"x": 326,
+			"y": 730
+		}, {
+			"comment": "tavern bottle of wine",
+			"alias": "tavern_bottle_wine",
+			"depth": -160,
+			"available": 1,
+			"visible": 1,
+			"picture": "spr_tavern_bottle_wine",
+			"x": 1031,
+			"y": 308
+		}, {
+			"comment": "tavern cabin door left",
+			"alias": "tavern_cabin_door_left",
+			"depth": -170,
+			"available": 1,
+			"visible": 1,
+			"picture": "spr_tavern_cabin_door_left",
+			"x": 961,
+			"y": 375
+		}, {
+			"comment": "tavern cabin door right",
+			"alias": "tavern_cabin_door_right",
+			"depth": -171,
+			"available": 1,
+			"visible": 1,
+			"picture": "spr_tavern_cabin_door_right",
+			"x": 1015,
+			"y": 373
+		}, {
+			"comment": "tavern cabin door up",
+			"alias": "tavern_cabin_door_up",
+			"depth": -172,
+			"available": 1,
+			"visible": 1,
+			"picture": "spr_tavern_cabin_door_up",
+			"x": 743,
+			"y": 282
+		}, {
+			"comment": "tavern chair barrel",
+			"alias": "tavern_chair_barrel",
+			"depth": -192,
+			"available": 1,
+			"visible": 1,
+			"picture": "spr_tavern_chair",
+			"xScale": 0.9,
+			"yScale": 0.9,
+			"x": 630,
+			"y": 472
+		}, {
+			"comment": "tavern chair barrel",
+			"alias": "tavern_chair_barrel",
+			"depth": -200,
+			"available": 1,
+			"visible": 1,
+			"picture": "spr_tavern_chair",
+			"xScale": 1,
+			"yScale": 1,
+			"x": 856,
+			"y": 495
+		}, {
+			"comment": "tavern barrel jekyll",
+			"alias": "tavern_barrel_jekyll",
+			"depth": -102,
+			"available": 1,
+			"visible": 1,
+			"picture": "spr_tavern_barrel_jekyll",
+			"x": 346,
+			"y": 465
+		}, {
+			"comment": "Dr. Jekyll",
+			"alias": "jekyll",
+			"depth": -100,
+			"xScale": 0.4,
+			"yScale": 0.4,
+			"x": 358,
+			"y": 315,
+			"xCloud": 430,
+			"yCloud": 330,
+			"xInteract": 550,
+			"yInteract": 660,
+			"imageSpeed": 0.6,
+			"idle": 1,
+			"description": "Fox",
+			"order": "look, talk",
+			"combinations": {
+				"look": "Doesn't look like he's from around here.",
+				"talk": "[conversation jekyll hello]"
+			}
+		}, {
+			"comment": "Kafka",
+			"alias": "kafka",
+			"depth": -200,
+			"xScale": -0.83,
+			"yScale": 0.83,
+			"x": 700,
+			"y": 303,
+			"xCloud": 575,
+			"yCloud": 290,
+			"xInteract": 700,
+			"yInteract": 660,
+			"imageSpeed": 0.4,
+			"idle": 1,
+			"description": "Mouse",
+			"order": "look, talk",
+			"combinations": {
+				"look": "He has beer. > I like that in a person.",
+				"talk": "[conversation kafka hello]"
+			}
+		}, {
+			"comment": "Lake",
+			"alias": "lake",
+			"depth": -200,
+			"xScale": -0.83,
+			"yScale": 0.83,
+			"x": 200,
+			"y": 423,
+			"xCloud": 275,
+			"yCloud": 90,
+			"xInteract": 300,
+			"yInteract": 660,
+			"imageSpeed": 0.4,
+			"idle": 1,
+			"description": "Musician",
+			"order": "look, talk",
+			"combinations": {
+				"look": "Wow, he's good. > With one guitar he sounds like a whole orchestra!",
+				"talk": "[conversation lake hello]"
+			}
+		}, {
+			"comment": "Suspicious party of anarchists",
+			"alias": "anarchists",
+			"depth": -1200,
+			"available": 1,
+			"visible": 0,
+			"x": 240,
+			"y": 600,
+			"xCloud": 700,
+			"yCloud": 600,
+			"xInteract": 600,
+			"yInteract": 700,
+			"imageSpeed": 0.6,
+			"idle": 1,
+			"picture": "spr_various_token",
+			"xScale": 850,
+			"yScale": 500,
+			"description": "A suspicious party",
+			"order": "look, talk",
+			"combinations": {
+				"look": "Slightly suspicious.",
+				"talk": "[conversation anarchists_all hello]"
+			}
+		}, {
+			"comment": "Krtek",
+			"alias": "mole",
+			"depth": -999,
+			"xScale": 0.83,
+			"yScale": 0.83,
+			"x": 885,
+			"y": 623,
+			"xCloud": 970,
+			"yCloud": 550,
+			"xInteract": 600,
+			"yInteract": 680,
+			"imageSpeed": 0.4,
+			"idle": 1,
+			"description": "Krtek",
+			"order": "look, talk",
+			"combinations": {
+				"look": "Suspiciously equipped individual",
+				"talk": "Not yet."
+			}
+		}, {
+			"comment": "Konj 1",
+			"alias": "horse1",
+			"depth": -998,
+			"xScale": 0.65,
+			"yScale": 0.65,
+			"x": 660,
+			"y": 580,
+			"xCloud": 740,
+			"yCloud": 560,
+			"xInteract": 620,
+			"yInteract": 660,
+			"imageSpeed": 0.4,
+			"idle": 1,
+			"description": "Pferdinand",
+			"order": "look, talk",
+			"combinations": {
+				"look": "Regular-looking person",
+				"talk": "Not yet."
+			}
+		}, {
+			"comment": "Konj 2",
+			"alias": "horse2",
+			"depth": -997,
+			"xScale": 0.65,
+			"yScale": 0.65,
+			"x": 490,
+			"y": 600,
+			"xCloud": 600,
+			"yCloud": 500,
+			"xInteract": 600,
+			"yInteract": 680,
+			"imageSpeed": 0.4,
+			"idle": 1,
+			"description": "Andras",
+			"order": "look, talk",
+			"combinations": {
+				"look": "Regular-looking person",
+				"talk": "Not yet."
+			}
+		}, {
+			"comment": "Matilda!",
+			"alias": "matilda",
+			"depth": -1002,
+			"xScale": 0.85,
+			"yScale": 0.85,
+			"x": 290,
+			"y": 910,
+			"xCloud": 300,
+			"yCloud": 500,
+			"xInteract": 600,
+			"yInteract": 680,
+			"imageSpeed": 0.4,
+			"idle": 1,
+			"description": "Matilda",
+			"order": "look, talk",
+			"combinations": {
+				"look": "Hot anarchist Zebra",
+				"talk": "Not yet."
+			}
+		}, {
+			"comment": "Barman",
+			"alias": "anteater",
+			"depth": -177,
+			"xScale": 0.5,
+			"yScale": 0.5,
+			"x": 850,
+			"y": 330,
+			"xCloud": 850,
+			"yCloud": 300,
+			"xInteract": 730,
+			"yInteract": 600,
+			"imageSpeed": 0.4,
+			"idle": 1,
+			"description": "Barman",
+			"order": "look, talk",
+			"combinations": {
+				"look": "One of those people who often close their eyes to seem more profound.",
+				"talk": "[conversation anteater hello]"
+			}
+		}, {
+			"comment": "Toilets",
+			"alias": "exitoilet",
+			"depth": -1200,
+			"visible": 0,
+			"x": 1150,
+			"y": 300,
+			"xCloud": 700,
+			"yCloud": 600,
+			"xInteract": 1115,
+			"yInteract": 595,
+			"imageSpeed": 0.6,
+			"idle": 1,
+			"picture": "spr_various_token",
+			"xScale": 200,
+			"yScale": 330,
+			"description": "Toilets",
+			"order": "look, use",
+			"combinations": {
+				"look": "I think this is the way to the restrooms.",
+				"use": "[room toilet start]"
+			}
+		}]
+	}, {
+		"comment": "Tavern toilet",
+		"alias": "toilet",
+		"gui": "default",
+		"scaleNear": 1,
+		"scaleFar": 1,
+		"background": "bcg_toilet",
+		"border": "spr_border_viktorsRoom",
+		"xBackground": -15,
+		"yBackground": 15,
+		"rgb": "200,232,235",
+		"entrances": [{
+				"alias": "start",
+				"entrance": "[set been_to_toilet 1][position 230 700][animations priest spr_priest_back_vomit]"
+			}, {
+				"alias": "fight",
+				"entrance": "[position player 732 795][create fight_controller] > [stop] > [if viktorsRoom_win = 1] I won! > [if viktorsRoom_win = 0] I lost! > [room tavern start]"
+			}
+
+		],
+		"objects": [{
+				"comment": "Fight controller",
+				"alias": "fight_controller",
+				"available": 0,
+				"visible": 1,
+				"object": "obj_fight_controller",
+				"picture": "spr_boxing_use",
+				"pictures": {
+					"player": "viktor_boxing_left",
+					"enemy": "hyde_boxing",
+
+					"playerHealth": 150,
+					"enemyHealth": 200,
+
+					"playerHitIndex": 8,
+					"enemyHitIndex": 12,
+
+					"playerImageSpeed": 0.3,
+					"enemyImageSpeed": 0.55,
+
+					"panelScale": 0.2,
+					"xPlayerPanel": 0,
+					"yPlayerPanel": -450,
+					"xEnemyPanel": -500,
+					"yEnemyPanel": -200,
+
+					"legend": 120,
+					"xLegend": 100,
+					"yLegend": 300,
+
+					"tiredHits": 3,
+					"tiredSeconds": 2,
+
+					"cog1x": 340,
+					"cog1y": 63,
+					"cog2x": 25,
+					"cog2y": 50,
+					"cog3x": 47,
+					"cog3y": 75,
+					"cog4x": 30,
+					"cog4y": 100,
+
+					"int_xArray[0]": 92,
+					"int_yArray[0]": 33,
+					"int_xArray[1]": 121,
+					"int_yArray[1]": 33,
+					"int_xArray[2]": 152,
+					"int_yArray[2]": 33,
+					"int_xArray[3]": 182,
+					"int_yArray[3]": 33,
+					"int_xArray[4]": 215,
+					"int_yArray[4]": 33,
+					"int_xArray[5]": 245,
+					"int_yArray[5]": 29,
+					"int_xArray[6]": 260,
+					"int_yArray[6]": 44,
+
+					"int_xArray[7]": 92,
+					"int_yArray[7]": 65,
+					"int_xArray[8]": 127,
+					"int_yArray[8]": 65,
+					"int_xArray[9]": 162,
+					"int_yArray[9]": 65,
+					"int_xArray[10]": 191,
+					"int_yArray[10]": 65,
+					"int_xArray[11]": 231,
+					"int_yArray[11]": 65,
+					"int_xArray[12]": 271,
+					"int_yArray[12]": 68,
+
+					"int_xArray[13]": 92,
+					"int_yArray[13]": 95,
+					"int_xArray[14]": 112,
+					"int_yArray[14]": 94,
+					"int_xArray[15]": 146,
+					"int_yArray[15]": 94,
+					"int_xArray[16]": 176,
+					"int_yArray[16]": 95,
+					"int_xArray[17]": 211,
+					"int_yArray[17]": 95,
+					"int_xArray[18]": 241,
+					"int_yArray[18]": 93,
+					"int_xArray[19]": 273,
+					"int_yArray[19]": 91
+
+				},
+				"x": 700,
+				"y": 430,
+				"xScale": -1,
+				"yScale": 1
+			}, {
+				"alias": "toilet_left",
+				"available": 0,
+				"subimage": 0,
+				"x": 400,
+				"y": 286,
+				"xInteract": 650,
+				"yInteract": 810,
+				"xCloud": 400,
+				"yCloud": 500,
+				"idle": 1,
+				"description": "Toilet booth door",
+				"order": "look, talk",
+				"combinations": {
+					"look": "Nice door."
+				}
+			}, {
+				"alias": "toilet_middle",
+				"available": 0,
+				"subimage": 0,
+				"x": 600,
+				"y": 286,
+				"xInteract": 650,
+				"yInteract": 810,
+				"xCloud": 400,
+				"yCloud": 500,
+				"idle": 1,
+				"description": "Toilet booth door",
+				"order": "look, talk",
+				"combinations": {
+					"look": "Nice door."
+				}
+			}, {
+				"alias": "toilet_right",
+				"subimage": 0,
+				"available": 0,
+				"x": 800,
+				"x2": 860,
+				"x3": 980,
+				"y": 286,
+				"xInteract": 650,
+				"yInteract": 810,
+				"xCloud": 400,
+				"yCloud": 500,
+				"idle": 1,
+				"description": "Toilet booth door",
+				"order": "look, talk",
+				"combinations": {
+					"look": "Nice door."
+				}
+			}, {
+				"alias": "graffiti_wc1",
+				"picture": "spr_various_token",
+				"visible": 0,
+				"x": 418,
+				"y": 361,
+				"xScale": 60,
+				"yScale": 63,
+				"description": "Graffiti",
+				"order": "look",
+				"combinations": {
+					"look": "Minga. > Lovely."
+				}
+			}, {
+				"alias": "graffiti_wc1b",
+				"picture": "spr_various_token",
+				"visible": 0,
+				"x": 422,
+				"y": 521,
+				"xScale": 48,
+				"yScale": 50,
+				"description": "Graffiti",
+				"order": "look",
+				"combinations": {
+					"look": "42 > The answer to everything, they say."
+				}
+			}, {
+				"alias": "graffiti_wc1a",
+				"picture": "spr_various_token",
+				"visible": 0,
+				"x": 485,
+				"y": 412,
+				"xScale": 60,
+				"yScale": 24,
+				"description": "Graffiti",
+				"order": "look",
+				"combinations": {
+					"look": "Eating > Yes! Everything! Always! > My kind of guy."
+				}
+			}, {
+				"alias": "graffiti_wc2",
+				"picture": "spr_various_token",
+				"visible": 0,
+				"x": 677,
+				"y": 418,
+				"xScale": 100,
+				"yScale": 26,
+				"description": "Graffiti",
+				"order": "look",
+				"combinations": {
+					"look": "Emperor > Soon, soon."
+				}
+			}, {
+				"alias": "graffiti_wc2b",
+				"picture": "spr_various_token",
+				"visible": 0,
+				"x": 659,
+				"y": 454,
+				"xScale": 115,
+				"yScale": 73,
+				"description": "Graffiti",
+				"order": "look",
+				"combinations": {
+					"look": "Jello biafra was here > Oh, and I missed it."
+				}
+			}, {
+				"alias": "graffiti_wc2c",
+				"picture": "spr_various_token",
+				"visible": 0,
+				"x": 683,
+				"y": 538,
+				"xScale": 90,
+				"yScale": 40,
+				"description": "Graffiti",
+				"order": "look",
+				"combinations": {
+					"look": "Rasputin > The Russian sex machine."
+				}
+			}, {
+				"alias": "graffiti_wc2d",
+				"picture": "spr_various_token",
+				"visible": 0,
+				"x": 711,
+				"y": 276,
+				"xScale": 64,
+				"yScale": 34,
+				"description": "Graffiti",
+				"order": "look",
+				"combinations": {
+					"look": "Cogs."
+				}
+			}, {
+				"alias": "graffiti_wc3",
+				"picture": "spr_various_token",
+				"visible": 0,
+				"x": 915,
+				"y": 433,
+				"xScale": 64,
+				"yScale": 70,
+				"description": "Graffiti",
+				"order": "look",
+				"combinations": {
+					"look": "Death was here. > I wonder if he liked the toilet."
+				}
+			}, {
+				"alias": "graffiti_wc3_f",
+				"picture": "spr_various_token",
+				"visible": 0,
+				"x": 829,
+				"y": 510,
+				"xScale": 74,
+				"yScale": 73,
+				"description": "Graffiti",
+				"order": "look",
+				"combinations": {
+					"look": "More wars are coming. > Not when I become Emperor."
+				}
+			}, {
+				"alias": "graffiti_wc3_j",
+				"picture": "spr_various_token",
+				"visible": 0,
+				"x": 925,
+				"y": 576,
+				"xScale": 44,
+				"yScale": 47,
+				"description": "Graffiti",
+				"order": "look",
+				"combinations": {
+					"look": "I was not."
+				}
+			}, {
+				"alias": "graffiti_wc3_h",
+				"picture": "spr_various_token",
+				"visible": 0,
+				"x": 858,
+				"y": 290,
+				"xScale": 90,
+				"yScale": 46,
+				"description": "Graffiti",
+				"order": "look",
+				"combinations": {
+					"look": "Resurrecting..."
+				}
+			}, {
+				"alias": "graffiti_wc3_w",
+				"picture": "spr_various_token",
+				"visible": 0,
+				"x": 1096,
+				"y": 497,
+				"xScale": 66,
+				"yScale": 80,
+				"description": "Graffiti",
+				"order": "look",
+				"combinations": {
+					"look": "Mr Plinkett was here. > That's the guy who likes to copulate with moving pictures, I think."
+				}
+			}, {
+				"alias": "graffiti_22",
+				"picture": "spr_various_token",
+				"visible": 0,
+				"x": 628,
+				"y": 57,
+				"xScale": 309,
+				"yScale": 33,
+				"description": "Graffiti",
+				"order": "look",
+				"combinations": {
+					"look": "Jello biafra was here > I can imagine him climbing up there."
+				}
+			}, {
+				"alias": "graffiti_wc2_26",
+				"picture": "spr_various_token",
+				"visible": 0,
+				"x": 932,
+				"y": 520,
+				"xScale": 45,
+				"yScale": 29,
+				"description": "Graffiti",
+				"order": "look",
+				"combinations": {
+					"look": "Eating. > What kind of graffiti is this?!"
+				}
+			}, {
+				"alias": "graffiti_wc2",
+				"picture": "spr_various_token",
+				"visible": 0,
+				"x": 582,
+				"y": 500,
+				"xScale": 20,
+				"yScale": 152,
+				"description": "Graffiti",
+				"order": "look",
+				"combinations": {
+					"look": "MartinB2000 is cool. > Sure is."
+				}
+			}, {
+				"alias": "graffiti_17",
+				"picture": "spr_various_token",
+				"visible": 0,
+				"x": 428,
+				"y": 778,
+				"xScale": 100,
+				"yScale": 100,
+				"description": "Graffiti",
+				"order": "look",
+				"combinations": {
+					"look": "Floor. > How informative."
+				}
+			},
+
+			{
+				"alias": "graffiti_16",
+				"picture": "spr_various_token",
+				"visible": 0,
+				"x": 256,
+				"y": 144,
+				"xScale": 640,
+				"yScale": 70,
+				"description": "Graffiti",
+				"order": "look",
+				"combinations": {
+					"look": "Mothers against lorem ipsum. > What about fathers?"
+				}
+			},
+
+			{
+				"alias": "graffiti_15",
+				"picture": "spr_various_token",
+				"visible": 0,
+				"x": 211,
+				"y": 216,
+				"xScale": 126,
+				"yScale": 21,
+				"description": "Graffiti",
+				"order": "look",
+				"combinations": {
+					"look": "Sal was here."
+				}
+			}, {
+				"alias": "graffiti_14",
+				"picture": "spr_various_token",
+				"visible": 0,
+				"x": 231,
+				"y": 293,
+				"xScale": 105,
+				"yScale": 27,
+				"description": "Graffiti",
+				"order": "look",
+				"combinations": {
+					"look": "ATOM!"
+				}
+			}, {
+				"alias": "graffiti_13",
+				"picture": "spr_various_token",
+				"visible": 0,
+				"x": 107,
+				"y": 267,
+				"xScale": 118,
+				"yScale": 110,
+				"description": "Graffiti",
+				"order": "look",
+				"combinations": {
+					"look": "Moosebook > Book made out of moose?"
+				}
+			}, {
+				"alias": "graffiti_12",
+				"picture": "spr_various_token",
+				"visible": 0,
+				"x": 207,
+				"y": 548,
+				"xScale": 80,
+				"yScale": 60,
+				"description": "Graffiti",
+				"order": "look",
+				"combinations": {
+					"look": "Sir Didimus was not here. > Well, it was probably too hard to get out of that Labyrinth."
+				}
+			}, {
+				"alias": "graffiti_11",
+				"picture": "spr_various_token",
+				"visible": 0,
+				"x": 895,
+				"y": 187,
+				"xScale": 270,
+				"yScale": 106,
+				"description": "Graffiti",
+				"order": "look",
+				"combinations": {
+					"look": "Go Spartak Marimash!"
+				}
+			}, {
+				"alias": "graffiti_10",
+				"picture": "spr_various_token",
+				"visible": 0,
+				"x": 218,
+				"y": 427,
+				"xScale": 110,
+				"yScale": 21,
+				"description": "Graffiti",
+				"order": "look",
+				"combinations": {
+					"look": "Heath lives."
+				}
+			}, {
+				"alias": "graffiti_9",
+				"picture": "spr_various_token",
+				"visible": 0,
+				"x": 341,
+				"y": 426,
+				"xScale": 25,
+				"yScale": 60,
+				"description": "Graffiti",
+				"order": "look",
+				"combinations": {
+					"look": "Shit happens. > Yes, especially here."
+				}
+			}, {
+				"alias": "graffiti_8",
+				"picture": "spr_various_token",
+				"visible": 0,
+				"x": 44,
+				"y": 430,
+				"xScale": 66,
+				"yScale": 72,
+				"description": "Graffiti",
+				"order": "look,use",
+				"combinations": {
+					"look": "Laura!"
+				}
+			}, {
+				"alias": "graffiti_7",
+				"picture": "spr_various_token",
+				"visible": 0,
+				"x": 366,
+				"y": 88,
+				"xScale": 100,
+				"yScale": 45,
+				"description": "Graffiti",
+				"order": "look",
+				"combinations": {
+					"look": "Screaming peanut butter. > Yes, plaese."
+				}
+			}, {
+				"alias": "graffiti_6",
+				"picture": "spr_various_token",
+				"visible": 0,
+				"x": 249,
+				"y": 389,
+				"xScale": 73,
+				"yScale": 28,
+				"description": "Graffiti",
+				"order": "look",
+				"combinations": {
+					"look": "Kissing. > Writen on mirror, possibly with lipstic"
+				}
+			}, {
+				"alias": "graffiti_door_1d",
+				"picture": "spr_various_token",
+				"available": 0,
+				"visible": 0,
+				"x": 418,
+				"y": 332,
+				"xScale": 150,
+				"yScale": 128,
+				"description": "Graffiti",
+				"order": "look",
+				"combinations": {
+					"look": "This place shall remain closed... for tonight. "
+				}
+			}, {
+				"alias": "graffiti_door_1c",
+				"picture": "spr_various_token",
+				"available": 0,
+				"visible": 0,
+				"x": 434,
+				"y": 527,
+				"xScale": 119,
+				"yScale": 55,
+				"description": "Graffiti",
+				"order": "look",
+				"combinations": {
+					"look": "Matilda was here. > I like that name."
+				}
+			}, {
+				"alias": "graffiti_door_1b",
+				"picture": "spr_various_token",
+				"available": 0,
+				"visible": 0,
+				"x": 460,
+				"y": 612,
+				"xScale": 105,
+				"yScale": 33,
+				"description": "Graffiti",
+				"order": "look",
+				"combinations": {
+					"look": "Vomiting."
+				}
+			}, {
+				"alias": "graffiti_door_2b",
+				"picture": "spr_various_token",
+				"available": 0,
+				"visible": 0,
+				"x": 609,
+				"y": 400,
+				"xScale": 150,
+				"yScale": 114,
+				"description": "Graffiti",
+				"order": "look",
+				"combinations": {
+					"look": "I love you Igor... > Ivan... > Lawrence... > Me... > It's complicated?"
+				}
+			}, {
+				"alias": "graffiti_door_2",
+				"picture": "spr_various_token",
+				"available": 0,
+				"visible": 0,
+				"x": 644,
+				"y": 599,
+				"xScale": 103,
+				"yScale": 69,
+				"description": "Graffiti",
+				"order": "look",
+				"combinations": {
+					"look": "Screatching and screatching.> Ugh, this one gives me the creeps."
+				}
+			}, {
+				"alias": "graffiti_door_3",
+				"picture": "spr_various_token",
+				"available": 0,
+				"visible": 0,
+				"x": 854,
+				"y": 467,
+				"xScale": 120,
+				"yScale": 55,
+				"description": "Graffiti",
+				"order": "look",
+				"combinations": {
+					"look": "Try the @LakeWaterOnTap!"
+				}
+			},
+
+			{
+				"alias": "graffiti_4",
+				"picture": "spr_various_token",
+				"visible": 0,
+				"x": 490,
+				"y": 221,
+				"xScale": 126,
+				"yScale": 45,
+				"description": "Graffiti",
+				"order": "look",
+				"combinations": {
+					"look": "It only takes one! > To overthrow the Emperor?"
+				}
+			}, {
+				"alias": "graffiti_2",
+				"picture": "spr_various_token",
+				"visible": 0,
+				"x": 630,
+				"y": 224,
+				"xScale": 263,
+				"yScale": 46,
+				"description": "Graffiti",
+				"order": "look",
+				"combinations": {
+					"look": "Killing in the name of... > God? > Or doing what they told 'ya?"
+				}
+			},
+
+			{
+				"alias": "graffiti_3",
+				"picture": "spr_various_token",
+				"visible": 0,
+				"x": 285,
+				"y": 244,
+				"xScale": 177,
+				"yScale": 33,
+				"description": "Graffiti",
+				"order": "look",
+				"combinations": {
+					"look": "Nanowar. > Of Steel!"
+				}
+			}, {
+				"alias": "toilet_pipe",
+				"x": 510,
+				"y": 0
+			}, {
+				"alias": "priest",
+				"x": 1140,
+				"y": 680,
+				"idle": 0
+			}, {
+				"alias": "toilet_exit",
+				"picture": "spr_various_token",
+				"visible": 0,
+				"x": 5,
+				"y": 250,
+				"xScale": 120,
+				"yScale": 400,
+				"xInteract": 210,
+				"yInteract": 714,
+				"idle": 1,
+				"description": "Exit",
+				"order": "look,use",
+				"combinations": {
+					"look": "Back to the bar",
+					"use": "[room tavern toilet_exit]"
+				}
+			}
+		]
+	}]
+}
