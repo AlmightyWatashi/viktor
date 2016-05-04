@@ -1,9 +1,7 @@
-D3DX9_43.dll
-data.win
+*.win
 *.avi
-snd_coupe.ogg
 *.ogg
-source.exe
+*.exe
 *.dll
 options.ini
 *.png
