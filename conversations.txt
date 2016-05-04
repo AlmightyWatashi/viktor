@@ -1,0 +1,2664 @@
+=== version ===
+
+0.00 wat dodao probno noama
+0.01 alex ubacio u program
+0.02 wat dodao gornji kat aerodroma
+0.03 alex ubacio u program
+0.06 wat dodao jos nekih likovlja
+0.07 alex ubacio u program
+0.08 ovo je wata poslao 26.4. u 17h
+0.09 alex 27.4. 17h do 28.4.
+
+=== keys_test2 ===
+
+Are those keys?
+	+[if item keys] ...yes...
+		okay
+		[end]
+	+[not item keys] ...no...
+		oh.
+	+[if mood angry][if item keys] YES YOU BASTARD!
+		[end]
+
+
+=== crow ===
+
+== start ==
+
+Your rent is late.
+[set mood scared]
+Time for you to die, pig boy!
+[set didmoney_flag 0][set crowmoar_flag 0][set crowfunder_flag 0][set imaboar_flag 0][set flattery_flag 0]
+
+== first ==
+
+	- I'm actually a boar.
+		I don't think my stew pot knows the difference
+		[set imaboar_flag 1]
+			[section first]
+	-[if imaboar_flag = 1] It's mostly taxonomy, but there are some physiological differences as well...
+			[section moar]
+	- Help! I'm being murdered!
+		[set imaboar_flag 0]
+		[section beingmurdered]
+	-[if didmoney_flag = 0] Wait! I have the money!
+		[set imaboar_flag 0]
+		[section havemoney]
+	- My god, woman. You look so beautiful today!
+		Flattery will get you nowhere, pig
+		[set imaboar_flag 0]
+		[set flattery_flag 1]
+			[section first]
+	-[if flattery_flag = 1] But your eyes look so bright, young and ravishing today. I can't help myself
+		Well, I have been to the eye doctor lately.
+			[section woo]
+
+end
+== havemoney ==
+
+How much money do you have?
+[set didmoney_flag 1]
+	- Actually, I just wanted to stall you so I could live longer.
+		[section moar]
+	+Umm... I might have a copper crown or two on me...
+		You are still worth more as pork chops.
+			+[not coins < 1] But look! A real coin! So shiny!
+				(ending animation)
+				[end]
+			+ Could we take care of this some other way?
+				You said that in a strange tone of voice.
+				I haven't heard that tone in decades.
+					[section woo]
+	-[if crowfunder_flag = 0] Have you ever heard of crowdfunding?
+		[section crowdfunding]
+
+
+end
+== beingmurdered ==
+
+You owe me four months of rent.
+Good night pig.
+	+[if didmoney_flag = 0] Wait, I have money! Real money!
+		[section havemoney]
+	+ Please! I got fired today.
+		One more reason to kill you, lazy pig!
+			+[if didmoney_flag = 0] But I still have some money!
+				[section havemoney]
+			- If you kill me, you don't get my last paycheck.
+				You are still worth more as pork chops.
+				[set crowmoar_flag 1]
+					[section moar]
+			+[if crowfunder_flag = 0] I can crowdfund my rent for you
+				The hell are you talking about, pig?
+					+ You haven't heard of crowdfunding?
+						[section crowdfunding]
+			+ But I did pay you. I left the paycheck in your mailbox this morning.
+				[section senile]
+
+
+end
+== moar ==
+
+[if crowmoar_flag = 0] This conversation tires me.
+Prepare to die.	
+	+[if crowfunder_flag = 0] Well, I have another option. See, there's people who might want to fund me.
+		The hell are you talking about, pig?
+		[set crowmoar_flag 1]
+			+ Have you ever heard of crowdfunding?
+				[section crowdfunding]
+	- Okay then, let's play a round of Cyclops Chess, winner gets the house.
+		I'm squeezing my trigger slowly!
+		[set crowmoar_flag 1]
+			[section moar]
+	- Well, there is also one more thing we could do, if you know what I mean...
+		Your voice sounded strange, yet familiar back there.
+		What the hell are you on to, pig?
+			[section woo]
+
+end
+== crowdfunding ==
+
+Yes I have, in fact.
+[set crowfunder_flag 1]
+	+ It's where tousands of people give you money to continue your adventures
+		Yes, yes it is.
+		But only if you already have tons of money for marketing
+		Or personally know a buttload of foreign journalists
+		You are just a megalomaniac pig with no money or connections.
+		[set crowmoar_flag 1]
+			[section moar]
+
+end
+== woo ==
+
+[set mood]
+	- Let's say we go to your place and you slip into something more comfortable...
+		I'm pretty comfortable in this outfit
+		It's the finest cotton and wool, you know.
+		Keeps me warm and protected from this murderous draft.
+		Is that window broken? How is it broken?
+			- Shhh, don't ruin this enchanting moment between us.
+				Oh...
+				That's what you're talking about.
+				Well, I was never into long ceremonial seduction, so let's skip to the good part.
+					[section wooend]
+			++ Oh, you don't remember? The construction workers broke it when they installed the oven.
+			[mood angry]  Oh, you don't remember? The construction workers broke it when they installed the oven.
+			They still owe you money for that.
+				[section senile]				
+	- We start by taking some wine and light up your fireplace.
+		Ooh, I like that.
+		My fireplace hasn't been lit in a long long time.
+			+ Well, if you have the fireplace, I have some wood.
+				Yes, you seem well stocked in the wood department.
+					[section wooend]
+
+== wooend ==
+
+I'll go to my apartment and slip into something less comfortable.
+Meet me in a few minutes
+	+ Sure
+		[section perfectending]
+
+end
+== senile ==
+
+[set mood]
+Are you sure about that?
+	+ Of course I'm sure. You should go and check.
+		[section perfectending]
+
+end
+== perfectending ==
+
+[set mood]
+[end]
+		
+end
+=== martin ===
+
+== greetings ==
+
+Greetings. > You have reached MARTIN THE MAGNIFICENT! > Please state the nature of your psychic emergency.
+	- Hey, Martin. It's me, Viktor! 
+		I know. > I have sensed it before you called.
+			- No you didn't.
+				Dearest friend, I am not in the mood for hostile merriment. > Unless you come over and bring Cyclops Chess with you...
+					No time for that, Martin. I just got fired and I have a new plan to make everything better.
+					[section the_plan]
+	+ Greetings, Martin. I wish to enquire about my fortune.
+		Ah, you wish to seek the answers from THE WORLD BEYOND! > I sense... I sense a familiar voice. > Mother, is that you?
+			- Yes, this is mother. I decided to stop sending you money until you finish school.
+				[section recognizes_you]
+			- Martin, you dumbass. It's me, Viktor!
+				== sensed_it ==
+				I know. > I have sensed it before you called.
+					- No you didn't.
+						[section in_no_mood]
+					- Martin, I got fired.
+						[section got_fired]
+					- Man, you won't believe what I'm planning to do now.
+						[section the_plan]
+			- I'm sorry, I think I called the wrong psychic.
+				[section faith]
+	- Oh, I'm sorry, I must have dialed the wrong number.
+		[section faith]
+
+end
+== faith ==
+
+Perhaps. Perhaps not. > Maybe it's faith that brought you here.
+	- In a way, it is. I have great plans for the two of us!
+		Is this going to get weird? Because that costs extra.
+			- Martin, you dumbass. It's me, Viktor!
+				[section sensed_it]
+			- I am planning to take over the Austro-Hungarian empire and you shall help me.
+				[section tobacco_plants]
+			- Then I must have a wrong number. It was not destiny after all.
+				[section recognizes_you]
+	- Martin, you dumbass. It's me, Viktor!
+		[section sensed_it]
+	- No, it's definitely a wrong number. Good bye.
+		[section recognizes_you]
+
+end	
+== in_no_mood ==
+
+Dearest friend, I am not in the mood for hostile merriment. > Unless you come over and bring Cyclops Chess with you...
+	No time for that, Martin. I just got fired and I have a new plan to make everything better. 
+	[section got_fired]
+
+end	
+== recognizes_you ==
+
+Wait, please, I... > [animation martinsRoom_martin spr_martinsRoom_martin][time 15] > Viktor, is that you?
+	- Hahahahahahaha
+		[section in_no_mood]
+	- No, this is mother. Hoot.
+		[section in_no_mood]
+	- Martin, I got fired.
+		[section got_fired]
+	- Man, you won't believe what I'm planning to do now.
+		[section the_plan]
+
+end	
+== got_fired ==
+	
+What the hell, Viktor. How could you get fired from street sweeping? > Did you sweep in the wrong direction or something?
+	- I don't want to talk about it. 
+		Actually, let's not talk about it. > Preferably, let's not talk about it over a nice game of Cyclops Chess. > Do you want to come over tonight?
+			- No time for that, Martin. I just got fired and I have a new plan to make everything better. 
+					[section the_plan]
+			- No, Martin! Today is the day when I begin my plan of taking over the Empire and then the world!
+				[section tobacco_plants]
+	- My whole life has been going in the wrong direction. But, I have a way to fix it.
+		[section the_plan]
+	- Well, first the car blew away my leaves, then a newspaper hit me in the face and while I was...
+		Actually, let's not talk about it. > Preferably, let's not talk about it over a nice game of Cyclops Chess. > Do you want to come over tonight?
+			- No time for that, Martin. I just got fired and I have a new plan to make everything better.
+				[section the_plan]
+			- No, Martin! Today is the day when I begin my plan of taking over the Empire and then the world!
+				[section tobacco_plants]
+
+end	
+== the_plan ==
+
+If this is like that plan when you wanted to turn your landlord's bed into a time machine... > I'm not visiting you in the hospital again.
+	- This time, I have a perfect plan for us. A plan to take over the Empire and finally make everything right!
+		[section tobacco_plants]
+	- Actually, this one might get us killed or make us the supreme rulers of Austro-Hungary.
+		[section tobacco_plants]
+
+end	
+== tobacco_plants ==
+
+Oh, no! > I think my tobacco plants got hit by lightning. > I have to hang up now.
+	- Martin, please, I cannot do it without you.
+		[section might_help]
+	- Wait, wait! Conquering the empire would solve all our financial problems!
+		[section might_help]
+	- But this is an opportunity to use your psychic powers for the ultimate good!
+		[section might_help]
+	- Fine, don't help me. See if I care. Goodbye.
+		[section acting_up]
+
+end	
+== might_help ==
+
+Since you put it that way, I might be able to help.
+	- Excellent. I'll bring over the map and show you the plan. First we need to leave Agram, preferably by airship...
+		Whoa, wait just a second. > This part of the plan where I have to leave my house... > You know I have to walk my neighbour's uncle every other afternoon as community service.
+			- Then you also don't do the part of the plan where you rule the country with me 
+				[section acting_up]
+			- What, did you think that you'll manage to help me from home?
+	- Wonderful. With my strength and your wisdom, we'll conquer the empire! 
+		[section wisdom]
+
+end	
+== wisdom ==
+
+Yes! My wisdom shall guide you. > Whenever you call me, I can give you guidance.
+	- Oh, come on, man. You could do much more if you got your lazy butt off the pillow.
+		[section ending1]
+	- Well, that's close enough, I guess. 
+		[section ending1]
+	- Can you also give me some money? I think I hear my landlord sneaking in the hallway.
+		[section ending1]
+
+end	
+== acting_up ==
+
+Viktor, my dear friend. > If I wanted someone to act like this, I would live with my mother. > Please, do your thing and call me when you need advice. > I shall be available 24/7, just for you.
+	- Well, thanks, I guess.
+		[section ending1]
+	- Thank you, Martin. I shall report on my advancement.
+		[section ending1]
+
+end	
+== ending1 ==
+
+It is time for me to go now, I have very pressing matters to do. > Good luck on your journey, Viktor. May the spirits protect you. Good bye!
+	- Bye, man.
+		[end]
+	- What spirits?
+		[end]
+	- Wait, I need some money for my rent!
+		[end]
+
+end
+
+== station ==
+
+Greetings.
+
+== hello ==
+
+	+[if already_called_station = 1] Turn on your third and fourth eye, martin. I need psychic advice.
+		Way ahead of you, sir.
+			[section psychic]
+	-+ Hey Martin, it's me, Viktor. I need money for a ticket to Vienna
+	Hey Martin, it's me, Viktor...
+		I already told you, I'm out of money this month.
+			+ Your cold reading is really improving.
+				Do not be cheeky Viktor. Try focusing on your goal.
+					[section hello]
+	- Martin, it's me, Viktor. I need your psychic services.
+		Of course Viktor. Just ask away.
+		[set already_called_station 1]
+			[section psychic]
+	+[if talked_to_attar = 1] Attar sends regards.
+		This pleases me.
+		Which one was Attar?
+		== is_it_attar ==
+			- Attar, the sikh rhino.
+				You mean that hypochondriac hippo from the board game club?
+					+ No, Martin, not... never mind.
+						[section is_it_attar]
+			- Attar is the guy who sold you your favorite hookah.
+				I do not recall owning a hookah.
+					[section is_it_attar]
+			+ Forget I said anything.
+				This answer also pleases me.
+					[section hello]
+
+endi
+== psychic ==
+	
+	-[if talked_to_dog = 1] There's this dog with that jewish hat and wearing a kilt.
+		Yes yes, he sounds stingy as hell.
+			+ You must be psychic or something.
+				He wants you to put things on his head.
+					+ He already has things on his head
+						Then maybe on someone elses head.
+						Or your head.
+						Oh, I don't know, just try putting some things on some heads.
+							+ I think your head has some things to take care of, man.
+								Frighteningly amusing.
+									[section psychic]
+					+ Thanks man, that sounds very useful.
+	-[if talked_to_rabbit = 1] Do you see anything about a pink bunny girl on a giant robot?
+		I sense something about law enforcement.
+		And a skirt.
+		Don't look under her skirt or you will have trouble with law enforcement.
+			+ That was obvious even without you saying it.
+			But thanks anyway.
+				Any time, friend.
+					[section psychic]
+	-[if talked_to_frog = 1] Can you sense anything about a drunken frog in a toga?
+		Is he slovenian?
+			+ Martin, just because you're a Slovenian doesn't mean every drunk person in a toga is Slovenian.
+				Anyone can be Slovenian if drunk enough.
+					+ I tried it a lot of times, but it didn't work, remember?
+						All right, anyone but you.
+							+ Anyway, he's from the Roman Empire.
+								That's practically Slovenia.
+									[section toga_advice]
+					+ That's nice, but what about the guy in a toga?
+						Ah, yes yes.
+							[section toga_advice]
+			+ No, I think he's roman.
+				== toga_advice ==
+				Heed my advice.
+				Make every hair fall off his head.
+				By screaming at him.
+					+ He has no hair.
+						It's the hair on the inside that counts, Viktor.
+							+ Sorry I asked.
+								[section psychic]
+	-[if talked_to_donkey = 1] What do you feel when I mention a Bosnian donkey?
+		I feel like I need a drink.
+			+ Very funny.
+				But honestly, you don't need my advice about that.
+				What did we say, how do we deal with anyone from the balkan area?
+					+ Kick him in the groin and steal his wallet?
+						[section ending_advice]
+					+ Offer him a drink and become his best friend?
+						[section ending_advice]
+					+ Tell him you could do his job better then him?
+						[section ending_advice]
+	- That cow is working at the kiosk again.
+		[set cow_fun_flag 1]
+		Do not make fun of her, Viktor.
+		The repercussions would be severe.
+			+ So, what you're saying is that I should make fun of her a lot?
+				No, Viktor. Do not make fun of her.
+					+ Okay, I'm going to make fun of her right now. Talk to you later.
+						I am not amused.
+						All right, I am amused a little.
+							[section psychic]
+	+ Thanks for everything Martin, that's all I needed to hear.
+		May the spirits help you and everyone around you.
+		Except for the people you dislike.
+		Goodbye.
+			[end]
+	
+
+
+== ending_advice ==
+
+And with that piece of unquestionable wisdom, I leave you to your adventure.
+	+ What does that even mean?
+		You shall understand eventually.
+		If not, call me back sooner or later.
+			+ Thanks, I guess...
+				Goodbye, Viktor.
+					[end]
+
+
+
+end
+
+=== noam ===
+
+Shalom, me lad.
+[set talked_to_dog 1]
+	[section hello]
+
+== hello ==
+
+	- How come you're not in the line for the dirigible?
+		Ach feh! I cannae go there yet. > Walking around just wears out meh shoes.
+		[section hello]
+	- My name is Viktor.
+		Pleased to be meetin' ya
+		Me name is Noam McSmelliecock
+		An athlete.
+			+ I used to do semi-professional boxing.
+				How wonderfool. Which category be ya fightin' in?
+					+ I thought it was apparent.
+						[section hello]
+	- Hey, mr. traveler. Where do you plan on traveling?
+		I just be traveling' to Vienna.
+		The Jewish Athletes of Scotland Kibbitz, be visiting' the emperor of Austria-Hungary. 
+		[set jew_flag 1]
+			+ What a coincidence. I'm travelling to the same place. But I'm planning to overthrow the emperor.
+				Strange. I got the feelin's that yer emperor is a lifelong shtick.
+					+ Shticks are to be changed.
+						If ye be sayin' so.
+							[section hello]
+	-[if jew_flag = 1] You are Jewish? I heard you people are loaded with money! Could you spare a few coins for a ticket?
+		Of course, all stereotypes are true.
+		But I need as much money as I can have.
+		Vienna is a pricey place, even for Scottish-Jewish athletes.
+		If I wasn't the only member of the kibbitz, I would easily skip the meeting.
+			+ If you gave me the ticket, I could go in your place and save you from the terrible expenses.
+				You are such a mensch, lad.
+				But a Slavic mensch.
+				Even the daft old emperor would see that you are neither Jewish or Scottish.
+				Let aloon an athlete.
+					+ What if I had a disguise?
+						Only if it were magical.
+						[set needs_wig 1]
+							[section hello]
+			+ Scottland... Is that the county of Unwanted Kingdom?
+				[section unwanted]
+	+ Could you please spare a few coins for an airship ticket?
+		Amusing question, son.
+		I wouldn't be lendin' money to the emperor of Austria-Hungary himself, let alone you.
+			+ I give you my word, I will give you a thousand crowns for every crown you lend me.
+				I give ye mah word, I'll be lendin' you a crown fer every thousand crowns you give meh.
+				[section hello]
+			+ I understand your point, but this is just a few coins for better life of all citizens of Austria-Hungary.
+				I m not really sure do I care for those citizens.
+				Let me think a bit.
+				No, I do not care at all. I like my coins better
+				[section hello]
+			+ I wouldn't lend money to him either. But I would definitely lend some to me.
+				As for meh, I wouldn't be takin' any money from meself, lad.
+				My own interest rate would kill meh.
+			+ So if I would be a jew and Scotman as you would you than be so nice and lend me some money?
+				[section in_place_of]
+	+[if item wig][not item dress] Look, I have this wig, can I pass as a member of your Kibutz?
+		Ah, a fine payot it be.
+		But they be expecting a Scottish Jew, boy. > Nothing Scottish about you yet.
+			[section hello]
+	+[if item kilt][not item wig] I got this dress, can I pass as a Scotsman?
+		[section kilt]
+	+[if item dress][if item wig] I got this dress and this wig, can I pass as a Jewish-Scotsman?
+		Aye, a kilt and a payot, that's the ticket, laddy!
+			Speaking of tickets...
+				[section everything] 
+		
+	+ Never mind.
+		[end]
+
+end		
+== in_place_of ==
+
+No.
+But I must admit, I really do not wish to go to that trip.
+If ye were me mishpocheh, I would just give ya meh ticket.
+	So, basically, if i looked like you?
+		That might help, lad.
+			[set needs_wig 1]
+			[section hello]
+				
+end			
+== kilt ==
+
+	+ Look, I have a kilt! Do I look Scottish now?
+		It don' look like it be fittin' ye, lad. 
+			+ What if I wore it on my head as a hat?
+				Cunning lad.
+				But you don't be lookin' jewish at all.
+				The emperor would be seein' through yer disguise and have ye shot.
+
+end	
+== everything ==
+
+	Can I get yours now?
+		But you dinnae be lookin' like an athlete!
+			I'll just say I'm a sumo wrestler.
+				That sounds odd...
+				But ye be the one who would get killed if the emperor gets suspicious.
+				Here's yer ticket, lad.
+				Ten crowns, please
+					But the ticket is worth five crowns!
+						I just be teachin' ya how a Jewish Scottsman thinks, lad.
+						[take ticket] > Off ye go.
+						[end]
+
+end	
+== unwanted ==
+
+Aye, it is.
+	[section hello]
+
+
+== viktor_angry ==
+
+Shalom, lad.
+	+ What'cha looking at, Scottface?
+		I be lookin' at the wonderful scenery of this dirgibledrome
+			+ Oh piss off.
+				[end]
+	+ Give me some money, you stingy piece of shit!
+		Sorry lad, I needs meh travelin' expenses.
+			+ I wheap the flor with you
+				Please, man. I cannae fight yeh, me athlete's paw is acting up.
+					+ You're not worth my fists, you stingy son of a bitch!
+						[end]
+
+end	
+=== frog ===
+
+== excuse ==	
+[set talked_to_frog 1]
+[not brojtocnih < 3][section got_a_wig]
+	
+	- Excuse me. Is this the line for the airship?
+		Line? But, what is a line, really?
+		Is it a man standing beside a man of whom each one waits to solve his own problem?
+		[mood frog smart] Or is it a large combined thought made for relaxation of each individual mind?
+		[set philo_flag 1]
+			+ You know, line! Queue! Row! What would you call it?
+				Please sir, leave me in peace.
+				[mood frog smart] Your banality makes me more sober then a philosopher is supposed to be!
+					[section excuse]
+			+ Let me rephrase that. Are you standing in the line to enter the dirigible?
+				[mood frog smart] An anecdote.
+				There was this man at a party.
+					++ I hope this has something to do with my question.
+					[mood angry] I hope this has something to do with my question.
+						He asked a philosopher what he was doing there.
+						The answer lasted for two years.
+							[section excuse]
+			+ You are needlessly complicated and I do not wish to talk to you right now?
+				[mood frog smart] But talking, what is talking anyway?
+					+ Piss off.
+						[end]
+	+ Aren't you cold in this toga of yours?
+		The truth warms me, young man!
+		The truth and the wine!
+		[mood frog smart] Because, in wine lies the truth.
+			[section vino_veritas]
+	+[if philo_flag = 1] So, you're a philosopher, eh?
+		[section philosopher]
+	- Are you alright, sir? You look a bit ill.
+		I'm gorgeous, my friend.
+		[mood frog smart] I'm just perfect!
+		You would see it if you were in the right state of mind.
+		My grandfather said
+		[mood frog smart]''drink at least 2 bottles of wine each day and you will never be ill.''
+		Maybe I look a bit ill because I did not drink enough today.
+		But I would like to shake my ass!!!
+		Everyone shake your ass! To hell with your police!
+		What were we talking about? Hipsters? Emperor? Me? Wigs?
+		[set philo_flag 1]
+			[section excuse]
+	+ Never mind
+		[end]
+	+[if wig_flag = 1][if needs_wig = 1] About that wig...
+		[section viktor_philosophy]
+
+end	
+== vino_veritas ==
+
+	- Wait, I don't get it. The truth lies when it's drunk?
+		Truth is where you left it. Truth is always drunk my dear friend. She never lies.
+		[mood frog smart] And also, the truth is she and the lie is he!
+		[mood frog smart] Drunk should be you and me! Can't you see?
+		[mood frog smart] I' m happy like all you tree!! So everyone should sing with me!
+		In vino veritas!
+			[vino_veritas]
+	+ Ah yes, ''in vino veritas''. I had Latin in school, it's the only thing I remember.
+		Ooeeee
+		I belive you do remember also:  ''Wiena delenda est'' and ''Audentes fortuna iuvat''.
+			+ Nope, never heard of them.
+				Come to Rome with me and I will teach you all proverbs.
+				[mood frog smart] We will drink from dusk till dawn and make jokes about my Emperor!
+				[mood frog smart] I'm the greatest frog in the world because I'm...
+				I'm...
+				What am I, anyway?
+					[section excuse]
+			+ Fortune favors the audience?
+				No, Fortune favours the bold.
+				Like Captain Picard.
+				Or was it about bravery?
+				[mood frog smart] Anyway, he who is not drunk is lost! Who is drunk will puke!
+				[mood frog smart] Like me, soon!
+					[section excuse]
+	+ Let me drink from that bottle of wisdom, so we can talk normally.
+		That, um, is not possible.
+		[mood frog smart] A philosopher never gives away his alcohol willingly!
+			[section excuse]
+
+
+end	
+== philosopher ==
+
+Of course I am.
+[mood frog smart] In a way, everyone's a philosopher!
+I'm just better then most of you because I'm a member of a philosophy school.
+I also earn a living wage out of it.
+	+ Which philosophy school do you attend
+		The biggest and quietest one, of course!
+		It is called Cosa Nostra.
+		But that's all I'm allowed to say.
+		Very secretive school.
+		It practically rules over Roman empire and a big part of Texas from the shadows.
+		But you didn't hear it from me. I never talk about my school.
+			+ What are the conditions to get into the Cosa Nostra school?
+				Ah, I cannot tell you that.
+				[mood frog smart] It's a secret!
+				But I can tell you about my other job.
+					++ Do I want to hear it?
+					[mood viktor scared] Do I want to hear it?
+						[section wigs]
+	+ You can afford to be an alcoholic by doing philosophy?
+		Of course not!
+			[section wigs]
+				
+end	
+== wigs ==
+
+I also sell wigs.
+Wigs earn tons of money.
+[set wig_flag 1]
+Possibly too much. So I decided to help out the philosophy circle.
+[mood frog smart] Free wigs for all philosophers!
+	+[if needs_wig = 1] So, can I get a free wig? I've always wanted to have long and curly hair.
+		[mood frog smart] You, my boy, look way too sober to be a philosopher.
+			[section viktor_philosophy]
+	+ That's noble of you, I guess.
+		I'm noble all over!
+		No, wait, what's the other word like noble, but drunk?
+		Oh yes, drunk!
+		Free wigs for all philosophers!
+			[section hello]
+
+			
+end	
+== viktor_angry ==
+
+	+[if wig_flag = 1] Gimmie a wig! 
+		When you prove that you're a good philosopher, you can get a wig.
+			+ I'll shove each and every wig down your mouth until you start pooping hairballs!
+				Your orgies sound nothing like Roman orgies.
+				You should really go to Rome with me and see the real beauty!
+					+ Oh great, now I'm too angry to be angry!
+						[end]
+			+ All right, let's do the philosophy thing.
+				Good, yes.
+				Um...
+				What is life?
+					+ Give me a wig or I'll kill you.
+						Not bad.
+						But you should get a lot more drunk if you truly want to master the art of, er...
+						Cosa nostra!
+							+ I'm too angry for this.
+								[end]
+					+ Give me a wig or I'll kill you.
+						Not bad.
+						But you should get a lot more drunk if you truly want to master the art of, er...
+						Cosa nostra!
+							+ I'm too angry for this.
+								[end]
+					+ Give me a wig or I'll kill you.
+						Not bad.
+						But you should get a lot more drunk if you truly want to master the art of, er...
+						Cosa nostra!
+							+ I'm too angry for this.
+								[end]
+	+ Gimmie all your alcohol!
+		I drank all of it already.
+			- You're lying!
+				Philosophers never truly lie, my friend!
+				We just interpret the truth differently.
+					[section viktor_angry]
+			+ I'm going to kill you
+				But what is killing?
+				Is it the act of ending a life? It might be.
+				But what is life?
+				 + I think I'll go home and demolish my room again.
+					[end]
+
+end	
+== viktor_philosophy ==
+When you prove that you're a good philosopher, you can get a wig.
+	+ Ask me something about philosophy.
+		Um... Oh, I know!
+		I will ask you four questions about philosophy of the dreaded Cosa Nostra.
+		If you answer at least three of them correctly, you can get a wig.
+		[set brojtocnih 0]
+		Question one!
+		What is life?
+			+ Not beeing dead?
+				[add brojtocnih 1] Yesh, um, good. Cosa Nostra philosophy would let that one slide.
+				So the answer is correct!
+					[section pitanje2]
+			+ To drink wine every day? 
+				I know some unfortunate people who would be dead if was be correct.
+				So no, that is not the answer. > [section pitanje2]
+			+ Life is a dream for the wise, a game for the fool, a comedy for a rich, a tragedy for the poor.
+				You know nothing, George Snow.
+				If you are drunk, it means you are wise.
+				But if you are poor and drunk, you see all as comedy.
+				Soooo...
+				Wait, what was happening?
+				Oh, right!
+				Your answer is wrong wrong wrong wrong wrong.
+				Wrong!
+					[section pitanje2]
+
+== pitanje2 ==
+Next question!
+What is anger?
+	+ Anger is sleeping at the bottom of wine bottle?
+		Then I would be angry at least 5 timed a day.
+		And I'm not.
+		I also love bottoms!!
+		bottommmszz o it sounds so mmmmm bottom, bottom
+		Bottom!
+			[section pitanje3]
+	+ Anger is reacting to stupidity of others?
+		I do that all the time without anger.
+		So it is not.
+		Probably.
+		Let me think about it.
+		Yes, it is not!
+			[section pitanje3]
+	+ I will give you some of it if you don't give me a wig after I think I gave you correct answers.
+		Oh that was so lovely
+		[add brojtocnih 1]
+		Like a true poet you are.
+		I pronounce this wrong!
+		No, wait the other one!
+		Correct!
+		I pronounce this correct!
+			[section pitanje3]
+	+ Opposite to peace! 
+		Yes!
+		But no!
+		We need something less banal!
+			[section pitanje3]
+
+== pitanje3 ==
+What was I talking about?
+Oh, right, the questions!
+What is the most perfect test of our character?
+	+ Stupid questions?
+		Maybe for you.
+		But for a philosopher, there are no stupid questions.
+		Unless they are really stupid!
+			[section pitanje4]
+	+ Flame thrower?
+		That should be tested.
+		Until that time comes, the answer shall be considered wrong!
+			[section pitanje4]
+	+ To have power like the Emperor.
+		Oh yes, i like that.
+		Like the emperor!
+		[add brojtocnih 1]
+		But with few more bottles of wine!
+		Correct!
+			[section pitanje4]
+	+ Tasty food?
+		With wine or without?
+			+ Including wine
+				I would like it better that way.
+				But it's still the wrong wrong wrong!
+				Err, what?
+				Oh yes, answer.
+				The answer was wrong!
+					[section pitanje4]
+			+ Without
+				Oh god, how did you imagine that?
+				So far from thruth you are.
+					[section pitanje4]
+end
+== pitanje4 ==
+And the last bottle!
+I mean, question!
+What should every philosopher have with him always, always, always?
+Allllways?
+	+ Wigs?
+		No no no.
+		That's just my speciality.
+		So I can earn money and look sexy like Elvis Presley or Johnny Doop.
+			[section odabir]
+	+ A pistol?
+		Why the hell?
+			[section odabir]
+	+ A brain?
+		Well that is for sure
+		But do you think about an extra brain in a bag?
+		No, do not tell me, I know.
+		The answer is correct.
+		But only if you have none.
+		And you do have some!
+		So no, the answer is wrong!
+			[section odabir]
+	+ Some wine?
+		Bingoo! Hik!
+		Take a sip bro!
+		[add brojtocnih 1]
+		Oh wait, I drank it all
+			[section odabir]
+end				
+
+== odabir ==
+
+[not brojtocnih < 3][section enough]
+[if brojtocnih < 3][section notenough]
+
+
+== notenough ==
+You answered half or less of them wrong!
+But don't worry.
+Failure is always an option. 
+	+ Can I try again?
+		Well I belive you can.
+		Time is strange thing, maybe you are more of a philosopher now hic!
+		Or is it just me?
+		Well there are always different ways to get to goal
+		But you can commit a foul and get red card like those parrots in Brassierian empire!
+		And than you have to go of a pitsh and pee on carpet and hic.
+		Where do I go with this?
+		Who the hell are you?
+			+ Let me think about this
+				By all means!
+				All the means!
+					[end]
+
+end
+== enough ==
+Woooowwhataaaa
+Waaaa!!!
+Ware the odds to see a great philosopher here in Agram on a dirigibledrome shtation!
+Here, my friend you can get a wig. Can you get a wig? Yes, you can get a wig!
+Do you want one that makes you look like that Texas president Ronald McDrumpf?
+	+ Actually, I would like to have a Jewish orthodox wig
+		I have exactly what you need!
+		A long curly wig!
+		Made from the hair of the finest poodle buried in the catacombs under the Arena!
+		Our finest arena!
+		Here you go!
+		[animation player spr_viktor_use_left_middle][take wig]
+		Now off with you!
+		And off with me!
+		Where was I?
+		Where am I?
+			+ I'll just leave
+				Am I in Africa?
+					[end]
+end
+== got_a_wig ==
+Ah, my philosopher friend.
+We will not sit in same cupe hic, unfortunately.
+They don't let me sit with other people.
+But I hope that soon enough we would have a great philosophic disscusion.
+	+ I hope that next time you talk with me as an emperor.
+		[section wewill]
+	+ We will, we will.
+		== wewill ==
+		So till next time my dear phylosopher Emperor.
+		Philosempre... Phisolemphres...
+		Emperor of philosophy!
+		Emperor of wine!
+		And truth! The truth! And nothing but it!
+		Oh look at me blabbering.
+		I have to drink more so I' get smart again.
+			[end]
+
+end
+=== donkey ===
+
+== start ==
+[set talked_to_donkey 1]
+	+ I would like to enter the dirgible
+		And you ticket is where?
+			+[if item ticket] Here it is!
+				OK, the ticket is good, go on!
+				[animations player player spr_viktor_walk_left][move player 180 3][time 60] > [room coupe start]
+			+ I don't need a ticket, I'm on the list
+				List? What fuckin list. Do not give me shit man, go down there and buy yourself a ticket.
+					[section start]
+			+ Why would I need a ticket? I'm the next emperor of Austria-Hungary.
+				Are you zonked? What are you gibbering all about. Seams like you are doped like horse ass.
+					[section start]
+			+ Oh come on, you would let a cousin in. My mother's uncle's chiropractician is Bosnian, just like you.
+				Ofcourse I would let cousin in but I belive you try to make monkey out of me bro.
+				How the smag can I know that your uncle's mother neighbour is from Bosnia?
+					[section start]
+			+ Can't we take care of this some other way?
+				
+						[end]
+	+ My name is Viktor. I'm the next emperor of Austria Hungary. Let me aboard
+		Did you smoke some wierd shit man?
+		What the fuck are you bullshiting around here.
+		You lasagna eater go suck your lasagnas.
+			+ Sir, I'm a customer of this dirgibledrome and you have no right to talk to me like this.
+				You are just a douchebag.
+				Without ticket.
+				Ticketless douchebag.
+					[section start]
+			+ Look who's talking! A Bosnian donkey that will smash this dirigible into the first chimney.
+				Like you would drive it better you fat grey peace of vomit.
+					Let's race and find out!
+					[section bet]
+	+ Is this the dirgible for vienna?
+		Nope my friend it will leave for Sarajevo.
+		Yeeea it will go for Wiena you illiterate piggy.
+		Can't you read your ticket, dumbass?
+			+ No, you dumbass because I don't, in fact, have a ticket.
+				Well that's your problem. 
+				 [section start]
+	+ Never mind.
+		[end]
+	+[if race = 1] Let's race again!
+			[room dirigibles start]
+
+end			
+== viktor_angry ==
+
+	+ What'cha looking at, moron?
+		What, what??
+		Well when you are standing in front of me as pile of shit I have to look at you.
+			+ Your mom is a pile of shit, you son of a pile of shit
+				Look piggy is trying to insult someone from Bosnia.
+				Go fuckyourself and stand there in line like everyone.
+			+ You are obviously blind as a donkey. How the hell do you expect to drive with those shit eyes?
+				No, you will drive pig face? 
+					+ I could drive better and faster than you with one hand and no shoes!
+						Little shit wish to bet? I say you can not?  What I m talking about you are not that little at all.  
+					+I can and I will, let me in!
+						No, no you can not drive this one. I have smaller ones if you wish to try.
+
+end	
+== bet ==
+						
+If you win what will not happened because you looks like lost case I will let you fly without ticket.
+[talk frog] Can I try than also?
+Shut up you drunky blabing smag you already have a ticket
+Aha and if I win I will I will hmm have right to kick you in the butt!?
+Is that a deal, mushroom eater?  
+	- A cockroach would drive better then you, asshead!
+		Ooo piggy is still trying to provoke me.
+		I have a joke for you Cro piggy pig.
+		Croatian gets into a coffe shop in Sarajevo.
+			+ I'm not in the mood for this.
+				He says please one coffe!
+				We have none.
+				How come?
+				what are all those customers drink around than?
+				Cafe
+				That is the same!
+				Is it same if I ping or pong your wife?
+					+ And what did you try to tell me with that? It is not even a joke!
+						You see I'm smarter than you.
+						I know what I tried to say with that and you do not.
+							+ Let's just race, ass.
+								[set race 1][room dirigibles start]
+	+ Shut up and drive!
+		[room dirigibles start]
+
+
+end	
+== lost ==
+	+[not dirigibles_part = 1] That's not fair, my dirigible has a part missing
+		Lucky you I will let you try again so I can kick your ass once again.
+			+ Lucky me
+				Hey, you know why was the pig ejected from the football game?
+					+ I'm no longer listening
+						For playing dirty.
+						Hahahahaha
+							[end]
+	+[if dirigibles_part = 1] I' m mega, super, turbo, giga, ultra sure I will win the next race.
+		There is only one way we can find it out pig face.
+			+ You will look at my boar ass this time.
+				As well as you will be new emperor.
+					[end]
+		
+end	
+== won ==
+
+	+ So, I get to drive for free now?
+		If you this good, you are even free to pilot.
+		[take ticket] Here, have a ticket.
+			+ No need, I'll just get a nice coupe
+			[direction front] Well, this really really made me happy.
+			[direction front] My plan is going perfectly!			
+				[end]
+
+
+end
+=== rabbit ===
+
+== start ==
+[set talked_to_rabbit 1]
+	+ What an awesome automaton. Where is it from?
+		[section robot]						
+	+ I am Viktor, a soon-to-be emperor of Austria Hungary.
+		Tee hee (⌒ω⌒)
+		I am Fuka Misaki, soon-to-be angry passenger (⌒_⌒;)
+			+ You already decided you will dislike the service in the airship?
+				[section letme]
+		+ And is this automaton of yours also soon-to-be angry passenger?
+			[section robot]
+		+ What a coincidence, I also plan on being an angry passenger.
+			I already angry (｀ﾛ´) so now must become passenger (*^ω^)
+				[section letme]
+	- Are you standing in a line for the airship?
+		Sadness no, desu (o︶︹︺) > I just wait here all worries!
+			[section letme]
+	-[if cleanup = 1] Is there something wrong with your automaton?
+		Slightly sadness, desu (´д｀)
+		ROBOTOTRON4ULTRA get hit by huge ball of abyss (」゜ロ゜)」
+		But lucky, ROBOTOTRON4ULTRA may lose many parts before stop work fully (*^ω^)
+			+ Can I take the parts that are falling off?
+				No possibility senpai.
+				It need me to show repairwomen many part.
+				If you is try to take part, I am defend ROBOTOTRON4ULTRA with ROBOTOTRON4ULTRA.
+					[section start]
+	+ I have to go. See you later.
+		Sayonara ^^
+			[end]
+
+end	
+== letme ==
+
+They impolitely not let me inside, desu (＃￣ω￣)
+	+ Why won't they let you in?
+		I show ticket to person.
+			[section diet]
+	+ They won't let me in, either. You need a ticket as well?
+		I have ticket, desu!
+			[section diet]
+	+ Is it because you're Nippleonian?
+		If only <3
+		One incident of international proportion more then enough to fly me in Vienna ^^
+			[section start]
+
+end	
+== robot ==
+
+Tee-hee, it ROBOTOTRON4ULTRA from the empire of Nippleon ♡♡
+Ultra-kawai-machine for movements of greater speed.
+And is protection from impolite men, of course, desu. ^^
+	+ Nippleon? I heard that your emperor is a madman who ate his own children.
+		Never be anger Nippleonian when we hungry, desu (´｡• ᵕ •｡`)
+		HUNGRY!!! ψ(｀∇´)ψ
+			[section start]
+	+ I heard Nippleonian soldiers can cut the head of any villager they wish.
+		You misunderstand rules of conducts (￣ヘ￣)
+		Samurai is not all just go places decapite vilagers.
+		Exception of Miyamoto Wasabi, he is just decapitate villagers all the time! (─‿‿─)♡.
+		Everywhere he go, he is just decapitate decapitate decapitate!
+		(´｡• ω •｡`) ♡
+		But he not real, is action star from manga, desu.
+			[section start]
+
+end	
+== diet ==
+
+But person impolitely say I am too heavy for enter
+So now I go on extra diet (´д｀)
+I so hungry, I could decapitate!
+	[section diet2]
+
+end	
+== diet2 ==
+
+	+ Would you like me to recommend you a diet? I know a few really good ones.
+		Do not be in offence senpai.
+		But I see highly apparent your diet is not of most successful kind, desu （*´▽｀*）
+			- Oh it would work great if I wouldn't give up on it after a few hours.
+				My most long diet is being for six years.
+				I started with year nine of age. I hope it will be a finish soon. ⃛ヾ(๑❛ ▿ ◠๑ )
+					[section diet2]
+			- I assure you, young lady, if you took my diet, you would soon disappear or fall through the sewer grating.
+				Tee-hee, that is impossible to be happen when I ride ROBOTOTRON4ULTRA o((▽))o .
+				I'm terribly hungry (｀ﾛ´)
+					[section diet2]
+			+ If you need a few more weeks of dieting, it would be a shame if your ticket would go to waste.
+				I must go to Vienna now! (＃`Д´)
+				This silly town is only pants for overweight girl.
+				I want a tight pants for being moderen Europe ヽ(♡‿♡)ノ
+					+ So, if I got you some pants, you would no longer need a ticket, right?
+						I would still wish to be travel, even with pants in my size, desu ╮(￣～￣)╭
+						I could give you this old dress of school.
+							+ What the hell would I do with your school dress?
+								You could be cuddle and smell at home (o^▽^o)
+								Or wear it like hat! (ﾟ▽ﾟ)
+									[section finish]
+	+ You do understand that you would be much lighter without the automaton, right?
+		Oh no no no...
+		I could never be travel without ROBOTOTRON4ULTRA (」゜ロ゜)」
+		If Shitsureina find out, I seppuku for sure, desu
+			+ Shitsureina is your mother?
+				[section shitsureina]
+			+ A whatsureina?
+				[section shitsureina]
+			+ You must make sure she never finds out.
+				[section shitsureina]
+
+end	
+== shitsureina ==
+
+Tee hee, Shitsureina is girl gang.
+We like to be in opposition with authority!
+	+ You want to oust your emperor? I'm doing something like that right now!
+		[section shits2]
+	+ You loot and pillage Nippleonian villages on your robots?
+		[section shits2]
+	+ You fight for the equality between men and women?
+		[section shits2]
+	+ That's nice, but let's talk about something else.
+		[section start]
+
+end	
+== shits2 ==
+
+Nothing needlessly drastic, senpai. (*^ω^)
+We are show our disdain with obvious signs.
+Like wear a slight surplus of makeup. (✧∀✧)
+Also don't call men senpai all the time. Just sometimes.
+If we embarrass, not always do seppuku.
+We especially have our dance moves, desu, very provocative! (*♡∀♡)
+	+ None of this sounds very effective.
+		Gang is not for effective, you silly senpai ⌒(o＾▽＾o)ノ
+		It is for have fun and trade manga.
+			[section finish]
+	+ Can I see the dance moves?
+		You cannot now. (⌒‿⌒)
+		Not dance when I am on ROBOTOTRON4ULTRA and so hungry.
+		SO HUNGRY!!! ψ(｀∇´)ψ
+			[section finish]
+			
+end	
+== finish ==
+
+	+ This conversation is starting of confusion.
+	Oh great, now I start talking like you! (」゜ロ゜)」 > Sorry, I need to rest a bit .
+		Sayonara senpai ^^
+			[end]
+
+end	
+=== kiosk ===
+
+== start ==
+[if cleanup = 1] [section away]
+What?
+	+ What products do you sell at this kiosk?
+		What does it look like, sonny?
+			+[if cow_fun_flag = 1] So, you don't have any newspapers?
+				[section away]
+			+ It looks like a ticket office
+				Yes mr. Sherlock. It's a ticket office.
+				And you're annoying me during my meal.
+					-[if cow_fun_flag = 1] Do you have tram tickets?
+						No, just dirigible tickets
+							+ How about tram tickets?
+								[section away]
+							+ And what about newspapers?
+								[section away]
+							+ Then I would like a ticket to Vienna
+								[section price]
+					+ I would like a ticket to Vienna
+						Why would you want a ticket to Vienna?						
+						[set mood angry] Better spend that money on a new coat.
+							++ Don't tell me how to spend my money
+							Don't tell me how to spend my money
+								[section price]
+							+ I'll get a new coat once I go to Vienna and become the next emperor.
+								[section price]
+			+[if cow_fun_flag = 1] It looks like a prison for an aging cow
+				We sell dirigible tickets here.
+				And the price just went up
+					++ Who gave you the right to set ticket prices?
+					[mood angry] Who gave you the right to set ticket prices?
+						Who gave you the right to ask me who gave me the right to set ticket prices?
+						I can do whatever I want here.
+							++ What do you know about rights or anything from this smelly old kiosk?
+							[mood angry] What do you know about rights or anything from this smelly old kiosk?
+								[section anger]
+
+end										
+== price ==
+
+[set mood scared]
+Whatever floats your rock, son.
+Ticket to Vienna will be five crowns
+Do you even have that much? I belive not.
+	+ I do not, in fact, have that much, but thank you for your concern.
+		Goodbye. Don't come back ever again.
+			++ I'll come back if I feel like it.
+			[mood angry] I'll come back if I feel like it.
+			[set mood]
+			[direction front] Dumb cow.
+				[end]
+	+ I may or may not have that much. What do you care?
+		You look like you don't have that much.
+		[set mood angry]
+			++[if cow_fun_flag = 1] And you look like a smelly old cow trapped in a kiosk.
+			[mood angry] And you look like a smelly old cow trapped in a kiosk.
+				[section anger]
+			+ Do not judge a person by his garments
+				I am not a judge, I'm here to sell tickets.
+					+ Then sell them to someone else. You just lost a customer.
+						There was a customer behind you?
+							+ Good bye!
+								Come again.
+								Or even better, don't.
+									[end]
+	+[not coins < 5] Yes, here are five copper crowns.
+		Are you sure you want to buy it?
+			+ Let me think about it, actually
+				You can think while I eat.
+				Good bye.
+					[end]
+			+ Yes, I want the ticket.
+				(temporary end)
+				[end]
+
+end		
+== anger ==
+
+Retract your statement, young man. Retract it right now!!!
+[set mood]
+	+[if cleanup = 0] And what are you going to do, squirt milk on me?
+		[section throwstuff]
+	+ I'm sorry granny. I talked about another kiosk, not yours.
+		This is the only kiosk in the area.
+		What kiosk did you talk about, then?
+			+[if cleanup = 0] Some other kiosk with some other ugly old cow imprisoned inside
+				[section throwstuff]
+			+ The kebab kiosk in the lower Agram.
+				Eww. That sounds terrible.
+				Now stop wasting my time. I'm trying to eat!
+					[end]
+
+end
+== throwstuff ==
+
+[set cleanup 1]
+[set mood scared][direction left][other][animations spr_viktor_listen_left_scared] Get ready to meet your maker, pig! > [move player 0 5][animations spr_viktor_back_off][time 10][draw spr_station_anchor 0 500 30 1501 1 1 0 30 15 3 -1 1] > [sound snd_take2][move player 0 5][time 10][draw spr_station_ball 0 500 180 1501 1 1 0 30 45 3 -1 1] > [move player 0 5][time 10][draw spr_station_hammer 0 500 180 1501 1 1 0 30 15 10 -1 1] > [move player 0 5][time 10][draw spr_station_sickle 0 500 180 1501 1 1 0 30 45 3 -1 1] > [sound snd_take2][move player 0 5][sound snd_glass_break][time 10][sound snd_oven_break][draw spr_station_hanger 0 500 180 1501 1 1 0 30 15 3 -1 1] > [sound snd_take2][move player 0 5][time 10][draw spr_station_pipe 0 500 180 1501 1 1 0 30 45 3 -1 1] > [sound snd_take2][move player 0 5][time 10][create station_cake 20][draw spr_station_cake 0 600 20 1500 1 1 0 20 0 1 -1 1][draw spr_station_plate 0 630 20 1501 1 1 0 20 0 1 -1 1] > [sound snd_take2][move player 0 5][time 10][sound snd_glass_break][create station_stuck 30][draw spr_station_record 0 500 30 1501 1 1 0 27 2 0 -1 1] > [sound snd_log][move player 0 0][animations spr_viktor_listen_left_scared][time 10][create station_pants 20][draw spr_station_pants 0 600 15 1500 1 1 -45 15 0 1 -1 1] > [sound snd_vase_break][time 10][draw spr_station_plant 0 500 30 1501 1 1 0 12 -30 0 0 0] > [sound snd_take2][time 20][draw spr_station_suriken 0 500 180 1501 1 1 0 30 15 10 -1 1] > [set mood scared][direction left][other][draw spr_station_plant 330 740 13 1501 1 1 0 0 0 0 -1 1][create station_plant 12][sound snd_clock_break] > [other] Did I hit him? > [direction left][talk station_dog] I'm afraid not, mam. > [player][direction left][mood angry] I'm still here, old cow! > [other] Damn. > [other] Clean up on section 2!
+	[end]
+
+
+end
+== away ==
+
+[set mood scared]
+Go away.
+	+ but but...
+		Just go.
+		[set mood]
+			[end]
+
+
+
+end
+=== rhino ===
+
+== start ==
+
+	Attar!
+[if attar_seen = 0] Viktor, is that you?
+[if attar_seen = 0][set attar_seen 1] I almost had trouble recognizing you out of your work uniform.
+How is life fairing for you, Viktor?
+== hello ==
+
+	+ Attar, my friend! You are the perfect man to join me in overthrowing the emperor.
+		Viktor, my dear friend.
+		[set chitchat_flag 1]
+		You keep choosing battles you cannot win.
+		It is long past your time to improve this empire by raising some children of your own.
+			+ I will improve this empire once I finally get to control it.
+				Controlling the empire is not like controlling the broomstick.
+				It's a bureaucratic nightmare.
+				And a moral hell.
+					- There are experts to take care of that. Emperor's job is just a lot of simple political and military decisions.
+						[section notsure]
+					- I don't think I would do a worse job then generations of inbred show dogs.
+						The emperor is cruel, yet effective.
+						You are a nice and intelligent person, until anger starts controlling you.
+						Rage is one of seven thieves inside us, Viktor.
+						Learn to subdue it, and you might become good emperor material.
+							[section thief]
+			+ This can be won, Attar! Nobody really expects a person to just march into the palace and overthrow the emperor.
+				[section notsure]
+	+ Why are you still doing this dead end job?
+		Making steam toys, my friend, is a great way to earn extra pocket change.
+		[set chitchat_flag 1]
+		[if bought_cell_flag = 1][set toys_flag 1]
+		Unfortunately, street sweeping is still a job that feeds my family.
+			+ What about that job doing technical support over telephones?
+				Ah...
+				They expect a person to speak fluently in nine different European languages.
+				When it comes to European languages, I'm fluent in only seven of them.
+					[section hello]
+			+ You should do like me! Yell at the boss, break stuff in his office and graffiti the place with stories about his mother!
+				I will be honest.
+				The look of that bastard's office did not displease me.
+				I even bought a few photographs that Robert took after you left.
+				My wife decided to make some beautiful wooden frames for them.
+				But still, you must find a way to control your anger, my friend.
+				Rage is one of the seven thieves inside us.
+					[section thief]
+	-[if chitchat_flag = 1] Why is your land named Gangrene anyway?
+		Some people say that it's a derivative of the river Ganges.
+		But actually, it's because some idiot let the explorers of Unwanted Kingdom put that name on the map.
+			+ Interesting
+				Wait until you learn about Abyssinia.
+					[section hello]
+			+ And what would be the correct translation of your country's name?
+				Necrosis.
+					[section hello]
+	-[if toys_flag = 1] I love your toys! Did you build anything new recently?
+		Nothing exciting, I'm afraid.
+		I have mostly been making spare parts for the airport's flying shuttles.
+			+ So, if I described you a broken part of the airport shuttle, you could make me one?
+				Possibly.
+				But I might need some metal to build it with.
+				Or money, money can easily be converted into anything.
+					+ Do you accept IOU's from a future emperor?
+						I would have enough trouble accepting IOU's from the current emperor.
+							[section hello]
+					++ Dammit, that should be your full time job, not this dead end excuse for hygiene!
+					[mood angry] Dammit, that should be your full time job, not this dead end excuse for hygiene!
+						[set mood scared]
+						I prefer freelance engineering.
+						Otherwise, I would have to work in a factory.
+						They would probably ship me to Mei Din.
+						In a box, like most factory workers.
+			+ That means you could probably use some spare parts.
+				Of course. I would even be willing to pay money for quality parts.
+					++ Dammit, that should be your full time job, not this dead end excuse for hygiene!
+					[mood angry] Dammit, that should be your full time job, not this dead end excuse for hygiene!
+						[set mood scared]
+						I prefer freelance engineering.
+						Otherwise, I would have to work in a factory.
+						They would probably ship me to Mei Din.
+						In a box, like most factory workers.
+						[set mood]
+						[section hello]
+					+ I'll keep that in mind.
+						Thank you, friend.
+							[section hello]
+	+[if item cell][if toys_flag = 1] I have this energy cell for a Nippleonian robot. Wanna buy it?
+		Those things are high production value.
+		And I'm sure they could be used in those little shuttle blimps to fire up the afterburner.
+		But it's electrical, I just work with steam machinery.
+			+ It's never too late to try!
+				My wife hates the mess in the basement already, I can't start filling it with electric parts as well.
+					[section haggler]
+			+ Come on, just two coins and it's yours!
+				Sorry Viktor, I really don't need this
+					[section haggler]
+			+ Okay, then I'll sell it to someone else.
+				Good luck with that.
+					[section hello]
+	+[if item coin][if sold_cell_flag = 1] Enjoying your new battery cell?
+		Yes and no.
+		I'm still not sure that buying it was a good idea.
+			+ Want to sell it back to me for the same price?
+				I actually do.
+				Here you go.
+				[set toys_flag 0][set sold_cell_flag 0][set bought_cell_flag 1]
+				[animation player spr_viktor_use_right_middle][give coin][take cell]
+					+ Thanks, Attar.
+						No, friend. Thank you.
+							[section hello]
+			+ I'm sure you'll build something awesome with it.
+				Well, I do have a couple of ideas already.
+				But I'll have to do some experiments before my night shift.
+					+ Can't wait to see it!
+						[section hello]
+	+[if item cell][if bought_cell_flag = 1] Changed your mind about the cell?
+		No, I dont want it.
+		Unless you don't want it.
+			+ For a coin, I don't want it.
+				Done.
+				[set bought_cell_flag 0][set sold_cell_flag 1]
+				[animation player spr_viktor_use_right_middle][take coin][give cell]
+					[section hello]	
+	+ See you, Attar
+		[section goodbye]
+end
+
+== haggler ==
+
+	+ Wanna buy it for one coin?
+		No.
+			+ Come on, come on, come on, come on, you know you want it.
+				Oh, all right, I want it.
+				[set sold_cell_flag 1]
+				[animation player spr_viktor_use_right_middle][take coin][give cell]
+					+ Well, gotta go. See you, Attar.
+						[section goodbye]
+	+ Your loss.
+		Please do not tempt me, Viktor.
+		I have enough refuse already.
+			[section goodbye]
+
+end
+== notsure ==
+
+Even if that were true...
+Do you really think that everyone will just listen to you because you are the one on the throne?
+	+ Of course they would. It's not a big secret that the emperor replaced most of his personal guard with automatons!
+		That may be the case.
+		But still, your endeavors are risky and I have a family to take care of.
+			[section hello]
+	+ Would you listen?
+		Good point.
+		But it's still too risky for myself.
+		My wife would kill me.
+			[section hello]
+end
+== thief ==
+	- There is nothing wrong with getting a blackout-inducing bloodlust from time to time. It helped me a lot in prison.
+		Please, Viktor. No more prison stories.
+		You have been there less then a year and it's like you have a different story for each day.
+			[section hello]
+	- Again with you and your thieves. I won't be surprised if you stop making toys and start making alarm systems.
+		[set toys_flag 1]
+		You cannot put an alarm system on your soul.
+		But you can conjure an alarm system in your mind.
+		Try to remember this the next time you get angry.
+		Or get a girlfriend, that seems to help as well.
+			[section hello]
+
+end
+
+== goodbye ==
+		Be strong as always, Viktor.
+		[if talked_to_attar = 0] And give my regards to Martin.
+		[set talked_to_attar 1]
+			[end]
+
+
+
+end
+=== !!!! Airship un pallace !!!! ===
+
+=== walrus ===
+
+== greetings ==
+
+Greetings, good sir.
+Would you like to have a chat during this time we spend traveling?
+	+ Of course I would, sir.
+	[set vienna_travel 0][set from_talked 0][set ouster_talked 0][set librarian_flag 0][set repair_flag 0]
+	Traveling in silence is the worst kind of travel next to traveling in the electric tram.
+		Truer words have rarely been spoken.
+		[section hello]
+
+end
+== hello ==
+
+	- My name is Viktor.
+		Pleased to meet you.
+		[set knowsname 1]
+		My name is Wells. Herbert G. Wells.
+			[section hello]
+	-[if knowsname = 1] You are Herbert Wells, the writer? Wow, I read both your books and loved them!
+		[set librarian_flag 1]
+		I wrote about ten different books, actually.
+			[section hello]		
+	-[if librarian_flag = 1] My local library kinda sucks.
+		[set librarysucks = 1]
+		That is tremendously sad to hear.
+			+ I'm working on improving that real soon.
+				[set repair_flag 1]
+					[section hello]
+	-[if librarian_flag = 1] You wrote ten books? Incredible! Do you have any with you?
+		Unfortunately, I do not.
+		But if you are literary afficionado, then you must also enjoy music.
+			+ Oh yes. Mozart, Dvorak, even the modern stuff like Joplin.
+				Exquisite choice.
+				I recently tried listening to some Saint-Saëns.
+					+ Charles-Camille Saint-Saens? I love the Carnival of Animals!
+						That goes without question.
+						But my current favorite is the Cello Concerto in A Minor.
+						Beautiful music for rainy weather.
+						I even bought an extra record to listen during my travel.
+						I can give it to you if you wanted.
+							+ Oh, I couldn't really.
+								I insist
+									+ Well, if you insist...
+										[record saens]
+										[section hello]						
+	- So, where are you from?
+		I'm from the Unwanted kingdom.
+		[set from_talked 1][add vienna_travel 1]
+		But I have been visiting Austria-Hungary so often that it became my second home.		
+			[section hello]
+	-[if from_talked = 1] You travel here often because you prefer a bit warmer climate?
+		[set mood]
+		For starters, I prefer the climate with less plague.
+		[add vienna_travel 1]
+			[section hello]
+	-[if from_talked = 1] Are you traveling on business or pleasure?
+		Let's just say I have a feeling that something important will happen on this journey.
+		[add vienna_travel 1]
+			[section hello]	
+	-[if repair_flag = 1] I hope you wouldn't seeing a new emperor of Austria-Hungary.
+		[set mood]
+		I didn't know the empire plans on switching to democratic elections.
+		[set ouster_talked 1]
+			+ I'm not sure what you mean by ''elections''.
+			But I heard of ''democracy''. It's when idiotic majority rules over the intelligend minority.
+				When you simplify it that much, yes, it's something like that.
+				But democracy might have it's advantages and opportunities.
+				Especially for an eloquent person of the lower class, such as yourself.
+					[section hello]		
+	-[if ouster_talked = 1] I'm actually traveling to Vienna to oust the emperor.
+	How's that for an opportunity?
+		Sounds very ambitous.
+		You think that ousting the emperor would improve this country's progress?
+			+ Unquestionably! Everything would be better with me as an emperor! Everything!
+				For you personally, I'm sure everything would be better.
+				But do you think that other people would be better off with someone...
+				Who wasn't educated all his life to rule a country?
+					+ Are we talking about the educated ruler who sends his own people to wars?
+					[set mood scared]
+						Ah, I heard he is preparing that unfortunate war with the Macedonian republic due to their debts.
+						So, the goal of your travel is, in fact, stopping the war?
+							+ That is one of the main reasons.
+							War is just a massive slaughterhouse in the name of somebody who sees you as a number on a piece of paper
+							Or as a foreigner.
+							Or as a Slav.
+							Or a poor person.
+							I could go on.
+								Understandably.
+									+ This weather is kinda scaring me.
+										[section falling_dirigible]
+					+ You mean that educated ruler known for discriminating people for their nation or gender?
+					[set mood scared]
+						Nation, religion, breed, social class...
+						Everyone discriminates in a way.
+						It's just that it's really obvious with an emperor.
+						All eyes are constantly on him.
+							+ That's precisely why he should set a better example!
+							Besides, he is, er...
+							Sorry, I got distracted with the weather outside.
+								[section falling_dirigible]
+
+end
+== falling_dirigible ==
+
+	+ Manouvering this blimp around so many clouds might become really hard for the pilot.
+		Oh, you are also familiar with dirigible piloting?
+		You are truly a multi-talented person.
+			+ I recently had the opportunity to try piloting a personal blimp.
+				Then you know that it is perfectly safe in the hands of a professional.
+				I mean, what's the worst that can happen?
+				[cloud phone][cloud 580 200][animation player spr_viktor_talk_left_coupe 5][talk coupe_megaphone][blocksound snd_donkey_talk_muffled] Dearest passangers, your pilot is talking to you, we are losing height.
+				[cloud phone][cloud 580 200][animation player spr_viktor_talk_left_coupe 5][talk coupe_megaphone][blocksound snd_donkey_talk_muffled2] More to the point, we are falling and we are all about to die. 
+				[cloud phone][cloud 580 200][animation player spr_viktor_talk_left_coupe 5][talk coupe_megaphone][blocksound snd_donkey_talk_muffled3] Stay on your seats, there is no need to panic because there is nothing to be done.
+				[cloud phone][cloud 580 200][animation player spr_viktor_talk_left_coupe 5][talk coupe_megaphone][blocksound snd_donkey_talk_muffled4] The real reason why we are falling is that I went on strike so I do not pilot anymore today.
+				[cloud phone][cloud 580 200][animation player spr_viktor_talk_left_coupe 5][talk coupe_megaphone][blocksound snd_donkey_talk_muffled5] Thank you for traveling with us. 
+				[cloud phone][cloud 580 200][animation player spr_viktor_talk_left_coupe 5][talk coupe_megaphone][blocksound snd_donkey_talk_muffled] Also please stop smoking in cabins because smoking kills. 
+					+ Oh no no no.
+					I will not and this way!
+					No one will!
+					Excuse me while I break into the pilot's cabin.
+						For such a commendable attempt, you may be excused.
+							[end]
+
+
+end	
+=== beaver ===
+
+== hello ==
+[set mood]
+	- Greetings, gentlemen. I would like to enter the premises.
+		[set mood scared]
+		[talk hyena][mood hyena laugh] ahahahahahhahahahah hihihihih uhuhuhuh
+		Very funny Joke. Wanna hear mine?
+			+ Why aren't I allowed to get in??
+				[talk hyena][mood hyena laugh] khihih
+				The emperor doesn't allow any good-for-nothing loafer to enter his pallace.
+					+ I'm not a loafer. I am here to be your new emperor.
+						[set mood angry]
+						Look, you mouthy slavic bum.
+						You could lose your tongue for saying things like this.
+							+ Look who's talking about mouths. With this teeth, you look like an Englishman.
+								I'm sorry, I didn't listen to you.
+								I was admiring the scenery.
+								Until I noticed you tarnishing it with your look.
+								[talk hyena][mood hyena laugh]ahahahahahhahahahah
+								Now go away while I'm still in a good mood.
+									[section hello]
+					++ You find all this funny?
+					[set mood angry][direction right] You find all this funny?
+						[set mood scared]
+						He just had too mouch cough medicine.
+						But at least he no longer has that annoying cough.
+						[talk hyena][mood hyena laugh]ahahahahahhahahahah.
+						Don't worry, he's not laughing at you. He's laughing with you.
+						[set mood angry]
+						[talk hyena][mood hyena laugh]ahahahahahhahahahah.
+							[section hello]
+	- I am the pallace inspector and I have come to inspect your pallace.
+		We had an inspection last week.
+		They graded the pallace four out of five.
+		[set mood scared]
+		So the emperor had the inspectors executed.
+		Are you still sure that you're a pallace inspector?
+			[section hello]
+	++ Get out of my way, I'm here to oust the emperor
+	[set mood angry] Get out of my way, I'm here to oust the emperor
+		You and what army?
+		[set mood scared]
+		You know we can cut you into pieces just for saying this?? 
+		[set mood]
+		== army ==
+			- I have superpowers! I can melt you with my eyes!
+				Oh...
+				Now that I think about it, we really shouldn't cut you into pieces.
+				It is obvious that you're an escapee from a mental hospital.
+				[talk hyena]So, cutting you into pieces would be really rude from us.
+					[section army]
+			- Would you like me to be your Emperor? I would be a much better Emperor!
+				Really?
+				How much would you pay us?
+					+ Hmmm... 30 coins a month?
+						[set mood scared]
+						[talk hyena] Ahahahah ihihihihi ohohho
+						We earn 90 coins a month now.
+							+ Really? 90 coins? That... that's nice.
+							I did not earn half that much even when I won a naked boxing tournament.
+								Yes we are royal guard, you oversized moron
+								And we are not Slavs or some other nonsense ehnic group.
+								So we deserve a good pay.
+								[talk hyena] hihi Yes.
+									[section army]
+			- If I answered a few of your philosophic questions, could I enter the palace?
+				[set mood]
+				Of course! Of course!!!
+				[talk hyena] Great idea!
+				Marvelous idea!
+				[set mood angry]
+				[talk hyena] Not!
+				[talk hyena] HAHAHAHAHAHAHAHAHAHA
+				[set mood]
+					[section army]
+			+ Could you give me some ideas how a person could enter the palace?
+				No
+				[set mood scared]
+				And it's better for you to go away before our new guard commander comes.
+				We heard he's fat bastard who immediately kills anyone suspicious.
+				[talk hyena] Like Miyamoto Wasabi, but worse!
+				Consider this like we saved your life today twice.
+				[talk hyena] hihihih yes
+				[talk hyena] First from us, then from the commander.
+				[talk hyena] We are so good today
+				[talk hyena] hihihih so good khh khhh we are like angels
+				[talk hyena] hihihih angels hi hi
+				[set mood]
+					+ Do you know the name of your new guard commander?
+						No, we never saw him.
+						But he is coming.
+						[talk hyena] so you better run
+						[talk hyena] hihihhhi
+						[set commander_flag 1]
+							[end]
+	+[if commander_flag = 1] ATTENTION! I am your guard commander.
+		You do understand that we remember you?
+		You are the same guy that was talking to us right now?
+			+ Of course I know that you know and I hoped that you knew that I know that you know.
+			This was all a test. I am in disguise.
+			[set mood angry]
+			And I' must say I ' m not happy with your job!
+				Really? Why?
+					+ You were suppposed to cut me into pieces
+					Or at least arrest me and bring me to justice
+					And you did none of those things!
+						Well, we can cut you into pieces now if you insist.
+							+ Now when you know that I'm your superior?
+							I would have to throw you in jail after that.
+							You cannot attack your superior!
+							What did they teach you in that army school of yours?
+								I'm sorry commander,
+								Next time we will cut into pieces anyone who looks as suspicious as you do.
+									[section so]
+							++ How come I don't hear you laughing anymore?
+							[direction right] How come I don't hear you laughing anymore?
+							You did not do your job properly!
+							You had to kill me or let the Emperor judge me
+							Because you know how much he loves to judge.
+							== so ==
+							[set mood]
+							So?
+								So what?
+									+ Will you kill me or not?
+										But you are our commander, commander.
+										We cannot do that.
+									+ Let me in so I can put my uniform on.
+										But how can we be really sure that you're our new guard commander?
+											+ You will know when you see me in my uniform, of course.
+											Now let me in, so I can enter and dress myself.
+											[set mood angry]
+											Open the doors at once!
+											[set mood]
+												Ah yes, of course, it's the only logical way.
+												Please forgive us.
+												[move pallaceOutside_gate_left 180 5][move pallaceOutside_gate_right 0 5][time 35]
+												[move pallaceOutside_gate_left 180 0][move pallaceOutside_gate_right 0 0]
+												Next time we will kill someone like you on the spot, like we usually do.
+													+ Good boy
+														[room palace_far start]
+														[end]
+	+ Never mind, sorry to disturb you
+		[end]
+
+end	
+=== emperor ===
+
+State your business, minion. But hurry up.
+I have a war on Macedonian Republic to prepare.
+We plan on smashing them, crushing them and showing them their place in this geopolitical roller coster.
+
+== hello ==
+
+	- My name is Viktor and I came here to take your place as a new emperor!
+		Who let you in?
+		I will hang all the guards outside right after I hang you twice!
+			[section handover]
+	- Hello sir, I'm here to take up my crown.
+		I'm sorry sir, I never notice you forgot a crown here.
+		Which kingdom are you from?
+		Judging from your clothes, probably a kingdom south from here.
+			+ I think this was a bit of a misunderstanding
+				[section hello]
+	+ Your highness, I wish to exclaim that you are not competent enough to rule this kingdom.
+	== handover ==
+	Please hand over your throne and your crown, so I can take your place.
+		First of all, you slavic nincompoop.
+		[set mood angry]
+		I'm an Austrian.
+		Second of all...
+		I'm rich
+		Third, I'm the legal heir to the throne
+		And most importantly,
+		I don't feel like getting up
+		[talk hyena] hahahahahaha
+		So please hang yourself right now and spare us from the needless paperwork
+			+ Just get off the throne or I'll pull you down.
+				Listen you insane bum.
+				You aimless Vagabond!
+				You worthless excuse for a citizen!
+				You foul-smelling leftover!
+				You outdated fertilizer!
+				You... pig!
+				(animacija di se dignu zastori i vide se automatoni koje nisam složio)
+				Are you aware that I'm protected with the finest automatons in this part of the world?
+					+ I was, in fact, not aware of that, you pompous mutt.
+						Ha ha ha ha ha.
+						[talk hyena] hahahahahaha
+							[section tired]
+					+ Hah, someone sold you security automatons with exposed firebox.
+					Your business skills are even worse then your governing abilities.
+						[section tired]
+							
+== tired ==
+
+I grow tired of this tirade.
+	+ Yes, it is time to finish it.
+	(animacija sa strujom GZZT GZZT)
+	[set mood scared]
+	Hmm... there seems to be a lot of static in the air.
+	[set mood]
+	Oh well, let's finally do this
+	(animacija sa strujom GZZT GZZT)
+	[set mood angry]
+	What the hell is going on?
+	[talk hyena] hahahahahaha
+		Oh, I see that you are also not aware of the electric force field around the throne?
+		This was a lot of fun.
+		But unfortunately, my automaton needs to show you some basic gravitational physics.
+			[end]
+
+end	
+=== Vida ===
+
+pst
+pssst
+psssssst
+	+ What do you mean psst? Are you a cat imitating a snake?
+		I mean psst be quiet, the guards are listening
+			[section package]
+	+ Hey, I remember you! You're Vida. We went to grade school together, remember?
+		Mention my name again and I will cut your throat!
+			+ So, how should I call you?
+				just don't
+					[section package]
+			+ Ah, good old Vida. You haven't changed a bit.
+				You idiot, I'll change your pancreas into...
+				Actually, forget that now.
+					[section package]
+	+ Pssssssst?
+		[section package]
+
+end	
+== package ==
+
+You're here early.
+I respect that in an agent.
+	Well, I was in a hurry to overthrow the empire and all that.
+		Here's your message. > Read and destroy. > You know the watchword.
+			Wait' what?
+				[end]
+			Thanks, Vida!
+				[end]
+			What just happened?
+				[end]
+
+
+
+=== -- !!! PRAG KRTCHMA !!! --- ====
+
+
+=== anteater ===
+
+== hello ==
+
+Long live the emperor, good sir. Do you wish to order a drink?
+	+ Long, long. What drinks can you offer?
+		Whatever your heart desires.
+		As long as we have it available.
+			[section order]
+	+ I'd prefer a shorter life for him
+		Please sir, this establishment allows only the best words for our great emperor.
+			+ I thought this is the place where anarchists mingle
+				Of course not.
+				Nothing of the sort.
+					[section talkabout]
+			+ Some graffiti down in your toilet claim otherwise. (add if_toiletvisit)
+				Which emperor? Down where?
+				Has someone been writing in our spotless toilet again?
+				Oh no.
+					[section talkabout]
+
+end	
+== talkabout ==
+
+	+ I would like to know more about the patrons in this establishment.
+		Are you a government agent, possibly?
+		I don't know these people well, but feel free to try.
+			+ Who is this fox with a very small green drink?
+				A tourist from Unwanted Kingdom.
+				First time here.
+				He already drank two bottles of Absinthe and he looks as sober as you.
+					[section talkabout]
+			+ The mouse with an obviously cheap beer. Who is that?
+				Ah, the gentlemen is a nice insurance salesman who wants to be a writer.
+				His name is Franz Kafka.
+				And that's not beer he's drinking.
+					[section talkabout]
+			+ That loud group discussing politics?
+				Ah, the commun... um...
+				They like to communicate a lot.
+	+ What drinks can you offer?
+		Whatever your heart desires.
+		As long as we have it available.
+			[section order]			
+	+ I'll browse for now, thank you.
+		Very good, sir
+			[set mood]
+			[end]
+end				
+== order ==
+
+	- Do you have any Black African?
+		[section some_excuse]
+	- How about pouring me a bottle of Naughty Horn?
+		[section some_excuse]
+	- I could really do with a Happy Viking.
+		[section some_excuse]
+	-[not beer_flag < 1]  Do you serve absinthe?
+		I'm sorry sir, it's probably the only drink we do not serve.
+		[set absintheknows 1]
+		[add beer_flag 1]
+		[section order]
+	+ Do you have anything to eat
+		Of course we do, sir.
+		Our cook is the finest cook in the building.
+			+ Do you have anything with noodles?
+				Yes, of course.
+					+ Like what?
+						Was that a question?
+							+ What would you recommend?
+								Oh, believe me, everything on the menu is fresh and of highest quality.
+									+Too bad. I was hoping for something fermented.
+										A beer, perhaps?
+											[section order]
+			+ Do you have any Screaming Peanut Butter(tm)?
+				Of course we do.
+				Screaming Peanut Butter(tm) is the finest screaming butter you can find.
+				But you cannot order it alone. You can get it as a side dish.
+				Or as a free canape when you order more than three glasses of beer.
+					[section order]
+	-[not beer flag < 2] Can I see the menu?
+		No.
+			[section order]
+	-[not beer_flag < 3] Are you screwing with me?
+		I do not believe I had the pleasure, Sir.
+			[section order]
+	-[not beer_flag < 2] Do you have any beer other than those?
+		Yes.
+		[add beer_flag 1]
+			[section order]
+	+[if beer_flag < 3] Actually, I don't need anything right now.
+		[section talkabout]
+	+[not beer_flag < 3] Oh piss off.
+		[set mood]
+		[end]
+
+
+end		
+== some_excuse ==
+
+No sir, not right now.
+	[add beer_flag 1]
+	[section order]
+
+end
+== templist_excuses ==
+(temp list of excuses)
+We do not have that one.
+I'm drinking the last one right now.
+Waiting for the new shipment.
+It should be here by next week.
+Yes but it' is spoiled.
+Mr. Kafka is drinking the last one right now.
+[talk kafka] I hate beer from bottom of the barrel.
+	[add beer_flag 1]
+	[section order]
+			
+			
+			
+end
+=== kafka ===
+
+== hello ==
+
+	- Excuse me, sir. Are you one of the anarchists?
+		You have quite an interesting way to meet people.
+		My name is Franz Kafka and, I'm afraid, I'm much worse then that.
+		I am a Jew and an insurance salesman.
+		Also an amateur writer.
+			[section sojew]
+	+ My name is Viktor.
+		Pleased to meet you. My name iz Franz Kafka.
+		Remember that name, it might be famous some day.
+			+ You should remember mine as well. You might be looking at the next emperor of Austria Hungary.
+				I'll do my best.
+					[section hello]
+			+ You plan on blowing something up?
+				Not exactly.
+				I hope to make my fame and fortune as a writer.
+					+ So, that's why you look like you're listening to every conversation at once.
+						Oh no, that's just because of my large ears and tendency for voyourism.
+						Also, my medical condition makes me a bit jumpy.
+						But I don't like discussing that with people.
+						I'll write a book about it one day.
+							[section writing]
+	+ This thing you're drinking smells great. What is it?
+		Ah, you sound like a man who's trying to avoid the whole process of ordering.
+		Heh, process...
+		As much as I'd love to help you, the waiter's attitude is a great inspiration for my writing.
+		So I love listening to his interactions even more.
+			+ I think you got inspired enough. Could you please tell me what you are drinking.
+				In all candor, I'm too drunk to remember.
+					+ Honestly, you don't look very drunk.
+						Honestly, you don't look very sober.
+							[section hello]
+			+ Tell me about your writing.
+				I mostly do short stories.
+				But I'm thinking about making a satirical novel about this bar and it's patrons.
+				I'm also trying to write about my health condition.
+				But It's a personal issue and I don't enjoy discussing it.
+					[section writing]
+	+ You seem like you listen to everything that happens in this place.
+		Ah yes, listening to people relaxes me during work.
+			[section relax]
+	+ Goodbye.
+		[end]
+
+end
+== relax ==
+	+ It's a late evening in a bar and you're drinking. How could you possibly be working right now?
+		An insurance salesman's work is never done. Are you interested in buying insurance?
+			[section insurance]
+	+ So, you probably know about the anarchists in this place
+		[add anarcho_flag 1]
+		[if anarcho_flag = 1] Know them? I tried being one of them.		
+		Unfortunately, they are not very proactive.
+		[if anarcho_flag = 1] It's just tons of meetings, paperwork and hate-mongering.
+		[if anarcho_flag = 1] They turned a good idea into a needlessly complicated process.
+		[if anarcho_flag = 1] Heh, process...
+			+ That sounds like those four people over there.
+				I never said anything.
+					[section hello]
+			- From your description, I would say that the red fox is an anarchist.
+				Nothing is impossible.
+					[section relax]
+			- Your barman is an anarchist?
+				Not actively, as far as I know.
+					[section relax]
+
+
+end
+== writing ==
+
+	+ You don't like discussing your condition, but you want to write about it? What is it, really?
+		If I tried to explain, you wouldn't beleive me.
+		You should see it to believe it.
+		Wait for a while and maybe you will.
+			[section writing]
+	+ You want to write a novel about people in a bar?
+		It wouldn't happen in a bar. Once I put some words on paper, I'll feel more keen on discussing this.
+			[section writing]
+	+ It seems to me that you would be a more successful writer if you could talk about your work a bit more.
+		I impolitely disagree.
+		You must put your story on paper and let people read it.
+		Everything else is just bragging, elevator pitching and kickstartering.
+			[section writing]
+	+ Well, good luck with writing. What els did you say you were doing?
+		Selling insurance.
+			+ Sorry I asked.
+				[section hello]
+
+end
+== sojew ==
+
+	- So, you probably know all the Jews in Austria Hungary. Did you ever meet Sigmund Freud?
+		Is this one of those silly stereotypes that all Jews know each other?
+		You know, it's not as if you just go around and suddenly you meet Sigmund Freud.
+		Oh all right, I may have talked to Mr. Freud a few times.
+		He was traveling to Germsland, so he wanted life insurance.
+		Interesting man with some astonishing ideas.
+			[section sojew]
+	- I met a Jew recently. Noam McSmelliecock, a Scottish athlete. Do you know him?
+		Am I supposed to know him?
+		Is this some kind of stereotyping where I'm supposed to know every Jew you ever met?
+			+ So, you don't know him?
+				Well, yes, I met him once or twice.
+				He was looking for an amateur writer to make his biography.
+					[section sojew]
+	+ Writer, insurance salesman and a jew... That doesn't sound terrible.
+		Then you definitely need insurance.
+			[section insurance]
+
+end				
+== insurance ==
+
+	+ No need for insurance, I'm a veteran boxer.
+		You could insure your snout or your tentacles.
+			+ You mean testicles?
+				Oh, those too.
+				People insure those all the time!
+					[section hello]
+
+
+end
+=== anarchists_all ===
+
+== reminder ==
+
+	Konj1: austrijanac Pferdinand
+	Konj2: mađar Andras
+	Pavel Krtek: čeh
+	Matilda
+
+== hello ==
+[mood matilda right]
+	+[if tried_dumb_flag = 1][if alreadywent = 1] Okay, you have to let me try the password again!
+	[if tried_dumb_flag = 1] I know the system this time!
+		[talk mole] Do we humor the insane hobo?
+		[talk matilda] Well, he is kinda cute, why not.
+			[if tried_dumb_flag = 1][section toiletpass]
+			[section tryme]
+	+[if tried_dumb_flag = 0] It's me! I forgot the password!
+		[set tried_dumb_flag 1]
+		[if passguess < 6][section tryme]
+		[talk horse1] No, go away.
+		[end]
+		== tryme ==
+		[talk horse1] And this is me. I have no idea what you're talking about.
+			+ Yes you do, I'm sure I can remember the password if you helped me.
+				[talk mole] You are a strange person blabbering nonsense.
+					+ Is ''nonsense'' the password?
+						[talk horse1] What password?
+							+ Hmm, how about...
+								[section password]
+			+ Oh come on, it's me! I got the letter in front of the pallace.
+				[talk matilda] Still no idea what you're talking about.
+					Oh come on, let me try a few times!
+						[talk horse2] Try what?
+							[section password]
+	+ Greetings ladies and gentlemen. Are you anarchists?
+		[talk horse2] Us?
+		[talk horse1] By god, we would never.
+		[talk mole] Long live the emperor!
+		[talk matilda] i'm not an anarchist either.
+		[talk mole] Fuj anarchists.
+		[talk kafka] Long live wossizname.
+			Then you must be communists.
+				[talk horse2] nope
+					[end]
+	+ It's me, wink wink, what are we drinking?
+		[talk horse1] wink, wink, nothing.
+		[talk horse2] Go away.
+			[end]
+
+end
+== password ==
+
+	- Workers Solidarity?
+		[add passguess 1]
+		[section nope]
+	- Mano Negra?
+		[add passguess 1]
+		[section nope]
+	- Black star?
+		[add passguess 1]
+		[section nope]
+	- Unconventional Action?
+		[add passguess 1]
+		[talk mole] Who would take a name of an anarchist organisation as a password?
+			+ So you do know what you're talking about?
+				[section nope]
+	-[not passguess < 2] Hattori Hanzo?
+		[add passguess 1]
+		[section nope]
+	-[not passguess < 3] Debbie does Detroit?
+		[add passguess 1]
+		[talk matilda] I'll pretend I didn't hear that.
+			[section password]
+	-[not passguess < 4] Vida?
+		[add passguess 1]
+		[talk horse2] She will find you and she will kill you.
+		[talk matilda] The idiot meant to say nope.
+		[talk horse2] That hurt my feelings.
+		[talk matilda] Better feelings then fingers, Andras.
+			[section password]
+	-[not passguess < 5] FF4xErg7z8X2?
+		[add passguess 1]
+		[talk horse1] You are getting tiresome
+		[talk matilda] Also, nope.
+	-[not passguess < 6] Willie Wonka?
+		[add passguess 1]
+		[section nope]
+	++[not passguess < 7] How about a nice cup of tea?
+	How about...
+		[talk mole] Enough.
+		[talk horse1] Go away.
+			[end]
+	+ Never mind.
+		[talk mole] nope
+			[end]
+end		
+== nope ==
+
+[talk matilda] nope
+	[section password]
+			
+end
+== toiletpass ==
+[set toilet_pass_guesser 0]
+	+ Mr Plinkett was here...
+		[add toilet_pass_guesser 1]
+		[section toiletpass_2]
+	+ Sir Didymus was not here...
+		[section toiletpass_2]
+	+ Sal was here...
+		[section toiletpass_2]
+	+ Jello Biafra was here...
+		[section toiletpass_2]
+	+ Matilda was here...
+		[section toiletpass_2]
+	+ Death was here...
+		[section toiletpass_2]
+
+
+end
+== toiletpass_2 ==
+
+	+ ...eating...
+		[section toiletpass_3]
+	+ ...kissing...
+		[add toilet_pass_guesser 1]
+		[section toiletpass_3]
+	+ ...resurrecting...
+		[section toiletpass_3]
+	+ ...scratching and scratching...
+		[section toiletpass_3]
+	+ ...killing in the name of...
+		[section toiletpass_3]
+	+ ...vomiting...
+		[section toiletpass_3]
+
+end
+== toiletpass_3 ==
+
+	+ ...Emperor...
+		[section possibly_right]
+	+ ...Floor and windows...
+		[add toilet_pass_guesser 1]
+		[section possibly_right]
+	+ ...Rasputin...
+		[section possibly_right]
+	+ ...Cogs...
+		[section possibly_right]
+	+ ...Nanowar...
+		[section possibly_right]
+	+ ...Screaming peanut butter...
+		[section possibly_right]
+
+end
+== possibly_right ==
+
+[not toilet_pass_guesser < 3][section correctpassword]
+[talk mole] We let you blabber your things, now please let us blabber our own things in peace
+	+ So, I didn't guess it?
+		[talk matilda] We don't know what you're talking about.
+		[talk horse1] Please leave us, at least until you gather your senses.
+			+ Hmm...
+				[end]
+
+
+== correctpassword ==
+
+[talk mole] About bloody time!
+[talk matilda] And now to continue with something later. 
+[destroy anarchists]
+[end]
+
+end
+=== jekyll ===
+
+== hello ==
+	
+Are you looking for trouble!?
+You got trouble!
+[fade in 0.03][time 35] > [fade][room toilet fight]
+	
+	+ Are you an anarchist?
+		Goodness me, not in the slightest.
+		I was under the impression that heads in your empire can roll just for asking questions like this.
+			+ And your country doesn't do that?
+				Of course not.
+				Unwanted Kingdom is pretty liberal towards their people.
+				They have to be.
+				It's all just rain, plague and prostitution back there.
+					+ How do you withstand such conditions?
+						Self medication
+							+ This drink protects you from the plague?
+								Yes, why not.
+									[section hello]
+			+ Actually, they never do because this isn't France. Our emperor uses firing squads.
+	+ My name is Viktor. You don't seem like you're from around here.
+		You, sir, have my eternal gratitude for this exquisite compliment.
+		I, myself, am Dr. Henry Jekyll. A visitor from the Unwanted Kingdom.
+			+ I, myself, am a working on becoming a new emperor of Austria-Hungary
+				Ah, you disguised your person to fraternize with lower classes of your society.
+				How delightful, yet somewhat unnerving.
+					+ Actually, this is my only set of clothes.
+						(no convo)
+							[section hello]
+					+ No no, I am yet to become an emperor.
+						(no convo)
+							[section hello]
+			+ You are a medical expert of some sort?
+				If you ever need some sort of medication, I could possibly make arrangements at acceptable prices.
+				Medicine and chemistry are my daily routines.
+					+ And at night, you quietly drink behind barrels of seedy bars in far away countries?
+						I took a few weeks of vacation to calm my nerves a bit.
+						Back home, my nightly routines were quite louder and less tolerable.
+							+ That's strange. You don't seem like a person who drinks and fights.
+								I learned to recognize the thorough and primitive duality of a fox.
+								So I made a medication that calms my person whenever I avoid it.
+								Psychologically and physically.
+									+ Wow, you have a medicine that calms you when you don't drink it? Can I not have some?
+										(no convo)
+											[section hello]
+									+ And they say that a person needs a girlfriend to calm his nerves.
+										(no convo)
+											[section hello]
+	- Wow, what a lovely hat you have.
+		Thank you sir.
+		I purchased it here in Prague after my old one disintegrated due to pollution.
+		Such lovely patches you have.
+		Marvelous choice of colors.
+			[section hello]
+	+[if absintheknows = 1] Is that absinthe you're drinking?
+	Is that absinthe you're drinking?
+	I didn't know this bar serves absinthe!
+			It does not.
+			I brought my own and paid the waiter as if I ordered it from him.
+				[section hello]
+	+ Never mind.
+		[end]
+
+end
+=== lake ===
+
+== hello ==
+
+	- Are you an anarchist?
+		Naw, man. I just like wearing black
+		[section not_an_anarchist]
+	+[if is_lake_anarchist = 1] So, you like wearing black?
+		[section not_an_anarchist]
+	- My name is Viktor
+		I’m Kubilius. Lake Kubilius. Musician and seducer!
+			They say that one goes along really well with the other
+				Wouldn't know. Both are going beautifully.
+				[set lake_is_musician 1]
+					[section hello]
+	-[if lake_is_musician = 1] How do you manage to sound like a whole orchestra?
+		I'm really good
+			+ But you aren't even playing your guitar right now!
+				Heh, you got me.
+				There’s a record player inside the guitar.
+				The only problem is, I took two records to play tonight.
+				Turned out that they are both the same
+					- If I gave you a record, would you trade?
+						Do you maybe have a record that was partially damaged by roaches?
+							+ Actually, I have one exactly like that!
+								Then just take mine and don’t give me anything, please.
+								[talk kafka] You have something against cockroaches?
+								We already discussed that, Frank.
+								[talk kafka] It's franz, you Texan cow herder!
+								Whatever, man.
+									[section hello]
+					- I also have a gramophone right here in my pocket. Can I get one of your records?
+						Oh, that was your record player poking out!
+						I just thought you were really glad to see me.
+						Here, take a record.
+							[section hello]
+	- This is a really interesting musical instrument.
+		[set lake_is_musician 1]
+		Would you like me to play you something?
+			+ Do you know anything by Mozart?
+				[section for_a_beer]
+			+ Do you write your own songs?
+				[section for_a_beer]
+	- What happened to your eye?
+		When I was a kid, I fought a dragon.
+			+ Whoa!
+				Right when I almost strangled him, he stabbed his horn right in my eye!
+				Just kidding, both my eyes are fine.
+				(Animacija di diže povez)
+				== lake_patch ==
+				I have an eyepatch because girls find it hot.
+					- Don’t you have a problem with depth perception while wearing the patch??
+						This world is pretty two-dimensional anyway.
+							[section lake_patch]
+					- And it really works?
+						It’s not worse than without the eye patch.
+							[section hello]
+	+ Bye.
+		[end]
+
+== not_an_anarchist ==
+
+[set is_lake_anarchist 1]
+	+ Then you chose a perfect place. Everyone here looks like they’re preparing for a funeral
+		Yes, but I still look cooler than they do.
+		None of these people have this extremely cool eye patch.
+		Not to mention the awesome guitar.
+			[section hello]
+	+ Can you tell me where I could find the anarchists?
+		I have no idea, I’m not from around here. > I’m from New York, Texas. > This is the first time I tried playing at this place.
+			I thought that everyone in Texas has at least two heads. Where’s your other one?
+				Not everyone has multiple heads in Texas. There’s me… > There’s also that rat-face guy that looks like a parrot… > What was his name? > Oh yeah, John Oliver! > Do you think I would be smarter with two heads=
+					I’m open minded. You’re free to have as many heads as you choose.
+						That’s what my girlfriend always says! > She has six of them.
+					Isn’t John Oliver an asylant from Unwanted Kingdom?
+						Ah yes, I heard some of his jokes didn’t resonate well with the queen of Unwanted Kingdom
+			So, how do you like Austria Hungary?
+				Very pretty. > Except a couple of times when the police tried to arrest me. > First for mispronouncing the emperor’s name. > Viktor: I still have no idea how it’s pronounced > Me neither. > And once I tried looking at his picture from a wrong angle. > Luckily, one of them got cut on my spines while arresting me. > He started bleeding all over the floor and the other one fainted from seeing the blood. > So I just left
+
+== for_a_beer ==
+
+For a beer, I could play you a wonderful one.
+Any beer.
+Please.
+I can’t order anything from this waiter.
+	+ Unfortunately, I have the exact same problem
+		eh...
+			[section hello]
+	+ Don’t you get a free drink for playing the music here?
+		I do, but I have to choose my own beer and...
+		Never mind, it’s complicated.
+			[section hello]
+
+end
+=== possum ===
+
+== hello ==
+
+	+ ughh svećenik!
+		Mirišem li ja to nevjernika? Jeste li kršteni?
+			+ Ne sječam se. Ako jesam, bio sam dijete.
+				Mmmm djeca da mmm.Želite da vas pokrstim za samo 20 kruna?
+					+ Želite li da vas opalim nogom u prepone? Samo 2 krune
+						Dakle vi ste tog kova?
+							+ Kojeg?
+								Skeptik a? Dakle sad ću vas ja uvjeriti u boga svoga!!!! Vidite sve vam piše u Bibliji! Sve.
+									+ Čitao sam Bibliju i sva ta ženomrzačka, robovlasnički orjentirana tematika s bogom koji u bijesu ubija svoje vlastite vjernike mi nije najbolje sijela.
+										Ne razumiješ ti to prenešeno značenje sine sigurno si čitao trijezan pa ti nije jasno!
+											+ Jeste vi koji put probali čitati trijezni?
+												(no convo)
+													[end]
+											+ Jeste li probali čitati ikoju drugu knjigu?
+												Mislite na one bogohulne knjige o Budi,...
+													+ I o Moby Dicku?
+														Ima slična priča o Levijatanu želiš li vidjeti mog ?
+															(no convo)
+																[end]
+	+ dobar dan gospodine jeste li vi možda anarhist?
+		hvaljen isus i marija pa nisam, u grob s njima
+			[end]
+
+end
+=== tesla ===
+
+== hello ==
+
+Hello and welcome to my laboratory.
+Now, how can I help you?
+[set but_flag = 0]
+	[section begin]
+
+end
+== begin ==
+
+	+ Let's not beat about the bush, Mr. Tesla. We need your help with breaking the emperor's electric field.
+		Ah, I expected this kind of inquiry sooner or later.
+		I would be glad to help you, but... hmm...
+			[section but]
+	- I am Viktor. Are you really Nikola Tesla?
+		Last time I checked, I still had that misfortune.
+			+ I'm sorry, I didn't understand. Are you Nikola Tesla or not?
+				[talk matilda] Viktor honey, what did we say about aggravating famous people?
+					+ Oh, all right. I’m sorry mr. Tesla.
+					You are forgiven.
+					Now, how can I help you?
+						[section begin]
+	+ Wow, it's really you. I recognize you from the photograph in that magazine about coils!
+		Yes, I recognize myself as well. The magazine was called electro shocker
+			[section shocker]
+
+end
+== shocker ==
+	+ You are not embarrassed giving an interview for an article about an erotic fetish?
+		Considering how much this empire spends on non-military science, you should be more embarrassed about reading it.
+			+ It seems that you would really enjoy a change of government. I might possibly help about that.
+				Excuse me?
+					+ We have everything ready, but we need your help with breaking the emperor's electric field.
+						Oh...
+						Well, I would be glad to help you, but... hmm...
+							[section but]
+			+[if electric_flag < 1] Considering my electricity bill, yours probably needs like a billion of such interviews every month.
+				[section infinite]
+	+ I tried to replicate your experiment from the magazine, but I just started a fire.
+		Explaining it to firemen must have been quite a scene
+			+ Actually, let’s change the subject.
+				[section begin]
+	+ Actually, let’s change the subject.
+		[section begin]
+
+
+end
+== infinite ==
+That's not an issue for me. I discovered a secret of infinite electricity!
+[set electric_flag 1] 
+	+ Wow, can I know the secret?
+		Yes.
+		You help the empire with building a hydroelectric plant and hook up directly to it.
+		[talk matilda] So the emperor let you use as much power as you want?
+		I decided not to bother the busy emperor with that information.
+		[if but_flag = 1] [section but]
+		[if but_flag < 1] [section begin]
+	+ Are you saying that the world is soon going to have free electricity?
+		Probably not.
+		Political problems, long story.
+			+ Political problems can be solved. I'm working on becoming the new emperor of Austria Hungary!
+				You seem crude, but trustworthy.
+				You might make a good emperor.
+				But hereditary rules state otherwise.
+					+ Heredity is overrated. Most of the emperor's guards are automatons anyway. If I sat on that throne, nobody could challenge me!
+						Sounds crazy enough to work.
+						[talk matilda] But for all that, we need your help.
+						With the electric field?
+						I could easily help you with that, but there’s a slight problem!
+							[section but]
+					+ Rules are made to be broken.
+						[talk matilda] Currently, a critical mass of anarchists is getting ready to storm the palace together with us.
+							+ But we're having problem with the electric field around the throne.
+								Ah, that explains your visit.
+								I could help you with that.
+								There is just one problem.
+									[section but]
+
+end
+== but ==
+	- You fear the emperor's revenge?
+		I do not fear that.
+		Like for most other things I make, the journalists will write that Edison did it.
+			[section but]
+	- Even you cannot undo your incredible invention?
+		It’s not easy, but I can do it.
+			[section but]
+	-[if electric_flag < 1] You don't have enough electric power to do it?
+		[set but_flag = 1]
+			[section infinite]
+	+ You sure accepted our proposal quickly. Well then, please give us the way to break the field and we'll be on our way.
+		I have no trouble with you destroying that primitive war-mongering nincompoop.
+		Last year, his budget for non-military research was five copper crowns, a box of nails and photograph of his signed photograph.
+		The problem is that for neutralizing such an electric field, you need a Frequency Ultra Conversion Kirlian.
+			[section fuck]
+
+end
+== fuck ==
+
+	+ Oh come on, I'm sure you have one lying around this incredible laboratory.
+			I did have one, but I lent it to a certain Dr. Frankenstein.
+			He should return it to me sooner or later.
+				[section frank]
+	+ Money's no object. How fast can you build one?
+		It’s mostly a matter of trial and error with a lot of random results.
+		Long story short, between a few weeks and a hundred billion years.
+		[talk matilda] So, like... a month?
+		I have one, technically, but I lent it to Dr. Frankenstein.
+			[section frank]
+
+
+
+end
+== frank ==
+
+	- Why would a doctor need need an electric frequency convertor?
+		He says it’s for medical experiments.
+		I’m really looking forward to reading his future research articles.
+		Electricity can do incredible things for your health
+		From improving brain activity to curing constipation.
+			+ Oh, I never have any problems with constipation. Whatever comes in, goes out within a few hours.
+				It can also help with flatulence.
+				Whenever I need to go to an important meeting, I hook myself up and after a short toilet session, no problems ever.
+				[talk matilda] Is there ever a male conversation that does not include discussion about poop?
+				I had some, when I was younger.
+				But then I invented the electrical cocoon that cures constipation!
+				It’s the life of every party!
+				[add ing_flag 1]
+					[section frank]			
+	- Is Dr. Frankenstein also planning to attack the emperor of Austria-Hungary?
+		Not, as far as I know.
+		He needed it for some of his medical experiments.
+		[add ing_flag 1]
+			[section frank]
+	- Reminds me of the time I lent my Antonin Dvorak record to my ex girlfrend. Later I saw it in her litter box.
+		Thank you for that lovely mental image.
+		[add ing_flag 1]
+					[section frank]
+	-[not ing_flag < 2] Frankenstein... Sounds Germ. What’s a Germsman doing in southern Austria-Hungary?
+		He’s not really here. He lives in Germland.
+		If you want to get the Frequency Ultra Conversion Kirlian, you need to travel to Ingolstadt
+			[section ingol]
+
+end
+== ingol ==
+	
+	+ There must be an easier way then traveling to Ingolstadt
+		Luckily, my hydro-teleporter is set up to his castle.
+		You just need to reset it’s datafiles
+		Or whatever the mini-game will be about.	
+			[end]
+
+
+
+
+
+			
+end
+
+
+

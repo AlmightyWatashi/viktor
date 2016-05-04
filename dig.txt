@@ -1,0 +1,36 @@
+
+S = START
+E = END
+X = rock
+H = "hell this way"
+o = dirt
+v = devil
+c = coin
+r = record
+m = walrus
+n = walrus2
+k = dinosaur
+p = basement
+q = basement2
+w = dwarves
+_ = empty
+f = web
+
+
+XXXSXXXXXXXXXXXXXXXXXXXXXXXXEXX
+XooooXXXXXXXXXXXXXXXXXXXXXXXoXX
+XoXoooooooXo__fXoooopqooX_fXooX
+XoXoooooooooXf_XooXXXXXoX__XooX
+XoXooooXXXXXXX_Xoooo_fXoXoXXooX
+XooooooXoooXnmoXXXXX__XoooXoooX
+XoXooXXXoXoXXXXXooooooXXXoXoXXX
+XoXXocXooXooooXf_ooXXXXoXoXoooX
+XoXoooXooXooooX__XoXooooXoXoooX
+XoXXXXXoXXXooXXooXoookooXowoooX
+XoooooooXroooooooXooooooXoXXooX
+XXXXXXHoXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXoXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXoXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXvXXXXXXXXXXXXXXXXXXXXXXX
+
+
