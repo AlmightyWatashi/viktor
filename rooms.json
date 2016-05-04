@@ -2159,7 +2159,7 @@
 		}, 
 		{
 			"alias" : "martinHangsUp",
-			"entrance" : "[position player 840 450] Why do I even bother."
+			"entrance" : "[position player 840 449] Why do I even bother."
 		},
 		{
 			"alias": "lift",
