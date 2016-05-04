@@ -1,9 +1,5 @@
 ﻿{
-<<<<<<< HEAD
-	"version": "4.5. wat gibtest",
-=======
 	"version": "4.5. alex",
->>>>>>> origin/master
 	"rooms": [{
 		"comment": "Intro animations",
 		"alias": "intro",
