@@ -122,7 +122,7 @@
 		"border": "spr_various_token",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[soundtrack saens][cloud player 100 0][position player 577 290][direction left][set mood coupe] Hi > [active coupe_walrus][conversation walrus falling_dirigible] > [set mood default][mood default][cloud player 50 300][set dirigible_type travel][room dirigibles start]"
+			"entrance": "[soundtrack saens][cloud player 100 0][position player 577 290][direction left][set mood coupe] Hi > [active coupe_walrus][conversation walrus beginning] > [set mood default][mood default][cloud player 50 300][set dirigible_type travel][room dirigibles start]"
 		}, {
 			"alias": "won",
 			"entrance": "[cloud player 100 0][position player 577 290][direction left][set mood coupe] I saved the day! > And now to become the emperor. > [set mood default][cloud player 50 300][room map_agram_vienna start]"
