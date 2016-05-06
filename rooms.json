@@ -360,6 +360,34 @@
 		}]
 	}, 
 	{
+		"comment": "Title - Palace in Vienna, night",
+		"alias": "title_palace_2",
+		"gui": "empty",
+		"background": "bcg_title",
+		"rgb": "255,255,255",
+		"border": "spr_various_token",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[time 90][record strauss][soundtrack strauss] > [room pallace_outside_night start]"
+		}],
+		"objects": [{
+			"alias": "various_title",
+			"x": 400,
+			"y": 290,
+			"subimage": 2
+		}, {
+			"alias": "various_title",
+			"x": 400,
+			"y": 400,
+			"subimage": 14
+		}, {
+			"alias": "various_title",
+			"x": 400,
+			"y": 520,
+			"subimage": 15
+		}]
+	}, 
+	{
 		"comment": "Cutscene - AU map - Vienna to Prague",
 		"alias": "map_vienna_prague",
 		"gui": "empty",
@@ -2159,7 +2187,7 @@
 		}, 
 		{
 			"alias" : "martinHangsUp",
-			"entrance" : "[position player 840 449] Why do I even bother."
+			"entrance" : "[position player 700 750] Why do I even bother."
 		},
 		{
 			"alias": "lift",
@@ -3005,7 +3033,7 @@
 		"rgb": "200,232,235",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[zoom 0 0][position player 617 952][animation player spr_viktor_walk_back 0][direction back][active emperor][conversation emperor start] > [fade in 0.03][time 35][stop]"
+			"entrance": "[zoom 0 0][position player 617 952][animation player spr_viktor_walk_back 0][direction back][active emperor][conversation emperor start] > [room title_palace_2 start]"
 		}],
 		"objects": [{
 			"alias": "usporedba_palaca",
@@ -3021,8 +3049,206 @@
 			"x": 453,
 			"y": 376,
 			"direction": "back"
-		}]
-	}, {
+		},
+		{
+		"alias": "hyena",
+			"picture": "spr_various_token",
+			"x": 800,
+			"y": 100,
+		}
+		
+		]
+	},
+	{
+		"comment": "Pallace Outside by night",
+		"alias": "pallace_outside_night",
+		"gui": "default",
+		"scaleNear": 0.65,
+		"scaleFar": 0.55,
+		"background": "bcg_palaceNight",
+		"border": "spr_border_palaceOutside",
+		"rgb": "200,232,235",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[position player 9880 9830][time 90] > [set mood angry][move viktor_falling_up 90 15][time 60] > [create vida_front][time 40] > [move vida_front 180 30][time 20] > [destroy vida_front][move viktor_falling_down 270 25][time 35] > [destroy viktor_falling_down][create viktor_fell][time 50] > [destroy viktor_fell][create viktor_fall_stand][time 14] > [destroy viktor_fall_stand][position player 840 830] > [direction left] This is just a minor setback! > [set mood scared][direction left][talk offscreenpsst] Psst! > [direction left]I need a way to avoid that stupid energy field! > [direction left][talk offscreenpsst]PSSST! > [direction left]I either got concussion-induced hallucinations, or I hear a bug spray. > [talk offscreenpsst]PSSSSST PSSS PSSST!!! > What the... > [create vida_gets_in][move vida_gets_in 180 26][time 11] > [move vida_gets_in 180 0][time 45] > [destroy vida_gets_in][create vida] > [active vida][conversation vida begin] > [animation vida spr_vida_exit][move vida 0 40] > [animation viktor spr_viktor_letter1] > [animation viktor spr_viktor_letter2] We find you acceptable to join our revolutionary cause. Meet us at the copper garter bar in Prague. This message is self-destructing while you are reading it. > [animation viktor spr_viktor_letter3] > Well, I always wanted to visit Prague...[fade in 0.03]"
+		}],
+		"objects": [{
+			"alias": "beaver",
+			"available": 1,
+			"visible": 1,
+			"x": 350,
+			"y": 600,
+			"xScale": -1,
+			"yScale": 1,
+			"idle": 1
+		},
+		{
+			"comment": "Vida na ekranu",
+			"alias": "vida",
+			"available": 0,
+			"visible": 1,
+			"x": 914,
+			"y": 610,
+			"xInteract": 650,
+			"yInteract": 810,
+			"xScale": 0.6,
+			"yScale": 0.6,
+			"xCloud": 930,
+			"yCloud": 530,
+			"depth": -3000,
+			"idle": 1,
+			"description": "A secret agent",
+			"order": "look, talk",
+			"combinations": {
+				"look": "Looks familiar",
+				"talk": "[conversation vida begin]"
+			}
+		},
+		{
+			"comment": "Off screen pst",
+			"alias": "offscreenpsst",			
+			"picture": "spr_various_token",
+			"available": 1,
+			"visible": 1,
+			"x": 1100,
+			"y": 610,
+			"xInteract": 650,
+			"yInteract": 810,
+			"xScale": 1,
+			"yScale": 1,
+			"xCloud": 1200,
+			"yCloud": 530,
+			"depth": -3000,
+			"idle": 1,
+			"description": "A secret agent",
+			"order": "look, talk",
+			"combinations": {
+				"look": "Looks familiar",
+				"talk": "[conversation vida start]"
+			}
+		},
+		{
+			"comment": "vida uskace",
+			"alias": "vida_gets_in",
+			"picture": "spr_vida_enter",
+			"available": 0,
+			"visible": 1,
+			"x": 1200,
+			"y": 610,
+			"xInteract": 650,
+			"yInteract": 810,
+			"xScale": 0.6,
+			"yScale": 0.6,
+			"xCloud": 930,
+			"yCloud": 530,
+			"depth": -3000,
+			"idle": 1,
+			"description": "A secret agent",
+			"order": "look, talk",
+			"combinations": {
+				"look": "Looks familiar",
+				"talk": "[conversation vida start]"
+			}
+		},
+		{
+			"alias": "hyena",
+			"available": 1,
+			"visible": 1,
+			"x": 300, 
+			"y": 580,
+			"xScale": 1,
+			"yScale": 1,
+			"imageSpeed": 0.6,
+			"idle": 1
+		}, {
+			"comment": "Pallace gate left",
+			"alias": "palaceOutside_gate_left",
+			"depth": -101,
+			"available": 1,
+			"visible": 1,
+			"x": 405,
+			"y": 85
+		},
+		{
+			"comment": "Pallace gate right",
+			"alias": "palaceOutside_gate_right",
+			"depth": -102,
+			"available": 1,
+			"visible": 1,
+			"x": 614,
+			"y": 85,
+			"xInteract": 350,
+			"yInteract": 700
+		},
+		{
+			"comment": "Pallace front walls",
+			"alias": "palaceOutside_walls_night",
+			"depth": -114,
+			"available": 1,
+			"visible": 1,
+			"x": 0,
+			"y": 0
+		},
+		{
+			"comment": "Big Vida",
+			"alias": "vida_front",
+			"depth": -1000,
+			"xScale": -1,
+			"available": 0,
+			"visible": 1,
+			"x": 430,
+			"y": 550
+		},
+		{
+			"comment": "Viktor flying up",
+			"alias": "viktor_falling_up",
+			"picture": "spr_viktor_falling",
+			"depth": 0,
+			"xScale": -0.3,
+			"yScale": -0.3,
+			"available": 1,
+			"visible": 1,
+			"x": 1010,
+			"y": 580
+		},
+		{
+			"comment": "Viktor flying down",
+			"alias": "viktor_falling_down",
+			"picture": "spr_viktor_falling",
+			"depth": -900,
+			"xScale": 0.6,
+			"yScale": 0.6,
+			"available": 1,
+			"visible": 1,
+			"x": 840,
+			"y": 0
+		},
+		{
+			"comment": "Viktor fell zbunjen",
+			"alias": "viktor_fell",
+			"depth": -900,
+			"xScale": 0.6,
+			"yScale": 0.6,	
+			"available": 0,
+			"visible": 1,
+			"x": 840,
+			"y": 830
+		},
+		{
+			"comment": "Viktor ustaje",
+			"alias": "viktor_fall_stand",
+			"depth": -900,
+			"xScale": 0.6,
+			"yScale": 0.6,	
+			"available": 0,
+			"visible": 1,
+			"imageSpeed": 0.6,
+			"x": 840,
+			"y": 830
+		}		
+		]
+	},
+	{
 		"comment": "A bar in prague",
 		"alias": "tavern",
 		"gui": "default",

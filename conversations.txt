@@ -8,6 +8,7 @@
 0.07 alex ubacio u program
 0.08 ovo je wata poslao 26.4. u 17h
 0.09 alex 27.4. 17h do 28.4.
+0.099. wat post-reboot 6.5.
 
 === keys_test2 ===
 
@@ -1854,22 +1855,22 @@ I grow tired of this tirade.
 			[end]
 
 end	
-=== Vida ===
+=== vida ===
 
-pst
-pssst
-psssssst
+== begin ==
+
 	+ What do you mean psst? Are you a cat imitating a snake?
 		I mean psst be quiet, the guards are listening
 			[section package]
 	+ Hey, I remember you! You're Vida. We went to grade school together, remember?
+		[set mood]
 		Mention my name again and I will cut your throat!
 			+ So, how should I call you?
 				just don't
 					[section package]
 			+ Ah, good old Vida. You haven't changed a bit.
 				You idiot, I'll change your pancreas into...
-				Actually, forget that now.
+				Actually, forget about that now.
 					[section package]
 	+ Pssssssst?
 		[section package]
@@ -1877,19 +1878,24 @@ psssssst
 end	
 == package ==
 
+[set mood]
 You're here early.
 I respect that in an agent.
-	Well, I was in a hurry to overthrow the empire and all that.
-		Here's your message. > Read and destroy. > You know the watchword.
-			Wait' what?
+	+ Well, I was in a hurry to overthrow the empire and all that.
+		Here's your message.
+		[animation vida spr_vida_give][time 30]
+		[animation player spr_viktor_use_right_middle]
+		Read and destroy.
+		You know the watchword.
+			+ Wait' what?
 				[end]
-			Thanks, Vida!
+			+ Thanks, Vida!
 				[end]
-			What just happened?
+			+ What just happened?
 				[end]
 
 
-
+end
 === -- !!! PRAG KRTCHMA !!! --- ====
 
 
