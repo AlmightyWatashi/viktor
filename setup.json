@@ -13,6 +13,6 @@
 	],
 	"stripe" : 100,
 	"conversations" : "conversations.txt",
-	"action" : "new intro start",
+	"action" : "new station_up martinHangsUp",
 	"multiple" : 1,
 }

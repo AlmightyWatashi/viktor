@@ -2615,7 +2615,7 @@
 		},
 		{
 			"alias" : "martinHangsUp",
-			"entrance" : "[position player 600 685] Always a good conversation."
+			"entrance" : "[position player 600 685] Always a good conversation.[take cake]"
 		}
 		
 		],
@@ -2677,7 +2677,20 @@
 				"default": "Nah",
 				"picture": "spr_item_ball"
 			}
-		}, {
+		},
+		{
+		"comment": "Station up flying cake",
+		"alias": "fly_cake",
+		"depth": -1000,
+		"available": 0,
+		"visible": 1,
+		"picture": "spr_item_cake",		
+		"xScale": 0.25,
+		"yScale": 0.25,
+		"x": 420,
+		"y": 565
+		},
+		{
 			"alias": "rabbit",
 			"available": 1,
 			"visible": 1,
@@ -2696,10 +2709,17 @@
 				"look": "A small girl on a huge robot. > Looks too young for me. > Also, the robot looks very scary.",
 				"talk": "[conversation rabbit start]",
 				"pants": "[talk rabbit] Yes, that is the exactly pants I want! > (ADD CONTENT!!!!!!!!!!!)",
-				"cake": "(ANIMIRANI KAOS TEBRA!!!11",
+				"cake": "[animations player spr_viktor_walk_left][move player 180 5][time 30] > [animation player spr_viktor_cake][time 113] > [create fly_cake][move fly_cake 90 5][animation rabbit spr_rabbit_cake1][time 20] > [move fly_cake 90 1][time 40] > [destroy fly_cake][animations rabbit spr_rabbit_cake2]",
 				"ball": "I don't want to cause an international incident just yet.",
 				"cell": "Hell no!"
-			}
+			},
+			"inventory": {
+					"alias": "cake",
+					"picture": "spr_item_cake",
+					"name": "Piece of cake",
+					"description": "A very default-looking cake.",
+					"default": "Nah, I'm saving it for later."
+				}
 		}, {
 			"alias": "frog",
 			"available": 1,
