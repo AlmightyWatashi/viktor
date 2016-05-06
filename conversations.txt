@@ -463,6 +463,7 @@ Shalom, me lad.
 	- My name is Viktor.
 		Pleased to be meetin' ya
 		Me name is Noam McSmelliecock
+		[description station_dog Noam]
 		An athlete.
 			+ I used to do semi-professional boxing.
 				How wonderfool. Which category be ya fightin' in?
@@ -1073,6 +1074,7 @@ end
 	+ I am Viktor, a soon-to-be emperor of Austria Hungary.
 		Tee hee (⌒ω⌒)
 		I am Fuka Misaki, soon-to-be angry passenger (⌒_⌒;)
+		[description rabbit Ms. Misaki]
 			+ You already decided you will dislike the service in the airship?
 				[section letme]
 		+ And is this automaton of yours also soon-to-be angry passenger?
@@ -1335,10 +1337,11 @@ end
 
 == start ==
 
-	Attar!
+	+ Attar!
 [if attar_seen = 0] Viktor, is that you?
 [if attar_seen = 0][set attar_seen 1] I almost had trouble recognizing you out of your work uniform.
 How is life fairing for you, Viktor?
+
 == hello ==
 
 	+ Attar, my friend! You are the perfect man to join me in overthrowing the emperor.
@@ -1934,6 +1937,7 @@ end
 			+ The mouse with an obviously cheap beer. Who is that?
 				Ah, the gentlemen is a nice insurance salesman who wants to be a writer.
 				His name is Franz Kafka.
+				[description kafka Kafka]
 				And that's not beer he's drinking.
 					[section talkabout]
 			+ That loud group discussing politics?
@@ -2024,13 +2028,20 @@ end
 == hello ==
 
 	- Excuse me, sir. Are you one of the anarchists?
+		[set metkafka 1]
+		[description kafka Franz Kafka]
 		You have quite an interesting way to meet people.
-		My name is Franz Kafka and, I'm afraid, I'm much worse then that.
+		My name is Franz Kafka
+		[animation kafka spr_kafka_greetings]
+		I'm afraid, I'm much worse then that.
 		I am a Jew and an insurance salesman.
 		Also an amateur writer.
 			[section sojew]
 	+ My name is Viktor.
-		Pleased to meet you. My name iz Franz Kafka.
+		[if metkafka = 1]My name is still Franz Kafka.
+		[not metkafka = 1]Pleased to meet you. My name iz Franz Kafka.
+		[description kafka Franz Kafka]
+		[animation kafka spr_kafka_greetings]
 		Remember that name, it might be famous some day.
 			+ You should remember mine as well. You might be looking at the next emperor of Austria Hungary.
 				I'll do my best.
@@ -2321,10 +2332,10 @@ end
 
 == hello ==
 	
-Are you looking for trouble!?
-You got trouble!
-[fade in 0.03][time 35] > [fade][room toilet fight]
-	
+	+ Let's test boxing!
+		Are you looking for trouble!?
+		You got trouble!
+		[fade in 0.03][time 35] > [fade][room toilet fight]
 	+ Are you an anarchist?
 		Goodness me, not in the slightest.
 		I was under the impression that heads in your empire can roll just for asking questions like this.
@@ -2341,6 +2352,7 @@ You got trouble!
 			+ Actually, they never do because this isn't France. Our emperor uses firing squads.
 	+ My name is Viktor. You don't seem like you're from around here.
 		You, sir, have my eternal gratitude for this exquisite compliment.
+		[description jekyll Dr. Jekyll]
 		I, myself, am Dr. Henry Jekyll. A visitor from the Unwanted Kingdom.
 			+ I, myself, am a working on becoming a new emperor of Austria-Hungary
 				Ah, you disguised your person to fraternize with lower classes of your society.
@@ -2394,8 +2406,10 @@ end
 		[section not_an_anarchist]
 	- My name is Viktor
 		I’m Kubilius. Lake Kubilius. Musician and seducer!
+		[description lake Lake Kubilius]
 			They say that one goes along really well with the other
 				Wouldn't know. Both are going beautifully.
+				[animation lake spr_lake_smile]
 				[set lake_is_musician 1]
 					[section hello]
 	-[if lake_is_musician = 1] How do you manage to sound like a whole orchestra?
@@ -2403,6 +2417,7 @@ end
 			+ But you aren't even playing your guitar right now!
 				Heh, you got me.
 				There’s a record player inside the guitar.
+				[animation lake spr_lake_smile]
 				The only problem is, I took two records to play tonight.
 				Turned out that they are both the same
 					- If I gave you a record, would you trade?
@@ -2430,8 +2445,7 @@ end
 		When I was a kid, I fought a dragon.
 			+ Whoa!
 				Right when I almost strangled him, he stabbed his horn right in my eye!
-				Just kidding, both my eyes are fine.
-				(Animacija di diže povez)
+				Just kidding, both my eyes are fine.				
 				== lake_patch ==
 				I have an eyepatch because girls find it hot.
 					- Don’t you have a problem with depth perception while wearing the patch??
