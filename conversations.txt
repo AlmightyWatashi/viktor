@@ -752,8 +752,8 @@ end
 				But what is killing?
 				Is it the act of ending a life? It might be.
 				But what is life?
-				 + I think I'll go home and demolish my room again.
-					[end]
+					+ I think I'll go home and demolish my room again.
+						[end]
 
 end	
 == viktor_philosophy ==
@@ -809,7 +809,7 @@ What is anger?
 		Correct!
 		I pronounce this correct!
 			[section pitanje3]
-	+ Opposite to peace! 
+	+ Opposite of peace! 
 		Yes!
 		But no!
 		We need something less banal!
@@ -932,7 +932,7 @@ They don't let me sit with other people.
 But I hope that soon enough we would have a great philosophic disscusion.
 	+ I hope that next time you talk with me as an emperor.
 		[section wewill]
-	+ We will, we will.
+	+[if mood] We will, we will.
 		== wewill ==
 		So till next time my dear phylosopher Emperor.
 		Philosempre... Phisolemphres...
@@ -954,41 +954,41 @@ end
 				OK, the ticket is good, go on!
 				[animations player player spr_viktor_walk_left][move player 180 3][time 60] > [room coupe start]
 			+ I don't need a ticket, I'm on the list
-				List? What fuckin list. Do not give me shit man, go down there and buy yourself a ticket.
+				[mood donkey angry] List? What fuckin list. Do not give me shit man, go down there and buy yourself a ticket.
 					[section start]
 			+ Why would I need a ticket? I'm the next emperor of Austria-Hungary.
-				Are you zonked? What are you gibbering all about. Seams like you are doped like horse ass.
+				[mood donkey angry] Are you zonked? What are you gibbering all about. Seams like you are doped like horse ass.
 					[section start]
 			+ Oh come on, you would let a cousin in. My mother's uncle's chiropractician is Bosnian, just like you.
-				Ofcourse I would let cousin in but I belive you try to make monkey out of me bro.
-				How the smag can I know that your uncle's mother neighbour is from Bosnia?
+				[mood donkey angry] Ofcourse I would let cousin in but I belive you try to make monkey out of me bro.
+				[mood donkey angry] How the smag can I know that your uncle's mother neighbour is from Bosnia?
 					[section start]
 			+ Can't we take care of this some other way?
-				
-						[end]
-	+ My name is Viktor. I'm the next emperor of Austria Hungary. Let me aboard
+				No
+					[end]
+	- My name is Viktor. I'm the next emperor of Austria Hungary. Let me aboard
 		Did you smoke some wierd shit man?
-		What the fuck are you bullshiting around here.
-		You lasagna eater go suck your lasagnas.
+		[mood donkey angry] What the fuck are you bullshiting around here.
+		[mood donkey angry] You lasagna eater go suck your lasagnas.
 			+ Sir, I'm a customer of this dirgibledrome and you have no right to talk to me like this.
-				You are just a douchebag.
-				Without ticket.
-				Ticketless douchebag.
+				[mood donkey angry] You are just a douchebag.
+				[mood donkey angry] Without ticket.
+				[mood donkey angry] Ticketless douchebag.
 					[section start]
 			+ Look who's talking! A Bosnian donkey that will smash this dirigible into the first chimney.
-				Like you would drive it better you fat grey peace of vomit.
+				[mood donkey angry] Like you would drive it better you fat grey peace of vomit.
 					Let's race and find out!
 					[section bet]
 	+ Is this the dirgible for vienna?
 		Nope my friend it will leave for Sarajevo.
 		Yeeea it will go for Wiena you illiterate piggy.
-		Can't you read your ticket, dumbass?
+		[mood donkey angry] Can't you read your ticket, dumbass?
 			+ No, you dumbass because I don't, in fact, have a ticket.
 				Well that's your problem. 
 				 [section start]
 	+ Never mind.
 		[end]
-	+[if race = 1] Let's race again!
+	+[if raced = 1] Let's race again!
 			[room dirigibles start]
 
 end			
@@ -996,23 +996,27 @@ end
 
 	+ What'cha looking at, moron?
 		What, what??
-		Well when you are standing in front of me as pile of shit I have to look at you.
-			+ Your mom is a pile of shit, you son of a pile of shit
+		[mood donkey angry] Well when you are standing in front of me as pile of shit I have to look at you.
+			- Your mom is a pile of shit, you son of a pile of shit
 				Look piggy is trying to insult someone from Bosnia.
-				Go fuckyourself and stand there in line like everyone.
+				[mood donkey angry] Go fuckyourself and stand there in line like everyone.
+					[end]
 			+ You are obviously blind as a donkey. How the hell do you expect to drive with those shit eyes?
-				No, you will drive pig face? 
+				[mood donkey angry] No, you will drive pig face? 
 					+ I could drive better and faster than you with one hand and no shoes!
-						Little shit wish to bet? I say you can not?  What I m talking about you are not that little at all.  
+						[mood donkey angry] Little shit wish to bet? I say you can not?  What I m talking about you are not that little at all.  
+							[section bet]
 					+I can and I will, let me in!
 						No, no you can not drive this one. I have smaller ones if you wish to try.
+							[section bet]
 
 end	
 == bet ==
-						
+
+[set raced 1]
 If you win what will not happened because you looks like lost case I will let you fly without ticket.
 [talk frog] Can I try than also?
-Shut up you drunky blabing smag you already have a ticket
+[mood donkey angry] Shut up you drunky blabing smag you already have a ticket
 Aha and if I win I will I will hmm have right to kick you in the butt!?
 Is that a deal, mushroom eater?  
 	- A cockroach would drive better then you, asshead!
@@ -1220,9 +1224,26 @@ end
 end	
 === kiosk ===
 
+== viktor_angry ==
+	+[if cleanup = 1] You made a mess here, you stupid cow!
+		I know and I'm sorry. Please go away.
+			[end]
+	+ I'll have you fired for all this.
+		You have no power here.
+			+ You have no life here!
+				Are you here just to interrupt my meal or do you need something?
+					+ I don't need anything from you!
+						[end]
+
 == start ==
 [if cleanup = 1] [section away]
 What?
+	+ TEST THROW STUFF
+		[section throwstuff]
+	+ TEST MAKE ME ANGRY
+		Ok
+		[set mood angry]
+		[end]
 	+ What products do you sell at this kiosk?
 		What does it look like, sonny?
 			+[if cow_fun_flag = 1] So, you don't have any newspapers?
@@ -1316,7 +1337,7 @@ end
 == throwstuff ==
 
 [set cleanup 1]
-[set mood scared][direction left][other][animations spr_viktor_listen_left_scared] Get ready to meet your maker, pig! > [move player 0 5][animations spr_viktor_back_off][time 10][draw spr_station_anchor 0 500 30 1501 1 1 0 30 15 3 -1 1] > [sound snd_take2][move player 0 5][time 10][draw spr_station_ball 0 500 180 1501 1 1 0 30 45 3 -1 1] > [move player 0 5][time 10][draw spr_station_hammer 0 500 180 1501 1 1 0 30 15 10 -1 1] > [move player 0 5][time 10][draw spr_station_sickle 0 500 180 1501 1 1 0 30 45 3 -1 1] > [sound snd_take2][move player 0 5][sound snd_glass_break][time 10][sound snd_oven_break][draw spr_station_hanger 0 500 180 1501 1 1 0 30 15 3 -1 1] > [sound snd_take2][move player 0 5][time 10][draw spr_station_pipe 0 500 180 1501 1 1 0 30 45 3 -1 1] > [sound snd_take2][move player 0 5][time 10][create station_cake 20][draw spr_station_cake 0 600 20 1500 1 1 0 20 0 1 -1 1][draw spr_station_plate 0 630 20 1501 1 1 0 20 0 1 -1 1] > [sound snd_take2][move player 0 5][time 10][sound snd_glass_break][create station_stuck 30][draw spr_station_record 0 500 30 1501 1 1 0 27 2 0 -1 1] > [sound snd_log][move player 0 0][animations spr_viktor_listen_left_scared][time 10][create station_pants 20][draw spr_station_pants 0 600 15 1500 1 1 -45 15 0 1 -1 1] > [sound snd_vase_break][time 10][draw spr_station_plant 0 500 30 1501 1 1 0 12 -30 0 0 0] > [sound snd_take2][time 20][draw spr_station_suriken 0 500 180 1501 1 1 0 30 15 10 -1 1] > [set mood scared][direction left][other][draw spr_station_plant 330 740 13 1501 1 1 0 0 0 0 -1 1][create station_plant 12][sound snd_clock_break] > [other] Did I hit him? > [direction left][talk station_dog] I'm afraid not, mam. > [player][direction left][mood angry] I'm still here, old cow! > [other] Damn. > [other] Clean up on section 2!
+[set mood scared][direction left][other][animations spr_viktor_listen_left_scared] Get ready to meet your maker, pig! > [move player 0 5][animations spr_viktor_back_off][time 10][draw spr_station_anchor 0 500 30 1501 1 1 0 30 15 3 -1 1] > [sound snd_take2][move player 0 5][time 10][draw spr_station_ball 0 500 180 1501 1 1 0 30 45 3 -1 1] > [move player 0 5][time 10][draw spr_station_hammer 0 500 180 1501 1 1 0 30 15 10 -1 1] > [move player 0 5][time 10][draw spr_station_sickle 0 500 180 1501 1 1 0 30 45 3 -1 1] > [sound snd_take2][move player 0 5][sound snd_glass_break][time 10][sound snd_oven_break][draw spr_station_hanger 0 500 180 1501 1 1 0 30 15 3 -1 1] > [sound snd_take2][move player 0 5][time 10][draw spr_station_pipe 0 500 180 1501 1 1 0 30 45 3 -1 1] > [sound snd_take2][move player 0 5][time 10][create station_cake 20][draw spr_station_cake 0 600 20 1500 1 1 0 20 0 1 -1 1][draw spr_station_plate 0 630 20 1501 1 1 0 20 0 1 -1 1] > [sound snd_take2][move player 0 5][time 10][sound snd_glass_break][create station_stuck 30][draw spr_station_record 0 500 30 1501 1 1 0 27 2 0 -1 1] > [sound snd_log][move player 0 0][animations spr_viktor_listen_left_scared][time 10][create station_pants 20][draw spr_station_pants 0 600 15 1500 1 1 -45 15 0 1 -1 1] > [sound snd_vase_break][time 10][draw spr_station_plant 0 500 30 1501 1 1 0 12 -30 0 0 0] > [sound snd_take2][time 20][draw spr_station_suriken 0 500 180 1501 1 1 0 30 15 10 -1 1] > [set mood scared][direction left][other][draw spr_station_plant 330 740 13 1501 1 1 0 0 0 0 -1 1][create station_plant 12][sound snd_clock_break] > [other] Did I hit him? > [direction left][talk station_dog] I'm afraid not, mam. > [player][direction left][mood angry] I'm still here, old cow! > [other] Damn. > [set mood][other] Clean up on section 2!
 	[end]
 
 
@@ -1513,6 +1534,17 @@ end
 		[set talked_to_attar 1]
 			[end]
 
+
+
+end
+== viktor_angry ==
+	+ What the hell are you doing in my work spot?
+		Viktor, friend. Your anger has taken you again.
+		Remember the breathing.
+		[set mood]
+		[snd_rhino_magic]
+		Better?
+			[end]
 
 
 end
