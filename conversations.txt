@@ -1069,6 +1069,19 @@ end
 
 
 end
+== buy ==
+
+Is that 5 coins?
+	+[not coins < 5] Yes, I would like to buy a ticket.
+		[take ticket] Here you go Mr. bigshot.
+		[direction front] Well, this really really made me happy.
+		[direction front] My plan is going perfectly!			
+			[end]
+	+ Never mind
+		[end]
+
+
+end
 === rabbit ===
 
 == start ==

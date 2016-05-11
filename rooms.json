@@ -2369,7 +2369,9 @@
 					"ball": "[animation player spr_viktor_use_right_low] > [move station_down_lift_cabin 90 5]",
 					"pants": "I'm not a superhero. > And these pants don't fit me",
 					"cake": "I think it's too light to make the lift go by itself.",
-					"cell": "It works well enough already"
+					"cell": "It works well enough already",
+					"coin": "They removed the payment system. > By ''them'', I mean ''probably someone with a crowbar''.",
+					"umbrella": "I can't budge the whole elevator with an umbrella.",
 				}
 			}, {
 				"comment": "Coin under the lift",
@@ -2391,7 +2393,9 @@
 					"keys": "[mood angry] Just pick up the coin with your hand!",
 					"pants": "[mood angry] Just pick up the coin with your hand!",
 					"cake": "[mood angry] Just pick up the coin with your hand!",
-					"cell": "[mood angry] Just pick up the coin with your hand!"
+					"cell": "[mood angry] Just pick up the coin with your hand!",
+					"coin": "[mood angry] Just pick up the coin with your hand!",
+					"umbrella": "[mood angry] Just pick up the coin with your hand!"
 				}
 			}, {
 				"comment": "In front of lift",
@@ -2425,7 +2429,10 @@
 					"pants": "[talk station_dog] Thank ye, lad. > [talk station_dog] But I prefer me kilt. > [talk station_dog] It provides me with exquisite warmth. > [talk station_dog] While giving complete freedom for the unmentionables. > I wear this coat for exact same reasons!",
 					"cake": "[talk station_dog] Thank ye, boy. > [talk station_dog] But meh be needin' to stay fit fer the olympics.",
 					"ball": "[talk station_dog] I be havin' a bigga' one back home. > Of course you do.",
-					"cell": "[talk_station_dog] Interesting battery, lad. > Hm, right."
+					"cell": "[talk station_dog] Interesting battery, lad. > Hm, right.",
+					"coin": "[talk station_dog] Oh, I be havin' plenty o' those. > Can I have some? > [talk station_dog] No.",
+					"umbrella": "[talk station_dog]I be preferrin' just angrily yellin' at the rain with me walking stick.",
+					"ticket": "[talk station_dog] Good lad, now off ye go.",
 				},
 				"inventory": {
 					"alias": "ticket",
@@ -2459,7 +2466,9 @@
 					"pants": "[talk rhino_magical] My wife has something against our daughters wearing pants. > [talk rhino_magical] But thank you for offering.",
 					"cake": "[talk rhino_magical] Thank you, friend. > [talk rhino_magical] But I cannot eat sugar > Is that the Sikh thing?. > [talk rhino_magical] No, it's diabetes thing. > [mood scared] Oh, right, I forgot. So sorry. > [talk rhino_magical] Fret not, Viktor. Sugar is a thing I miss the least.",
 					"ball": "[talk rhino_magical] Hey, that's the ball you use for training. > It's a completely different one. Want it? > [talk rhino_magical] Not really, but thank you for offering.",
-					"cell": "Look, attar! A battery for Nippleonian automatons! > [talk rhino_magical] It's beautiful and only slightly broken > [talk rhino_magical] People sometimes use them to overcharge blimp engines. > Wanna buy it for two coins? > [talk rhino_magical] No. > [conversation rhino haggler]"
+					"cell": "Look, attar! A battery for Nippleonian automatons! > [talk rhino_magical] It's beautiful and only slightly broken > [talk rhino_magical] People sometimes use them to overcharge blimp engines. > Wanna buy it for two coins? > [talk rhino_magical] No. > [conversation rhino haggler]",
+					"coin": "[talk rhino_magical] You need those as much as I do, my friend.",
+					"umbrella": "[talk rhino_magical] It's a very stylish replacement for that old broom of yours."
 				},
 				"inventory": {
 					"alias": "cell",
@@ -2508,7 +2517,10 @@
 					"pants": "[talk rhino_sweeping] My wife has something against our daughters wearing pants. > [talk rhino_sweeping] But thank you for offering",
 					"cake": "[talk rhino_sweeping] Thank you, friend. > [talk rhino_sweeping] But I cannot eat sugar > Is that the Sikh thing?. > [talk rhino_sweeping] No, it's diabetes thing. > [mood scared] Oh, right, I forgot. So sorry. > [talk rhino_sweeping] Fret not, Viktor. Sugar is a thing I miss the least.",
 					"ball": "[talk rhino_sweeping] Hey, that's the ball you use for training. > It's a completely different one. Want it? > [talk rhino_sweeping] Not really, but thank you for offering.",
-					"cell": "Look, attar! A battery for Nippleonian automatons! > [talk rhino_sweeping] It's beautiful and only slightly broken > [talk rhino_sweeping] People sometimes use them to overcharge blimp engines. > Wanna buy it for two coins? > [talk rhino_sweeping] No. > [conversation rhino haggler]"
+					"cell": "Look, attar! A battery for Nippleonian automatons! > [talk rhino_sweeping] It's beautiful and only slightly broken > [talk rhino_sweeping] People sometimes use them to overcharge blimp engines. > Wanna buy it for two coins? > [talk rhino_sweeping] No. > [conversation rhino haggler]",
+					"coin": "[talk rhino_magical] You need those as much as I do, my friend.",
+					"umbrella": "[talk rhino_magical] It's a very stylish replacement for that old broom of yours.",
+					"ticket": "[talk rhino_magical] So, you're really going through with this? > [talk rhino_magical] Good luck, friend. And watch that anger of yours. > Thanks Attar. This will be a good thing for both of us."
 				},
 				"inventory": {
 					"alias": "coin",
@@ -2570,7 +2582,10 @@
 					"look": "Lady pants.",
 					"use": "[pickup] > Suprisingly, they're not my size. > [talk station_office] Yeah, I don't wear XXXXXXXXXL. > That's what's so suprising...",
 					"ball": "It's lady pants. > They are not meant to have balls inside.",
-					"cell": "They are not electrical in any way."
+					"cell": "They are not electrical in any way.",
+					"coin": "I don't think it would fit in the pocket. > If I ever had a reason to do that.",
+					"umbrella": "They look clean enough.",
+					"ticket": "Pants can't fly dirigibles."
 				},
 				"inventory": {
 					"alias": "pants",
@@ -2594,7 +2609,10 @@
 					"pants": "Don't complicate things, just pick it up.",
 					"cake": "That would be a good place for a cake. > But I'm not going to do this.",
 					"ball": "I don't want to damage it any further.",
-					"cell": "I think my hands would be enough to pull it out"
+					"cell": "I think my hands would be enough to pull it out",
+					"coin": "It doesn't look that stuck.",
+					"umbrella": "I can just use my hands.",
+					"ticket": "What? No."
 				}
 			}, {
 				"alias": "station_plant",
@@ -2613,7 +2631,10 @@
 					"pants": "It's not cold, it's dead.",
 					"cake": "It's not hungry, it's dead.",
 					"ball": "It's dead enough:",
-					"cell": "I don't think that works on plants."
+					"cell": "I don't think that works on plants.",
+					"coin": "You can't bribe the dead. > [talk station_dog] Sure ye can, boy. > What about dead plants? > [talk station_office] Leave the poor plant alone already. > [mood angry]Nobody asked you anything.",
+					"umbrella": "I think it liked water.",
+					"ticket": "It's not going anywhere"
 				}
 			}, {
 				"alias": "station_cake",
@@ -2629,7 +2650,10 @@
 					"use": "[pickup]",
 					"pants": "Strange idea. Try picking it up instead.",
 					"ball": "I don't want to ruin the ball. > I mean, cake!",
-					"cell": "It's already baked."
+					"cell": "It's already baked.",
+					"coin": "Too subtle for me. > I prefer breaking peoples' teeth with my fists.",
+					"umbrella": "This is not a cocktail umbrella.",
+					"ticket": "I might get it dirty."
 				},
 				"inventory": {
 					"alias": "cake",
@@ -2670,7 +2694,7 @@
 			"available": 0,
 			"visible": 1,
 			"x": 410,
-			"y": 515,
+			"y": 550,
 			"xInteract": 600,
 			"yInteract": 680,
 			"xScale": 0.6,
@@ -2678,14 +2702,17 @@
 			"xCloud": 450,
 			"yCloud": 250,
 			"idle": 1,
-			"picture": "spr_dirigibles_power",
-			"description": "battery",
+			"picture": "spr_dirigibles_bzz",
+			"description": "Robot",
 			"order": "look, use",
 			"combinations": {
 				"look": "I think the robot's auxilliary battery is poking out. > And the robot still works. > Wow.",
-				"use": "[pickup]",
-				"cake": "Not on the battery.",
-				"ball": "I don't want to cause an international incident just yet."
+				"use": "[if rabbiteatscake = 1][pickup] > [if rabbithasnewpants = 1][if rabbiteatscake = 1][destroy rabbit_cake2][create rabbit_pants][skip 1] > [if rabbiteatscake = 1][destroy rabbit_cake2][create rabbit] > [set rabbiteatscake 0][skip] > [if rabbithasnewpants = 1][animation player spr_viktor_listen_left][animations rabbit_pants spr_rabbit_pants_punch][time 85][skip 1] > [animation player spr_viktor_listen_left][animation rabbit spr_rabbit_punch][time 85] > [sound snd_boxing_hit][animation viktor spr_viktor_fell][time 50] > [animation viktor spr_viktor_fall_stand]",
+				"cake": "Good Idea. But on the bunny, not on the battery.",
+				"ball": "I don't want to cause an international incident just yet.",
+				"coin": "[if rabbithasnewpants = 1][talk rabbit_pants] I am not need of money, please be leaving ROBOTOTRON4ULTRA alone.[skip] > [talk rabbit] I am not need of money, please be leaving ROBOTOTRON4ULTRA alone.",
+				"umbrella": "I don't want this automaton crushing my umbrella.",
+				"ticket": "Why don't I just fly to Vienna?"
 			},
 			"inventory": {
 				"alias": "cell",
@@ -2714,7 +2741,10 @@
 				"use": "[pickup]",
 				"pants": "I don't get it.",
 				"cake": "Why and how? > And what?",
-				"cell": "This is no time for funniest home experiments."
+				"cell": "This is no time for funniest home experiments.",
+				"coin": "I don't see any slots in this.",
+				"umbrella": "It's not THAT heavy.",
+				"ticket": "Why?"
 			},
 			"inventory": {
 				"alias": "ball",
@@ -2737,8 +2767,42 @@
 		"y": 565
 		},
 		{
-			"alias": "rabbit",
-			"available": 1,
+		"alias": "rabbit",
+		"available": 1,
+		"visible": 1,
+		"x": 280,
+		"y": 310,
+		"xInteract": 580,
+		"yInteract": 680,
+		"xScale": 0.7,
+		"yScale": 0.7,
+		"xCloud": 450,
+		"yCloud": 250,
+		"idle": 1,
+		"description": "Mecha bunny",
+		"order": "look, talk",
+		"combinations": {
+			"look": "A small girl on a huge robot. > Looks too young for me. > Also, the robot looks very scary.",
+			"talk": "[if mood][conversation rabbit start] > [if mood][skip] > You stupid little leporidae... > [animation rabbit spr_rabbit_punch][time 85] > [animation viktor spr_viktor_fell]",
+			"pants": "[give pants][set rabbithasnewpants 1][talk rabbit] Yes, that is the exactly pants I want! > [talk rabbit] Please not be averting eyes while removing dress > [talk frog] Never intended to do that. > [talk donkey] I was, but now I won't. > [animation rabbit snd_rabbit_dress] > [destroy rabbit][create rabbit_pants] > [talk rabbit_pants]Be thanking you again!",
+			"cake": "[give cake][animations player spr_viktor_walk_left][move player 180 5][time 30] > [animation player spr_viktor_cake][time 113] > [create fly_cake][move fly_cake 90 5][animation rabbit spr_rabbit_cake1][time 20] > [move fly_cake 90 1][time 40] > [destroy fly_cake][create rabbit_cake2][destroy][set rabbiteatscake 1]",
+			"ball": "I don't want to cause an international incident just yet.",
+			"cell": "Hell no!",
+			"coin": "[talk rabbit] Arigato senpai ^^ > [talk rabbit] But I am not of needing coin right now. > [talk rabbit] I am prefer new fashion pants.",
+			"umbrella": "[talk rabbit] I having one like that. > [talk rabbit] But with cat ears ^^. > Why not bunny ears? > [talk rabbit]Tee-hee, that would be too silly, desu.",
+			"ticket": "[talk rabbit]I already have ticket, desu."
+		},
+		"inventory": {
+				"alias": "cake",
+				"picture": "spr_item_cake",
+				"name": "Piece of cake",
+				"description": "A very default-looking cake.",
+				"default": "Nah, I'm saving it for later."
+			}
+		},
+		{
+			"alias": "rabbit_pants",
+			"available": 0,
 			"visible": 1,
 			"x": 280,
 			"y": 310,
@@ -2752,20 +2816,15 @@
 			"description": "Mecha bunny",
 			"order": "look, talk",
 			"combinations": {
-				"look": "A small girl on a huge robot. > Looks too young for me. > [take cake]Also, the robot looks very scary.",
-				"talk": "[if mood][conversation rabbit start] > [if mood][skip] > You stupid little leporidae... > [animation rabbit spr_rabbit_punch][time 85] > [animation viktor spr_viktor_fell]",
-				"pants": "[talk rabbit] Yes, that is the exactly pants I want! > (ADD CONTENT!!!!!!!!!!!)",
-				"cake": "[animations player spr_viktor_walk_left][move player 180 5][time 30] > [animation player spr_viktor_cake][time 113] > [create fly_cake][move fly_cake 90 5][animation rabbit spr_rabbit_cake1][time 20] > [move fly_cake 90 1][time 40] > [destroy fly_cake][create rabbit_cake2][destroy]",
+				"look": "Nice pants.",
+				"talk": "[if mood][conversation rabbit start] > [if mood][skip] > You stupid little leporidae... > [animation rabbit spr_rabbit_pants_punch][time 85] > [animation viktor spr_viktor_fell]",
+				"cake": "[give cake][animations player spr_viktor_walk_left][move player 180 5][time 30] > [animation player spr_viktor_cake][time 113] > [create fly_cake][move fly_cake 90 5][animation rabbit_pants spr_rabbit_pants_cake1][time 20] > [move fly_cake 90 1][time 40] > [destroy fly_cake][create rabbit_cake2][destroy][set rabbiteatscake 1]",
 				"ball": "I don't want to cause an international incident just yet.",
-				"cell": "Hell no!"
-			},
-			"inventory": {
-					"alias": "cake",
-					"picture": "spr_item_cake",
-					"name": "Piece of cake",
-					"description": "A very default-looking cake.",
-					"default": "Nah, I'm saving it for later."
-				}
+				"cell": "Hell no!",
+				"coin": "[talk rabbit] Arigato senpai ^^ > [talk rabbit] But I am not of needing coin right now. > Thank you enough for pants.",
+				"umbrella": "[talk rabbit] I having one like that. > [talk rabbit] But with cat ears ^^. > Why not bunny ears? > [talk rabbit]Tee-hee, that would be too silly, desu.",
+				"ticket": "[talk rabbit]I already have ticket, desu."
+			}
 		},
 		{
 			"alias": "rabbit_cake2",
@@ -2783,18 +2842,20 @@
 			"description": "What the hell",
 			"order": "look",
 			"combinations": {
-				"look": "A small girl on a huge robot. > Looks too young for me. > Also, the robot looks very scary.",
-				"talk": "[conversation rabbit start]",
-				"pants": "[talk rabbit] Yes, that is the exactly pants I want! > (ADD CONTENT!!!!!!!!!!!)",
+				"look": "Eww",
+				"talk": "Not a good moment, I may get eaten.",
+				"pants": "She looks busy.",
 				"cake": "[animations player spr_viktor_walk_left][move player 180 5][time 30] > [animation player spr_viktor_cake][time 113] > [create fly_cake][move fly_cake 90 5][animation rabbit spr_rabbit_cake1][time 20] > [move fly_cake 90 1][time 40] > [destroy fly_cake][animations rabbit spr_rabbit_cake2]",
-				"ball": "I don't want to cause an international incident just yet.",
-				"cell": "Hell no!"
+				"ball": "Nah.",
+				"coin": "Better if I didn't bother her in her moment of suicidal glory.",
+				"umbrella": "She's fine. > Maybe even too fine.",
+				"ticket": "No."
 			},
 			"inventory": {
-					"alias": "cake",
-					"picture": "spr_item_cake",
-					"name": "Piece of cake",
-					"description": "A very default-looking cake.",
+					"alias": "pants",
+					"picture": "spr_station_pants",
+					"name": "Some pants",
+					"description": "Testing-related pants.",
 					"default": "Nah, I'm saving it for later."
 				}
 		},		{
@@ -2819,7 +2880,10 @@
 				"pants": "[talk frog] I think you lost the rest of the girl.",
 				"cake": "Want some cake? > [talk frog] Is it with rum? > I have no idea. > Then I will not take chances with a possibly non-alcoholic cake.",
 				"ball": "[talk frog] This is the biggest ball of wine I ever saw! > It's actually an iron ball for muscle training. > [talk frog] Get that thing out of my face, I don't do sports.",
-				"cell": "[talk frog] Oh no no no, I'm not drinking from that thing again. > [talk frog] Fool me once, shame on you. > [talk frog] Fool me twice a week... > [talk frog] Wait, does it have any wine inside? > No. > [talk frog] I'm not drinking from that thing again!"
+				"cell": "[talk frog] Oh no no no, I'm not drinking from that thing again. > [talk frog] Fool me once, shame on you. > [talk frog] Fool me twice a week... > [talk frog] Wait, does it have any wine inside? > No. > [talk frog] I'm not drinking from that thing again!",
+				"coin": "[talk frog] I do not bother myself with material wealth. > [talk frog] I'm too wealthy for that. > [talk frog] Too bad most of my money is in my other toga.",
+				"umbrella": "[talk frog] Is that a straw? > It's an umbrella. > [talk frog] Is it a cocktail umbrella? > Yes, why not.",
+				"ticket": "Thank you. > But, I'm not hungry."
 			},
 			"inventory": {
 				"alias": "wig",
@@ -2851,7 +2915,9 @@
 				"cake": "[talk donkey] This isnt sarma it isnt! > No deal!",
 				"ball": "[talk donkey] What? No.",
 				"cell": "My dirigible already has one. Hahaha shame on you.",
-				"ticket": "Can I go in with this ticket? > [give ticket] > [other] OK, the ticket is good, go on! > [animations player player spr_player_walk_left][move 0 3][time 60] > [room coupe start]"
+				"ticket": "Can I go in with this ticket? > [give ticket] > [other] OK, the ticket is good, go on! > [animations player player spr_player_walk_left][move 0 3][time 60] > [room coupe start]",
+				"coin": "[conversation donkey buy]",
+				"umbrella": "[talk donkey][mood donkey angry] Are you threatening me? > [talk donkey] Or trying to sell me the umbrella? > [talk donkey] In both case, no."
 			},
 			"inventory": {
 				"alias": "ticket",
@@ -2875,7 +2941,14 @@
 			"description": "A dirigible",
 			"order": "look",
 			"combinations": {
-				"look": "My prefered way of transport when ousting the emperor of Austria-Hungary is by dirigible."
+				"look": "My prefered way of transport when ousting the emperor of Austria-Hungary is by dirigible.",
+				"pants": "Like me, it's too big for these pants.",
+				"cake": "What?",
+				"ball": "I might get arrested for that again. > [talk donkey] I knew you looked familiar.",
+				"cell": "It's not for the big blimp. > I need to put it in the smaller one.",
+				"ticket": "I think I should give it to the donkey, not the blimp.",
+				"coin": "I tried, it won't poke any holes in it.",
+				"umbrella": "It looks well protected from rain."
 			}
 		}, {
 			"comment": "Station up sign temp",
@@ -2922,7 +2995,10 @@
 				"pants": "I'm not a superhero. > Plus, these pants don't fit.",
 				"cake": "I don't want to make this cake smelly.",
 				"ball": "Why would I want to send the lift down?",
-				"cell": "It already works well enough"
+				"cell": "It already works well enough",
+				"coin": "They removed the payment system. > By ''them'', I mean ''probably someone with a crowbar''.",
+				"umbrella": "I can't budge the whole elevator with an umbrella.",
+				"ticket": "It's for the dirigible, not for the lift."
 			}
 		}, {
 			"comment": "In front of lift",
