@@ -1603,7 +1603,6 @@ end
 		But I have been visiting Austria-Hungary so often that it became my second home.		
 			[section hello]
 	-[if from_talked = 1] You travel here often because you prefer a bit warmer climate?
-		[set mood]
 		For starters, I prefer the climate with less plague.
 		[add vienna_travel 1]
 			[section hello]
@@ -1612,7 +1611,6 @@ end
 		[add vienna_travel 1]
 			[section hello]	
 	-[if repair_flag = 1] I hope you wouldn't seeing a new emperor of Austria-Hungary.
-		[set mood]
 		I didn't know the empire plans on switching to democratic elections.
 		[set ouster_talked 1]
 			+ I'm not sure what you mean by ''elections''.
@@ -1630,9 +1628,8 @@ end
 				But do you think that other people would be better off with someone...
 				Who wasn't educated all his life to rule a country?
 					+ Are we talking about the educated ruler who sends his own people to wars?
-					[set mood scared]
-						Ah, I heard he is preparing that unfortunate war with the Macedonian republic due to their debts.
-						So, the goal of your travel is, in fact, stopping the war?
+						[animation player spr_viktor_talk_left_coupe 5]Ah, I heard he is preparing that unfortunate war with the Macedonian republic due to their debts.
+						[animation player spr_viktor_talk_left_coupe 5]So, the goal of your travel is, in fact, stopping the war?
 							+ That is one of the main reasons.
 							War is just a massive slaughterhouse in the name of somebody who sees you as a number on a piece of paper
 							Or as a foreigner.
@@ -1643,11 +1640,10 @@ end
 									+ This weather is kinda scaring me.
 										[section falling_dirigible]
 					+ You mean that educated ruler known for discriminating people for their nation or gender?
-					[set mood scared]
-						Nation, religion, breed, social class...
-						Everyone discriminates in a way.
-						It's just that it's really obvious with an emperor.
-						All eyes are constantly on him.
+						[animation player spr_viktor_talk_left_coupe 5]Nation, religion, breed, social class...
+						[animation player spr_viktor_talk_left_coupe 5]Everyone discriminates in a way.
+						[animation player spr_viktor_talk_left_coupe 5]It's just that it's really obvious with an emperor.
+						[animation player spr_viktor_talk_left_coupe 5]All eyes are constantly on him.
 							+ That's precisely why he should set a better example!
 							Besides, he is, er...
 							Sorry, I got distracted with the weather outside.
@@ -1657,10 +1653,10 @@ end
 == falling_dirigible ==
 
 	+ Manouvering this blimp around so many clouds might become really hard for the pilot.
-		Oh, you are also familiar with dirigible piloting?
-		You are truly a multi-talented person.
+		[animation player spr_viktor_talk_left_coupe 5]Oh, you are also familiar with dirigible piloting?
+		[animation player spr_viktor_talk_left_coupe 5]You are truly a multi-talented person.
 			+ I recently had the opportunity to try piloting a personal blimp.
-				Then you know that it is perfectly safe in the hands of a professional.
+				[animation player spr_viktor_talk_left_coupe 5]Then you know that it is perfectly safe in the hands of a professional.
 				I mean, what's the worst that can happen?
 				[cloud 580 200][animation player spr_viktor_talk_left_coupe 5][talk coupe_megaphone][blocksound snd_donkey_talk_muffled] Dearest passangers, your pilot is talking to you, we are losing height.
 				[cloud 580 200][animation player spr_viktor_talk_left_coupe 5][talk coupe_megaphone][blocksound snd_donkey_talk_muffled2] More to the point, we are falling and we are all about to die. 
@@ -1892,7 +1888,7 @@ I grow tired of this tirade.
 end	
 === vida ===
 
-== begin ==
+== start ==
 
 	+ What do you mean psst? Are you a cat imitating a snake?
 		I mean psst be quiet, the guards are listening
@@ -1918,7 +1914,7 @@ You're here early.
 I respect that in an agent.
 	+ Well, I was in a hurry to overthrow the empire and all that.
 		Here's your message.
-		[animation vida spr_vida_give][time 30]
+		[animation vida spr_vida_give][time 65]
 		[animation player spr_viktor_use_right_middle]
 		Read and destroy.
 		You know the watchword.

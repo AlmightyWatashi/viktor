@@ -2651,7 +2651,7 @@
 		"rgb": "200,232,235",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[if cleanup = 1][if ballandbattery = 0][set ballandbattery 1][create station_ball][create battery_poking] > [position 9000 9000][position station_up_lift_cabin 1057 300][move station_up_lift_cabin 90 5][time 60] > [move station_up_lift_cabin 90 0][position player 1100 673][animations player spr_viktor_walk_left][move player 180 5][time 50][set mood angry]"
+			"entrance": "[if cleanup = 1][if ballandbattery = 0][set ballandbattery 1][create station_ball][create battery_poking] > [position 9000 9000][position station_up_lift_cabin 1057 300][move station_up_lift_cabin 90 5][time 60] > [move station_up_lift_cabin 90 0][position player 1100 673][animations player spr_viktor_walk_left][move player 180 5][time 50]"
 		}, {
 			"alias": "won",
 			"entrance": "[soundtrack dvorak][sound snd_gramophone][position 400 700][active donkey][conversation donkey won]"
@@ -3014,8 +3014,8 @@
 			"picture": "spr_palaceOutside_gate_left",
 			"x": 405,
 			"y": 85,
-			"xInteract": 350,
-			"yInteract": 700,
+			"xInteract": 650,
+			"yInteract": 810,
 			"description": "Pallace gate",
 			"order": "look",
 			"combinations": {
@@ -3030,8 +3030,8 @@
 			"picture": "spr_palaceOutside_gate_right",
 			"x": 614,
 			"y": 85,
-			"xInteract": 350,
-			"yInteract": 700,
+			"xInteract": 650,
+			"yInteract": 810,
 			"description": "Pallace gate",
 			"order": "look",
 			"combinations": {
@@ -3119,16 +3119,93 @@
 		"rgb": "200,232,235",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[position player 9880 9830][time 90] > [set mood angry][move viktor_falling_up 90 15][time 60] > [create vida_front][time 40] > [move vida_front 180 30][time 20] > [destroy vida_front][move viktor_falling_down 270 25][time 35] > [destroy viktor_falling_down][create viktor_fell][time 50] > [destroy viktor_fell][create viktor_fall_stand][time 14] > [destroy viktor_fall_stand][position player 840 830] > [direction left] This is just a minor setback! > [set mood scared][direction left][talk offscreenpsst] Psst! > [direction left]I need a way to avoid that stupid energy field! > [direction left][talk offscreenpsst]PSSST! > [direction left]I either got concussion-induced hallucinations, or I hear a bug spray. > [talk offscreenpsst]PSSSSST PSSS PSSST!!! > What the... > [create vida_gets_in][move vida_gets_in 180 26][time 11] > [move vida_gets_in 180 0][time 45] > [destroy vida_gets_in][create vida] > [active vida][conversation vida begin] > [animation vida spr_vida_exit][move vida 0 40] > [animation viktor spr_viktor_letter1] > [animation viktor spr_viktor_letter2] We find you acceptable to join our revolutionary cause. Meet us at the copper garter bar in Prague. This message is self-destructing while you are reading it. > [animation viktor spr_viktor_letter3] > Well, I always wanted to visit Prague...[fade in 0.03]"
+			"entrance": "[position player 9880 9830][time 90] > [set mood angry][move viktor_falling_up 90 15][time 60] > [create vida_front][time 40] > [move vida_front 180 30][time 30] > [destroy vida_front][move viktor_falling_down 270 25][time 35] > [destroy viktor_falling_down][create viktor_fell][sound snd_viktor_kick2][time 50] > [destroy viktor_fell][create viktor_fall_stand][time 14] > [destroy viktor_fall_stand][position player 840 830] > [direction left] This is just a minor setback! > [set mood scared][direction left][talk offscreenpsst][sound snd_vida_talk_shh] Psst! > [direction left]I need a way to avoid that stupid energy field! > [direction left][talk offscreenpsst][sound snd_vida_talk_shh3]PSSST! > [direction left]I either got concussion-induced hallucinations, or I hear a bug spray. > [talk offscreenpsst][sound snd_vida_talk_shh2]PSSSSST PSSS PSSST!!! > What the... > [create vida_gets_in][move vida_gets_in 180 26][time 12][direction right] > [move vida_gets_in 180 0][time 45] > [destroy vida_gets_in][create vida] > [active vida][conversation vida start] > [animation vida spr_vida_exit][move vida 0 30] > [animation viktor spr_viktor_letter1] > [animation viktor spr_viktor_letter2] We find you acceptable to join our revolutionary cause. Meet us at the copper garter bar in Prague. This message is self-destructing while you are reading it. > [animation viktor spr_viktor_letter3][sound snd_letter_burn][time 70] > [sound snd_letter_burn][time 140] > Well, I always wanted to visit Prague... > [fade in 0.03]"
 		}],
 		"objects": [{
 			"alias": "beaver",
-			"available": 1,
-			"visible": 1,
 			"x": 350,
 			"y": 600,
 			"xScale": -1,
 			"yScale": 1,
+			"idle": 1
+		},
+		{
+			"alias": "palaceOutside_star_big",
+			"x": 477,
+			"y": 103,
+			"idle": 1
+		},
+		{
+			"alias": "palaceOutside_star_medium",
+			"x": 777,
+			"y": 73,
+			"idle": 1
+		},
+		{
+			"alias": "palaceOutside_star_medium",
+			"x": 1056,
+			"y": 286,
+			"idle": 1
+		},
+		{
+			"alias": "palaceOutside_star_medium",
+			"x": 177,
+			"y": 270,
+			"idle": 1
+		},{
+			"alias": "palaceOutside_star_small",
+			"x": 778,
+			"y": 202,
+			"idle": 1
+		},{
+			"alias": "palaceOutside_star_small",
+			"x": 718,
+			"y": 154,
+			"idle": 1
+		},{
+			"alias": "palaceOutside_star_small",
+			"x": 217,
+			"y": 183,
+			"idle": 1
+		},{
+			"alias": "palaceOutside_star_small",
+			"x": 440,
+			"y": 188,
+			"idle": 1
+		},{
+			"alias": "palaceOutside_star_small",
+			"x": 926,
+			"y": 103,
+			"idle": 1
+		},{
+			"alias": "palaceOutside_star_small",
+			"x": 1158,
+			"y": 403,
+			"idle": 1
+		},{
+			"alias": "palaceOutside_star_small",
+			"x": 1074,
+			"y": 195,
+			"idle": 1
+		},{
+			"alias": "palaceOutside_star_small",
+			"x": 1125,
+			"y": 349,
+			"idle": 1
+		},{
+			"alias": "palaceOutside_star_small",
+			"x": 202,
+			"y": 342,
+			"idle": 1
+		},{
+			"alias": "palaceOutside_star_small",
+			"x": 533,
+			"y": 84,
+			"idle": 1
+		},{
+			"alias": "palaceOutside_star_small",
+			"x": 104,
+			"y": 355,
 			"idle": 1
 		},
 		{
@@ -3203,9 +3280,9 @@
 			"alias": "hyena",
 			"available": 1,
 			"visible": 1,
-			"x": 300, 
+			"x": 450, 
 			"y": 580,
-			"xScale": 1,
+			"xScale": -1,
 			"yScale": 1,
 			"imageSpeed": 0.6,
 			"idle": 1
