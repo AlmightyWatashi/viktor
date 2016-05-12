@@ -254,6 +254,8 @@
 		"alias": "title_viktorsRoom",
 		"gui": "empty",
 		"background": "bcg_title",
+		"xBackground": -20,
+		"yBackground": -10,	
 		"rgb": "255,255,255",
 		"border": "spr_various_token",
 		"entrances": [{
@@ -262,17 +264,17 @@
 		}],
 		"objects": [{
 			"alias": "various_title",
-			"x": 400,
+			"x": 360,
 			"y": 290,
 			"subimage": 2
 		}, {
 			"alias": "various_title",
-			"x": 400,
+			"x": 360,
 			"y": 400,
 			"subimage": 3
 		}, {
 			"alias": "various_title",
-			"x": 400,
+			"x": 360,
 			"y": 510,
 			"subimage": 4
 		}]
@@ -281,6 +283,8 @@
 		"alias": "title_station",
 		"gui": "empty",
 		"background": "bcg_title",
+		"xBackground": -20,
+		"yBackground": -10,	
 		"rgb": "255,255,255",
 		"border": "spr_various_token",
 		"entrances": [{
@@ -289,17 +293,17 @@
 		}],
 		"objects": [{
 			"alias": "various_title",
-			"x": 400,
+			"x": 360,
 			"y": 290,
 			"subimage": 2
 		}, {
 			"alias": "various_title",
-			"x": 400,
+			"x": 360,
 			"y": 400,
 			"subimage": 3
 		}, {
 			"alias": "various_title",
-			"x": 400,
+			"x": 360,
 			"y": 510,
 			"subimage": 1
 		}]
@@ -308,6 +312,8 @@
 		"alias": "title_tavern",
 		"gui": "empty",
 		"background": "bcg_title",
+		"xBackground": -20,
+		"yBackground": -10,	
 		"rgb": "255,255,255",
 		"border": "spr_various_token",
 		"entrances": [{
@@ -316,17 +322,17 @@
 		}],
 		"objects": [{
 			"alias": "various_title",
-			"x": 400,
+			"x": 360,
 			"y": 290,
 			"subimage": 2
 		}, {
 			"alias": "various_title",
-			"x": 400,
+			"x": 360,
 			"y": 400,
 			"subimage": 10
 		}, {
 			"alias": "various_title",
-			"x": 400,
+			"x": 360,
 			"y": 510,
 			"subimage": 11
 		}]
@@ -336,25 +342,27 @@
 		"alias": "title_palace",
 		"gui": "empty",
 		"background": "bcg_title",
+		"xBackground": -20,
+		"yBackground": -10,	
 		"rgb": "255,255,255",
 		"border": "spr_various_token",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[time 90] > [room pallace_outside start]"
+			"entrance": "[soundtrack strauss][time 90] > [room pallace_outside start]"
 		}],
 		"objects": [{
 			"alias": "various_title",
-			"x": 400,
+			"x": 360,
 			"y": 290,
 			"subimage": 2
 		}, {
 			"alias": "various_title",
-			"x": 400,
+			"x": 360,
 			"y": 400,
 			"subimage": 14
 		}, {
 			"alias": "various_title",
-			"x": 400,
+			"x": 360,
 			"y": 520,
 			"subimage": 15
 		}]
@@ -366,23 +374,25 @@
 		"background": "bcg_title",
 		"rgb": "255,255,255",
 		"border": "spr_various_token",
+		"xBackground": -20,
+		"yBackground": -10,	
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[time 90][record strauss][soundtrack strauss] > [room pallace_outside_night start]"
+			"entrance": "[time 90][soundtrack strauss] > [room pallace_outside_night start]"
 		}],
 		"objects": [{
 			"alias": "various_title",
-			"x": 400,
+			"x": 360,
 			"y": 290,
 			"subimage": 2
 		}, {
 			"alias": "various_title",
-			"x": 400,
+			"x": 360,
 			"y": 400,
 			"subimage": 14
 		}, {
 			"alias": "various_title",
-			"x": 400,
+			"x": 360,
 			"y": 520,
 			"subimage": 15
 		}]
@@ -2357,14 +2367,14 @@
 				"xInteract": 865,
 				"yInteract": 710,
 				"description": "Lift",
-				"order": "look,use,use_2,use_2,useanywhere",
+				"order": "look,use,use_2,use_2,use_anywhere",
 				"combinations": {
 					"look": "For some people it's a lift that leads to dirgible docks. > For others, it's an emergency toilet.",
 					"kick": "Stupid lift! > [viktor spr_viktor_udara_desno]",
 					"use": "[animations player spr_viktor_walk_right][move player 0 5][time 50] > [position 9000 9000][move station_down_lift_cabin 90 5][time 120] > [room station_up start]",
 					"use_2": "[animations player spr_viktor_walk_right][move player 0 5][time 30] > [room station_up start]",
-					"useanywhere": "[room station_up lift]",
-					"talk": "Hello",
+					"use_anywhere": "[room station_up lift]",
+					"talk": "Hello lift.",
 					"keys": "It's unlocked",
 					"ball": "[animation player spr_viktor_use_right_low] > [move station_down_lift_cabin 90 5]",
 					"pants": "I'm not a superhero. > And these pants don't fit me",
@@ -2372,6 +2382,7 @@
 					"cell": "It works well enough already",
 					"coin": "They removed the payment system. > By ''them'', I mean ''probably someone with a crowbar''.",
 					"umbrella": "I can't budge the whole elevator with an umbrella.",
+					"dress": "I don't intend to wear this. > Probably."
 				}
 			}, {
 				"comment": "Coin under the lift",
@@ -2395,7 +2406,8 @@
 					"cake": "[mood angry] Just pick up the coin with your hand!",
 					"cell": "[mood angry] Just pick up the coin with your hand!",
 					"coin": "[mood angry] Just pick up the coin with your hand!",
-					"umbrella": "[mood angry] Just pick up the coin with your hand!"
+					"umbrella": "[mood angry] Just pick up the coin with your hand!",
+					"dress": "[mood angry] Just pick up the coin with your hand!"
 				}
 			}, {
 				"comment": "In front of lift",
@@ -2433,6 +2445,7 @@
 					"coin": "[talk station_dog] Oh, I be havin' plenty o' those. > Can I have some? > [talk station_dog] No.",
 					"umbrella": "[talk station_dog]I be preferrin' just angrily yellin' at the rain with me walking stick.",
 					"ticket": "[talk station_dog] Good lad, now off ye go.",
+					"dress": "Look at me now. I'm completely Scottish! I have a hat thing and everything! > [talk station_dog] Ach, a fine kilt it be. But ye still don' look Scottish, boy"
 				},
 				"inventory": {
 					"alias": "ticket",
@@ -2468,7 +2481,8 @@
 					"ball": "[talk rhino_magical] Hey, that's the ball you use for training. > It's a completely different one. Want it? > [talk rhino_magical] Not really, but thank you for offering.",
 					"cell": "Look, attar! A battery for Nippleonian automatons! > [talk rhino_magical] It's beautiful and only slightly broken > [talk rhino_magical] People sometimes use them to overcharge blimp engines. > Wanna buy it for two coins? > [talk rhino_magical] No. > [conversation rhino haggler]",
 					"coin": "[talk rhino_magical] You need those as much as I do, my friend.",
-					"umbrella": "[talk rhino_magical] It's a very stylish replacement for that old broom of yours."
+					"umbrella": "[talk rhino_magical] It's a very stylish replacement for that old broom of yours.",
+					"dress": "[talk rhino_magical] My wife would never let any of my daughters wear such a short dress. > [talk rhino_magical] Except for Chandana, but she's fatter than you."
 				},
 				"inventory": {
 					"alias": "cell",
@@ -2520,7 +2534,8 @@
 					"cell": "Look, attar! A battery for Nippleonian automatons! > [talk rhino_sweeping] It's beautiful and only slightly broken > [talk rhino_sweeping] People sometimes use them to overcharge blimp engines. > Wanna buy it for two coins? > [talk rhino_sweeping] No. > [conversation rhino haggler]",
 					"coin": "[talk rhino_magical] You need those as much as I do, my friend.",
 					"umbrella": "[talk rhino_magical] It's a very stylish replacement for that old broom of yours.",
-					"ticket": "[talk rhino_magical] So, you're really going through with this? > [talk rhino_magical] Good luck, friend. And watch that anger of yours. > Thanks Attar. This will be a good thing for both of us."
+					"ticket": "[talk rhino_magical] So, you're really going through with this? > [talk rhino_magical] Good luck, friend. And watch that anger of yours. > Thanks Attar. This will be a good thing for both of us.",
+					"dress": "[talk rhino_magical] My wife would never let any of my daughters wear such a short dress. > [talk rhino_magical] Except for Chandana, but she's bigger than both of us together."
 				},
 				"inventory": {
 					"alias": "coin",
@@ -2553,7 +2568,8 @@
 					"cake": "[talk station_office] I don't want to eat it. It's made with my own milk. > [mood scared] Eww... > [talk station_office] Enjoy",
 					"ball": "[talk station office] Keep it. > [talk station office] Eat it for all I care.",
 					"cell": "[conversation kiosk away]",
-					"ticket": "[other] Did you steal that? > [player] No, I got it fair and square. > [other] Great, then go to the dirigible upstairs and get out of my sight."
+					"ticket": "[other] Did you steal that? > [player] No, I got it fair and square. > [other] Great, then go to the dirigible upstairs and get out of my sight.",
+					"dress": "I told you not to bother me, go away."
 				},
 				"inventory": {
 					"alias": "ticket",
@@ -2585,7 +2601,8 @@
 					"cell": "They are not electrical in any way.",
 					"coin": "I don't think it would fit in the pocket. > If I ever had a reason to do that.",
 					"umbrella": "They look clean enough.",
-					"ticket": "Pants can't fly dirigibles."
+					"ticket": "Pants can't fly dirigibles.",
+					"dress": "What, like a parachute? > Nah."
 				},
 				"inventory": {
 					"alias": "pants",
@@ -2612,7 +2629,8 @@
 					"cell": "I think my hands would be enough to pull it out",
 					"coin": "It doesn't look that stuck.",
 					"umbrella": "I can just use my hands.",
-					"ticket": "What? No."
+					"ticket": "What? No.",
+					"dress": "I'll clean it once I grab it."
 				}
 			}, {
 				"alias": "station_plant",
@@ -2634,7 +2652,8 @@
 					"cell": "I don't think that works on plants.",
 					"coin": "You can't bribe the dead. > [talk station_dog] Sure ye can, boy. > What about dead plants? > [talk station_office] Leave the poor plant alone already. > [mood angry]Nobody asked you anything.",
 					"umbrella": "I think it liked water.",
-					"ticket": "It's not going anywhere"
+					"ticket": "It's not going anywhere",
+					"dress": "If it's a male plant, it might get arrested. > [talk station dog] Non-scottish male plant. > In either case, no."
 				}
 			}, {
 				"alias": "station_cake",
@@ -2653,7 +2672,8 @@
 					"cell": "It's already baked.",
 					"coin": "Too subtle for me. > I prefer breaking peoples' teeth with my fists.",
 					"umbrella": "This is not a cocktail umbrella.",
-					"ticket": "I might get it dirty."
+					"ticket": "I might get it dirty.",
+					"dress": "What, like a tablecloth? > Nah."
 				},
 				"inventory": {
 					"alias": "cake",
@@ -2712,7 +2732,8 @@
 				"ball": "I don't want to cause an international incident just yet.",
 				"coin": "[if rabbithasnewpants = 1][talk rabbit_pants] I am not need of money, please be leaving ROBOTOTRON4ULTRA alone.[skip] > [talk rabbit] I am not need of money, please be leaving ROBOTOTRON4ULTRA alone.",
 				"umbrella": "I don't want this automaton crushing my umbrella.",
-				"ticket": "Why don't I just fly to Vienna?"
+				"ticket": "Why don't I just fly to Vienna?",
+				"dress": "I think I can just grab it."
 			},
 			"inventory": {
 				"alias": "cell",
@@ -2744,7 +2765,8 @@
 				"cell": "This is no time for funniest home experiments.",
 				"coin": "I don't see any slots in this.",
 				"umbrella": "It's not THAT heavy.",
-				"ticket": "Why?"
+				"ticket": "Why?",
+				"dress": "Neither the time nor the place for the olympics."
 			},
 			"inventory": {
 				"alias": "ball",
@@ -2790,7 +2812,7 @@
 			"cell": "Hell no!",
 			"coin": "[talk rabbit] Arigato senpai ^^ > [talk rabbit] But I am not of needing coin right now. > [talk rabbit] I am prefer new fashion pants.",
 			"umbrella": "[talk rabbit] I having one like that. > [talk rabbit] But with cat ears ^^. > Why not bunny ears? > [talk rabbit]Tee-hee, that would be too silly, desu.",
-			"ticket": "[talk rabbit]I already have ticket, desu."
+			"ticket": "[talk rabbit] I already have ticket, desu."
 		},
 		"inventory": {
 				"alias": "cake",
@@ -2823,7 +2845,8 @@
 				"cell": "Hell no!",
 				"coin": "[talk rabbit] Arigato senpai ^^ > [talk rabbit] But I am not of needing coin right now. > Thank you enough for pants.",
 				"umbrella": "[talk rabbit] I having one like that. > [talk rabbit] But with cat ears ^^. > Why not bunny ears? > [talk rabbit]Tee-hee, that would be too silly, desu.",
-				"ticket": "[talk rabbit]I already have ticket, desu."
+				"ticket": "[talk rabbit]I already have ticket, desu.",
+				"dress": "[talk rabbit] Be having fun with it ^^"
 			}
 		},
 		{
@@ -2849,7 +2872,8 @@
 				"ball": "Nah.",
 				"coin": "Better if I didn't bother her in her moment of suicidal glory.",
 				"umbrella": "She's fine. > Maybe even too fine.",
-				"ticket": "No."
+				"ticket": "No.",
+				"dress": "I don't think she wants it. > Especially now."
 			},
 			"inventory": {
 					"alias": "pants",
@@ -2883,7 +2907,8 @@
 				"cell": "[talk frog] Oh no no no, I'm not drinking from that thing again. > [talk frog] Fool me once, shame on you. > [talk frog] Fool me twice a week... > [talk frog] Wait, does it have any wine inside? > No. > [talk frog] I'm not drinking from that thing again!",
 				"coin": "[talk frog] I do not bother myself with material wealth. > [talk frog] I'm too wealthy for that. > [talk frog] Too bad most of my money is in my other toga.",
 				"umbrella": "[talk frog] Is that a straw? > It's an umbrella. > [talk frog] Is it a cocktail umbrella? > Yes, why not.",
-				"ticket": "Thank you. > But, I'm not hungry."
+				"ticket": "Thank you. > But, I'm not hungry.",
+				"dress": "[talk frog] Oh god yes! > Wait, I meant no, oh god no!"
 			},
 			"inventory": {
 				"alias": "wig",
@@ -2917,7 +2942,8 @@
 				"cell": "My dirigible already has one. Hahaha shame on you.",
 				"ticket": "Can I go in with this ticket? > [give ticket] > [other] OK, the ticket is good, go on! > [animations player player spr_player_walk_left][move 0 3][time 60] > [room coupe start]",
 				"coin": "[conversation donkey buy]",
-				"umbrella": "[talk donkey][mood donkey angry] Are you threatening me? > [talk donkey] Or trying to sell me the umbrella? > [talk donkey] In both case, no."
+				"umbrella": "[talk donkey][mood donkey angry] Are you threatening me? > [talk donkey] Or trying to sell me the umbrella? > [talk donkey] In both case, no.",
+				"dress": "[talk donkey] Who you take me for?"
 			},
 			"inventory": {
 				"alias": "ticket",
@@ -2948,7 +2974,8 @@
 				"cell": "It's not for the big blimp. > I need to put it in the smaller one.",
 				"ticket": "I think I should give it to the donkey, not the blimp.",
 				"coin": "I tried, it won't poke any holes in it.",
-				"umbrella": "It looks well protected from rain."
+				"umbrella": "It looks well protected from rain.",
+				"dress": "Yes yes, I just take the dress and... > Wait, what?"
 			}
 		}, {
 			"comment": "Station up sign temp",
@@ -2998,7 +3025,8 @@
 				"cell": "It already works well enough",
 				"coin": "They removed the payment system. > By ''them'', I mean ''probably someone with a crowbar''.",
 				"umbrella": "I can't budge the whole elevator with an umbrella.",
-				"ticket": "It's for the dirigible, not for the lift."
+				"ticket": "It's for the dirigible, not for the lift.",
+				"dress": "I don't want to wear this. > More or less."
 			}
 		}, {
 			"comment": "In front of lift",
@@ -3039,7 +3067,7 @@
 		"rgb": "200,232,235",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[position player 700 830][record strauss][soundtrack strauss] This was actually a lot less dangerous then I thought it would be. > Now I just go through these insane members of Emperor's elite murder machinery... > And the crown can be mine."
+			"entrance": "[position player 700 830] This was actually a lot less dangerous then I thought it would be. > Now I just go through these insane members of Emperor's elite murder machinery... > And the crown can be mine."
 		}],
 		"objects": [{
 			"alias": "beaver",
@@ -3058,7 +3086,15 @@
 			"order": "look, talk",
 			"combinations": {
 				"look": "This one looks extremely pompous",
-				"talk": "[conversation beaver hello]"
+				"talk": "[conversation beaver hello]",
+				"keys": "I'm not giving him my keys.",
+				"ball": "[talk beaver] I train with five of those every morning > [talk beaver] One for each limb. > [talk hyena][mood hyena laugh] Hahahahahhahahahaha",
+				"pants": "Hi, I'm selling these fine pants. > [talk beaver] Sell them somewhere else.",
+				"cake": "[talk beaver] Is that an attempt to bribe or poison me? > I'll just enjoy this cake myself, then.",
+				"cell": "[talk beaver] That's nice, dear. > Now go play somewhere else.",
+				"coin": "[talk beaver] Are you trying to bribe me? > Yes > [mood scared][talk beaver] Then you're gonna need a lot more of those.",
+				"umbrella": "[talk beaver] I hate that song!",
+				"dress": "[talk beaver] Not even going to ask."
 			}
 		}, {
 			"alias": "hyena",
@@ -3079,7 +3115,15 @@
 			"combinations": {
 				"look": "This guy is just weird. > Must be from the war.",
 				"look_2": "I feel less sane just by looking at him.",
-				"talk": "[active beaver][conversation beaver hello]"
+				"talk": "[active beaver][conversation beaver hello]",
+				"keys": "[mood scared][talk hyena][mood hyena laugh] Hahahahahhahahahaha.",
+				"ball": "[talk hyena] You have just one ball? > [talk hyena][mood hyena laugh] Hahahahahhahahahaha",
+				"pants": "[talk hyena] They are girl pants! > So, you don't want them? > [talk hyena][mood hyena laugh] Hahahahahhahahahaha",
+				"cake": "[animations player spr_viktor_walk_right][move player 0 5][time 30] >[animation player spr_viktor_use_right_middle] > [talk hyena] Thank you > [mood scared][give cake][talk hyena] Now buzz off. > [mood angry]I gave you the cake. Why don't you let me in? > [mood angry][talk hyena] Why would I?",
+				"cell": "[animations player spr_viktor_walk_right][move player 0 5][time 30] >[animation player spr_viktor_use_right_middle] > [talk hyena] Thank you > [mood scared][give cell][talk hyena] Now buzz off. > [mood angry]Aren't you going to let me in? > [mood angry][talk hyena]  No I won't.",
+				"coin": "[talk hyena] I'm not allowed to take those. > [talk hyena] Give me something else.",
+				"umbrella": "[mood scared][talk hyena][mood hyena laugh] Hahahahahhahahahaha.",
+				"dress": "[animations player spr_viktor_walk_right][move player 0 5][time 30] >[animation player spr_viktor_use_right_middle] > [talk hyena] Oh yes yes yes, good. [give dress] > Can I go in now? > [mood scared][talk hyena] Of course not, hahahahahaha."
 			}
 		}, {
 			"comment": "Pallace gate left",
@@ -3095,7 +3139,15 @@
 			"description": "Pallace gate",
 			"order": "look",
 			"combinations": {
-				"look": "This gate is all that stands between me and the crown of Austria-Hungary."
+				"look": "This gate is all that stands between me and the crown of Austria-Hungary.",
+				"keys": "[mood scared][talk beaver] Are you trying to unlock the automathic gate with a set of house keys? > [mood angry] They are not house keys, they are closet keys. > [mood scared][talk beaver] Oh, that's all right then. Carry on. > [talk hyena][mood hyena laugh] Hahahahahhahahahaha",
+				"ball": "[mood scared][talk beaver] Don't even think it. > Too late for that. > [talk hyena][mood hyena laugh] Hahahahahhahahahaha",
+				"pants": "Climb over maybe... > Nah, too small. > And I'm too big.",
+				"cake": "No.",
+				"cell": "Hmmm... > [mood scared][talk beaver] That's not going to work. > Even if it did, we could just cut you into pieces.",
+				"coin": "[mood scared][talk beaver] There is no lock, stop trying to do that",
+				"umbrella": "[mood scared][talk beaver] Stop trying to break your junk on the emperor's lovely fence.",
+				"dress": "I don't know what I would do with this."
 			}
 		}, {
 			"comment": "Pallace gate right",
@@ -3111,7 +3163,15 @@
 			"description": "Pallace gate",
 			"order": "look",
 			"combinations": {
-				"look": "This gate is all that stands between me and the crown of Austria-Hungary."
+				"look": "This gate is all that stands between me and the crown of Austria-Hungary.",
+				"keys": "[mood scared][talk beaver] Are you trying to unlock the automathic gate with a set of house keys? > [mood angry] They are not house keys, they are closet keys. > [mood scared][talk beaver] Oh, that's all right then. Carry on. > [talk hyena][mood hyena laugh] Hahahahahhahahahaha",
+				"ball": "[mood scared][talk beaver] Don't even think it. > Too late for that. > [talk hyena][mood hyena laugh] Hahahahahhahahahaha",
+				"pants": "Climb over maybe... > Nah, too small. > And I'm too big.",
+				"cake": "No.",
+				"cell": "Hmmm... > [mood scared][talk beaver] That's not going to work. > Even if it did, we could just cut you into pieces.",
+				"coin": "[mood scared][talk beaver] There is no lock, stop trying to do that",
+				"umbrella": "[mood scared][talk beaver] Stop trying to break your junk on the emperor's lovely fence.",
+				"dress": "I don't know what I would do with this."
 			}
 		}, {
 			"comment": "Pallace front walls",
