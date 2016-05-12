@@ -448,7 +448,53 @@ And with that piece of unquestionable wisdom, I leave you to your adventure.
 
 
 end
+== pallace ==
 
+Who dares to bother me just as I wanted to take a short break in my bath?
+	+ Oh come on, you practically live in your bath
+		Viktor, my friend, it's you. How's your travels?
+			[section pallace_hello]
+	+ Martin, it's me, Viktor.
+		Viktor! > You survived! > My third eye told me you wouldn't survive your trip!
+			[section pallace_hello]
+	+ Quit your whining, Martin. I have urgent question.
+		For you, Viktor, I'm willing to work even from my bath.
+			[section pallace_hello]
+	+ Actually, you just inspired me to do something. See ya.
+		Good bye, sir.
+		Call us again.
+			[end]
+end
+== pallace_hello ==
+
+	- The dirigible almost crashed, I had to drive it for my survival.
+		Yes, I felt that in your phone vibrations. > They scare and excite me.
+			[section pallace_hello]
+	- What can you tell me about a beaver and a hyena guarding an enterance?
+		An enterance to the pallace?
+			== somequestions ==
+			- Wow, you are so psychic.
+				Very amusing Viktor.
+					[section somequestions]
+			- Tell me about the hyena.
+				He is prone to bribes.
+				Not because he needs it, but because he likes it.
+				Give him something nice.
+				And you also said beaver?
+					[section some questions]
+			- Yes, what about the beaver?
+				He always wanted to be an actor!
+					So, I should try acting in front of him?
+						Or make him cry.
+						Either is fine.
+							[section somequestions]
+			+ Actually, I'll figure it out from here. Thanks Martin.
+				Any time.
+				I'm looking forward to tomorrow's newspapers.
+				Good bye Viktor
+					+ Bye.
+
+end
 === noam ===
 
 Shalom, me lad.
