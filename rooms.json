@@ -469,7 +469,6 @@
 		}],
 		"objects": [{
 			"comment": "Alias is the number you have to type in to set phone_win = 1",
-			"available": 1,
 			"alias": "32055",
 			"object": "obj_phone_controller",
 			"picture": "spr_menu_back",
@@ -685,8 +684,6 @@
 			"comment": "Alias is the entrance of the previous room to return to",
 			"alias": "map",
 			"object": "obj_map_controller",
-			"available": 1,
-			"visible": 1,
 			"picture": "spr_menu_back",
 			"x": 0,
 			"y": 800,
@@ -696,7 +693,6 @@
 		}, {
 			"comment": "Austria Hungary",
 			"alias": "viktorsMap_austriaHungary",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_austriaHungary",
 			"x": 523,
@@ -708,7 +704,6 @@
 		}, {
 			"comment": "Folder",
 			"alias": "viktorsMap_folder",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_folder",
 			"x": 284,
@@ -720,7 +715,6 @@
 		}, {
 			"comment": "Unwanted Kingdom",
 			"alias": "viktorsMap_unwantedKingdom",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_unwantedKingdom",
 			"x": 347,
@@ -732,7 +726,6 @@
 		}, {
 			"comment": "Nordland",
 			"alias": "viktorsMap_nordland",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_nordland",
 			"x": 477,
@@ -744,7 +737,6 @@
 		}, {
 			"comment": "France",
 			"alias": "viktorsMap_france",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_france",
 			"x": 443,
@@ -756,7 +748,6 @@
 		}, {
 			"comment": "Asspain",
 			"alias": "viktorsMap_asspain",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_asspain",
 			"x": 399,
@@ -768,7 +759,6 @@
 		}, {
 			"comment": "Roman empire",
 			"alias": "viktorsMap_romanEmpire",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_romanEmpire",
 			"x": 417,
@@ -780,7 +770,6 @@
 		}, {
 			"comment": "Republic of Macedonia",
 			"alias": "viktorsMap_macedonia",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_macedonia",
 			"x": 568,
@@ -792,7 +781,6 @@
 		}, {
 			"comment": "Germland",
 			"alias": "viktorsMap_germland",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_germland",
 			"x": 502,
@@ -804,7 +792,6 @@
 		}, {
 			"comment": "Texas",
 			"alias": "viktorsMap_texas",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_texas",
 			"x": 99,
@@ -816,7 +803,6 @@
 		}, {
 			"comment": "Mexico",
 			"alias": "viktorsMap_mexico",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_mexico",
 			"x": 131,
@@ -828,7 +814,6 @@
 		}, {
 			"comment": "Ban-an-as",
 			"alias": "viktorsMap_ban_an_as",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_ban_an_as",
 			"x": 265,
@@ -840,7 +825,6 @@
 		}, {
 			"comment": "Mayana",
 			"alias": "viktorsMap_mayana",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_mayana",
 			"x": 168,
@@ -852,7 +836,6 @@
 		}, {
 			"comment": "Inkanland",
 			"alias": "viktorsMap_inkanland",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_inkanland",
 			"x": 198,
@@ -864,7 +847,6 @@
 		}, {
 			"comment": "Brassiere",
 			"alias": "viktorsMap_brassiere",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_brassiere",
 			"x": 247,
@@ -876,7 +858,6 @@
 		}, {
 			"comment": "South Asspain",
 			"alias": "viktorsMap_southAsspain",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_southAsspain",
 			"x": 351,
@@ -888,7 +869,6 @@
 		}, {
 			"comment": "Russian socialist kingdom of soviets",
 			"alias": "viktorsMap_russia",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_russia",
 			"x": 575,
@@ -900,7 +880,6 @@
 		}, {
 			"comment": "Persia",
 			"alias": "viktorsMap_persia",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_persia",
 			"x": 619,
@@ -912,7 +891,6 @@
 		}, {
 			"comment": "Khanat",
 			"alias": "viktorsMap_khanat",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_khanat",
 			"x": 747,
@@ -924,7 +902,6 @@
 		}, {
 			"comment": "Gangrene",
 			"alias": "viktorsMap_gangrene",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_gangrene",
 			"x": 731,
@@ -936,7 +913,6 @@
 		}, {
 			"comment": "Khmer",
 			"alias": "viktorsMap_khmer",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_khmer",
 			"x": 839,
@@ -948,7 +924,6 @@
 		}, {
 			"comment": "Mei-din",
 			"alias": "viktorsMap_mei-din",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_mei_din",
 			"x": 778,
@@ -960,7 +935,6 @@
 		}, {
 			"comment": "Nippleon",
 			"alias": "viktorsMap_nippleon",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_nippleon",
 			"x": 995,
@@ -972,7 +946,6 @@
 		}, {
 			"comment": "Salike",
 			"alias": "viktorsMap_salike",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_salike",
 			"x": 775,
@@ -984,7 +957,6 @@
 		}, {
 			"comment": "Sri Vijaya",
 			"alias": "viktorsMap_sriVijaya",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_sriVijaya",
 			"x": 854,
@@ -996,7 +968,6 @@
 		}, {
 			"comment": "German Guinea",
 			"alias": "viktorsMap_germanGuinea",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_germanGuinea",
 			"x": 965,
@@ -1008,7 +979,6 @@
 		}, {
 			"comment": "Tasmania",
 			"alias": "viktorsMap_tasmania",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_tasmania",
 			"x": 960,
@@ -1020,7 +990,6 @@
 		}, {
 			"comment": "Maori land",
 			"alias": "viktorsMap_maoriLand",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_maoriLand",
 			"x": 1024,
@@ -1032,7 +1001,6 @@
 		}, {
 			"comment": "Senile land",
 			"alias": "viktorsMap_senileLand",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_senileLand",
 			"x": 550,
@@ -1044,7 +1012,6 @@
 		}, {
 			"comment": "Zululand",
 			"alias": "viktorsMap_zululand",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_zululand",
 			"x": 537,
@@ -1056,7 +1023,6 @@
 		}, {
 			"comment": "Khongo",
 			"alias": "viktorsMap_khongo",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_khongo",
 			"x": 494,
@@ -1068,7 +1034,6 @@
 		}, {
 			"comment": "Songhai",
 			"alias": "viktorsMap_songhai",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_songhai",
 			"x": 356,
@@ -1080,7 +1045,6 @@
 		}, {
 			"comment": "Akan",
 			"alias": "viktorsMap_akan",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_akan",
 			"x": 379,
@@ -1092,7 +1056,6 @@
 		}, {
 			"comment": "Abyssinia",
 			"alias": "viktorsMap_abyssinia",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_abyssinia",
 			"x": 601,
@@ -1104,7 +1067,6 @@
 		}, {
 			"comment": "Rhodesia",
 			"alias": "viktorsMap_rhodesia",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_rhodesia",
 			"x": 570,
@@ -1116,7 +1078,6 @@
 		}, {
 			"comment": "Madagascar",
 			"alias": "viktorsMap_madagascar",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_madagascar",
 			"x": 643,
@@ -1128,7 +1089,6 @@
 		}, {
 			"comment": "France Africa",
 			"alias": "viktorsMap_franceAfrika",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_franceAfrika",
 			"x": 380,
@@ -1140,7 +1100,6 @@
 		}, {
 			"comment": "Also Unwanted Kingdom",
 			"alias": "viktorsMap_alsoUK",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_alsoUK",
 			"x": 871,
@@ -1152,7 +1111,6 @@
 		}, {
 			"comment": "Hole",
 			"alias": "viktorsMap_hole",
-			"available": 1,
 			"visible": 0,
 			"picture": "spr_viktorsMap_hole",
 			"x": 622,
@@ -1338,7 +1296,6 @@
 		"objects": [{
 				"comment": "Pots in viktors room",
 				"alias": "viktorsRoom_pots",
-				"available": 1,
 				"x": 324,
 				"y": 821,
 				"xInteract": 307,
@@ -1347,7 +1304,8 @@
 				"order": "kick,use",
 				"combinations": {
 					"kick": "Stupid pots!! > First I'm going to yell at you! > Then use you for my bath to calm down",
-					"use": "[mood]I'll need is for the bath. [animation player spr_viktor_pot1_take1] > [destroy viktorsRoom_pots][create viktorsRoom_pot2][animation player spr_viktor_pot1_take2] > [animations player spr_viktor_pot1_carry][move player 65 2][time 92] > [animation player spr_viktor_pot1_lift] > [create viktorsRoom_pot1] > [if available viktorsRoom_oven_hot][create viktorsRoom_pot1_boil]"
+					"use": "[mood]I'll need is for the bath. [animation player spr_viktor_pot1_take1] > [destroy viktorsRoom_pots][create viktorsRoom_pot2][animation player spr_viktor_pot1_take2] > [animations player spr_viktor_pot1_carry][move player 65 2][time 92] > [animation player spr_viktor_pot1_lift] > [create viktorsRoom_pot1] > [if available viktorsRoom_oven_hot][create viktorsRoom_pot1_boil]",
+					"Look": "Pots of water. > The bigger one is filled with cold water. > The smaller one is also filled with cold water."
 				}
 			},
 
@@ -1388,8 +1346,6 @@
 				"comment": "Airship flying bigger",
 				"depth": 2023,
 				"alias": "viktorsRoom_background_zeppelin_1",
-				"available": 1,
-				"visible": 1,
 				"path": "path_left",
 				"picture": "spr_viktorsRoom_dirigible_large",
 				"x": 690,
@@ -1397,15 +1353,9 @@
 			}, {
 				"comment": "Keys in Viktor's room",
 				"alias": "viktorsRoom_keys",
-				"available": 1,
-				"visible": 1,
 				"picture": "spr_viktorsRoom_keys",
 				"x": 66,
 				"y": 468,
-				"xOffset": 0,
-				"yOffset": 0,
-				"xScale": 1,
-				"yScale": 1,
 				"xInteract": 170,
 				"yInteract": 700,
 				"description": "Keys",
@@ -1414,7 +1364,8 @@
 					"look": "[mood]I'm not really sure what those keys open. > [set clock_coin 0] [mood]Probably something in this room.",
 					"use": "[pickup]",
 					"talk": "Are you the keymaster?",
-					"log": "A... Keylogger? > Get it, get it!?"
+					"log": "A... Keylogger? > Get it, get it!?",
+					"kick": "What?!?"
 				},
 				"inventory": {
 					"alias": "keys",
@@ -1426,7 +1377,6 @@
 			}, {
 				"comment": "Logs",
 				"alias": "viktorsRoom_logs",
-				"available": 1,
 				"visible": 0,
 				"pair": "viktorsRoom_logs",
 				"picture": "spr_various_token",
@@ -1442,6 +1392,7 @@
 					"look": "[mood]Logs of wood for making fire.",
 					"look_2": "[mood]They used to be trees. > [mood]I already have one.",
 					"kick": "Stupid logs! > [mood] Wait, I'll need this to warm up my bath water. > [pick] > Now, let's kick something!",
+					"talk": "Heh heh, wood.",
 					"keys": "No",
 					"log": "I'm not putting it back, I need one for my oven!"
 				},
@@ -1455,14 +1406,11 @@
 			}, {
 				"comment": "Clock, viktor is angry",
 				"alias": "viktorsRoom_clock_angry",
-				"available": 1,
 				"visible": 0,
 				"pair": "viktorsRoom_clock_happy",
 				"picture": "spr_various_token",
 				"x": 717,
 				"y": 151,
-				"xOffset": 0,
-				"yOffset": 0,
 				"xScale": 95,
 				"yScale": 441,
 				"xInteract": 758,
@@ -1489,7 +1437,6 @@
 				"comment": "Clock broken slikica",
 				"alias": "viktorsRoom_clock_broken_decoration",
 				"available": 0,
-				"visible": 1,
 				"pair": "viktorsRoom_clock_happy",
 				"picture": "spr_viktorsRoom_clock_broken",
 				"x": 770,
@@ -1503,8 +1450,6 @@
 				"picture": "spr_various_token",
 				"x": 717,
 				"y": 151,
-				"xOffset": 0,
-				"yOffset": 0,
 				"xScale": 95,
 				"yScale": 441,
 				"xInteract": 788,
@@ -1530,7 +1475,6 @@
 			{
 				"comment": "Window in Viktor's room",
 				"alias": "viktorsRoom_window",
-				"available": 1,
 				"visible": 0,
 				"picture": "spr_various_token",
 				"x": 460,
@@ -1556,13 +1500,10 @@
 			{
 				"comment": "Door in Viktor's room before bath",
 				"alias": "viktorsRoom_door_closed_angry",
-				"available": 1,
 				"visible": 0,
 				"picture": "spr_various_token",
 				"x": 108,
 				"y": 331,
-				"xOffset": 0,
-				"yOffset": 0,
 				"xScale": 93,
 				"yScale": 369,
 				"xInteract": 199,
@@ -1583,8 +1524,6 @@
 				"picture": "spr_various_token",
 				"x": 108,
 				"y": 331,
-				"xOffset": 0,
-				"yOffset": 0,
 				"xScale": 93,
 				"yScale": 369,
 				"xInteract": 240,
@@ -1636,15 +1575,9 @@
 			}, {
 				"comment": "Map in Viktor's room",
 				"alias": "viktorsRoom_map",
-				"available": 1,
-				"visible": 1,
 				"picture": "spr_viktorsRoom_map",
 				"x": 250,
 				"y": 440,
-				"xOffset": 0,
-				"yOffset": 0,
-				"xScale": 1,
-				"yScale": 1,
 				"xInteract": 313,
 				"yInteract": 625,
 				"description": "Map",
@@ -1662,15 +1595,9 @@
 				"comment": "Picture in Viktor's room",
 				"alias": "viktorsRoom_picture",
 				"object": "obj_viktorsRoom_picture",
-				"available": 1,
-				"visible": 1,
 				"picture": "spr_viktorsRoom_picture1",
 				"x": 935,
 				"y": 330,
-				"xOffset": 0,
-				"yOffset": 0,
-				"xScale": 1,
-				"yScale": 1,
 				"xInteract": 860,
 				"yInteract": 415,
 				"description": "Picture",
@@ -1681,15 +1608,9 @@
 			}, {
 				"comment": "Phone in Viktor's room",
 				"alias": "viktorsRoom_phone",
-				"available": 1,
-				"visible": 1,
 				"picture": "spr_viktorsRoom_phone",
 				"x": 1167,
 				"y": 445,
-				"xOffset": 0,
-				"yOffset": 0,
-				"xScale": 1,
-				"yScale": 1,
 				"xInteract": 910,
 				"yInteract": 720,
 				"subimage": 0,
@@ -1708,14 +1629,9 @@
 				"comment": "Phone in Viktor's room ringing",
 				"alias": "viktorsRoom_phone_ringing",
 				"available": 0,
-				"visible": 1,
 				"picture": "spr_viktorsRoom_phone",
 				"x": 1167,
 				"y": 445,
-				"xOffset": 0,
-				"yOffset": 0,
-				"xScale": 1,
-				"yScale": 1,
 				"xInteract": 910,
 				"yInteract": 720,
 				"description": "Phone",
@@ -1732,8 +1648,6 @@
 			}, {
 				"comment": "Teapot in Viktor's room when Viktor is angry",
 				"alias": "viktorsRoom_teapot",
-				"available": 1,
-				"visible": 1,
 				"pair": "viktorsRoom_teapot_happy",
 				"picture": "spr_viktorsRoom_teapot",
 				"x": 814,
@@ -1750,8 +1664,7 @@
 			}, {
 				"comment": "Teapot in Viktor's room when Viktor is happy",
 				"alias": "viktorsRoom_teapot_happy",
-				"available": 1,
-				"visible": 1,
+				"available": 0,
 				"picture": "spr_viktorsRoom_teapot",
 				"x": 814,
 				"y": 455,
@@ -1773,14 +1686,11 @@
 			}, {
 				"comment": "Desk and chair in Viktor's room when Viktor is happy",
 				"alias": "viktorsRoom_desk_happy",
-				"available": 1,
 				"visible": 0,
 				"pair": "viktorsRoom_desk",
 				"picture": "spr_various_token",
 				"x": 814,
 				"y": 480,
-				"xOffset": 0,
-				"yOffset": 0,
 				"xScale": 175,
 				"yScale": 130,
 				"xInteract": 775,
@@ -1796,8 +1706,6 @@
 			}, {
 				"comment": "Bathtub in Viktor's room, angry, bed",
 				"alias": "viktorsRoom_bath_noroaches",
-				"available": 1,
-				"visible": 1,
 				"picture2": "spr_various_token",
 				"picture": "spr_viktorsRoom_bed",
 				"x": 625,
@@ -1902,13 +1810,10 @@
 				{
 				"comment": "Carpet",
 				"alias": "viktorsRoom_carpet",
-				"available": 1,
 				"visible": 0,
 				"picture": "spr_various_token",
 				"x": 380,
 				"y": 640,
-				"xOffset": 0,
-				"yOffset": 0,
 				"xScale": 325,
 				"yScale": 110,
 				"xInteract": 400,
@@ -1926,7 +1831,6 @@
 			}, {
 				"comment": "Oven in Viktor's room, unbroken",
 				"alias": "viktorsRoom_oven_unbroken",
-				"available": 1,
 				"visible": 0,
 				"picture": "spr_various_token",
 				"x": 325,
@@ -1960,7 +1864,6 @@
 			}, {
 				"comment": "Toilet in Viktor's room, no phone",
 				"alias": "viktorsRoom_toilet_nophone",
-				"available": 1,
 				"visible": 0,
 				"picture": "spr_various_token",
 				"x": 1006,
@@ -2015,13 +1918,10 @@
 			}, {
 				"comment": "Trash can in Viktor's room",
 				"alias": "viktorsRoom_trash_angry",
-				"available": 1,
 				"visible": 0,
 				"picture": "spr_various_token",
 				"x": 987,
 				"y": 574,
-				"xOffset": 0,
-				"yOffset": 0,
 				"xScale": 65,
 				"yScale": 90,
 				"xInteract": 940,
@@ -2044,8 +1944,6 @@
 				"picture": "spr_various_token",
 				"x": 987,
 				"y": 574,
-				"xOffset": 0,
-				"yOffset": 0,
 				"xScale": 65,
 				"yScale": 90,
 				"xInteract": 942,
@@ -2061,13 +1959,10 @@
 			{
 				"comment": "Vase in Viktor's room, angry",
 				"alias": "viktorsRoom_vase_angry",
-				"available": 1,
 				"visible": 0,
 				"picture": "spr_various_token",
 				"x": 247,
 				"y": 472,
-				"xOffset": 0,
-				"yOffset": 0,
 				"xScale": 65,
 				"yScale": 127,
 				"xInteract": 335,
@@ -2097,7 +1992,6 @@
 				"comment": "Vase broken slikica",
 				"alias": "viktorsRoom_vase_broken_decoration",
 				"available": 0,
-				"visible": 1,
 				"picture": "spr_viktorsRoom_vase_broken",
 				"x": 247,
 				"y": 490
@@ -2109,8 +2003,6 @@
 				"picture": "spr_various_token",
 				"x": 247,
 				"y": 472,
-				"xOffset": 0,
-				"yOffset": 0,
 				"xScale": 65,
 				"yScale": 127,
 				"xInteract": 335,
@@ -2138,13 +2030,10 @@
 			}, {
 				"comment": "Umbrella stand, Viktor is angry.",
 				"alias": "viktorsRoom_umbrellastand_angry",
-				"available": 1,
 				"visible": 0,
 				"picture": "spr_various_token",
 				"x": 212,
 				"y": 463,
-				"xOffset": 0,
-				"yOffset": 0,
 				"xScale": 57,
 				"yScale": 162,
 				"xInteract": 325,
@@ -2169,8 +2058,6 @@
 			}, {
 				"comment": "Pic of umbrella in a stand",
 				"alias": "viktorsRoom_umbrella_decoration",
-				"available": 1,
-				"visible": 1,
 				"picture": "spr_viktorsRoom_umbrella",
 				"x": 243,
 				"y": 544
@@ -2182,8 +2069,6 @@
 				"picture": "spr_various_token",
 				"x": 212,
 				"y": 463,
-				"xOffset": 0,
-				"yOffset": 0,
 				"xScale": 57,
 				"yScale": 162,
 				"xInteract": 325,
@@ -2223,8 +2108,6 @@
 				"comment": "Smoke behind the tram",
 				"depth": 1999,
 				"alias": "station_smoke1",
-				"available": 1,
-				"visible": 1,
 				"subimage": 0,
 				"picture": "spr_station_smoke",
 				"path": "path_float_big",
@@ -2234,8 +2117,6 @@
 				"comment": "Another smoke behind the tram",
 				"depth": 1998,
 				"alias": "station_smoke2",
-				"available": 1,
-				"visible": 1,
 				"subimage": 1,
 				"picture": "spr_station_smoke",
 				"path": "path_float_big",
@@ -2254,8 +2135,6 @@
 				"comment": "Columns behind the tram",
 				"depth": 1990,
 				"alias": "station_columns_back",
-				"available": 1,
-				"visible": 1,
 				"picture": "spr_station_columns_back",
 				"x": 0,
 				"y": 10
@@ -2263,8 +2142,6 @@
 				"comment": "Smoke in front of columns, behind the tram",
 				"depth": 1985,
 				"alias": "station_smoke3",
-				"available": 1,
-				"visible": 1,
 				"subimage": 2,
 				"picture": "spr_station_smoke",
 				"path": "path_float",
@@ -2274,8 +2151,6 @@
 				"comment": "The tram!!!!1",
 				"depth": 1980,
 				"alias": "station_tram",
-				"available": 1,
-				"visible": 1,
 				"path": "path_left",
 				"pathAction": "stop",
 				"pathDelay": 60,
@@ -2286,8 +2161,6 @@
 				"comment": "Tram wire",
 				"depth": 1975,
 				"alias": "station_wire",
-				"available": 1,
-				"visible": 1,
 				"picture": "spr_station_wire",
 				"x": 0,
 				"y": 299
@@ -2295,7 +2168,6 @@
 				"comment": "Tram fence 1 of many",
 				"depth": 1970,
 				"alias": "station_fence1",
-				"visible": 1,
 				"picture": "spr_station_fence",
 				"x": 158,
 				"y": 512
@@ -2303,7 +2175,6 @@
 				"comment": "Tram fence 2 of many",
 				"depth": 1970,
 				"alias": "station_fence2",
-				"visible": 1,
 				"picture": "spr_station_fence",
 				"x": 321,
 				"y": 512
@@ -2311,7 +2182,6 @@
 				"comment": "Tram fence 3 of many",
 				"depth": 1970,
 				"alias": "station_fence3",
-				"visible": 1,
 				"picture": "spr_station_fence",
 				"x": 486,
 				"y": 512
@@ -2319,7 +2189,6 @@
 				"comment": "Tram fence 4 of many",
 				"depth": 1970,
 				"alias": "station_fence4",
-				"visible": 1,
 				"picture": "spr_station_fence",
 				"x": 650,
 				"y": 512
@@ -2327,7 +2196,6 @@
 				"comment": "Tram fence 5 of many",
 				"depth": 1970,
 				"alias": "station_fence5",
-				"visible": 1,
 				"picture": "spr_station_fence",
 				"x": 840,
 				"y": 512
@@ -2335,7 +2203,6 @@
 				"comment": "Tram fence 6 of many",
 				"depth": 1970,
 				"alias": "station_fence6",
-				"visible": 1,
 				"picture": "spr_station_fence",
 				"x": 1004,
 				"y": 512
@@ -2343,7 +2210,6 @@
 				"comment": "Columns in front of tram",
 				"depth": 1950,
 				"alias": "station_columns_front",
-				"visible": 1,
 				"picture": "spr_station_columns_front",
 				"x": 0,
 				"y": 0
@@ -2351,7 +2217,6 @@
 				"comment": "Behind the lift",
 				"depth": -1000,
 				"alias": "station_lift_back",
-				"visible": 1,
 				"picture": "spr_station_lift_back",
 				"x": 964,
 				"y": 357
@@ -2359,7 +2224,6 @@
 				"comment": "Lift cabin",
 				"alias": "station_down_lift_cabin",
 				"available": 0,
-				"visible": 1,
 				"picture": "spr_station_lift_cabin",
 				"depth": -1100,
 				"x": 970,
@@ -2387,7 +2251,6 @@
 			}, {
 				"comment": "Coin under the lift",
 				"alias": "coin_lift",
-				"visible": 1,
 				"x": 975,
 				"y": 699,
 				"xScale": 0.3,
@@ -2413,18 +2276,14 @@
 				"comment": "In front of lift",
 				"depth": -1200,
 				"alias": "station_lift_front",
-				"visible": 1,
 				"picture": "spr_station_lift_front",
 				"x": 958,
 				"y": 58
 			}, {
 				"comment": "Station dog Noam",
 				"alias": "station_dog",
-				"visible": 1,
 				"x": 470,
 				"y": 540,
-				"xScale": 1,
-				"yScale": 1,
 				"xInteract": 400,
 				"yInteract": 840,
 				"xCloud": 550,
@@ -2458,7 +2317,6 @@
 				"comment": "Station sweeper Attar not sweeping",
 				"alias": "rhino_magical",
 				"available": 0,
-				"visible": 1,
 				"x": 920,
 				"y": 790,
 				"xScale": 0.5,
@@ -2496,7 +2354,6 @@
 				"NOTobject": "obj_broom",
 				"alias": "rhinos_broom",
 				"available": 0,
-				"visible": 1,
 				"x": 700,
 				"y": 580,
 				"xScale": 0.5,
@@ -2510,7 +2367,6 @@
 				"comment": "Station sweeper Attar sweeping",
 				"alias": "rhino_sweeping",
 				"available": 0,
-				"visible": 1,
 				"x": 920,
 				"y": 790,
 				"xScale": 0.5,
@@ -2547,15 +2403,12 @@
 			}, {
 				"comment": "Ticket office",
 				"alias": "station_office",
-				"visible": 1,
 				"picture": "spr_station_office",
 				"x": 0,
 				"y": 403,
 				"xCloud": 100,
 				"yCloud": 350,
 				"depth": 1500,
-				"xScale": 1,
-				"yScale": 1,
 				"xInteract": 300,
 				"yInteract": 815,
 				"description": "Ticket office",
@@ -2582,7 +2435,6 @@
 				"comment": "Ticket sign, English",
 				"depth": 1000,
 				"alias": "station_sign",
-				"visible": 1,
 				"x": 30,
 				"y": 455
 			}, {
@@ -2712,7 +2564,6 @@
 		"objects": [{
 			"alias": "battery_poking",
 			"available": 0,
-			"visible": 1,
 			"x": 410,
 			"y": 550,
 			"xInteract": 600,
@@ -2745,7 +2596,6 @@
 		}, {
 			"alias": "station_ball",
 			"available": 0,
-			"visible": 1,
 			"x": 500,
 			"y": 640,
 			"xInteract": 600,
@@ -2781,7 +2631,6 @@
 		"alias": "fly_cake",
 		"depth": -1000,
 		"available": 0,
-		"visible": 1,
 		"picture": "spr_item_cake",		
 		"xScale": 0.25,
 		"yScale": 0.25,
@@ -2790,8 +2639,6 @@
 		},
 		{
 		"alias": "rabbit",
-		"available": 1,
-		"visible": 1,
 		"x": 280,
 		"y": 310,
 		"xInteract": 580,
@@ -2825,7 +2672,6 @@
 		{
 			"alias": "rabbit_pants",
 			"available": 0,
-			"visible": 1,
 			"x": 280,
 			"y": 310,
 			"xInteract": 580,
@@ -2852,7 +2698,6 @@
 		{
 			"alias": "rabbit_cake2",
 			"available": 0,
-			"visible": 1,
 			"x": 280,
 			"y": 310,
 			"xInteract": 580,
@@ -2884,8 +2729,6 @@
 				}
 		},		{
 			"alias": "frog",
-			"available": 1,
-			"visible": 1,
 			"x": 540,
 			"y": 460,
 			"xInteract": 840,
@@ -2919,8 +2762,6 @@
 			}
 		}, {
 			"alias": "donkey",
-			"available": 1,
-			"visible": 1,
 			"x": 100,
 			"y": 400,
 			"xInteract": 400,
@@ -2956,8 +2797,6 @@
 			"comment": "Station up background dirigible",
 			"alias": "stationup_dirigible",
 			"depth": 101,
-			"available": 1,
-			"visible": 1,
 			"picture": "spr_stationup_dirigible",
 			"path": "path_float",
 			"x": 9,
@@ -2981,8 +2820,6 @@
 			"comment": "Station up sign temp",
 			"alias": "stationup_post",
 			"depth": -101,
-			"available": 1,
-			"visible": 1,
 			"picture": "spr_stationup_post",
 			"x": 705,
 			"y": 333
@@ -2990,22 +2827,16 @@
 			"comment": "Station up fence back",
 			"alias": "stationup_fence_back",
 			"depth": -200,
-			"available": 1,
-			"visible": 1,
 			"picture": "spr_stationup_fence_back",
 			"x": 1,
 			"y": 525
 		}, {
 			"comment": "Lift cabin",
 			"alias": "station_up_lift_cabin",
-			"available": 1,
-			"visible": 1,
 			"picture": "spr_station_lift_cabin",
 			"depth": -1100,
 			"x": 1057,
 			"y": -4,
-			"xScale": 1,
-			"yScale": 1,
 			"xInteract": 950,
 			"yInteract": 673,
 			"description": "Lift",
@@ -3032,8 +2863,6 @@
 			"comment": "In front of lift",
 			"depth": -1150,
 			"alias": "station_lift_front",
-			"available": 1,
-			"visible": 1,
 			"picture": "spr_station_lift_front",
 			"x": 1045,
 			"y": 25
@@ -3041,8 +2870,6 @@
 			"comment": "Lift hole, tananananananana",
 			"depth": -1200,
 			"alias": "station_lift_hole",
-			"available": 1,
-			"visible": 1,
 			"picture": "spr_stationup_lift_hole",
 			"x": 1045,
 			"y": 673
@@ -3050,8 +2877,6 @@
 			"comment": "Front fence on upper station",
 			"depth": -1250,
 			"alias": "station_fence_front",
-			"available": 1,
-			"visible": 1,
 			"picture": "spr_stationup_fence_front",
 			"x": 17,
 			"y": 626
@@ -3071,8 +2896,6 @@
 		}],
 		"objects": [{
 			"alias": "beaver",
-			"available": 1,
-			"visible": 1,
 			"x": 450,
 			"y": 600,
 			"xInteract": 650,
@@ -3098,14 +2921,10 @@
 			}
 		}, {
 			"alias": "hyena",
-			"available": 1,
-			"visible": 1,
 			"x": 830,
 			"y": 580,
 			"xInteract": 650,
 			"yInteract": 810,
-			"xScale": 1,
-			"yScale": 1,
 			"xCloud": 860,
 			"yCloud": 500,
 			"imageSpeed": 0.6,
@@ -3129,8 +2948,6 @@
 			"comment": "Pallace gate left",
 			"alias": "pallaceOutside_gate_left",
 			"depth": -101,
-			"available": 1,
-			"visible": 1,
 			"picture": "spr_palaceOutside_gate_left",
 			"x": 405,
 			"y": 85,
@@ -3153,8 +2970,6 @@
 			"comment": "Pallace gate right",
 			"alias": "pallaceOutside_gate_right",
 			"depth": -102,
-			"available": 1,
-			"visible": 1,
 			"picture": "spr_palaceOutside_gate_right",
 			"x": 614,
 			"y": 85,
@@ -3177,8 +2992,6 @@
 			"comment": "Pallace front walls",
 			"alias": "palaceOutside_walls_day",
 			"depth": -114,
-			"available": 1,
-			"visible": 1,
 			"picture": "spr_palaceOutside_walls_day",
 			"x": 0,
 			"y": 0
@@ -3348,7 +3161,6 @@
 			"comment": "Vida na ekranu",
 			"alias": "vida",
 			"available": 0,
-			"visible": 1,
 			"x": 914,
 			"y": 610,
 			"xInteract": 650,
@@ -3370,14 +3182,10 @@
 			"comment": "Off screen pst",
 			"alias": "offscreenpsst",			
 			"picture": "spr_various_token",
-			"available": 1,
-			"visible": 1,
 			"x": 1100,
 			"y": 610,
 			"xInteract": 650,
 			"yInteract": 810,
-			"xScale": 1,
-			"yScale": 1,
 			"xCloud": 1200,
 			"yCloud": 530,
 			"depth": -3000,
@@ -3394,7 +3202,6 @@
 			"alias": "vida_gets_in",
 			"picture": "spr_vida_enter",
 			"available": 0,
-			"visible": 1,
 			"x": 1200,
 			"y": 610,
 			"xInteract": 650,
@@ -3414,8 +3221,6 @@
 		},
 		{
 			"alias": "hyena",
-			"available": 1,
-			"visible": 1,
 			"x": 450, 
 			"y": 580,
 			"xScale": -1,
@@ -3426,8 +3231,6 @@
 			"comment": "Pallace gate left",
 			"alias": "palaceOutside_gate_left",
 			"depth": -101,
-			"available": 1,
-			"visible": 1,
 			"x": 405,
 			"y": 85
 		},
@@ -3435,8 +3238,6 @@
 			"comment": "Pallace gate right",
 			"alias": "palaceOutside_gate_right",
 			"depth": -102,
-			"available": 1,
-			"visible": 1,
 			"x": 614,
 			"y": 85,
 			"xInteract": 350,
@@ -3446,8 +3247,6 @@
 			"comment": "Pallace front walls",
 			"alias": "palaceOutside_walls_night",
 			"depth": -114,
-			"available": 1,
-			"visible": 1,
 			"x": 0,
 			"y": 0
 		},
@@ -3457,7 +3256,6 @@
 			"depth": -1000,
 			"xScale": -1,
 			"available": 0,
-			"visible": 1,
 			"x": 430,
 			"y": 550
 		},
@@ -3465,11 +3263,8 @@
 			"comment": "Viktor flying up",
 			"alias": "viktor_falling_up",
 			"picture": "spr_viktor_falling",
-			"depth": 0,
 			"xScale": -0.3,
 			"yScale": -0.3,
-			"available": 1,
-			"visible": 1,
 			"x": 1010,
 			"y": 580
 		},
@@ -3480,8 +3275,6 @@
 			"depth": -900,
 			"xScale": 0.6,
 			"yScale": 0.6,
-			"available": 1,
-			"visible": 1,
 			"x": 840,
 			"y": 0
 		},
@@ -3492,7 +3285,6 @@
 			"xScale": 0.6,
 			"yScale": 0.6,	
 			"available": 0,
-			"visible": 1,
 			"x": 840,
 			"y": 830
 		},
@@ -3503,7 +3295,6 @@
 			"xScale": 0.6,
 			"yScale": 0.6,	
 			"available": 0,
-			"visible": 1,
 			"imageSpeed": 0.6,
 			"x": 840,
 			"y": 830
@@ -3532,15 +3323,12 @@
 			"comment": "tavern bar",
 			"alias": "tavern_bar",
 			"depth": -180,
-			"available": 1,
-			"visible": 1,
 			"picture": "spr_tavern_bar",
 			"x": 806,
 			"y": 445
 		}, {
 			"alias": "return_to_pallace_from_tavern",
 			"depth": -1200,
-			"available": 1,
 			"visible": 0,
 			"x": 175,
 			"y": 197,
@@ -3564,10 +3352,9 @@
 				"use": "Goodbye... > [fade in 0.03][time 35] > [fade out 0.03][time 35] > Not."
 			}
 		}, {
-			"comment": "pic of emperor",
+			"comment": "pic of the emperor",
 			"alias": "portrait_emperor",
 			"depth": -1200,
-			"available": 1,
 			"visible": 0,
 			"x": 515,
 			"y": 240,
@@ -3585,76 +3372,52 @@
 			"comment": "tavern barrels front",
 			"alias": "tavern_barrels_front",
 			"depth": -1000,
-			"available": 1,
-			"visible": 1,
-			"picture": "spr_tavern_barrels_front",
 			"x": 326,
 			"y": 730
 		}, {
 			"comment": "tavern bottle of wine",
 			"alias": "tavern_bottle_wine",
 			"depth": -160,
-			"available": 1,
-			"visible": 1,
-			"picture": "spr_tavern_bottle_wine",
 			"x": 1031,
 			"y": 308
 		}, {
 			"comment": "tavern cabin door left",
 			"alias": "tavern_cabin_door_left",
 			"depth": -170,
-			"available": 1,
-			"visible": 1,
-			"picture": "spr_tavern_cabin_door_left",
 			"x": 961,
 			"y": 375
 		}, {
 			"comment": "tavern cabin door right",
 			"alias": "tavern_cabin_door_right",
 			"depth": -171,
-			"available": 1,
-			"visible": 1,
-			"picture": "spr_tavern_cabin_door_right",
 			"x": 1015,
 			"y": 373
 		}, {
 			"comment": "tavern cabin door up",
 			"alias": "tavern_cabin_door_up",
 			"depth": -172,
-			"available": 1,
-			"visible": 1,
-			"picture": "spr_tavern_cabin_door_up",
 			"x": 743,
 			"y": 282
 		}, {
 			"comment": "tavern chair barrel",
 			"alias": "tavern_chair_barrel",
 			"depth": -192,
-			"available": 1,
-			"visible": 1,
 			"picture": "spr_tavern_chair",
 			"xScale": 0.9,
 			"yScale": 0.9,
 			"x": 630,
 			"y": 472
 		}, {
-			"comment": "tavern chair barrel",
-			"alias": "tavern_chair_barrel",
+			"comment": "tavern chair barrel 2",
+			"alias": "tavern_chair_barrel_2",
 			"depth": -200,
-			"available": 1,
-			"visible": 1,
 			"picture": "spr_tavern_chair",
-			"xScale": 1,
-			"yScale": 1,
 			"x": 856,
 			"y": 495
 		}, {
 			"comment": "tavern barrel jekyll",
 			"alias": "tavern_barrel_jekyll",
 			"depth": -102,
-			"available": 1,
-			"visible": 1,
-			"picture": "spr_tavern_barrel_jekyll",
 			"x": 346,
 			"y": 465
 		}, {
@@ -3721,7 +3484,6 @@
 			"comment": "Suspicious party of anarchists",
 			"alias": "anarchists",
 			"depth": -1200,
-			"available": 1,
 			"visible": 0,
 			"x": 240,
 			"y": 600,
@@ -3885,7 +3647,6 @@
 				"comment": "Fight controller",
 				"alias": "fight_controller",
 				"available": 0,
-				"visible": 1,
 				"object": "obj_fight_controller",
 				"picture": "spr_boxing_use",
 				"pictures": {
