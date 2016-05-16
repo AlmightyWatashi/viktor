@@ -264,7 +264,7 @@ What the hell, Viktor. How could you get fired from street sweeping? > Did you s
 end	
 == the_plan ==
 
-If this is like that plan when you wanted to turn your landlord's bed into a time machine... > I'm not visiting you in the hospital again.
+If this is like that plan when you wanted to turn your landlord's bed into a lawnmower... > I'm not visiting you in the hospital again.
 	- This time, I have a perfect plan for us. A plan to take over the Empire and finally make everything right!
 		[section tobacco_plants]
 	- Actually, this one might get us killed or make us the supreme rulers of Austro-Hungary.
@@ -1717,12 +1717,12 @@ end
 			+ I recently had the opportunity to try piloting a personal blimp.
 				[animation player spr_viktor_talk_left_coupe 5]Then you know that it is perfectly safe in the hands of a professional.
 				I mean, what's the worst that can happen?
-				[cloud 580 200][animation player spr_viktor_talk_left_coupe 5][talk coupe_megaphone][blocksound snd_donkey_talk_muffled] Dearest passangers, your pilot is talking to you, we are losing height.
-				[cloud 580 200][animation player spr_viktor_talk_left_coupe 5][talk coupe_megaphone][blocksound snd_donkey_talk_muffled2] More to the point, we are falling and we are all about to die. 
-				[cloud 580 200][animation player spr_viktor_talk_left_coupe 5][talk coupe_megaphone][blocksound snd_donkey_talk_muffled3] Stay on your seats, there is no need to panic because there is nothing to be done.
-				[cloud 580 200][animation player spr_viktor_talk_left_coupe 5][talk coupe_megaphone][blocksound snd_donkey_talk_muffled4] The real reason why we are falling is that I went on strike so I do not pilot anymore today.
-				[cloud 580 200][animation player spr_viktor_talk_left_coupe 5][talk coupe_megaphone][blocksound snd_donkey_talk_muffled5] Thank you for traveling with us. 
-				[cloud 580 200][animation player spr_viktor_talk_left_coupe 5][talk coupe_megaphone][blocksound snd_donkey_talk_muffled] Also please stop smoking in cabins because smoking kills. 
+				[cloud phone][cloud 580 200][animation player spr_viktor_talk_left_coupe 5][talk coupe_megaphone][blocksound snd_donkey_talk_muffled] Dearest passangers, your pilot is talking to you, we are losing height.
+				[cloud phone][cloud 580 200][animation player spr_viktor_talk_left_coupe 5][talk coupe_megaphone][blocksound snd_donkey_talk_muffled2] More to the point, we are falling and we are all about to die. 
+				[cloud phone][cloud 580 200][animation player spr_viktor_talk_left_coupe 5][talk coupe_megaphone][blocksound snd_donkey_talk_muffled3] Stay on your seats, there is no need to panic because there is nothing to be done.
+				[cloud phone][cloud 580 200][animation player spr_viktor_talk_left_coupe 5][talk coupe_megaphone][blocksound snd_donkey_talk_muffled4] The real reason why we are falling is that I went on strike so I do not pilot anymore today.
+				[cloud phone][cloud 580 200][animation player spr_viktor_talk_left_coupe 5][talk coupe_megaphone][blocksound snd_donkey_talk_muffled5] Thank you for traveling with us. 
+				[cloud phone][cloud 580 200][animation player spr_viktor_talk_left_coupe 5][talk coupe_megaphone][blocksound snd_donkey_talk_muffled] Also please stop smoking in cabins because smoking kills. 
 					+ Oh no no no.
 					I will not and this way!
 					No one will!

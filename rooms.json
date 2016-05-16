@@ -122,13 +122,13 @@
 		"border": "spr_various_token",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[soundtrack saens][cloud player 100 0][position player 577 290][direction left][set mood coupe] Hi > [active coupe_walrus][conversation walrus beginning] > [set mood default][mood default][cloud player 50 300][set dirigible_type travel][room dirigibles start]"
+			"entrance": "[soundtrack saens][cloud player 100 0][position player 577 290][direction left][set mood coupe] > [active coupe_walrus][conversation walrus beginning] > [set mood default][mood default][cloud player 50 300][set dirigible_type travel][room dirigibles start]"
 		}, {
 			"alias": "won",
 			"entrance": "[cloud player 100 0][position player 577 290][direction left][set mood coupe] I saved the day! > And now to become the emperor. > [set mood default][cloud player 50 300][room map_agram_vienna start]"
 		}, {
 			"alias": "lost",
-			"entrance": "[cloud player 100 0][position player 577 290][direction left][set mood coupe] It seems I'm not as skilled as I thought? > [active coupe_walrus][other] Oh never mind that, you can try again, I have a timemachine! > [fade in 0.03 -9999 spr_various_token][time 40] > [fade][room dirigibles start]"
+			"entrance": "[position player 9000 290][active coupe_walrus][other] Dear me, dear me, it seems that we are plunging into our deaths. > [position player 9000 290][active coupe_walrus][other] Good thing I brought my trusty time machine with me. > [animation coupe_walrus snd_coupe_walrus_watch][time 20] > [fade in 0.03 -9999 spr_various_token][time 40] > [fade][room dirigibles start]"
 		}],
 		"objects": [{
 			"x": -10,
