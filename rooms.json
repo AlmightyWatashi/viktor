@@ -131,12 +131,14 @@
 			"entrance": "[position player 9000 290][active coupe_walrus][other] Dear me, dear me, it seems that we are plunging into our deaths. > [position player 9000 290][active coupe_walrus][other] Good thing I brought my trusty time machine with me. > [animation coupe_walrus snd_coupe_walrus_watch][time 20] > [fade in 0.03 -9999 spr_various_token][time 40] > [fade][room dirigibles start]"
 		}],
 		"objects": [{
+			"alias": "coupe_walrus",
 			"x": -10,
 			"y": 150,
 			"xCloud": 400,
 			"yCloud": 200,
 			"direction": "left",
-			"alias": "coupe_walrus"
+			"idle": 1
+			
 		},
 		{
 			"alias" : "coupe_megaphone",
@@ -146,7 +148,7 @@
 		{
 			"alias" : "coupe_background",
 			"x" : 300,
-			"y" : 300,
+			"y" : 295,
 			"depth" : 2100
 		},
 		{
@@ -169,7 +171,7 @@
 			"alias" : "coupe_clouds",
 			"subimage" : 2,
 			"path" : "path_left",
-			"x" : 800,
+			"x" : 600,
 			"y" : 250,
 			"depth" : 2050
 		},
@@ -177,7 +179,7 @@
 			"alias" : "coupe_clouds",
 			"subimage" : 3,
 			"path" : "path_left",
-			"x" : 850,
+			"x" : 1350,
 			"y" : 220,
 			"depth" : 2050
 		},
@@ -185,7 +187,7 @@
 			"alias" : "coupe_clouds",
 			"subimage" : 4,
 			"path" : "path_left",
-			"x" : 1000,
+			"x" : 1600,
 			"y" : 200,
 			"depth" : 2050
 		},
@@ -193,7 +195,7 @@
 			"alias" : "coupe_clouds",
 			"subimage" : 5,
 			"path" : "path_left",
-			"x" : 850,
+			"x" : 1850,
 			"y" : 250,
 			"depth" : 2050
 		},
@@ -201,7 +203,7 @@
 			"alias" : "coupe_clouds",
 			"subimage" : 6,
 			"path" : "path_left",
-			"x" : 900,
+			"x" : 2000,
 			"y" : 200,
 			"depth" : 2050
 		},
@@ -209,7 +211,7 @@
 			"alias" : "coupe_clouds",
 			"subimage" : 7,
 			"path" : "path_left",
-			"x" : 1100,
+			"x" : 2300,
 			"y" : 300,
 			"depth" : 2050
 		},
@@ -217,7 +219,7 @@
 			"alias" : "coupe_clouds",
 			"subimage" : 8,
 			"path" : "path_left",
-			"x" : 1200,
+			"x" : 2500,
 			"y" : 260,
 			"depth" : 2050
 		},
@@ -225,7 +227,7 @@
 			"alias" : "coupe_clouds",
 			"subimage" : 9,
 			"path" : "path_left",
-			"x" : 1310,
+			"x" : 2810,
 			"y" : 210,
 			"depth" : 2050
 		}
@@ -1273,7 +1275,7 @@
 			"entrance": "[soundtrack mozart] And now to wash away the roaches and take a bath.."
 		}, {
 			"alias": "start",
-			"entrance": "[take coin][take phone][set mood angry][set phone 2][animation spr_viktor_angry][position player 732 795][fade out 0.03][time 30] > [fade] I can't believe I lost my job... > I should take a bath and relax. > But first, I'm going to vent!"
+			"entrance": "[take coin silent][set mood angry][set phone 2][animation spr_viktor_angry][position player 732 795][fade out 0.03][time 30] > [fade] I can't believe I lost my job... > I should take a bath and relax. > But first, I'm going to vent!"
 		}, {
 			"alias": "map",
 			"entrance": "[position player 313 625] Well, that was educational."
@@ -1285,7 +1287,7 @@
 			"entrance": "[animation player spr_viktor_phone_down] > Nobody's answering. > [if phone = 2] I need to find where I wrote Martin's phone number."
 		}, {
 			"alias": "phone",
-			"entrance": "[animation player spr_viktor_phone_up] > [animation player spr_viktor_talk_right_phone] Who is it? > [cloud phone][blocksound][animation player spr_viktor_listen_right_phone] It's Martin, who else would it be? > [cloud phone][blocksound][animation player spr_viktor_listen_right_phone] Anyway, I got no money for phone calls, so call me back, bye! > [animation player spr_viktor_talk_right_phone] OK, but I forgot your phone number... > [blocksound][cloud phone][animation player spr_viktor_listen_right_phone] TOOT-TOOT > [animation player spr_viktor_phone_down] > Now where did I write his number down?! > [set phone 2]"
+			"entrance": "[animation player spr_viktor_phone_up] > [animation player spr_viktor_talk_right_phone] Who is it? > [cloud phone][blocksound snd_martinsRoom_martin_talk][animation player spr_viktor_listen_right_phone] It's Martin, who else would it be? > [cloud phone][blocksound snd_martinsRoom_martin_talk2][animation player spr_viktor_listen_right_phone] Anyway, I got no money for phone calls, so call me back, bye! > [animation player spr_viktor_talk_right_phone] OK, but I forgot your phone number... > [blocksound][cloud phone][animation player spr_viktor_listen_right_phone] TOOT-TOOT > [animation player spr_viktor_phone_down] > Now where did I write his number down?! > [set phone 2]"
 		}, {
 			"alias": "callMartin",
 			"entrance": "[if phone = 0][animation player spr_viktor_phone_down] > [if phone = 0] That was the phone number of my good friend Martin, but he's not answering right now... > [if phone = 0][skip] > [animation player spr_viktor_phone_up] > [room martinsRoom start]"
@@ -1321,7 +1323,7 @@
 				"order": "look,use",
 				"combinations": {
 					"look": "[mood]Big and cold. > Like my ex boss.",
-					"use": "[if available viktorsRoom_tub_clean][skip 2] > [mood]I can't bathe in my bed! > [skip] > [destroy][animation player spr_viktor_pot2_take] > [time 100][move player 40 3][animations player spr_viktor_pot2_carry] > [animation player spr_viktor_pot2_throw][time 66] > [sound snd_pot_water] > [if available viktorsRoom_pot1] [mood]Too cold. > [not available viktorsRoom_pot1] [mood]Perfect."
+					"use": "[if available viktorsRoom_tub_clean][skip 2] > [mood]I can't bathe in my bed! > [skip] > [destroy][animation player spr_viktor_pot2_take] > [time 100][move player 40 3][animations player spr_viktor_pot2_carry] > [animation player spr_viktor_pot2_throw][time 76] > [sound snd_pot_water] > [if available viktorsRoom_pot1] [mood]Too cold. > [not available viktorsRoom_pot1] [mood]Perfect."
 				}
 			}, {
 				"comment": "Small pot in viktors room",
@@ -1623,7 +1625,7 @@
 					"talk": "I need to press some buttons first",
 					"log": "Too heavy, I might break it.",
 					"keys": "What?",
-					"umbrella": "Here goes nothing! > [animation player spr_viktor_umbrella1] > [destroy][position viktorsRoom_trin 1000 650] > [animation player spr_viktor_umbrella2] > [destroy viktorsRoom_toilet_nophone][create viktorsRoom_toilet_ringing] Oops."
+					"umbrella": "Here goes nothing! > [animation player spr_viktor_umbrella1] > [destroy][position viktorsRoom_trin 1000 650][position viktorsRoom_trin2 1000 600][position viktorsRoom_trin3 1000 700] > [animation player spr_viktor_umbrella2] > [destroy viktorsRoom_toilet_nophone][create viktorsRoom_toilet_ringing] Oops."
 				}
 			}, {
 				"comment": "Phone in Viktor's room ringing",
@@ -1776,7 +1778,7 @@
 				"order": "look,use",
 				"combinations": {
 					"look": "Finally, time to bathe!",
-					"use": "[if available viktorsRoom_pots] I need to pour water inside > [if available viktorsRoom_pots][skip] > [not available viktorsRoom_pot1][not available viktorsRoom_pot2][skip 4] > [animation player spr_viktor_use_back_middle] > [not available viktorsRoom_pot1] This is too hot. > [not available viktorsRoom_pot2] This is too cold. > [skip] > [animation player spr_viktor_use_back_middle][fade in 0.03][time 35] > [position player 630 680][animation player spr_viktor_tub_sigh][fade out 0.03] > [animation player spr_viktor_tub_sigh 7][time 15] > [fade][animation player spr_viktor_tub_unsigh] > [sound snd_phone_ring][create viktorsRoom_trin2][create viktorsRoom_trin3][create viktorsRoom_trin][if available viktorsRoom_toilet_ringing][position viktorsRoom_trin 1000 650][position viktorsRoom_trin 1000 600][position viktorsRoom_trin 1000 700] > [if item phone][position viktorsRoom_trin 1000 950][position viktorsRoom_trin 1000 900][position viktorsRoom_trin 1000 850] > [animation player spr_viktor_tub_unsigh 11][time 10] > [animation player spr_viktor_tub_angry] Who is always calling when I'm in the bath!? > [fade in 0.03][time 35] > [animation player spr_viktor][position player 700 700] > [set mood default][fade out 0.03][time 30] > Now to answer that phone... > [if available viktorsRoom_teapot][destroy viktorsRoom_teapot][create viktorsRoom_teapot_happy] > [destroy viktorsRoom_clock_angry][create viktorsRoom_clock_happy][destroy viktorsRoom_vase_angry][create viktorsRoom_vase_happy][destroy viktorsRoom_trash_angry][create viktorsRoom_trash_happy][destroy viktorsRoom_umbrellastand_angry][create viktorsRoom_umbrellastand_happy][destroy viktorsRoom_door_closed_angry][create viktorsRoom_door_closed_happy][set phone 1]",
+					"use": "[if available viktorsRoom_pots] I need to pour water inside > [if available viktorsRoom_pots][skip] > [not available viktorsRoom_pot1][not available viktorsRoom_pot2][skip 4] > [animation player spr_viktor_use_back_middle] > [not available viktorsRoom_pot1] This is too hot. > [not available viktorsRoom_pot2] This is too cold. > [skip] > [animation player spr_viktor_use_back_middle][fade in 0.03][time 35] > [position player 630 680][animation player spr_viktor_tub_sigh][fade out 0.03] > [animation player spr_viktor_tub_sigh 7][sound snd_viktor_sigh][time 15] > [fade][animation player spr_viktor_tub_unsigh] > [sound snd_phone_ring][create viktorsRoom_trin2][create viktorsRoom_trin3][create viktorsRoom_trin][if available viktorsRoom_toilet_ringing][position viktorsRoom_trin 1000 650][position viktorsRoom_trin2 1000 600][position viktorsRoom_trin 1000 700] > [if item phone][position viktorsRoom_trin 1000 950][position viktorsRoom_trin 1000 900][position viktorsRoom_trin3 1000 850] > [animation player spr_viktor_tub_unsigh 11][time 10] > [animation player spr_viktor_tub_angry] Who is always calling when I'm in the bath!? > [fade in 0.03][time 35] > [animation player spr_viktor][position player 700 700] > [set mood default][fade out 0.03][time 30] > Now to answer that phone... > [if available viktorsRoom_teapot][destroy viktorsRoom_teapot][create viktorsRoom_teapot_happy] > [destroy viktorsRoom_clock_angry][create viktorsRoom_clock_happy][destroy viktorsRoom_vase_angry][create viktorsRoom_vase_happy][destroy viktorsRoom_trash_angry][create viktorsRoom_trash_happy][destroy viktorsRoom_umbrellastand_angry][create viktorsRoom_umbrellastand_happy][destroy viktorsRoom_door_closed_angry][create viktorsRoom_door_closed_happy][set phone 1]",
 					"log": "Just use the bathtub and let me bathe!",
 					"keys": "Just use the bathtub and let me bathe!",
 					"umbrella": "I wiped them out... > All of them."
@@ -1903,7 +1905,7 @@
 				"combinations": {
 					"look": "It's a toilet. > And my phone's in it.",
 					"kick": "[mood angry][direction right] Stupid toilet!!! > Now my phone stinks... > [kick]",
-					"use": "[position viktorsRoom_trin 1000 950][pickup]",
+					"use": "[position viktorsRoom_trin 1000 1050][position viktorsRoom_trin2 1000 950][position viktorsRoom_trin3 1000 850][pickup]",
 					"talk": "Hello toilet. > [talk other][soundblock snd_toilet_hello][animation player snd_viktor_listen_right_scared] Hello, Viktor.",
 					"log": "So, you want me to ''drop a log?''... > Heh heh.",
 					"keys": "It's a toilet, not a door."
@@ -1912,7 +1914,7 @@
 					"alias": "phone",
 					"name": "Phone",
 					"description": "Coal gauge is a bit low.",
-					"special": "[destroy viktorsRoom_trin] > [if phone = 0][room phone start] > [if phone = 1][room viktorsRoom phone] > [if phone = 2][room phone start] > [if phone = 3][if currentRoom viktorsRoom] I just talked to him. > [if phone = 3][if currentRoom viktorsRoom][skip] > [room martinsRoom start]",
+					"special": "[destroy viktorsRoom_trin][destroy viktorsRoom_trin2][destroy viktorsRoom_trin3] > [if phone = 0][room phone start] > [if phone = 1][room viktorsRoom phone] > [if phone = 2][room phone start] > [if phone = 3][if currentRoom viktorsRoom] I just talked to him. > [if phone = 3][if currentRoom viktorsRoom][skip] > [room martinsRoom start]",
 					"picture": "spr_item_phone"
 				}
 			}, {
@@ -2127,7 +2129,7 @@
 					"alias": "phone",
 					"name": "Phone",
 					"description": "Coal gauge is a bit low.",
-					"special": "[destroy viktorsRoom_trin] > [if phone = 0][room phone start] > [if phone = 1][room viktorsRoom phone] > [if phone = 2][room phone start] > [if phone = 3][if currentRoom viktorsRoom] I just talked to him. > [if phone = 3][if currentRoom viktorsRoom][skip] > [room martinsRoom start]",
+					"special": "[destroy viktorsRoom_trin][destroy viktorsRoom_trin2][destroy viktorsRoom_trin3] > [if phone = 0][room phone start] > [if phone = 1][room viktorsRoom phone] > [if phone = 2][room phone start] > [if phone = 3][if currentRoom viktorsRoom] I just talked to him. > [if phone = 3][if currentRoom viktorsRoom][skip] > [room martinsRoom start]",
 					"picture": "spr_item_phone"
 				}
 				
@@ -2291,7 +2293,9 @@
 				"idle": 1,
 				"depth": -830,
 				"description": "A Jewish Scottsman",
+				
 				"order": "look,talk",
+				"order_angry": "kick",
 				"combinations": {
 					"look": "This is new.",
 					"talk": "[if mood][direction right][conversation noam hello] > [if mood angry][direction right][conversation noam viktor_angry] > [move player 90 5][animations player spr_viktor_walk_back][time 15] > [move player 0 0]",
@@ -2422,7 +2426,8 @@
 					"ball": "[talk station office] Keep it. > [talk station office] Eat it for all I care.",
 					"cell": "[conversation kiosk away]",
 					"ticket": "[other] Did you steal that? > [player] No, I got it fair and square. > [other] Great, then go to the dirigible upstairs and get out of my sight.",
-					"dress": "I told you not to bother me, go away."
+					"dress": "I told you not to bother me, go away.",
+					"coin": "[not coins < 5] Here you go, you old hag, five copper crowns. > [not coins < 5][talk station office] Enjoy your trip, sir. > [not coins < 5][talk station office] I hope you die in a crash. > [if coins = 5][give coin] > [not coins < 5][take ticket][add coins -5][skip] > Is this enough? > [talk station office] No. > [mood angry] Dammit!!!"
 				},
 				"inventory": {
 					"alias": "ticket",
@@ -3008,15 +3013,131 @@
 		"rgb": "200,232,235",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[position player 600 950][animations player spr_viktor_walk_back][move player 80 1][zoom 595 5][time 170] > [move player 0 0][room palace_near start]"
+			"entrance": "[stop][soundtrack palace][position player 600 950][animations player spr_viktor_walk_back][move player 80 1][zoom 595 5][time 170] > [move player 0 0][room palace_near start]"
 		}],
-		"objects": [{
+		"objects": [
+		{
+			"visible" : 0,
+			"transparency": 0.4,
 			"alias": "usporedba_palaca",
-			"x": -10,
-			"y": 80,
-			"image_xScale": 1.1,
-			"image_yScale": 1.1
-		}]
+			"x": 0,
+			"y": 50,
+			"image_xScale": 1,
+			"image_yScale": 1,
+			"depth" : -9000
+		},
+		
+		{
+			"available" : 1,
+			"alias" : "palace_left",
+			"x" : 85,
+			"y" : 465,
+			"xScale" : 0.58,
+			"yScale" : 0.58,
+			"depth" : 2000
+		},
+		{
+			"available" : 1,
+			"alias" : "palace_middle",
+			"x" : 640,
+			"y" : 465,
+			"xScale" : 0.58,
+			"yScale" : 0.58,
+			"depth" : 2000
+		},
+		{
+			"available" : 1,
+			"alias" : "palace_right",
+			"x" : 1194,
+			"y" : 465,
+			"xScale" : 0.58,
+			"yScale" : 0.58,
+			"depth" : 2000
+		},
+		{
+			"alias" : "palace_chandelier",
+			"x" : 370,
+			"y" : 20,
+			"xScale" : 0.58,
+			"yScale" : 0.58
+		},
+		{
+			"alias" : "emperor",
+			"xScale" : 0.35,
+			"yScale" : 0.35,
+			"x": 550,
+			"y": 470
+		}, 
+		{
+			"picture" : "spr_palace_plant",
+			"alias" : "palace_plant2",
+			"x" : 827,
+			"y" : 372,
+			"xScale" : 0.58,
+			"yScale" : 0.58,
+			"depth" : -500
+		},
+		{
+			"alias" : "palace_plant",
+			"x" : 143,
+			"y" : 372,
+			"xScale" : 0.58,
+			"yScale" : 0.58,
+			"depth" : -500
+		},
+		{
+			"alias" : "palace_curtain_left",
+			"x" : 315,
+			"y" : 65,
+			"xScale" : 0.58,
+			"yScale" : 0.58,
+			"depth" : -1100
+		},
+		{
+			"alias" : "palace_curtain_right",
+			"x" : 785,
+			"y" : 65,
+			"xScale" : 0.58,
+			"yScale" : 0.58,
+			"depth" : -1100
+		},
+		{
+			"alias" : "palace_curtain_main",
+			"x" : 470,
+			"y" : 140,
+			"xScale" : 0.58,
+			"yScale" : 0.58,
+			"depth" : 1000,
+		},
+		{
+			"alias" : "palace_sign",
+			"x" : 215,
+			"y" : 365,
+			"xScale" : 0.58,
+			"yScale" : 0.58,
+		},
+		{
+			"alias" : "palace_sign",
+			"x" : 935,
+			"y" : 365,
+			"xScale" : 0.58,
+			"yScale" : 0.58,
+		},
+		{
+			"alias" : "palace_cog",
+			"x" : 970,
+			"y" : 430,
+			"xScale" : 0.58,
+			"yScale" : 0.58,
+		},
+		{
+			"alias" : "palace_cog",
+			"x" : 240,
+			"y" : 430,
+			"xScale" : 0.58,
+			"yScale" : 0.58,
+		}
+		]
 	}, {
 		"comment": "Vienna palace",
 		"alias": "palace_near",
@@ -3034,11 +3155,6 @@
 			"entrance": "[zoom 0 0][position player 617 952][animation player spr_viktor_walk_back 0][direction back][active emperor][conversation emperor start] > [room title_palace_2 start]"
 		}],
 		"objects": [{
-			"alias": "usporedba_palaca",
-			"x": 0,
-			"y": 0,
-			"transparency": 0
-		}, {
 			"alias": "emperor",
 			"xCloud": 600,
 			"yCloud": 300,
@@ -3068,7 +3184,7 @@
 		"rgb": "200,232,235",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[position player 9880 9830][time 90] > [set mood angry][move viktor_falling_up 90 15][time 60] > [create vida_front][time 40] > [move vida_front 180 30][time 30] > [destroy vida_front][move viktor_falling_down 270 25][time 35] > [destroy viktor_falling_down][create viktor_fell][sound snd_viktor_kick2][time 50] > [destroy viktor_fell][create viktor_fall_stand][time 14] > [destroy viktor_fall_stand][position player 840 830] > [direction left] This is just a minor setback! > [set mood scared][direction left][talk offscreenpsst][sound snd_vida_talk_shh] Psst! > [direction left]I need a way to avoid that stupid energy field! > [direction left][talk offscreenpsst][sound snd_vida_talk_shh3]PSSST! > [direction left]I either got concussion-induced hallucinations, or I hear a bug spray. > [talk offscreenpsst][sound snd_vida_talk_shh2]PSSSSST PSSS PSSST!!! > What the... > [create vida_gets_in][move vida_gets_in 180 26][time 12][direction right] > [move vida_gets_in 180 0][time 45] > [destroy vida_gets_in][create vida] > [active vida][conversation vida start] > [animation vida spr_vida_exit][move vida 0 30] > [animation viktor spr_viktor_letter1] > [animation viktor spr_viktor_letter2] We find you acceptable to join our revolutionary cause. Meet us at the copper garter bar in Prague. This message is self-destructing while you are reading it. > [animation viktor spr_viktor_letter3][sound snd_letter_burn][time 70] > [sound snd_letter_burn][time 140] > Well, I always wanted to visit Prague... > [fade in 0.03]"
+			"entrance": "[position player 9880 9830][time 60][animations player spr_viktor_fell] > [sound snd_clock_break][set mood angry][draw spr_viktor_falling 1010 580 60 0 -0.3 1 0 15 90 3][time 60] > [create vida_front][time 40] > [move vida_front 180 30][time 30] > [animations player spr_cloud_medium][destroy vida_front][draw spr_viktor_falling 910 -180 25 -900 -0.56 1 180 35 270 5][time 25] > [draw spr_cloud_medium 840 830 10 -1000 1 1 0 15 45 0 0 0 -0.1][draw spr_cloud_medium 830 830 10 -1000 1 1 0 15 140 0 0 0 -0.1][draw spr_cloud_medium 830 810 10 -1000 1 1 0 15 90 0 0 0 -0.1][draw spr_cloud_medium 830 830 10 -1000 1 1 0 15 300 0 0 0 -0.1][create viktor_fell][sound snd_viktor_kick2][time 50] > [destroy viktor_fell][create viktor_fall_stand][time 14] > [destroy viktor_fall_stand][position player 840 830] > [direction left] This is just a minor setback! > [set mood scared][direction left][talk offscreenpsst][sound snd_vida_talk_shh] Psst! > [direction left]I need a way to avoid that stupid energy field! > [direction left][talk offscreenpsst][sound snd_vida_talk_shh3]PSSST! > [direction left]I either got concussion-induced hallucinations, or I hear a bug spray. > [talk offscreenpsst][sound snd_vida_talk_shh2][time 45]PSSSSST PSSS PSSST!!! > What the... > [animation player spr_viktor_talk_right 0][create vida_gets_in][move vida_gets_in 180 26][time 12][direction right] > [animation player spr_viktor_talk_right 0] r[move vida_gets_in 180 0][time 50] > [destroy vida_gets_in][create vida] > [active vida][conversation vida start] > [animation vida spr_vida_exit][move vida 0 30] > [animation viktor spr_viktor_letter1] > [animation viktor spr_viktor_letter2] We find you acceptable to join our revolutionary cause. Meet us at the copper garter bar in Prague. This message is self-destructing while you are reading it. > [animation viktor spr_viktor_letter3][sound snd_letter_burn][time 70] > [sound snd_letter_burn][time 140] > Well, I always wanted to visit Prague... > [fade in 0.03]"
 		}],
 		"objects": [{
 			"alias": "beaver",
@@ -3260,15 +3376,18 @@
 			"y": 550
 		},
 		{
+			"available" : 0,
 			"comment": "Viktor flying up",
 			"alias": "viktor_falling_up",
 			"picture": "spr_viktor_falling",
 			"xScale": -0.3,
 			"yScale": -0.3,
 			"x": 1010,
-			"y": 580
+			"y": 580,
+			"depth": 0
 		},
 		{
+			"available" : 0,
 			"comment": "Viktor flying down",
 			"alias": "viktor_falling_down",
 			"picture": "spr_viktor_falling",

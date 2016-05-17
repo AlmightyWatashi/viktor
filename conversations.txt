@@ -622,7 +622,7 @@ Shalom, lad.
 				[end]
 	+ Give me some money, you stingy piece of shit!
 		Sorry lad, I needs meh travelin' expenses.
-			+ I wheap the flor with you
+			+ I'll wipe the floor with you
 				Please, man. I cannae fight yeh, me athlete's paw is acting up.
 					+ You're not worth my fists, you stingy son of a bitch!
 						[end]
@@ -1973,8 +1973,7 @@ You're here early.
 I respect that in an agent.
 	+ Well, I was in a hurry to overthrow the empire and all that.
 		Here's your message.
-		[animation vida spr_vida_give][time 65]
-		[animation player spr_viktor_use_right_middle]
+		[animation vida spr_vida_give][time 60][active fake] > [animation player spr_viktor_use_right_middle][active vida]
 		Read and destroy.
 		You know the watchword.
 			+ Wait' what?
