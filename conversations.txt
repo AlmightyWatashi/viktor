@@ -320,10 +320,13 @@ end
 
 It is time for me to go now, I have very pressing matters to do. > Good luck on your journey, Viktor. May the spirits protect you. Good bye!
 	- Bye, man.
+		[set mood]
 		[end]
 	- What spirits?
+		[set mood]
 		[end]
 	- Wait, I need some money for my rent!
+		[set mood]
 		[end]
 
 end
@@ -431,6 +434,7 @@ endi
 		May the spirits help you and everyone around you.
 		Except for the people you dislike.
 		Goodbye.
+			[set mood]
 			[end]
 	
 
@@ -443,35 +447,37 @@ And with that piece of unquestionable wisdom, I leave you to your adventure.
 		If not, call me back sooner or later.
 			+ Thanks, I guess...
 				Goodbye, Viktor.
+					[set mood]
 					[end]
 
 
 
 end
-== pallace ==
+== palace ==
 
 Who dares to bother me just as I wanted to take a short break in my bath?
 	+ Oh come on, you practically live in your bath
 		Viktor, my friend, it's you. How's your travels?
-			[section pallace_hello]
+			[section palace_hello]
 	+ Martin, it's me, Viktor.
 		Viktor! > You survived! > My third eye told me you wouldn't survive your trip!
-			[section pallace_hello]
+			[section palace_hello]
 	+ Quit your whining, Martin. I have urgent question.
 		For you, Viktor, I'm willing to work even from my bath.
-			[section pallace_hello]
+			[section palace_hello]
 	+ Actually, you just inspired me to do something. See ya.
 		Good bye, sir.
 		Call us again.
+			[set mood]
 			[end]
 end
-== pallace_hello ==
+== palace_hello ==
 
 	- The dirigible almost crashed, I had to drive it for my survival.
 		Yes, I felt that in your phone vibrations. > They scare and excite me.
-			[section pallace_hello]
+			[section palace_hello]
 	- What can you tell me about a beaver and a hyena guarding an enterance?
-		An enterance to the pallace?
+		An enterance to the palace?
 			== somequestions ==
 			- Wow, you are so psychic.
 				Very amusing Viktor.
@@ -491,8 +497,10 @@ end
 			+ Actually, I'll figure it out from here. Thanks Martin.
 				Any time.
 				I'm looking forward to tomorrow's newspapers.
-				Good bye Viktor
+				Goodbye Viktor
 					+ Bye.
+						[set mood]
+						[end]
 
 end
 === noam ===
@@ -1607,7 +1615,7 @@ end
 
 
 end
-=== !!!! Airship un pallace !!!! ===
+=== !!!! Airship un palace !!!! ===
 
 === walrus ===
 
@@ -1724,7 +1732,7 @@ end
 				[cloud phone][cloud 580 200][animation player spr_viktor_talk_left_coupe 5][talk coupe_megaphone][blocksound snd_donkey_talk_muffled5] Thank you for traveling with us. 
 				[cloud phone][cloud 580 200][animation player spr_viktor_talk_left_coupe 5][talk coupe_megaphone][blocksound snd_donkey_talk_muffled] Also please stop smoking in cabins because smoking kills. 
 					+ Oh no no no.
-					I will not and this way!
+					I will not end this way!
 					No one will!
 					Excuse me while I break into the pilot's cabin.
 						For such a commendable attempt, you may be excused.
@@ -1742,7 +1750,7 @@ end
 		Very funny Joke. Wanna hear mine?
 			+ Why aren't I allowed to get in??
 				[talk hyena][mood hyena laugh] khihih
-				The emperor doesn't allow any good-for-nothing loafer to enter his pallace.
+				The emperor doesn't allow any good-for-nothing loafer to enter his palace.
 					+ I'm not a loafer. I am here to be your new emperor.
 						[set mood angry]
 						Look, you mouthy slavic bum.
@@ -1764,12 +1772,12 @@ end
 						[set mood angry]
 						[talk hyena][mood hyena laugh]ahahahahahhahahahah.
 							[section hello]
-	- I am the pallace inspector and I have come to inspect your pallace.
+	- I am the palace inspector and I have come to inspect your palace.
 		We had an inspection last week.
-		They graded the pallace four out of five.
+		They graded the palace four out of five.
 		[set mood scared]
 		So the emperor had the inspectors executed.
-		Are you still sure that you're a pallace inspector?
+		Are you still sure that you're a palace inspector?
 			[section hello]
 	++ Get out of my way, I'm here to oust the emperor
 	[set mood angry] Get out of my way, I'm here to oust the emperor
@@ -1868,8 +1876,8 @@ end
 											[set mood]
 												Ah yes, of course, it's the only logical way.
 												Please forgive us.
-												[move pallaceOutside_gate_left 180 5][move pallaceOutside_gate_right 0 5][time 35]
-												[move pallaceOutside_gate_left 180 0][move pallaceOutside_gate_right 0 0]
+												[move palaceOutside_gate_left 180 5][move palaceOutside_gate_right 0 5][time 35]
+												[move palaceOutside_gate_left 180 0][move palaceOutside_gate_right 0 0]
 												Next time we will kill someone like you on the spot, like we usually do.
 													+ Good boy
 														[room palace_far start]
@@ -2270,7 +2278,7 @@ end
 						[talk horse1] What password?
 							+ Hmm, how about...
 								[section password]
-			+ Oh come on, it's me! I got the letter in front of the pallace.
+			+ Oh come on, it's me! I got the letter in front of the palace.
 				[talk matilda] Still no idea what you're talking about.
 					Oh come on, let me try a few times!
 						[talk horse2] Try what?

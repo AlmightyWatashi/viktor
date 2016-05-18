@@ -13,6 +13,6 @@
 	],
 	"stripe" : 100,
 	"conversations" : "conversations.txt",
-	"action" : "new coupe start",
+	"action" : "new viktorsRoom start",
 	"multiple" : 1,
 }

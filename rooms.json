@@ -128,7 +128,7 @@
 			"entrance": "[cloud player 100 0][position player 577 290][direction left][set mood coupe] I saved the day! > And now to become the emperor. > [set mood default][cloud player 50 300][room map_agram_vienna start]"
 		}, {
 			"alias": "lost",
-			"entrance": "[position player 9000 290][active coupe_walrus][other] Dear me, dear me, it seems that we are plunging into our deaths. > [position player 9000 290][active coupe_walrus][other] Good thing I brought my trusty time machine with me. > [animation coupe_walrus snd_coupe_walrus_watch][time 20] > [fade in 0.03 -9999 spr_various_token][time 40] > [fade][room dirigibles start]"
+			"entrance": "[position player 9000 290][active coupe_walrus][other] Dear me, dear me, it seems that we are plunging into our deaths. > [position player 9000 290][active coupe_walrus][other] Good thing I brought my trusty time machine with me. > [animation coupe_walrus spr_coupe_walrus_watch][time 20] > [fade in 0.03 -9999 spr_various_token][time 40] > [fade][room dirigibles start]"
 		}],
 		"objects": [{
 			"alias": "coupe_walrus",
@@ -350,7 +350,7 @@
 		"border": "spr_various_token",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[soundtrack strauss][time 90] > [room pallace_outside start]"
+			"entrance": "[soundtrack strauss][time 90] > [room palace_outside start]"
 		}],
 		"objects": [{
 			"alias": "various_title",
@@ -380,7 +380,7 @@
 		"yBackground": -10,	
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[time 90][soundtrack strauss] > [room pallace_outside_night start]"
+			"entrance": "[time 90][soundtrack strauss] > [room palace_outside_night start]"
 		}],
 		"objects": [{
 			"alias": "various_title",
@@ -1585,15 +1585,22 @@
 				"description": "Map",
 				"order": "look,use",
 				"combinations": {
-					"look": "[mood]Some day, this will all be mine.",
+					"look": "[mood]My map of the world > Great for planning world conquests. > And trivia nights.",
 					"kick": "Can't reach it",
-					"use": "[room viktorsMap start]",
+					"use": "[pickup]",
+					"use_2": "[room viktorsMap start]",
 					"kick": "Stupid world! > This whole world needs fixing!",
 					"log": "It's flat enough",
 					"keys": "Yes, to unlock the secrets of this world, all I need is... > Wait, what?"
+				},
+				"inventory": {
+					"alias": "map",
+					"picture": "spr_item_map",
+					"description": "Some day, this will all be mine.",
+					"default": "Unchartable!"
 				}
-
-			}, {
+				},
+				 {
 				"comment": "Picture in Viktor's room",
 				"alias": "viktorsRoom_picture",
 				"object": "obj_viktorsRoom_picture",
@@ -2479,7 +2486,7 @@
 				"order": "look,use",
 				"combinations": {
 					"look": "Hey, another record!",
-					"use": "[animation player spr_viktor_use_right_high][destroy other 15] > This is going straight to my gramophone! > [talk station_office] It was supposed to go straight to your head! [record rossini]",
+					"use": "[animation player spr_viktor_use_right_high][destroy other 15] > This is going straight to my gramophone! > [talk station_office] It was supposed to go straight to your head! [record dvorak]",
 					"pants": "Don't complicate things, just pick it up.",
 					"cake": "That would be a good place for a cake. > But I'm not going to do this.",
 					"ball": "I don't want to damage it any further.",
@@ -2887,8 +2894,8 @@
 			"y": 626
 		}]
 	}, {
-		"comment": "Pallace Outside",
-		"alias": "pallace_outside",
+		"comment": "palace Outside",
+		"alias": "palace_outside",
 		"gui": "default",
 		"scaleNear": 0.65,
 		"scaleFar": 0.55,
@@ -2910,7 +2917,7 @@
 			"xCloud": 400,
 			"yCloud": 500,
 			"idle": 1,
-			"description": "Beaver pallace guard",
+			"description": "Beaver palace guard",
 			"order": "look, talk",
 			"combinations": {
 				"look": "This one looks extremely pompous",
@@ -2934,7 +2941,7 @@
 			"yCloud": 500,
 			"imageSpeed": 0.6,
 			"idle": 1,
-			"description": "Hyena pallace guard",
+			"description": "Hyena palace guard",
 			"order": "look, look_2",
 			"combinations": {
 				"look": "This guy is just weird. > Must be from the war.",
@@ -2950,15 +2957,15 @@
 				"dress": "[animations player spr_viktor_walk_right][move player 0 5][time 30] >[animation player spr_viktor_use_right_middle] > [talk hyena] Oh yes yes yes, good. [give dress] > Can I go in now? > [mood scared][talk hyena] Of course not, hahahahahaha."
 			}
 		}, {
-			"comment": "Pallace gate left",
-			"alias": "pallaceOutside_gate_left",
+			"comment": "palace gate left",
+			"alias": "palaceOutside_gate_left",
 			"depth": -101,
 			"picture": "spr_palaceOutside_gate_left",
 			"x": 405,
 			"y": 85,
 			"xInteract": 650,
 			"yInteract": 810,
-			"description": "Pallace gate",
+			"description": "palace gate",
 			"order": "look",
 			"combinations": {
 				"look": "This gate is all that stands between me and the crown of Austria-Hungary.",
@@ -2972,15 +2979,15 @@
 				"dress": "I don't know what I would do with this."
 			}
 		}, {
-			"comment": "Pallace gate right",
-			"alias": "pallaceOutside_gate_right",
+			"comment": "palace gate right",
+			"alias": "palaceOutside_gate_right",
 			"depth": -102,
 			"picture": "spr_palaceOutside_gate_right",
 			"x": 614,
 			"y": 85,
 			"xInteract": 650,
 			"yInteract": 810,
-			"description": "Pallace gate",
+			"description": "palace gate",
 			"order": "look",
 			"combinations": {
 				"look": "This gate is all that stands between me and the crown of Austria-Hungary.",
@@ -2994,7 +3001,7 @@
 				"dress": "I don't know what I would do with this."
 			}
 		}, {
-			"comment": "Pallace front walls",
+			"comment": "palace front walls",
 			"alias": "palaceOutside_walls_day",
 			"depth": -114,
 			"picture": "spr_palaceOutside_walls_day",
@@ -3174,8 +3181,8 @@
 		]
 	},
 	{
-		"comment": "Pallace Outside by night",
-		"alias": "pallace_outside_night",
+		"comment": "palace Outside by night",
+		"alias": "palace_outside_night",
 		"gui": "default",
 		"scaleNear": 0.65,
 		"scaleFar": 0.55,
@@ -3344,14 +3351,14 @@
 			"imageSpeed": 0.6,
 			"idle": 1
 		}, {
-			"comment": "Pallace gate left",
+			"comment": "palace gate left",
 			"alias": "palaceOutside_gate_left",
 			"depth": -101,
 			"x": 405,
 			"y": 85
 		},
 		{
-			"comment": "Pallace gate right",
+			"comment": "palace gate right",
 			"alias": "palaceOutside_gate_right",
 			"depth": -102,
 			"x": 614,
@@ -3360,7 +3367,7 @@
 			"yInteract": 700
 		},
 		{
-			"comment": "Pallace front walls",
+			"comment": "palace front walls",
 			"alias": "palaceOutside_walls_night",
 			"depth": -114,
 			"x": 0,
@@ -3446,7 +3453,7 @@
 			"x": 806,
 			"y": 445
 		}, {
-			"alias": "return_to_pallace_from_tavern",
+			"alias": "return_to_palace_from_tavern",
 			"depth": -1200,
 			"visible": 0,
 			"x": 175,
