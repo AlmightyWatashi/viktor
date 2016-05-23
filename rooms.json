@@ -26,7 +26,7 @@
 		"border": "spr_various_token",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[position player 200 850][set mood phone][active martinsRoom_martin] > [if previousRoom viktorsRoom][conversation martin beginning] > [if previousRoom viktorsRoom][skip 3] > [if previousRoom station_down][conversation martin station] > [if previousRoom station_down][skip 1] > [if previousRoom station_up][conversation martin_station beginning] > [room previous martinHangsUp]"
+			"entrance": "[position player 200 850][set mood phone][active martinsRoom_martin] > [if previousRoom viktorsRoom][conversation martin beginning] > [if previousRoom viktorsRoom][skip 3] > [if previousRoom station_down][conversation martin station] > [if previousRoom station_down][skip 1] > [if previousRoom station_up][conversation martin_station beginning] > [room previous return]"
 		}],
 		"objects": [{
 			"alias": "martinsRoom_martin",
@@ -125,7 +125,7 @@
 			"entrance": "[soundtrack saens][cloud player 100 0][position player 577 290][direction left][set mood coupe] > [active coupe_walrus][conversation walrus beginning] > [set mood default][mood default][cloud player 50 300][set dirigible_type travel][room dirigibles start]"
 		}, {
 			"alias": "won",
-			"entrance": "[cloud player 100 0][position player 577 290][direction left][set mood coupe] I saved the day! > And now to become the emperor. > [set mood default][cloud player 50 300][room map_agram_vienna start]"
+			"entrance": "[cloud player 100 0][position player 577 290][direction left][set mood coupe] I saved the day! > And now to become the emperor. > [set mood default][cloud player 50 300][room title_palace start]"
 		}, {
 			"alias": "lost",
 			"entrance": "[position player 9000 290][active coupe_walrus][other] Dear me, dear me, it seems that we are plunging into our deaths. > [position player 9000 290][active coupe_walrus][other] Good thing I brought my trusty time machine with me. > [animation coupe_walrus spr_coupe_walrus_watch][time 20] > [fade in 0.03 -9999 spr_various_token][time 40] > [fade][room dirigibles start]"
@@ -241,7 +241,7 @@
 		"border": "spr_various_token",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[time 110] > [room title_palace start]"
+			"entrance": "[time 60] > [room coupe start]"
 		}],
 		"objects": [{
 			"alias": "map_agram_vienna",
@@ -250,7 +250,26 @@
 			"xScale": 0.54,
 			"yScale": 0.54,
 			"imageSpeed": 0.1
-		}]
+		},
+		{
+			"alias": "dirigibles_travel",
+			"x": 300,
+			"y": 740,
+			"path": "float",
+			"xScale": 0.54,
+			"yScale": 0.54,
+			"imageSpeed": 0.1
+		},
+		{
+			"alias": "travel_okvir",
+			"picture": "spr_various_token",
+			"x": 200,
+			"y": 620,
+			"xScale": 200,
+			"yScale": 200,
+			"imageSpeed": 0.1
+		}
+		]
 	}, {
 		"comment": "Title - Agram ",
 		"alias": "title_viktorsRoom",
@@ -680,7 +699,7 @@
 		"border": "spr_border_viktorsRoom",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[position 500 500] What a map!"
+			"entrance": "[position 500 500] So much world"
 		}],
 		"objects": [{
 			"comment": "Alias is the entrance of the previous room to return to",
@@ -1272,7 +1291,7 @@
 		"rgb": "200,232,235",
 		"entrances": [{
 			"alias": "roaches",
-			"entrance": "[soundtrack mozart] And now to wash away the roaches and take a bath.."
+			"entrance": "[soundtrack mozart][mood] And now to wash away the roaches and take a bath.."
 		}, {
 			"alias": "start",
 			"entrance": "[take coin silent][set mood angry][set phone 2][animation spr_viktor_angry][position player 732 795][fade out 0.03][time 30] > [fade] I can't believe I lost my job... > I should take a bath and relax. > But first, I'm going to vent!"
@@ -1292,7 +1311,7 @@
 			"alias": "callMartin",
 			"entrance": "[if phone = 0][animation player spr_viktor_phone_down] > [if phone = 0] That was the phone number of my good friend Martin, but he's not answering right now... > [if phone = 0][skip] > [animation player spr_viktor_phone_up] > [room martinsRoom start]"
 		}, {
-			"alias": "martinHangsUp",
+			"alias": "return",
 			"entrance": "[position player 199 675][animation player spr_viktor_phone_down] > He hung up... > [set phone 3] > [if phone = 3][destroy viktorsRoom_door_closed_angry][create viktorsRoom_door_closed_happy] Time to conquer the world! > [set phone 3][not item phone][take phone]"
 		}],
 		"objects": [{
@@ -1620,8 +1639,8 @@
 				"picture": "spr_viktorsRoom_phone",
 				"x": 1167,
 				"y": 445,
-				"xInteract": 910,
-				"yInteract": 720,
+				"xInteract": 950,
+				"yInteract": 730,
 				"subimage": 0,
 				"description": "Phone",
 				"order": "kick,look,look_2",
@@ -1632,7 +1651,7 @@
 					"talk": "I need to press some buttons first",
 					"log": "Too heavy, I might break it.",
 					"keys": "What?",
-					"umbrella": "Here goes nothing! > [animation player spr_viktor_umbrella1] > [destroy][position viktorsRoom_trin 1000 650][position viktorsRoom_trin2 1000 600][position viktorsRoom_trin3 1000 700] > [animation player spr_viktor_umbrella2] > [destroy viktorsRoom_toilet_nophone][create viktorsRoom_toilet_ringing] Oops."
+					"umbrella": "[mood]Here goes nothing! > [animation player spr_viktor_umbrella1] > [destroy][position viktorsRoom_trin 1000 650][position viktorsRoom_trin2 1000 600][position viktorsRoom_trin3 1000 700] > [animation player spr_viktor_umbrella2] > [destroy viktorsRoom_toilet_nophone][create viktorsRoom_toilet_ringing][mood scared] Oops."
 				}
 			}, {
 				"comment": "Phone in Viktor's room ringing",
@@ -1641,8 +1660,8 @@
 				"picture": "spr_viktorsRoom_phone",
 				"x": 1167,
 				"y": 445,
-				"xInteract": 910,
-				"yInteract": 720,
+				"xInteract": 950,
+				"yInteract": 730,
 				"description": "Phone",
 				"order": "look,use,look_2",
 				"combinations": {
@@ -2106,7 +2125,7 @@
 			"entrance": "[set phone 3] > [not item phone][take phone] > [set wig_flag 0][set bought_cell_flag 0][position station_tram 200 299][position player 400 700][position station_fence1 87 512][move station_fence1 0 3][time 20][position station_fence2 365 512][move station_fence2 180 3][time 20] > [move station_fence1 0 0][move station_fence2 0 0] Ah, the Agram Dirigibledrome. > I swept these streets too often for my own good."
 		}, 
 		{
-			"alias" : "martinHangsUp",
+			"alias" : "return",
 			"entrance" : "[position player 700 750] Why do I even bother."
 		},
 		{
@@ -2568,7 +2587,7 @@
 			"entrance": "[soundtrack dvorak][sound snd_gramophone][position 400 700][active donkey][conversation donkey lost]"
 		},
 		{
-			"alias" : "martinHangsUp",
+			"alias" : "return",
 			"entrance" : "[position player 600 685] Always a good conversation."
 		}
 		
