@@ -28,7 +28,8 @@
 		"background" : "bcg_black",
 		"default" : "look",
 		"secondary" : "none",
-		"order" : "look",
+		"order_before" : "look",
+		"order" : "",
 		"actions" : [
 			{
 			"alias" : "look",
@@ -106,6 +107,35 @@
 			"xMaximum" : 900,
 			"background" : "bcg_inventory"
 		},
+		"showInterfaceOnClick" : 1,
+		"interfacePicture" : "spr_cursor_interface",
+		"interfaceScale": 0.5,
+		"interface" : [
+			{
+				"alias" : "kick",
+				"picture" : "spr_cursor_kick_interface",
+				"x": 30,
+				"y" : 35
+			},
+			{
+				"alias" : "use",
+				"picture" : "spr_cursor_use_interface",
+				"x": 20,
+				"y" : -48
+			},
+			{
+				"alias" : "look",
+				"picture" : "spr_cursor_look_interface",
+				"x": -45,
+				"y" : 38
+			},
+			{
+				"alias" : "talk",
+				"picture" : "spr_cursor_talk_interface",
+				"x": -75,
+				"y" : -38
+			}
+		],
 		"foreground" : "bcg_gui",
 		"background" : "bcg_black",
 		"description" : {
@@ -122,7 +152,7 @@
 			"type" : "movement",
 			"available" : 0,
 			"visible" : 0,
-			"description" : "Walk to",
+			"description" : "",
 			"name" : "",
 			"default" : "",
 			"picture" : "",

@@ -122,7 +122,7 @@
 		"border": "spr_various_token",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[soundtrack saens][cloud player 100 0][position player 577 290][direction left][set mood coupe] > [active coupe_walrus][conversation walrus beginning] > [set mood default][mood default][cloud player 50 300][set dirigible_type travel][room dirigibles start]"
+			"entrance": "[fade out 0.1][soundtrack saens][cloud player 100 0][position player 577 290][direction left][set mood coupe] > [active coupe_walrus][conversation walrus beginning] > [set mood default][mood default][cloud player 50 300][set dirigible_type travel][room dirigibles start]"
 		}, {
 			"alias": "won",
 			"entrance": "[cloud player 100 0][position player 577 290][direction left][set mood coupe] I saved the day! > And now to become the emperor. > [set mood default][cloud player 50 300][room title_palace start]"
@@ -154,7 +154,7 @@
 		{
 			"alias" : "coupe_clouds",
 			"subimage" : 0,
-			"path" : "path_left",
+			"path" : "path_left_long",
 			"x" : 900,
 			"y" : 200,
 			"depth" : 2050
@@ -162,7 +162,7 @@
 		{
 			"alias" : "coupe_clouds",
 			"subimage" : 1,
-			"path" : "path_left",
+			"path" : "path_left_long",
 			"x" : 1100,
 			"y" : 300,
 			"depth" : 2050
@@ -170,7 +170,7 @@
 		{
 			"alias" : "coupe_clouds",
 			"subimage" : 2,
-			"path" : "path_left",
+			"path" : "path_left_long",
 			"x" : 600,
 			"y" : 250,
 			"depth" : 2050
@@ -178,7 +178,7 @@
 		{
 			"alias" : "coupe_clouds",
 			"subimage" : 3,
-			"path" : "path_left",
+			"path" : "path_left_long",
 			"x" : 1350,
 			"y" : 220,
 			"depth" : 2050
@@ -186,7 +186,7 @@
 		{
 			"alias" : "coupe_clouds",
 			"subimage" : 4,
-			"path" : "path_left",
+			"path" : "path_left_long",
 			"x" : 1600,
 			"y" : 200,
 			"depth" : 2050
@@ -194,7 +194,7 @@
 		{
 			"alias" : "coupe_clouds",
 			"subimage" : 5,
-			"path" : "path_left",
+			"path" : "path_left_long",
 			"x" : 1850,
 			"y" : 250,
 			"depth" : 2050
@@ -202,7 +202,7 @@
 		{
 			"alias" : "coupe_clouds",
 			"subimage" : 6,
-			"path" : "path_left",
+			"path" : "path_left_long",
 			"x" : 2000,
 			"y" : 200,
 			"depth" : 2050
@@ -210,7 +210,7 @@
 		{
 			"alias" : "coupe_clouds",
 			"subimage" : 7,
-			"path" : "path_left",
+			"path" : "path_left_long",
 			"x" : 2300,
 			"y" : 300,
 			"depth" : 2050
@@ -218,7 +218,7 @@
 		{
 			"alias" : "coupe_clouds",
 			"subimage" : 8,
-			"path" : "path_left",
+			"path" : "path_left_long",
 			"x" : 2500,
 			"y" : 260,
 			"depth" : 2050
@@ -226,7 +226,7 @@
 		{
 			"alias" : "coupe_clouds",
 			"subimage" : 9,
-			"path" : "path_left",
+			"path" : "path_left_long",
 			"x" : 2810,
 			"y" : 210,
 			"depth" : 2050
@@ -241,7 +241,7 @@
 		"border": "spr_various_token",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[time 60] > [room coupe start]"
+			"entrance": "[time 50] > [time 40][fade in 0.05] > [room coupe start]"
 		}],
 		"objects": [{
 			"alias": "map_agram_vienna",
@@ -552,28 +552,28 @@
 		"border": "spr_various_token",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[stop] > [if dirigibles_win = 1][room previous won] > [room previous lost]"
+			"entrance": "[take phone][stop] > [if dirigibles_win = 1][room previous won] > [room previous lost]"
 		}],
 		"objects": [{
 			"alias": "just_testing_delete_later",
 			"available": 0,
 			"inventory": {
-				"alias": "cell",
-				"name": "A battery cell",
-				"description": "This battery cell is some powerful stuff.",
-				"default": "That doesn't need to be powered up.",
-				"picture": "spr_dirigibles_power"
-			}
+					"alias": "phone",
+					"name": "Phone",
+					"description": "Coal gauge is a bit low.",
+					"special": "[if currentRoom dirigibles][cloud 700 800][time 60] I don't have time for that shit. > [if currentRoom dirigibles][stop] > [remember][destroy viktorsRoom_trin][destroy viktorsRoom_trin2][destroy viktorsRoom_trin3] > [if phone = 0][room phone start] > [if phone = 1][room viktorsRoom phone] > [if phone = 2][room phone start] > [if phone = 3][if currentRoom viktorsRoom] I just talked to him. > [if phone = 3][if currentRoom viktorsRoom][skip] > [room martinsRoom start]",
+					"picture": "spr_item_phone"
+				}
 		}, {
 			"available": 1,
 			"object": "obj_dirigibles_controller",
 			"picture": "spr_dirigibles_use",
 			"sounds": {
-				"soundtrack": "snd_verdi",
+				"soundtrack": "snd_rossini",
 				"legend": 120
 			},
-			"x": 700,
-			"y": 400,
+			"x": 140,
+			"y": 500,
 			"depth": -2000
 		}, {
 			"alias": "",
@@ -699,7 +699,7 @@
 		"border": "spr_border_viktorsRoom",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[position 500 500] So much world"
+			"entrance": "[cloud 500 500] So much world"
 		}],
 		"objects": [{
 			"comment": "Alias is the entrance of the previous room to return to",
@@ -1294,25 +1294,25 @@
 			"entrance": "[soundtrack mozart][mood] And now to wash away the roaches and take a bath.."
 		}, {
 			"alias": "start",
-			"entrance": "[take coin silent][set mood angry][set phone 2][animation spr_viktor_angry][position player 732 795][fade out 0.03][time 30] > [fade] I can't believe I lost my job... > I should take a bath and relax. > But first, I'm going to vent!"
+			"entrance": "[set phone 2][take coin silent][set mood angry][set phone 2][animation spr_viktor_angry][position player 732 795][fade out 0.03][time 30] > [fade] I can't believe I got fired! > [mood]I should take a bath and relax. > But first, I'm going to vent!"
 		}, {
 			"alias": "map",
-			"entrance": "[position player 313 625] Well, that was educational."
+			"entrance": "[recall] Well, that was educational."
 		}, {
 			"alias": "door",
 			"entrance": "[position player 199 675][soundtrack mozart][sound snd_gramophone]Home, sweet home!"
 		}, {
 			"alias": "callRandom",
-			"entrance": "[animation player spr_viktor_phone_down] > Nobody's answering. > [if phone = 2] I need to find where I wrote Martin's phone number."
+			"entrance": "[recall][animation player spr_viktor_phone_down] > Nobody's answering. > [if phone = 2] I need to find where I wrote Martin's phone number."
 		}, {
 			"alias": "phone",
-			"entrance": "[animation player spr_viktor_phone_up] > [animation player spr_viktor_talk_right_phone] Who is it? > [cloud phone][blocksound snd_martinsRoom_martin_talk][animation player spr_viktor_listen_right_phone] It's Martin, who else would it be? > [cloud phone][blocksound snd_martinsRoom_martin_talk2][animation player spr_viktor_listen_right_phone] Anyway, I got no money for phone calls, so call me back, bye! > [animation player spr_viktor_talk_right_phone] OK, but I forgot your phone number... > [blocksound][cloud phone][animation player spr_viktor_listen_right_phone] TOOT-TOOT > [animation player spr_viktor_phone_down] > Now where did I write his number down?! > [set phone 2]"
+			"entrance": "[recall][animation player spr_viktor_phone_up] > [animation player spr_viktor_talk_right_phone] Who is it? > [cloud phone][blocksound snd_martinsRoom_martin_talk][animation player spr_viktor_listen_right_phone] It's Martin, who else would it be? > [cloud phone][blocksound snd_martinsRoom_martin_talk2][animation player spr_viktor_listen_right_phone] Anyway, I got no money for phone calls, so call me back, bye! > [animation player spr_viktor_talk_right_phone] OK, but I forgot your phone number... > [blocksound][cloud phone][animation player spr_viktor_listen_right_phone] TOOT-TOOT > [animation player spr_viktor_phone_down] > Now where did I write his number down?! > [set phone 2]"
 		}, {
 			"alias": "callMartin",
-			"entrance": "[if phone = 0][animation player spr_viktor_phone_down] > [if phone = 0] That was the phone number of my good friend Martin, but he's not answering right now... > [if phone = 0][skip] > [animation player spr_viktor_phone_up] > [room martinsRoom start]"
+			"entrance": "[recall][if phone = 0][animation player spr_viktor_phone_down] > [if phone = 0] That was the phone number of my good friend Martin, but he's not answering right now... > [if phone = 0][skip] > [animation player spr_viktor_phone_up] > [room martinsRoom start]"
 		}, {
 			"alias": "return",
-			"entrance": "[position player 199 675][animation player spr_viktor_phone_down] > He hung up... > [set phone 3] > [if phone = 3][destroy viktorsRoom_door_closed_angry][create viktorsRoom_door_closed_happy] Time to conquer the world! > [set phone 3][not item phone][take phone]"
+			"entrance": "[recall][animation player spr_viktor_phone_down] > He hung up... > [set phone 3] > [if phone = 3][destroy viktorsRoom_door_closed_angry][create viktorsRoom_door_closed_happy] Time to conquer the world! > [set phone 3][not item phone][take phone]"
 		}],
 		"objects": [{
 				"comment": "Pots in viktors room",
@@ -1321,11 +1321,12 @@
 				"y": 821,
 				"xInteract": 307,
 				"yInteract": 787,
+				"depth": -900,
 				"description": "Pots of cold water",
 				"order": "kick,use",
 				"combinations": {
 					"kick": "Stupid pots!! > First I'm going to yell at you! > Then use you for my bath to calm down",
-					"use": "[mood]I'll need is for the bath. [animation player spr_viktor_pot1_take1] > [destroy viktorsRoom_pots][create viktorsRoom_pot2][animation player spr_viktor_pot1_take2] > [animations player spr_viktor_pot1_carry][move player 65 2][time 92] > [animation player spr_viktor_pot1_lift] > [create viktorsRoom_pot1] > [if available viktorsRoom_oven_hot][create viktorsRoom_pot1_boil]",
+					"use": "[mood]I'll need is for the bath. [animation player spr_viktor_pot1_take1] > [destroy viktorsRoom_pots][create viktorsRoom_pot2][animation player spr_viktor_pot1_take2] > [animations player spr_viktor_pot1_carry][move player 65 2][time 92] > [animation player spr_viktor_pot1_lift] > [create viktorsRoom_pot1] > [if available viktorsRoom_oven_hot][create viktorsRoom_pot1_boil][description viktorsRoom_pot1 Small pot of boiling water]",
 					"Look": "Pots of water. > The bigger one is filled with cold water. > The smaller one is also filled with cold water."
 				}
 			},
@@ -1339,10 +1340,11 @@
 				"xInteract": 335,
 				"yInteract": 820,
 				"description": "A large pot of water",
-				"order": "look,use",
+				"order": "look,use",				
+				"depth": -900,
 				"combinations": {
 					"look": "[mood]Big and cold. > Like my ex boss.",
-					"use": "[if available viktorsRoom_tub_clean][skip 2] > [mood]I can't bathe in my bed! > [skip] > [destroy][animation player spr_viktor_pot2_take] > [time 100][move player 40 3][animations player spr_viktor_pot2_carry] > [animation player spr_viktor_pot2_throw][time 76] > [sound snd_pot_water] > [if available viktorsRoom_pot1] [mood]Too cold. > [not available viktorsRoom_pot1] [mood]Perfect."
+					"use": "[if available viktorsRoom_tub_clean][skip 4] > [if available viktorsRoom_bath_roaches]I don't want to bathe in roaches again. > [if available viktorsRoom_bath_roaches][skip] > I can't bathe in a bed! > [skip] > [destroy][animation player spr_viktor_pot2_take] > [time 112][move player 40 3][animations player spr_viktor_pot2_carry] > [animation player spr_viktor_pot2_throw][imagespeed player 0.5][time 50] > [sound snd_pot_water][animation player spr_viktor_walk_front_angry][move player 270 3][time 30] > [if available viktorsRoom_pot1] [mood]Too cold. > [not available viktorsRoom_pot1] [mood]Perfect."
 				}
 			}, {
 				"comment": "Small pot in viktors room",
@@ -1355,7 +1357,7 @@
 				"description": "A small pot of water.",
 				"order": "use",
 				"combinations": {
-					"use": "[not available viktorsRoom_tub_clean] [mood]I can't bathe in my bed! > [not available viktorsRoom_tub_clean][skip] > [if available viktorsRoom_oven_hot][skip 2] > [mood]I should heat it up first. > [skip] > [destroy other 12][destroy viktorsRoom_pot1_boil 12][animation player spr_viktor_pot1_lower] > [time 80][move player 10 2.5][animations player spr_viktor_pot1_carry] > [animation player spr_viktor_pot1_throw] > [sound snd_pot_water] [mood]I like my bath warm. > [if available viktorsRoom_pot2] [mood]But now it's too hot. > [not available viktorsRoom_pot2] [mood]It's perfect now."
+					"use": "[not available viktorsRoom_tub_clean] [mood]I can't bathe in my bed! > [not available viktorsRoom_tub_clean][skip] > [if available viktorsRoom_oven_hot][skip 2] > [mood]I should heat it up first. > [skip] > [animation spr_viktor_walk_back][move player 90 3][time 10] > [animation player spr_viktor_pot1_lower][destroy other 18][destroy viktorsRoom_pot1_boil 18] > [time 80][move player 350 2.5][animations player spr_viktor_pot1_carry] > [move player 70 2.5][time 20] > [animation player spr_viktor_pot1_throw][imagespeed player 0.5][time 50] > [sound snd_pot_water][animation player spr_viktor_walk_front_angry][move player 270 3][time 30] > [mood]I like my bath warm. > [if available viktorsRoom_pot2] [mood]But now it's too hot. > [not available viktorsRoom_pot2] [mood]It's perfect now."
 				}
 			}, {
 				"alias": "viktorsRoom_pot1_boil",
@@ -1371,7 +1373,43 @@
 				"picture": "spr_viktorsRoom_dirigible_large",
 				"x": 690,
 				"y": 316
+			},
+{
+				"comment": "Oven in Viktor's room, unbroken",
+				"alias": "viktorsRoom_oven_unbroken",
+				"visible": 0,
+				"picture": "spr_various_token",
+				"x": 325,
+				"y": 440,
+				"xScale": 120,
+				"yScale": 160,
+				"xInteract": 420,
+				"yInteract": 615,
+				"description": "Oven",
+				"order": "kick,look",
+				"combinations": {
+					"look": "[mood]The oven serves three purposes... > [mood]Cooking, heating water and burning my fingers.",
+					"kick": "[direction left]Die evil hellspawn oven!!! > [create viktorsRoom_oven_broken 15][kick auto snd_oven_break]",
+					"use": "It has been stuck since the last time I kicked it.",
+					"log": "[not available viktorsRoom_oven_broken] The oven door is stuck. > [not available viktorsRoom_oven_broken][skip] > [animation player spr_viktor_use_back_low][time 20] > [sound snd_log][time 20] > [destroy viktorsRoom_oven_broken][create viktorsRoom_oven_hot][give log] > [if available viktorsRoom_pot1][create viktorsRoom_pot1_boil][description viktorsRoom_pot1 Small pot of boiling water]",
+					"keys": "It's not locked, it's stuck.",
+					"umbrella": "I love this umbrella too much to break it like this."
+				}
 			}, {
+				"available": 0,
+				"alias": "viktorsRoom_oven_broken",
+				"x": 330,
+				"y": 490
+			}, {
+				"available": 0,
+				"alias": "viktorsRoom_oven_hot",
+				"sounds": {
+					"default": "snd_oven_burn"
+				},
+				"x": 330,
+				"y": 490
+			},
+			{
 				"comment": "Keys in Viktor's room",
 				"alias": "viktorsRoom_keys",
 				"picture": "spr_viktorsRoom_keys",
@@ -1553,7 +1591,7 @@
 				"order": "look,use,look_2,use_2",
 				"combinations": {
 					"look": "Never could clean off all the blood from that murder. > Just kidding, it's ketchup.",
-					"use": "[if phone = 1] I'd love to go but the phone is ringing... > [if phone = 2] I'd love to go conquer the world, but first I should return my friend Martin's call... > [if phone = 3][skip 1] > [if phone < 3][skip] > Time to go out and conquer the world! > [sound snd_door_open][create viktorsRoom_door_open1][create viktorsRoom_door_open2][sound snd_door_open] > [create viktorsRoom_crow][position viktorsRoom_crow 0 690][move viktorsRoom_crow 0 5][move player 0 5][animation player spr_viktor_back_off] > [move viktorsRoom_crow 0 0][active viktorsRoom_crow][other] Not so fast! > [conversation crow start] > [animation player spr_viktor][destroy viktorsRoom_crow][create viktorsRoom_crow_walk][position viktorsRoom_crow_talk 300 690][move viktorsRoom_crow_walk 180 5][time 60] > Every month we have the same stupid conversation. > Senile old crow.> Oh well, time to go and conquer this kingdom once and for all.",
+					"use": "[if phone = 1] I'd love to go but the phone is ringing... > [if phone = 2] I'd love to go conquer the world, but first I should return my friend Martin's call... > [if phone = 3][skip 1] > [if phone < 3][skip] > Time to go out and conquer the world! > [sound snd_door_open][create viktorsRoom_door_open1][create viktorsRoom_door_open2][sound snd_door_open] > [create viktorsRoom_crow][position viktorsRoom_crow 0 690][move viktorsRoom_crow 0 5][move player 0 5][animation player spr_viktor_back_off] > [move viktorsRoom_crow 0 0][active viktorsRoom_crow][other][set mood scared] Not so fast! > [conversation crow start] > [animation player spr_viktor][destroy viktorsRoom_crow][create viktorsRoom_crow_walk][position viktorsRoom_crow_talk 300 690][move viktorsRoom_crow_walk 180 5][time 60] > Every month we have the same stupid conversation. > Senile old crow.> Oh well, time to go and conquer this kingdom once and for all.",
 					"log": "I don't need to build another door",
 					"look_2" : "The door is open! Beware, Austria-Hungary!",
 					"use_2": "[room agram start]"
@@ -1565,8 +1603,8 @@
 				"direction": "left",
 				"xScale": 0.7,
 				"yScale": 0.7,
-				"xCloud": 279,
-				"yCloud": 444,
+				"xCloud": 280,
+				"yCloud": 344,
 				"x": -200,
 				"y": 690,
 				"depth": -1500
@@ -1585,14 +1623,12 @@
 				"x": 25,
 				"y": 333,
 				"depth": -2000
-
 			}, {
 				"alias": "viktorsRoom_door_open2",
 				"available": 0,
 				"x": 96,
 				"y": 320,
-				"depth": -1000,
-
+				"depth": -1000
 			}, {
 				"comment": "Map in Viktor's room",
 				"alias": "viktorsRoom_map",
@@ -1606,7 +1642,7 @@
 				"combinations": {
 					"look": "[mood]My map of the world > Great for planning world conquests. > And trivia nights.",
 					"kick": "Can't reach it",
-					"use": "[pickup]",
+					"use": "[pickup left high]",
 					"use_2": "[room viktorsMap start]",
 					"kick": "Stupid world! > This whole world needs fixing!",
 					"log": "It's flat enough",
@@ -1616,7 +1652,8 @@
 					"alias": "map",
 					"picture": "spr_item_map",
 					"description": "Some day, this will all be mine.",
-					"default": "Unchartable!"
+					"default": "Unchartable!",
+					"special": "[if currentRoom dirigibles] I don't have time for that shit. > [if currentRoom dirigibles][stop] > [remember][room viktorsMap start]"
 				}
 				},
 				 {
@@ -1646,7 +1683,7 @@
 				"order": "kick,look,look_2",
 				"combinations": {
 					"look": "[mood]My coal powered cordless telephone. > [mood]What's it doing up there?",
-					"kick": "[mood]Oh, no no no. > [mood]Last time I tried climbing up there, my foot got stuck in the toilet.",
+					"kick": "Oh, no no no. > Last time I tried climbing up there, my foot got stuck in the toilet.",
 					"look_2": "[mood]My coal powered cordless telephone.",
 					"talk": "I need to press some buttons first",
 					"log": "Too heavy, I might break it.",
@@ -1675,8 +1712,7 @@
 				}
 			}, {
 				"comment": "Teapot in Viktor's room when Viktor is angry",
-				"alias": "viktorsRoom_teapot",
-				"pair": "viktorsRoom_teapot_happy",
+				"alias": "viktorsRoom_teapot_angry",
 				"picture": "spr_viktorsRoom_teapot",
 				"x": 814,
 				"y": 455,
@@ -1685,13 +1721,13 @@
 				"description": "Teapot",
 				"order": "kick",
 				"combinations": {
-					"kick": "[destroy][animation player spr_viktor_teapot_angry] > [sound snd_vase_break][create viktorsRoom_teapot_broken]",
+					"kick": "[animation spr_viktor_use_back_middle][time 35] > [destroy][animation player spr_viktor_teapot_angry][time 30] > [sound snd_teapot_break][time 16] > [create viktorsRoom_teapot_broken]",
 					"log": "Nah.",
 					"keys": "Hmm... > No."
 				}
 			}, {
 				"comment": "Teapot in Viktor's room when Viktor is happy",
-				"alias": "viktorsRoom_teapot_happy",
+				"alias": "viktorsRoom_teapot",
 				"available": 0,
 				"picture": "spr_viktorsRoom_teapot",
 				"x": 814,
@@ -1702,20 +1738,22 @@
 				"order": "look,use",
 				"combinations": {
 					"look": "It's a teapot. > For making coffee.",
-					"use": "[destroy][animation player spr_viktor_teapot] > [sound snd_vase_break][create viktorsRoom_teapot_broken]",
+					"use": "[animation spr_viktor_use_back_middle][time 35] > [destroy][animation player spr_viktor_teapot][time 30] > [sound snd_teapot_break][time 16] > [create viktorsRoom_teapot_broken]",
 					"log": "Nah.",
 					"keys": "Hmm... > No."
 				}
 			}, {
 				"alias": "viktorsRoom_teapot_broken",
 				"available": 0,
-				"x": 755,
-				"y": 605
+				"xScale":0.9,
+				"yScale":0.9,
+				"depth":-635,
+				"x": 745,
+				"y": 600
 			}, {
-				"comment": "Desk and chair in Viktor's room when Viktor is happy",
-				"alias": "viktorsRoom_desk_happy",
+				"comment": "Desk and chair in Viktor's room when Viktor is angry",
+				"alias": "viktorsRoom_desk",
 				"visible": 0,
-				"pair": "viktorsRoom_desk",
 				"picture": "spr_various_token",
 				"x": 814,
 				"y": 480,
@@ -1731,25 +1769,47 @@
 					"log": "[mood]Nah.",
 					"keys": "Good idea. > But no. > Drawers are nailed, not locked."
 				}
-			}, {
+			},
+			{
+				"comment": "Desk and chair in Viktor's room when Viktor is happy",
+				"alias": "viktorsRoom_desk_happy",
+				"available": 0,
+				"visible": 0,
+				"picture": "spr_various_token",
+				"x": 814,
+				"y": 480,
+				"xScale": 175,
+				"yScale": 130,
+				"xInteract": 775,
+				"yInteract": 628,
+				"description": "Desk and chair.",
+				"order": "look",
+				"combinations": {
+					"kick": "Stupid desk and chair! > [kick auto]",
+					"look": "[mood]It used to be a desk with chair. > [mood]Then my landlady nailed them to the floor ''so it wouldn't get stolen''. > [mood]Stupid old crow. > [mood]Now it's more of a kitsch installation.",
+					"log": "[mood]Nah.",
+					"keys": "Good idea. > But no. > Drawers are nailed, not locked."
+				}
+			},
+			{
 				"comment": "Bathtub in Viktor's room, angry, bed",
 				"alias": "viktorsRoom_bath_noroaches",
 				"picture2": "spr_various_token",
 				"picture": "spr_viktorsRoom_bed",
-				"x": 625,
-				"y": 510,
+				"x": 644,
+				"y": 508,
 				"xScale": 1,
 				"2": 248,
 				"yScale": 1,
 				"3": 157,
-				"xInteract": 580,
+				"xInteract": 590,
 				"yInteract": 625,
 				"description": "Bed",
 				"order": "kick,look,use",
 				"combinations": {
 					"kick" : "Stupid bed! > [kick auto]",
 					"look": "[mood]It's my bathtub... and bed. > [mood]Currently it's a bed. > And I need to bathe.",
-					"use": "[destroy other 15][animation player spr_viktor_use_back_low] > [mood] Wait a minute... > [mood] This pillow is mostly eaten by roaches. > [mood]Wait a minute... roaches? > [create viktorsRoom_bath_roaches][create viktorsRoom_tub_roaches2] > [mood]Oh no.",
+					"use": "[animation player spr_viktor_use_back_middle][destroy other 25] > [mood] Wait a minute... > [mood] This pillow is mostly eaten by roaches. > [mood]Wait a minute... roaches? > [create viktorsRoom_bath_roaches][create viktorsRoom_tub_roaches2] > [mood]Oh no.",
 					"talk": "Stupid bed!!!",
 					"log": "I don't need to log my bed.",
 					"keys": "The bed is not locked."
@@ -1763,8 +1823,9 @@
 			}, {
 				"alias": "viktorsRoom_tub_roaches2",
 				"available": 0,
-				"x": 448,
-				"y": 422
+				"x": 446,
+				"y": 422,
+				"imageSpeed": 0.6
 			}, {
 				"comment": "Bathtub in Viktor's room, angry, roaches",
 				"alias": "viktorsRoom_bath_roaches",
@@ -1783,9 +1844,9 @@
 					"look": "[mood]Eww, it's full of roaches!",
 					"use": "[mood]I don't want to squish them with my hands...",
 					"talk": "[direction left]Stupid roaches, go away!!!",
-					"log": "I don't need to log my bed.",
+					"log": "I want to kill the roaches without destroying the inner coating",
 					"keys": "The bed is not locked.",
-					"umbrella": "[mood]Oh, no! > The roaches almost ate away my favourite Scott Joplin record! > [direction left] It's time to rain terror!!! > [mood]Heh, rain... > [record joplin][destroy][destroy viktorsRoom_tub_roaches2][create viktorsRoom_tub_clean][room roaches start]",
+					"umbrella": "[direction back][mood]Oh, no! > The roaches almost ate away my favourite Scott Joplin record! > [direction left] It's time to rain terror!!! > [mood]Heh, rain... > [record joplin][destroy][destroy viktorsRoom_tub_roaches2][create viktorsRoom_tub_clean][room roaches start]",
 					"kick": "[mood]I'm not getting roaches on my only boots"
 				}
 			}, {
@@ -1803,8 +1864,8 @@
 				"description": "A clean bath tub",
 				"order": "look,use",
 				"combinations": {
-					"look": "Finally, time to bathe!",
-					"use": "[if available viktorsRoom_pots] I need to pour water inside > [if available viktorsRoom_pots][skip] > [not available viktorsRoom_pot1][not available viktorsRoom_pot2][skip 4] > [animation player spr_viktor_use_back_middle] > [not available viktorsRoom_pot1] This is too hot. > [not available viktorsRoom_pot2] This is too cold. > [skip] > [animation player spr_viktor_use_back_middle][fade in 0.03][time 35] > [position player 630 680][animation player spr_viktor_tub_sigh][fade out 0.03] > [animation player spr_viktor_tub_sigh 7][sound snd_viktor_sigh][time 15] > [fade][animation player spr_viktor_tub_unsigh] > [sound snd_phone_ring][create viktorsRoom_trin2][create viktorsRoom_trin3][create viktorsRoom_trin][if available viktorsRoom_toilet_ringing][position viktorsRoom_trin 1000 650][position viktorsRoom_trin2 1000 600][position viktorsRoom_trin 1000 700] > [if item phone][position viktorsRoom_trin 1000 950][position viktorsRoom_trin 1000 900][position viktorsRoom_trin3 1000 850] > [animation player spr_viktor_tub_unsigh 11][time 10] > [animation player spr_viktor_tub_angry] Who is always calling when I'm in the bath!? > [fade in 0.03][time 35] > [animation player spr_viktor][position player 700 700] > [set mood default][fade out 0.03][time 30] > Now to answer that phone... > [if available viktorsRoom_teapot][destroy viktorsRoom_teapot][create viktorsRoom_teapot_happy] > [destroy viktorsRoom_clock_angry][create viktorsRoom_clock_happy][destroy viktorsRoom_vase_angry][create viktorsRoom_vase_happy][destroy viktorsRoom_trash_angry][create viktorsRoom_trash_happy][destroy viktorsRoom_umbrellastand_angry][create viktorsRoom_umbrellastand_happy][destroy viktorsRoom_door_closed_angry][create viktorsRoom_door_closed_happy][set phone 1]",
+					"look": "Finally, time to bathe! > [destroy viktorsRoom_oven_hot]",
+					"use": "[if available viktorsRoom_pots] I need to pour water inside > [if available viktorsRoom_pots][skip] > [not available viktorsRoom_pot1][not available viktorsRoom_pot2][skip 4] > [animation player spr_viktor_use_back_middle] > [not available viktorsRoom_pot1] This is too hot. > [not available viktorsRoom_pot2] This is too cold. > [skip] > [animation player spr_viktor_use_back_middle][fade in 0.03][time 35] > [position player 630 680][animation player spr_viktor_tub_sigh][fade out 0.03] > [animation player spr_viktor_tub_sigh 7][sound snd_viktor_sigh][time 15] > [fade][animation player spr_viktor_tub_unsigh] > [sound snd_phone_ring][create viktorsRoom_trin2][create viktorsRoom_trin3][create viktorsRoom_trin][if available viktorsRoom_toilet_ringing][position viktorsRoom_trin 1000 650][position viktorsRoom_trin2 1000 600][position viktorsRoom_trin 1000 700] > [if item phone][position viktorsRoom_trin 1000 950][position viktorsRoom_trin 1000 900][position viktorsRoom_trin3 1000 850] > [animation player spr_viktor_tub_unsigh 11][time 10] > [animation player spr_viktor_tub_angry][cloud 660 310] Who is always calling when I'm in the bath!? > [fade in 0.03][time 35] > [destroy viktorsRoom_oven_hot][animation player spr_viktor][position player 700 700] > [set mood default][fade out 0.03][time 30] > Now to answer that phone... > [if available viktorsRoom_teapot_angry][destroy viktorsRoom_teapot_angry][create viktorsRoom_teapot] > [destroy viktorsRoom_clock_angry][create viktorsRoom_clock_happy][destroy viktorsRoom_vase_angry][create viktorsRoom_vase_happy][destroy viktorsRoom_trash_angry][create viktorsRoom_trash_happy][destroy viktorsRoom_umbrellastand_angry][create viktorsRoom_umbrellastand_happy][destroy viktorsRoom_door_closed_angry][create viktorsRoom_door_closed_happy][destroy viktorsRoom_desk][create viktorsRoom_desk_happy][set phone 1]",
 					"log": "Just use the bathtub and let me bathe!",
 					"keys": "Just use the bathtub and let me bathe!",
 					"umbrella": "I wiped them out... > All of them."
@@ -1856,46 +1917,14 @@
 					"log": "I don't need to log my bed.",
 					"keys": "The bed is not locked."
 				}
-			}, {
-				"comment": "Oven in Viktor's room, unbroken",
-				"alias": "viktorsRoom_oven_unbroken",
-				"visible": 0,
-				"picture": "spr_various_token",
-				"x": 325,
-				"y": 440,
-				"xScale": 120,
-				"yScale": 160,
-				"xInteract": 390,
-				"yInteract": 615,
-				"description": "Oven",
-				"order": "kick,look",
-				"combinations": {
-					"look": "[mood]The oven serves three purposes... > [mood]Cooking, heating water and burning my fingers.",
-					"kick": "Die evil hellspawn oven!!! > [create viktorsRoom_oven_broken 15][kick auto snd_oven_break]",
-					"use": "It has been stuck since the last time I kicked it",
-					"log": "[not available viktorsRoom_oven_broken] The oven door is stuck. > [not available viktorsRoom_oven_broken][skip] > [animation player spr_viktor_use_back_low] > [destroy viktorsRoom_oven_broken][create viktorsRoom_oven_hot][sound snd_log] > [if available viktorsRoom_pot1][create viktorsRoom_pot1_boil]",
-					"keys": "It's not locked, it's stuck"
-				}
-			}, {
-				"available": 0,
-				"alias": "viktorsRoom_oven_broken",
-				"x": 330,
-				"y": 490
-			}, {
-				"available": 0,
-				"alias": "viktorsRoom_oven_hot",
-				"sounds": {
-					"default": "snd_oven_burn"
-				},
-				"x": 330,
-				"y": 490
-			}, {
+			}, 
+			{
 				"comment": "Toilet in Viktor's room, no phone",
 				"alias": "viktorsRoom_toilet_nophone",
 				"visible": 0,
 				"picture": "spr_various_token",
 				"x": 1006,
-				"y": 635,
+				"y": 630,
 				"xCloud": 1006,
 				"yCloud": 550,
 				"xScale": 207,
@@ -1919,7 +1948,7 @@
 				"visible": 0,
 				"picture": "spr_various_token",
 				"x": 1006,
-				"y": 635,
+				"y": 630,
 				"xScale": 207,
 				"yScale": 108,
 				"xCloud": 1006,
@@ -1929,9 +1958,9 @@
 				"description": "Toilet",
 				"order": "look,use,talk",
 				"combinations": {
-					"look": "It's a toilet. > And my phone's in it.",
+					"look": "It's a toilet. > And my phone's in it. > Good thing it's waterproof, fireproof and urineproof",
 					"kick": "[mood angry][direction right] Stupid toilet!!! > Now my phone stinks... > [kick]",
-					"use": "[position viktorsRoom_trin 1000 1050][position viktorsRoom_trin2 1000 950][position viktorsRoom_trin3 1000 850][pickup]",
+					"use": "[position viktorsRoom_trin2 1000 950][position viktorsRoom_trin3 1000 900][position viktorsRoom_trin1 1000 950][pickup right middle]",
 					"talk": "Hello toilet. > [talk other][soundblock snd_toilet_hello][animation player snd_viktor_listen_right_scared] Hello, Viktor.",
 					"log": "So, you want me to ''drop a log?''... > Heh heh.",
 					"keys": "It's a toilet, not a door."
@@ -1940,7 +1969,7 @@
 					"alias": "phone",
 					"name": "Phone",
 					"description": "Coal gauge is a bit low.",
-					"special": "[destroy viktorsRoom_trin][destroy viktorsRoom_trin2][destroy viktorsRoom_trin3] > [if phone = 0][room phone start] > [if phone = 1][room viktorsRoom phone] > [if phone = 2][room phone start] > [if phone = 3][if currentRoom viktorsRoom] I just talked to him. > [if phone = 3][if currentRoom viktorsRoom][skip] > [room martinsRoom start]",
+					"special": "[if currentRoom dirigibles] I don't have time for that shit. > [if currentRoom dirigibles][stop] > [remember][destroy viktorsRoom_trin][destroy viktorsRoom_trin2][destroy viktorsRoom_trin3] > [if phone = 0][room phone start] > [if phone = 1][room viktorsRoom phone] > [if phone = 2][room phone start] > [if phone = 3][if currentRoom viktorsRoom] I just talked to him. > [if phone = 3][if currentRoom viktorsRoom][skip] > [room martinsRoom start]",
 					"picture": "spr_item_phone"
 				}
 			}, {
@@ -1985,77 +2014,6 @@
 				}
 			},
 			{
-				"comment": "Vase in Viktor's room, angry",
-				"alias": "viktorsRoom_vase_angry",
-				"visible": 0,
-				"picture": "spr_various_token",
-				"x": 247,
-				"y": 472,
-				"xScale": 65,
-				"yScale": 127,
-				"xInteract": 335,
-				"yInteract": 610,
-				"pair": "viktorsRoom_vase_happy",
-				"description": "Priceless Mei Din vase",
-				"order": "kick,look_2",
-				"combinations": {
-					"look": "[mood]A priceless vase. > [mood]Mostly because nobody wants to buy it",
-					"kick": "[direction left][mood angry]Stupid priceless vase!!! > [create viktorsRoom_vase_broken_decoration 15][kick left snd_vase_break]",
-					"look_2": "[mood]Now it's totally priceless",
-					"use": "[if vase_coin = 0] Hmm, maybe there's a coin inside. > [if vase_coin = 0][pick left low][set vase_coin 1]",
-					"use_2": "Maybe there's another coin inside. > [animation player spr_viktor_use_left_low] > Nah, that was it... ",
-					"talk": "[blocksound snd_vase_sing]My little Mei Din girl... > [blocksound snd_vase_sing] La la la la la la... > [blocksound snd_vase_sing2] Oh oh oh oh!",
-					"log": "No log for you.",
-					"keys": "It's not locked, it's a vase."
-				},
-				"inventory": {
-					"alias": "coin",
-					"name": "Coin",
-					"description": "A coin from the vase",
-					"default": "Money can't buy everything.",
-					"picture": "spr_item_coin"
-
-				}
-			}, {
-				"comment": "Vase broken slikica",
-				"alias": "viktorsRoom_vase_broken_decoration",
-				"available": 0,
-				"picture": "spr_viktorsRoom_vase_broken",
-				"x": 247,
-				"y": 490
-			}, {
-				"comment": "Vase in Viktor's room, happy",
-				"alias": "viktorsRoom_vase_happy",
-				"available": 0,
-				"visible": 0,
-				"picture": "spr_various_token",
-				"x": 247,
-				"y": 472,
-				"xScale": 65,
-				"yScale": 127,
-				"xInteract": 335,
-				"yInteract": 625,
-				"pair": "viktorsRoom_vase_angry",
-				"description": "Priceless Mei Din vase",
-				"order": "look,use,talk,look_2",
-				"combinations": {
-					"look": "[set vase_coin 0] A priceless vase. > Mostly because nobody wants to buy it.",
-					"kick": "Stupid priceless vase!!! [viktor spr_viktor_udara_lijevo][create viktorsRoom_vase_broken_decoration]",
-					"look_2": "So priceless",
-					"use": "[if vase_coin = 1] No more coins inside... > [if vase_coin = 0] Maybe there's a coin inside. > [if vase_coin = 0][pick left low] > [set vase_coin 1]",
-					"talk": "[blocksound snd_vase_sing]My little Mei Din girl... > [blocksound snd_vase_sing] La la la la la la... > [blocksound snd_vase_sing2] Oh oh oh oh!",
-					"log": "No log for you, vase.",
-					"keys": "It's not locked, it's a vase."
-				},
-				"inventory": {
-					"alias": "coin",
-					"name": "Coin",
-					"description": "A coin from the vase",
-					"default": "Money can't buy everything.",
-					"picture": "spr_item_coin"
-
-				}
-			}, {
 				"comment": "Umbrella stand, Viktor is angry.",
 				"alias": "viktorsRoom_umbrellastand_angry",
 				"visible": 0,
@@ -2066,12 +2024,12 @@
 				"yScale": 162,
 				"xInteract": 325,
 				"yInteract": 625,
-				"pair": "viktorsRoom_umbrellastand_happy",
 				"description": "Umbrella stand",
 				"order": "kick,look_2",
 				"combinations": {
 					"look": "Umbrella stand with my favorite umbrella. > Umbrellas can do anything ever.",
-					"kick": "Stupid umbrella stand!! > [mood happy] Oh wait, this is my favorite umbrella! > [destroy viktorsRoom_umbrella_decoration][pick]",
+					"talk": "hello",
+					"kick": "Stupid umbrella stand!! > [mood happy] Oh wait, this is my favorite umbrella! > [destroy viktorsRoom_umbrella_decoration 15][pick left middle]",
 					"look_2": "[mood]Whose umbrella is the other one? > [mood]Maybe Martin left it when he visited last time?",
 					"log": "Logs are not umbrellas.",
 					"keys": "Umbrellas don't work that way"
@@ -2109,6 +2067,77 @@
 					"log": "Logs are not umbrellas.",
 					"keys": "Umbrellas don't work that way"
 				}
+			},
+			{
+				"comment": "Vase in Viktor's room, angry",
+				"alias": "viktorsRoom_vase_angry",
+				"visible": 0,
+				"picture": "spr_various_token",
+				"x": 247,
+				"y": 472,
+				"xScale": 65,
+				"yScale": 127,
+				"xInteract": 335,
+				"yInteract": 615,
+				"description": "Priceless Mei Din vase",
+				"order": "kick,look_2",
+				"combinations": {
+					"look": "[mood]A priceless vase. > [mood]Mostly because nobody wants to buy it",
+					"kick": "[direction left][mood angry]Stupid priceless vase!!! > [create viktorsRoom_vase_broken_decoration 25][kick left snd_vase_break]",
+					"look_2": "[mood]Now it's totally priceless",
+					"use": "[if vase_coin = 0] Hmm, maybe there's a coin inside. > [if vase_coin = 0][pick left low][set vase_coin 1]",
+					"use_2": "Maybe there's another coin inside. > [animation player spr_viktor_use_left_low] > Nah, that was it... ",
+					"talk": "[blocksound snd_vase_sing]My little Mei Din girl... > [blocksound snd_vase_sing] La la la la la la... > [blocksound snd_vase_sing2] Oh oh oh oh!",
+					"log": "No log for you.",
+					"keys": "It's not locked, it's a vase."
+				},
+				"inventory": {
+					"alias": "coin",
+					"name": "Coin",
+					"description": "A coin from the vase",
+					"default": "Money can't buy everything.",
+					"picture": "spr_item_coin"
+
+				}
+			}, {
+				"comment": "Vase broken slikica",
+				"alias": "viktorsRoom_vase_broken_decoration",
+				"available": 0,
+				"picture": "spr_viktorsRoom_vase_broken",
+				"x": 249,
+				"y": 492
+			}, {
+				"comment": "Vase in Viktor's room, happy",
+				"alias": "viktorsRoom_vase_happy",
+				"available": 0,
+				"visible": 0,
+				"picture": "spr_various_token",
+				"x": 247,
+				"y": 472,
+				"xScale": 65,
+				"yScale": 127,
+				"xInteract": 335,
+				"yInteract": 625,
+				"pair": "viktorsRoom_vase_angry",
+				"description": "Priceless Mei Din vase",
+				"order": "look,use,talk,look_2",
+				"combinations": {
+					"look": "[set vase_coin 0] A priceless vase. > Mostly because nobody wants to buy it.",
+					"kick": "Stupid priceless vase!!! [viktor spr_viktor_udara_lijevo][create viktorsRoom_vase_broken_decoration]",
+					"look_2": "So priceless",
+					"use": "[if vase_coin = 1] No more coins inside... > [if vase_coin = 0] Maybe there's a coin inside. > [if vase_coin = 0][pick left low] > [set vase_coin 1]",
+					"talk": "[blocksound snd_vase_sing]My little Mei Din girl... > [blocksound snd_vase_sing] Something something mess with me... > [blocksound snd_vase_sing2] Oh oh oh oh!",
+					"log": "No log for you, vase.",
+					"keys": "It's not locked, it's a vase."
+				},
+				"inventory": {
+					"alias": "coin",
+					"name": "Coin",
+					"description": "A coin from the vase",
+					"default": "Money can't buy everything.",
+					"picture": "spr_item_coin"
+
+				}
 			}
 		]
 	},  {
@@ -2126,8 +2155,13 @@
 		}, 
 		{
 			"alias" : "return",
-			"entrance" : "[position player 700 750] Why do I even bother."
+			"entrance" : "[recall] Why do I even bother."
 		},
+		{
+			"alias" : "map",
+			"entrance" : "[recall] It's a big world out there."
+		},
+		
 		{
 			"alias": "lift",
 			"entrance": "[destroy rhino_sweeping][destroy rhino_magical][destroy rhinos_broom][if random 2][skip 1] > [create rhino_sweeping][skip 1] > [create rhino_magical][create rhinos_broom] > [position 9000 9000][position station_down_lift_cabin 970 -600][move station_down_lift_cabin 270 5][time 128] > [move station_down_lift_cabin 270 0][position player 970 710][animations player spr_viktor_walk_left][move player 180 5][time 50] > This lift really smells. > "
@@ -2155,7 +2189,7 @@
 					"alias": "phone",
 					"name": "Phone",
 					"description": "Coal gauge is a bit low.",
-					"special": "[destroy viktorsRoom_trin][destroy viktorsRoom_trin2][destroy viktorsRoom_trin3] > [if phone = 0][room phone start] > [if phone = 1][room viktorsRoom phone] > [if phone = 2][room phone start] > [if phone = 3][if currentRoom viktorsRoom] I just talked to him. > [if phone = 3][if currentRoom viktorsRoom][skip] > [room martinsRoom start]",
+					"special": "[if currentRoom dirigibles] I don't have time for that shit. > [if currentRoom dirigibles][stop] > [destroy viktorsRoom_trin][destroy viktorsRoom_trin2][destroy viktorsRoom_trin3] > [if phone = 0][room phone start] > [if phone = 1][room viktorsRoom phone] > [if phone = 2][room phone start] > [if phone = 3][if currentRoom viktorsRoom] I just talked to him. > [if phone = 3][if currentRoom viktorsRoom][skip] > [room martinsRoom start]",
 					"picture": "spr_item_phone"
 				}
 				
@@ -2588,9 +2622,12 @@
 		},
 		{
 			"alias" : "return",
-			"entrance" : "[position player 600 685] Always a good conversation."
-		}
-		
+			"entrance" : "[recall]Always a good conversation."
+		},
+		{
+			"alias" : "map",
+			"entrance" : "[recall]I don't have to travel that far, really."
+		}		
 		],
 		"objects": [{
 			"alias": "battery_poking",
@@ -3039,7 +3076,7 @@
 		"rgb": "200,232,235",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[stop][soundtrack palace][position player 600 950][animations player spr_viktor_walk_back][move player 80 1][zoom 595 5][time 170] > [move player 0 0][room palace_near start]"
+			"entrance": "[soundtrack palace][fade in 0.02][position player 600 950][animations player spr_viktor_walk_back][move player 80 1][zoom 720 5][time 55] > [room palace_near start]"
 		}],
 		"objects": [
 		{
@@ -3089,6 +3126,7 @@
 		},
 		{
 			"alias" : "emperor",
+			"visible" : 1,
 			"xScale" : 0.35,
 			"yScale" : 0.35,
 			"x": 550,
@@ -3113,6 +3151,7 @@
 		},
 		{
 			"alias" : "palace_curtain_left",
+			"visible":1,
 			"x" : 315,
 			"y" : 65,
 			"xScale" : 0.58,
@@ -3121,6 +3160,7 @@
 		},
 		{
 			"alias" : "palace_curtain_right",
+			"visible":1,
 			"x" : 785,
 			"y" : 65,
 			"xScale" : 0.58,
@@ -3133,68 +3173,110 @@
 			"y" : 140,
 			"xScale" : 0.58,
 			"yScale" : 0.58,
-			"depth" : 1000,
+			"depth" : 1000
 		},
 		{
 			"alias" : "palace_sign",
 			"x" : 215,
 			"y" : 365,
 			"xScale" : 0.58,
-			"yScale" : 0.58,
+			"yScale" : 0.58
 		},
 		{
 			"alias" : "palace_sign",
 			"x" : 935,
 			"y" : 365,
 			"xScale" : 0.58,
-			"yScale" : 0.58,
+			"yScale" : 0.58
 		},
 		{
 			"alias" : "palace_cog",
 			"x" : 970,
 			"y" : 430,
 			"xScale" : 0.58,
-			"yScale" : 0.58,
+			"yScale" : 0.58
 		},
 		{
 			"alias" : "palace_cog",
 			"x" : 240,
 			"y" : 430,
 			"xScale" : 0.58,
-			"yScale" : 0.58,
+			"yScale" : 0.58
 		}
 		]
 	}, {
 		"comment": "Vienna palace",
 		"alias": "palace_near",
 		"gui": "default",
-		"backgroundScale": 1.1,
-		"xBackground": -74,
-		"yBackground": -63,
-		"scaleNear": 0.97,
-		"scaleFar": 0.97,
-		"background": "bcg_palace",
+		"scaleNear": 1,
+		"scaleFar": 1,
+		"background": "",
 		"border": "spr_border_viktorsRoom",
 		"rgb": "200,232,235",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[zoom 0 0][position player 617 952][animation player spr_viktor_walk_back 0][direction back][active emperor][conversation emperor start] > [room title_palace_2 start]"
+			"entrance": "[zoom 0 0][fade out 0.05][position player 617 952][animation player spr_viktor_walk_back 0][direction back][active emperor][conversation emperor start] > [room title_palace_2 start]"
 		}],
-		"objects": [{
+		"objects": [
+		{
+			"alias" : "palace_curtain_left",
+			"visible":1,
+			"x" : 68,
+			"y" : -357,
+			"xScale" : 1,
+			"yScale" : 1,
+			"depth" : -1100
+		},
+		{
+			"alias" : "palace_automaton_bull",
+			"visible":1,
+			"x" : 27,
+			"y" : 345,
+			"xScale" : 0.6,
+			"yScale" : 0.6,
+			"depth" : -1000
+		},
+		{
+			"alias" : "palace_automaton_bear",
+			"visible":1,
+			"x" : 810,
+			"y" : 368,
+			"xScale" : 0.6,
+			"yScale" : 0.6,
+			"depth" : -1000
+		},  
+		{
+			"alias" : "palace_curtain_right",
+			"visible":1,
+			"x" : 902,
+			"y" : -357,
+			"xScale" : 1,
+			"yScale" : 1,
+			"depth" : -1100
+		},
+		{
+			"alias" : "samozatest",
+			"picture" : "spr_empty",
+			"x" : -3,
+			"y" : -5,
+			"transparency":  1.0
+		},
+		{
 			"alias": "emperor",
+			"visible" : 1,
 			"xCloud": 600,
 			"yCloud": 300,
-			"xScale": 0.66,
-			"yScale": 0.66,
-			"x": 453,
-			"y": 376,
+			"xScale": 0.63,
+			"yScale": 0.63,
+			"x": 477,
+			"y": 335,
 			"direction": "back"
 		},
 		{
 		"alias": "hyena",
 			"picture": "spr_various_token",
 			"x": 800,
-			"y": 100,
+			"y": 100
 		}
 		
 		]

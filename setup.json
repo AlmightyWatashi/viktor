@@ -13,6 +13,6 @@
 	],
 	"stripe" : 100,
 	"conversations" : "conversations.txt",
-	"action" : "new viktorsRoom start",
+	"action" : "new station_down start",
 	"multiple" : 1,
 }

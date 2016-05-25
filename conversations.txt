@@ -27,7 +27,6 @@ Are those keys?
 == start ==
 
 Your rent is late.
-[set mood scared]
 Time for you to die, pig boy!
 [set didmoney_flag 0][set crowmoar_flag 0][set crowfunder_flag 0][set imaboar_flag 0][set flattery_flag 0]
 
