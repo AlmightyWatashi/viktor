@@ -2328,13 +2328,13 @@
 				"xInteract": 865,
 				"yInteract": 710,
 				"description": "Lift",
-				"order": "look,use,use_2,use_2,use_anywhere",
+				"order": "look,use,use_2,use_2,use_3",
 				"combinations": {
 					"look": "For some people it's a lift that leads to dirgible docks. > For others, it's an emergency toilet.",
-					"kick": "Stupid lift! > [viktor spr_viktor_udara_desno]",
+					"kick": "[mood angry]Stupid lift! > [kick right]",
 					"use": "[animations player spr_viktor_walk_right][move player 0 5][time 50] > [position 9000 9000][move station_down_lift_cabin 90 5][time 120] > [room station_up start]",
 					"use_2": "[animations player spr_viktor_walk_right][move player 0 5][time 30] > [room station_up start]",
-					"use_anywhere": "[room station_up lift]",
+					"use_3": "[room station_up lift]",
 					"talk": "Hello lift.",
 					"keys": "It's unlocked",
 					"ball": "[animation player spr_viktor_use_right_low] > [move station_down_lift_cabin 90 5]",
@@ -2393,7 +2393,9 @@
 				"order_angry": "kick",
 				"combinations": {
 					"look": "This is new.",
-					"talk": "[if mood][direction right][conversation noam hello] > [if mood angry][direction right][conversation noam viktor_angry] > [move player 90 5][animations player spr_viktor_walk_back][time 15] > [move player 0 0]",
+					"talk": "[if mood][direction right][conversation noam hello] > [if mood angry]I'm too angry for a normal conversation > [move player 90 5][animations player spr_viktor_walk_back][time 15] > [move player 0 0]",
+					"kick": "[if mood angry][direction right][conversation noam viktor_angry] > [if mood] Nah. > [move player 90 5][animations player spr_viktor_walk_back][time 15] > [move player 0 0]",
+					"use": "I oppose pickpocketing. > Especially people in kilts.",
 					"keys": "[direction left][conversation noam keys_test]",
 					"wig": "Look at me now. I'm completely Jewish! I have a hair thing and everything! > [talk station_dog] Ach, a fine payot it be. But ye still don' look Scottish, boy",
 					"pants": "[talk station_dog] Thank ye, lad. > [talk station_dog] But I prefer me kilt. > [talk station_dog] It provides me with exquisite warmth. > [talk station_dog] While giving complete freedom for the unmentionables. > I wear this coat for exact same reasons!",
@@ -2432,6 +2434,7 @@
 				"combinations": {
 					"look": "[set attar_seen 0] Oh man, this is insane. > Boss warned him about magically controlling the broom with the Indian dog whistle. > Attar is awesome.",
 					"talk": "[if mood][conversation rhino start] > [if mood angry][conversation rhino viktor_angry]",
+					"use": "What?",
 					"keys": "[direction left][conversation noam keys_test]",
 					"pants": "[talk rhino_magical] My wife has something against our daughters wearing pants. > [talk rhino_magical] But thank you for offering.",
 					"cake": "[talk rhino_magical] Thank you, friend. > [talk rhino_magical] But I cannot eat sugar > Is that the Sikh thing?. > [talk rhino_magical] No, it's diabetes thing. > [mood scared] Oh, right, I forgot. So sorry. > [talk rhino_magical] Fret not, Viktor. Sugar is a thing I miss the least.",
@@ -2481,6 +2484,7 @@
 				"order": "look,talk",
 				"combinations": {
 					"look": "[set attar_seen 0] Is that Attar? > Yes, it's him!! > [description rhino_sweeping Attar!]",
+					"use": "What?",
 					"talk": "[if mood][conversation rhino start] > [if mood angry][conversation rhino viktor_angry]",
 					"keys": "[direction left][conversation noam keys_test]",
 					"pants": "[talk rhino_sweeping] My wife has something against our daughters wearing pants. > [talk rhino_sweeping] But thank you for offering",
@@ -2515,6 +2519,7 @@
 				"combinations": {
 					"look": "It's the ticket office. > For buying airship tickets. > They don't sell tram tickets. > Not that anyone ever buys those. > But I still like to annoy them by asking.",
 					"talk": "[if mood angry][conversation kiosk viktor_angry] > [if mood][conversation kiosk start] > [if mood angry][direction front] Stupid cow just made me want to kill someone! ",
+					"kick": "[if mood angry] Stupid cow! > [if mood] Hey, look what I'm doing > [kick left] > [other] Go away.",
 					"keys": "It's always open.",
 					"pants": "[talk station_office] I don't want them anymore.",
 					"cake": "[talk station_office] I don't want to eat it. It's made with my own milk. > [mood scared] Eww... > [talk station_office] Enjoy",
@@ -2549,6 +2554,7 @@
 				"combinations": {
 					"look": "Lady pants.",
 					"use": "[pickup] > Suprisingly, they're not my size. > [talk station_office] Yeah, I don't wear XXXXXXXXXL. > That's what's so suprising...",
+					"kick": "Who the hell kicks pants?",
 					"ball": "It's lady pants. > They are not meant to have balls inside.",
 					"cell": "They are not electrical in any way.",
 					"coin": "I don't think it would fit in the pocket. > If I ever had a reason to do that.",
@@ -2575,6 +2581,7 @@
 				"combinations": {
 					"look": "Hey, another record!",
 					"use": "[animation player spr_viktor_use_right_high][destroy other 15] > This is going straight to my gramophone! > [talk station_office] It was supposed to go straight to your head! [record dvorak]",
+					"kick": "I think I can just pull it.",
 					"pants": "Don't complicate things, just pick it up.",
 					"cake": "That would be a good place for a cake. > But I'm not going to do this.",
 					"ball": "I don't want to damage it any further.",
@@ -2597,6 +2604,8 @@
 				"order": "look,use",
 				"combinations": {
 					"look": "[cloud talk][animations spr_viktor_talk_front] Another helpless victim of the angry kiosk lady. > [talk station_office] I was aiming at your head!",
+					"kick": "It's dead enough",
+					"talk": "Talking to plants is silly > Talking to dead plants is just plain weird",
 					"use": "I can't help it now.",
 					"pants": "It's not cold, it's dead.",
 					"cake": "It's not hungry, it's dead.",
@@ -2619,6 +2628,7 @@
 				"combinations": {
 					"look": "Just like momma use to make 'em!",
 					"use": "[pickup]",
+					"kick": "Never!",
 					"pants": "Strange idea. Try picking it up instead.",
 					"ball": "I don't want to ruin the ball. > I mean, cake!",
 					"cell": "It's already baked.",
@@ -2681,6 +2691,7 @@
 			"order": "look, use",
 			"combinations": {
 				"look": "I think the robot's auxilliary battery is poking out. > And the robot still works. > Wow.",
+				"kick": "I can just take it, probably",
 				"use": "[if rabbiteatscake = 1][pickup] > [if rabbithasnewpants = 1][if rabbiteatscake = 1][destroy rabbit_cake2][create rabbit_pants][skip 1] > [if rabbiteatscake = 1][destroy rabbit_cake2][create rabbit] > [set rabbiteatscake 0][skip] > [if rabbithasnewpants = 1][animation player spr_viktor_listen_left][animations rabbit_pants spr_rabbit_pants_punch][time 85][skip 1] > [animation player spr_viktor_listen_left][animation rabbit spr_rabbit_punch][time 85] > [sound snd_boxing_hit][animation viktor spr_viktor_fell][time 50] > [animation viktor spr_viktor_fall_stand]",
 				"cake": "Good Idea. But on the bunny, not on the battery.",
 				"ball": "I don't want to cause an international incident just yet.",
@@ -2713,6 +2724,8 @@
 			"combinations": {
 				"look": "How the hell did that cow throw this so high?",
 				"use": "[pickup]",
+				"kick": "It's not a football, it's a weight ball.",
+				"kick": "I'd just hurt my leg",
 				"pants": "I don't get it.",
 				"cake": "Why and how? > And what?",
 				"cell": "This is no time for funniest home experiments.",
@@ -2756,6 +2769,7 @@
 		"combinations": {
 			"look": "A small girl on a huge robot. > Looks too young for me. > Also, the robot looks very scary.",
 			"talk": "[if mood][conversation rabbit start] > [if mood][skip] > You stupid little leporidae... > [animation rabbit spr_rabbit_punch][time 85] > [animation viktor spr_viktor_fell]",
+			"kick": "[mood angry][animation rabbit spr_rabbit_punch][time 85] > [animation viktor spr_viktor_fell]",
 			"pants": "[give pants][set rabbithasnewpants 1][talk rabbit] Yes, that is the exactly pants I want! > [talk rabbit] Please not be averting eyes while removing dress > [talk frog] Never intended to do that. > [talk donkey] I was, but now I won't. > [animation rabbit snd_rabbit_dress] > [destroy rabbit][create rabbit_pants] > [talk rabbit_pants]Be thanking you again!",
 			"cake": "[give cake][animations player spr_viktor_walk_left][move player 180 5][time 30] > [animation player spr_viktor_cake][time 113] > [create fly_cake][move fly_cake 90 5][animation rabbit spr_rabbit_cake1][time 20] > [move fly_cake 90 1][time 40] > [destroy fly_cake][create rabbit_cake2][destroy][set rabbiteatscake 1]",
 			"ball": "I don't want to cause an international incident just yet.",
@@ -2789,6 +2803,7 @@
 			"combinations": {
 				"look": "Nice pants.",
 				"talk": "[if mood][conversation rabbit start] > [if mood][skip] > You stupid little leporidae... > [animation rabbit spr_rabbit_pants_punch][time 85] > [animation viktor spr_viktor_fell]",
+				"kick": "[mood angry][animation rabbit spr_rabbit_pants_punch][time 85] > [animation viktor spr_viktor_fell]",
 				"cake": "[give cake][animations player spr_viktor_walk_left][move player 180 5][time 30] > [animation player spr_viktor_cake][time 113] > [create fly_cake][move fly_cake 90 5][animation rabbit_pants spr_rabbit_pants_cake1][time 20] > [move fly_cake 90 1][time 40] > [destroy fly_cake][create rabbit_cake2][destroy][set rabbiteatscake 1]",
 				"ball": "I don't want to cause an international incident just yet.",
 				"cell": "Hell no!",
@@ -2816,7 +2831,7 @@
 				"look": "Eww",
 				"talk": "Not a good moment, I may get eaten.",
 				"pants": "She looks busy.",
-				"cake": "[animations player spr_viktor_walk_left][move player 180 5][time 30] > [animation player spr_viktor_cake][time 113] > [create fly_cake][move fly_cake 90 5][animation rabbit spr_rabbit_cake1][time 20] > [move fly_cake 90 1][time 40] > [destroy fly_cake][animations rabbit spr_rabbit_cake2]",
+				"kick": "I should just grab the part while she's distracted",
 				"ball": "Nah.",
 				"coin": "Better if I didn't bother her in her moment of suicidal glory.",
 				"umbrella": "She's fine. > Maybe even too fine.",
@@ -2880,6 +2895,7 @@
 			"combinations": {
 				"look": "He looks like he's from somewhere around here. > Probably local.",
 				"talk": "[if mood angry][conversation donkey viktor_angry] > [if mood][conversation donkey start]",
+				"kick": "[conversation donkey viktor_angry]",
 				"pants": "[talk donkey] No ticket no service! > [talk donkey] Pants is optional!",
 				"cake": "[talk donkey] This isnt sarma it isnt! > No deal!",
 				"ball": "[talk donkey] What? No.",
@@ -2910,6 +2926,7 @@
 			"order": "look",
 			"combinations": {
 				"look": "My prefered way of transport when ousting the emperor of Austria-Hungary is by dirigible.",
+				"use": "I need to go through the ticket officer first",
 				"pants": "Like me, it's too big for these pants.",
 				"cake": "What?",
 				"ball": "I might get arrested for that again. > [talk donkey] I knew you looked familiar.",
@@ -2949,8 +2966,8 @@
 				"kick": "Stupid lift! > [viktor spr_viktor_udara_desno]",
 				"use": "[direction right][move player 0 5][time 50] > [position 9000 9000][move station_up_lift_cabin 270 5][time 50] > [room station_down lift]",
 				"use_2": "[direction right][move player 0 5][time 30] > [room station_down lift]",
-				"useanywhere": "[room station_down lift]",
-				"talk": "Hello",
+				"use_3": "[room station_down lift]",
+				"talk": "Nobody's inside",
 				"log": "You want to log a lift? > Or lug a lift?",
 				"keys": "It's unlocked",
 				"pants": "I'm not a superhero. > Plus, these pants don't fit.",
@@ -3013,6 +3030,8 @@
 			"combinations": {
 				"look": "This one looks extremely pompous",
 				"talk": "[conversation beaver hello]",
+				"use": "Better not get too close to them, they might chop my hand off.",
+				"kick": "They are armed with swords and possibly guns.",
 				"keys": "I'm not giving him my keys.",
 				"ball": "[talk beaver] I train with five of those every morning > [talk beaver] One for each limb. > [talk hyena][mood hyena laugh] Hahahahahhahahahaha",
 				"pants": "Hi, I'm selling these fine pants. > [talk beaver] Sell them somewhere else.",
@@ -3038,6 +3057,8 @@
 				"look": "This guy is just weird. > Must be from the war.",
 				"look_2": "I feel less sane just by looking at him.",
 				"talk": "[active beaver][conversation beaver hello]",
+				"use": "Better not get too close to them, they might chop my hand off.",
+				"kick": "They are armed with swords and possibly guns.",
 				"keys": "[mood scared][talk hyena][mood hyena laugh] Hahahahahhahahahaha.",
 				"ball": "[talk hyena] You have just one ball? > [talk hyena][mood hyena laugh] Hahahahahhahahahaha",
 				"pants": "[talk hyena] They are girl pants! > So, you don't want them? > [talk hyena][mood hyena laugh] Hahahahahhahahahaha",

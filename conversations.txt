@@ -1,4 +1,4 @@
-=== version ===
+﻿=== version ===
 
 0.00 wat dodao probno noama
 0.01 alex ubacio u program
@@ -1047,19 +1047,24 @@ end
 end			
 == viktor_angry ==
 
-	+ What'cha looking at, moron?
+	++What'cha looking at, moron?
+	[mood angry]What'cha looking at, moron?
 		What, what??
 		[mood donkey angry] Well when you are standing in front of me as pile of shit I have to look at you.
-			- Your mom is a pile of shit, you son of a pile of shit
+			-+ Your mom is a pile of shit, you son of a pile of shit
+			[mood angry]Your mom is a pile of shit, you son of a pile of shit
 				Look piggy is trying to insult someone from Bosnia.
 				[mood donkey angry] Go fuckyourself and stand there in line like everyone.
 					[end]
-			+ You are obviously blind as a donkey. How the hell do you expect to drive with those shit eyes?
+			++ You are obviously blind as a donkey. How the hell do you expect to drive with those shit eyes?
+			[mood angry]You are obviously blind as a donkey. How the hell do you expect to drive with those shit eyes?
 				[mood donkey angry] No, you will drive pig face? 
-					+ I could drive better and faster than you with one hand and no shoes!
+					++ I could drive better and faster than you with one hand and no shoes!
+					[mood angry] I could drive better and faster than you with one hand and no shoes!
 						[mood donkey angry] Little shit wish to bet? I say you can not?  What I m talking about you are not that little at all.  
 							[section bet]
-					+I can and I will, let me in!
+					++ I can and I will, let me in!
+					[mood angry] I can and I will, let me in!
 						No, no you can not drive this one. I have smaller ones if you wish to try.
 							[section bet]
 
@@ -1068,7 +1073,7 @@ end
 
 [set raced 1]
 If you win what will not happened because you looks like lost case I will let you fly without ticket.
-[talk frog] Can I try than also?
+[talk frog] Can I try it also?
 [mood donkey angry] Shut up you drunky blabing smag you already have a ticket
 Aha and if I win I will I will hmm have right to kick you in the butt!?
 Is that a deal, mushroom eater?  
