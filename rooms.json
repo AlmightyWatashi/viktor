@@ -552,7 +552,7 @@
 		"border": "spr_various_token",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[take phone][stop] > [if dirigibles_win = 1][room previous won] > [room previous lost]"
+			"entrance": "[stop] > [if dirigibles_win = 1][room previous won] > [room previous lost]"
 		}],
 		"objects": [{
 			"alias": "just_testing_delete_later",
@@ -1357,7 +1357,11 @@
 				"description": "A small pot of water.",
 				"order": "use",
 				"combinations": {
-					"use": "[not available viktorsRoom_tub_clean] [mood]I can't bathe in my bed! > [not available viktorsRoom_tub_clean][skip] > [if available viktorsRoom_oven_hot][skip 2] > [mood]I should heat it up first. > [skip] > [animation spr_viktor_walk_back][move player 90 3][time 10] > [animation player spr_viktor_pot1_lower][destroy other 18][destroy viktorsRoom_pot1_boil 18] > [time 80][move player 350 2.5][animations player spr_viktor_pot1_carry] > [move player 70 2.5][time 20] > [animation player spr_viktor_pot1_throw][imagespeed player 0.5][time 50] > [sound snd_pot_water][animation player spr_viktor_walk_front_angry][move player 270 3][time 30] > [mood]I like my bath warm. > [if available viktorsRoom_pot2] [mood]But now it's too hot. > [not available viktorsRoom_pot2] [mood]It's perfect now."
+					"use": "[not available viktorsRoom_tub_clean] [mood]I can't bathe in my bed! > [not available viktorsRoom_tub_clean][skip] > [if available viktorsRoom_oven_hot][skip 2] > [mood]I should heat it up first. > [skip] > [animation spr_viktor_walk_back][move player 90 3][time 10] > [animation player spr_viktor_pot1_lower][destroy other 18][destroy viktorsRoom_pot1_boil 18] > [time 80][move player 350 2.5][animations player spr_viktor_pot1_carry] > [move player 70 2.5][time 20] > [animation player spr_viktor_pot1_throw][imagespeed player 0.5][time 50] > [sound snd_pot_water][animation player spr_viktor_walk_front_angry][move player 270 3][time 30] > [mood]I like my bath warm. > [if available viktorsRoom_pot2] [mood]But now it's too hot. > [not available viktorsRoom_pot2] [mood]It's perfect now.",
+					"look": "[if available viktorsRoom_oven_hot][skip 2] > [mood]A pot of cold water that needs to get heated > [skip] > It's boiling!",
+					"umbrella": "It's just water, no need to stir it.",
+					"coin": "It's a pot of water, not a wishing well.",
+					"log": "I need to put it into the oven, not the water."
 				}
 			}, {
 				"alias": "viktorsRoom_pot1_boil",
@@ -1393,7 +1397,8 @@
 					"use": "It has been stuck since the last time I kicked it.",
 					"log": "[not available viktorsRoom_oven_broken] The oven door is stuck. > [not available viktorsRoom_oven_broken][skip] > [animation player spr_viktor_use_back_low][time 20] > [sound snd_log][time 20] > [destroy viktorsRoom_oven_broken][create viktorsRoom_oven_hot][give log] > [if available viktorsRoom_pot1][create viktorsRoom_pot1_boil][description viktorsRoom_pot1 Small pot of boiling water]",
 					"keys": "It's not locked, it's stuck.",
-					"umbrella": "I love this umbrella too much to break it like this."
+					"umbrella": "I love this umbrella too much to break it like this.",
+					"coin": "It's worth more as a coin"
 				}
 			}, {
 				"available": 0,
@@ -1420,8 +1425,8 @@
 				"description": "Keys",
 				"order": "look,use",
 				"combinations": {
-					"look": "[mood]I'm not really sure what those keys open. > [set clock_coin 0] [mood]Probably something in this room.",
-					"use": "[pickup]",
+					"look": "[mood]I'm not really sure what those keys open. > [mood]Probably something in this room.",
+					"use": "[set clock_coin 0][pickup]",
 					"talk": "Are you the keymaster?",
 					"log": "A... Keylogger? > Get it, get it!?",
 					"kick": "What?!?"
@@ -1449,11 +1454,13 @@
 				"order": "kick,look_2",
 				"combinations": {
 					"look": "[mood]Logs of wood for making fire.",
-					"look_2": "[mood]They used to be trees. > [mood]I already have one.",
-					"kick": "Stupid logs! > [mood] Wait, I'll need this to warm up my bath water. > [pick] > Now, let's kick something!",
+					"look_2": "[mood]They used to be trees.",
+					"use": "I'll need this to warm up my bath water.[pickup]",
+					"kick": "Stupid logs! > [mood] Wait, I'll need this to warm up my bath water. > [pickup] > Now, let's kick something!",
 					"talk": "Heh heh, wood.",
 					"keys": "No",
-					"log": "I'm not putting it back, I need one for my oven!"
+					"log": "I'm not putting it back, I need one for my oven!",
+					"umbrella": "Nah"
 				},
 				"inventory": {
 					"alias": "log",
@@ -1475,15 +1482,16 @@
 				"xInteract": 758,
 				"yInteract": 621,
 				"description": "Grandfather clock",
-				"order": "kick,look_2,talk,look_2",
+				"order": "kick,talk,look",
 				"combinations": {
-					"look": "It's broken. > I bet I can make it more broken.",
-					"look_2": "[mood]Now it's totally broken.",
+					"look": "It's broken.",
 					"kick": "[direction right] Stupid grandpa clock! > [create viktorsRoom_clock_broken_decoration 20][kick right snd_clock_break] > ",
 					"use": "It's locked",
 					"talk": "[mood angry] Damn you, grandpa clock!",
 					"log": "I can't log a clock.",
-					"keys": "[if clock_coin = 0][skip 2] > I don't think I can find anything else in there. > [skip] > Maybe these keys open the little clock lock? > [pickup back middle] > Ooh, there's a coin in here > [set clock_coin 1]"
+					"keys": "[if clock_coin = 0][skip 2] > I don't think I can find anything else in there. > [skip] > Maybe these keys open the little clock lock? > [pickup back middle] > Ooh, there's a coin in here > [set clock_coin 1]",
+					"umbrella": "It's an umbrella, not a pry bar",
+					"coin": "[if clock_coin = 1][skip 2]A good place to put it, but it's locked > [skip] > I might need them."
 				},
 				"inventory": {
 					"alias": "coin",
@@ -1516,11 +1524,13 @@
 				"description": "Grandfather clock",
 				"order": "look,use",
 				"combinations": {
-					"look": "The clock is broken. > It has always been broken. > Gives me a feeling of timelessness freedom. > It also sometimes made me late for work.",
-					"kick": "Good guy grandpa!",
+					"look": "The clock is broken. > It has always been broken. > Gives me a feeling of timeless freedom. > That sometimes made me late for work, but you can't win 'em all.",
+					"look_2": "Still broken",
+					"kick": "Nah, I like it too much",
 					"use": "It's locked.",
 					"log": "I can't log a clock.",
-					"keys": "[if clock_coin = 0][skip 2] > I don't think I can find anything else in there. > [skip] > Maybe these keys open the little clock lock? > [pickup back middle] > Ooh, there's a coin in here > [set clock_coin 1]"
+					"keys": "[if clock_coin = 0][skip 2] > I don't think I can find anything else in there. > [skip] > Maybe these keys open the little clock lock? > [pickup back middle] > Ooh, there's a coin in here > [set clock_coin 1]",
+					"umbrella": "It's an umbrella, not a pry bar"
 				},
 				"inventory": {
 					"alias": "coin",
@@ -1551,8 +1561,9 @@
 					"kick": "[mood]I broke that one the last time I was angry... > ...at a person who failed to connect the oven to the chimney.",
 					"use": "It's already opened. > and closed.",
 					"talk": "[if mood angry][direction left] Stupid world outside! > [if mood] Hello, world! > [talk other][soundblock snd_window] Shut up pig!",
-					"log": "[mood]Nah",
-					"keys": "It's not locked, it's... > never mind."
+					"log": "[mood]Nah.",
+					"keys": "It's not locked, it's... > never mind.",
+					"umbrella": "Umbrellas are a terrible parachute."
 				}
 			},
 
@@ -1572,7 +1583,7 @@
 				"combinations": {
 					"look": "Stupid door! > Stupid world outside!",
 					"use": "[mood]I got back here so I wouldn't kill anyone. > [mood]Bath first, leaving the house later.",
-					"log": "I don't need to build another door",
+					"log": "I don't need to build another door... yet.",
 					"keys": "I can't conquer the world smelling like this."
 				}
 			}, {
@@ -1593,8 +1604,9 @@
 					"look": "Never could clean off all the blood from that murder. > Just kidding, it's ketchup.",
 					"use": "[if phone = 1] I'd love to go but the phone is ringing... > [if phone = 2] I'd love to go conquer the world, but first I should return my friend Martin's call... > [if phone = 3][skip 1] > [if phone < 3][skip] > Time to go out and conquer the world! > [sound snd_door_open][create viktorsRoom_door_open1][create viktorsRoom_door_open2][sound snd_door_open] > [create viktorsRoom_crow][position viktorsRoom_crow 0 690][move viktorsRoom_crow 0 5][move player 0 5][animation player spr_viktor_back_off] > [move viktorsRoom_crow 0 0][active viktorsRoom_crow][other][set mood scared] Not so fast! > [conversation crow start] > [animation player spr_viktor][destroy viktorsRoom_crow][create viktorsRoom_crow_walk][position viktorsRoom_crow_talk 300 690][move viktorsRoom_crow_walk 180 5][time 60] > Every month we have the same stupid conversation. > Senile old crow.> Oh well, time to go and conquer this kingdom once and for all.",
 					"log": "I don't need to build another door",
+					"keys": "It's already unlocked. I just need to use it.",
 					"look_2" : "The door is open! Beware, Austria-Hungary!",
-					"use_2": "[room agram start]"
+					"umbrella": "It's not raining yet"
 				}
 			}, {
 				"alias": "viktorsRoom_crow",
@@ -1644,7 +1656,7 @@
 					"kick": "Can't reach it",
 					"use": "[pickup left high]",
 					"use_2": "[room viktorsMap start]",
-					"kick": "Stupid world! > This whole world needs fixing!",
+					"talk": "Stupid world! > This whole world needs fixing!",
 					"log": "It's flat enough",
 					"keys": "Yes, to unlock the secrets of this world, all I need is... > Wait, what?"
 				},
@@ -1668,7 +1680,8 @@
 				"description": "Picture",
 				"order": "look",
 				"combinations": {
-					"look": "[if viktorsRoom_picture = 1] This is Vanda. > [if viktorsRoom_picture = 1] My ex girlfriend. > [if viktorsRoom_picture = 2][mood] My best friend Martin. > [if viktorsRoom_picture = 2][mood] He claims to be psychic. > [if viktorsRoom_picture = 2][mood] I like to humor him from time to time > [if viktorsRoom_picture = 3][mood] My grandparents. > [if viktorsRoom_picture = 3][mood] So much love between them. > [if viktorsRoom_picture = 3][mood] >  [if viktorsRoom_picture = 3][mood] Grandma was always so calm about everything. > [if viktorsRoom_picture = 3][mood] Other grandma had to pretend she's a man most of her life, so they could be married."
+					"look": "[if viktorsRoom_picture = 1] This is Vanda. > [if viktorsRoom_picture = 1] My ex girlfriend. > [if viktorsRoom_picture = 2][mood] My best friend Martin. > [if viktorsRoom_picture = 2][mood] He claims to be psychic. > [if viktorsRoom_picture = 2][mood] I like to humor him from time to time > [if viktorsRoom_picture = 3][mood] My grandparents. > [if viktorsRoom_picture = 3][mood] So much love between them. > [if viktorsRoom_picture = 3][mood] >  [if viktorsRoom_picture = 3][mood] Grandma was always so calm about everything. > [if viktorsRoom_picture = 3][mood] Other grandma had to pretend she's a man most of her life, so they could be married.",
+					"use": "It's a wall picture, not a wallet picture. > Not that I have a wallet."
 				}
 			}, {
 				"comment": "Phone in Viktor's room",
@@ -1686,9 +1699,11 @@
 					"kick": "Oh, no no no. > Last time I tried climbing up there, my foot got stuck in the toilet.",
 					"look_2": "[mood]My coal powered cordless telephone.",
 					"talk": "I need to press some buttons first",
+					"use": "I can't reach it",
 					"log": "Too heavy, I might break it.",
 					"keys": "What?",
-					"umbrella": "[mood]Here goes nothing! > [animation player spr_viktor_umbrella1] > [destroy][position viktorsRoom_trin 1000 650][position viktorsRoom_trin2 1000 600][position viktorsRoom_trin3 1000 700] > [animation player spr_viktor_umbrella2] > [destroy viktorsRoom_toilet_nophone][create viktorsRoom_toilet_ringing][mood scared] Oops."
+					"umbrella": "[mood]Here goes nothing! > [animation player spr_viktor_umbrella1] > [destroy][position viktorsRoom_trin 1000 650][position viktorsRoom_trin2 1000 600][position viktorsRoom_trin3 1000 700] > [animation player spr_viktor_umbrella2] > [destroy viktorsRoom_toilet_nophone][create viktorsRoom_toilet_ringing][mood scared] Oops.",
+					"coin": "Not sure how I'd do it, but it sounds expensive"
 				}
 			}, {
 				"comment": "Phone in Viktor's room ringing",
@@ -1708,7 +1723,8 @@
 					"talk": "I need to press some buttons first",
 					"log": "Too heavy, I might break it.",
 					"keys": "What?",
-					"umbrella": "Here goes nothing... > [animation player spr_viktor_umbrella1] > [destroy] > [animation player spr_viktor_umbrella2] > [destroy viktorsRoom_toilet_nophone][create viktorsRoom_toilet_ringing] Oops."
+					"umbrella": "Here goes nothing... > [animation player spr_viktor_umbrella1] > [destroy] > [animation player spr_viktor_umbrella2] > [destroy viktorsRoom_toilet_nophone][create viktorsRoom_toilet_ringing] Oops.",
+					"coin": "Not sure how I'd do it, but it sounds expensive"
 				}
 			}, {
 				"comment": "Teapot in Viktor's room when Viktor is angry",
@@ -1739,8 +1755,10 @@
 				"combinations": {
 					"look": "It's a teapot. > For making coffee.",
 					"use": "[animation spr_viktor_use_back_middle][time 35] > [destroy][animation player spr_viktor_teapot][time 30] > [sound snd_teapot_break][time 16] > [create viktorsRoom_teapot_broken]",
+					"talk": "I'm a little teapot, short and... > No, wait, you're a little teapot, I'm a wild boar.",
 					"log": "Nah.",
-					"keys": "Hmm... > No."
+					"keys": "Hmm... > No.",
+					"coin": "Interesting proposition, but no."
 				}
 			}, {
 				"alias": "viktorsRoom_teapot_broken",
@@ -1766,8 +1784,10 @@
 				"combinations": {
 					"kick": "Stupid desk and chair! > [kick auto]",
 					"look": "[mood]It used to be a desk with chair. > [mood]Then my landlady nailed them to the floor ''so it wouldn't get stolen''. > [mood]Stupid old crow. > [mood]Now it's more of a kitsch installation.",
+					"use": "It's all nailed up.",
 					"log": "[mood]Nah.",
-					"keys": "Good idea. > But no. > Drawers are nailed, not locked."
+					"keys": "Good idea, but no. > Drawers are nailed, not locked.",
+					"coin": "Yes, that's where people usually store their money. > But not me."
 				}
 			},
 			{
@@ -1788,7 +1808,9 @@
 					"kick": "Stupid desk and chair! > [kick auto]",
 					"look": "[mood]It used to be a desk with chair. > [mood]Then my landlady nailed them to the floor ''so it wouldn't get stolen''. > [mood]Stupid old crow. > [mood]Now it's more of a kitsch installation.",
 					"log": "[mood]Nah.",
-					"keys": "Good idea. > But no. > Drawers are nailed, not locked."
+					"keys": "Good idea, but no. > Drawers are nailed, not locked.",
+					"use": "It's all nailed up.",
+					"coin": "Yes, that's where people usually store their money. > But not me."
 				}
 			},
 			{
@@ -1812,7 +1834,8 @@
 					"use": "[animation player spr_viktor_use_back_middle][destroy other 25] > [mood] Wait a minute... > [mood] This pillow is mostly eaten by roaches. > [mood]Wait a minute... roaches? > [create viktorsRoom_bath_roaches][create viktorsRoom_tub_roaches2] > [mood]Oh no.",
 					"talk": "Stupid bed!!!",
 					"log": "I don't need to log my bed.",
-					"keys": "The bed is not locked."
+					"keys": "The bed is not locked.",
+					"coin": "What am I, a tooth fairy?"
 				},
 				"inventory": {
 					"alias": "pillow",
@@ -1847,7 +1870,8 @@
 					"log": "I want to kill the roaches without destroying the inner coating",
 					"keys": "The bed is not locked.",
 					"umbrella": "[direction back][mood]Oh, no! > The roaches almost ate away my favourite Scott Joplin record! > [direction left] It's time to rain terror!!! > [mood]Heh, rain... > [record joplin][destroy][destroy viktorsRoom_tub_roaches2][create viktorsRoom_tub_clean][room roaches start]",
-					"kick": "[mood]I'm not getting roaches on my only boots"
+					"kick": "[mood]I'm not getting roaches on my only boots",
+					"coin": "They don't take cash"
 				}
 			}, {
 				"comment": "Bathtub in Viktor's room, clean",
@@ -1868,7 +1892,8 @@
 					"use": "[if available viktorsRoom_pots] I need to pour water inside > [if available viktorsRoom_pots][skip] > [not available viktorsRoom_pot1][not available viktorsRoom_pot2][skip 4] > [animation player spr_viktor_use_back_middle] > [not available viktorsRoom_pot1] This is too hot. > [not available viktorsRoom_pot2] This is too cold. > [skip] > [animation player spr_viktor_use_back_middle][fade in 0.03][time 35] > [position player 630 680][animation player spr_viktor_tub_sigh][fade out 0.03] > [animation player spr_viktor_tub_sigh 7][sound snd_viktor_sigh][time 15] > [fade][animation player spr_viktor_tub_unsigh] > [sound snd_phone_ring][create viktorsRoom_trin2][create viktorsRoom_trin3][create viktorsRoom_trin][if available viktorsRoom_toilet_ringing][position viktorsRoom_trin 1000 650][position viktorsRoom_trin2 1000 600][position viktorsRoom_trin 1000 700] > [if item phone][position viktorsRoom_trin 1000 950][position viktorsRoom_trin 1000 900][position viktorsRoom_trin3 1000 850] > [animation player spr_viktor_tub_unsigh 11][time 10] > [animation player spr_viktor_tub_angry][cloud 660 310] Who is always calling when I'm in the bath!? > [fade in 0.03][time 35] > [destroy viktorsRoom_oven_hot][animation player spr_viktor][position player 700 700] > [set mood default][fade out 0.03][time 30] > Now to answer that phone... > [if available viktorsRoom_teapot_angry][destroy viktorsRoom_teapot_angry][create viktorsRoom_teapot] > [destroy viktorsRoom_clock_angry][create viktorsRoom_clock_happy][destroy viktorsRoom_vase_angry][create viktorsRoom_vase_happy][destroy viktorsRoom_trash_angry][create viktorsRoom_trash_happy][destroy viktorsRoom_umbrellastand_angry][create viktorsRoom_umbrellastand_happy][destroy viktorsRoom_door_closed_angry][create viktorsRoom_door_closed_happy][destroy viktorsRoom_desk][create viktorsRoom_desk_happy][set phone 1]",
 					"log": "Just use the bathtub and let me bathe!",
 					"keys": "Just use the bathtub and let me bathe!",
-					"umbrella": "I wiped them out... > All of them."
+					"umbrella": "I wiped them out... > All of them.",
+					"coin": "It's a bath tub, not a wishing well."
 				}
 			}, {
 				"alias": "viktorsRoom_trin",
@@ -1914,8 +1939,9 @@
 					"kick": "[mood]Better not stomp do the stomping thing again... > [mood]I might wake the neighbours below.",
 					"look_2": "[mood]Carpet diem.",
 					"talk": "[mood]It's dead... > [destroy]",
-					"log": "I don't need to log my bed.",
-					"keys": "The bed is not locked."
+					"log": "Carpet is no place for logs.",
+					"keys": "There's no trap door, I checked.",
+					"coin": "It might get stuck on it forever."
 				}
 			}, 
 			{
@@ -1939,7 +1965,8 @@
 					"use": "[mood]I already went at work. > [mood]Into the filing cabinet.",
 					"talk": "Hello toilet. > [talk other][soundblock snd_toilet_hello][animation player snd_viktor_listen_right_scared] Hello, Viktor.",
 					"log": "So, you want me to ''drop a log?''... > Heh heh.",
-					"keys": "It's a toilet, not a door."
+					"keys": "It's a toilet, not a door.",
+					"coin": "Tried it, doesn't work"
 				}
 			}, {
 				"comment": "Toilet in Viktor's room, phone ringing",
@@ -1963,7 +1990,8 @@
 					"use": "[position viktorsRoom_trin2 1000 950][position viktorsRoom_trin3 1000 900][position viktorsRoom_trin1 1000 950][pickup right middle]",
 					"talk": "Hello toilet. > [talk other][soundblock snd_toilet_hello][animation player snd_viktor_listen_right_scared] Hello, Viktor.",
 					"log": "So, you want me to ''drop a log?''... > Heh heh.",
-					"keys": "It's a toilet, not a door."
+					"keys": "It's a toilet, not a door.",
+					"coin": "Tried it, doesn't work"
 				},
 				"inventory": {
 					"alias": "phone",
@@ -1991,7 +2019,8 @@
 					"use": "I throw stuff in it for a reason.",
 					"talk": "I don't want to wake up whatever lives at the bottom.",
 					"log": "I need this log",
-					"keys": "I don't want to throw these away."
+					"keys": "I don't want to throw these away.",
+					"coin": "It might diminish the value."
 				}
 			}, {
 				"comment": "Trash can in Viktor's room",
@@ -2009,8 +2038,11 @@
 				"order": "look",
 				"combinations": {
 					"look": "Ah, my very own garbage. > After a fresh bath even garbage looks wonderful.",
+					"use": "I throw stuff in it for a reason.",
+					"kick": "Nah",
 					"log": "I need this log",
-					"keys": "I don't want to throw these away."
+					"keys": "I don't want to throw these away.",
+					"coin": "It might diminish the value."
 				}
 			},
 			{
@@ -2027,9 +2059,10 @@
 				"description": "Umbrella stand",
 				"order": "kick,look_2",
 				"combinations": {
-					"look": "Umbrella stand with my favorite umbrella. > Umbrellas can do anything ever.",
-					"talk": "hello",
+					"look": "Stupid umbrella stand.",
+					"talk": "I hope you die, umbrella stand!",
 					"kick": "Stupid umbrella stand!! > [mood happy] Oh wait, this is my favorite umbrella! > [destroy viktorsRoom_umbrella_decoration 15][pick left middle]",
+					"kick_2": "Stupid umbrella stand! > [kick left]",
 					"look_2": "[mood]Whose umbrella is the other one? > [mood]Maybe Martin left it when he visited last time?",
 					"log": "Logs are not umbrellas.",
 					"keys": "Umbrellas don't work that way"
@@ -2065,7 +2098,9 @@
 					"look": "Umbrella stand with... > Someone forgot the umbrella. > Probably Martin.",
 					"look_2": "Umbrellas are great tools for shielding against rain. > Also, a decent improvised weapon. > And a terrible parachute.",
 					"log": "Logs are not umbrellas.",
-					"keys": "Umbrellas don't work that way"
+					"keys": "Umbrellas don't work that way",
+					"talk": "Hello, lovely umbrella stand",
+					"use": "I already have one"
 				}
 			},
 			{
@@ -2085,8 +2120,7 @@
 					"look": "[mood]A priceless vase. > [mood]Mostly because nobody wants to buy it",
 					"kick": "[direction left][mood angry]Stupid priceless vase!!! > [create viktorsRoom_vase_broken_decoration 25][kick left snd_vase_break]",
 					"look_2": "[mood]Now it's totally priceless",
-					"use": "[if vase_coin = 0] Hmm, maybe there's a coin inside. > [if vase_coin = 0][pick left low][set vase_coin 1]",
-					"use_2": "Maybe there's another coin inside. > [animation player spr_viktor_use_left_low] > Nah, that was it... ",
+					"use": "I'd rather kick it.",
 					"talk": "[blocksound snd_vase_sing]My little Mei Din girl... > [blocksound snd_vase_sing] La la la la la la... > [blocksound snd_vase_sing2] Oh oh oh oh!",
 					"log": "No log for you.",
 					"keys": "It's not locked, it's a vase."
@@ -2122,10 +2156,11 @@
 				"description": "Priceless Mei Din vase",
 				"order": "look,use,talk,look_2",
 				"combinations": {
-					"look": "[set vase_coin 0] A priceless vase. > Mostly because nobody wants to buy it.",
-					"kick": "Stupid priceless vase!!! [viktor spr_viktor_udara_lijevo][create viktorsRoom_vase_broken_decoration]",
+					"look": "A priceless vase. > Mostly because nobody wants to buy it.",
+					"kick": "Why would I do that?",
 					"look_2": "So priceless",
-					"use": "[if vase_coin = 1] No more coins inside... > [if vase_coin = 0] Maybe there's a coin inside. > [if vase_coin = 0][pick left low] > [set vase_coin 1]",
+					"use": "[pick left middle] > Hey, a coin!",
+					"use_2": "It's empty now",
 					"talk": "[blocksound snd_vase_sing]My little Mei Din girl... > [blocksound snd_vase_sing] Something something mess with me... > [blocksound snd_vase_sing2] Oh oh oh oh!",
 					"log": "No log for you, vase.",
 					"keys": "It's not locked, it's a vase."
