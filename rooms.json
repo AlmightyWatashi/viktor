@@ -1,5 +1,5 @@
-﻿{
-	"version": "4.5. alex",
+{
+	"version": "27.5. alex",
 	"rooms": [{
 		"comment": "Intro animations",
 		"alias": "intro",
@@ -26,7 +26,7 @@
 		"border": "spr_various_token",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[position player 200 850][set mood phone][active martinsRoom_martin] > [if previousRoom viktorsRoom][conversation martin beginning] > [if previousRoom viktorsRoom][skip 3] > [if previousRoom station_down][conversation martin station] > [if previousRoom station_down][skip 1] > [if previousRoom station_up][conversation martin_station beginning] > [room previous return]"
+			"entrance": "[if mood angry][set moodangry 1] > [if mood][set moodangry 0] > [position player 200 850][set mood phone][active martinsRoom_martin] > [if previousRoom viktorsRoom][conversation martin beginning] > [if previousRoom viktorsRoom][skip 3] > [if previousRoom station_down][conversation martin station] > [if previousRoom station_down][skip 4] > [if previousRoom station_up][conversation martin station] > [if previousRoom station_up][skip 1] > [if previousRoom palace_outside][conversation martin palace] > [room previous return]"
 		}],
 		"objects": [{
 			"alias": "martinsRoom_martin",
@@ -115,7 +115,7 @@
 		"alias": "coupe",
 		"gui": "default",
 		"background": "bcg_coupe",
-		"yBackground": 20,
+		"yBackground": 25,
 		"scaleNear": 0.9,
 		"scaleFar": 0.9,
 		"rgb": "255,255,255",
@@ -125,7 +125,8 @@
 			"entrance": "[fade out 0.1][soundtrack saens][cloud player 100 0][position player 577 290][direction left][set mood coupe] > [active coupe_walrus][conversation walrus beginning] > [set mood default][mood default][cloud player 50 300][set dirigible_type travel][room dirigibles start]"
 		}, {
 			"alias": "won",
-			"entrance": "[cloud player 100 0][position player 577 290][direction left][set mood coupe] I saved the day! > And now to become the emperor. > [set mood default][cloud player 50 300][room title_palace start]"
+			"entrance": "[room title_palace start]",
+			"entrance_old": "[cloud player 100 0][position player 577 290][direction left][set mood coupe] I saved the day! > And now to become the emperor. > [set mood][cloud player 50 300][room title_palace start]"
 		}, {
 			"alias": "lost",
 			"entrance": "[position player 9000 290][active coupe_walrus][other] Dear me, dear me, it seems that we are plunging into our deaths. > [position player 9000 290][active coupe_walrus][other] Good thing I brought my trusty time machine with me. > [animation coupe_walrus spr_coupe_walrus_watch][time 20] > [fade in 0.03 -9999 spr_various_token][time 40] > [fade][room dirigibles start]"
@@ -171,7 +172,7 @@
 			"alias" : "coupe_clouds",
 			"subimage" : 2,
 			"path" : "path_left_long",
-			"x" : 600,
+			"x" : 800,
 			"y" : 250,
 			"depth" : 2050
 		},
@@ -400,7 +401,16 @@
 		"entrances": [{
 			"alias": "start",
 			"entrance": "[time 90][soundtrack strauss] > [room palace_outside_night start]"
-		}],
+		},
+		{
+			"alias" : "return",
+			"entrance" : "[recall][set mood][if moodangry = 1][set mood angry] > Always a good conversation."
+		},
+		{
+			"alias" : "map",
+			"entrance" : "[recall][set mood][if moodangry = 1][set mood angry] > I don't have to travel that far, really."
+		}
+		],
 		"objects": [{
 			"alias": "various_title",
 			"x": 360,
@@ -561,7 +571,7 @@
 					"alias": "phone",
 					"name": "Phone",
 					"description": "Coal gauge is a bit low.",
-					"special": "[if currentRoom dirigibles][cloud 700 800][time 60] I don't have time for that shit. > [if currentRoom dirigibles][stop] > [remember][destroy viktorsRoom_trin][destroy viktorsRoom_trin2][destroy viktorsRoom_trin3] > [if phone = 0][room phone start] > [if phone = 1][room viktorsRoom phone] > [if phone = 2][room phone start] > [if phone = 3][if currentRoom viktorsRoom] I just talked to him. > [if phone = 3][if currentRoom viktorsRoom][skip] > [room martinsRoom start]",
+					"special": "[if currentRoom dirigibles][cloud 700 800][time 60] I don't have time for that shit. > [if currentRoom dirigibles][stop] > [if currentRoom dirigibles][if dirigibles_win = 1][room previous won] > [if currentRoom dirigibles][room previous lost] > [remember][destroy viktorsRoom_trin][destroy viktorsRoom_trin2][destroy viktorsRoom_trin3] > [if phone = 0][room phone start] > [if phone = 1][room viktorsRoom phone] > [if phone = 2][room phone start] > [if phone = 3][if currentRoom viktorsRoom] I just talked to him. > [if phone = 3][if currentRoom viktorsRoom][skip] > [room martinsRoom start]",
 					"picture": "spr_item_phone"
 				}
 		}, {
@@ -691,7 +701,8 @@
 			"y": 879,
 			"depth": -10001
 		}]
-	}, {
+	}, 
+	{
 		"comment": "Map of all the countries",
 		"alias": "viktorsMap",
 		"gui": "map",
@@ -699,7 +710,7 @@
 		"border": "spr_border_viktorsRoom",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[cloud 500 500] So much world"
+			"entrance": "[cloud 500 500][if mood angry][set moodangry 1] > [if mood][set moodangry 0] > [set mood]"
 		}],
 		"objects": [{
 			"comment": "Alias is the entrance of the previous room to return to",
@@ -1297,22 +1308,22 @@
 			"entrance": "[set phone 2][take coin silent][set mood angry][set phone 2][animation spr_viktor_angry][position player 732 795][fade out 0.03][time 30] > [fade] I can't believe I got fired! > [mood]I should take a bath and relax. > But first, I'm going to vent!"
 		}, {
 			"alias": "map",
-			"entrance": "[recall] Well, that was educational."
+			"entrance": "[recall][set mood][if moodangry = 1][set mood angry] > [mood]Well, that was educational."
 		}, {
 			"alias": "door",
 			"entrance": "[position player 199 675][soundtrack mozart][sound snd_gramophone]Home, sweet home!"
 		}, {
 			"alias": "callRandom",
-			"entrance": "[recall][animation player spr_viktor_phone_down] > Nobody's answering. > [if phone = 2] I need to find where I wrote Martin's phone number."
+			"entrance": "[recall] >[animation player spr_viktor_phone_down] > Nobody's answering. > [if phone = 2] I need to find where I wrote Martin's phone number."
 		}, {
 			"alias": "phone",
-			"entrance": "[recall][animation player spr_viktor_phone_up] > [animation player spr_viktor_talk_right_phone] Who is it? > [cloud phone][blocksound snd_martinsRoom_martin_talk][animation player spr_viktor_listen_right_phone] It's Martin, who else would it be? > [cloud phone][blocksound snd_martinsRoom_martin_talk2][animation player spr_viktor_listen_right_phone] Anyway, I got no money for phone calls, so call me back, bye! > [animation player spr_viktor_talk_right_phone] OK, but I forgot your phone number... > [blocksound][cloud phone][animation player spr_viktor_listen_right_phone] TOOT-TOOT > [animation player spr_viktor_phone_down] > Now where did I write his number down?! > [set phone 2]"
+			"entrance": "[recall] >[animation player spr_viktor_phone_up] > [animation player spr_viktor_talk_right_phone]Who is it? > [cloud phone][blocksound snd_martinsRoom_martin_talk][animation player spr_viktor_listen_right_phone] It's Martin, who else would it be? > [cloud phone][blocksound snd_martinsRoom_martin_talk2][animation player spr_viktor_listen_right_phone] Anyway, I got no money for phone calls, so call me back, bye! > [animation player spr_viktor_talk_right_phone] Wait Martin, I forgot your phone number... > [blocksound][cloud phone][animation player spr_viktor_listen_right_phone] TOOT-TOOT > [animation player spr_viktor_phone_down] > Now where did I write his number down?! > [set phone 2]"
 		}, {
 			"alias": "callMartin",
-			"entrance": "[recall][if phone = 0][animation player spr_viktor_phone_down] > [if phone = 0] That was the phone number of my good friend Martin, but he's not answering right now... > [if phone = 0][skip] > [animation player spr_viktor_phone_up] > [room martinsRoom start]"
+			"entrance": "[recall] >[if phone = 0][animation player spr_viktor_phone_down] > [if phone = 0] That was the phone number of my good friend Martin, but he's not answering right now... > [if phone = 0][skip] > [animation player spr_viktor_phone_up] > [room martinsRoom start]"
 		}, {
 			"alias": "return",
-			"entrance": "[recall][animation player spr_viktor_phone_down] > He hung up... > [set phone 3] > [if phone = 3][destroy viktorsRoom_door_closed_angry][create viktorsRoom_door_closed_happy] Time to conquer the world! > [set phone 3][not item phone][take phone]"
+			"entrance": "[recall][set mood][if moodangry = 1][set mood angry] >[animation player spr_viktor_phone_down] > He hung up... > [set phone 3] > [if phone = 3][destroy viktorsRoom_door_closed_angry][create viktorsRoom_door_closed_happy] Time to conquer the world! > [set phone 3][not item phone][take phone]"
 		}],
 		"objects": [{
 				"comment": "Pots in viktors room",
@@ -1393,12 +1404,12 @@
 				"order": "kick,look",
 				"combinations": {
 					"look": "[mood]The oven serves three purposes... > [mood]Cooking, heating water and burning my fingers.",
-					"kick": "[direction left]Die evil hellspawn oven!!! > [create viktorsRoom_oven_broken 15][kick auto snd_oven_break]",
-					"use": "It has been stuck since the last time I kicked it.",
+					"kick": "[if available viktorsRoom_oven_broken][direction left] Stupid finger hating oven! > [if available viktorsRoom_oven_broken][kick auto snd_oven_break] > [if available viktorsRoom_oven_broken][skip] > [direction left] Die evil hellspawn oven!!! > [kick auto snd_oven_break][create viktorsRoom_oven_broken 15] > [mood] Hey, it's no longer stuck!",
+					"use": "[if available viktorsRoom_oven_broken] I broke it, but at least now I can open it to put something inside. > [not available viktorsRoom_oven_broken] It has been stuck since the last time I kicked it.",
 					"log": "[not available viktorsRoom_oven_broken] The oven door is stuck. > [not available viktorsRoom_oven_broken][skip] > [animation player spr_viktor_use_back_low][time 20] > [sound snd_log][time 20] > [destroy viktorsRoom_oven_broken][create viktorsRoom_oven_hot][give log] > [if available viktorsRoom_pot1][create viktorsRoom_pot1_boil][description viktorsRoom_pot1 Small pot of boiling water]",
 					"keys": "It's not locked, it's stuck.",
 					"umbrella": "I love this umbrella too much to break it like this.",
-					"coin": "It's worth more as a coin"
+					"coin": "[if coins = 1] It's worth more as a coin > [if coins = 1][skip] > They are worth more to me as coins."
 				}
 			}, {
 				"available": 0,
@@ -1485,11 +1496,11 @@
 				"order": "kick,talk,look",
 				"combinations": {
 					"look": "It's broken.",
-					"kick": "[direction right] Stupid grandpa clock! > [create viktorsRoom_clock_broken_decoration 20][kick right snd_clock_break] > ",
+					"kick": "[create viktorsRoom_clock_broken_decoration 20][kick right snd_clock_break] > [direction right] Stupid grandpa clock!",
 					"use": "It's locked",
 					"talk": "[mood angry] Damn you, grandpa clock!",
 					"log": "I can't log a clock.",
-					"keys": "[if clock_coin = 0][skip 2] > I don't think I can find anything else in there. > [skip] > Maybe these keys open the little clock lock? > [pickup back middle] > Ooh, there's a coin in here > [set clock_coin 1]",
+					"keys": "[if clock_coin = 0][skip 2] > I don't think I can find anything else in there. > [skip] > Maybe these keys open the little clock lock? > [animation spr_viktor_use_back_low] > Ooh, there's a coin in here > [pickup back middle][set clock_coin 1]",
 					"umbrella": "It's an umbrella, not a pry bar",
 					"coin": "[if clock_coin = 1][skip 2]A good place to put it, but it's locked > [skip] > I might need them."
 				},
@@ -1560,7 +1571,7 @@
 					"look": "Blimps are flying low. Rain is coming.",
 					"kick": "[mood]I broke that one the last time I was angry... > ...at a person who failed to connect the oven to the chimney.",
 					"use": "It's already opened. > and closed.",
-					"talk": "[if mood angry][direction left] Stupid world outside! > [if mood] Hello, world! > [talk other][soundblock snd_window] Shut up pig!",
+					"talk": "[if mood angry][direction left] Stupid world outside! > [if mood] Hello, world! > [talk other][blocksound snd_window] Shut up pig!",
 					"log": "[mood]Nah.",
 					"keys": "It's not locked, it's... > never mind.",
 					"umbrella": "Umbrellas are a terrible parachute."
@@ -1570,6 +1581,7 @@
 			{
 				"comment": "Door in Viktor's room before bath",
 				"alias": "viktorsRoom_door_closed_angry",
+				"available" : 1,
 				"visible": 0,
 				"picture": "spr_various_token",
 				"x": 108,
@@ -1602,7 +1614,7 @@
 				"order": "look,use,look_2,use_2",
 				"combinations": {
 					"look": "Never could clean off all the blood from that murder. > Just kidding, it's ketchup.",
-					"use": "[if phone = 1] I'd love to go but the phone is ringing... > [if phone = 2] I'd love to go conquer the world, but first I should return my friend Martin's call... > [if phone = 3][skip 1] > [if phone < 3][skip] > Time to go out and conquer the world! > [sound snd_door_open][create viktorsRoom_door_open1][create viktorsRoom_door_open2][sound snd_door_open] > [create viktorsRoom_crow][position viktorsRoom_crow 0 690][move viktorsRoom_crow 0 5][move player 0 5][animation player spr_viktor_back_off] > [move viktorsRoom_crow 0 0][active viktorsRoom_crow][other][set mood scared] Not so fast! > [conversation crow start] > [animation player spr_viktor][destroy viktorsRoom_crow][create viktorsRoom_crow_walk][position viktorsRoom_crow_talk 300 690][move viktorsRoom_crow_walk 180 5][time 60] > Every month we have the same stupid conversation. > Senile old crow.> Oh well, time to go and conquer this kingdom once and for all.",
+					"use": "[if crowgone = 1][move player 180 5][animations player spr_viktor_walk_left] > [if crowgone = 1][room agram start] > [if phone = 1] I'd love to go but the phone is ringing... > [if phone = 2] I'd love to go conquer the world, but first I should return my friend Martin's call... > [if phone = 3][skip 1] > [if phone < 3][skip] > Time to go out and conquer the world! > [sound snd_door_open][create viktorsRoom_door_open1][create viktorsRoom_door_open2][sound snd_door_open] > [create viktorsRoom_crow][position viktorsRoom_crow 0 690][move viktorsRoom_crow 0 5][move player 0 5][animation player spr_viktor_back_off] > [move viktorsRoom_crow 0 0][active viktorsRoom_crow][other][set mood scared] Not so fast! > [conversation crow start] > [animation player spr_viktor][destroy viktorsRoom_crow][create viktorsRoom_crow_walk][position viktorsRoom_crow_walk 300 690][move viktorsRoom_crow_walk 180 5][time 60][set crowgone 1] > Every month we have the same stupid conversation. > Senile old crow.> Oh well, time to go and conquer this kingdom once and for all.",
 					"log": "I don't need to build another door",
 					"keys": "It's already unlocked. I just need to use it.",
 					"look_2" : "The door is open! Beware, Austria-Hungary!",
@@ -1640,7 +1652,7 @@
 				"available": 0,
 				"x": 96,
 				"y": 320,
-				"depth": -1000
+				"depth": -500
 			}, {
 				"comment": "Map in Viktor's room",
 				"alias": "viktorsRoom_map",
@@ -1665,7 +1677,7 @@
 					"picture": "spr_item_map",
 					"description": "Some day, this will all be mine.",
 					"default": "Unchartable!",
-					"special": "[if currentRoom dirigibles] I don't have time for that shit. > [if currentRoom dirigibles][stop] > [remember][room viktorsMap start]"
+					"special": "[if currentRoom dirigibles][cloud 700 800][time 60] I don't have time for that shit. > [if currentRoom dirigibles][stop] > [if currentRoom dirigibles][if dirigibles_win = 1][room previous won] > [if currentRoom dirigibles][room previous lost] > [remember][room viktorsMap start]"
 				}
 				},
 				 {
@@ -1673,22 +1685,26 @@
 				"alias": "viktorsRoom_picture",
 				"object": "obj_viktorsRoom_picture",
 				"picture": "spr_viktorsRoom_picture1",
-				"x": 935,
-				"y": 330,
+				"x": 939,
+				"y": 324,
+				"xScale": 0.94,
+				"yScale": 0.94,
 				"xInteract": 860,
-				"yInteract": 415,
+				"yInteract": 700,
 				"description": "Picture",
 				"order": "look",
 				"combinations": {
-					"look": "[if viktorsRoom_picture = 1] This is Vanda. > [if viktorsRoom_picture = 1] My ex girlfriend. > [if viktorsRoom_picture = 2][mood] My best friend Martin. > [if viktorsRoom_picture = 2][mood] He claims to be psychic. > [if viktorsRoom_picture = 2][mood] I like to humor him from time to time > [if viktorsRoom_picture = 3][mood] My grandparents. > [if viktorsRoom_picture = 3][mood] So much love between them. > [if viktorsRoom_picture = 3][mood] >  [if viktorsRoom_picture = 3][mood] Grandma was always so calm about everything. > [if viktorsRoom_picture = 3][mood] Other grandma had to pretend she's a man most of her life, so they could be married.",
-					"use": "It's a wall picture, not a wallet picture. > Not that I have a wallet."
+					"look": "[if viktorsRoom_picture = 1][set viktorsRoom_picture_end 1] This is Vanda. > [if viktorsRoom_picture_end = 1] My ex girlfriend. > [if viktorsRoom_picture_end = 1][set viktorsRoom_picture_end 0][skip] > [if viktorsRoom_picture = 2][mood][set viktorsRoom_picture_end 1] My best friend Martin. > [if viktorsRoom_picture_end = 1][mood] He claims to be psychic. > [if viktorsRoom_picture_end = 1][mood] I like to humor him from time to time. > [if viktorsRoom_picture_end = 1][set viktorsRoom_picture_end 0][skip] > [if viktorsRoom_picture = 3][set viktorsRoom_picture_end 1][mood] My grandparents. > [if viktorsRoom_picture_end = 1][mood] So much love between them. > [if viktorsRoom_picture_end = 1][mood] Grandma was always so calm about everything. > [if viktorsRoom_picture_end = 1][mood] Other grandma had to pretend she's a man most of her life, so they could be married. > [if viktorsRoom_picture_end = 1][set viktorsRoom_picture_end 0][skip]",
+					"use": "It's a wall picture, not a wallet picture. > Not that I have a wallet.",
+					"kick": "Dammit, this picture is too damn high",
+					"talk": "[if viktorsRoom_picture = 1][set viktorsRoom_picture_end 1][direction back] I hate you > [if viktorsRoom_picture_end = 1][set viktorsRoom_picture_end 0][skip] > [if viktorsRoom_picture = 2][mood][set viktorsRoom_picture_end 1][direction back] Hello Martin. > [if viktorsRoom_picture_end = 1][mood] Talking to pictures feels weird. > [if viktorsRoom_picture_end = 1][set viktorsRoom_picture_end 0][skip] > [if viktorsRoom_picture = 3][set viktorsRoom_picture_end 1][mood][direction back] Hello grandma. > [if viktorsRoom_picture_end = 1][mood][direction back] Hello other grandma. > [if viktorsRoom_picture_end = 1][set viktorsRoom_picture_end 0][skip]"
 				}
 			}, {
 				"comment": "Phone in Viktor's room",
 				"alias": "viktorsRoom_phone",
 				"picture": "spr_viktorsRoom_phone",
 				"x": 1167,
-				"y": 445,
+				"y": 440,
 				"xInteract": 950,
 				"yInteract": 730,
 				"subimage": 0,
@@ -1711,7 +1727,7 @@
 				"available": 0,
 				"picture": "spr_viktorsRoom_phone",
 				"x": 1167,
-				"y": 445,
+				"y": 440,
 				"xInteract": 950,
 				"yInteract": 730,
 				"description": "Phone",
@@ -1755,7 +1771,7 @@
 				"combinations": {
 					"look": "It's a teapot. > For making coffee.",
 					"use": "[animation spr_viktor_use_back_middle][time 35] > [destroy][animation player spr_viktor_teapot][time 30] > [sound snd_teapot_break][time 16] > [create viktorsRoom_teapot_broken]",
-					"talk": "I'm a little teapot, short and... > No, wait, you're a little teapot, I'm a wild boar.",
+					"talk": "[animations spr_viktor_talk_back]I'm a little teapot, short and... > [animations spr_viktor_talk_back]No, wait, you're a little teapot, I'm a wild boar.",
 					"log": "Nah.",
 					"keys": "Hmm... > No.",
 					"coin": "Interesting proposition, but no."
@@ -1782,7 +1798,7 @@
 				"description": "Desk and chair.",
 				"order": "kick,look",
 				"combinations": {
-					"kick": "Stupid desk and chair! > [kick auto]",
+					"kick": "[kick auto] > Stupid desk and chair!",
 					"look": "[mood]It used to be a desk with chair. > [mood]Then my landlady nailed them to the floor ''so it wouldn't get stolen''. > [mood]Stupid old crow. > [mood]Now it's more of a kitsch installation.",
 					"use": "It's all nailed up.",
 					"log": "[mood]Nah.",
@@ -1805,7 +1821,7 @@
 				"description": "Desk and chair.",
 				"order": "look",
 				"combinations": {
-					"kick": "Stupid desk and chair! > [kick auto]",
+					"kick": "[kick auto] > Stupid desk and chair!",
 					"look": "[mood]It used to be a desk with chair. > [mood]Then my landlady nailed them to the floor ''so it wouldn't get stolen''. > [mood]Stupid old crow. > [mood]Now it's more of a kitsch installation.",
 					"log": "[mood]Nah.",
 					"keys": "Good idea, but no. > Drawers are nailed, not locked.",
@@ -1829,10 +1845,10 @@
 				"description": "Bed",
 				"order": "kick,look,use",
 				"combinations": {
-					"kick" : "Stupid bed! > [kick auto]",
+					"kick" : "[kick auto] > Stupid bed!",
 					"look": "[mood]It's my bathtub... and bed. > [mood]Currently it's a bed. > And I need to bathe.",
 					"use": "[animation player spr_viktor_use_back_middle][destroy other 25] > [mood] Wait a minute... > [mood] This pillow is mostly eaten by roaches. > [mood]Wait a minute... roaches? > [create viktorsRoom_bath_roaches][create viktorsRoom_tub_roaches2] > [mood]Oh no.",
-					"talk": "Stupid bed!!!",
+					"talk": "[animation player spr_viktor_talk_back]Stupid bed!!!",
 					"log": "I don't need to log my bed.",
 					"keys": "The bed is not locked.",
 					"coin": "What am I, a tooth fairy?"
@@ -1889,7 +1905,7 @@
 				"order": "look,use",
 				"combinations": {
 					"look": "Finally, time to bathe! > [destroy viktorsRoom_oven_hot]",
-					"use": "[if available viktorsRoom_pots] I need to pour water inside > [if available viktorsRoom_pots][skip] > [not available viktorsRoom_pot1][not available viktorsRoom_pot2][skip 4] > [animation player spr_viktor_use_back_middle] > [not available viktorsRoom_pot1] This is too hot. > [not available viktorsRoom_pot2] This is too cold. > [skip] > [animation player spr_viktor_use_back_middle][fade in 0.03][time 35] > [position player 630 680][animation player spr_viktor_tub_sigh][fade out 0.03] > [animation player spr_viktor_tub_sigh 7][sound snd_viktor_sigh][time 15] > [fade][animation player spr_viktor_tub_unsigh] > [sound snd_phone_ring][create viktorsRoom_trin2][create viktorsRoom_trin3][create viktorsRoom_trin][if available viktorsRoom_toilet_ringing][position viktorsRoom_trin 1000 650][position viktorsRoom_trin2 1000 600][position viktorsRoom_trin 1000 700] > [if item phone][position viktorsRoom_trin 1000 950][position viktorsRoom_trin 1000 900][position viktorsRoom_trin3 1000 850] > [animation player spr_viktor_tub_unsigh 11][time 10] > [animation player spr_viktor_tub_angry][cloud 660 310] Who is always calling when I'm in the bath!? > [fade in 0.03][time 35] > [destroy viktorsRoom_oven_hot][animation player spr_viktor][position player 700 700] > [set mood default][fade out 0.03][time 30] > Now to answer that phone... > [if available viktorsRoom_teapot_angry][destroy viktorsRoom_teapot_angry][create viktorsRoom_teapot] > [destroy viktorsRoom_clock_angry][create viktorsRoom_clock_happy][destroy viktorsRoom_vase_angry][create viktorsRoom_vase_happy][destroy viktorsRoom_trash_angry][create viktorsRoom_trash_happy][destroy viktorsRoom_umbrellastand_angry][create viktorsRoom_umbrellastand_happy][destroy viktorsRoom_door_closed_angry][create viktorsRoom_door_closed_happy][destroy viktorsRoom_desk][create viktorsRoom_desk_happy][set phone 1]",
+					"use": "[if available viktorsRoom_pot1][if available viktorsRoom_pot2] I need to pour water inside > [if available viktorsRoom_pot1][if available viktorsRoom_pot2][skip] > [if available viktorsRoom_pots] I need to pour water inside > [if available viktorsRoom_pots][skip] > [not available viktorsRoom_pot1][not available viktorsRoom_pot2][skip 4] > [animation player spr_viktor_use_back_middle] > [not available viktorsRoom_pot1] This is too hot. > [not available viktorsRoom_pot2] This is too cold. > [skip] > [animation player spr_viktor_use_back_middle][fade in 0.03][time 35] > [position player 630 680][animation player spr_viktor_tub_sigh][fade out 0.03] > [animation player spr_viktor_tub_sigh 7][sound snd_viktor_sigh][time 15] > [fade][animation player spr_viktor_tub_unsigh] > [sound snd_phone_ring][create viktorsRoom_trin2][create viktorsRoom_trin3][create viktorsRoom_trin] > [if available viktorsRoom_toilet_ringing][position viktorsRoom_trin 1000 650][position viktorsRoom_trin2 1000 600][position viktorsRoom_trin3 1000 700] > [if item phone][position viktorsRoom_trin2 1000 950][position viktorsRoom_trin 1000 900][position viktorsRoom_trin3 1000 850] > [animation player spr_viktor_tub_unsigh 11][time 10] > [animations player spr_viktor_tub_angry][cloud 660 310] Who is always calling when I'm in the bath!? > [fade in 0.03][time 35] > [destroy viktorsRoom_oven_hot][animation player spr_viktor][position player 700 700] > [set mood default][fade out 0.03][time 30] > Ahh, this was very soothing. > Now to answer that phone... > [if available viktorsRoom_teapot_angry][destroy viktorsRoom_teapot_angry][create viktorsRoom_teapot] > [destroy viktorsRoom_clock_angry][create viktorsRoom_clock_happy][destroy viktorsRoom_vase_angry][create viktorsRoom_vase_happy][destroy viktorsRoom_trash_angry][create viktorsRoom_trash_happy][destroy viktorsRoom_umbrellastand_angry][create viktorsRoom_umbrellastand_happy][destroy viktorsRoom_door_closed_angry][create viktorsRoom_door_closed_happy][destroy viktorsRoom_desk][create viktorsRoom_desk_happy][set phone 1]",
 					"log": "Just use the bathtub and let me bathe!",
 					"keys": "Just use the bathtub and let me bathe!",
 					"umbrella": "I wiped them out... > All of them.",
@@ -1936,7 +1952,8 @@
 				"order": "kick,look,look_2,talk",
 				"combinations": {
 					"look": "[mood]It's a carpet. > [mood]Actually, it was a carpet. > [mood]Now it's just a hole with some carpet around it.",
-					"kick": "[mood]Better not stomp do the stomping thing again... > [mood]I might wake the neighbours below.",
+					"use": "[mood] It wouldn't fit in the trash. > [destroy]",
+					"kick": "[mood]Better not do the stomping thing again... > [mood]I might wake the neighbours below.",
 					"look_2": "[mood]Carpet diem.",
 					"talk": "[mood]It's dead... > [destroy]",
 					"log": "Carpet is no place for logs.",
@@ -1950,7 +1967,7 @@
 				"visible": 0,
 				"picture": "spr_various_token",
 				"x": 1006,
-				"y": 630,
+				"y": 625,
 				"xCloud": 1006,
 				"yCloud": 550,
 				"xScale": 207,
@@ -1961,9 +1978,9 @@
 				"order": "kick,use,look",
 				"combinations": {
 					"look": "[mood]It's a toilet. > [mood]So lovely to have one in the bedroom. > [mood]Which is also a kitchen.",
-					"kick": "Stupid toilet!!! > [kick auto]",
+					"kick": "[kick auto] > Stupid toilet!!!",
 					"use": "[mood]I already went at work. > [mood]Into the filing cabinet.",
-					"talk": "Hello toilet. > [talk other][soundblock snd_toilet_hello][animation player snd_viktor_listen_right_scared] Hello, Viktor.",
+					"talk": "Hello toilet. > [talk other][blocksound snd_toilet_hello][animation player snd_viktor_listen_right_scared] Hello, Viktor.",
 					"log": "So, you want me to ''drop a log?''... > Heh heh.",
 					"keys": "It's a toilet, not a door.",
 					"coin": "Tried it, doesn't work"
@@ -1975,7 +1992,7 @@
 				"visible": 0,
 				"picture": "spr_various_token",
 				"x": 1006,
-				"y": 630,
+				"y": 625,
 				"xScale": 207,
 				"yScale": 108,
 				"xCloud": 1006,
@@ -1986,9 +2003,9 @@
 				"order": "look,use,talk",
 				"combinations": {
 					"look": "It's a toilet. > And my phone's in it. > Good thing it's waterproof, fireproof and urineproof",
-					"kick": "[mood angry][direction right] Stupid toilet!!! > Now my phone stinks... > [kick]",
-					"use": "[position viktorsRoom_trin2 1000 950][position viktorsRoom_trin3 1000 900][position viktorsRoom_trin1 1000 950][pickup right middle]",
-					"talk": "Hello toilet. > [talk other][soundblock snd_toilet_hello][animation player snd_viktor_listen_right_scared] Hello, Viktor.",
+					"kick": "[kick] > [mood angry][direction right] Stupid toilet!!! > Now my phone stinks...",
+					"use": "[position viktorsRoom_trin2 1000 950][position viktorsRoom_trin3 1000 900][position viktorsRoom_trin 1000 950][pickup right middle]",
+					"talk": "Hello toilet. > [talk other][blocksound snd_toilet_hello][animation player snd_viktor_listen_right_scared] Hello, Viktor.",
 					"log": "So, you want me to ''drop a log?''... > Heh heh.",
 					"keys": "It's a toilet, not a door.",
 					"coin": "Tried it, doesn't work"
@@ -1997,7 +2014,7 @@
 					"alias": "phone",
 					"name": "Phone",
 					"description": "Coal gauge is a bit low.",
-					"special": "[if currentRoom dirigibles] I don't have time for that shit. > [if currentRoom dirigibles][stop] > [remember][destroy viktorsRoom_trin][destroy viktorsRoom_trin2][destroy viktorsRoom_trin3] > [if phone = 0][room phone start] > [if phone = 1][room viktorsRoom phone] > [if phone = 2][room phone start] > [if phone = 3][if currentRoom viktorsRoom] I just talked to him. > [if phone = 3][if currentRoom viktorsRoom][skip] > [room martinsRoom start]",
+					"special": "[if currentRoom dirigibles][cloud 700 800][time 60] I don't have time for that shit. > [if currentRoom dirigibles][stop] > [if currentRoom dirigibles][if dirigibles_win = 1][room previous won] > [if currentRoom dirigibles][room previous lost] > [remember][destroy viktorsRoom_trin][destroy viktorsRoom_trin2][destroy viktorsRoom_trin3] > [if phone = 0][room phone start] > [if phone = 1][room viktorsRoom phone] > [if phone = 2][room phone start] > [if phone = 3][if currentRoom viktorsRoom] I just talked to him. > [if phone = 3][if currentRoom viktorsRoom][skip] > [room martinsRoom start]",
 					"picture": "spr_item_phone"
 				}
 			}, {
@@ -2015,9 +2032,10 @@
 				"order": "kick",
 				"combinations": {
 					"look": "Recycle bin.",
-					"kick": "[direction right] Stupid trash can!!! > [kick right] > [direction right] Stupid room!!! > [kick right] > [direction right] Stupid job!!! > [kick right] > [direction right] Stupid world!!! > [kick right] > [sound snd_viktor_sigh][animation player spr_viktor_walk_right_angry 0][time 25] > [mood scared]I need a bath.",
+					"kick": "[kick right] > [direction right] Stupid trash can!!! > [kick right] > [direction right] Stupid room!!! > [kick right] > [direction right] Stupid job!!! > [kick right] > [direction right] Stupid world!!! > [kick right] > [sound snd_viktor_sigh][animation player spr_viktor_walk_right_angry 0][time 25] > [mood scared]I need a bath.",
+					"kick_2": "[kick right] > Stupid everything!",
 					"use": "I throw stuff in it for a reason.",
-					"talk": "I don't want to wake up whatever lives at the bottom.",
+					"talk": "[direction front][mood]I don't want to wake up whatever lives at the bottom.",
 					"log": "I need this log",
 					"keys": "I don't want to throw these away.",
 					"coin": "It might diminish the value."
@@ -2059,9 +2077,10 @@
 				"description": "Umbrella stand",
 				"order": "kick,look_2",
 				"combinations": {
+					"use": "[if pickedupumbrella = 1][mood] Got one already. > [if pickedupumbrella = 0][destroy viktorsRoom_umbrella_decoration 15][pick left middle][set pickedupumbrella 1]",
 					"look": "Stupid umbrella stand.",
 					"talk": "I hope you die, umbrella stand!",
-					"kick": "Stupid umbrella stand!! > [mood happy] Oh wait, this is my favorite umbrella! > [destroy viktorsRoom_umbrella_decoration 15][pick left middle]",
+					"kick": "[if pickedupumbrella = 1][kick left] > [if pickedupumbrella = 1] Stupid umbrella stand > [if pickedupumbrella = 1][skip] > [set pickedupumbrella 1][mood] Oh wait, this is my favorite umbrella! > [destroy viktorsRoom_umbrella_decoration 15][pick left middle]",
 					"kick_2": "Stupid umbrella stand! > [kick left]",
 					"look_2": "[mood]Whose umbrella is the other one? > [mood]Maybe Martin left it when he visited last time?",
 					"log": "Logs are not umbrellas.",
@@ -2100,7 +2119,8 @@
 					"log": "Logs are not umbrellas.",
 					"keys": "Umbrellas don't work that way",
 					"talk": "Hello, lovely umbrella stand",
-					"use": "I already have one"
+					"use": "I already have one",
+					"kick": "[kick left] > Heh heh, stupid umbrella stand."
 				}
 			},
 			{
@@ -2118,10 +2138,9 @@
 				"order": "kick,look_2",
 				"combinations": {
 					"look": "[mood]A priceless vase. > [mood]Mostly because nobody wants to buy it",
-					"kick": "[direction left][mood angry]Stupid priceless vase!!! > [create viktorsRoom_vase_broken_decoration 25][kick left snd_vase_break]",
-					"look_2": "[mood]Now it's totally priceless",
+					"kick": "[create viktorsRoom_vase_broken_decoration 25][kick left snd_vase_break] > [direction left][mood angry]Stupid priceless vase!!!",
 					"use": "I'd rather kick it.",
-					"talk": "[blocksound snd_vase_sing]My little Mei Din girl... > [blocksound snd_vase_sing] La la la la la la... > [blocksound snd_vase_sing2] Oh oh oh oh!",
+					"talk": "Stupid priceless produce",
 					"log": "No log for you.",
 					"keys": "It's not locked, it's a vase."
 				},
@@ -2159,7 +2178,7 @@
 					"look": "A priceless vase. > Mostly because nobody wants to buy it.",
 					"kick": "Why would I do that?",
 					"look_2": "So priceless",
-					"use": "[pick left middle] > Hey, a coin!",
+					"use": "[pick left middle] > Hey, it's a coin!",
 					"use_2": "It's empty now",
 					"talk": "[blocksound snd_vase_sing]My little Mei Din girl... > [blocksound snd_vase_sing] Something something mess with me... > [blocksound snd_vase_sing2] Oh oh oh oh!",
 					"log": "No log for you, vase.",
@@ -2186,20 +2205,20 @@
 		"rgb": "229,229,180",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[set phone 3] > [not item phone][take phone] > [set wig_flag 0][set bought_cell_flag 0][position station_tram 200 299][position player 400 700][position station_fence1 87 512][move station_fence1 0 3][time 20][position station_fence2 365 512][move station_fence2 180 3][time 20] > [move station_fence1 0 0][move station_fence2 0 0] Ah, the Agram Dirigibledrome. > I swept these streets too often for my own good."
+			"entrance": "[set mood][set wig_flag 0][set bought_cell_flag 0][position station_tram 200 299][position player 400 700][position station_fence1 87 512][move station_fence1 0 3][time 20][position station_fence2 365 512][move station_fence2 180 3][time 20] > [move station_fence1 0 0][move station_fence2 0 0] Ah, the Agram Dirigibledrome. > I swept these streets too often for my own good."
 		}, 
 		{
 			"alias" : "return",
-			"entrance" : "[recall] Why do I even bother."
+			"entrance" : "[recall][set mood][if moodangry = 1][set mood angry] > Why do I even bother."
 		},
 		{
 			"alias" : "map",
-			"entrance" : "[recall] It's a big world out there."
+			"entrance" : "[recall][set mood][if moodangry = 1][set mood angry] > It's a big world out there."
 		},
 		
 		{
 			"alias": "lift",
-			"entrance": "[destroy rhino_sweeping][destroy rhino_magical][destroy rhinos_broom][if random 2][skip 1] > [create rhino_sweeping][skip 1] > [create rhino_magical][create rhinos_broom] > [position 9000 9000][position station_down_lift_cabin 970 -600][move station_down_lift_cabin 270 5][time 128] > [move station_down_lift_cabin 270 0][position player 970 710][animations player spr_viktor_walk_left][move player 180 5][time 50] > This lift really smells. > "
+			"entrance": "[destroy rhino_sweeping][destroy rhino][destroy rhinos_broom][if random 2][skip 1] > [create rhino_sweeping][skip 1] > [create rhino][create rhinos_broom] > [position 9000 9000][position station_down_lift_cabin 970 -600][move station_down_lift_cabin 270 5][time 128] > [move station_down_lift_cabin 270 0][position player 970 710][animations player spr_viktor_walk_left][move player 180 5][time 50] > This lift really smells. > "
 		}],
 		"objects": [{
 				"comment": "Smoke behind the tram",
@@ -2224,7 +2243,7 @@
 					"alias": "phone",
 					"name": "Phone",
 					"description": "Coal gauge is a bit low.",
-					"special": "[if currentRoom dirigibles] I don't have time for that shit. > [if currentRoom dirigibles][stop] > [destroy viktorsRoom_trin][destroy viktorsRoom_trin2][destroy viktorsRoom_trin3] > [if phone = 0][room phone start] > [if phone = 1][room viktorsRoom phone] > [if phone = 2][room phone start] > [if phone = 3][if currentRoom viktorsRoom] I just talked to him. > [if phone = 3][if currentRoom viktorsRoom][skip] > [room martinsRoom start]",
+					"special": "[if currentRoom dirigibles][cloud 700 800][time 60] I don't have time for that shit. > [if currentRoom dirigibles][stop] > [if currentRoom dirigibles][if dirigibles_win = 1][room previous won] > [if currentRoom dirigibles][room previous lost] > [remember][destroy viktorsRoom_trin][destroy viktorsRoom_trin2][destroy viktorsRoom_trin3] > [if phone = 0][room phone start] > [if phone = 1][room viktorsRoom phone] > [if phone = 2][room phone start] > [if phone = 3][if currentRoom viktorsRoom] I just talked to him. > [if phone = 3][if currentRoom viktorsRoom][skip] > [room martinsRoom start]",
 					"picture": "spr_item_phone"
 				}
 				
@@ -2241,9 +2260,9 @@
 				"alias": "station_smoke3",
 				"subimage": 2,
 				"picture": "spr_station_smoke",
-				"path": "path_float",
+				"path": "path_float_big",
 				"x": 681,
-				"y": 370
+				"y": 420
 			}, {
 				"comment": "The tram!!!!1",
 				"depth": 1980,
@@ -2325,13 +2344,13 @@
 				"depth": -1100,
 				"x": 970,
 				"y": 35,
-				"xInteract": 865,
+				"xInteract": 905,
 				"yInteract": 710,
 				"description": "Lift",
 				"order": "look,use,use_2,use_2,use_3",
 				"combinations": {
 					"look": "For some people it's a lift that leads to dirgible docks. > For others, it's an emergency toilet.",
-					"kick": "[mood angry]Stupid lift! > [kick right]",
+					"kick": "[kick right] > [mood angry]Stupid lift!",
 					"use": "[animations player spr_viktor_walk_right][move player 0 5][time 50] > [position 9000 9000][move station_down_lift_cabin 90 5][time 120] > [room station_up start]",
 					"use_2": "[animations player spr_viktor_walk_right][move player 0 5][time 30] > [room station_up start]",
 					"use_3": "[room station_up lift]",
@@ -2359,8 +2378,7 @@
 				"description": "A coin",
 				"order": "use,use_2",
 				"combinations": {
-					"use": "[mood happy] Wow, a coin! > [mood happy][create station_down_lift_cabin][position station_down_lift_cabin 970 -600][move station_down_lift_cabin 270 5][time 128] This might be a good day after all...  > [move station_down_lift_cabin 270 0] > [mood scared][create rhino_sweeping][position rhino_sweeping 1065 715][talk rhino_sweeping][cloud 1000 400] Excuse me >[animations spr_viktor_back_off][move player 180 5][animations rhino_sweeping spr_rhino_broom_walk][move rhino_sweeping 180 5][time 30] > [if mood angry][move rhino_sweeping 250 5][move player 180 0][animations rhino_sweeping spr_rhino_broom][animations player spr_viktor_angry][time 20] > [if mood][move rhino_sweeping 250 5][move player 180 0][animations rhino_sweeping spr_rhino_broom][animations player spr_viktor][time 20] > [move rhino_sweeping 230 0]",
-					"use_2": "[destroy other 15][animation player spr_viktor_use_right_low][take coin] > [position station_down_lift_cabin 970 -600][move station_down_lift_cabin 270 5][time 128] > [move station_down_lift_cabin 270 0]",
+					"use": "[if coin_station = 1][destroy other 15][animation player spr_viktor_use_right_low][take coin] > [if coin_station = 1][animation player spr_viktor_listen_right][position station_down_lift_cabin 970 -600][move station_down_lift_cabin 270 5][time 128] > [if coin_station = 1][move station_down_lift_cabin 270 0] > [if coin_station = 1][skip] > [mood] Wow, a coin! > [mood][create station_down_lift_cabin][position station_down_lift_cabin 970 -600][move station_down_lift_cabin 270 5][time 128] This might be a good day after all...  > [move station_down_lift_cabin 270 0] > [mood scared][create rhino_sweeping][position rhino_sweeping 1065 710][talk rhino_sweeping][cloud 1000 400] Excuse me >[animations spr_viktor_back_off][move player 180 5][animations rhino_sweeping spr_rhino_broom_walk][move rhino_sweeping 180 5][time 30] > [if mood angry][move rhino_sweeping 250 5][move player 180 0][animations rhino_sweeping spr_rhino_broom][animations player spr_viktor_angry][time 20] > [if mood][move rhino_sweeping 250 5][move player 180 0][animations rhino_sweeping spr_rhino_broom][animations player spr_viktor][time 20] > [move rhino_sweeping 230 0][set coin_station 1]",
 					"keys": "[mood angry] Just pick up the coin with your hand!",
 					"pants": "[mood angry] Just pick up the coin with your hand!",
 					"cake": "[mood angry] Just pick up the coin with your hand!",
@@ -2393,11 +2411,10 @@
 				"order_angry": "kick",
 				"combinations": {
 					"look": "This is new.",
-					"talk": "[if mood][direction right][conversation noam hello] > [if mood angry]I'm too angry for a normal conversation > [move player 90 5][animations player spr_viktor_walk_back][time 15] > [move player 0 0]",
-					"kick": "[if mood angry][direction right][conversation noam viktor_angry] > [if mood] Nah. > [move player 90 5][animations player spr_viktor_walk_back][time 15] > [move player 0 0]",
+					"talk": "[if mood][direction right][conversation noam hello] > [if mood angry][direction right][conversation noam viktor_angry] > [move player 90 5][animations player spr_viktor_walk_back][time 15] > [move player 0 0]",
 					"use": "I oppose pickpocketing. > Especially people in kilts.",
-					"keys": "[direction left][conversation noam keys_test]",
-					"wig": "Look at me now. I'm completely Jewish! I have a hair thing and everything! > [talk station_dog] Ach, a fine payot it be. But ye still don' look Scottish, boy",
+					"keys": "[talk station_dog]Interestin' keys lad. > Umm, yes.",
+					"wig": "[set noamsawwig 1] Look at me now. I'm completely Jewish! I have a hair thing and everything! > [talk station_dog] Ach, a fine payot it be. > [if noamsawdress = 0][talk station_dog] But ye still don' look Scottish, boy. > [if noamsawdress = 0][skip] > [conversation noam everything]",
 					"pants": "[talk station_dog] Thank ye, lad. > [talk station_dog] But I prefer me kilt. > [talk station_dog] It provides me with exquisite warmth. > [talk station_dog] While giving complete freedom for the unmentionables. > I wear this coat for exact same reasons!",
 					"cake": "[talk station_dog] Thank ye, boy. > [talk station_dog] But meh be needin' to stay fit fer the olympics.",
 					"ball": "[talk station_dog] I be havin' a bigga' one back home. > Of course you do.",
@@ -2405,7 +2422,7 @@
 					"coin": "[talk station_dog] Oh, I be havin' plenty o' those. > Can I have some? > [talk station_dog] No.",
 					"umbrella": "[talk station_dog]I be preferrin' just angrily yellin' at the rain with me walking stick.",
 					"ticket": "[talk station_dog] Good lad, now off ye go.",
-					"dress": "Look at me now. I'm completely Scottish! I have a hat thing and everything! > [talk station_dog] Ach, a fine kilt it be. But ye still don' look Scottish, boy"
+					"dress": "[set noamsawdress 1] Look at me now. I'm completely Scottish! I have a hat thing and everything! > [talk station_dog] Ach, a fine kilt it be. > [if noamsawwig = 0][talk station_dog] But ye still don' look Jewish, boy. > [if noamsawwig = 0][skip] > [conversation noam everything]",
 				},
 				"inventory": {
 					"alias": "ticket",
@@ -2416,17 +2433,16 @@
 				}
 			}, {
 				"comment": "Station sweeper Attar not sweeping",
-				"alias": "rhino_magical",
+				"alias": "rhino",
 				"available": 0,
-				"x": 920,
-				"y": 790,
+				"x": 885,
+				"y": 808,
 				"xScale": 0.5,
 				"yScale": 0.5,
 				"xInteract": 730,
-				"yInteract": 780,
+				"yInteract": 815,
 				"xCloud": 840,
 				"yCloud": 450,
-				"picture": "spr_rhino",
 				"idle": 1,
 				"depth": -830,
 				"description": "Attar",
@@ -2436,13 +2452,13 @@
 					"talk": "[if mood][conversation rhino start] > [if mood angry][conversation rhino viktor_angry]",
 					"use": "What?",
 					"keys": "[direction left][conversation noam keys_test]",
-					"pants": "[talk rhino_magical] My wife has something against our daughters wearing pants. > [talk rhino_magical] But thank you for offering.",
-					"cake": "[talk rhino_magical] Thank you, friend. > [talk rhino_magical] But I cannot eat sugar > Is that the Sikh thing?. > [talk rhino_magical] No, it's diabetes thing. > [mood scared] Oh, right, I forgot. So sorry. > [talk rhino_magical] Fret not, Viktor. Sugar is a thing I miss the least.",
-					"ball": "[talk rhino_magical] Hey, that's the ball you use for training. > It's a completely different one. Want it? > [talk rhino_magical] Not really, but thank you for offering.",
-					"cell": "Look, attar! A battery for Nippleonian automatons! > [talk rhino_magical] It's beautiful and only slightly broken > [talk rhino_magical] People sometimes use them to overcharge blimp engines. > Wanna buy it for two coins? > [talk rhino_magical] No. > [conversation rhino haggler]",
-					"coin": "[talk rhino_magical] You need those as much as I do, my friend.",
-					"umbrella": "[talk rhino_magical] It's a very stylish replacement for that old broom of yours.",
-					"dress": "[talk rhino_magical] My wife would never let any of my daughters wear such a short dress. > [talk rhino_magical] Except for Chandana, but she's fatter than you."
+					"pants": "[talk rhino] My wife has something against our daughters wearing pants. > [talk rhino] But thank you for offering.",
+					"cake": "[talk rhino] Thank you, friend. > [talk rhino] But I cannot eat sugar > Is that the Sikh thing?. > [talk rhino] No, it's diabetes thing. > [mood scared] Oh, right, I forgot. So sorry. > [talk rhino] Fret not, Viktor. Sugar is a thing I miss the least.",
+					"ball": "[talk rhino] Hey, that's the ball you use for training. > It's a completely different one. Want it? > [talk rhino] Not really, but thank you for offering.",
+					"cell": "Look, attar! A battery for Nippleonian automatons! > [talk rhino] It's beautiful and only slightly broken > [talk rhino] People sometimes use them to overcharge blimp engines. > Wanna buy it for two coins? > [talk rhino] No. > [conversation rhino haggler]",
+					"coin": "[talk rhino] You need those as much as I do, my friend.",
+					"umbrella": "[talk rhino] It's a very stylish replacement for that old broom of yours.",
+					"dress": "[talk rhino] My wife would never let any of my daughters wear such a short dress. > [talk rhino] Except for Chandana, but she's fatter than you."
 				},
 				"inventory": {
 					"alias": "cell",
@@ -2469,12 +2485,12 @@
 				"comment": "Station sweeper Attar sweeping",
 				"alias": "rhino_sweeping",
 				"available": 0,
-				"x": 920,
-				"y": 790,
+				"x": 885,
+				"y": 808,
 				"xScale": 0.5,
 				"yScale": 0.5,
 				"xInteract": 730,
-				"yInteract": 780,
+				"yInteract": 815,
 				"xCloud": 840,
 				"yCloud": 450,
 				"picture": "spr_rhino_broom",
@@ -2485,16 +2501,16 @@
 				"combinations": {
 					"look": "[set attar_seen 0] Is that Attar? > Yes, it's him!! > [description rhino_sweeping Attar!]",
 					"use": "What?",
-					"talk": "[if mood][conversation rhino start] > [if mood angry][conversation rhino viktor_angry]",
-					"keys": "[direction left][conversation noam keys_test]",
+					"talk": "[description rhino_sweeping Attar!] > [if mood][conversation rhino start] > [if mood angry][conversation rhino viktor_angry]",
+					"keys": "[talk rhino_sweeping] These aren't mine. > Nope, they're mine. > [talk rhino_sweeping] Good for you.",
 					"pants": "[talk rhino_sweeping] My wife has something against our daughters wearing pants. > [talk rhino_sweeping] But thank you for offering",
 					"cake": "[talk rhino_sweeping] Thank you, friend. > [talk rhino_sweeping] But I cannot eat sugar > Is that the Sikh thing?. > [talk rhino_sweeping] No, it's diabetes thing. > [mood scared] Oh, right, I forgot. So sorry. > [talk rhino_sweeping] Fret not, Viktor. Sugar is a thing I miss the least.",
 					"ball": "[talk rhino_sweeping] Hey, that's the ball you use for training. > It's a completely different one. Want it? > [talk rhino_sweeping] Not really, but thank you for offering.",
 					"cell": "Look, attar! A battery for Nippleonian automatons! > [talk rhino_sweeping] It's beautiful and only slightly broken > [talk rhino_sweeping] People sometimes use them to overcharge blimp engines. > Wanna buy it for two coins? > [talk rhino_sweeping] No. > [conversation rhino haggler]",
-					"coin": "[talk rhino_magical] You need those as much as I do, my friend.",
-					"umbrella": "[talk rhino_magical] It's a very stylish replacement for that old broom of yours.",
-					"ticket": "[talk rhino_magical] So, you're really going through with this? > [talk rhino_magical] Good luck, friend. And watch that anger of yours. > Thanks Attar. This will be a good thing for both of us.",
-					"dress": "[talk rhino_magical] My wife would never let any of my daughters wear such a short dress. > [talk rhino_magical] Except for Chandana, but she's bigger than both of us together."
+					"coin": "[talk rhino] You need those as much as I do, my friend.",
+					"umbrella": "[talk rhino] It's a very stylish replacement for that old broom of yours.",
+					"ticket": "[talk rhino] So, you're really going through with this? > [talk rhino] Good luck, friend. And watch that anger of yours. > Thanks Attar. This will be a good thing for both of us.",
+					"dress": "[talk rhino] My wife would never let any of my daughters wear such a short dress. > [talk rhino] Except for Chandana, but she's bigger than both of us together."
 				},
 				"inventory": {
 					"alias": "coin",
@@ -2511,7 +2527,7 @@
 				"y": 403,
 				"xCloud": 100,
 				"yCloud": 350,
-				"depth": 1500,
+				"depth": -1500,
 				"xInteract": 300,
 				"yInteract": 815,
 				"description": "Ticket office",
@@ -2519,15 +2535,15 @@
 				"combinations": {
 					"look": "It's the ticket office. > For buying airship tickets. > They don't sell tram tickets. > Not that anyone ever buys those. > But I still like to annoy them by asking.",
 					"talk": "[if mood angry][conversation kiosk viktor_angry] > [if mood][conversation kiosk start] > [if mood angry][direction front] Stupid cow just made me want to kill someone! ",
-					"kick": "[if mood angry] Stupid cow! > [if mood] Hey, look what I'm doing > [kick left] > [other] Go away.",
+					"kick": "[if mood angry] Stupid cow! > [if mood] Hey, look what I'm doing > [animation spr_viktor_walk_left][moveto player 260 815 3] > [kick left] > [animation spr_viktor_walk_right][moveto player 330 805 3] > [other] Go away.",
 					"keys": "It's always open.",
 					"pants": "[talk station_office] I don't want them anymore.",
 					"cake": "[talk station_office] I don't want to eat it. It's made with my own milk. > [mood scared] Eww... > [talk station_office] Enjoy",
-					"ball": "[talk station office] Keep it. > [talk station office] Eat it for all I care.",
+					"ball": "[talk station_office] Keep it. > [talk station_office] Eat it for all I care.",
 					"cell": "[conversation kiosk away]",
 					"ticket": "[other] Did you steal that? > [player] No, I got it fair and square. > [other] Great, then go to the dirigible upstairs and get out of my sight.",
 					"dress": "I told you not to bother me, go away.",
-					"coin": "[not coins < 5] Here you go, you old hag, five copper crowns. > [not coins < 5][talk station office] Enjoy your trip, sir. > [not coins < 5][talk station office] I hope you die in a crash. > [if coins = 5][give coin] > [not coins < 5][take ticket][add coins -5][skip] > Is this enough? > [talk station office] No. > [mood angry] Dammit!!!"
+					"coin": "[if coins = 5] Here you go, you old hag, five copper crowns. > [if coins = 5][talk station_office] Enjoy your trip, sir. > [if coins = 5][talk station_office] I hope you die in a crash. > [if coins = 5][give coin][take ticket][set coins 0][skip] > Is this enough for a ticket? > [talk station_office] No. > [mood angry] Dammit!!!"
 				},
 				"inventory": {
 					"alias": "ticket",
@@ -2580,7 +2596,7 @@
 				"order": "look,use",
 				"combinations": {
 					"look": "Hey, another record!",
-					"use": "[animation player spr_viktor_use_right_high][destroy other 15] > This is going straight to my gramophone! > [talk station_office] It was supposed to go straight to your head! [record dvorak]",
+					"use": "[animation player spr_viktor_use_right_high][destroy other 15] > This is going straight to my gramophone! > [talk station_office] It was supposed to go straight to your head! > [record rossini]",
 					"kick": "I think I can just pull it.",
 					"pants": "Don't complicate things, just pick it up.",
 					"cake": "That would be a good place for a cake. > But I'm not going to do this.",
@@ -2657,7 +2673,7 @@
 		"rgb": "200,232,235",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[if cleanup = 1][if ballandbattery = 0][set ballandbattery 1][create station_ball][create battery_poking] > [position 9000 9000][position station_up_lift_cabin 1057 300][move station_up_lift_cabin 90 5][time 60] > [move station_up_lift_cabin 90 0][position player 1100 673][animations player spr_viktor_walk_left][move player 180 5][time 50]"
+			"entrance": "[if version debug][take cake] > [if cleanup = 1][if ballandbattery = 0][set ballandbattery 1][create station_ball][create battery_poking] > [position 9000 9000][position station_up_lift_cabin 1057 300][move station_up_lift_cabin 90 5][time 60] > [move station_up_lift_cabin 90 0][position player 1100 673][animations player spr_viktor_walk_left][move player 180 5][time 50]"
 		}, {
 			"alias": "won",
 			"entrance": "[soundtrack dvorak][sound snd_gramophone][position 400 700][active donkey][conversation donkey won]"
@@ -2667,11 +2683,11 @@
 		},
 		{
 			"alias" : "return",
-			"entrance" : "[recall]Always a good conversation."
+			"entrance" : "[recall][set mood][if moodangry = 1][set mood angry] > Always a good conversation."
 		},
 		{
 			"alias" : "map",
-			"entrance" : "[recall]I don't have to travel that far, really."
+			"entrance" : "[recall][set mood][if moodangry = 1][set mood angry] > I don't have to travel that far, really."
 		}		
 		],
 		"objects": [{
@@ -2692,7 +2708,7 @@
 			"combinations": {
 				"look": "I think the robot's auxilliary battery is poking out. > And the robot still works. > Wow.",
 				"kick": "I can just take it, probably",
-				"use": "[if rabbiteatscake = 1][pickup] > [if rabbithasnewpants = 1][if rabbiteatscake = 1][destroy rabbit_cake2][create rabbit_pants][skip 1] > [if rabbiteatscake = 1][destroy rabbit_cake2][create rabbit] > [set rabbiteatscake 0][skip] > [if rabbithasnewpants = 1][animation player spr_viktor_listen_left][animations rabbit_pants spr_rabbit_pants_punch][time 85][skip 1] > [animation player spr_viktor_listen_left][animation rabbit spr_rabbit_punch][time 85] > [sound snd_boxing_hit][animation viktor spr_viktor_fell][time 50] > [animation viktor spr_viktor_fall_stand]",
+				"use": "[if rabbiteatscake = 1][pickup] > [if rabbithasnewpants = 1][if rabbiteatscake = 1][destroy rabbit_cake2][create rabbit_pants][skip 1] > [if rabbiteatscake = 1][destroy rabbit_cake2][create rabbit] > [if rabbiteatscake = 1][set rabbiteatscake 0][skip] > [if rabbithasnewpants = 1][animation player spr_viktor_listen_left][animation rabbit_pants spr_rabbit_pants_punch][time 85][skip 1] > [animation player spr_viktor_listen_left][animation rabbit spr_rabbit_punch][time 85] > [sound snd_boxing_hit][animation viktor spr_viktor_fell][time 50] > [animation viktor spr_viktor_fall_stand]",
 				"cake": "Good Idea. But on the bunny, not on the battery.",
 				"ball": "I don't want to cause an international incident just yet.",
 				"coin": "[if rabbithasnewpants = 1][talk rabbit_pants] I am not need of money, please be leaving ROBOTOTRON4ULTRA alone.[skip] > [talk rabbit] I am not need of money, please be leaving ROBOTOTRON4ULTRA alone.",
@@ -2759,6 +2775,7 @@
 		"y": 310,
 		"xInteract": 580,
 		"yInteract": 680,
+		"depth": -655,
 		"xScale": 0.7,
 		"yScale": 0.7,
 		"xCloud": 450,
@@ -2768,10 +2785,10 @@
 		"order": "look, talk",
 		"combinations": {
 			"look": "A small girl on a huge robot. > Looks too young for me. > Also, the robot looks very scary.",
-			"talk": "[if mood][conversation rabbit start] > [if mood][skip] > You stupid little leporidae... > [animation rabbit spr_rabbit_punch][time 85] > [animation viktor spr_viktor_fell]",
-			"kick": "[mood angry][animation rabbit spr_rabbit_punch][time 85] > [animation viktor spr_viktor_fell]",
-			"pants": "[give pants][set rabbithasnewpants 1][talk rabbit] Yes, that is the exactly pants I want! > [talk rabbit] Please not be averting eyes while removing dress > [talk frog] Never intended to do that. > [talk donkey] I was, but now I won't. > [animation rabbit snd_rabbit_dress] > [destroy rabbit][create rabbit_pants] > [talk rabbit_pants]Be thanking you again!",
-			"cake": "[give cake][animations player spr_viktor_walk_left][move player 180 5][time 30] > [animation player spr_viktor_cake][time 113] > [create fly_cake][move fly_cake 90 5][animation rabbit spr_rabbit_cake1][time 20] > [move fly_cake 90 1][time 40] > [destroy fly_cake][create rabbit_cake2][destroy][set rabbiteatscake 1]",
+			"talk": "[if mood][conversation rabbit start] > [if mood][skip] > [moveto player 560 650 3] > You stupid little leporidae... > [animation rabbit spr_rabbit_punch][time 85] > [sound snd_boxing_hit][animation viktor spr_viktor_fell] > [animation spr_viktor_fall_stand][time 37] > [animation player spr_viktor_walk_front_angry][moveto player 580 680 3]",
+			"kick": "[moveto player 560 650 3] > [animation player spr_viktor_walk_left 0][mood angry][animation rabbit spr_rabbit_punch][time 85] > [sound snd_boxing_hit][animation viktor spr_viktor_fell] > [animation spr_viktor_fall_stand][time 37] > [animation player spr_viktor_walk_front_angry][moveto player 580 680 3]",
+			"pants": "[give pants][set rabbithasnewpants 1][talk rabbit] Yes, that is the exactly pants I want! > [talk rabbit] Please not be averting eyes while removing dress > [talk frog] Never intended to do that. > [talk donkey] I was, but now I won't. > [animation rabbit spr_rabbit_dress] > [destroy rabbit][create rabbit_pants] > [talk rabbit_pants] Be thanking you again! > [take dress]",
+			"cake": "[give cake][animations player spr_viktor_walk_left][move player 180 5][time 30] > [animation player spr_viktor_cake][time 113] > [create fly_cake][move fly_cake 90 5][animation rabbit spr_rabbit_cake1][time 20] > [move fly_cake 90 1][time 40] > [destroy fly_cake][create rabbit_cake2][destroy][set rabbiteatscake 1][sound snd_rabbit_cake]",
 			"ball": "I don't want to cause an international incident just yet.",
 			"cell": "Hell no!",
 			"coin": "[talk rabbit] Arigato senpai ^^ > [talk rabbit] But I am not of needing coin right now. > [talk rabbit] I am prefer new fashion pants.",
@@ -2802,15 +2819,23 @@
 			"order": "look, talk",
 			"combinations": {
 				"look": "Nice pants.",
-				"talk": "[if mood][conversation rabbit start] > [if mood][skip] > You stupid little leporidae... > [animation rabbit spr_rabbit_pants_punch][time 85] > [animation viktor spr_viktor_fell]",
-				"kick": "[mood angry][animation rabbit spr_rabbit_pants_punch][time 85] > [animation viktor spr_viktor_fell]",
-				"cake": "[give cake][animations player spr_viktor_walk_left][move player 180 5][time 30] > [animation player spr_viktor_cake][time 113] > [create fly_cake][move fly_cake 90 5][animation rabbit_pants spr_rabbit_pants_cake1][time 20] > [move fly_cake 90 1][time 40] > [destroy fly_cake][create rabbit_cake2][destroy][set rabbiteatscake 1]",
+				"talk": "[if mood][conversation rabbit start] > [if mood][skip] > [moveto player 560 650 3] > You stupid little leporidae... > [animation rabbit spr_rabbit_pants_punch][time 85] > [sound snd_boxing_hit][animation viktor spr_viktor_fell] > [animation spr_viktor_fall_stand][time 37] > [animation player spr_viktor_walk_front_angry][moveto player 580 680 3]",
+				"kick": "[moveto player 560 650 3] > [animation player spr_viktor_walk_left 0][mood angry][animation rabbit spr_rabbit_pants_punch][time 85] > [sound snd_boxing_hit][animation viktor spr_viktor_fell] > [animation spr_viktor_fall_stand][time 37] > [animation player spr_viktor_walk_front_angry][moveto player 580 680 3]",
+				"cake": "[give cake][animations player spr_viktor_walk_left][move player 180 5][time 30] > [animation player spr_viktor_cake][time 113] > [create fly_cake][move fly_cake 90 5][animation rabbit_pants spr_rabbit_pants_cake1][time 20] > [move fly_cake 90 1][time 40] > [destroy fly_cake][create rabbit_cake2][destroy][set rabbiteatscake 1][sound snd_rabbit_cake]",
 				"ball": "I don't want to cause an international incident just yet.",
 				"cell": "Hell no!",
 				"coin": "[talk rabbit] Arigato senpai ^^ > [talk rabbit] But I am not of needing coin right now. > Thank you enough for pants.",
 				"umbrella": "[talk rabbit] I having one like that. > [talk rabbit] But with cat ears ^^. > Why not bunny ears? > [talk rabbit]Tee-hee, that would be too silly, desu.",
 				"ticket": "[talk rabbit]I already have ticket, desu.",
 				"dress": "[talk rabbit] Be having fun with it ^^"
+			},
+			"inventory":
+			{
+				"alias": "dress",
+				"picture": "spr_item_kilt",
+				"description": "A kilt.",
+				"name" : "Kilt",
+				"default" : "I don't need to dress that up."
 			}
 		},
 		{
@@ -2895,12 +2920,11 @@
 			"combinations": {
 				"look": "He looks like he's from somewhere around here. > Probably local.",
 				"talk": "[if mood angry][conversation donkey viktor_angry] > [if mood][conversation donkey start]",
-				"kick": "[conversation donkey viktor_angry]",
 				"pants": "[talk donkey] No ticket no service! > [talk donkey] Pants is optional!",
 				"cake": "[talk donkey] This isnt sarma it isnt! > No deal!",
 				"ball": "[talk donkey] What? No.",
 				"cell": "My dirigible already has one. Hahaha shame on you.",
-				"ticket": "Can I go in with this ticket? > [give ticket] > [other] OK, the ticket is good, go on! > [animations player player spr_player_walk_left][move 0 3][time 60] > [room coupe start]",
+				"ticket": "Can I go in with this ticket? > [give ticket] > [talk other] OK, the ticket is good, go on! > [direction front] Let's fly. > [animations player spr_viktor_walk_left][move player 180 3][fade in 0.02][time 60] > [fade][room map_agram_vienna start]",
 				"coin": "[conversation donkey buy]",
 				"umbrella": "[talk donkey][mood donkey angry] Are you threatening me? > [talk donkey] Or trying to sell me the umbrella? > [talk donkey] In both case, no.",
 				"dress": "[talk donkey] Who you take me for?"
@@ -3012,7 +3036,7 @@
 		"rgb": "200,232,235",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[position player 700 830] This was actually a lot less dangerous then I thought it would be. > Now I just go through these insane members of Emperor's elite murder machinery... > And the crown can be mine."
+			"entrance": "[not item phone][set phone 3][take phone] > [position player 700 830] This was actually a lot less dangerous then I thought it would be. > Now I just go through these insane members of Emperor's elite murder machinery... > And the crown can be mine."
 		}],
 		"objects": [{
 			"alias": "beaver",
@@ -3040,7 +3064,15 @@
 				"coin": "[talk beaver] Are you trying to bribe me? > Yes > [mood scared][talk beaver] Then you're gonna need a lot more of those.",
 				"umbrella": "[talk beaver] I hate that song!",
 				"dress": "[talk beaver] Not even going to ask."
-			}
+			},
+			"comment" : "i just want the phone here so i can pick it up for testing developing debugging purposes",
+				"inventory": {
+					"alias": "phone",
+					"name": "Phone",
+					"description": "Coal gauge is a bit low.",
+					"special": "[if currentRoom dirigibles][cloud 700 800][time 60] I don't have time for that shit. > [if currentRoom dirigibles][stop] > [if currentRoom dirigibles][if dirigibles_win = 1][room previous won] > [if currentRoom dirigibles][room previous lost] > [remember][destroy viktorsRoom_trin][destroy viktorsRoom_trin2][destroy viktorsRoom_trin3] > [if phone = 0][room phone start] > [if phone = 1][room viktorsRoom phone] > [if phone = 2][room phone start] > [if phone = 3][if currentRoom viktorsRoom] I just talked to him. > [if phone = 3][if currentRoom viktorsRoom][skip] > [room martinsRoom start]",
+					"picture": "spr_item_phone"
+				}
 		}, {
 			"alias": "hyena",
 			"x": 830,
@@ -3286,19 +3318,19 @@
 		{
 			"alias" : "palace_automaton_bull",
 			"visible":1,
-			"x" : 27,
-			"y" : 345,
-			"xScale" : 0.6,
-			"yScale" : 0.6,
+			"x" : 124,
+			"y" : 401,
+			"xScale" : 0.45,
+			"yScale" : 0.45,
 			"depth" : -1000
 		},
 		{
 			"alias" : "palace_automaton_bear",
 			"visible":1,
-			"x" : 810,
-			"y" : 368,
-			"xScale" : 0.6,
-			"yScale" : 0.6,
+			"x" : 908,
+			"y" : 394,
+			"xScale" : 0.45,
+			"yScale" : 0.45,
 			"depth" : -1000
 		},  
 		{
@@ -3320,7 +3352,8 @@
 		{
 			"alias": "emperor",
 			"visible" : 1,
-			"xCloud": 600,
+			"cloud": "left",
+			"xCloud": 650,
 			"yCloud": 300,
 			"xScale": 0.63,
 			"yScale": 0.63,
@@ -3332,7 +3365,9 @@
 		"alias": "hyena",
 			"picture": "spr_various_token",
 			"x": 800,
-			"y": 100
+			"y": 300,
+			"xCloud" : 50,
+			"yCloud" : 300
 		}
 		
 		]
@@ -3348,7 +3383,7 @@
 		"rgb": "200,232,235",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[position player 9880 9830][time 60][animations player spr_viktor_fell] > [sound snd_clock_break][set mood angry][draw spr_viktor_falling 1010 580 60 0 -0.3 1 0 15 90 3][time 60] > [create vida_front][time 40] > [move vida_front 180 30][time 30] > [animations player spr_cloud_medium][destroy vida_front][draw spr_viktor_falling 910 -180 25 -900 -0.56 1 180 35 270 5][time 25] > [draw spr_cloud_medium 840 830 10 -1000 1 1 0 15 45 0 0 0 -0.1][draw spr_cloud_medium 830 830 10 -1000 1 1 0 15 140 0 0 0 -0.1][draw spr_cloud_medium 830 810 10 -1000 1 1 0 15 90 0 0 0 -0.1][draw spr_cloud_medium 830 830 10 -1000 1 1 0 15 300 0 0 0 -0.1][create viktor_fell][sound snd_viktor_kick2][time 50] > [destroy viktor_fell][create viktor_fall_stand][time 14] > [destroy viktor_fall_stand][position player 840 830] > [direction left] This is just a minor setback! > [set mood scared][direction left][talk offscreenpsst][sound snd_vida_talk_shh] Psst! > [direction left]I need a way to avoid that stupid energy field! > [direction left][talk offscreenpsst][sound snd_vida_talk_shh3]PSSST! > [direction left]I either got concussion-induced hallucinations, or I hear a bug spray. > [talk offscreenpsst][sound snd_vida_talk_shh2][time 45]PSSSSST PSSS PSSST!!! > What the... > [animation player spr_viktor_talk_right 0][create vida_gets_in][move vida_gets_in 180 26][time 12][direction right] > [animation player spr_viktor_talk_right 0] r[move vida_gets_in 180 0][time 50] > [destroy vida_gets_in][create vida] > [active vida][conversation vida start] > [animation vida spr_vida_exit][move vida 0 30] > [animation viktor spr_viktor_letter1] > [animation viktor spr_viktor_letter2] We find you acceptable to join our revolutionary cause. Meet us at the copper garter bar in Prague. This message is self-destructing while you are reading it. > [animation viktor spr_viktor_letter3][sound snd_letter_burn][time 70] > [sound snd_letter_burn][time 140] > Well, I always wanted to visit Prague... > [fade in 0.03]"
+			"entrance": "[position player 9880 9830][time 60][animations player spr_viktor_fell] > [sound snd_clock_break][set mood angry][draw spr_viktor_falling 1010 580 60 0 -0.3 1 0 15 90 3][time 60] > [create vida_front][time 40] > [move vida_front 180 30][time 30] > [animations player spr_cloud_medium][destroy vida_front][draw spr_viktor_falling 810 -140 25 -900 -0.56 1 180 35 270 5][time 25] > [draw spr_cloud_medium 840 830 10 -1000 1 1 0 15 45 0 0 0 -0.1][draw spr_cloud_medium 830 830 10 -1000 1 1 0 15 140 0 0 0 -0.1][draw spr_cloud_medium 830 810 10 -1000 1 1 0 15 90 0 0 0 -0.1][draw spr_cloud_medium 830 830 10 -1000 1 1 0 15 300 0 0 0 -0.1][create viktor_fell][sound snd_viktor_kick2][time 50] > [destroy viktor_fell][create viktor_fall_stand][time 14] > [destroy viktor_fall_stand][position player 840 830] > [direction left] This is just a minor setback! > [set mood scared][direction left][talk offscreenpsst][sound snd_vida_talk_shh] Psst! > [direction left]I need a way to avoid that stupid energy field! > [direction left][talk offscreenpsst][sound snd_vida_talk_shh3]PSSST! > [direction left]I either got concussion-induced hallucinations, or I hear a bug spray. > [talk offscreenpsst][sound snd_vida_talk_shh2][time 45]PSSSSST PSSS PSSST!!! > What the... > [animation player spr_viktor_talk_right 0][create vida_gets_in][move vida_gets_in 180 26][time 12][direction right] > [animation player spr_viktor_talk_right 0] r[move vida_gets_in 180 0][time 50] > [destroy vida_gets_in][create vida] > [active vida][conversation vida start] > [animation vida spr_vida_exit][move vida 0 30] > [animation viktor spr_viktor_letter1] > [animation viktor spr_viktor_letter2] We find you acceptable to join our revolutionary cause. Meet us at the copper garter bar in Prague. This message is self-destructing while you are reading it. > [animation viktor spr_viktor_letter3][sound snd_letter_burn][time 70] > [sound snd_letter_burn][time 140] > Well, I always wanted to visit Prague... > [fade in 0.03][time 60] > [fade][room map_vienna_prague start]"
 		}],
 		"objects": [{
 			"alias": "beaver",
@@ -3597,7 +3632,8 @@
 		"rgb": "200,232,235",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[set passguess 0][position player 300 670][sound snd_gramophone][set alreadywent 0][set tried_dumb_flag 0] This looks cozy. > Now to find those anarchists. > They probably have armies, bombs and whatnot."
+			"entrance": "[set passguess 0][position player 300 670][sound snd_gramophone][set alreadywent 0][set tried_dumb_flag 0] This is the end of part 1, it is around 40% of the game, I hope you had fun. > [finish]",
+			"entrance2": "[set passguess 0][position player 300 670][sound snd_gramophone][set alreadywent 0][set tried_dumb_flag 0] This looks cozy. > Now to find those anarchists. > They probably have armies, bombs and whatnot."
 		}, {
 			"alias": "toilet_exit",
 			"entrance": "[position player 1114 592][sound snd_gramophone] > [if alreadywent = 0] This was quite inspirational. Except for the smell. > [set alreadywent 1]"

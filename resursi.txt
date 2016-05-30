@@ -1,5 +1,4 @@
-SOUNDS
-
+sounds
 snd_anteater_talk
 snd_anteater_talk10
 snd_anteater_talk11
@@ -261,6 +260,12 @@ snd_pickup
 snd_pobran
 snd_pot_boil
 snd_pot_water
+snd_priest_idle
+snd_priest_idle2
+snd_priest_idle3
+snd_priest_idle4
+snd_priest_idle5
+snd_priest_idle6
 snd_priest_laugh_1
 snd_priest_laugh_2
 snd_priest_talk
@@ -275,12 +280,22 @@ snd_priest_talk_6
 snd_priest_talk_7
 snd_priest_talk_8
 snd_priest_talk_9
-snd_priest_vomit
-snd_priest_vomit_2
-snd_priest_vomit_3
-snd_priest_vomit_4
-snd_priest_vomit_5
-snd_priest_vomit_6
+snd_rabbit_cake
+snd_rabbit_pants_talk
+snd_rabbit_pants_talk10
+snd_rabbit_pants_talk11
+snd_rabbit_pants_talk12
+snd_rabbit_pants_talk13
+snd_rabbit_pants_talk14
+snd_rabbit_pants_talk15
+snd_rabbit_pants_talk2
+snd_rabbit_pants_talk3
+snd_rabbit_pants_talk4
+snd_rabbit_pants_talk5
+snd_rabbit_pants_talk6
+snd_rabbit_pants_talk7
+snd_rabbit_pants_talk8
+snd_rabbit_pants_talk9
 snd_rabbit_talk
 snd_rabbit_talk10
 snd_rabbit_talk11
@@ -297,6 +312,14 @@ snd_rabbit_talk7
 snd_rabbit_talk8
 snd_rabbit_talk9
 snd_rhino_magic
+snd_rhino_sweeping_talk
+snd_rhino_sweeping_talk2
+snd_rhino_sweeping_talk3
+snd_rhino_sweeping_talk4
+snd_rhino_sweeping_talk5
+snd_rhino_sweeping_talk6
+snd_rhino_sweeping_talk7
+snd_rhino_sweeping_talk8
 snd_rhino_talk
 snd_rhino_talk2
 snd_rhino_talk3
@@ -307,6 +330,7 @@ snd_rhino_talk7
 snd_rhino_talk8
 snd_roaches_hit
 snd_roaches_miss
+snd_rossini
 snd_saens
 snd_station_dog_talk
 snd_station_dog_talk2
@@ -342,7 +366,6 @@ snd_tunnel_stone3
 snd_vase_break
 snd_vase_sing
 snd_vase_sing2
-snd_verdi
 snd_vida_talk
 snd_vida_talk2
 snd_vida_talk3
@@ -397,21 +420,16 @@ snd_viktor_talk7
 snd_viktor_talk8
 snd_viktor_talk9
 snd_viktor_talk_angry
-snd_viktor_talk_angry10
-snd_viktor_talk_angry11
 snd_viktor_talk_angry2
 snd_viktor_talk_angry3
 snd_viktor_talk_angry4
 snd_viktor_talk_angry5
 snd_viktor_talk_angry6
 snd_viktor_talk_angry7
-snd_viktor_talk_angry8
-snd_viktor_talk_angry9
 snd_walk
 snd_window
-			   
-BACKGROUNDS
 
+backgrounds
 bcg_agram
 bcg_black
 bcg_coupe
@@ -439,10 +457,7 @@ bcg_tower
 bcg_viktorsRoom
 bcg_world
 
-SPRITES
-
-snd_coupe_walrus_watch
-snd_rabbit_dress
+images
 spr_action_inventory
 spr_action_kick
 spr_action_look
@@ -455,6 +470,7 @@ spr_agram_tram
 spr_agram_wire
 spr_anteater
 spr_anteater_give
+spr_anteater_idle
 spr_anteater_take
 spr_anteater_talk
 spr_anteater_walk
@@ -491,18 +507,24 @@ spr_coupe_walrus_idle
 spr_coupe_walrus_idle_hat
 spr_coupe_walrus_idle_smoke
 spr_coupe_walrus_talk
+spr_coupe_walrus_watch
+spr_cursor_interface
 spr_cursor_inventory
 spr_cursor_inventory_active
 spr_cursor_kick
 spr_cursor_kick_active
+spr_cursor_kick_interface
 spr_cursor_look
 spr_cursor_look_active
+spr_cursor_look_interface
 spr_cursor_menu
 spr_cursor_roaches
 spr_cursor_talk
 spr_cursor_talk_active
+spr_cursor_talk_interface
 spr_cursor_use
 spr_cursor_use_active
+spr_cursor_use_interface
 spr_cursor_wait
 spr_cursor_walk
 spr_cursor_walk_active
@@ -567,6 +589,7 @@ spr_emperor_idle
 spr_emperor_idle2
 spr_emperor_talk
 spr_emperor_talk_laugh
+spr_empty
 spr_fight_background
 spr_fight_light_A1
 spr_fight_light_A2
@@ -597,6 +620,7 @@ spr_frog_idle
 spr_frog_idle_swing
 spr_frog_talk
 spr_frog_talk_smart
+spr_full
 spr_garden_fountain
 spr_garden_hose_base
 spr_garden_hose_top
@@ -608,6 +632,7 @@ spr_garden_water_small
 spr_garden_water_start
 spr_horse1
 spr_horse1_idle
+spr_horse1_idle1
 spr_horse1_idle2
 spr_horse1_idle3
 spr_horse1_listen
@@ -617,6 +642,7 @@ spr_horse1_talk
 spr_horse1_talk_right
 spr_horse2
 spr_horse2_idle
+spr_horse2_idle1
 spr_horse2_idle2
 spr_horse2_idle3
 spr_horse2_listen
@@ -664,6 +690,7 @@ spr_item_flower
 spr_item_gramophone
 spr_item_key
 spr_item_keys
+spr_item_kilt
 spr_item_log
 spr_item_map
 spr_item_mug
@@ -692,7 +719,7 @@ spr_kafka_listen_idle3
 spr_kafka_talk
 spr_lake
 spr_lake_idle
-spr_lake_idle2
+spr_lake_listen
 spr_lake_smile
 spr_lake_talk
 spr_leaves
@@ -714,6 +741,9 @@ spr_matilda_talk_left
 spr_matilda_talk_left_angry
 spr_matilda_talk_right
 spr_matilda_talk_right_angry
+spr_matilda_tavern
+spr_matilda_tavern_talk
+spr_matilda_tavern_talk_angry
 spr_matilda_walk_back
 spr_matilda_walk_front
 spr_matilda_walk_left
@@ -753,7 +783,9 @@ spr_palaceOutside_star_small
 spr_palaceOutside_walls_day
 spr_palaceOutside_walls_night
 spr_palace_automaton_bear
+spr_palace_automaton_bear_open
 spr_palace_automaton_bull
+spr_palace_automaton_bull_open
 spr_palace_chandelier
 spr_palace_chandelier_cracked
 spr_palace_chandelier_fall
@@ -775,13 +807,14 @@ spr_phone_button
 spr_plant_rustle
 spr_priest
 spr_priest_back
-spr_priest_back_vomit
+spr_priest_back_idle
 spr_priest_idle
 spr_priest_idle2
 spr_priest_talk
 spr_rabbit
 spr_rabbit_cake1
 spr_rabbit_cake2
+spr_rabbit_dress
 spr_rabbit_idle
 spr_rabbit_idle_clap
 spr_rabbit_idle_think
@@ -802,7 +835,6 @@ spr_rhino_broom_talk
 spr_rhino_broom_walk
 spr_rhino_idle
 spr_rhino_listen
-spr_rhino_play
 spr_rhino_talk
 spr_roach
 spr_roaches_roach
@@ -906,6 +938,7 @@ spr_various_black
 spr_various_cloud_down
 spr_various_cloud_left
 spr_various_cloud_phone
+spr_various_cloud_reverse
 spr_various_cloud_right
 spr_various_cloud_talk
 spr_various_cloud_think
@@ -989,9 +1022,9 @@ spr_viktorsRoom_pot2
 spr_viktorsRoom_pots
 spr_viktorsRoom_teapot
 spr_viktorsRoom_teapot_broken
+spr_viktorsRoom_toilet
 spr_viktorsRoom_trin
 spr_viktorsRoom_tub_clean
-spr_viktorsRoom_tub_roaches
 spr_viktorsRoom_tub_roaches2
 spr_viktorsRoom_umbrella
 spr_viktorsRoom_vase_broken
@@ -1035,6 +1068,7 @@ spr_viktor_listen_idle_front
 spr_viktor_listen_idle_front_angry
 spr_viktor_listen_idle_left
 spr_viktor_listen_idle_left_angry
+spr_viktor_listen_idle_left_coupe
 spr_viktor_listen_idle_left_scared
 spr_viktor_listen_idle_right
 spr_viktor_listen_idle_right_angry
@@ -1043,6 +1077,7 @@ spr_viktor_listen_idle_right_scared
 spr_viktor_listen_left
 spr_viktor_listen_left_angry
 spr_viktor_listen_left_coupe
+spr_viktor_listen_left_coupe_scared
 spr_viktor_listen_left_scared
 spr_viktor_listen_right
 spr_viktor_listen_right_angry
@@ -1098,3 +1133,5 @@ spr_viktor_walk_left
 spr_viktor_walk_left_angry
 spr_viktor_walk_right
 spr_viktor_walk_right_angry
+             676 File(s)        776.814 bytes
+               3 Dir(s)  38.418.739.200 bytes free

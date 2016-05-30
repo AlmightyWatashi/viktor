@@ -1,4 +1,4 @@
-﻿=== version ===
+=== version ===
 
 0.00 wat dodao probno noama
 0.01 alex ubacio u program
@@ -290,7 +290,8 @@ Since you put it that way, I might be able to help.
 		Whoa, wait just a second. > This part of the plan where I have to leave my house... > You know I have to walk my neighbour's uncle every other afternoon as community service.
 			- Then you also don't do the part of the plan where you rule the country with me 
 				[section acting_up]
-			- What, did you think that you'll manage to help me from home?
+			- What, did you think that you'd manage to help me from home?
+				[section acting_up]
 	- Wonderful. With my strength and your wisdom, we'll conquer the empire! 
 		[section wisdom]
 
@@ -461,7 +462,7 @@ Who dares to bother me just as I wanted to take a short break in my bath?
 	+ Martin, it's me, Viktor.
 		Viktor! > You survived! > My third eye told me you wouldn't survive your trip!
 			[section palace_hello]
-	+ Quit your whining, Martin. I have urgent question.
+	+ Quit your whining, Martin. I have urgent questions.
 		For you, Viktor, I'm willing to work even from my bath.
 			[section palace_hello]
 	+ Actually, you just inspired me to do something. See ya.
@@ -485,8 +486,7 @@ end
 				He is prone to bribes.
 				Not because he needs it, but because he likes it.
 				Give him something nice.
-				And you also said beaver?
-					[section some questions]
+					[section somequestions]
 			- Yes, what about the beaver?
 				He always wanted to be an actor!
 					So, I should try acting in front of him?
@@ -570,8 +570,6 @@ Shalom, me lad.
 	+[if item kilt][not item wig] I got this dress, can I pass as a Scotsman?
 		[section kilt]
 	+[if item dress][if item wig] I got this dress and this wig, can I pass as a Jewish-Scotsman?
-		Aye, a kilt and a payot, that's the ticket, laddy!
-			Speaking of tickets...
 				[section everything] 
 		
 	+ Never mind.
@@ -600,7 +598,8 @@ end
 
 end	
 == everything ==
-
+Aye, a kilt and a payot, that's the ticket, laddy!
+	Speaking of tickets...
 	Can I get yours now?
 		But you dinnae be lookin' like an athlete!
 			I'll just say I'm a sumo wrestler.
@@ -610,7 +609,8 @@ end
 				Ten crowns, please
 					But the ticket is worth five crowns!
 						I just be teachin' ya how a Jewish Scottsman thinks, lad.
-						[take ticket] > Off ye go.
+						[take ticket]
+						Off ye go.
 						[end]
 
 end	
@@ -749,11 +749,10 @@ end
 
 I also sell wigs.
 Wigs earn tons of money.
-[set wig_flag 1]
 Possibly too much. So I decided to help out the philosophy circle.
 [mood frog smart] Free wigs for all philosophers!
 	+[if needs_wig = 1] So, can I get a free wig? I've always wanted to have long and curly hair.
-		[mood frog smart] You, my boy, look way too sober to be a philosopher.
+		[mood frog smart][set wig_flag 1] You, my boy, look way too sober to be a philosopher.
 			[section viktor_philosophy]
 	+ That's noble of you, I guess.
 		I'm noble all over!
@@ -818,7 +817,7 @@ When you prove that you're a good philosopher, you can get a wig.
 		[set brojtocnih 0]
 		Question one!
 		What is life?
-			+ Not beeing dead?
+			+ Not being dead?
 				[add brojtocnih 1] Yesh, um, good. Cosa Nostra philosophy would let that one slide.
 				So the answer is correct!
 					[section pitanje2]
@@ -1036,7 +1035,8 @@ end
 		Nope my friend it will leave for Sarajevo.
 		Yeeea it will go for Wiena you illiterate piggy.
 		[mood donkey angry] Can't you read your ticket, dumbass?
-			+ No, you dumbass because I don't, in fact, have a ticket.
+			++ No, you dumbass because I don't, in fact, have a ticket.
+			[mood angry] No, you dumbass because I don't, in fact, have a ticket.
 				Well that's your problem. 
 				 [section start]
 	+ Never mind.
@@ -1081,7 +1081,8 @@ Is that a deal, mushroom eater?
 		Ooo piggy is still trying to provoke me.
 		I have a joke for you Cro piggy pig.
 		Croatian gets into a coffe shop in Sarajevo.
-			+ I'm not in the mood for this.
+			++ I'm not in the mood for this.
+			[mood angry] I'm not in the mood for this.
 				He says please one coffe!
 				We have none.
 				How come?
@@ -1130,10 +1131,13 @@ end
 == buy ==
 
 Is that 5 coins?
-	+[not coins < 5] Yes, I would like to buy a ticket.
-		[take ticket] Here you go Mr. bigshot.
-		[direction front] Well, this really really made me happy.
-		[direction front] My plan is going perfectly!			
+	+[if coins = 5] Yes, I would like to buy a ticket.
+		Enjoy your trip, sir.
+		I hope you die in a crash.
+		[if coins = 5][give coin]
+		[take ticket][set coins 0]
+			[direction front] Well, this really really made me happy.
+			[direction front] My plan is going perfectly!			
 			[end]
 	+ Never mind
 		[end]
@@ -1309,12 +1313,6 @@ end
 == start ==
 [if cleanup = 1] [section away]
 What?
-	+ TEST THROW STUFF
-		[section throwstuff]
-	+ TEST MAKE ME ANGRY
-		Ok
-		[set mood angry]
-		[end]
 	+ What products do you sell at this kiosk?
 		What does it look like, sonny?
 			+[if cow_fun_flag = 1] So, you don't have any newspapers?
@@ -1355,7 +1353,7 @@ end
 [set mood scared]
 Whatever floats your rock, son.
 Ticket to Vienna will be five crowns
-Do you even have that much? I belive not.
+Do you even have that much? I believe not.
 	+ I do not, in fact, have that much, but thank you for your concern.
 		Goodbye. Don't come back ever again.
 			++ I'll come back if I feel like it.
@@ -1377,14 +1375,14 @@ Do you even have that much? I belive not.
 								Come again.
 								Or even better, don't.
 									[end]
-	+[not coins < 5] Yes, here are five copper crowns.
+	+[if coins = 5] Yes, here are five copper crowns.
 		Are you sure you want to buy it?
 			+ Let me think about it, actually
 				You can think while I eat.
 				Good bye.
 					[end]
 			+ Yes, I want the ticket.
-				(temporary end)
+				[give coin][take ticket][set coins 0]
 				[end]
 
 end		
@@ -1611,11 +1609,12 @@ end
 == viktor_angry ==
 	+ What the hell are you doing in my work spot?
 		Viktor, friend. Your anger has taken you again.
-		Remember the breathing.
 		[set mood]
-		[snd_rhino_magic]
+		[sound snd_rhino_magic] Remember the breathing.
 		Better?
-			[end]
+			+ Yes, breathing. > Thanks Attar.
+				Any time, Viktor.
+					[end]
 
 
 end
@@ -1685,9 +1684,9 @@ end
 		I didn't know the empire plans on switching to democratic elections.
 		[set ouster_talked 1]
 			+ I'm not sure what you mean by ''elections''.
-			But I heard of ''democracy''. It's when idiotic majority rules over the intelligend minority.
+			But I heard of ''democracy''. It's when idiotic majority rules over the intelligent minority.
 				When you simplify it that much, yes, it's something like that.
-				But democracy might have it's advantages and opportunities.
+				But democracy might have its advantages and opportunities.
 				Especially for an eloquent person of the lower class, such as yourself.
 					[section hello]		
 	-[if ouster_talked = 1] I'm actually traveling to Vienna to oust the emperor.
@@ -1817,7 +1816,7 @@ end
 				Marvelous idea!
 				[set mood angry]
 				[talk hyena] Not!
-				[talk hyena] HAHAHAHAHAHAHAHAHAHA
+				[talk hyena][mood hyena laugh] HAHAHAHAHAHAHAHAHAHA
 				[set mood]
 					[section army]
 			+ Could you give me some ideas how a person could enter the palace?
@@ -1830,14 +1829,14 @@ end
 				[talk hyena] hihihih yes
 				[talk hyena] First from us, then from the commander.
 				[talk hyena] We are so good today
-				[talk hyena] hihihih so good khh khhh we are like angels
-				[talk hyena] hihihih angels hi hi
+				[talk hyena][mood hyena laugh] hihihih so good khh khhh we are like angels
+				[talk hyena][mood hyena laugh] hihihih angels hi hi
 				[set mood]
 					+ Do you know the name of your new guard commander?
 						No, we never saw him.
 						But he is coming.
 						[talk hyena] so you better run
-						[talk hyena] hihihhhi
+						[talk hyena][mood hyena laugh] hihihhhi
 						[set commander_flag 1]
 							[end]
 	+[if commander_flag = 1] ATTENTION! I am your guard commander.
@@ -1910,8 +1909,8 @@ We plan on smashing them, crushing them and showing them their place in this geo
 				[section hello]
 	+ Your highness, I wish to exclaim that you are not competent enough to rule this kingdom.
 	== handover ==
-	Please hand over your throne and your crown, so I can take your place.
-		First of all, you slavic nincompoop.
+	Please, hand over your throne and your crown, so I can take your place.
+		First of all, you Slavic nincompoop.
 		[set mood angry]
 		I'm an Austrian.
 		Second of all...
@@ -1919,7 +1918,7 @@ We plan on smashing them, crushing them and showing them their place in this geo
 		Third, I'm the legal heir to the throne
 		And most importantly,
 		I don't feel like getting up
-		[talk hyena] hahahahahaha
+		[talk hyena][cloud reverse][mood hyena laugh] hahahahahaha
 		So please hang yourself right now and spare us from the needless paperwork
 			+ Just get off the throne or I'll pull you down.
 				Listen you insane bum.
@@ -1928,12 +1927,12 @@ We plan on smashing them, crushing them and showing them their place in this geo
 				You foul-smelling leftover!
 				You outdated fertilizer!
 				You... pig!
-				(animacija di se dignu zastori i vide se automatoni koje nisam složio)
-				Are you aware that I'm protected with the finest automatons in this part of the world?
+				[time 150][move palace_curtain_left 90 3][move palace_curtain_right 90 3]
+				[move palace_curtain_left 90 0][move palace_curtain_right 90 0] Are you aware that I'm protected with the finest automatons in this part of the world?
 					+ I was, in fact, not aware of that, you pompous mutt.
-						Ha ha ha ha ha.
-						[talk hyena] hahahahahaha
-							[section tired]
+						[mood emperor laugh]Ha ha ha ha ha.
+						[talk hyena][cloud reverse] hahahahahaha
+							[cloud talk][section tired]
 					+ Hah, someone sold you security automatons with exposed firebox.
 					Your business skills are even worse then your governing abilities.
 						[section tired]
@@ -1942,18 +1941,20 @@ We plan on smashing them, crushing them and showing them their place in this geo
 
 I grow tired of this tirade.
 	+ Yes, it is time to finish it.
-	(animacija sa strujom GZZT GZZT)
-	[set mood scared]
+	[time 10][animations player spr_viktor_walk_back][move player 90 6]
+	[time 60][animation player spr_viktor_shock][imagespeed player 1][music snd_dirigibles_power][move player 270 1]
+	[mute snd_dirigibles_power][set mood scared]
 	Hmm... there seems to be a lot of static in the air.
 	[set mood]
-	Oh well, let's finally do this
-	(animacija sa strujom GZZT GZZT)
-	[set mood angry]
+	Oh well, let's finally do this.
+	[time 10][animations player spr_viktor_walk_back][move player 90 6]
+	[time 60][animation player spr_viktor_shock][imagespeed player 1][music snd_dirigibles_power][move player 270 1]
+	[mute snd_dirigibles_power][set mood angry]
 	What the hell is going on?
-	[talk hyena] hahahahahaha
-		Oh, I see that you are also not aware of the electric force field around the throne?
+	[talk hyena][cloud reverse][mood hyena laugh] hahahahahaha
+		[cloud talk] Oh, I see that you are also not aware of the electric force field around the throne?
 		This was a lot of fun.
-		But unfortunately, my automaton needs to show you some basic gravitational physics.
+		But unfortunately, my automatons need to show you some basic gravitational physics.
 			[end]
 
 end	
