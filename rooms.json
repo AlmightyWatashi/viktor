@@ -26,7 +26,7 @@
 		"border": "spr_various_token",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[if mood angry][set moodangry 1] > [if mood][set moodangry 0] > [position player 200 850][set mood phone][active martinsRoom_martin] > [if previousRoom viktorsRoom][conversation martin beginning] > [if previousRoom viktorsRoom][skip 3] > [if previousRoom station_down][conversation martin station] > [if previousRoom station_down][skip 4] > [if previousRoom station_up][conversation martin station] > [if previousRoom station_up][skip 1] > [if previousRoom palace_outside][conversation martin palace] > [room previous return]"
+			"entrance": "[if mood angry][set moodangry 1] > [if mood][set moodangry 0] > [position player 200 850][set mood phone][active martinsRoom_martin] > [if previousRoom viktorsRoom][conversation martin beginning] > [if previousRoom station_down][conversation martin station] > [if previousRoom station_up][conversation martin station] > [if previousRoom palace_outside][conversation martin palace] > [room previous return]"
 		}],
 		"objects": [{
 			"alias": "martinsRoom_martin",
@@ -129,7 +129,7 @@
 			"entrance_old": "[cloud player 100 0][position player 577 290][direction left][set mood coupe] I saved the day! > And now to become the emperor. > [set mood][cloud player 50 300][room title_palace start]"
 		}, {
 			"alias": "lost",
-			"entrance": "[shake 2 6000][position player 9000 290][active coupe_walrus][other] Dear me, dear me, it seems that we are plunging into our deaths. > [position player 9000 290][active coupe_walrus][other] Good thing I brought my trusty time machine with me. > [animation coupe_walrus spr_coupe_walrus_watch][time 20] > [fade in 0.03 -9999 spr_various_token][time 40] > [shake 0 0][fade][room dirigibles start]"
+			"entrance": "[shake 2 6000][destroy coupe_clouds1][destroy coupe_clouds2][destroy coupe_clouds3][destroy coupe_clouds4][destroy coupe_clouds5][destroy coupe_clouds6][destroy coupe_clouds7][destroy coupe_clouds8][destroy coupe_clouds9][destroy coupe_clouds0][create coupe_cloudfall1] > [position player 9000 290][active coupe_walrus][other] Dear me, dear me, it seems that we are plunging into our deaths. > [position player 9000 290][active coupe_walrus][other] Good thing I brought my trusty time machine with me. > [animation coupe_walrus spr_coupe_walrus_watch][time 20] > [fade in 0.03 -9999 spr_various_token][time 40] > [shake 0 0][fade][room dirigibles start]"
 		}],
 		"objects": [{
 			"alias": "coupe_walrus",
@@ -142,6 +142,72 @@
 			
 		},
 		{
+			"alias" : "coupe_cloudfall1",
+			"picture" : "spr_coupe_clouds",
+			"available": 1,
+			"subimage" : 0,
+			"movementSpeed" : 20,			
+			"path" : "path_down",
+			"x" : 200,
+			"y" : 600,
+			"depth" : 2050
+		},
+		{
+			"alias" : "coupe_cloudfall2",
+			"picture" : "spr_coupe_clouds",
+			"available": 1,
+			"subimage" : 1,
+			"movementSpeed" : 10,			
+			"path" : "path_down",
+			"x" : 300,
+			"y" : 800,
+			"depth" : 2050
+		},
+		{
+			"alias" : "coupe_cloudfall3",
+			"picture" : "spr_coupe_clouds",
+			"available": 1,
+			"subimage" : 2,
+			"movementSpeed" : 12,			
+			"path" : "path_down",
+			"x" : 500,
+			"y" : 1100,
+			"depth" : 2050
+		},
+		{
+			"alias" : "coupe_cloudfall4",
+			"picture" : "spr_coupe_clouds",
+			"available": 1,
+			"subimage" : 3,
+			"movementSpeed" : 10,			
+			"path" : "path_down",
+			"x" : 200,
+			"y" : 2400,
+			"depth" : 2050
+		},
+		{
+			"alias" : "coupe_cloudfall5",
+			"picture" : "spr_coupe_clouds",
+			"available": 1,
+			"subimage" : 4,
+			"movementSpeed" : 15,			
+			"path" : "path_down",
+			"x" : 300,
+			"y" : 1500,
+			"depth" : 2050
+		},
+		{
+			"alias" : "coupe_cloudfall6",
+			"picture" : "spr_coupe_clouds",
+			"available": 1,
+			"subimage" : 5,
+			"movementSpeed" : 10,			
+			"path" : "path_down",
+			"x" : 100,
+			"y" : 2000,
+			"depth" : 2050
+		},
+		{
 			"alias" : "coupe_megaphone",
 			"x" : 600,
 			"y" : 320
@@ -152,8 +218,10 @@
 			"y" : 295,
 			"depth" : 2100
 		},
+		
 		{
-			"alias" : "coupe_clouds",
+			"alias" : "coupe_clouds1",
+			"picture" : "spr_coupe_clouds",
 			"subimage" : 0,
 			"path" : "path_left_long",
 			"x" : 900,
@@ -161,7 +229,8 @@
 			"depth" : 2050
 		},
 		{
-			"alias" : "coupe_clouds",
+			"alias" : "coupe_clouds2",
+			"picture" : "spr_coupe_clouds",
 			"subimage" : 1,
 			"path" : "path_left_long",
 			"x" : 1100,
@@ -169,7 +238,8 @@
 			"depth" : 2050
 		},
 		{
-			"alias" : "coupe_clouds",
+			"alias" : "coupe_clouds3",
+			"picture" : "spr_coupe_clouds",
 			"subimage" : 2,
 			"path" : "path_left_long",
 			"x" : 800,
@@ -177,7 +247,8 @@
 			"depth" : 2050
 		},
 		{
-			"alias" : "coupe_clouds",
+			"alias" : "coupe_clouds4",
+			"picture" : "spr_coupe_clouds",
 			"subimage" : 3,
 			"path" : "path_left_long",
 			"x" : 1350,
@@ -185,7 +256,8 @@
 			"depth" : 2050
 		},
 		{
-			"alias" : "coupe_clouds",
+			"alias" : "coupe_clouds5",
+			"picture" : "spr_coupe_clouds",
 			"subimage" : 4,
 			"path" : "path_left_long",
 			"x" : 1600,
@@ -193,7 +265,8 @@
 			"depth" : 2050
 		},
 		{
-			"alias" : "coupe_clouds",
+			"alias" : "coupe_clouds6",
+			"picture" : "spr_coupe_clouds",
 			"subimage" : 5,
 			"path" : "path_left_long",
 			"x" : 1850,
@@ -201,7 +274,8 @@
 			"depth" : 2050
 		},
 		{
-			"alias" : "coupe_clouds",
+			"alias" : "coupe_clouds7",
+			"picture" : "spr_coupe_clouds",
 			"subimage" : 6,
 			"path" : "path_left_long",
 			"x" : 2000,
@@ -209,7 +283,8 @@
 			"depth" : 2050
 		},
 		{
-			"alias" : "coupe_clouds",
+			"alias" : "coupe_clouds8",
+			"picture" : "spr_coupe_clouds",
 			"subimage" : 7,
 			"path" : "path_left_long",
 			"x" : 2300,
@@ -217,7 +292,8 @@
 			"depth" : 2050
 		},
 		{
-			"alias" : "coupe_clouds",
+			"alias" : "coupe_clouds9",
+			"picture" : "spr_coupe_clouds",
 			"subimage" : 8,
 			"path" : "path_left_long",
 			"x" : 2500,
@@ -225,7 +301,8 @@
 			"depth" : 2050
 		},
 		{
-			"alias" : "coupe_clouds",
+			"alias" : "coupe_clouds0",
+			"picture" : "spr_coupe_clouds",
 			"subimage" : 9,
 			"path" : "path_left_long",
 			"x" : 2810,
@@ -1191,7 +1268,7 @@
 				"hit": "snd_roaches_hit",
 				"miss": "snd_roaches_miss"
 			},
-			"x": 0,
+			"x": 6,
 			"y": 0
 		}, {
 			"available": 1,
@@ -1326,7 +1403,7 @@
 			"entrance": "[soundtrack mozart][mood] And now to wash away the roaches and take a bath.."
 		}, {
 			"alias": "start",
-			"entrance": "[set phone 2][take coin silent][set mood angry][set phone 2][animation spr_viktor_angry][position player 732 795][fade out 0.03][time 30] > [fade] I can't believe I got fired! > [mood]I should take a bath and relax. > But first, I'm going to vent!"
+			"entrance": "[take coin silent][set mood angry][animation spr_viktor_angry][position player 732 795][fade out 0.03][time 30] > [fade] I can't believe I got fired! > [mood] I should take a bath and relax. > But first, I'm going to vent!"
 		}, {
 			"alias": "map",
 			"entrance": "[recall][set mood][if moodangry = 1][set mood angry] > [mood]Well, that was educational."
@@ -1341,7 +1418,7 @@
 			"entrance": "[recall] >[animation player spr_viktor_phone_up] > [animation player spr_viktor_talk_right_phone]Who is it? > [cloud phone][blocksound snd_martinsRoom_martin_talk][animation player spr_viktor_listen_right_phone] It's Martin, who else would it be? > [cloud phone][blocksound snd_martinsRoom_martin_talk2][animation player spr_viktor_listen_right_phone] Anyway, I got no money for phone calls, so call me back, bye! > [animation player spr_viktor_talk_right_phone] Wait Martin, I forgot your phone number... > [blocksound][cloud phone][animation player spr_viktor_listen_right_phone] TOOT-TOOT > [animation player spr_viktor_phone_down] > Now where did I write his number down?! > [set phone 2]"
 		}, {
 			"alias": "callMartin",
-			"entrance": "[recall] >[if phone = 0][animation player spr_viktor_phone_down] > [if phone = 0] That was the phone number of my good friend Martin, but he's not answering right now... > [if phone = 0][skip] > [animation player spr_viktor_phone_up] > [room martinsRoom start]"
+			"entrance": "[recall] > [if phone = 0][animation player spr_viktor_phone_down] > [if phone = 0][mood] That was the phone number of my good friend Martin, but he's not answering right now... > [if phone = 0][skip] > [animation player spr_viktor_phone_up] > [room martinsRoom start]"
 		}, {
 			"alias": "return",
 			"entrance": "[recall][set mood][if moodangry = 1][set mood angry] >[animation player spr_viktor_phone_down] > He hung up... > [set phone 3] > [if phone = 3][destroy viktorsRoom_door_closed_angry][create viktorsRoom_door_closed_happy] Time to conquer the world! > [set phone 3][not item phone][take phone]"
@@ -2226,7 +2303,7 @@
 		"rgb": "229,229,180",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[set mood][set wig_flag 0][set bought_cell_flag 0][position station_tram 200 299][position player 400 700][position station_fence1 87 512][move station_fence1 0 3][time 20][position station_fence2 365 512][move station_fence2 180 3][time 20] > [move station_fence1 0 0][move station_fence2 0 0] Ah, the Agram Dirigibledrome. > I swept these streets too often for my own good."
+			"entrance": "[not item phone][set phone 3][take coin silent][set coins 2][take phone silent] > [set mood][set wig_flag 0][set bought_cell_flag 0][position station_tram 200 299][position player 400 700][position station_fence1 87 512][move station_fence1 0 3][time 20][position station_fence2 365 512][move station_fence2 180 3][time 20] > [move station_fence1 0 0][move station_fence2 0 0] Ah, the Agram Dirigibledrome. > I swept these streets too often for my own good."
 		}, 
 		{
 			"alias" : "return",
@@ -2370,14 +2447,14 @@
 				"description": "Lift",
 				"order": "look,use,use_2,use_2,use_3",
 				"combinations": {
-					"look": "For some people it's a lift that leads to dirgible docks. > For others, it's an emergency toilet.",
+					"look": "For some people it's a lift that leads to dirigible docks. > For others, it's an emergency toilet.",
 					"kick": "[kick right] > [mood angry]Stupid lift!",
 					"use": "[animations player spr_viktor_walk_right][move player 0 5][time 50] > [position 9000 9000][move station_down_lift_cabin 90 5][time 120] > [room station_up start]",
 					"use_2": "[animations player spr_viktor_walk_right][move player 0 5][time 30] > [room station_up start]",
 					"use_3": "[room station_up lift]",
 					"talk": "Hello lift.",
 					"keys": "It's unlocked",
-					"ball": "[animation player spr_viktor_use_right_low] > [move station_down_lift_cabin 90 5]",
+					"ball": "[animation player spr_viktor_use_right_low][give ball] > [move station_down_lift_cabin 90 5]",
 					"pants": "I'm not a superhero. > And these pants don't fit me",
 					"cake": "I think it's too light to make the lift go by itself.",
 					"cell": "It works well enough already",
@@ -2443,7 +2520,7 @@
 					"coin": "[talk station_dog] Oh, I be havin' plenty o' those. > Can I have some? > [talk station_dog] No.",
 					"umbrella": "[talk station_dog]I be preferrin' just angrily yellin' at the rain with me walking stick.",
 					"ticket": "[talk station_dog] Good lad, now off ye go.",
-					"dress": "[set noamsawdress 1] Look at me now. I'm completely Scottish! I have a hat thing and everything! > [talk station_dog] Ach, a fine kilt it be. > [if noamsawwig = 0][talk station_dog] But ye still don' look Jewish, boy. > [if noamsawwig = 0][skip] > [conversation noam everything]",
+					"dress": "[set noamsawdress 1] Look at me now. I'm completely Scottish! I have a hat thing and everything! > [talk station_dog] Ach, a fine kilt it be. > [if noamsawwig = 0][talk station_dog] But ye still don' look Jewish, boy. > [if noamsawwig = 0][skip] > [conversation noam everything]"
 				},
 				"inventory": {
 					"alias": "ticket",
@@ -2684,7 +2761,7 @@
 			}
 		]
 	}, {
-		"comment": "Dirgibledrome, upper floor",
+		"comment": "Dirigibledrome, upper floor",
 		"alias": "station_up",
 		"gui": "default",
 		"scaleNear": 0.75,
@@ -2711,7 +2788,15 @@
 			"entrance" : "[recall][set mood][if moodangry = 1][set mood angry] > I don't have to travel that far, really."
 		}		
 		],
-		"objects": [{
+		"objects": [
+		{
+			"alias": "asskick",
+			"available" : 0,
+			"sounds" : {
+				"default" : "snd_viktor_kick2"
+			}
+		},
+		{
 			"alias": "battery_poking",
 			"available": 0,
 			"x": 410,
@@ -3007,7 +3092,7 @@
 			"description": "Lift",
 			"order": "use",
 			"combinations": {
-				"look": "For some people it's a lift that leads to dirgible docks. > For other people, it's an emergency toilet.",
+				"look": "For some people it's a lift that leads to dirigible docks. > For other people, it's an emergency toilet.",
 				"kick": "Stupid lift! > [viktor spr_viktor_udara_desno]",
 				"use": "[direction right][move player 0 5][time 50] > [position 9000 9000][move station_up_lift_cabin 270 5][time 50] > [room station_down lift]",
 				"use_2": "[direction right][move player 0 5][time 30] > [room station_down lift]",
@@ -3322,6 +3407,8 @@
 		"background": "",
 		"border": "spr_border_viktorsRoom",
 		"rgb": "200,232,235",
+		"xCloudPlayer": -10,
+		"yCloudPlayer": 350,
 		"entrances": [{
 			"alias": "start",
 			"entrance": "[zoom 0 0][fade out 0.05][position player 617 952][animation player spr_viktor_walk_back 0][direction back][active emperor][conversation emperor start] > [room title_palace_2 start]"
@@ -3340,7 +3427,7 @@
 			"alias" : "palace_automaton_bull",
 			"visible":1,
 			"x" : 124,
-			"y" : 401,
+			"y" : 424,
 			"xScale" : 0.45,
 			"yScale" : 0.45,
 			"depth" : -1000
@@ -3349,7 +3436,7 @@
 			"alias" : "palace_automaton_bear",
 			"visible":1,
 			"x" : 908,
-			"y" : 394,
+			"y" : 421,
 			"xScale" : 0.45,
 			"yScale" : 0.45,
 			"depth" : -1000
@@ -3374,8 +3461,8 @@
 			"alias": "emperor",
 			"visible" : 1,
 			"cloud": "left",
-			"xCloud": 650,
-			"yCloud": 300,
+			"xCloud": 450,
+			"yCloud": 270,
 			"xScale": 0.63,
 			"yScale": 0.63,
 			"x": 477,
@@ -3404,9 +3491,15 @@
 		"rgb": "200,232,235",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[position player 9880 9830][time 60][animations player spr_viktor_fell] > [sound snd_clock_break][set mood angry][draw spr_viktor_falling 1010 580 60 0 -0.3 1 0 15 90 3][time 60] > [create vida_front][time 40] > [move vida_front 180 30][time 30] > [animations player spr_cloud_medium][destroy vida_front][draw spr_viktor_falling 810 -140 25 -900 -0.56 1 180 35 270 5][time 25] > [draw spr_cloud_medium 840 830 10 -1000 1 1 0 15 45 0 0 0 -0.1][draw spr_cloud_medium 830 830 10 -1000 1 1 0 15 140 0 0 0 -0.1][draw spr_cloud_medium 830 810 10 -1000 1 1 0 15 90 0 0 0 -0.1][draw spr_cloud_medium 830 830 10 -1000 1 1 0 15 300 0 0 0 -0.1][create viktor_fell][sound snd_viktor_kick2][time 50] > [destroy viktor_fell][create viktor_fall_stand][time 14] > [destroy viktor_fall_stand][position player 840 830] > [direction left] This is just a minor setback! > [set mood scared][direction left][talk offscreenpsst][sound snd_vida_talk_shh] Psst! > [direction left]I need a way to avoid that stupid energy field! > [direction left][talk offscreenpsst][sound snd_vida_talk_shh3]PSSST! > [direction left]I either got concussion-induced hallucinations, or I hear a bug spray. > [talk offscreenpsst][sound snd_vida_talk_shh2][time 45]PSSSSST PSSS PSSST!!! > What the... > [animation player spr_viktor_talk_right 0][create vida_gets_in][move vida_gets_in 180 26][time 12][direction right] > [animation player spr_viktor_talk_right 0] r[move vida_gets_in 180 0][time 50] > [destroy vida_gets_in][create vida] > [active vida][conversation vida start] > [animation vida spr_vida_exit][move vida 0 30] > [animation viktor spr_viktor_letter1] > [animation viktor spr_viktor_letter2] We find you acceptable to join our revolutionary cause. Meet us at the copper garter bar in Prague. This message is self-destructing while you are reading it. > [animation viktor spr_viktor_letter3][sound snd_letter_burn][time 70] > [sound snd_letter_burn][time 140] > Well, I always wanted to visit Prague... > [fade in 0.03][time 60] > [fade][room map_vienna_prague start]"
-		}],
-		"objects": [{
+			"entrance": "[position player 9880 9830][time 60][animations player spr_viktor_fell] > [sound snd_clock_break][set mood angry][draw spr_viktor_falling 1010 580 60 0 -0.3 1 0 15 90 3][time 60] > [create vida_front][time 40] > [move vida_front 180 30][time 30] > [animations player spr_cloud_medium][destroy vida_front][draw spr_viktor_falling 810 -140 25 -900 -0.56 1 180 35 270 5][time 25] > [draw spr_cloud_medium 840 830 10 -1000 1 1 0 15 45 0 0 0 -0.1][draw spr_cloud_medium 830 830 10 -1000 1 1 0 15 140 0 0 0 -0.1][draw spr_cloud_medium 830 810 10 -1000 1 1 0 15 90 0 0 0 -0.1][draw spr_cloud_medium 830 830 10 -1000 1 1 0 15 300 0 0 0 -0.1][create viktor_fell][sound snd_viktor_kick2][time 50] > [destroy viktor_fell][create viktor_fall_stand][time 14] > [destroy viktor_fall_stand][position player 840 830] > [direction left] This is just a minor setback! > [set mood scared][direction left][talk offscreenpsst][sound snd_vida_talk_shh] Psst! > [direction left]I need a way to avoid that stupid energy field! > [direction left][talk offscreenpsst][sound snd_vida_talk_shh3]PSSST! > [direction left]I either got concussion-induced hallucinations, or I hear a bug spray. > [talk offscreenpsst][sound snd_vida_talk_shh2][time 45]PSSSSST PSSS PSSST!!! > What the... > [animation player spr_viktor_talk_right 0][create vida_gets_in][move vida_gets_in 180 26][time 12][direction right] > [animation player spr_viktor_talk_right 0][move vida_gets_in 180 0][time 50] > [destroy vida_gets_in][create vida] > [active vida][conversation vida start] > [animation vida spr_vida_exit][move vida 0 30] > [animation viktor spr_viktor_letter1] > [animation viktor spr_viktor_letter2] We find you acceptable to join our revolutionary cause. Meet us at the copper garter bar in Prague. This message is self-destructing while you are reading it. > [animation viktor spr_viktor_letter3][sound snd_letter_burn][time 70] > [sound snd_letter_burn][time 140] > Well, I always wanted to visit Prague... > [fade in 0.03][time 60] > [fade][room map_vienna_prague start]"
+		},
+		{
+			"alias" : "test",
+			"entrance" : "[position player 840 825][create vida][position vida 912 611][active vida][conversation vida package] > [animation vida spr_vida_exit][move vida 0 30] > [animation viktor spr_viktor_letter1] > [animation viktor spr_viktor_letter2] We find you acceptable to join our revolutionary cause. Meet us at the copper garter bar in Prague. This message is self-destructing while you are reading it. > [animation viktor spr_viktor_letter3][sound snd_letter_burn][time 70] > [sound snd_letter_burn][time 140] > Well, I always wanted to visit Prague... > [fade in 0.03][time 60] > [fade][room map_vienna_prague start]"
+		}
+		],
+		"objects": [
+		{
 			"alias": "beaver",
 			"x": 350,
 			"y": 600,
@@ -3653,7 +3746,7 @@
 		"rgb": "200,232,235",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[set passguess 0][position player 300 670][sound snd_gramophone][set alreadywent 0][set tried_dumb_flag 0] This is the end of part 1, it is around 40% of the game, I hope you had fun. > [finish]",
+			"entrance": "[set passguess 0][position player 300 670][sound snd_gramophone][set alreadywent 0][set tried_dumb_flag 0] This is the end of part 1, it is around 40% of the game, I hope you had fun. > [fade in 0.03][time 120] > [finish]",
 			"entrance2": "[set passguess 0][position player 300 670][sound snd_gramophone][set alreadywent 0][set tried_dumb_flag 0] This looks cozy. > Now to find those anarchists. > They probably have armies, bombs and whatnot."
 		}, {
 			"alias": "toilet_exit",
@@ -3926,8 +4019,8 @@
 			"depth": -177,
 			"xScale": 0.5,
 			"yScale": 0.5,
-			"x": 850,
-			"y": 330,
+			"x": 950,
+			"y": 500,
 			"xCloud": 850,
 			"yCloud": 300,
 			"xInteract": 730,

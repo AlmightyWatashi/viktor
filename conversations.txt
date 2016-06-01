@@ -63,7 +63,8 @@ How much money do you have?
 	+Umm... I might have a copper crown or two on me...
 		You are still worth more as pork chops.
 			+[not coins < 1] But look! A real coin! So shiny!
-				(ending animation)
+				[give coin]
+				(ADD COIN ANIMATION HERE)
 				[end]
 			+ Could we take care of this some other way?
 				You said that in a strange tone of voice.
@@ -624,7 +625,7 @@ Aye, it is.
 
 Shalom, lad.
 	+ What'cha looking at, Scottface?
-		I be lookin' at the wonderful scenery of this dirgibledrome
+		I be lookin' at the wonderful scenery of this dirigibledrome
 			+ Oh piss off.
 				[end]
 	+ Give me some money, you stingy piece of shit!
@@ -1000,7 +1001,7 @@ end
 
 == start ==
 [set talked_to_donkey 1]
-	+ I would like to enter the dirgible
+	+ I would like to enter the dirigible
 		And you ticket is where?
 			+[if item ticket] Here it is!
 				OK, the ticket is good, go on!
@@ -1022,7 +1023,7 @@ end
 		Did you smoke some wierd shit man?
 		[mood donkey angry] What the fuck are you bullshiting around here.
 		[mood donkey angry] You lasagna eater go suck your lasagnas.
-			+ Sir, I'm a customer of this dirgibledrome and you have no right to talk to me like this.
+			+ Sir, I'm a customer of this dirigibledrome and you have no right to talk to me like this.
 				[mood donkey angry] You are just a douchebag.
 				[mood donkey angry] Without ticket.
 				[mood donkey angry] Ticketless douchebag.
@@ -1031,7 +1032,7 @@ end
 				[mood donkey angry] Like you would drive it better you fat grey peace of vomit.
 					Let's race and find out!
 					[section bet]
-	+ Is this the dirgible for vienna?
+	+ Is this the dirigible for vienna?
 		Nope my friend it will leave for Sarajevo.
 		Yeeea it will go for Wiena you illiterate piggy.
 		[mood donkey angry] Can't you read your ticket, dumbass?
@@ -1101,17 +1102,28 @@ Is that a deal, mushroom eater?
 
 end	
 == lost ==
-	+[not dirigibles_part = 1] That's not fair, my dirigible has a part missing
-		Lucky you I will let you try again so I can kick your ass once again.
+	++[not dirigibles_part = 1] Not fair
+	[set mood angry] That's not fair, my dirigible has a part missing.
+		Deal is deal, bend over pig.
+		[animation player spr_viktor_walk_left_angry][moveto player 290 665]
+		[create asskick 40][destroy asskick 50][animation donkey spr_donkey_kick][imagespeed donkey 0.6][animation player spr_viktor_kicked][time 40]
+		[draw spr_cloud_medium 290 650 10 -1000 0.3 1 0 15 45 0 0 0 -0.01][draw spr_cloud_medium 290 650 10 -1000 0.3 1 0 15 135 0 0 0 -0.01][draw spr_cloud_medium 290 650 10 -1000 0.3 1 0 15 215 0 0 0 -0.01][moveto player 400 700]
+		[imagespeeds donkey 0.4][imagespeed donkey 0.4] Lucky you I will let you try again so I can kick your ass once again.
 			+ Lucky me
 				Hey, you know why was the pig ejected from the football game?
 					+ I'm no longer listening
 						For playing dirty.
 						Hahahahaha
+						[set mood]
 							[end]
 	+[if dirigibles_part = 1] I' m mega, super, turbo, giga, ultra sure I will win the next race.
 		There is only one way we can find it out pig face.
-			+ You will look at my boar ass this time.
+		Now bend over.
+		[animation player spr_viktor_walk_left_angry][moveto player 290 665]
+		[create asskick 40][destroy asskick 50][animation donkey spr_donkey_kick][imagespeed donkey 0.6][animation player spr_viktor_kicked][time 40]
+		[draw spr_cloud_medium 290 650 10 -1000 0.3 1 0 15 45 0 0 0 -0.01][draw spr_cloud_medium 290 650 10 -1000 0.3 1 0 15 135 0 0 0 -0.01][draw spr_cloud_medium 290 650 10 -1000 0.3 1 0 15 215 0 0 0 -0.01][moveto player 400 700]
+		[imagespeeds donkey 0.4][imagespeed donkey 0.4]
+			+ You will eat my dust this time.
 				As well as you will be new emperor.
 					[end]
 		
@@ -1187,7 +1199,7 @@ They impolitely not let me inside, desu (＃￣ω￣)
 	+ They won't let me in, either. You need a ticket as well?
 		I have ticket, desu!
 			[section diet]
-	+ Is it because you're Nippleonian?
+	+[if imfromnip = 1] Is it because you're Nippleonian?
 		If only <3
 		One incident of international proportion more then enough to fly me in Vienna ^^
 			[section start]
@@ -1196,6 +1208,7 @@ end
 == robot ==
 
 Tee-hee, it ROBOTOTRON4ULTRA from the empire of Nippleon ♡♡
+[set imfromnip 1]
 Ultra-kawai-machine for movements of greater speed.
 And is protection from impolite men, of course, desu. ^^
 	+ Nippleon? I heard that your emperor is a madman who ate his own children.
@@ -1406,8 +1419,13 @@ end
 == throwstuff ==
 
 [set cleanup 1]
-[set mood scared][direction left][other][animations spr_viktor_listen_left_scared] Get ready to meet your maker, pig! > [move player 0 5][animations spr_viktor_back_off][time 10][draw spr_station_anchor 0 500 30 1501 1 1 0 30 15 3 -1 1] > [sound snd_take2][move player 0 5][time 10][draw spr_station_ball 0 500 180 1501 1 1 0 30 45 3 -1 1] > [move player 0 5][time 10][draw spr_station_hammer 0 500 180 1501 1 1 0 30 15 10 -1 1] > [move player 0 5][time 10][draw spr_station_sickle 0 500 180 1501 1 1 0 30 45 3 -1 1] > [sound snd_take2][move player 0 5][sound snd_glass_break][time 10][sound snd_oven_break][draw spr_station_hanger 0 500 180 1501 1 1 0 30 15 3 -1 1] > [sound snd_take2][move player 0 5][time 10][draw spr_station_pipe 0 500 180 1501 1 1 0 30 45 3 -1 1] > [sound snd_take2][move player 0 5][time 10][create station_cake 20][draw spr_station_cake 0 600 20 1500 1 1 0 20 0 1 -1 1][draw spr_station_plate 0 630 20 1501 1 1 0 20 0 1 -1 1] > [sound snd_take2][move player 0 5][time 10][sound snd_glass_break][create station_stuck 30][draw spr_station_record 0 500 30 1501 1 1 0 27 2 0 -1 1] > [sound snd_log][move player 0 0][animations spr_viktor_listen_left_scared][time 10][create station_pants 20][draw spr_station_pants 0 600 15 1500 1 1 -45 15 0 1 -1 1] > [sound snd_vase_break][time 10][draw spr_station_plant 0 500 30 1501 1 1 0 12 -30 0 0 0] > [sound snd_take2][time 20][draw spr_station_suriken 0 500 180 1501 1 1 0 30 15 10 -1 1] > [set mood scared][direction left][other][draw spr_station_plant 330 740 13 1501 1 1 0 0 0 0 -1 1][create station_plant 12][sound snd_clock_break] > [other] Did I hit him? > [direction left][talk station_dog] I'm afraid not, mam. > [player][direction left][mood angry] I'm still here, old cow! > [other] Damn. > [set mood][other] Clean up on section 2!
-	[end]
+[set mood scared][direction left][other][animations spr_viktor_listen_left_scared] Get ready to meet your maker, pig!
+[move player 0 5][animations spr_viktor_back_off][time 10][draw spr_station_anchor 0 500 30 1501 1 1 0 30 15 3 -1 1] > [sound snd_take2][move player 0 5][time 10][draw spr_station_ball 0 500 180 1501 1 1 0 30 45 3 -1 1] > [move player 0 5][time 10][draw spr_station_hammer 0 500 180 1501 1 1 0 30 15 10 -1 1] > [move player 0 5][time 10][draw spr_station_sickle 0 500 180 1501 1 1 0 30 45 3 -1 1] > [sound snd_take2][move player 0 5][sound snd_glass_break][time 10][sound snd_oven_break][draw spr_station_hanger 0 500 180 1501 1 1 0 30 15 3 -1 1] > [sound snd_take2][move player 0 5][time 10][draw spr_station_pipe 0 500 180 1501 1 1 0 30 45 3 -1 1] > [sound snd_take2][move player 0 5][time 10][create station_cake 20][draw spr_station_cake 0 600 20 1500 1 1 0 20 0 1 -1 1][draw spr_station_plate 0 630 20 1501 1 1 0 20 0 1 -1 1] > [sound snd_take2][move player 0 5][time 10][sound snd_glass_break][create station_stuck 30][draw spr_station_record 0 500 30 1501 1 1 0 27 2 0 -1 1] > [sound snd_log][move player 0 0][animations spr_viktor_listen_left_scared][time 10][create station_pants 20][draw spr_station_pants 0 600 15 1500 1 1 -45 15 0 1 -1 1] > [sound snd_vase_break][time 10][draw spr_station_plant 0 500 30 1501 1 1 0 12 -30 0 0 0] > [sound snd_take2][time 20][draw spr_station_suriken 0 500 180 1501 1 1 0 30 15 10 -1 1] > [set mood scared][direction left][other][draw spr_station_plant 330 740 13 1501 1 1 0 0 0 0 -1 1][create station_plant 12][sound snd_clock_break]
+[other] Did I hit him?
+[direction left][talk station_dog] I'm afraid not, mam.
+[player][direction left][mood angry] I'm still here, old cow!
+[other] Damn. > [set mood][other] Clean up on section 2!
+[end]
 
 
 end
@@ -1435,6 +1453,7 @@ How is life fairing for you, Viktor?
 == hello ==
 
 	+ Attar, my friend! You are the perfect man to join me in overthrowing the emperor.
+	You fought in wars to liberate the Gangrene colony from Unwanted Kingdom, after all.
 		Viktor, my dear friend.
 		[set chitchat_flag 1]
 		You keep choosing battles you cannot win.
@@ -1443,9 +1462,9 @@ How is life fairing for you, Viktor?
 				Controlling the empire is not like controlling the broomstick.
 				It's a bureaucratic nightmare.
 				And a moral hell.
-					- There are experts to take care of that. Emperor's job is just a lot of simple political and military decisions.
+					+ There are experts to take care of that. Emperor's job is just a lot of simple political and military decisions.
 						[section notsure]
-					- I don't think I would do a worse job then generations of inbred show dogs.
+					+ I don't think I would do a worse job then generations of inbred show dogs.
 						The emperor is cruel, yet effective.
 						You are a nice and intelligent person, until anger starts controlling you.
 						Rage is one of seven thieves inside us, Viktor.
@@ -1612,7 +1631,8 @@ end
 		[set mood]
 		[sound snd_rhino_magic] Remember the breathing.
 		Better?
-			+ Yes, breathing. > Thanks Attar.
+			+ Yes, breathing.
+			Thanks Attar.
 				Any time, Viktor.
 					[end]
 
@@ -1986,7 +2006,8 @@ You're here early.
 I respect that in an agent.
 	+ Well, I was in a hurry to overthrow the empire and all that.
 		Here's your message.
-		[animation vida spr_vida_give][time 60][active fake] > [animation player spr_viktor_use_right_middle][active vida]
+		[animation vida spr_vida_give][time 45]
+		[animation player spr_viktor_use_right_middle][animation vida spr_vida_give][imageindex vida 12]
 		Read and destroy.
 		You know the watchword.
 			+ Wait' what?

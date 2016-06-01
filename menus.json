@@ -17,7 +17,7 @@
 					"x" : 720,
 					"y" : 448,
 					"picture" : "spr_menu_load",
-					"action" : "new tavern start"
+					"action" : "new station_down start"
 				},
 				{
 					"x" : 1184,
@@ -73,14 +73,14 @@
 				{
 					"x" : 160,
 					"y" : 256,
-					"picture" : "spr_menu_save",
-					"action" : "save save.json"
+					"picture" : "spr_menu_new",
+					"action" : "new intro start"
 				},
 				{
 					"x" : 160,
 					"y" : 416,
 					"picture" : "spr_menu_load",
-					"action" : "load save.json"
+					"action" : "new station_down start"
 				},
 				{
 					"x" : 160,
