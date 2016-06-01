@@ -118,7 +118,7 @@
 		"yBackground": 25,
 		"scaleNear": 0.9,
 		"scaleFar": 0.9,
-		"rgb": "255,255,255",
+		"rgb": "000,000,000",
 		"border": "spr_various_token",
 		"entrances": [{
 			"alias": "start",
@@ -129,7 +129,7 @@
 			"entrance_old": "[cloud player 100 0][position player 577 290][direction left][set mood coupe] I saved the day! > And now to become the emperor. > [set mood][cloud player 50 300][room title_palace start]"
 		}, {
 			"alias": "lost",
-			"entrance": "[position player 9000 290][active coupe_walrus][other] Dear me, dear me, it seems that we are plunging into our deaths. > [position player 9000 290][active coupe_walrus][other] Good thing I brought my trusty time machine with me. > [animation coupe_walrus spr_coupe_walrus_watch][time 20] > [fade in 0.03 -9999 spr_various_token][time 40] > [fade][room dirigibles start]"
+			"entrance": "[shake 2 6000][position player 9000 290][active coupe_walrus][other] Dear me, dear me, it seems that we are plunging into our deaths. > [position player 9000 290][active coupe_walrus][other] Good thing I brought my trusty time machine with me. > [animation coupe_walrus spr_coupe_walrus_watch][time 20] > [fade in 0.03 -9999 spr_various_token][time 40] > [shake 0 0][fade][room dirigibles start]"
 		}],
 		"objects": [{
 			"alias": "coupe_walrus",
@@ -562,7 +562,7 @@
 		"border": "spr_various_token",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[stop] > [if dirigibles_win = 1][room previous won] > [room previous lost]"
+			"entrance": "[if dirigible_type = travel][destroy controls_race][destroy dirigibles_speed_lever1][destroy dirigibles_speed_lever2][destroy dirigibles_panel][destroy dirigibles_hooks][destroy dirigibles_button_red2][destroy dirigibles_button_red1] > [not available controls_travel][create controls_travel] > [stop] > [if dirigibles_win = 1][room previous won] > [room previous lost]"
 		}],
 		"objects": [{
 			"alias": "just_testing_delete_later",
@@ -574,7 +574,16 @@
 					"special": "[if currentRoom dirigibles][cloud 700 800][time 60] I don't have time for that shit. > [if currentRoom dirigibles][stop] > [if currentRoom dirigibles][if dirigibles_win = 1][room previous won] > [if currentRoom dirigibles][room previous lost] > [remember][destroy viktorsRoom_trin][destroy viktorsRoom_trin2][destroy viktorsRoom_trin3] > [if phone = 0][room phone start] > [if phone = 1][room viktorsRoom phone] > [if phone = 2][room phone start] > [if phone = 3][if currentRoom viktorsRoom] I just talked to him. > [if phone = 3][if currentRoom viktorsRoom][skip] > [room martinsRoom start]",
 					"picture": "spr_item_phone"
 				}
-		}, {
+		}, 
+		{
+			"object" : "obj_dirigibles_token",
+			"x" : 350,
+			"y" : 900,
+			"xScale" : 0.7,
+			"yScale" : 0.7,
+			"picture" : "spr_dirigibles_controls_travel_ship"
+		},
+		{
 			"available": 1,
 			"object": "obj_dirigibles_controller",
 			"picture": "spr_dirigibles_use",
@@ -586,16 +595,26 @@
 			"y": 500,
 			"depth": -2000
 		}, {
-			"alias": "",
+			"alias": "controls_race",
 			"available": 1,
-			"object": "obj_animation",
 			"picture": "spr_dirigibles_controls",
 			"x": 5,
 			"y": 660,
 			"xScale": 0.7,
 			"yScale": 0.7,
 			"depth": -10100
-		}, {
+		},
+		{
+			"alias": "controls_travel",
+			"available": 0,
+			"picture": "spr_dirigibles_controls_travel",
+			"x": 5,
+			"y": 660,
+			"xScale": 0.7,
+			"yScale": 0.7,
+			"depth": -10100
+		},
+		{
 			"alias": "dirigibles_panel",
 			"available": 1,
 			"object": "obj_animation",
@@ -624,6 +643,7 @@
 			"y": 815,
 			"depth": -11001
 		}, {
+			"alias" : "dirigibles_speed_lever1",
 			"available": 1,
 			"object": "obj_dirigibles_leverSpeed",
 			"picture": "spr_dirigibles_lever_horizontal",
@@ -633,6 +653,7 @@
 			"y": 903,
 			"depth": -11001
 		}, {
+			"alias" : "dirigibles_speed_lever2",
 			"available": 1,
 			"object": "obj_dirigibles_leverSpeed2",
 			"picture": "spr_dirigibles_hook_horizontal",
@@ -661,7 +682,7 @@
 			"y": 902,
 			"depth": -11001
 		}, {
-			"alias": "dirigibles_button_red",
+			"alias": "dirigibles_button_red1",
 			"available": 1,
 			"object": "obj_animation",
 			"picture": "spr_dirigibles_button_red",
@@ -671,7 +692,7 @@
 			"y": 947,
 			"depth": -11001
 		}, {
-			"alias": "dirigibles_button_red",
+			"alias": "dirigibles_button_red2",
 			"available": 1,
 			"object": "obj_animation",
 			"picture": "spr_dirigibles_button_red",
@@ -1500,9 +1521,9 @@
 					"use": "It's locked",
 					"talk": "[mood angry] Damn you, grandpa clock!",
 					"log": "I can't log a clock.",
-					"keys": "[if clock_coin = 0][skip 2] > I don't think I can find anything else in there. > [skip] > Maybe these keys open the little clock lock? > [animation spr_viktor_use_back_low] > Ooh, there's a coin in here > [pickup back middle][set clock_coin 1]",
+					"keys": "[if clock_coin = 0][skip 2] > [mood]I don't think I can find anything else in there. > [skip] > [pick back middle][set clock_coin 1] > [mood]Ooh, there was a coin in here",
 					"umbrella": "It's an umbrella, not a pry bar",
-					"coin": "[if clock_coin = 1][skip 2]A good place to put it, but it's locked > [skip] > I might need them."
+					"coin": "[if clock_coin = 1][mood]A good place to put it, but it's locked > [if clock_coin = 1][skip] > [mood]I think I need a real key."
 				},
 				"inventory": {
 					"alias": "coin",
