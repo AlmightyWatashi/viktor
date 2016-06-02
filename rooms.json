@@ -2775,7 +2775,7 @@
 		"rgb": "200,232,235",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[if version debug][take cake] > [if cleanup = 1][if ballandbattery = 0][set ballandbattery 1][create station_ball][create battery_poking] > [position 9000 9000][position station_up_lift_cabin 1057 300][move station_up_lift_cabin 90 5][time 60] > [move station_up_lift_cabin 90 0][position player 1100 673][animations player spr_viktor_walk_left][move player 180 5][time 50]"
+			"entrance": "[if version debug][take cake][set cleanup 1] > [if cleanup = 1][if ballandbattery = 0][set ballandbattery 1][create station_ball][create battery_poking] > [position 9000 9000][position station_up_lift_cabin 1057 300][move station_up_lift_cabin 90 5][time 60] > [move station_up_lift_cabin 90 0][position player 1100 673][animations player spr_viktor_walk_left][move player 180 5][time 50]"
 		}, {
 			"alias": "won",
 			"entrance": "[soundtrack dvorak][sound snd_gramophone][position 400 700][active donkey][conversation donkey won]"
@@ -2812,6 +2812,7 @@
 			"xCloud": 450,
 			"yCloud": 250,
 			"idle": 1,
+			"depth": -656,
 			"picture": "spr_dirigibles_bzz",
 			"description": "Robot",
 			"order": "look, use",
