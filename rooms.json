@@ -122,14 +122,14 @@
 		"border": "spr_various_token",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[fade out 0.1][soundtrack saens][cloud player 100 0][position player 577 290][direction left][set mood coupe] > [active coupe_walrus][conversation walrus beginning] > [set mood default][mood default][cloud player 50 300][set dirigible_type travel][room dirigibles start]"
+			"entrance": "[set dirtravel 1][fade out 0.1][soundtrack saens][cloud player 100 0][position player 577 290][direction left][set mood coupe] > [active coupe_walrus][conversation walrus beginning] > [set mood default][mood default][cloud player 50 300][set dirigible_type travel][room dirigibles start]"
 		}, {
 			"alias": "won",
 			"entrance": "[room title_palace start]",
 			"entrance_old": "[cloud player 100 0][position player 577 290][direction left][set mood coupe] I saved the day! > And now to become the emperor. > [set mood][cloud player 50 300][room title_palace start]"
 		}, {
 			"alias": "lost",
-			"entrance": "[shake 2 6000][destroy coupe_clouds1][destroy coupe_clouds2][destroy coupe_clouds3][destroy coupe_clouds4][destroy coupe_clouds5][destroy coupe_clouds6][destroy coupe_clouds7][destroy coupe_clouds8][destroy coupe_clouds9][destroy coupe_clouds0][create coupe_cloudfall1] > [position player 9000 290][active coupe_walrus][other] Dear me, dear me, it seems that we are plunging into our deaths. > [position player 9000 290][active coupe_walrus][other] Good thing I brought my trusty time machine with me. > [animation coupe_walrus spr_coupe_walrus_watch][time 20] > [fade in 0.03 -9999 spr_various_token][time 40] > [shake 0 0][fade][room dirigibles start]"
+			"entrance": "[shake 2 6000][destroy coupe_clouds1][destroy coupe_clouds2][destroy coupe_clouds3][destroy coupe_clouds4][destroy coupe_clouds5][destroy coupe_clouds6][destroy coupe_clouds7][destroy coupe_clouds8][destroy coupe_clouds9][destroy coupe_clouds0][create coupe_cloudfall1][create coupe_cloudfall2][create coupe_cloudfall3][create coupe_cloudfall4][create coupe_cloudfall5][create coupe_cloudfall6] > [position player 9000 290][active coupe_walrus][other] Dear me, dear me, it seems that we are plunging into our deaths. > [position player 9000 290][active coupe_walrus][other] Good thing I brought my trusty time machine with me. > [animation coupe_walrus spr_coupe_walrus_watch][time 20] > [fade in 0.03 -9999 spr_various_token][time 40] > [shake 0 0][fade][room dirigibles start]"
 		}],
 		"objects": [{
 			"alias": "coupe_walrus",
@@ -144,7 +144,7 @@
 		{
 			"alias" : "coupe_cloudfall1",
 			"picture" : "spr_coupe_clouds",
-			"available": 1,
+			"available": 0,
 			"subimage" : 0,
 			"movementSpeed" : 20,			
 			"path" : "path_down",
@@ -155,7 +155,7 @@
 		{
 			"alias" : "coupe_cloudfall2",
 			"picture" : "spr_coupe_clouds",
-			"available": 1,
+			"available": 0,
 			"subimage" : 1,
 			"movementSpeed" : 10,			
 			"path" : "path_down",
@@ -166,7 +166,7 @@
 		{
 			"alias" : "coupe_cloudfall3",
 			"picture" : "spr_coupe_clouds",
-			"available": 1,
+			"available": 0,
 			"subimage" : 2,
 			"movementSpeed" : 12,			
 			"path" : "path_down",
@@ -177,7 +177,7 @@
 		{
 			"alias" : "coupe_cloudfall4",
 			"picture" : "spr_coupe_clouds",
-			"available": 1,
+			"available": 0,
 			"subimage" : 3,
 			"movementSpeed" : 10,			
 			"path" : "path_down",
@@ -188,7 +188,7 @@
 		{
 			"alias" : "coupe_cloudfall5",
 			"picture" : "spr_coupe_clouds",
-			"available": 1,
+			"available": 0,
 			"subimage" : 4,
 			"movementSpeed" : 15,			
 			"path" : "path_down",
@@ -199,7 +199,7 @@
 		{
 			"alias" : "coupe_cloudfall6",
 			"picture" : "spr_coupe_clouds",
-			"available": 1,
+			"available": 0,
 			"subimage" : 5,
 			"movementSpeed" : 10,			
 			"path" : "path_down",
@@ -330,6 +330,7 @@
 			"imageSpeed": 0.1
 		},
 		{
+			"available" : 0,
 			"alias": "dirigibles_travel",
 			"x": 300,
 			"y": 740,
@@ -339,6 +340,7 @@
 			"imageSpeed": 0.1
 		},
 		{
+			"available" : 0,
 			"alias": "travel_okvir",
 			"picture": "spr_various_token",
 			"x": 200,
@@ -639,7 +641,7 @@
 		"border": "spr_various_token",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[if dirigible_type = travel][destroy controls_race][destroy dirigibles_speed_lever1][destroy dirigibles_speed_lever2][destroy dirigibles_panel][destroy dirigibles_hooks][destroy dirigibles_button_red2][destroy dirigibles_button_red1] > [not available controls_travel][create controls_travel] > [stop] > [if dirigibles_win = 1][room previous won] > [room previous lost]"
+			"entrance": "[if dirtravel = 1][destroy controls_race][destroy dirigibles_speed_lever1][destroy dirigibles_speed_lever2][destroy dirigibles_panel][destroy dirigibles_hooks][destroy dirigibles_button_red2][destroy dirigibles_button_red1][not available controls_travel][create controls_travel] > [stop] > [if dirigibles_win = 1][room previous won] > [room previous lost]"
 		}],
 		"objects": [{
 			"alias": "just_testing_delete_later",
@@ -3746,7 +3748,7 @@
 		"rgb": "200,232,235",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[set passguess 0][position player 300 670][sound snd_gramophone][set alreadywent 0][set tried_dumb_flag 0] This is the end of part 1, it is around 40% of the game, I hope you had fun. > [fade in 0.03][time 120] > [finish]",
+			"entrance": "[set passguess 0][position player 300 670][sound snd_gramophone][set alreadywent 0][set tried_dumb_flag 0] This is the end of part 1, it is around 30% of the game, I hope you had fun. > [fade in 0.03][time 120] > [finish]",
 			"entrance2": "[set passguess 0][position player 300 670][sound snd_gramophone][set alreadywent 0][set tried_dumb_flag 0] This looks cozy. > Now to find those anarchists. > They probably have armies, bombs and whatnot."
 		}, {
 			"alias": "toilet_exit",
