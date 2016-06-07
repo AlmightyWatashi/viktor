@@ -3148,7 +3148,16 @@
 		"entrances": [{
 			"alias": "start",
 			"entrance": "[not item phone][set phone 3][take phone] > [position player 700 830] This was actually a lot less dangerous then I thought it would be. > Now I just go through these insane members of Emperor's elite murder machinery... > And the crown can be mine."
-		}],
+		},
+		{
+			"alias" : "return",
+			"entrance" : "[recall][set mood][if moodangry = 1][set mood angry] > Why do I even bother."
+		},
+		{
+			"alias" : "map",
+			"entrance" : "[recall][set mood][if moodangry = 1][set mood angry] > It's a big world out there."
+		}
+		],
 		"objects": [{
 			"alias": "beaver",
 			"x": 450,
@@ -3275,7 +3284,7 @@
 		"rgb": "200,232,235",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[soundtrack palace][fade in 0.02][position player 600 950][animations player spr_viktor_walk_back][move player 80 1][zoom 720 5][time 55] > [room palace_near start]"
+			"entrance": "[soundtrack schubert][position player 600 950][animations player spr_viktor_walk_back 0][moveto palace_crown 550 272 2][time 113] > [moveto palace_crown][destroy emperor_bald][create emperor][imagespeed palace_crown 0.3][time 50] > [imagespeed palace_crown 0][move palace_crown 90 2][fade in 0.02][animations player spr_viktor_walk_back 0][move player 80 1][zoom 720 5][time 55] > [room palace_near start]"
 		}],
 		"objects": [
 		{
@@ -3320,17 +3329,37 @@
 			"alias" : "palace_chandelier",
 			"x" : 370,
 			"y" : 20,
+			"depth": -2000,
 			"xScale" : 0.58,
 			"yScale" : 0.58
 		},
 		{
-			"alias" : "emperor",
+			"alias" : "emperor_bald",
 			"visible" : 1,
 			"xScale" : 0.35,
 			"yScale" : 0.35,
 			"x": 550,
 			"y": 470
-		}, 
+		},
+		{
+			"alias" : "palace_crown",
+			"visible" : 1,
+			"depth": -500,
+			"xScale" : 0.35,
+			"yScale" : 0.5,
+			"x": 550,
+			"y": -61,
+			"subimage":0
+		},
+		{
+			"alias" : "emperor",
+			"available":0,
+			"visible" : 1,
+			"xScale" : 0.35,
+			"yScale" : 0.35,
+			"x": 550,
+			"y": 470
+		}, 		
 		{
 			"picture" : "spr_palace_plant",
 			"alias" : "palace_plant2",
@@ -3389,16 +3418,66 @@
 			"yScale" : 0.58
 		},
 		{
-			"alias" : "palace_cog",
-			"x" : 970,
-			"y" : 430,
+			"alias" : "palace_cog_left_sign",
+			"picture" : "spr_palace_cog",
+			"x" : 285,
+			"y" : 465,
 			"xScale" : 0.58,
 			"yScale" : 0.58
 		},
 		{
-			"alias" : "palace_cog",
-			"x" : 240,
-			"y" : 430,
+			"alias" : "palace_cog_left_up",
+			"picture" : "spr_palace_cog",
+			"x" : 100,
+			"y" : 390,
+			"xScale" : 0.58,
+			"yScale" : 0.58
+		},
+		{
+			"alias" : "palace_cog_left_mid",
+			"picture" : "spr_palace_cog",
+			"x" : 100,
+			"y" : 490,
+			"xScale" : 0.58,
+			"yScale" : 0.58
+		},
+		{
+			"alias" : "palace_cog_left_down",
+			"picture" : "spr_palace_cog",
+			"x" : 100,
+			"y" : 590,
+			"xScale" : 0.58,
+			"yScale" : 0.58
+		},		
+		{
+			"alias" : "palace_cog_right_sign",
+			"picture" : "spr_palace_cog",
+			"x" : 1005,
+			"y" : 465,
+			"xScale" : 0.58,
+			"yScale" : 0.58
+		},
+		{
+			"alias" : "palace_cog_right_up",
+			"picture" : "spr_palace_cog",
+			"x" : 1150,
+			"y" : 390,
+			"xScale" : 0.58,
+			"yScale" : 0.58
+		},
+		{
+			"alias" : "palace_cog_right_mid",
+			"picture" : "spr_palace_cog",
+			"x" : 1150,
+			"y" : 490,
+			"xScale" : 0.58,
+			"yScale" : 0.58
+		},
+		{
+			"alias" : "palace_cog_right_down",
+			"picture" : "spr_palace_cog",
+			"x" : 1150,
+			"y" : 590,
 			"xScale" : 0.58,
 			"yScale" : 0.58
 		}
@@ -4061,7 +4140,8 @@
 				"use": "[room toilet start]"
 			}
 		}]
-	}, {
+	}, 
+	{
 		"comment": "Tavern toilet",
 		"alias": "toilet",
 		"gui": "default",
