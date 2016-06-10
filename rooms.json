@@ -122,7 +122,7 @@
 		"border": "spr_various_token",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[set dirtravel 1][fade out 0.1][soundtrack saens][cloud player 100 0][position player 577 290][direction left][set mood coupe] > [active coupe_walrus][conversation walrus beginning] > [set mood default][mood default][cloud player 50 300][set dirigible_type travel][room dirigibles start]"
+			"entrance": "[set dirtravel 1][fade out 0.1][soundtrack saens][cloud player 100 0][position player 577 290][direction left][set mood coupe] > [active coupe_walrus](conversation walrus beginning) > [set mood default][mood default][cloud player 50 300][set dirigible_type travel][room dirigibles start]"
 		}, {
 			"alias": "won",
 			"entrance": "[room title_palace start]",
@@ -1414,16 +1414,16 @@
 			"entrance": "[position player 199 675][soundtrack mozart][sound snd_gramophone]Home, sweet home!"
 		}, {
 			"alias": "callRandom",
-			"entrance": "[recall] >[animation player spr_viktor_phone_down] > Nobody's answering. > [if phone = 2] I need to find where I wrote Martin's phone number."
+			"entrance": "[recall] >[animation player spr_viktor_phone_down][sound snd_phone_hangup] > Nobody's answering. > [if phone = 2] I need to find where I wrote Martin's phone number."
 		}, {
 			"alias": "phone",
-			"entrance": "[recall] >[animation player spr_viktor_phone_up] > [animation player spr_viktor_talk_right_phone]Who is it? > [cloud phone][blocksound snd_martinsRoom_martin_talk][animation player spr_viktor_listen_right_phone] It's Martin, who else would it be? > [cloud phone][blocksound snd_martinsRoom_martin_talk2][animation player spr_viktor_listen_right_phone] Anyway, I got no money for phone calls, so call me back, bye! > [animation player spr_viktor_talk_right_phone] Wait Martin, I forgot your phone number... > [blocksound][cloud phone][animation player spr_viktor_listen_right_phone] TOOT-TOOT > [animation player spr_viktor_phone_down] > Now where did I write his number down?! > [set phone 2]"
+			"entrance": "[recall] >[animation player spr_viktor_phone_up] > [animation player spr_viktor_talk_right_phone]Who is it? > [cloud phone][blocksound snd_martinsRoom_martin_talk][animation player spr_viktor_listen_right_phone] It's Martin, who else would it be? > [cloud phone][blocksound snd_martinsRoom_martin_talk2][animation player spr_viktor_listen_right_phone] Anyway, I got no money for phone calls, so call me back, bye! > [animation player spr_viktor_talk_right_phone] Wait Martin, I forgot your phone number... > [blocksound][sound snd_phone_hangup][cloud phone][animation player spr_viktor_listen_right_phone] TOOT-TOOT > [animation player spr_viktor_phone_down] > Now where did I write his number down?! > [set phone 2]"
 		}, {
 			"alias": "callMartin",
-			"entrance": "[recall] > [if phone = 0][animation player spr_viktor_phone_down] > [if phone = 0][mood] That was the phone number of my good friend Martin, but he's not answering right now... > [if phone = 0][skip] > [animation player spr_viktor_phone_up] > [room martinsRoom start]"
+			"entrance": "[recall] > [if phone = 0][animation player spr_viktor_phone_down][sound snd_phone_hangup] > [if phone = 0][mood] That was the phone number of my good friend Martin, but he's not answering right now... > [if phone = 0][skip] > [animation player spr_viktor_phone_up] > [room martinsRoom start]"
 		}, {
 			"alias": "return",
-			"entrance": "[recall][set mood][if moodangry = 1][set mood angry] >[animation player spr_viktor_phone_down] > He hung up... > [set phone 3] > [if phone = 3][destroy viktorsRoom_door_closed_angry][create viktorsRoom_door_closed_happy] Time to conquer the world! > [set phone 3][not item phone][take phone]"
+			"entrance": "[recall][set mood][if moodangry = 1][set mood angry] >[animation player spr_viktor_phone_down][sound snd_phone_hangup] > He hung up... > [set phone 3] > [if phone = 3][destroy viktorsRoom_door_closed_angry][create viktorsRoom_door_closed_happy] Time to conquer the world! > [set phone 3][not item phone][take phone]"
 		}],
 		"objects": [{
 				"comment": "Pots in viktors room",
@@ -1818,7 +1818,7 @@
 					"use": "I can't reach it",
 					"log": "Too heavy, I might break it.",
 					"keys": "What?",
-					"umbrella": "[mood]Here goes nothing! > [animation player spr_viktor_umbrella1] > [destroy][position viktorsRoom_trin 1000 650][position viktorsRoom_trin2 1000 600][position viktorsRoom_trin3 1000 700] > [animation player spr_viktor_umbrella2] > [destroy viktorsRoom_toilet_nophone][create viktorsRoom_toilet_ringing][mood scared] Oops.",
+					"umbrella": "[mood]Here goes nothing! > [animation player spr_viktor_umbrella1] > [destroy][position viktorsRoom_trin 1000 650][position viktorsRoom_trin2 1000 600][position viktorsRoom_trin3 1000 700] > [animation player spr_viktor_umbrella2][sound snd_water_drop 30] > [destroy viktorsRoom_toilet_nophone][create viktorsRoom_toilet_ringing][mood scared] Oops.",
 					"coin": "Not sure how I'd do it, but it sounds expensive"
 				}
 			}, {
@@ -1839,7 +1839,7 @@
 					"talk": "I need to press some buttons first",
 					"log": "Too heavy, I might break it.",
 					"keys": "What?",
-					"umbrella": "Here goes nothing... > [animation player spr_viktor_umbrella1] > [destroy] > [animation player spr_viktor_umbrella2] > [destroy viktorsRoom_toilet_nophone][create viktorsRoom_toilet_ringing] Oops.",
+					"umbrella": "Here goes nothing... > [animation player spr_viktor_umbrella1] > [destroy] > [animation player spr_viktor_umbrella2][sound snd_water_drop] > [destroy viktorsRoom_toilet_nophone][create viktorsRoom_toilet_ringing] Oops.",
 					"coin": "Not sure how I'd do it, but it sounds expensive"
 				}
 			}, {
@@ -2305,11 +2305,11 @@
 		"rgb": "229,229,180",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[not item phone][set phone 3][take coin silent][set coins 2][take phone silent] > [set mood][set wig_flag 0][set bought_cell_flag 0][position station_tram 200 299][position player 400 700][position station_fence1 87 512][move station_fence1 0 3][time 20][position station_fence2 365 512][move station_fence2 180 3][time 20] > [move station_fence1 0 0][move station_fence2 0 0] Ah, the Agram Dirigibledrome. > I swept these streets too often for my own good."
+			"entrance": "[not item phone][set phone 3][take coin silent][set coins 2][take phone silent] > [set mood][set wig_flag 0][set bought_cell_flag 0][position station_tram 200 299][position player 400 700][position station_fence1 87 512][move station_fence1 0 3][time 20][position station_fence2 365 512][move station_fence2 180 3][time 20] > [sound snd_lift_leave][move station_fence1 0 0][move station_fence2 0 0] Ah, the Agram Dirigibledrome. > I swept these streets too often for my own good."
 		}, 
 		{
 			"alias" : "return",
-			"entrance" : "[recall][set mood][if moodangry = 1][set mood angry] > Why do I even bother."
+			"entrance" : "[recall][set mood][if moodangry = 1][set mood angry][sound snd_phone_hangup] > Why do I even bother."
 		},
 		{
 			"alias" : "map",
@@ -2318,7 +2318,7 @@
 		
 		{
 			"alias": "lift",
-			"entrance": "[destroy rhino_sweeping][destroy rhino][destroy rhinos_broom][if random 2][skip 1] > [create rhino_sweeping][skip 1] > [create rhino][create rhinos_broom] > [position 9000 9000][position station_down_lift_cabin 970 -600][move station_down_lift_cabin 270 5][time 128] > [move station_down_lift_cabin 270 0][position player 970 710][animations player spr_viktor_walk_left][move player 180 5][time 50] > This lift really smells. > "
+			"entrance": "[destroy rhino_sweeping][destroy rhino][destroy rhinos_broom][if random 2][skip 1] > [create rhino_sweeping][skip 1] > [create rhino][create rhinos_broom] > [position 9000 9000][position station_down_lift_cabin 970 -600][move station_down_lift_cabin 270 5][time 128][sound snd_lift_arrive 60] > [sound snd_tram_travel][move station_down_lift_cabin 270 0][position player 970 710][animations player spr_viktor_walk_left][move player 180 5][time 50] > [sound snd_tram_travel]This lift really smells. > "
 		}],
 		"objects": [{
 				"comment": "Smoke behind the tram",
@@ -2451,12 +2451,12 @@
 				"combinations": {
 					"look": "For some people it's a lift that leads to dirigible docks. > For others, it's an emergency toilet.",
 					"kick": "[kick right] > [mood angry]Stupid lift!",
-					"use": "[animations player spr_viktor_walk_right][move player 0 5][time 50] > [position 9000 9000][move station_down_lift_cabin 90 5][time 120] > [room station_up start]",
+					"use": "[animations player spr_viktor_walk_right][move player 0 5][time 50] > [sound snd_lift_leave][position 9000 9000][move station_down_lift_cabin 90 5][time 120] > [room station_up start]",
 					"use_2": "[animations player spr_viktor_walk_right][move player 0 5][time 30] > [room station_up start]",
 					"use_3": "[room station_up lift]",
 					"talk": "Hello lift.",
 					"keys": "It's unlocked",
-					"ball": "[animation player spr_viktor_use_right_low][give ball] > [move station_down_lift_cabin 90 5]",
+					"ball": "[animation player spr_viktor_use_right_low][give ball] > [sound snd_lift_leave][move station_down_lift_cabin 90 5]",
 					"pants": "I'm not a superhero. > And these pants don't fit me",
 					"cake": "I think it's too light to make the lift go by itself.",
 					"cell": "It works well enough already",
@@ -2478,7 +2478,7 @@
 				"description": "A coin",
 				"order": "use,use_2",
 				"combinations": {
-					"use": "[if coin_station = 1][destroy other 15][animation player spr_viktor_use_right_low][take coin] > [if coin_station = 1][animation player spr_viktor_listen_right][position station_down_lift_cabin 970 -600][move station_down_lift_cabin 270 5][time 128] > [if coin_station = 1][move station_down_lift_cabin 270 0] > [if coin_station = 1][skip] > [mood] Wow, a coin! > [mood][create station_down_lift_cabin][position station_down_lift_cabin 970 -600][move station_down_lift_cabin 270 5][time 128] This might be a good day after all...  > [move station_down_lift_cabin 270 0] > [mood scared][create rhino_sweeping][position rhino_sweeping 1065 710][talk rhino_sweeping][cloud 1000 400] Excuse me >[animations spr_viktor_back_off][move player 180 5][animations rhino_sweeping spr_rhino_broom_walk][move rhino_sweeping 180 5][time 30] > [if mood angry][move rhino_sweeping 250 5][move player 180 0][animations rhino_sweeping spr_rhino_broom][animations player spr_viktor_angry][time 20] > [if mood][move rhino_sweeping 250 5][move player 180 0][animations rhino_sweeping spr_rhino_broom][animations player spr_viktor][time 20] > [move rhino_sweeping 230 0][set coin_station 1]",
+					"use": "[if coin_station = 1][destroy other 15][animation player spr_viktor_use_right_low][take coin] > [if coin_station = 1][animation player spr_viktor_listen_right][position station_down_lift_cabin 970 -600][move station_down_lift_cabin 270 5][time 128] > [if coin_station = 1][move station_down_lift_cabin 270 0] > [if coin_station = 1][skip] > [mood] Wow, a coin! > [mood][create station_down_lift_cabin][position station_down_lift_cabin 970 -600][move station_down_lift_cabin 270 5][time 128][sound snd_lift_arrive] This might be a good day after all...  > [move station_down_lift_cabin 270 0] > [mood scared][destroy rhino][create rhino_sweeping][position rhino_sweeping 1065 710][talk rhino_sweeping][cloud 1000 400] Excuse me >[animations spr_viktor_back_off][move player 180 5][animations rhino_sweeping spr_rhino_broom_walk][move rhino_sweeping 180 5][time 30] > [if mood angry][move rhino_sweeping 250 5][move player 180 0][animations rhino_sweeping spr_rhino_broom][animations player spr_viktor_angry][time 20] > [if mood][move rhino_sweeping 250 5][move player 180 0][animations rhino_sweeping spr_rhino_broom][animations player spr_viktor][time 20] > [move rhino_sweeping 230 0][set coin_station 1]",
 					"keys": "[mood angry] Just pick up the coin with your hand!",
 					"pants": "[mood angry] Just pick up the coin with your hand!",
 					"cake": "[mood angry] Just pick up the coin with your hand!",
@@ -2505,8 +2505,7 @@
 				"yCloud": 500,
 				"idle": 1,
 				"depth": -830,
-				"description": "A Jewish Scottsman",
-				
+				"description": "A Jewish Scottsman",				
 				"order": "look,talk",
 				"order_angry": "kick",
 				"combinations": {
@@ -2775,7 +2774,7 @@
 		"rgb": "200,232,235",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[if version debug][take cake][set cleanup 1] > [if cleanup = 1][if ballandbattery = 0][set ballandbattery 1][create station_ball][create battery_poking] > [position 9000 9000][position station_up_lift_cabin 1057 300][move station_up_lift_cabin 90 5][time 60] > [move station_up_lift_cabin 90 0][position player 1100 673][animations player spr_viktor_walk_left][move player 180 5][time 50]"
+			"entrance": "[if version debug][take cake][set cleanup 1] > [if cleanup = 1][if ballandbattery = 0][set ballandbattery 1][create station_ball][create battery_poking] > [position 9000 9000][position station_up_lift_cabin 1057 300][move station_up_lift_cabin 90 5][sound snd_lift_arrive][time 60] > [move station_up_lift_cabin 90 0][position player 1100 673][animations player spr_viktor_walk_left][move player 180 5][time 50]"
 		}, {
 			"alias": "won",
 			"entrance": "[soundtrack dvorak][sound snd_gramophone][position 400 700][active donkey][conversation donkey won]"
@@ -3099,7 +3098,7 @@
 			"combinations": {
 				"look": "For some people it's a lift that leads to dirigible docks. > For other people, it's an emergency toilet.",
 				"kick": "Stupid lift! > [viktor spr_viktor_udara_desno]",
-				"use": "[direction right][move player 0 5][time 50] > [position 9000 9000][move station_up_lift_cabin 270 5][time 50] > [room station_down lift]",
+				"use": "[direction right][move player 0 5][time 50] > [sound snd_lift_leave][position 9000 9000][move station_up_lift_cabin 270 5][time 50] > [room station_down lift]",
 				"use_2": "[direction right][move player 0 5][time 30] > [room station_down lift]",
 				"use_3": "[room station_down lift]",
 				"talk": "Nobody's inside",
@@ -3284,7 +3283,7 @@
 		"rgb": "200,232,235",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[soundtrack schubert][position player 600 950][animations player spr_viktor_walk_back 0][moveto palace_crown 550 272 2][time 113] > [moveto palace_crown][destroy emperor_bald][create emperor][imagespeed palace_crown 0.3][time 50] > [imagespeed palace_crown 0][move palace_crown 90 2][fade in 0.02][animations player spr_viktor_walk_back 0][move player 80 1][zoom 720 5][time 55] > [room palace_near start]"
+			"entrance": "[soundtrack schubert][position player 600 950][animations player spr_viktor_walk_back 0][moveto palace_crown 550 272 2][time 113] > [sound snd_lift_leave][moveto palace_crown][destroy emperor_bald][create emperor][imagespeed palace_crown 0.3][time 50] > [imagespeed palace_crown 0][move palace_crown 90 2][fade in 0.02][animations player spr_viktor_walk_back 0][move player 80 1][zoom 720 5][time 55] > [room palace_near start]"
 		}],
 		"objects": [
 		{

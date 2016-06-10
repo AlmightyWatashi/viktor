@@ -1947,7 +1947,7 @@ We plan on smashing them, crushing them and showing them their place in this geo
 				You foul-smelling leftover!
 				You outdated fertilizer!
 				You... pig!
-				[time 150][move palace_curtain_left 90 3][move palace_curtain_right 90 3]
+				[time 150][move palace_curtain_left 90 3][move palace_curtain_right 90 3][sound snd_lift_leave]
 				[move palace_curtain_left 90 0][move palace_curtain_right 90 0] Are you aware that I'm protected with the finest automatons in this part of the world?
 					+ I was, in fact, not aware of that, you pompous mutt.
 						[mood emperor laugh]Ha ha ha ha ha.
