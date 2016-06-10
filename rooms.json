@@ -2180,7 +2180,7 @@
 					"use": "[if pickedupumbrella = 1][mood] Got one already. > [if pickedupumbrella = 0][destroy viktorsRoom_umbrella_decoration 15][pick left middle][set pickedupumbrella 1]",
 					"look": "Stupid umbrella stand.",
 					"talk": "I hope you die, umbrella stand!",
-					"kick": "[if pickedupumbrella = 1][kick left] > [if pickedupumbrella = 1] Stupid umbrella stand > [if pickedupumbrella = 1][skip] > [set pickedupumbrella 1][mood] Oh wait, this is my favorite umbrella! > [destroy viktorsRoom_umbrella_decoration 15][pick left middle]",
+					"kick": "[if pickedupumbrella = 1][kick left] > [if pickedupumbrella = 1] Stupid umbrella stand > [if pickedupumbrella = 1][skip] > [set pickedupumbrella 1][mood] Oh wait, this is my favorite umbrella! > [destroy viktorsRoom_umbrella_decoration 15][pick left middle] > [mood] That calmed me down a little. > But not enough! Let's kick things!",
 					"kick_2": "Stupid umbrella stand! > [kick left]",
 					"look_2": "[mood]Whose umbrella is the other one? > [mood]Maybe Martin left it when he visited last time?",
 					"log": "Logs are not umbrellas.",
