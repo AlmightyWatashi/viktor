@@ -1,6 +1,6 @@
 {
 	"version" : "notdebug",
-	"fullscreen" : 0,
+	"fullscreen" : 1,
 	"room_speed" : 30,
 	"image_speed" : 0.25,
 	"player_speed" : 7,
@@ -12,7 +12,7 @@
 		"79,41,10,4,60,60"
 	],
 	"stripe" : 100,
-	"conversations" : "conversations.txt",
+	"update" : "https://raw.githubusercontent.com/AlmightyWatashi/viktor/master/",
 	"action" : "menu main",
 	"multiple" : 1,
 }
