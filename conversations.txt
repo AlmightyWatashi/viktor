@@ -8,19 +8,8 @@
 0.07 alex ubacio u program
 0.08 ovo je wata poslao 26.4. u 17h
 0.09 alex 27.4. 17h do 28.4.
-0.099. wat post-reboot 6.5.
-
-=== keys_test2 ===
-
-Are those keys?
-	+[if item keys] ...yes...
-		okay
-		[end]
-	+[not item keys] ...no...
-		oh.
-	+[if mood angry][if item keys] YES YOU BASTARD!
-		[end]
-
+0.10. wat post-reboot 6.5.
+0.11. alex backer beta version 16.06. 12h
 
 === crow ===
 
@@ -161,7 +150,7 @@ end
 == wooend ==
 
 I'll go to my apartment and slip into something less comfortable.
-Meet me in a few minutes
+Meet me in a few minutes.
 	+ Sure
 		[section perfectending]
 
@@ -1682,7 +1671,7 @@ end
 				I recently tried listening to some Saint-Saëns.
 					+ Charles-Camille Saint-Saens? I love the Carnival of Animals!
 						That goes without question.
-						But my current favorite is the Cello Concerto in A Minor.
+						But my current favorite is the Cello Concerto in A-Minor.
 						Beautiful music for rainy weather.
 						I even bought an extra record to listen during my travel.
 						I can give it to you if you wanted.
@@ -1991,7 +1980,7 @@ end
 			[section package]
 	+ Hey, I remember you! You're Vida. We went to grade school together, remember?
 		[set mood]
-		Mention my name again and I will cut your throat!
+		[set knownamevida 1] Mention my name again and I will cut your throat!
 			+ So, how should I call you?
 				just don't
 					[section package]
@@ -2016,7 +2005,7 @@ I respect that in an agent.
 		You know the watchword.
 			+ Wait' what?
 				[end]
-			+ Thanks, Vida!
+			+[if knownamevida = 1] Thanks, Vida!
 				[end]
 			+ What just happened?
 				[end]

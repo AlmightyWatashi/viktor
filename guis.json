@@ -265,7 +265,7 @@
 			"passive" : "spr_cursor_walk",
 			"active" : "spr_cursor_walk_active",
 			"x" : 0,
-			"y" : 800,
+			"y" : 770,
 			"binding" : "o"
 			}
 		]

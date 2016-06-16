@@ -122,7 +122,7 @@
 		"border": "spr_various_token",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[set dirtravel 1][fade out 0.1][soundtrack saens][cloud player 100 0][position player 577 290][direction left][set mood coupe] > [active coupe_walrus](conversation walrus beginning) > [set mood default][mood default][cloud player 50 300][set dirigible_type travel][room dirigibles start]"
+			"entrance": "[set dirtravel 1][fade out 0.1][soundtrack saens][cloud player 100 0][position player 577 290][direction left][set mood coupe] > [active coupe_walrus][conversation walrus beginning] > [set mood default][mood default][cloud player 50 300][set dirigible_type travel][room dirigibles start]"
 		}, {
 			"alias": "won",
 			"entrance": "[room title_palace start]",
@@ -361,7 +361,7 @@
 		"border": "spr_various_token",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[soundtrack mozart][record mozart][time 90] > [room viktorsRoom start]"
+			"entrance": "[soundtrack mozart][record mozart silent][time 90] > [room viktorsRoom start]"
 		}],
 		"objects": [{
 			"alias": "various_title",
@@ -2235,14 +2235,15 @@
 				"xInteract": 335,
 				"yInteract": 615,
 				"description": "Priceless Mei Din vase",
-				"order": "kick,look_2",
+				"order": "kick,look",
 				"combinations": {
 					"look": "[mood]A priceless vase. > [mood]Mostly because nobody wants to buy it",
 					"kick": "[create viktorsRoom_vase_broken_decoration 25][kick left snd_vase_break] > [direction left][mood angry]Stupid priceless vase!!!",
-					"use": "I'd rather kick it.",
-					"talk": "Stupid priceless produce",
+					"use": "[if kickvase = 1][set kickvase 0] I'm in no mood to start digging around this vase now. > [if kickvase = 0][set kickvase 1] I'd rather kick it.",
+					"talk": "Stupid priceless produce!",
 					"log": "No log for you.",
-					"keys": "It's not locked, it's a vase."
+					"keys": "It's not locked, it's a vase.",
+					"coin": "I would never ever put coins in a vase!"
 				},
 				"inventory": {
 					"alias": "coin",
@@ -2697,7 +2698,7 @@
 				"order": "look,use",
 				"combinations": {
 					"look": "Hey, another record!",
-					"use": "[animation player spr_viktor_use_right_high][destroy other 15] > This is going straight to my gramophone! > [talk station_office] It was supposed to go straight to your head! > [record rossini]",
+					"use": "[animation player spr_viktor_use_right_high][destroy other 15][record rossini] > This is going straight to my gramophone! > [talk station_office] It was supposed to go straight to your head!",
 					"kick": "I think I can just pull it.",
 					"pants": "Don't complicate things, just pick it up.",
 					"cake": "That would be a good place for a cake. > But I'm not going to do this.",
@@ -2817,8 +2818,8 @@
 			"order": "look, use",
 			"combinations": {
 				"look": "I think the robot's auxilliary battery is poking out. > And the robot still works. > Wow.",
-				"kick": "I can just take it, probably",
-				"use": "[if rabbiteatscake = 1][pickup] > [if rabbithasnewpants = 1][if rabbiteatscake = 1][destroy rabbit_cake2][create rabbit_pants][skip 1] > [if rabbiteatscake = 1][destroy rabbit_cake2][create rabbit] > [if rabbiteatscake = 1][set rabbiteatscake 0][skip] > [if rabbithasnewpants = 1][animation player spr_viktor_listen_left][animation rabbit_pants spr_rabbit_pants_punch][time 85][skip 1] > [animation player spr_viktor_listen_left][animation rabbit spr_rabbit_punch][time 85] > [sound snd_boxing_hit][animation viktor spr_viktor_fell][time 50] > [animation viktor spr_viktor_fall_stand]",
+				"kick": "It's kicked around a lot already.",
+				"use": "[if rabbiteatscake = 1][pickup] > [if rabbithasnewpants = 1][if rabbiteatscake = 1][destroy rabbit_cake2][create rabbit_pants][skip 1] > [if rabbiteatscake = 1][destroy rabbit_cake2][create rabbit] > [if rabbiteatscake = 1][set rabbiteatscake 0][skip] > [if rabbithasnewpants = 1][animation player spr_viktor_listen_left][animation rabbit_pants spr_rabbit_pants_punch][time 85][skip 1] > [animation player spr_viktor_listen_left][animation rabbit spr_rabbit_punch][time 85] > [sound snd_boxing_hit][animation player spr_viktor_fell][time 50] > [animation player spr_viktor_fall_stand]",
 				"cake": "Good Idea. But on the bunny, not on the battery.",
 				"ball": "I don't want to cause an international incident just yet.",
 				"coin": "[if rabbithasnewpants = 1][talk rabbit_pants] I am not need of money, please be leaving ROBOTOTRON4ULTRA alone.[skip] > [talk rabbit] I am not need of money, please be leaving ROBOTOTRON4ULTRA alone.",
@@ -2895,9 +2896,9 @@
 		"order": "look, talk",
 		"combinations": {
 			"look": "A small girl on a huge robot. > Looks too young for me. > Also, the robot looks very scary.",
-			"talk": "[if mood][conversation rabbit start] > [if mood][skip] > [moveto player 560 650 3] > You stupid little leporidae... > [animation rabbit spr_rabbit_punch][time 85] > [sound snd_boxing_hit][animation viktor spr_viktor_fell] > [animation spr_viktor_fall_stand][time 37] > [animation player spr_viktor_walk_front_angry][moveto player 580 680 3]",
-			"kick": "[moveto player 560 650 3] > [animation player spr_viktor_walk_left 0][mood angry][animation rabbit spr_rabbit_punch][time 85] > [sound snd_boxing_hit][animation viktor spr_viktor_fell] > [animation spr_viktor_fall_stand][time 37] > [animation player spr_viktor_walk_front_angry][moveto player 580 680 3]",
-			"pants": "[give pants][set rabbithasnewpants 1][talk rabbit] Yes, that is the exactly pants I want! > [talk rabbit] Please not be averting eyes while removing dress > [talk frog] Never intended to do that. > [talk donkey] I was, but now I won't. > [animation rabbit spr_rabbit_dress] > [destroy rabbit][create rabbit_pants] > [talk rabbit_pants] Be thanking you again! > [take dress]",
+			"talk": "[if mood][conversation rabbit start] > [if mood][skip] > [moveto player 560 650 3] > You stupid little leporidae... > [animation rabbit spr_rabbit_punch][time 85] > [sound snd_boxing_hit][animation player spr_viktor_fell] > [animation spr_viktor_fall_stand][time 37] > [animation player spr_viktor_walk_front_angry][moveto player 580 680 3]",
+			"kick": "[moveto player 560 650 3] > [animation player spr_viktor_walk_left 0][mood angry][animation rabbit spr_rabbit_punch][time 85] > [sound snd_boxing_hit][animation player spr_viktor_fell] > [animation spr_viktor_fall_stand][time 37] > [animation player spr_viktor_walk_front_angry][moveto player 580 680 3]",
+			"pants": "[give pants][set rabbithasnewpants 1][talk rabbit] Yes, that is the exactly pants I want! > [talk rabbit] Please not be pointing eyes while removing dress > [talk frog] Never intended to do that. > [talk donkey] I was, but now I won't. > [animation rabbit spr_rabbit_dress] > [destroy rabbit][create rabbit_pants] > [talk rabbit_pants] Be thanking you again! > [take dress]",
 			"cake": "[give cake][animations player spr_viktor_walk_left][move player 180 5][time 30] > [animation player spr_viktor_cake][time 113] > [create fly_cake][move fly_cake 90 5][animation rabbit spr_rabbit_cake1][time 20] > [move fly_cake 90 1][time 40] > [destroy fly_cake][create rabbit_cake2][destroy][set rabbiteatscake 1][sound snd_rabbit_cake]",
 			"ball": "I don't want to cause an international incident just yet.",
 			"cell": "Hell no!",
@@ -2929,8 +2930,8 @@
 			"order": "look, talk",
 			"combinations": {
 				"look": "Nice pants.",
-				"talk": "[if mood][conversation rabbit start] > [if mood][skip] > [moveto player 560 650 3] > You stupid little leporidae... > [animation rabbit spr_rabbit_pants_punch][time 85] > [sound snd_boxing_hit][animation viktor spr_viktor_fell] > [animation spr_viktor_fall_stand][time 37] > [animation player spr_viktor_walk_front_angry][moveto player 580 680 3]",
-				"kick": "[moveto player 560 650 3] > [animation player spr_viktor_walk_left 0][mood angry][animation rabbit spr_rabbit_pants_punch][time 85] > [sound snd_boxing_hit][animation viktor spr_viktor_fell] > [animation spr_viktor_fall_stand][time 37] > [animation player spr_viktor_walk_front_angry][moveto player 580 680 3]",
+				"talk": "[if mood][conversation rabbit start] > [if mood][skip] > [moveto player 560 650 3] > You stupid little leporidae... > [animation rabbit spr_rabbit_pants_punch][time 85] > [sound snd_boxing_hit][animation player spr_viktor_fell] > [animation spr_viktor_fall_stand][time 37] > [animation player spr_viktor_walk_front_angry][moveto player 580 680 3]",
+				"kick": "[moveto player 560 650 3] > [animation player spr_viktor_walk_left 0][mood angry][animation rabbit spr_rabbit_pants_punch][time 85] > [sound snd_boxing_hit][animation player spr_viktor_fell] > [animation spr_viktor_fall_stand][time 37] > [animation player spr_viktor_walk_front_angry][moveto player 580 680 3]",
 				"cake": "[give cake][animations player spr_viktor_walk_left][move player 180 5][time 30] > [animation player spr_viktor_cake][time 113] > [create fly_cake][move fly_cake 90 5][animation rabbit_pants spr_rabbit_pants_cake1][time 20] > [move fly_cake 90 1][time 40] > [destroy fly_cake][create rabbit_cake2][destroy][set rabbiteatscake 1][sound snd_rabbit_cake]",
 				"ball": "I don't want to cause an international incident just yet.",
 				"cell": "Hell no!",
@@ -3033,7 +3034,7 @@
 				"pants": "[talk donkey] No ticket no service! > [talk donkey] Pants is optional!",
 				"cake": "[talk donkey] This isnt sarma it isnt! > No deal!",
 				"ball": "[talk donkey] What? No.",
-				"cell": "My dirigible already has one. Hahaha shame on you.",
+				"cell": "[talk donkey] My dirigible already has one. Hahaha shame on you.",
 				"ticket": "Can I go in with this ticket? > [give ticket] > [talk other] OK, the ticket is good, go on! > [direction front] Let's fly. > [animations player spr_viktor_walk_left][move player 180 3][fade in 0.02][time 60] > [fade][room map_agram_vienna start]",
 				"coin": "[conversation donkey buy]",
 				"umbrella": "[talk donkey][mood donkey angry] Are you threatening me? > [talk donkey] Or trying to sell me the umbrella? > [talk donkey] In both case, no.",
@@ -3574,11 +3575,11 @@
 		"rgb": "200,232,235",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[position player 9880 9830][time 60][animations player spr_viktor_fell] > [sound snd_clock_break][set mood angry][draw spr_viktor_falling 1010 580 60 0 -0.3 1 0 15 90 3][time 60] > [create vida_front][time 40] > [move vida_front 180 30][time 30] > [animations player spr_cloud_medium][destroy vida_front][draw spr_viktor_falling 810 -140 25 -900 -0.56 1 180 35 270 5][time 25] > [draw spr_cloud_medium 840 830 10 -1000 1 1 0 15 45 0 0 0 -0.1][draw spr_cloud_medium 830 830 10 -1000 1 1 0 15 140 0 0 0 -0.1][draw spr_cloud_medium 830 810 10 -1000 1 1 0 15 90 0 0 0 -0.1][draw spr_cloud_medium 830 830 10 -1000 1 1 0 15 300 0 0 0 -0.1][create viktor_fell][sound snd_viktor_kick2][time 50] > [destroy viktor_fell][create viktor_fall_stand][time 14] > [destroy viktor_fall_stand][position player 840 830] > [direction left] This is just a minor setback! > [set mood scared][direction left][talk offscreenpsst][sound snd_vida_talk_shh] Psst! > [direction left]I need a way to avoid that stupid energy field! > [direction left][talk offscreenpsst][sound snd_vida_talk_shh3]PSSST! > [direction left]I either got concussion-induced hallucinations, or I hear a bug spray. > [talk offscreenpsst][sound snd_vida_talk_shh2][time 45]PSSSSST PSSS PSSST!!! > What the... > [animation player spr_viktor_talk_right 0][create vida_gets_in][move vida_gets_in 180 26][time 12][direction right] > [animation player spr_viktor_talk_right 0][move vida_gets_in 180 0][time 50] > [destroy vida_gets_in][create vida] > [active vida][conversation vida start] > [animation vida spr_vida_exit][move vida 0 30] > [animation viktor spr_viktor_letter1] > [animation viktor spr_viktor_letter2] We find you acceptable to join our revolutionary cause. Meet us at the copper garter bar in Prague. This message is self-destructing while you are reading it. > [animation viktor spr_viktor_letter3][sound snd_letter_burn][time 70] > [sound snd_letter_burn][time 140] > Well, I always wanted to visit Prague... > [fade in 0.03][time 60] > [fade][room map_vienna_prague start]"
+			"entrance": "[position player 9880 9830][time 60][animations player spr_viktor_fell] > [sound snd_clock_break][set mood angry][draw spr_viktor_falling 1010 580 60 0 -0.3 1 0 15 90 3][time 60] > [create vida_front][time 40] > [move vida_front 180 30][time 30] > [animations player spr_cloud_medium][destroy vida_front][draw spr_viktor_falling 810 -140 25 -900 -0.56 1 180 35 270 5][time 25] > [draw spr_cloud_medium 840 830 10 -1000 1 1 0 15 45 0 0 0 -0.1][draw spr_cloud_medium 830 830 10 -1000 1 1 0 15 140 0 0 0 -0.1][draw spr_cloud_medium 830 810 10 -1000 1 1 0 15 90 0 0 0 -0.1][draw spr_cloud_medium 830 830 10 -1000 1 1 0 15 300 0 0 0 -0.1][create viktor_fell][sound snd_viktor_kick2][time 50] > [destroy viktor_fell][create viktor_fall_stand][time 14] > [destroy viktor_fall_stand][position player 840 830] > [direction left] This is just a minor setback! > [set mood scared][direction left][talk offscreenpsst][sound snd_vida_talk_shh] Psst! > [direction left]I need a way to avoid that stupid energy field! > [direction left][talk offscreenpsst][sound snd_vida_talk_shh3]PSSST! > [direction left]I either got concussion-induced hallucinations, or I hear a bug spray. > [talk offscreenpsst][sound snd_vida_talk_shh2][time 45]PSSSSST PSSS PSSST!!! > What the... > [animation player spr_viktor_talk_right 0][create vida_gets_in][move vida_gets_in 180 26][time 12][direction right] > [animation player spr_viktor_talk_right 0][move vida_gets_in 180 0][time 50] > [destroy vida_gets_in][create vida] > [active vida][conversation vida start] > [animation vida spr_vida_exit][move vida 0 30] > [animation player spr_viktor_letter1] > [animation player spr_viktor_letter2] We find you acceptable to join our revolutionary cause. Meet us at the copper garter bar in Prague. This message is self-destructing while you are reading it. > [animation player spr_viktor_letter3][sound snd_letter_burn][time 70] > [sound snd_letter_burn][time 140] > Well, I always wanted to visit Prague... > [fade in 0.03][time 60] > [fade][room map_vienna_prague start]"
 		},
 		{
 			"alias" : "test",
-			"entrance" : "[position player 840 825][create vida][position vida 912 611][active vida][conversation vida package] > [animation vida spr_vida_exit][move vida 0 30] > [animation viktor spr_viktor_letter1] > [animation viktor spr_viktor_letter2] We find you acceptable to join our revolutionary cause. Meet us at the copper garter bar in Prague. This message is self-destructing while you are reading it. > [animation viktor spr_viktor_letter3][sound snd_letter_burn][time 70] > [sound snd_letter_burn][time 140] > Well, I always wanted to visit Prague... > [fade in 0.03][time 60] > [fade][room map_vienna_prague start]"
+			"entrance" : "[position player 840 825][create vida][position vida 912 611][active vida][conversation vida package] > [animation vida spr_vida_exit][move vida 0 30] > [animation player spr_viktor_letter1] > [animation player spr_viktor_letter2] We find you acceptable to join our revolutionary cause. Meet us at the copper garter bar in Prague. This message is self-destructing while you are reading it. > [animation player spr_viktor_letter3][sound snd_letter_burn][time 70] > [sound snd_letter_burn][time 140] > Well, I always wanted to visit Prague... > [fade in 0.03][time 60] > [fade][room map_vienna_prague start]"
 		}
 		],
 		"objects": [
@@ -3829,7 +3830,7 @@
 		"rgb": "200,232,235",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[set passguess 0][position player 300 670][sound snd_gramophone][set alreadywent 0][set tried_dumb_flag 0] This is the end of part 1, it is around 30% of the game, I hope you had fun. > [fade in 0.03][time 120] > [finish]",
+			"entrance": "[set passguess 0][position player 300 670][sound snd_gramophone][set alreadywent 0][set tried_dumb_flag 0] This is the end of part 1, it is around 30% of the game, I hope you had fun. > [fade in 0.03][time 120] > [finish http://studiospektar.hr/viktor/betaform]",
 			"entrance2": "[set passguess 0][position player 300 670][sound snd_gramophone][set alreadywent 0][set tried_dumb_flag 0] This looks cozy. > Now to find those anarchists. > They probably have armies, bombs and whatnot."
 		}, {
 			"alias": "toilet_exit",
