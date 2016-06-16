@@ -1,6 +1,6 @@
 {
 	"version" : "notdebug",
-	"fullscreen" : 1,
+	"fullscreen" : 0,
 	"room_speed" : 30,
 	"image_speed" : 0.25,
 	"player_speed" : 7,
