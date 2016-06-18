@@ -51,7 +51,7 @@ How much money do you have?
 		[section moar]
 	+Umm... I might have a copper crown or two on me...
 		You are still worth more as pork chops.
-			+[not coins < 1] But look! A real coin! So shiny!
+			But look! A real coin! So shiny!
 [give coin][animation player spr_viktor_coin][animation viktorsRoom_crow spr_viktorsRoom_crow_coin][imagespeed viktorsRoom_crow 1] > [animation player spr_viktor_coin2][moveto player 610 690 3][animations viktorsRoom_crow spr_viktorsRoom_crow_coin_talk]It shines! So shiny!!!
 					[animations viktorsRoom_crow spr_viktorsRoom_crow_coin_fly][moveto viktorsRoom_crow 700 400 8][animation player spr_viktor_coin3][time 25] > [sound snd_viktorsRoom_crow_talk][draw spr_item_coin 630 500 0 -3000 0.2 1 0 8 45][animations viktorsRoom_crow spr_viktorsRoom_crow_coin_fly][moveto viktorsRoom_crow 892 400 5][animation player spr_viktor_coin4][time 36]
 					[sound snd_vase_break][sound snd_viktorsRoom_crow_talk2][move draw 345 8][animations player spr_viktor_coin5][moveto player 0 690 6][animations viktorsRoom_crow spr_viktorsRoom_crow_coin_fly][moveto viktorsRoom_crow 900 400 5][time 36]
