@@ -521,7 +521,7 @@ Shalom, me lad.
 		The Jewish Athletes of Scotland Kibbutz, be visitin' the emperor of Austria-Hungary.   //brian edit changed "Kibbitz" to "Kibbutz" (kibitz is chat informally, kibbutz is communal settlement), changed (visiting') to (visitin') same reason as line 520
 		[set jew_flag 1]
 			+ What a coincidence. I'm traveling to the same place. But I'm planning to overthrow the emperor.   // brian edit changed "travelling" to "traveling" there were 10 instances of "traveling" vs 1 instance of "traveling" need to be consistent
-				Strange. I got the feelin's that yer emperor is a lifelong shtick.
+				Strange. I got the feelin's that bein' an emperor is a lifelong shtick.
 					+ Shticks are meant to be changed.   //brian edit added "meant" to this sentence for clearer meaning (in my opinion), also see my opinion of "shtick" elsewhere (I think this should be changed)
 						If ye be sayin' so.
 							[section hello]
