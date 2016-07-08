@@ -1,6 +1,130 @@
 {
-	"version": "6.6. ready for testing",
-	"rooms": [{
+	"version": "29.6. ready for testing",
+	"rooms": [
+	
+	{
+		"comment": "Tesla slider",
+		"alias": "teslaslider",
+		"gui": "default",
+		"background": "bcg_teslaslider",
+		"xBackground" : 0,
+		"yBackground" : 20,
+		"scaleNear": 1,
+		"scaleFar": 1,
+		"rgb": "255,255,255",
+		"border": "spr_various_token",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[create tesla_controller] > [stop] > [room previous slider]"
+		}],
+		"objects": [
+			{
+				"available" : 0,
+				"alias" : "tesla_controller",
+				"object" : "obj_tesla_controller",
+				"x" : 435,
+				"y":  240,
+				"pictures" : {
+				
+					"int_waitForEnd" : 30,
+					"int_outletTile[0]" : 0,
+					"int_outletFrom[0]" : 0,
+					"int_outletTile[1]" : 2,
+					"int_outletFrom[1]" : 0,
+					"int_outlets" : 2,
+
+					"int_inletTile[0]" : 12,
+					"int_inletTo[0]" : 180,
+					"int_inletTile[1]" : 14,
+					"int_inletTo[1]" : 180,
+					"int_inlets" : 2,
+
+					"int_xOffset" : 148, 
+					"int_yOffset" : 143,
+					"int_emptyTile" : 0,
+					"randomize" : 0,
+				
+					"indexFront_1" : "spr_teslaslider_block_straight",
+					"angleFront_1" : 0,
+					"indexBack_1" : "spr_teslaslider_block_turn",
+					"angleBack_1" : 0,
+					
+					"indexFront_2" : "spr_teslaslider_block_empty",
+					"angleFront_2" : 0,
+					"indexBack_2" : "spr_teslaslider_block_straight",
+					"angleBack_2" : 0,
+					
+					"indexFront_3" : "spr_teslaslider_block_turn",
+					"angleFront_3" : 90,
+					"indexBack_3" : "spr_teslaslider_block_empty",
+					"angleBack_3" : 0,
+					
+					"indexFront_4" : "spr_teslaslider_block_turn",
+					"angleFront_4" : 270,
+					"indexBack_4" : "spr_teslaslider_block_turn",
+					"angleBack_4" : 180,
+					
+					"indexFront_5" : "spr_teslaslider_block_turn",
+					"angleFront_5" : 0,
+					"indexBack_5" : "spr_teslaslider_block_straight",
+					"angleBack_5" : 0,
+					
+					"indexFront_6" : "spr_teslaslider_block_empty",
+					"angleFront_6" : 0,
+					"indexBack_6" : "spr_teslaslider_block_straight",
+					"angleBack_6" : 0,
+					
+					"indexFront_7" : "spr_teslaslider_block_straight",
+					"angleFront_7" : 0,
+					"indexBack_7" : "spr_teslaslider_block_empty",
+					"angleBack_7" : 0,
+					
+					"indexFront_8" : "spr_teslaslider_block_empty",
+					"angleFront_8" : 0,
+					"indexBack_8" : "spr_teslaslider_block_straight",
+					"angleBack_8" : 90,
+					
+					"indexFront_9" : "spr_teslaslider_block_straight",
+					"angleFront_9" : 90,
+					"indexBack_9" : "spr_teslaslider_block_turn",
+					"angleBack_9" : 180,
+					
+					"indexFront_10" : "spr_teslaslider_block_straight",
+					"angleFront_10" : 180,
+					"indexBack_10" : "spr_teslaslider_block_turn",
+					"angleBack_10" : 180,
+					
+					"indexFront_11" : "spr_teslaslider_block_empty",
+					"angleFront_11" : 0,
+					"indexBack_11" : "spr_teslaslider_block_turn",
+					"angleBack_11" : 180,
+					
+					"indexFront_12" : "spr_teslaslider_block_empty",
+					"angleFront_12" : 0,
+					"indexBack_12" : "spr_teslaslider_block_straight",
+					"angleBack_12" : 90,
+					
+					"indexFront_13" : "spr_teslaslider_block_turn",
+					"angleFront_13" : 90,
+					"indexBack_13" : "spr_teslaslider_block_empty",
+					"angleBack_13" : 0,
+					
+					"indexFront_14" : "spr_teslaslider_block_turn",
+					"angleFront_14" : 270,
+					"indexBack_14" : "spr_teslaslider_block_turn",
+					"angleBack_14" : 90,
+					
+					"indexFront_15" : "spr_teslaslider_block_straight",
+					"angleFront_15" : 0,
+					"indexBack_15" : "spr_teslaslider_block_straight",
+					"angleBack_15" : 90
+					
+				}
+			}
+		]
+
+	},
+	{
 		"comment": "Intro animations",
 		"alias": "intro",
 		"gui": "empty",
@@ -1505,7 +1629,7 @@
 				"combinations": {
 					"look": "[mood]The oven serves three purposes... > [mood]Cooking, heating water and burning my fingers.",
 					"kick": "[if available viktorsRoom_oven_broken][direction left] Stupid finger hating oven! > [if available viktorsRoom_oven_broken][kick auto snd_oven_break] > [if available viktorsRoom_oven_broken][skip] > [direction left] Die evil hellspawn oven!!! > [kick auto snd_oven_break][create viktorsRoom_oven_broken 15] > [mood] Hey, it's no longer stuck!",
-					"use": "[if available viktorsRoom_oven_broken] I broke it, but at least now I can open it to put something inside. > [not available viktorsRoom_oven_broken] It has been stuck since the last time I kicked it.",
+					"use": "[if available viktorsRoom_oven_broken][mood] I broke it, but at least now I can open it to put something inside. > [not available viktorsRoom_oven_broken] It has been stuck since the last time I kicked it.",
 					"log": "[not available viktorsRoom_oven_broken] The oven door is stuck. > [not available viktorsRoom_oven_broken][skip] > [animation player spr_viktor_use_back_low][time 20] > [sound snd_log][time 20] > [destroy viktorsRoom_oven_broken][create viktorsRoom_oven_hot][give log] > [if available viktorsRoom_pot1][create viktorsRoom_pot1_boil][description viktorsRoom_pot1 Small pot of boiling water]",
 					"keys": "It's not locked, it's stuck.",
 					"umbrella": "I love this umbrella too much to break it like this.",
@@ -1983,9 +2107,9 @@
 					"look": "[mood]Eww, it's full of roaches!",
 					"use": "[mood]I don't want to squish them with my hands...",
 					"talk": "[direction left]Stupid roaches, go away!!!",
-					"log": "I want to kill the roaches without destroying the inner coating",
+					"log": "[mood]I want to kill the roaches without destroying the inner coating",
 					"keys": "The bed is not locked.",
-					"umbrella": "[direction back][mood]Oh, no! > The roaches almost ate away my favourite Scott Joplin record! > [direction left] It's time to rain terror!!! > [mood]Heh, rain... > [record joplin][destroy][destroy viktorsRoom_tub_roaches2][create viktorsRoom_tub_clean][room roaches start]",
+					"umbrella": "[direction back][mood]Oh, no! > The roaches almost ate away my favourite Scott Joplin record! > [direction left][record joplin] It's time to rain terror!!! > [mood]Heh, rain... > [destroy][destroy viktorsRoom_tub_roaches2][create viktorsRoom_tub_clean][room roaches start]",
 					"kick": "[mood]I'm not getting roaches on my only boots",
 					"coin": "They don't take cash"
 				}
@@ -2698,7 +2822,7 @@
 				"order": "look,use",
 				"combinations": {
 					"look": "Hey, another record!",
-					"use": "[animation player spr_viktor_use_right_high][destroy other 15][record rossini] > This is going straight to my gramophone! > [talk station_office] It was supposed to go straight to your head!",
+					"use": "[animation player spr_viktor_use_right_high][destroy other 15][record dvorak] > This is going straight to my gramophone! > [talk station_office] It was supposed to go straight to your head!",
 					"kick": "I think I can just pull it.",
 					"pants": "Don't complicate things, just pick it up.",
 					"cake": "That would be a good place for a cake. > But I'm not going to do this.",
@@ -2898,7 +3022,7 @@
 			"look": "A small girl on a huge robot. > Looks too young for me. > Also, the robot looks very scary.",
 			"talk": "[if mood][conversation rabbit start] > [if mood][skip] > [moveto player 560 650 3] > You stupid little leporidae... > [animation rabbit spr_rabbit_punch][time 85] > [sound snd_boxing_hit][animation player spr_viktor_fell] > [animation spr_viktor_fall_stand][time 37] > [animation player spr_viktor_walk_front_angry][moveto player 580 680 3]",
 			"kick": "[moveto player 560 650 3] > [animation player spr_viktor_walk_left 0][mood angry][animation rabbit spr_rabbit_punch][time 85] > [sound snd_boxing_hit][animation player spr_viktor_fell] > [animation spr_viktor_fall_stand][time 37] > [animation player spr_viktor_walk_front_angry][moveto player 580 680 3]",
-			"pants": "[give pants][set rabbithasnewpants 1][talk rabbit] Yes, that is the exactly pants I want! > [talk rabbit] Please not be pointing eyes while removing dress > [talk frog] Never intended to do that. > [talk donkey] I was, but now I won't. > [animation rabbit spr_rabbit_dress] > [destroy rabbit][create rabbit_pants] > [talk rabbit_pants] Be thanking you again! > [take dress]",
+			"pants": "[give pants][set rabbithasnewpants 1][talk rabbit] Yes, that is the exactly pants I want! > [talk rabbit] Please not be averting eyes while removing dress > [talk frog] Never intended to do that. > [talk donkey] I was, but now I won't. > [animation rabbit spr_rabbit_dress] > [destroy rabbit][create rabbit_pants] > [talk rabbit_pants] Be thanking you again! > [take dress]",
 			"cake": "[give cake][animations player spr_viktor_walk_left][move player 180 5][time 30] > [animation player spr_viktor_cake][time 113] > [create fly_cake][move fly_cake 90 5][animation rabbit spr_rabbit_cake1][time 20] > [move fly_cake 90 1][time 40] > [destroy fly_cake][create rabbit_cake2][destroy][set rabbiteatscake 1][sound snd_rabbit_cake]",
 			"ball": "I don't want to cause an international incident just yet.",
 			"cell": "Hell no!",

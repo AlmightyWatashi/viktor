@@ -10,6 +10,8 @@
 0.09 alex 27.4. 17h do 28.4.
 0.10. wat post-reboot 6.5.
 0.11. alex backer beta version 16.06. 12h
+0.12. brian edit plus extra checks
+
 
 === crow ===
 
@@ -1010,9 +1012,9 @@ end
 				[mood donkey angry] How the smag can I know that your uncle's mother's neighbour is from Bosnia?  //brian edit made (mother's) possessive since it was shown that way originally in line 1009
 					[section start]
 			+ Can't we take care of this some other way?
-				No
+				No.
 					[end]
-	- My name is Viktor. I'm the next emperor of Austria Hungary. Let me aboard.  //brian edit  added period (.) at end of sentence
+	+ My name is Viktor. I'm the next emperor of Austria Hungary. Let me aboard.  //brian edit  added period (.) at end of sentence
 		Did you smoke some weird shit man?  //brian edit  corrected spelling of "wierd" to "weird"
 		[mood donkey angry] What the fuck are you bullshitting around here?  //brian edit corrected spelling of "bullshitting" (from "bullshiting") and make the statement a question (since it is)
 		[mood donkey angry] You lasagna eater, go suck your lasagnas.   //brian edit   added comma (,) between "eater" and "go" for readability
@@ -1693,7 +1695,7 @@ end
 		Let's just say I have a feeling that something important will happen on this journey.
 		[add vienna_travel 1]
 			[section hello]	
-	-[if repair_flag = 1] I hope you won't be seeing a new emperor of Austria-Hungary.  //brian edit  changed "wouldn't seeing a new emperor" to "won't be seeing a new emperor" for grammar  (This is HG Wells, after all)
+	-[if repair_flag = 1] I hope you won't mind seeing a new emperor of Austria-Hungary.  //brian edit  changed "wouldn't seeing a new emperor" to "won't be seeing a new emperor" for grammar  (This is HG Wells, after all) - Watashi added "mind", I have no idea how this got lost -.-
 		I didn't know the empire plans on switching to democratic elections.
 		[set ouster_talked 1]
 			+ I'm not sure what you mean by ''elections''.
