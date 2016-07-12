@@ -54,7 +54,7 @@ How much money do you have?
 	+Umm... I might have a copper crown or two on me...
 		You are still worth more as pork chops.
 			But look! A real coin! So shiny!
-[give coin][animation player spr_viktor_coin][animation viktorsRoom_crow spr_viktorsRoom_crow_coin][imagespeed viktorsRoom_crow 1] > [animation player spr_viktor_coin2][moveto player 610 690 3][animations viktorsRoom_crow spr_viktorsRoom_crow_coin_talk]It shines! So shiny!!!
+[add coins -1][animation player spr_viktor_coin][animation viktorsRoom_crow spr_viktorsRoom_crow_coin][imagespeed viktorsRoom_crow 1] > [animation player spr_viktor_coin2][moveto player 610 690 3][animations viktorsRoom_crow spr_viktorsRoom_crow_coin_talk]It shines! So shiny!!!
 					[animations viktorsRoom_crow spr_viktorsRoom_crow_coin_fly][moveto viktorsRoom_crow 700 400 8][animation player spr_viktor_coin3][time 25] > [sound snd_viktorsRoom_crow_talk][draw spr_item_coin 630 500 0 -3000 0.2 1 0 8 45][animations viktorsRoom_crow spr_viktorsRoom_crow_coin_fly][moveto viktorsRoom_crow 892 400 5][animation player spr_viktor_coin4][time 36]
 					[sound snd_vase_break][sound snd_viktorsRoom_crow_talk2][move draw 345 8][animations player spr_viktor_coin5][moveto player 0 690 6][animations viktorsRoom_crow spr_viktorsRoom_crow_coin_fly][moveto viktorsRoom_crow 900 400 5][time 36]
 					[fade in 0.02][sound snd_vase_break][sound snd_viktorsRoom_crow_talk3][move draw 250 8][animations player spr_viktor_coin5][moveto player 0 690 6][animations viktorsRoom_crow spr_viktorsRoom_crow_coin_fly][moveto viktorsRoom_crow 900 900 5][time 50]
@@ -1560,7 +1560,8 @@ How is life faring for you, Viktor?   //brian edit changed "fairing" to "faring"
 			+ For a coin, I don't want it.
 				Done.
 				[set bought_cell_flag 0][set sold_cell_flag 1]
-				[animation player spr_viktor_use_right_middle][take coin][give cell]
+				[animation player spr_viktor_use_right_middle][add coins -1][take cell]
+				[if coins = 0][give coin]
 					[section hello]	
 	+ See you, Attar
 		[section goodbye]
@@ -1573,7 +1574,7 @@ end
 			+ Come on, come on, come on, come on, you know you want it.
 				Oh, all right, I want it.
 				[set sold_cell_flag 1]
-				[animation player spr_viktor_use_right_middle][take coin][give cell]
+				[animation player spr_viktor_use_right_middle][add coins 1][give cell]
 					+ Well, gotta go. See you, Attar.
 						[section goodbye]
 	+ Your loss.
