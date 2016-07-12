@@ -1562,7 +1562,7 @@
 				"combinations": {
 					"kick": "Stupid pots!! > First I'm going to yell at you! > Then use you for my bath to calm down",
 					"use": "[mood]I'll need is for the bath. [animation player spr_viktor_pot1_take1] > [destroy viktorsRoom_pots][create viktorsRoom_pot2][animation player spr_viktor_pot1_take2] > [animations player spr_viktor_pot1_carry][move player 65 2][time 92] > [animation player spr_viktor_pot1_lift] > [create viktorsRoom_pot1] > [if available viktorsRoom_oven_hot][create viktorsRoom_pot1_boil][description viktorsRoom_pot1 Small pot of boiling water]",
-					"Look": "Pots of water. > The bigger one is filled with cold water. > The smaller one is also filled with cold water."
+					"look": "Pots of water. > The bigger one is filled with cold water. > The smaller one is also filled with cold water."
 				}
 			},
 
@@ -1724,7 +1724,7 @@
 					"use": "It's locked",
 					"talk": "[mood angry] Damn you, grandpa clock!",
 					"log": "I can't log a clock.",
-					"keys": "[if clock_coin = 0][skip 2] > [mood]I don't think I can find anything else in there. > [skip] > [pick back middle][set clock_coin 1] > [mood]Ooh, there was a coin in here",
+					"keys": "[if clock_coin = 0][skip 2] > [mood] I don't think I can find anything else in there. > [skip] > [pick back middle][set clock_coin 1] > [mood] Ooh, there was a coin in here",
 					"umbrella": "It's an umbrella, not a pry bar",
 					"coin": "[if clock_coin = 1][mood]A good place to put it, but it's locked > [if clock_coin = 1][skip] > [mood]I think I need a real key."
 				},
@@ -2403,7 +2403,7 @@
 					"look": "A priceless vase. > Mostly because nobody wants to buy it.",
 					"kick": "Why would I do that?",
 					"look_2": "So priceless",
-					"use": "[pick left middle] > Hey, it's a coin!",
+					"use": "[if vasecoin = 1] Broken and looted. > [if vasecoin = 0][pick left middle] > [if vasecoin = 0][set vasecoin 1] Hey, it's a coin!",
 					"use_2": "It's empty now",
 					"talk": "[blocksound snd_vase_sing]My little Mei Din girl... > [blocksound snd_vase_sing] Something something mess with me... > [blocksound snd_vase_sing2] Oh oh oh oh!",
 					"log": "No log for you, vase.",
@@ -2652,7 +2652,7 @@
 					"alias": "ticket",
 					"picture": "spr_item_ticket",
 					"name": "Ticket",
-					"description": "A dirigible ticket I was given.",
+					"description": "A dirigible ticket.",
 					"default": "I have to give this ticket to the conducter, not lose it."
 				}
 			}, {
@@ -2781,7 +2781,7 @@
 					"alias": "ticket",
 					"picture": "spr_item_ticket",
 					"name": "Ticket",
-					"description": "A dirigible ticket I bought.",
+					"description": "A dirigible ticket.",
 					"default": "I have to give this ticket to the conducter, not lose it."
 				}
 			},  {
@@ -2899,7 +2899,7 @@
 		"rgb": "200,232,235",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[if version debug][take cake][set cleanup 1] > [if cleanup = 1][if ballandbattery = 0][set ballandbattery 1][create station_ball][create battery_poking] > [position 9000 9000][position station_up_lift_cabin 1057 300][move station_up_lift_cabin 90 5][sound snd_lift_arrive][time 60] > [move station_up_lift_cabin 90 0][position player 1100 673][animations player spr_viktor_walk_left][move player 180 5][time 50]"
+			"entrance": "[if version debug][take pants][set cleanup 1] > [if cleanup = 1][if ballandbattery = 0][set ballandbattery 1][create station_ball][create battery_poking] > [position 9000 9000][position station_up_lift_cabin 1057 300][move station_up_lift_cabin 90 5][sound snd_lift_arrive][time 60] > [move station_up_lift_cabin 90 0][position player 1100 673][animations player spr_viktor_walk_left][move player 180 5][time 50]"
 		}, {
 			"alias": "won",
 			"entrance": "[soundtrack dvorak][sound snd_gramophone][position 400 700][active donkey][conversation donkey won]"
@@ -3022,7 +3022,7 @@
 			"look": "A small girl on a huge robot. > Looks too young for me. > Also, the robot looks very scary.",
 			"talk": "[if mood][conversation rabbit start] > [if mood][skip] > [moveto player 560 650 3] > You stupid little leporidae... > [animation rabbit spr_rabbit_punch][time 85] > [sound snd_boxing_hit][animation player spr_viktor_fell] > [animation spr_viktor_fall_stand][time 37] > [animation player spr_viktor_walk_front_angry][moveto player 580 680 3]",
 			"kick": "[moveto player 560 650 3] > [animation player spr_viktor_walk_left 0][mood angry][animation rabbit spr_rabbit_punch][time 85] > [sound snd_boxing_hit][animation player spr_viktor_fell] > [animation spr_viktor_fall_stand][time 37] > [animation player spr_viktor_walk_front_angry][moveto player 580 680 3]",
-			"pants": "[give pants][set rabbithasnewpants 1][talk rabbit] Yes, that is the exactly pants I want! > [talk rabbit] Please not be averting eyes while removing dress > [talk frog] Never intended to do that. > [talk donkey] I was, but now I won't. > [animation rabbit spr_rabbit_dress] > [destroy rabbit][create rabbit_pants] > [talk rabbit_pants] Be thanking you again! > [take dress]",
+			"pants": "[give pants][set rabbithasnewpants 1][talk rabbit] Yes, that is the exactly pants I want! > [talk rabbit] Please not be averting eyes while removing dress > [talk frog] Never intended to do that. > [talk donkey] I was, but now I won't. > [animation rabbit spr_rabbit_dress][time 60] > [destroy rabbit][create rabbit_pants] > [talk rabbit_pants] Be thanking you again! > [take dress]",
 			"cake": "[give cake][animations player spr_viktor_walk_left][move player 180 5][time 30] > [animation player spr_viktor_cake][time 113] > [create fly_cake][move fly_cake 90 5][animation rabbit spr_rabbit_cake1][time 20] > [move fly_cake 90 1][time 40] > [destroy fly_cake][create rabbit_cake2][destroy][set rabbiteatscake 1][sound snd_rabbit_cake]",
 			"ball": "I don't want to cause an international incident just yet.",
 			"cell": "Hell no!",
@@ -3168,7 +3168,7 @@
 				"alias": "ticket",
 				"picture": "spr_item_ticket",
 				"name": "Ticket",
-				"description": "A dirigible ticket I won in a race.",
+				"description": "A dirigible ticket.",
 				"default": "I have to give this ticket to the conducter, not lose it."
 			}
 		}, {
