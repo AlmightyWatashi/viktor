@@ -1,9 +1,18 @@
 {
-	"version" : "backer beta 16.06. 12h",
+	"version" : "debug",
 	"fullscreen" : 0,
 	"room_speed" : 30,
 	"image_speed" : 0.25,
 	"player_speed" : 7,
+	"update" : "https://raw.githubusercontent.com/AlmightyWatashi/viktor/master/",
+	"title" : "Viktor, a Steampunk Adventure",
+	"cursor_wait" : "spr_cursor_wait",
+	"firstCoinInInventoryDefault" : "Can't bribe my way out of this.",
+	"firstCoinInInventoryDescription" : "My first paycheck.",
+	"firstCoinInInventoryName" : "Coin",
+	"firstCoinInInventoryNames" : "Coins",
+	"firstCoinInInventoryDescriptions" : " copper crowns",	
+	"multiple" : 1,
 	"letterbox" : [
 		"0,0,0",
 		"88,9,51",
@@ -12,7 +21,5 @@
 		"79,41,10,4,60,60"
 	],
 	"stripe" : 100,
-	"update" : "https://raw.githubusercontent.com/AlmightyWatashi/viktor/master/",
-	"action" : "menu main",
-	"multiple" : 1,
+	"action" : "new garden start",
 }

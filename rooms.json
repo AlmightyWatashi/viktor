@@ -1,7 +1,776 @@
 {
-	"version": "29.6. ready for testing",
+	"version": "19.7.",
 	"rooms": [
-	
+	{
+		"comment": "Frankenstein room up",
+		"alias": "tower",
+		"gui": "default",
+		"scaleNear": 0.8,
+		"scaleFar": 0.7,
+		"background": "bcg_tower",
+		"border": "spr_border_viktorsRoom",
+		"xBackground": -5,
+		"yBackground": 35,
+		"rgb": "0,0,0",
+		"entrances": [
+			{
+			"alias": "start",
+			"entrance": "[position player 700 700] Room in development!"
+			}
+		],
+		"objects": [
+			{
+				"alias": "return",
+				"x": 200,
+				"y": 200,
+				"xInteract": 600,
+				"yInteract": 700,
+				"picture": "spr_various_token",
+				"xScale": 100,
+				"yScale": 100,
+				"description": "Exit to another room",
+				"combinations": {
+					"talk": "[room tower start]",
+					"use": "[room tesla start]",
+					"look" : "[room botanical start]",
+					"kick": "[room garden start]"
+				}
+			},
+			{
+				"alias": "tower_ball",
+				"x": 403,
+				"y": 229,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tower_ball_cable_down",
+				"x": 509,
+				"y": 131,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tower_ball_cable_up",
+				"x": 512,
+				"y": 52,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tower_bed_board",
+				"x": 359,
+				"y": 673,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tower_bed_holder_back",
+				"x": 365,
+				"y": 542,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tower_bed_holder_front",
+				"x": 324,
+				"y": 571,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tower_bzz",
+				"x": 971,
+				"y": 409,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tower_bzz2",
+				"x": 1011,
+				"y": 417,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tower_control_lever1",
+				"x": 624,
+				"y": 397,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tower_control_lever2",
+				"x": 674,
+				"y": 395,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tower_control_light_blue",
+				"x": 686,
+				"y": 516,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tower_control_light_green",
+				"x": 662,
+				"y": 448,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tower_control_light_red",
+				"x": 708,
+				"y": 451,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tower_hand",
+				"x": 40,
+				"y": 414,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tower_kirilian",
+				"x": 126,
+				"y": 436,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tower_lamplight",
+				"x": 840,
+				"y": 418,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tower_machine_ball1",
+				"x": 203,
+				"y": 186,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tower_machine_ball2",
+				"x": 374,
+				"y": 178,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tower_machine_body",
+				"x": 237,
+				"y": 39,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tower_machine_cable",
+				"x": 214,
+				"y": 238,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tower_machine_nozzle",
+				"x": 244,
+				"y": 204,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tower_machine_blade1",
+				"x": 208,
+				"y": 95,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tower_machine_blade2",
+				"x": 212,
+				"y": 133,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tower_machine_blade3",
+				"x": 210,
+				"y": 167,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tower_machine_blade4",
+				"x": 213,
+				"y": 57,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tower_phone",
+				"x": 822,
+				"y": 442,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tower_poster",
+				"x": 1034,
+				"y": 650,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tower_stool",
+				"x": 900,
+				"y": 665,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tower_things",
+				"x": 949,
+				"y": 410,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			}
+		]
+	},
+	{
+		"comment": "Teslas room",
+		"alias": "tesla",
+		"gui": "default",
+		"scaleNear": 0.8,
+		"scaleFar": 0.7,
+		"background": "bcg_tesla",
+		"border": "spr_border_viktorsRoom",
+		"xBackground": 0,
+		"yBackground": 20,
+		"rgb": "0,0,0",
+		"entrances": [
+			{
+			"alias": "start",
+			"entrance": "[position player 650 800] Room in development! > [switch viktor matilda] > [direction left] Hi. > [switch viktor matilda]"
+			}
+		],
+		"objects": [
+			{
+				"alias": "return",
+				"x": 200,
+				"y": 200,
+				"xInteract": 600,
+				"yInteract": 700,
+				"picture": "spr_various_token",
+				"xScale": 100,
+				"yScale": 100,
+				"description": "Exit to another room",
+				"combinations": {
+					"talk": "[room tower start]",
+					"use": "[room tesla start]",
+					"look" : "[room botanical start]",
+					"kick": "[room garden start]"
+				}
+			},
+			{
+				"alias": "tesla_beam1",
+				"available" : 0,
+				"x": 465,
+				"y": 222,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tesla_beam2",
+				"available" : 0,
+				"x": 465,
+				"y": 222,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tesla_beam3",
+				"available" : 0,
+				"x": 465,
+				"y": 222,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tesla_beam4",
+				"available" : 0,
+				"x": 465,
+				"y": 222,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tesla_bulb",
+				"x": 528,
+				"y": 670,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tesla_coil",
+				"x": 973,
+				"y": 246,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias" : "tesla_coil_close",
+				"picture": "spr_tesla_column",
+				"x": 173,
+				"y": 718,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tesla_electricity1",
+				"available" : 0,
+				"x": 515,
+				"y": 303
+			},
+			{
+				"alias": "tesla_electricity2",
+				"available" : 0,
+				"x": 406,
+				"y": 310
+			},
+			{
+				"alias": "tesla_electricity3",
+				"available" : 0,
+				"x": 218,
+				"y": 296
+			},
+			{
+				"alias": "tesla_electricity4",
+				"available" : 0,
+				"x": 235,
+				"y": 315
+			},
+			{
+				"alias": "tesla_electricity5",
+				"available" : 0,
+				"x": 447,
+				"y": 278
+			},
+			{
+				"alias": "tesla_fence_back",
+				"x": 447,
+				"y": 455
+			},
+			{
+				"alias": "tesla_fence_front",
+				"x": 442,
+				"y": 473,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tesla_machine1",
+				"x": 0,
+				"y": 196,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tesla_machine2",
+				"x": 411,
+				"y": 45,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tesla_machine3",
+				"x": 716,
+				"y": 459,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tesla_pad",
+				"x": 440,
+				"y": 546,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tesla_stairs",
+				"x": 714,
+				"y": 556,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "tesla",
+				"idle" : 1,
+				"x": 800,
+				"y": 800,
+				"xScale" : 0.6,
+				"yScale" : 0.6,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "matilda",
+				"xScale" : 0.78,
+				"yScale" : 0.78,
+				"x": 726,
+				"y": 800,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "viktor",
+				"available" : 0,
+				"xScale" : 0.78,
+				"yScale" : 0.78,
+				"x": 650,
+				"y": 800,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			}
+		]
+	},
+	{
+		"comment": "Botanical room",
+		"alias": "botanical",
+		"gui": "default",
+		"scaleNear": 0.8,
+		"scaleFar": 0.7,
+		"background": "bcg_botanical",
+		"border": "spr_border_viktorsRoom",
+		"xBackground": -50,
+		"yBackground": 40,
+		"rgb": "0,0,0",
+		"entrances": [
+			{
+			"alias": "start",
+			"entrance": "[position player 620 830] Room in development! > [animation botanical_pitcher spr_botanical_pitcher_eat] > [destroy botanical_pitcher][create botanical_pitcher_fed]"
+			}
+		],
+		"objects": [
+			{
+				"alias": "return",
+				"x": 200,
+				"y": 200,
+				"xInteract": 600,
+				"yInteract": 700,
+				"picture": "spr_various_token",
+				"xScale": 100,
+				"yScale": 100,
+				"description": "Exit to another room",
+				"combinations": {
+					"talk": "[room tower start]",
+					"use": "[room tesla start]",
+					"look" : "[room botanical start]",
+					"kick": "[room garden start]"
+				}
+			},
+			{
+				"alias": "botanical_cactus",
+				"idle" : 1,
+				"x": -49,
+				"y": 132,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "botanical_plant",
+				"available": 1,
+				"x": 1005,
+				"y": 350,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "botanical_pitcher",
+				"idle": 1,
+				"x": 318,
+				"y": 248,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "botanical_pitcher_fed",
+				"available": 0,
+				"idle": 1,
+				"x": 318,
+				"y": 248,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "botanical_bloom",
+				"available" : 0,
+				"x": 1005,
+				"y": 350,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+		]
+	},
+	{
+		"comment": "Garden room",
+		"alias": "garden",
+		"gui": "default",
+		"scaleNear": 0.8,
+		"scaleFar": 0.7,
+		"background": "bcg_garden",
+		"border": "spr_border_viktorsRoom",
+		"xBackground": -40,
+		"yBackground": 35,
+		"rgb": "0,0,0",
+		"entrances": [
+			{
+			"alias": "start",
+			"entrance": "[position player 620 830] Room in development! > [destroy garden_water_small][create garden_water_start] > [animation garden_water_start spr_garden_water_start] > [animations garden_water_start spr_garden_water_loop]"
+			}
+		],
+		"objects": [
+			{
+				"alias": "return",
+				"x": 200,
+				"y": 200,
+				"xInteract": 600,
+				"yInteract": 700,
+				"picture": "spr_various_token",
+				"xScale": 100,
+				"yScale": 100,
+				"description": "Exit to another room",
+				"combinations": {
+					"talk": "[room tower start]",
+					"use": "[room tesla start]",
+					"look" : "[room botanical start]",
+					"kick": "[room garden start]"
+				}
+			},
+			{
+				"alias": "garden_fountain",
+				"x": 462,
+				"y": 566,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "garden_hose_base",
+				"x": 925,
+				"y": 789,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "garden_hose_top",
+				"x": 809,
+				"y": 789,
+				"depth" : -800,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "garden_palm",
+				"idle" : 1,
+				"x": 530,
+				"y": 143,
+				"depth" : -1024,
+			},
+			{
+				"alias": "garden_water_small",
+				"x": 614,
+				"y": 383,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+			{
+				"alias": "garden_water_start",
+				"available" : 0,
+				"x": 614,
+				"y": 393,
+				"description": "Default description",
+				"combinations": {
+					"look" : "Default text",
+				}
+			},
+		]
+	},
+	{
+		"comment": "Safe breaker",
+		"alias": "safe",
+		"gui": "empty",
+		"background": "",
+		"xBackground" : 0,
+		"yBackground" : 0,
+		"scaleNear": 1,
+		"scaleFar": 1,
+		"rgb": "58,44,20",
+		"border": "spr_various_token",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[set safe_type 0][create bank_controller] > [stop] > [if safe_win = 1][room bank_inside open] > [room bank_inside locked]"
+		}],
+		"objects": [
+			{
+				"available" : 0,
+				"alias" : "bank_controller",
+				"object" : "obj_bank_controller",
+				"x" : 435,
+				"y":  240,
+				"pictures" : {										
+					"int_xStart" : 0,
+					"int_yStart" : 0,
+					"int_xStartForeground" : 188,
+					"int_yStartForeground" : 106,
+					"int_slots" : 5,
+					"int_xSlot[0]" : 334,
+					"int_ySlot[0]" : 444,
+					"int_xSlot[1]" : 513,
+					"int_ySlot[1]" : 451,
+					"int_xSlot[2]" : 666,
+					"int_ySlot[2]" : 456,
+					"int_xSlot[3]" : 810,
+					"int_ySlot[3]" : 455,
+					"int_xSlot[4]" : 975,
+					"int_ySlot[4]" : 444,
+					"int_rotators" : 10,
+					"int_xRotator[0]" : 334,
+					"int_yRotator[0]" : 219,
+					"int_xRotator[1]" : 495,
+					"int_yRotator[1]" : 205,
+					"int_xRotator[2]" : 658,
+					"int_yRotator[2]" : 206,
+					"int_xRotator[3]" : 818,
+					"int_yRotator[3]" : 205,
+					"int_xRotator[4]" : 982,
+					"int_yRotator[4]" : 208,
+					"int_xRotator[9]" : 999,
+					"int_yRotator[9]" : 691,
+					"int_xRotator[8]" : 836,
+					"int_yRotator[8]" : 699,
+					"int_xRotator[7]" : 679,
+					"int_yRotator[7]" : 689,
+					"int_xRotator[6]" : 512,
+					"int_yRotator[6]" : 688,
+					"int_xRotator[5]" : 335,
+					"int_yRotator[5]" : 688
+				}
+			}
+		]
+
+	},
 	{
 		"comment": "Tesla slider",
 		"alias": "teslaslider",
