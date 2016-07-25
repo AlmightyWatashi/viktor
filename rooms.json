@@ -5,8 +5,8 @@
 		"comment": "Frankenstein room up",
 		"alias": "tower",
 		"gui": "default",
-		"scaleNear": 0.8,
-		"scaleFar": 0.7,
+		"scaleNear": 1,
+		"scaleFar": 0.8,
 		"background": "bcg_tower",
 		"border": "spr_border_viktorsRoom",
 		"xBackground": -5,
@@ -21,7 +21,7 @@
 		"objects": [
 			{
 				"alias": "return",
-				"x": 200,
+				"x": 700,
 				"y": 200,
 				"xInteract": 600,
 				"yInteract": 700,
@@ -37,264 +37,217 @@
 				}
 			},
 			{
+				"comment": "Dr. Frankenstein",
+				"alias": "frankenstein",
+				"available": 1,
+				"imagespeed": 0.6,
+				"x": 885,
+				"y": 808,
+				"xScale": 0.7,
+				"yScale": 0.7,
+				"xInteract": 730,
+				"yInteract": 815,
+				"xCloud": 840,
+				"yCloud": 450,
+				"idle": 1,
+				"depth": -830,
+				"description": "Obviously mad scientist.",
+				"order": "look,talk",
+				"combinations": {
+					"look": "Looks famously insane.",
+					"talk": "Not yet. > [talk frankenstein] soon."
+				},
+				"inventory": {
+					"alias": "cell",
+					"name": "Battery cell",
+					"description": "Some kind of battery thing",
+					"default": "I don't think it's the right voltage",
+					"picture": "spr_dirigibles_power"
+				}
+			},
+			{
 				"alias": "tower_ball",
 				"x": 403,
 				"y": 229,
-				"description": "Default description",
+				"description": "Electric ball",
 				"combinations": {
-					"look" : "Default text",
+					"look" : "Dr. Frankenstein sure has some big balls in his lab."
 				}
 			},
 			{
 				"alias": "tower_ball_cable_down",
 				"x": 509,
-				"y": 131,
-				"description": "Default description",
-				"combinations": {
-					"look" : "Default text",
-				}
+				"y": 131
 			},
 			{
 				"alias": "tower_ball_cable_up",
 				"x": 512,
-				"y": 52,
-				"description": "Default description",
-				"combinations": {
-					"look" : "Default text",
-				}
+				"y": 52
 			},
 			{
 				"alias": "tower_bed_board",
 				"x": 359,
 				"y": 673,
-				"description": "Default description",
-				"combinations": {
-					"look" : "Default text",
-				}
+				"depth" : 1000
 			},
 			{
 				"alias": "tower_bed_holder_back",
 				"x": 365,
 				"y": 542,
-				"description": "Default description",
-				"combinations": {
-					"look" : "Default text",
-				}
+				"depth" : 1001
 			},
 			{
 				"alias": "tower_bed_holder_front",
 				"x": 324,
 				"y": 571,
-				"description": "Default description",
-				"combinations": {
-					"look" : "Default text",
-				}
-			},
-			{
-				"alias": "tower_bzz",
-				"x": 971,
-				"y": 409,
-				"description": "Default description",
-				"combinations": {
-					"look" : "Default text",
-				}
-			},
-			{
-				"alias": "tower_bzz2",
-				"x": 1011,
-				"y": 417,
-				"description": "Default description",
-				"combinations": {
-					"look" : "Default text",
-				}
+				"depth" : 995
 			},
 			{
 				"alias": "tower_control_lever1",
-				"x": 624,
-				"y": 397,
-				"description": "Default description",
+				"x": 673,
+				"y": 444,
+				"description": "Left lever",
 				"combinations": {
-					"look" : "Default text",
+					"look" : "Who knows..."
 				}
 			},
 			{
 				"alias": "tower_control_lever2",
-				"x": 674,
-				"y": 395,
-				"description": "Default description",
+				"x": 718,
+				"y": 444,
+				"description": "Right lever",
 				"combinations": {
-					"look" : "Default text",
+					"look" : "It probably does something"
 				}
 			},
 			{
 				"alias": "tower_control_light_blue",
 				"x": 686,
-				"y": 516,
-				"description": "Default description",
-				"combinations": {
-					"look" : "Default text",
-				}
+				"y": 516
 			},
 			{
 				"alias": "tower_control_light_green",
 				"x": 662,
-				"y": 448,
-				"description": "Default description",
-				"combinations": {
-					"look" : "Default text",
-				}
+				"y": 448
 			},
 			{
 				"alias": "tower_control_light_red",
 				"x": 708,
-				"y": 451,
-				"description": "Default description",
-				"combinations": {
-					"look" : "Default text",
-				}
+				"y": 451
 			},
 			{
 				"alias": "tower_hand",
 				"x": 40,
 				"y": 414,
-				"description": "Default description",
+				"depth" : 1000,
+				"description": "Part holder",
 				"combinations": {
-					"look" : "Default text",
+					"look" : "I should have one of these in my room. > It could really come in handy."
 				}
 			},
 			{
 				"alias": "tower_kirilian",
 				"x": 126,
 				"y": 436,
-				"description": "Default description",
+				"depth" : 1001,
+				"description": "Tesla's part",
 				"combinations": {
-					"look" : "Default text",
+					"look" : "That's the one I need!"
 				}
 			},
 			{
 				"alias": "tower_lamplight",
 				"x": 840,
-				"y": 418,
-				"description": "Default description",
-				"combinations": {
-					"look" : "Default text",
-				}
+				"y": 418				
 			},
 			{
 				"alias": "tower_machine_ball1",
 				"x": 203,
-				"y": 186,
-				"description": "Default description",
-				"combinations": {
-					"look" : "Default text",
-				}
+				"y": 186
 			},
 			{
 				"alias": "tower_machine_ball2",
 				"x": 374,
-				"y": 178,
-				"description": "Default description",
-				"combinations": {
-					"look" : "Default text",
-				}
+				"y": 178
 			},
 			{
 				"alias": "tower_machine_body",
 				"x": 237,
-				"y": 39,
-				"description": "Default description",
-				"combinations": {
-					"look" : "Default text",
-				}
+				"y": 39
 			},
 			{
 				"alias": "tower_machine_cable",
 				"x": 214,
-				"y": 238,
-				"description": "Default description",
-				"combinations": {
-					"look" : "Default text",
-				}
+				"y": 238
 			},
 			{
 				"alias": "tower_machine_nozzle",
 				"x": 244,
-				"y": 204,
-				"description": "Default description",
-				"combinations": {
-					"look" : "Default text",
-				}
+				"y": 204
 			},
 			{
 				"alias": "tower_machine_blade1",
 				"x": 208,
-				"y": 95,
-				"description": "Default description",
-				"combinations": {
-					"look" : "Default text",
-				}
+				"y": 95
 			},
 			{
 				"alias": "tower_machine_blade2",
 				"x": 212,
-				"y": 133,
-				"description": "Default description",
-				"combinations": {
-					"look" : "Default text",
-				}
+				"y": 133
 			},
 			{
 				"alias": "tower_machine_blade3",
 				"x": 210,
-				"y": 167,
-				"description": "Default description",
-				"combinations": {
-					"look" : "Default text",
-				}
+				"y": 167
 			},
 			{
 				"alias": "tower_machine_blade4",
 				"x": 213,
-				"y": 57,
-				"description": "Default description",
-				"combinations": {
-					"look" : "Default text",
-				}
+				"y": 57
 			},
 			{
 				"alias": "tower_phone",
 				"x": 822,
 				"y": 442,
-				"description": "Default description",
+				"description": "Wired phone",
 				"combinations": {
-					"look" : "Default text",
+					"look" : "Probably conducts electricity."
 				}
 			},
 			{
 				"alias": "tower_poster",
 				"x": 1034,
 				"y": 650,
-				"description": "Default description",
+				"description": "Newspapers",
 				"combinations": {
-					"look" : "Default text",
+					"look" : "Not his best side."
 				}
 			},
 			{
 				"alias": "tower_stool",
 				"x": 900,
-				"y": 665,
-				"description": "Default description",
-				"combinations": {
-					"look" : "Default text",
-				}
+				"y": 665
+			},
+			{
+				"alias": "tower_bzz",
+				"x": 971,
+				"y": 395,
+				"depth" : 1000
+			},
+			{
+				"alias": "tower_bzz2",
+				"x": 970,
+				"y": 395,
+				"depth" : 1000
 			},
 			{
 				"alias": "tower_things",
 				"x": 949,
 				"y": 410,
-				"description": "Default description",
+				"depth" : 1005,
+				"description": "Electric things",
 				"combinations": {
-					"look" : "Default text",
+					"look" : "They are... > ...things of some sort."
 				}
 			}
 		]
@@ -332,6 +285,35 @@
 					"use": "[room tesla start]",
 					"look" : "[room botanical start]",
 					"kick": "[room garden start]"
+				}
+			},
+			{
+				"alias": "matilda",
+				"xScale" : 0.78,
+				"yScale" : 0.78,
+				"x": 826,
+				"y": 800,
+				"description": "Matilda!",
+				"combinations": {
+					"look" : "Her appearance is so soothing to me.",
+				}
+			},			
+			{
+				"alias": "tesla",
+				"idle" : 1,
+				"x": 500,
+				"y": 800,
+				"xScale" : 0.6,
+				"yScale" : 0.6,
+				"xCloud" : 500,
+				"yCloud" : 300,
+				"xInteract" : 700,
+				"yInteract" : 800,
+				"depth" : -1100,
+				"description": "Nikola Tesla",
+				"combinations": {
+					"look" : "Default text",
+					"talk" : "[conversation tesla start]",
 				}
 			},
 			{
@@ -378,7 +360,7 @@
 				"alias": "tesla_bulb",
 				"x": 528,
 				"y": 670,
-				"description": "Default description",
+				"description": "Tesla bulb",
 				"combinations": {
 					"look" : "Default text",
 				}
@@ -387,7 +369,7 @@
 				"alias": "tesla_coil",
 				"x": 973,
 				"y": 246,
-				"description": "Default description",
+				"description": "Tesla coil",
 				"combinations": {
 					"look" : "Default text",
 				}
@@ -397,10 +379,7 @@
 				"picture": "spr_tesla_column",
 				"x": 173,
 				"y": 718,
-				"description": "Default description",
-				"combinations": {
-					"look" : "Default text",
-				}
+				"depth" : -1500
 			},
 			{
 				"alias": "tesla_electricity1",
@@ -433,6 +412,15 @@
 				"y": 278
 			},
 			{
+				"alias": "tesla_stairs",
+				"x": 714,
+				"y": 556,
+				"description": "Tesla stairs",
+				"combinations": {
+					"look" : "Man powered escalation machine.",
+				}
+			},
+			{
 				"alias": "tesla_fence_back",
 				"x": 447,
 				"y": 455
@@ -440,26 +428,23 @@
 			{
 				"alias": "tesla_fence_front",
 				"x": 442,
-				"y": 473,
-				"description": "Default description",
-				"combinations": {
-					"look" : "Default text",
-				}
+				"y": 465,				
+				"depth" : -1
 			},
 			{
 				"alias": "tesla_machine1",
 				"x": 0,
 				"y": 196,
-				"description": "Default description",
+				"description": "Tesla chamber",
 				"combinations": {
-					"look" : "Default text",
+					"look" : "It's probably the hydro-something-teleporter mr. Tesla was talking about.",
 				}
 			},
 			{
 				"alias": "tesla_machine2",
 				"x": 411,
 				"y": 45,
-				"description": "Default description",
+				"description": "Tesla machine 2",
 				"combinations": {
 					"look" : "Default text",
 				}
@@ -468,50 +453,19 @@
 				"alias": "tesla_machine3",
 				"x": 716,
 				"y": 459,
-				"description": "Default description",
+				"description": "Incredible tesla machine.",
 				"combinations": {
-					"look" : "Default text",
+					"look" : "I think this is the one we need to set up.",
 				}
 			},
 			{
 				"alias": "tesla_pad",
 				"x": 440,
 				"y": 546,
-				"description": "Default description",
+				"depth" : 0,
+				"description": "Tesla pad",
 				"combinations": {
-					"look" : "Default text",
-				}
-			},
-			{
-				"alias": "tesla_stairs",
-				"x": 714,
-				"y": 556,
-				"description": "Default description",
-				"combinations": {
-					"look" : "Default text",
-				}
-			},
-			{
-				"alias": "tesla",
-				"idle" : 1,
-				"x": 800,
-				"y": 800,
-				"xScale" : 0.6,
-				"yScale" : 0.6,
-				"description": "Default description",
-				"combinations": {
-					"look" : "Default text",
-				}
-			},
-			{
-				"alias": "matilda",
-				"xScale" : 0.78,
-				"yScale" : 0.78,
-				"x": 726,
-				"y": 800,
-				"description": "Default description",
-				"combinations": {
-					"look" : "Default text",
+					"look" : "It's a pad",
 				}
 			},
 			{

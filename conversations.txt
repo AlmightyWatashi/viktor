@@ -2656,9 +2656,9 @@ end
 			+ I'm sorry, I didn't understand. Are you Nikola Tesla or not?
 				[talk matilda] Viktor honey, what did we say about aggravating famous people?
 					+ Oh, all right. I’m sorry Mr. Tesla.    //brian edit   capitalized "Mr."
-					You are forgiven.
-					Now, how can I help you?
-						[section begin]
+						You are forgiven.
+						Now, how can I help you?
+							[section begin]
 	+ Wow, it's really you. I recognize you from the photograph in that magazine about coils!
 		Yes, I recognize myself as well. The magazine was called Electro Shocker    //brian edit   capitalized "Electro Shocker" (since it's a magazine name--proper noun)
 			[section shocker]
@@ -2729,7 +2729,7 @@ end
 			[section infinite]
 	+ You sure accepted our proposal quickly. Well then, please give us the way to break the field and we'll be on our way.
 		I have no trouble with you destroying that primitive war-mongering nincompoop.
-		Last year, his budget for non-military research was five copper crowns, a box of nails and photograph of his signed photograph.
+		Last year, his budget for non-military research was five copper crowns, a box of nails and a photograph of his signed photograph.
 		The problem is that for neutralizing such an electric field, you need a Frequency Ultra Conversion Kirlian.
 			[section fuck]
 
