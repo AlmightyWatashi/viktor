@@ -11,6 +11,8 @@
 0.10. wat post-reboot 6.5.
 0.11. alex backer beta version 16.06. 12h
 0.12. brian edit plus extra checks
+0.13. sven added stuff, wat fixed it into something semi-playable
+
 
 
 === crow ===
@@ -2521,7 +2523,7 @@ end
 	+[if is_lake_anarchist = 1] So, you like wearing black?
 		[section not_an_anarchist]
 	- My name is Viktor
-		I’m Kubilius. Lake Kubilius. Musician and seducer!
+		I'm Kubilius. Lake Kubilius. Musician and seducer!
 		[description lake Lake Kubilius]
 			They say that one goes along really well with the other.   //brian edit  added period (.) to end of the sentence
 				Wouldn't know. Both are going beautifully.
@@ -2532,14 +2534,14 @@ end
 		I'm really good
 			+ But you aren't even playing your guitar right now!
 				Heh, you got me.
-				There’s a record player inside the guitar.
+				There's a record player inside the guitar.
 				[animation lake spr_lake_smile]
 				The only problem is, I took two records to play tonight.
 				Turned out that they are both the same.   //brian edit   added period (.) to end of the sentence
 					- If I gave you a record, would you trade?
 						Do you maybe have a record that was partially damaged by roaches?
 							+ Actually, I have one exactly like that!
-								Then just take mine and don’t give me anything, please.
+								Then just take mine and don't give me anything, please.
 								[talk kafka] You have something against cockroaches?
 								We already discussed that, Frank.
 								[talk kafka] It's Franz, you Texan cow herder!   //brian edit  capitalized "Franz" (proper noun)
@@ -2564,11 +2566,11 @@ end
 				Just kidding, both my eyes are fine.				
 				== lake_patch ==
 				I have an eyepatch because girls find it hot.
-					- Don’t you have a problem with depth perception while wearing the patch??
+					- Don't you have a problem with depth perception while wearing the patch??
 						This world is pretty two-dimensional anyway.
 							[section lake_patch]
 					- And it really works?
-						It’s not worse than without the eye patch.
+						It's not worse than without the eye patch.
 							[section hello]
 	+ Bye.
 		[end]
@@ -2576,34 +2578,34 @@ end
 == not_an_anarchist ==
 
 [set is_lake_anarchist 1]
-	+ Then you chose a perfect place. Everyone here looks like they’re preparing for a funeral
+	+ Then you chose a perfect place. Everyone here looks like they're preparing for a funeral
 		Yes, but I still look cooler than they do.
 		None of these people have this extremely cool eye patch.
 		Not to mention the awesome guitar.
 			[section hello]
 	+ Can you tell me where I could find the anarchists?
-		I have no idea, I’m not from around here. > I’m from New York, Texas. > This is the first time I tried playing at this place.
-			I thought that everyone in Texas has at least two heads. Where’s your other one?
-				Not everyone has multiple heads in Texas. There’s me… > There’s also that rat-face guy that looks like a parrot… > What was his name? > Oh yeah, John Oliver! > Do you think I would be smarter with two heads?   //brian edit  changed "=" to question mark (?) at end of sentence  (typo??)
-					I’m open minded. You’re free to have as many heads as you choose.
-						That’s what my girlfriend always says! > She has six of them.
-					Isn’t John Oliver an asylant from Unwanted Kingdom?
-						Ah yes, I heard some of his jokes didn’t resonate well with the queen of Unwanted Kingdom
+		I have no idea, I'm not from around here. > I'm from New York, Texas. > This is the first time I tried playing at this place.
+			I thought that everyone in Texas has at least two heads. Where's your other one?
+				Not everyone has multiple heads in Texas. There's me… > There's also that rat-face guy that looks like a parrot… > What was his name? > Oh yeah, John Oliver! > Do you think I would be smarter with two heads?   //brian edit  changed "=" to question mark (?) at end of sentence  (typo??)
+					I'm open minded. You're free to have as many heads as you choose.
+						That's what my girlfriend always says! > She has six of them.
+					Isn't John Oliver an asylant from Unwanted Kingdom?
+						Ah yes, I heard some of his jokes didn't resonate well with the queen of Unwanted Kingdom
 			So, how do you like Austria Hungary?
-				Very pretty. > Except a couple of times when the police tried to arrest me. > First for mispronouncing the emperor’s name. > Viktor: I still have no idea how it’s pronounced > Me either. > And once I tried looking at his picture from a wrong angle. > Luckily, one of them got cut on my spines while arresting me. > He started bleeding all over the floor and the other one fainted from seeing the blood. > So I just left.  //brian edit   changed "Me neither." to "Me either." since there is no "nor" in this sentence--either/or  neither/nor, added period (.) to end of sentence
+				Very pretty. > Except a couple of times when the police tried to arrest me. > First for mispronouncing the emperor's name. > Viktor: I still have no idea how it's pronounced > Me either. > And once I tried looking at his picture from a wrong angle. > Luckily, one of them got cut on my spines while arresting me. > He started bleeding all over the floor and the other one fainted from seeing the blood. > So I just left.  //brian edit   changed "Me neither." to "Me either." since there is no "nor" in this sentence--either/or  neither/nor, added period (.) to end of sentence
 
 == for_a_beer ==
 
 For a beer, I could play you a wonderful one.
 Any beer.
 Please.
-I can’t order anything from this waiter.
+I can't order anything from this waiter.
 	+ Unfortunately, I have the exact same problem
 		eh...
 			[section hello]
-	+ Don’t you get a free drink for playing the music here?
+	+ Don't you get a free drink for playing the music here?
 		I do, but I have to choose my own beer and...
-		Never mind, it’s complicated.
+		Never mind, it's complicated.
 			[section hello]
 
 end
@@ -2620,21 +2622,70 @@ end
 							+ Kojeg?
 								Skeptik a? Dakle sad ću vas ja uvjeriti u boga svoga!!!! Vidite sve vam piše u Bibliji! Sve.
 									+ Čitao sam Bibliju i sva ta ženomrzačka, robovlasnički orjentirana tematika s bogom koji u bijesu ubija svoje vlastite vjernike mi nije najbolje sijela.
+									
+SSS Priče u Bibliji su mi zapravo bile i jako zabavne posebno s onim likom koji priča s grmljem, ševi svoju polusestru i poslije ide ubiti svog sina.
+									    
 										Ne razumiješ ti to prenešeno značenje sine sigurno si čitao trijezan pa ti nije jasno!
 											+ Jeste vi koji put probali čitati trijezni?
 												(no convo)
 													[end]
+													
 											+ Jeste li probali čitati ikoju drugu knjigu?
 												Mislite na one bogohulne knjige o Budi,...
 													+ I o Moby Dicku?
 														Ima slična priča o Levijatanu želiš li vidjeti mog ?
 															(no convo)
 																[end]
+SSS	Uvijek sam se pito kako su se redovi početno odlučili za izgled odjeće?
+	O po tom pitanju sam vam ja jako moderan vidite ja bi čak mijenjao izgled naše odore. Bila bi bijela s jednim ljepim pokrivalom za glavu koje ide u špic i samo se vide oči a na prsima bi bio mali bijeli križek na crvenom krugu. Mogli bi i neki novi obred ubaciti s paljenjem križa.
+	 Ermmmmm da to bi bila golema promjena vrijedna spomena.
+	 Možda rađe da počnete plačati porez ko i svi ostali to bi bila hvale vrijedna promijena? 
+	 Što!! Pa to je božji novac nikako pa to bi bilo bogohuljenje.
+	 Stvari će bit bitno drugačije kad ja budem carem Austro-ugarske.
+	   Aaaa bogohuljenje pa car je tu po volji božjoj.
+	     Dat ću mu ja volju božju i svoju posred guzice a onda i vama.
+Ajjjme pa vama stvarno treba pomoč. Evo ja vam nudim 340 Zdravo Marija pa vam je oprošteno sve što ste sad  hulili.
+Ajjmme a ja vam dam da me poljubite u dupe. Zapravo ne jer ko zna što će vam past na pamet.
+
+	 
+	
 	+ dobar dan gospodine jeste li vi možda anarhist?
 		hvaljen isus i marija pa nisam, u grob s njima
 			[end]
 
-end
+=== SOTONA ===
+
+Well well well. > If it isn't my dearest hatemonger. > Welcome to your future home!
+Who the hell are you and what the hell is this place?
+It is the den of eternal regret. > For those who spent their life making other peoples' lives a living hell.
+So… like, a hell, but for the depressed?
+Pretending to be stupid does not work with me, little rage hog.
+Wait. You rally exist? Can I get an autograph?
+Can I get yours?
+But I'm fixing things right now. The world will become a better place, thanks to me.
+
+I'm not a hatemonger, you catholic piece of shit! I'm extremely liberal!
+
+You must be mistaken. This place looks a lot bigger than any place I lived in.
+
+Excuse me. Do you know a way to the national bank?
+SSS Well greed can guide me to any national bank acctualy to any bank at all. So fallow your greed my friend.
+It is kind of hot here.
+v I will become new emperor of Austria-Hungary 
+s Ooo so you will work for me?
+v No I will work for benefit of all people in AU.
+s Ahahahah ofcourse, ofcourse ahahahhaha. So emperor you wish to be and to help everyone how sweet how very sweet. Bloody shit I really sense that you wish to be good emperor, fuck that is just so mega wrong. What about a deal?
+v No deal with you.
+v Ok, I m listening.
+s I help you to become emperor and than you return me favour. Is'n that great offer my dear friend.
+v Well I m not shoemaker but let me know what is your stupid idea.
+s It is simple I help you become emperor and you come to the dark side and that is it. 
+v Or, or I just make you squeel like a little girl.
+v Ok' I just turned to a dark side right now!!! tu ga krene šorat
+
+v So you are guilty for all the sufering in the world?
+s Nooo, jews and nigers are guilt for it.
+
 === tesla ===
 
 == hello ==
@@ -2655,7 +2706,7 @@ end
 		Last time I checked, I still had that misfortune.
 			+ I'm sorry, I didn't understand. Are you Nikola Tesla or not?
 				[talk matilda] Viktor honey, what did we say about aggravating famous people?
-					+ Oh, all right. I’m sorry Mr. Tesla.    //brian edit   capitalized "Mr."
+					+ Oh, all right. I'm sorry Mr. Tesla.    //brian edit   capitalized "Mr."
 						You are forgiven.
 						Now, how can I help you?
 							[section begin]
@@ -2677,9 +2728,9 @@ end
 				[section infinite]
 	+ I tried to replicate your experiment from the magazine, but I just started a fire.
 		Explaining it to firemen must have been quite a scene.   //brian edit   added a period (.) to end of the sentence
-			+ Actually, let’s change the subject.
+			+ Actually, let's change the subject.
 				[section begin]
-	+ Actually, let’s change the subject.
+	+ Actually, let's change the subject.
 		[section begin]
 
 
@@ -2705,7 +2756,7 @@ That's not an issue for me. I discovered the secret of infinite electricity!   /
 						Sounds crazy enough to work.
 						[talk matilda] But for all that, we need your help.
 						With the electric field?
-						I could easily help you with that, but there’s a slight problem!
+						I could easily help you with that, but there's a slight problem!
 							[section but]
 					+ Rules are made to be broken.
 						[talk matilda] Currently, a critical mass of anarchists is getting ready to storm the palace together with us.
@@ -2722,7 +2773,7 @@ end
 		Like for most other things I make, the journalists will write that Edison did it.
 			[section but]
 	- Even you cannot undo your incredible invention?
-		It’s not easy, but I can do it.
+		It's not easy, but I can do it.
 			[section but]
 	-[if electric_flag < 1] You don't have enough electric power to do it?
 		[set but_flag = 1]
@@ -2741,7 +2792,7 @@ end
 			He should return it to me sooner or later.
 				[section frank]
 	+ Money's no object. How fast can you build one?
-		It’s mostly a matter of trial and error with a lot of random results.
+		It's mostly a matter of trial and error with a lot of random results.
 		Long story short, between a few weeks and a hundred billion years.
 		[talk matilda] So, like... a month?
 		I have one, technically, but I lent it to Dr. Frankenstein.
@@ -2753,8 +2804,8 @@ end
 == frank ==
 
 	- Why would a doctor need need an electric frequency converter?   //brian edit   corrected spelling of "convertor" to "converter"
-		He says it’s for medical experiments.
-		I’m really looking forward to reading his future research articles.
+		He says it's for medical experiments.
+		I'm really looking forward to reading his future research articles.
 		Electricity can do incredible things for your health
 		From improving brain activity to curing constipation.
 			+ Oh, I never have any problems with constipation. Whatever comes in, goes out within a few hours.
@@ -2763,7 +2814,7 @@ end
 				[talk matilda] Is there ever a male conversation that does not include discussion about poop?
 				I had some, when I was younger.
 				But then I invented the electrical cocoon that cures constipation!
-				It’s the life of every party!
+				It's the life of every party!
 				[add ing_flag 1]
 					[section frank]			
 	- Is Dr. Frankenstein also planning to attack the emperor of Austria-Hungary?
@@ -2775,8 +2826,8 @@ end
 		Thank you for that lovely mental image.
 		[add ing_flag 1]
 					[section frank]
-	-[not ing_flag < 2] Frankenstein... Sounds Germ. What’s a Germsman doing in southern Austria-Hungary?
-		He’s not really here. He lives in Germland.
+	-[not ing_flag < 2] Frankenstein... Sounds Germ. What's a Germsman doing in southern Austria-Hungary?
+		He's not really here. He lives in Germland.
 		If you want to get the Frequency Ultra Conversion Kirlian, you need to travel to Ingolstadt
 			[section ingol]
 
@@ -2789,12 +2840,396 @@ end
 		Or whatever the mini-game will be about.	
 			[end]
 
+end
+=== klimt ===
 
+== viktor_first ==
 
+[if toilet_klimt = 1][section viktor_later]
+Were you hiding in that toilet bowl all the time?
+[set toilet_klimt 1]
+	- Yes, of course. We played hide and seek, don't you remember? Now it's your turn.
+		Amusing
+		But I have work to do.
+		This painting will not be finished by itself.
+			[section viktor_later]
+	- No, of course not. What kind of person would hide in a toilet bowl?
+		You tell me!
+			[section viktor_later]
+	- Yes, we are wizards from past and we have come for you throughout this magic portal. You are the chosen one.
+		Well then, lady and gentleman wizards. > I'm ready!
+			+ Do you need me to move so you could climb down, or will you just jump from here?
+				You jump first and I'll jump after you
+					+ I was just joking.
+						So was I, of course. > I saw Mr. Tesla go through that toilet a few times.
+							[section viktor_later]
 
+			
+end			
+== viktor_later ==
+	+ My name is Viktor.
+		(CONVO MISSING)
+		[end]
+	+ Are we in Germland?
+		(CONVO MISSING)
+		[end]
+	+ Why are you painting a dungeon?
+		It's my job
+		Dr. Frankenstein told me to paint it and that he will pay me nicely for it.
+			+ What exactly are you painting?
+				I have to paint Dr. Frankenstein on this part of the wall. 
+				(CONVO MISSING)
+					[end]
+	+ Never mind
+		[end]
+
+end
+== matilda ==
+
+Hello, young lady.
+[not toilet_matilda = 1] How interesting to meet someone who just got out of a toilet bowl
+	+[not toilet_matilda = 1] I' m not sure am I glad to meet you sir.
+		[set toilet_matilda 1]
+			You have a skeleton over there and you look as if you...
+				Oh don't worry, Matilda. This is not my house. I'm just painting for the owner of this dungeon.
+					+ And who is the owner?
+							The dreaded Dr. Frankenstein.
+							He's upstairs, observing his biggest creation's psychotherapy.
+								Thank you.
+									[end]
+	+[if toilet_matilda = 1] I'm glad you decided to bring some colors into your house, because it looks like a bloody dungeon
+	[set toilet_matilda 1]
+		It is kinda...
+		Moist.
+		But in a bad way.
+		And that skeleton, oh so tacky.
+		Luckily, it's not my house, but Dr. Frankenstein's dungeon.
+			+ Oh
+				[end]
+	+ My name is Matilda, what is yours? 
+	[if toilet_matilda 1]
+		I'm Gustav Klimt. Painter and what is your job?
+			I'm an anarchist.
+				(CONVO MISSING)
+					[end]
+			Freelance murderer.
+				(CONVO MISSING)
+					[end]
+			Uh... I'm a plumber. We're both plumbers here.
+				(CONVO MISSING)
+					[end]
+	+ Sorry to disturb you, I'll just be on my way.
+		Thank you.
+			[end]
+
+end
+=== frankenstein === // or igor?
+
+== first_entry ==
+svi se svađaju
+frankenštajn razbije mašinu
+okrivi viktora i matildu
+kaže im da moraju popraviti mašinu, oni kažu da dobro evo nešto će smisliti
+nakon toga igrač dobije kontrolu i može pričat sa svakim pojedinačno
+[end]
+
+end
+== viktor ==
+
+	+[if machine_fixed = 1] Here you go, we fixed your machine. Can we get Tesla's part now?
+		Nein.
+		Frequency Ultra Conversion Kirlian ist ze crucial piece of machine you just fixed!
+		Without it, my creation will die!
+			+ Oh no.
+				Or even worse, turn into ze women!
+				[talk matilda] Wait, what?
+					[section viktor]
+			+ But you promised to give us Tesla's part if we fix the machine.
+				Ich did no such thing.
+				Ich said you will get ze Frequency Ultra Conversion Kirlian once ze machine is working.
+				Und without ze Frequency Ultra Conversion Kirlian, ich work nicht.
+					+ Then I'll just take the machine and you can't stop me
+						[talk monster] I can stop you.
+						[talk monster] Do not steal from my father!
+						You shut up und continue ze psychotherapy!
+							[section viktor]
+	+[not machine_fixed = 1] Are you really Dr. Frankenstein?
+		Ja, ich bin Doctor Victor Frankenstein.
+		What are you doing in my tower?
+			+ Hey, my name is Viktor too!
+				Ich habe ze pride of mein name.
+				Nicht ruin it, bitte.
+					[section viktor]
+			+ Fixing your machine, apparently. Do you have some kind of blueprint?
+				Nein!
+				Everything is pretty obvious und every part snaps into this place perfectly!
+					+ Why don't you fix it then?
+						Das ist your fault ze machine ist broken!
+						You fix ze machine!
+							[section viktor]	
+	+[not machine_fixed = 1]  We want to claim Tesla's machine on behalf of Tesla.
+		As ich said. You get ze Frequency Ultra Conversion Kirlian once you fix ze machine
+			[section viktor]
+	+ What happened to your dog friend?
+		Das is nicht a friend, you uneducated suidae!
+		Das ist a highly trained hausdiener, lab assistant und masseuse!
+		Refer to it with utmost respect!
+		It's name ist Igor!
+		[talk igor] I like to eat poop!
+			+ Hello Igor.
+				[talk igor] Do you have poop?
+					+ Not at the moment, sorry.
+						[section viktor]
+			+ Does he bite?
+				Ja.
+					[section viktor]
+	+ Never mind.
+		[end]
+
+end
+== matilda ==
+
+	+[if machine_fixed = 1] We fixed your machine. Now it's time for you to do your part of the deal.
+		Nein.
+		Without ze Frequency Ultra Conversion Kirlian, ze machine does not work!
+		If you remove it, you did not do your part of ze deal.
+			+ That doesn't make any sense
+				You can get ze Frequency Ultra Conversion Kirlian once monster finally accepts his masculinity.
+					+ I have a gun and I'm not afraid to use it
+						There are drei of us und ze monster.
+						Und ich bin das medizinisches genius!
+						Das pistol ist useless.
+							[section matilda]
+			+ Yes we did. Your machine is here and working
+				You cannot fix ze machine only to break it.
+					[section matilda]
+	+[not machine_fixed = 1] We are here on behalf of Nikola Tesla
+		Ach, he wants ze Frequency Ultra Conversion Kirlian.
+		Well, he can't have it. I'm sorry.
+		You must first save my creation and fix ze machine that sustains it's life...
+		[talk freud] I'm sorry, sir, but we agreed that you will not refer to her as "it".
+		[talk monster] I want to be a "she" now.
+		Never!
+		[talk monster] I'm a she! I must be a she! I'm so delicate, as Dr.Freud sad!
+		[talk monster] Let me be a she!
+		Ach shut up, will you?
+		[talk monster] You can not tell me to shut up.
+		Ja, ich can!
+		[talk monster] Why do you think so?
+		Because! I'm your father!!!
+		[talk monster] Noooooo!
+		Shut up!
+			[section throw_stuff]
+	+[not machine_fixed = 1] Can we get a blueprint of this machine?
+		Nein!
+		Everything ist pretty obvious and every part snaps into ze place perfectly!
+			+ Some parts don't seem to fit.
+				You made me break ze machine, you fix ze machine.
+					[section matilda]
+	- Why wouldn't it be a "her"? You just replace some parts.
+		[talk igor] Hjee, hjeee, hjee, "parts".
+		Out of ze question.
+		Did you know how much digging Igor had to do to find acceptable boy parts?
+		[talk igor] I get hungry while digging.
+		Nicht to mention ze finger on it's waist.
+		If it had lady bits, it would abuse ze finger all day and night!
+			+ Now, sir, that is a normal part of puberty.
+			Back when I was in puberty, i could lose hours with my fingers.
+				(animacija ono di uđe u šok)
+				Was?
+				I do not wish to hear about this!
+				[talk freud] Well, I would.
+				[talk igor] Me too!
+				[talk viktor] I'm willing to join this hype train.
+					(animacija di iziđe iz šoka)
+					Nein!
+					Zis ist my tower and we have conversations that ich choose!
+						[section matilda]
+	+ Never mind.
+		[end]
 
 			
 end
+== throw_stuff ==
+(animation missing)
+[end]
+
+
+
+
+
+end
+=== freud === // or monster
+
+== viktor ==
+	+ You must be the psychotherapist.
+		Unfortunately.
+		I usually love my job, but this screaming madhouse is a bit too much for me.
+			+ The monster's inner problems are getting to you?
+				Oh the monster is wonderful.
+				She has nice and has a fascinating list of problems.
+				Her father, on the other hand.
+				[talk frankenstein][mood angry] His father!
+				[talk frankenstein][mood angry] It's a he!
+				[talk frankenstein][mood angry] Hurry up and fix that!
+					[end]
+
+end
+== matilda ==
+	+ (Convo missing)
+		[end]
+
+
+
+end
+=== general ===
+
+== start ==
+
+Sir, How dare you to come uninvited?
+
+== viktor ==
+	+ My throne is waiting there for me
+	I can hear it call me
+	[blocksound snd_vase_sing]"Come, come my lover!"
+	[blocksound snd_vase_sing]"Sit on my face"
+		I'm not as amused by your humor as you would hope.
+		You talk directly against my emperor.
+		And yours too, slavic scoundrel.
+		Prepare to fight.
+			[section fight]
+	+ Did you ever think about getting a change in your leadership?
+		Thank you, but no.
+		Let me introduce myself before I kick your ass.
+		I, sir, am General Mayor Oskar Mayer
+		Please let me know who I'm going to beat the hell out of, Sir.
+			+ My name is Viktor the horible and I'm about to become the new emperor of Austria-Hungary!
+			[set mood scared]
+			[talk matilda] Viktor, honey, we already discussed this!
+			[talk matilda] It's not a good idea to call yourself "the horrible".
+			Oh, all right
+			[set mood] My name is Viktor and I'm about to become the new emperor of Austria-Hungary!
+				Please, Sir Viktor, let us start a fight.
+				Unless you have a last wish.
+					+ I actually have a lot of wishes.
+					And you look like a true gentlemen who would thruthfully fulfill my last wish.
+							+ My wish is for us to not fight. How about that?
+								No
+								And I will not kill you, so do not worry.
+								Let us fight, now
+									[section fight]
+							+ I would like some spaghetti with tomato sauce.
+							Ooh, and some cheese.
+							And a glass of beer.
+							And wine.
+							And some cucumbers.
+								Just put up your dukes, Sir Viktor.
+									[section fight]
+					+ I would like you to help me with overthrowing the old fart on the throne
+						Ok' that was enough.
+						I will sweep the floor with you now.
+						Hands up and fight me!
+							[section fight]
+	- But I was invited, did nobody tell you?
+		My apologies, good sir.
+		I did not notice your "Come through the roof of the emperor's botanical garden" invitation.
+		[section viktor]
+		
+
+end
+== fight ==
+tu počne borba
+	ae stvarno
+		[end]
+
+
+=== gardener ===
+
+== viktor ==
+
+Good day to you. 
+	- Good day to you too, sir.
+	You are not surprised to see us here? 
+		Not really.
+		It's a semi-public place.
+		People walk aroung here all the time.
+		Until the plant eats them.
+			+ Aren't you supposed to do something about that plant.
+				Possibly.
+				But I'm willing to believe that the emperor prefers it like this.
+					+ Lovely.
+						[end]			
+	+ We plan to fire your boss!
+		That sounds unreasonable, yet feasible.
+			+ You sound like you don't care one bit about this
+				You are a very wise and perceptive young man.
+				I always said that biggest brains reside in people's bellies.
+					+ That sounds highly unlikely, but I'm willing to accept it as absolute truth.
+						You sound like a true gardener. Did you ever consider asking for a job in this garden?
+							+ Actually, I'll just go and oust the emperor now.
+								Enjoy yourself.
+									[end]						
+			+ Do you wish to join us?
+				Oh no no, I would never.
+				I don't even bother doing the work that I'm supposed to be doing.
+					+ Your loss.
+						[end]
+				
+
+end
+== matilda ==
+
+	+ Drop your weapon or I will annihilate you!
+		I do not have a weapon
+			+ Do not play smart with me!
+				I really do not.
+				I was never very smart.
+				I had a very sad childhood.
+				People would say "oh, look at that elephant. He doesn't seem smart at all".
+					+ Ok, stop it, stop it.
+					You are no longer a child, for god sake.
+						So, you are not going to kill me?
+							+ Nah, I lost interest.
+								[end]
+			+ You have these scissors
+				That's not a weapon, that's a tool
+					+ And this gun is a tool for murdering
+						But if I drop my scissors, I'll have to bend all the way down to pick them up later.
+							+ Just... just do your gardening.
+								Do I really have to?
+								My back hurts from all the gardening I sometimes do.
+									[end]
+	+ We will make a Frappe out of your ugly emperor.
+		A Frappe? What is that?
+			+ It's a kind of milk shake, but with coffee.
+				I don't think anyone would like to shake milk.
+				It would just spill everywhere
+					+ It was just a figure of... oh, never mind.
+						[end]
+
+end
+=== FINAL FIGHT ===
+
+v Eto mene nazad!
+c O usfalilo ti je struje? Straža će te izbaciti kao i prošli put.
+  v Sva straža je zauzeta borbom koju možeš čuti.
+v dobro veče! pa kako ste mi?
+c Opet ti kugo. Stražaa!!!
+  v x  
+v Kuc, kuc!
+c Zauzeto!
+ v Kuc! Kuc!
+ c Tko je?
+  v Inkvizicija!
+  c bili ste tu jučer!
+m Drž gaće stari!
+c Ja ne nosim gaće!!!
+m Drago mi je ja sam Matilda i pomoši ću vam da siđete sa trona.
+c Lutko dođi da ti podesim frekvenciju.
+
+
+
+
 
 
 
