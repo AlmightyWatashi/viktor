@@ -1088,7 +1088,7 @@ Is that a deal, mushroom eater?
 				Café    //brian edit changed "Cafe" to "Café"  (accent symbol on e)
 				That is the same!
 				Is it same if I ping or pong your wife?
-					+ And what did you try to tell me with that? It is not even a joke!
+					+ And what did you try to tell me with that? It's not even a joke!
 						You see, I'm smarter than you.     //brian edit   added comma for readability
 						I know what I tried to say with that and you do not.
 							+ Let's just race, ass.
@@ -3208,25 +3208,70 @@ end
 						[end]
 
 end
-=== FINAL FIGHT ===
+=== final_emperor ===
 
-v Eto mene nazad!
-c O usfalilo ti je struje? Straža će te izbaciti kao i prošli put.
-  v Sva straža je zauzeta borbom koju možeš čuti.
-v dobro veče! pa kako ste mi?
-c Opet ti kugo. Stražaa!!!
-  v x  
-v Kuc, kuc!
-c Zauzeto!
- v Kuc! Kuc!
- c Tko je?
-  v Inkvizicija!
-  c bili ste tu jučer!
-m Drž gaće stari!
-c Ja ne nosim gaće!!!
-m Drago mi je ja sam Matilda i pomoši ću vam da siđete sa trona.
-c Lutko dođi da ti podesim frekvenciju.
+== enter ==
 
+Who the hell bothers me at this time?
+	+ It's me, Viktor. The new emperor!
+		[section electricity]
+	+ Good evening, sir. How are you on this fine day?
+		I'm not in the brightest of moods, you filthy plague.
+		How the hell did you get inside?
+		Wait a minute, you look familiar.
+			+ Your guards are busy with the battle you can hear from outside
+				Ah, the royal guard.
+				Useless veterans.
+				Thank you for getting rid of them.
+				They are dumb as hell and recently even started killing random passers-by.
+				Cutting them into pieces in the middle of the street.
+				They killed some of my favorite concubines.
+				And then drank all the oil they brought for me.
+				[talk matilda] Please sir, just stop talking.
+				[time 150][move palace_curtain_left 90 3][move palace_curtain_right 90 3][sound snd_lift_leave] Perhaps you're right, young prostitute. Enough talk!
+				[move palace_curtain_left 90 0][move palace_curtain_right 90 0][talk matilda] I'm not a prostitute.
+				[talk matilda] My name is Matilda.
+				[talk matilda] And I've come to help you get off your throne.
+				Yes, yes. Once this is finished, you will definitely help me get off.
+				[talk matilda] I tald you to stop talking!
+					+ Yeah, what she said!
+						[section enough]
+			+ You already forgot about me, old man?
+				All you hobo pigs and zebras look the same to me.
+						+ Take a good look, so you can remember who brought you down from your throne.
+						+ We're the Spanish inquisition
+							But you were already here last week.
+							I don't have anyone for you.
+							My guards started killing potential prisoners for no apparent reason.
+							Wait a few months dammit.
+							[talk matilda] What on earth are you talking about?
+								+ You are the one we've come for, show-dog!
+									Wait a minute, I know that annoying voice and horrible accent!
+										[section electricity]
+end
+== electricity ==
+
+Oh, it's you, again.
+Running low on electricity, are we?
+Come closer and you'll get as much as you need.
+	+ I can come as close as I want, Mr. Tesla gave me immunity to your silly field.
+		[talk matilda] Viktor, darling, I'm not sure telling him that was a good idea.
+			+ [time 150][move palace_curtain_left 90 3][move palace_curtain_right 90 3][sound snd_lift_leave] Why? What's he gonna do? Make another field? 					
+					[move palace_curtain_left 90 0][move palace_curtain_right 90 0] Oh, right... the automatons.
+						[section enough]
+	+ Don't be cheeky behind that thing. Come and fight me like a man
+		[time 150][move palace_curtain_left 90 3][move palace_curtain_right 90 3][sound snd_lift_leave] Oh, I'll come and fight you
+		[move palace_curtain_left 90 0][move palace_curtain_right 90 0] Once my automatons warm you up.
+		With their flame throwers!
+			+ They don't look like they have flame throwers.
+				[section enough]
+
+end
+== enough ==
+
+Enough of these charades.
+(something something battle)
+[end]
 
 
 
