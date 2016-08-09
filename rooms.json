@@ -1,6 +1,485 @@
 {
-	"version": "19.7.",
+	"version": "9.8.",
 	"rooms": [
+	{
+		"comment": "Warsaw shooter",
+		"alias": "shooter",
+		"gui": "default",
+		"background": "bcg_shooter",
+		"xBackground" : 0,
+		"yBackground" : 0,
+		"rgb": "255,255,255",
+		"border": "spr_various_token",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[create shooter_controller][stop] > [room intro start]"
+		}],
+		"objects": [
+			{
+				"available" : 0,
+				"alias" : "shooter_controller",
+				"object" : "obj_shooter_controller",
+				"pictures" : {
+					"numberOfObjects" : 12,
+					"pic0" : "spr_shooter_awake",
+					"x0" : 100,
+					"y0" : 400,
+					"speed0" : 15,
+					"pic1" : "spr_shooter_body",
+					"x1" : 350,
+					"y1" : 400,
+					"speed1" : 15,
+					"pic2" : "spr_shooter_deer",
+					"x2" : 600,
+					"y2" : 400,
+					"speed2" : 15,
+					"pic3" : "spr_shooter_dragons",
+					"x3" : 850,
+					"y3" : 400,
+					"speed3" : 15,
+					"pic4" : "spr_shooter_head",
+					"x4" : 1100,
+					"y4" : 400,
+					"speed4" : 15,
+					"pic5" : "spr_shooter_heart",
+					"x5" : 1350,
+					"y5" : 400,
+					"speed5" : 15,
+					"pic6" : "spr_shooter_rocket",
+					"x6" : 50,
+					"y6" : 500,
+					"speed6" : 12,
+					"pic7" : "spr_shooter_saturn",
+					"x7" : 300,
+					"y7" : 500,
+					"speed7" : 12,
+					"pic8" : "spr_shooter_sun",
+					"x8" : 550,
+					"y8" : 500,
+					"speed8" : 12,
+					"pic9" : "spr_shooter_rocket",
+					"x9" : 800,
+					"y9" : 500,
+					"speed9" : 12,
+					"pic10" : "spr_shooter_body",
+					"x10" : 1050,
+					"y10" : 500,
+					"speed10" : 12,
+					"pic11" : "spr_shooter_dragons",
+					"x11" : 1300,
+					"y11" : 500,
+					"speed11" : 12
+				}
+			}
+		]
+	},
+	{
+		"comment": "Frankensteins Dungeon",
+		"alias": "dungeon",
+		"gui": "default",
+		"scaleNear": 0.8,
+		"scaleFar": 0.8,
+		"background": "bcg_dungeon",
+		"border": "spr_border_viktorsRoom",
+		"xBackground": 0,
+		"yBackground": 30,
+		"rgb": "0,0,0",
+		"entrances": [
+			{
+			"alias": "start",
+			"entrance": "[position player 500 800] The dungeon!"
+			}
+		],
+		"objects": [
+			{
+				"alias": "dungeon_ladder",
+				"x": 495,
+				"y": 253
+			},
+			{
+				"alias": "dungeon_lid",
+				"x": 365,
+				"y": 788
+			},
+			{
+				"alias": "dungeon_painting1",
+				"x": 196,
+				"y": 55,
+				"depth" : 1504
+				
+			},
+			{
+				"alias": "dungeon_painting2",
+				"x": 186,
+				"y": 55,
+				"depth" : 1503
+				
+			},
+			{
+				"alias": "dungeon_painting3",
+				"x": 186,
+				"y": 55,
+				"depth" : 1502
+				
+			},
+			{
+				"alias": "dungeon_painting4",
+				"x": 249,
+				"y": 85,
+				"depth" : 1501
+				
+			},
+			{
+				"alias": "dungeon_schakles",
+				"x": 98,
+				"y": 587
+			},
+			{
+				"alias": "dungeon_stairs",
+				"x": 1002,
+				"y": 301
+			},
+			{
+				"alias": "dungeon_stand_back",
+				"x": 180,
+				"y": 30
+			},
+			{
+				"alias": "dungeon_stand_front",
+				"x": 164,
+				"y": 30
+			},
+			{
+				"alias": "dungeon_toilet",
+				"x": 689,
+				"y": 661
+			},
+			{
+				"alias": "dungeon_window_bars",
+				"x": 663,
+				"y": 43
+			},
+			{
+				"alias": "skeleton",
+				"idle":1,
+				"x": 979,
+				"y": 58
+			}
+		]
+	},
+	{
+		"comment": "Emperors royal hallway",
+		"alias": "hallway",
+		"gui": "default",
+		"scaleNear": 1.2,
+		"scaleFar": 1.2,
+		"background": "bcg_hallway",
+		"border": "spr_border_hallway",
+		"xBackground": -60,
+		"yBackground": 20,
+		"rgb": "0,0,0",
+		"entrances": [
+			{
+			"alias": "start",
+			"entrance": "[position player 500 800] The royal hallway!"
+			}
+		],
+		"objects": [
+			{
+				"alias": "hallway_camera",
+				"x": 30,
+				"y": 430
+			},
+			{
+				"alias": "hallway_frame_ape",
+				"x": 934,
+				"y": 116
+			},
+			{
+				"alias": "hallway_frame_big",
+				"x": 630,
+				"y": 293
+			},
+			{
+				"alias": "hallway_frame_filip",
+				"x": 1006,
+				"y": 303
+			},
+			{
+				"alias": "hallway_frame_goat",
+				"x": 383,
+				"y": 80
+			},
+			{
+				"alias": "hallway_frame_leonard",
+				"x": 230,
+				"y": 336
+			},
+			{
+				"alias": "hallway_pic_ape",
+				"x": 960,
+				"y": 156
+			},
+			{
+				"alias": "hallway_pic_big",
+				"x": 663,
+				"y": 346
+			},
+			{
+				"alias": "hallway_pic_emperor",
+				"x": 690,
+				"y": 30
+			},
+			{
+				"alias": "hallway_pic_filip",
+				"x": 1006,
+				"y": 324
+			},
+			{
+				"alias": "hallway_pic_goat",
+				"x": 412,
+				"y": 112
+			},
+			{
+				"alias": "hallway_pic_leopard",
+				"x": 286,
+				"y": 396
+			},
+			{
+				"alias": "hallway_text_leopard",
+				"picture" : "spr_various_token",
+				"visible" : 0,
+				"x": 308,
+				"y": 603,
+				"xScale" : 100,
+				"yScale" : 30
+			},
+			{
+				"alias": "hallway_text_goat",
+				"picture" : "spr_various_token",
+				"visible" : 0,
+				"x": 472,
+				"y": 399,
+				"xScale" : 100,
+				"yScale" : 30
+			},
+			{
+				"alias": "hallway_text_big_left",
+				"picture" : "spr_various_token",
+				"visible" : 0,
+				"x": 694,
+				"y": 593,
+				"xScale" : 100,
+				"yScale" : 30
+			},
+			{
+				"alias": "hallway_text_big_right",
+				"picture" : "spr_various_token",
+				"visible" : 0,
+				"x": 828,
+				"y": 587,
+				"xScale" : 100,
+				"yScale" : 30
+			},
+			{
+				"alias": "hallway_text_filip",
+				"picture" : "spr_various_token",
+				"visible" : 0,
+				"x": 1065,
+				"y": 587,
+				"xScale" : 100,
+				"yScale" : 30
+			},
+			{
+				"alias": "hallway_text_ape",
+				"picture" : "spr_various_token",
+				"visible" : 0,
+				"x": 971,
+				"y": 288,
+				"xScale" : 80,
+				"yScale" : 25
+			}
+		]
+	},
+	{
+		"comment": "Horror house in Warsaw",
+		"alias": "horror",
+		"gui": "default",
+		"scaleNear": 0.8,
+		"scaleFar": 0.8,
+		"background": "bcg_horror",
+		"border": "spr_various_token",
+		"xBackground": 0,
+		"yBackground": 0,
+		"rgb": "0,0,0",
+		"entrances": [
+			{
+			"alias": "start",
+			"entrance": "[position player 500 800] Textures are not yet assigned so this scene will render very slowly! > [draw spr_horror_shadow_axe 531 255 120 -1000 1 1 0 15 300 0.1 0.1 0.1 -0.1][move player 0 3][move horror_train 0 3][move matilda_tavern 0 3][time 60] > [move player 0 2][create horror_monster][time 90] > [room horror start]"
+			}
+		],
+		"objects": [
+			{
+				"alias": "horror_size",
+				"visible" : 0,
+				"depth" : -2000,
+				"x": 256,
+				"y": 557
+			},
+			{
+				"alias": "horror_bone",
+				"depth" : -2000,
+				"x": 544,
+				"y": 852
+			},
+			{
+				"alias": "horror_boneyard",
+				"depth" : -2000,
+				"x": 842,
+				"y": 788
+			},
+			{
+				"alias": "horror_cloud1",
+				"depth" : -2000,
+				"x": 474,
+				"y": 98
+			},
+			{
+				"alias": "horror_cloud2",
+				"depth" : -2100,
+				"x": 627,
+				"y": 219
+			},
+			{
+				"alias": "horror_cloud3",
+				"depth" : -2000,
+				"x": 795,
+				"y": 25
+			},
+			{
+				"alias": "horror_monster",
+				"available" : 0,
+				"depth" : -2300,
+				"x": 334,
+				"y": -250
+			},
+			{
+				"alias": "horror_shadow_axe",
+				"depth" : -2000,
+				"x": 531,
+				"y": 255
+			},
+			{
+				"alias": "horror_train",
+				"depth" : -2200,
+				"x": 232,
+				"y": 686
+			},
+			{
+				"alias": "matilda_tavern",
+				"depth" : -2000,
+				"x": 332,
+				"y": 821,
+				"xScale" : 0.8,
+				"yScale" : 0.8,
+			}
+		]
+	},
+	{
+		"comment": "Hell",
+		"alias": "hell",
+		"gui": "default",
+		"scaleNear": 0.8,
+		"scaleFar": 0.8,
+		"background": "bcg_hell",
+		"border": "spr_various_token",
+		"xBackground": 25,
+		"yBackground": 25,
+		"rgb": "0,0,0",
+		"entrances": [
+			{
+			"alias": "start",
+			"entrance": "[position player 600 660][cloud player 20 300][create hell_lavaburn_1][create hell_lavaburn_2] > [active devil][conversation devil emperor]"
+			}
+		],
+		"objects": [
+			{
+				"alias" : "matilda",
+				"x" : 0,
+				"y" : 0,
+				"xCloud" : 100,
+				"yCloud" : 300,
+				"visible" : 0
+			},{
+				"alias" : "mole",
+				"x" : 0,
+				"y" : 0,
+				"xCloud" : 100,
+				"yCloud" : 300,
+				"visible" : 0
+			},{
+				"alias" : "devil",
+				
+				"x" : 780,
+				"y" : 650,
+				"xCloud" : 780,
+				"yCloud" : 300,
+				"xScale" : 0.8,
+				"yScale" : 0.8,
+				"direction" : "right",
+				"idle" : 1
+			},
+			{
+				"alias": "hell_lavaburn_1",
+				"available" : 0,
+				"object" : "obj_hell_lavaburn",
+				"depth" : -2000,
+				"xCloud" : 10,
+				"yCloud" : 10,
+				"x": 471,
+				"y": 606
+			},
+			{
+				"alias": "hell_lavaburn_2",
+				"available" : 0,
+				"object" : "obj_hell_lavaburn",
+				"depth" : -2000,
+				"xCloud" : 30,
+				"yCloud" : 3,
+				"imageSpeed" : 0.1,
+				"x": 637,
+				"y": 629
+			},
+			{
+				"alias": "hell_light",
+				"object": "obj_martinsRoom_smoke",
+				"depth" : -2000,
+				"x": 50,
+				"y": 45
+			},
+			{
+				"alias": "hell_smoke_1",
+				"object": "obj_martinsRoom_smoke",
+				"depth" : -2000,
+				"x": 443,
+				"y": 261
+			},
+			{
+				"alias": "hell_smoke_2",
+				"object": "obj_martinsRoom_smoke",
+				"depth" : -2000,
+				"x": 451,
+				"y": 384
+			},
+			{
+				"alias": "hell_smoke_ball",
+				"object": "obj_martinsRoom_smoke",
+				"depth" : -2000,
+				"x": 400,
+				"y": 391
+			}
+		]
+	},
 	{
 		"comment": "Frankenstein room up",
 		"alias": "tower",
@@ -1266,7 +1745,7 @@
 		"border": "spr_various_token",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[time 90] > [room tavern start]"
+			"entrance": "[sound snd_gramophone][time 90] > [room tavern start]"
 		}],
 		"objects": [{
 			"alias": "various_title",
@@ -4677,8 +5156,8 @@
 		"rgb": "200,232,235",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[set passguess 0][position player 300 670][sound snd_gramophone][set alreadywent 0][set tried_dumb_flag 0] This is the end of part 1, it is around 30% of the game, I hope you had fun. > [fade in 0.03][time 120] > [finish http://studiospektar.hr/viktor/betaform]",
-			"entrance2": "[set passguess 0][position player 300 670][sound snd_gramophone][set alreadywent 0][set tried_dumb_flag 0] This looks cozy. > Now to find those anarchists. > They probably have armies, bombs and whatnot."
+			"entrance": "[set passguess 0][position player 300 670][set alreadywent 0][set tried_dumb_flag 0]",
+			"entrance2": "[set passguess 0][position player 300 670set alreadywent 0][set tried_dumb_flag 0] This looks cozy. > Now to find those anarchists. > They probably have armies, bombs and whatnot."
 		}, {
 			"alias": "toilet_exit",
 			"entrance": "[position player 1114 592][sound snd_gramophone] > [if alreadywent = 0] This was quite inspirational. Except for the smell. > [set alreadywent 1]"
@@ -4832,7 +5311,7 @@
 			"yScale": 0.83,
 			"x": 200,
 			"y": 423,
-			"xCloud": 275,
+			"xCloud": 175,
 			"yCloud": 390,
 			"xInteract": 300,
 			"yInteract": 660,
@@ -4880,6 +5359,11 @@
 			"idle": 1,
 			"description": "Krtek",
 			"order": "look, talk",
+			"banter" : [
+			"First",
+			"Second",
+			"Third"
+			],
 			"combinations": {
 				"look": "Suspiciously equipped individual",
 				"talk": "Not yet."
@@ -4900,6 +5384,11 @@
 			"idle": 1,
 			"description": "Pferdinand",
 			"order": "look, talk",
+			"banter" : [
+			"First",
+			"Second",
+			"Third"
+			],
 			"combinations": {
 				"look": "Regular-looking person",
 				"talk": "Not yet."
@@ -4920,13 +5409,18 @@
 			"idle": 1,
 			"description": "Andras",
 			"order": "look, talk",
+			"banter" : [
+			"First",
+			"Second",
+			"Third"
+			],
 			"combinations": {
 				"look": "Regular-looking person",
 				"talk": "Not yet."
 			}
 		}, {
 			"comment": "Matilda!",
-			"alias": "matilda",
+			"alias": "matilda_tavern",
 			"depth": -1002,
 			"xScale": 0.85,
 			"yScale": 0.85,
@@ -4995,13 +5489,13 @@
 		"scaleNear": 0.95,
 		"scaleFar": 0.9,
 		"background": "bcg_toilet",
-		"border": "spr_border_viktorsRoom",
+		"border": "spr_border_toilet",
 		"xBackground": -15,
 		"yBackground": 15,
 		"rgb": "200,232,235",
 		"entrances": [{
 				"alias": "start",
-				"entrance": "[set been_to_toilet 1][position 230 700]"
+				"entrance": "[set been_to_toilet 1][position 330 800]"
 			}, {
 				"alias": "fight",
 				"entrance": "[position player 732 795][create fight_controller] > [stop] > [if viktorsRoom_win = 1] I won! > [if viktorsRoom_win = 0] I lost! > [room tavern start]"
@@ -5097,7 +5591,20 @@
 				"y": 430,
 				"xScale": -1,
 				"yScale": 1
-			}, 
+			},
+			{
+				"alias": "toilet_chain",
+				"available": 1,
+				"visible": 1,
+				"x": 1145,
+				"y": 300,
+				"depth" : 1000,
+				"description": "Flusher",
+				"order": "look",
+				"combinations": {
+					"look": "It's for fishing. > I mean, flushing."
+				}
+			},
 			{
 				"alias": "graffiti_door_1d",
 				"picture": "spr_various_token",
@@ -5305,6 +5812,7 @@
 				"xScale": 60,
 				"yScale": 63,
 				"description": "Graffiti",
+				"depth" : 1400,
 				"order": "look",
 				"combinations": {
 					"look": "Minga. > Lovely."
@@ -5318,6 +5826,7 @@
 				"xScale": 48,
 				"yScale": 50,
 				"description": "Graffiti",
+				"depth" : 1400,
 				"order": "look",
 				"combinations": {
 					"look": "42 > The answer to everything, they say."
@@ -5331,6 +5840,7 @@
 				"xScale": 60,
 				"yScale": 24,
 				"description": "Graffiti",
+				"depth" : 1400,
 				"order": "look",
 				"combinations": {
 					"look": "Eating > Yes! Everything! Always! > My kind of guy."
@@ -5344,6 +5854,7 @@
 				"xScale": 100,
 				"yScale": 26,
 				"description": "Graffiti",
+				"depth" : 1400,
 				"order": "look",
 				"combinations": {
 					"look": "Emperor > Soon, soon."
@@ -5357,6 +5868,7 @@
 				"xScale": 115,
 				"yScale": 73,
 				"description": "Graffiti",
+				"depth" : 1400,
 				"order": "look",
 				"combinations": {
 					"look": "Jello biafra was here > Oh, and I missed it."
@@ -5370,6 +5882,7 @@
 				"xScale": 90,
 				"yScale": 40,
 				"description": "Graffiti",
+				"depth" : 1400,
 				"order": "look",
 				"combinations": {
 					"look": "Rasputin > The Russian sex machine."
@@ -5383,6 +5896,7 @@
 				"xScale": 64,
 				"yScale": 34,
 				"description": "Graffiti",
+				"depth" : 1400,
 				"order": "look",
 				"combinations": {
 					"look": "Cogs."
@@ -5396,6 +5910,7 @@
 				"xScale": 64,
 				"yScale": 70,
 				"description": "Graffiti",
+				"depth" : 1400,
 				"order": "look",
 				"combinations": {
 					"look": "Death was here. > I wonder if he liked the toilet."
@@ -5409,6 +5924,7 @@
 				"xScale": 74,
 				"yScale": 73,
 				"description": "Graffiti",
+				"depth" : 1400,
 				"order": "look",
 				"combinations": {
 					"look": "More wars are coming. > Not when I become Emperor."
@@ -5422,6 +5938,7 @@
 				"xScale": 44,
 				"yScale": 47,
 				"description": "Graffiti",
+				"depth" : 1400,
 				"order": "look",
 				"combinations": {
 					"look": "I was not."
@@ -5435,6 +5952,7 @@
 				"xScale": 90,
 				"yScale": 46,
 				"description": "Graffiti",
+				"depth" : 1400,
 				"order": "look",
 				"combinations": {
 					"look": "Resurrecting..."
@@ -5448,6 +5966,7 @@
 				"xScale": 66,
 				"yScale": 80,
 				"description": "Graffiti",
+				"depth" : 1400,
 				"order": "look",
 				"combinations": {
 					"look": "Mr Plinkett was here. > That's the guy who likes to copulate with moving pictures, I think."
@@ -5461,6 +5980,7 @@
 				"xScale": 309,
 				"yScale": 33,
 				"description": "Graffiti",
+				"depth" : 1400,
 				"order": "look",
 				"combinations": {
 					"look": "Jello biafra was here > I can imagine him climbing up there."
@@ -5474,6 +5994,7 @@
 				"xScale": 45,
 				"yScale": 29,
 				"description": "Graffiti",
+				"depth" : 1400,
 				"order": "look",
 				"combinations": {
 					"look": "Eating. > What kind of graffiti is this?!"
@@ -5487,6 +6008,7 @@
 				"xScale": 20,
 				"yScale": 152,
 				"description": "Graffiti",
+				"depth" : 1400,
 				"order": "look",
 				"combinations": {
 					"look": "MartinB2000 is cool. > Sure is."
@@ -5500,6 +6022,7 @@
 				"xScale": 100,
 				"yScale": 100,
 				"description": "Graffiti",
+				"depth" : 1400,
 				"order": "look",
 				"combinations": {
 					"look": "Floor. > How informative."
@@ -5515,6 +6038,7 @@
 				"xScale": 640,
 				"yScale": 70,
 				"description": "Graffiti",
+				"depth" : 1400,
 				"order": "look",
 				"combinations": {
 					"look": "Mothers against lorem ipsum. > What about fathers?"
@@ -5530,6 +6054,7 @@
 				"xScale": 126,
 				"yScale": 21,
 				"description": "Graffiti",
+				"depth" : 1400,
 				"order": "look",
 				"combinations": {
 					"look": "Sal was here."
@@ -5543,6 +6068,7 @@
 				"xScale": 105,
 				"yScale": 27,
 				"description": "Graffiti",
+				"depth" : 1400,
 				"order": "look",
 				"combinations": {
 					"look": "ATOM!"
@@ -5556,6 +6082,7 @@
 				"xScale": 118,
 				"yScale": 110,
 				"description": "Graffiti",
+				"depth" : 1400,
 				"order": "look",
 				"combinations": {
 					"look": "Moosebook > Book made out of moose?"
@@ -5569,6 +6096,7 @@
 				"xScale": 80,
 				"yScale": 60,
 				"description": "Graffiti",
+				"depth" : 1400,
 				"order": "look",
 				"combinations": {
 					"look": "Sir Didimus was not here. > Well, it was probably too hard to get out of that Labyrinth."
@@ -5582,6 +6110,7 @@
 				"xScale": 270,
 				"yScale": 106,
 				"description": "Graffiti",
+				"depth" : 1400,
 				"order": "look",
 				"combinations": {
 					"look": "Go Spartak Marimash!"
@@ -5595,6 +6124,7 @@
 				"xScale": 110,
 				"yScale": 21,
 				"description": "Graffiti",
+				"depth" : 1400,
 				"order": "look",
 				"combinations": {
 					"look": "Heath lives."
@@ -5608,6 +6138,7 @@
 				"xScale": 25,
 				"yScale": 60,
 				"description": "Graffiti",
+				"depth" : 1400,
 				"order": "look",
 				"combinations": {
 					"look": "Shit happens. > Yes, especially here."
@@ -5621,6 +6152,7 @@
 				"xScale": 66,
 				"yScale": 72,
 				"description": "Graffiti",
+				"depth" : 1400,
 				"order": "look,use",
 				"combinations": {
 					"look": "Laura!"
@@ -5634,6 +6166,7 @@
 				"xScale": 100,
 				"yScale": 45,
 				"description": "Graffiti",
+				"depth" : 1400,
 				"order": "look",
 				"combinations": {
 					"look": "Screaming peanut butter. > Yes, plaese."
@@ -5647,6 +6180,7 @@
 				"xScale": 73,
 				"yScale": 28,
 				"description": "Graffiti",
+				"depth" : 1400,
 				"order": "look",
 				"combinations": {
 					"look": "Kissing. > Writen on mirror, possibly with lipstic"
@@ -5661,6 +6195,7 @@
 				"xScale": 126,
 				"yScale": 45,
 				"description": "Graffiti",
+				"depth" : 1400,
 				"order": "look",
 				"combinations": {
 					"look": "It only takes one! > To overthrow the Emperor?"
@@ -5674,6 +6209,7 @@
 				"xScale": 263,
 				"yScale": 46,
 				"description": "Graffiti",
+				"depth" : 1400,
 				"order": "look",
 				"combinations": {
 					"look": "Killing in the name of... > God? > Or doing what they told 'ya?"
@@ -5689,6 +6225,7 @@
 				"xScale": 177,
 				"yScale": 33,
 				"description": "Graffiti",
+				"depth" : 1400,
 				"order": "look",
 				"combinations": {
 					"look": "Nanowar. > Of Steel!"
@@ -5701,7 +6238,13 @@
 				"alias": "priest_back",
 				"x": 1140,
 				"y": 680,
-				"idle": 1
+				"xInteract" : 1100,
+				"yInteract" : 750,
+				"idle": 1,
+				"description": "Drunken priest.",
+				"combinations": {
+					"look": "Figures."
+				}
 			}, {
 				"alias": "toilet_exit",
 				"picture": "spr_various_token",

@@ -2282,11 +2282,10 @@ end
 	Matilda
 
 == hello ==
-[mood matilda right]
 	+[if tried_dumb_flag = 1][if alreadywent = 1] Okay, you have to let me try the password again!
 	[if tried_dumb_flag = 1] I know the system this time!
 		[talk mole] Do we humor the insane hobo?
-		[talk matilda] Well, he is kinda cute, why not?    //brian edit  changed ending period (.) to a question mark (?) since the dialog ends with a question
+		[talk matilda_tavern] Well, he is kinda cute, why not?    //brian edit  changed ending period (.) to a question mark (?) since the dialog ends with a question
 			[if tried_dumb_flag = 1][section toiletpass]
 			[section tryme]
 	+[if tried_dumb_flag = 0] It's me! I forgot the password!
@@ -2303,7 +2302,7 @@ end
 							+ Hmm, how about...
 								[section password]
 			+ Oh come on, it's me! I got the letter in front of the palace.
-				[talk matilda] Still no idea what you're talking about.
+				[talk matilda_tavern] Still no idea what you're talking about.
 					Oh come on, let me try a few times!
 						[talk horse2] Try what?
 							[section password]
@@ -2311,7 +2310,7 @@ end
 		[talk horse2] Us?
 		[talk horse1] By god, we would never.
 		[talk mole] Long live the emperor!
-		[talk matilda] I'm not an anarchist either.    //brian edit   capitalized (I'm) since it's always capitalized
+		[talk matilda_tavern] I'm not an anarchist either.    //brian edit   capitalized (I'm) since it's always capitalized
 		[talk mole] Fuj anarchists.
 		[talk kafka] Long live wossizname.
 			Then you must be communists.
@@ -2344,19 +2343,19 @@ end
 		[section nope]
 	-[not passguess < 3] Debbie does Detroit?
 		[add passguess 1]
-		[talk matilda] I'll pretend I didn't hear that.
+		[talk matilda_tavern] I'll pretend I didn't hear that.
 			[section password]
 	-[not passguess < 4] Vida?
 		[add passguess 1]
 		[talk horse2] She will find you and she will kill you.
-		[talk matilda] The idiot meant to say nope.
+		[talk matilda_tavern] The idiot meant to say nope.
 		[talk horse2] That hurt my feelings.
-		[talk matilda] Better feelings then fingers, Andras.
+		[talk matilda_tavern] Better feelings then fingers, Andras.
 			[section password]
 	-[not passguess < 5] FF4xErg7z8X2?
 		[add passguess 1]
 		[talk horse1] You are getting tiresome
-		[talk matilda] Also, nope.
+		[talk matilda_tavern] Also, nope.
 	-[not passguess < 6] Willie Wonka?
 		[add passguess 1]
 		[section nope]
@@ -2371,7 +2370,7 @@ end
 end		
 == nope ==
 
-[talk matilda] nope
+[talk matilda_tavern] nope
 	[section password]
 			
 end
@@ -2432,7 +2431,7 @@ end
 [not toilet_pass_guesser < 3][section correctpassword]
 [talk mole] We let you blabber your things, now please let us blabber our own things in peace
 	+ So, I didn't guess it?
-		[talk matilda] We don't know what you're talking about.
+		[talk matilda_tavern] We don't know what you're talking about.
 		[talk horse1] Please leave us, at least until you gather your senses.
 			+ Hmm...
 				[end]
@@ -2441,7 +2440,7 @@ end
 == correctpassword ==
 
 [talk mole] About bloody time!
-[talk matilda] And now to continue with something later. 
+[talk matilda_tavern] And now to continue with something later. 
 [destroy anarchists]
 [end]
 
@@ -2468,6 +2467,7 @@ end
 								Yes, why not?   //brian edit  changed ending period (.) to a question mark since the dialog ends with a question
 									[section hello]
 			+ Actually, they never do because this isn't France. Our emperor uses firing squads.
+				 [section hello]
 	+ My name is Viktor. You don't seem like you're from around here.
 		You, sir, have my eternal gratitude for this exquisite compliment.
 		[description jekyll Dr. Jekyll]
@@ -2622,70 +2622,216 @@ end
 							+ Kojeg?
 								Skeptik a? Dakle sad ću vas ja uvjeriti u boga svoga!!!! Vidite sve vam piše u Bibliji! Sve.
 									+ Čitao sam Bibliju i sva ta ženomrzačka, robovlasnički orjentirana tematika s bogom koji u bijesu ubija svoje vlastite vjernike mi nije najbolje sijela.
-									
-SSS Priče u Bibliji su mi zapravo bile i jako zabavne posebno s onim likom koji priča s grmljem, ševi svoju polusestru i poslije ide ubiti svog sina.
-									    
 										Ne razumiješ ti to prenešeno značenje sine sigurno si čitao trijezan pa ti nije jasno!
 											+ Jeste vi koji put probali čitati trijezni?
 												(no convo)
-													[end]
-													
+													[end]									
+									+ Priče u Bibliji su mi zapravo bile i jako zabavne posebno s onim likom koji priča s grmljem, ševi svoju polusestru i poslije ide ubiti svog sina.
 											+ Jeste li probali čitati ikoju drugu knjigu?
 												Mislite na one bogohulne knjige o Budi,...
 													+ I o Moby Dicku?
 														Ima slična priča o Levijatanu želiš li vidjeti mog ?
 															(no convo)
 																[end]
-SSS	Uvijek sam se pito kako su se redovi početno odlučili za izgled odjeće?
-	O po tom pitanju sam vam ja jako moderan vidite ja bi čak mijenjao izgled naše odore. Bila bi bijela s jednim ljepim pokrivalom za glavu koje ide u špic i samo se vide oči a na prsima bi bio mali bijeli križek na crvenom krugu. Mogli bi i neki novi obred ubaciti s paljenjem križa.
-	 Ermmmmm da to bi bila golema promjena vrijedna spomena.
-	 Možda rađe da počnete plačati porez ko i svi ostali to bi bila hvale vrijedna promijena? 
-	 Što!! Pa to je božji novac nikako pa to bi bilo bogohuljenje.
-	 Stvari će bit bitno drugačije kad ja budem carem Austro-ugarske.
-	   Aaaa bogohuljenje pa car je tu po volji božjoj.
-	     Dat ću mu ja volju božju i svoju posred guzice a onda i vama.
-Ajjjme pa vama stvarno treba pomoč. Evo ja vam nudim 340 Zdravo Marija pa vam je oprošteno sve što ste sad  hulili.
-Ajjmme a ja vam dam da me poljubite u dupe. Zapravo ne jer ko zna što će vam past na pamet.
-
-	 
-	
+	+ Uvijek sam se pito kako su se redovi početno odlučili za izgled odjeće?
+		O po tom pitanju sam vam ja jako moderan vidite ja bi čak mijenjao izgled naše odore. Bila bi bijela s jednim ljepim pokrivalom za glavu koje ide u špic i samo se vide oči a na prsima bi bio mali bijeli križek na crvenom krugu. Mogli bi i neki novi obred ubaciti s paljenjem križa.
+			+ Ermmmmm da to bi bila golema promjena vrijedna spomena.
+				(no convo)
+					[end]
+			+ Možda rađe da počnete plačati porez ko i svi ostali to bi bila hvale vrijedna promijena? 
+				Što!! Pa to je božji novac nikako pa to bi bilo bogohuljenje.
+					[end]
+			+ Stvari će bit bitno drugačije kad ja budem carem Austro-ugarske.
+				Aaaa bogohuljenje pa car je tu po volji božjoj.
+					+ Dat ću mu ja volju božju i svoju posred guzice a onda i vama.
+						Ajjjme pa vama stvarno treba pomoč. Evo ja vam nudim 340 Zdravo Marija pa vam je oprošteno sve što ste sad  hulili.
+							+Ajjmme a ja vam dam da me poljubite u dupe. Zapravo ne jer ko zna što će vam past na pamet.
+								[end]
 	+ dobar dan gospodine jeste li vi možda anarhist?
 		hvaljen isus i marija pa nisam, u grob s njima
 			[end]
 
-=== SOTONA ===
+=== devil ===
 
-Well well well. > If it isn't my dearest hatemonger. > Welcome to your future home!
-Who the hell are you and what the hell is this place?
-It is the den of eternal regret. > For those who spent their life making other peoples' lives a living hell.
-So… like, a hell, but for the depressed?
-Pretending to be stupid does not work with me, little rage hog.
-Wait. You rally exist? Can I get an autograph?
+== start ==
+
+[set mood scared]
+Well well well.
+If it isn't my dearest hatemonger.
+== hello ==
+Welcome to your future home!
+[set mood]
+	+ Who the hell are you and what the hell is this place?
+		It is the den of eternal regret.
+		For those who spent their life making other peoples' lives a living hell.
+			+ Wait, this is hell and you are the Devil?
+			Can I get an autograph?
+				[section autograph]
+			+ So, you're the devil. Soon there might not be any place for you in this country.
+			Once I become the emperor.
+				[section emperor]
+	+ I'm not a hatemonger, you catholic piece of shit! I'm extremely liberal!
+		[mood laugh] Hahahahahahaha.
+		My actions upon this world are nothing compared to the pure anger within you.
+			+ What do you mean? Aren't you the one guilty of everything wrong with this world?
+				Me? Oh, no no. You must be thinking of feminists.
+				[talk matilda][cloud reverse] What?
+				Feminists are women that make each other work in all those smart jobs made for men.
+				[talk matilda][cloud reverse] Viktor, please find a way for me to kill him.
+				While still having to give birth and do house chores.
+				[talk matilda][cloud reverse] Viktor, this is hell. There must be tons of bullets lying about. Get me some.
+				[talk mole][cloud reverse] Matilda, this is hell, not Texas.
+				Feminists never let you make fun of them, while most of them are bigots.
+				[talk matilda][cloud reverse] That's only half true!
+					+[mood angry] Enough of this banter, it's time for me to get rid of you and this place forever.
+						You can't get rid of me, pig.
+						I'm a part of you.
+						All of you.
+							[section fight]
+			+ I heard enough.
+				[section emperor]
+	+ Excuse me. Do you know a way to the national bank?
+		Your greed can guide you to any national bank.
+		Actually, to any bank at all.
+		Follow your greed, my friend.
+			+ Okay, then. I'll just be on my greedy way to the bank.
+				Wait wait, this conversation is all wrong.
+				Please, let me start over.
+					+ What?
+						Greetings, my friend. Isn't this appropriate?
+							+ We are really redoing this? Oh, all right, then.
+								[section hello]
+			+ You sound like my friend Attar, but with opposite messages.
+				That bastard rhino.
+				Almost got a job in the technical telephone support.
+				That would make so many people actually enjoy technology and progress.
+				Tell him to keep his current job or I'll make sure his family dies a painful death.
+					++ Are you threatning my friend?
+					[mood angry] Are you threatning my friend?
+						Maybe a little.
+						And what are you going to do about it?
+							[section fight]
+	+ Hello, mister. I'm the next emperor of Austria-Hungary.
+		You are far away from your empire, jaw breaker.
+		You dug too deep.
+			+ Dammit, I knew we should have gone to the right instead of down.
+				As long as you are here
+				We can discuss business.
+				What do you want out of life?
+					+ To become a world leader and bring peace to everyone.
+						That's... suspicious.
+							+ I decided to start small and take over the Austro-Hungarian empire, first.
+								I can help you with that.
+								I help you become the emperor.
+								And you return the favor one day.
+									[section emperor]
+					+ To find true love, one that will help me with my anger issues.
+						[talk matilda][cloud reverse] Awwwww.
+							+ And to become a new emperor of Austria-Hungary.
+								[talk mole][cloud reverse] Awwww.
+								I can help you with that. Would you like me to help you with that?
+									+ I can manage it alone with my friends, thank you.
+										Just, hear me out.
+										I make you an emperor, and you help me a little with some minor details.
+										Great deal, nobody loses.
+											[section deal]
+									+ Wait a minute, this place looks familiar
+										Are you blind, boy?
+										You are in hell.
+											+ Wow, we really overdid it with digging.
+												[talk mole][cloud reverse] Damn, I'm good.
+													+ Wait a minute. If I'm in hell, than you're the devil.
+														One and only.
+															+ So, can I get your autograph?
+																[section autograph]
+			+ Wait, I'm really in hell? Can I get an autograph?
+				[section autograph]
+			
+
+end
+== autograph ==
+
 Can I get yours?
-But I'm fixing things right now. The world will become a better place, thanks to me.
+On a contract?
+	+ You also sell insurance?
+		Oh no no, you got it all wrong.
+		I don't do evil things myself, I make other people do evil things.
+			+ That still kinda sounds like an insurance salesman.
+				This conversation is taking a wrong turn.
+				Let me start over.
+				Greetings!
+					+ Seriously?
+						Yes, seriously.
+						Greetings!
+							[section hello]
+	+ A contract for what?
+		Anything you want.
+		I can make you an emperor right now.
+		You can have all the money in the world.
+		Find your true love.
+		Anything
+			+ Sounds suspicious, but tempting.
+				[section emperor]
+			+ You mean, I just sign a contract and become an emperor?
+				[section emperor]
 
-I'm not a hatemonger, you catholic piece of shit! I'm extremely liberal!
+[end]
+== emperor ==
 
-You must be mistaken. This place looks a lot bigger than any place I lived in.
+So, are you willing to work with me?
+	+ No, I want to work for the benefit of all the people in Austria-Hungary.
+	[set mood angry]
+		[mood devil laugh][animation devil spr_devil_laugh] Hahahahahahaha, of course, of course.
+		You wish to be an emperor and help everyone.
+		[mood devil laugh]Hahahahahahaha, how very sweet.
+		[animation devil spr_devil] ...
+			[set mood]
+				Wait a minute, you really do plan to be a good and kind emperor.
+				No no no, we can't have that. Let's make a deal.
+					+ No.
+						Just hear me out.
+							[section deal]
+					+ Ok, I m listening.
+						[section deal]
+	+ Why would I want to work with you?
+		[section deal]
 
-Excuse me. Do you know a way to the national bank?
-SSS Well greed can guide me to any national bank acctualy to any bank at all. So fallow your greed my friend.
-It is kind of hot here.
-v I will become new emperor of Austria-Hungary 
-s Ooo so you will work for me?
-v No I will work for benefit of all people in AU.
-s Ahahahah ofcourse, ofcourse ahahahhaha. So emperor you wish to be and to help everyone how sweet how very sweet. Bloody shit I really sense that you wish to be good emperor, fuck that is just so mega wrong. What about a deal?
-v No deal with you.
-v Ok, I m listening.
-s I help you to become emperor and than you return me favour. Is'n that great offer my dear friend.
-v Well I m not shoemaker but let me know what is your stupid idea.
-s It is simple I help you become emperor and you come to the dark side and that is it. 
-v Or, or I just make you squeel like a little girl.
-v Ok' I just turned to a dark side right now!!! tu ga krene šorat
+end
+== deal ==
 
-v So you are guilty for all the sufering in the world?
-s Nooo, jews and nigers are guilt for it.
+I help you become an emperor.
+For one hundred years.
+After that, you return the favor.
+Isn't that a great offer, my friend?
+	+ Or I just kick your ass and banish you forever.
+		You cannot banish me.
+		I am the evil incarnate of your world.
+			+ When you put it that way...
+				[section fight]
+== test ==
+	+ So, I just join the dark side and you help me? I'm in.
+		[talk matilda][cloud reverse] Viktor, no!
+		[talk mole][cloud reverse] Quiet, woman, let the boy negotiate.
+		[talk mole][cloud reverse] Ow, stop hitting me.
+		Excellent, let us begin right away.
+			+ You do know what every student of evil tries to do?
+				He tries to listen to his master without question?
+					+ Possibly
+					But in the end, he takes over his master's place.
+					Gimmie your place.
+						You can't replace me, little piggy.
+						I am THE devil, after all.
+							+ I can do the second best thing, than.
+								Listen to me without question?
+									+ Nah.
+										[section fight]
+== fight ==
 
+	+ I'm just gonna kick your ass.
+		[end]
+
+
+end
 === tesla ===
 
 == hello ==
