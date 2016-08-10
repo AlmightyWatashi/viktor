@@ -1352,7 +1352,7 @@
 		"border": "spr_various_token",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[if mood angry][set moodangry 1] > [if mood][set moodangry 0] > [position player 200 850][set mood phone][active martinsRoom_martin] > [if previousRoom viktorsRoom][conversation martin beginning] > [if previousRoom station_down][conversation martin station] > [if previousRoom station_up][conversation martin station] > [if previousRoom palace_outside][conversation martin palace] > [room previous return]"
+			"entrance": "[if mood angry][set moodangry 1] > [if mood][set moodangry 0] > [position player 200 850][set mood phone][active martinsRoom_martin] > [if previousRoom viktorsRoom][conversation martin beginning] > [if previousRoom station_down][conversation martin station] > [if previousRoom station_up][conversation martin station] > [if previousRoom palace_outside][conversation martin palace] > [if previousRoom tavern][conversation martin tavern] > [if previousRoom toilet][conversation martin tavern] >  [room previous return]"
 		}],
 		"objects": [{
 			"alias": "martinsRoom_martin",
@@ -4101,7 +4101,7 @@
 		"rgb": "200,232,235",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[if version debug][take pants][set cleanup 1] > [if cleanup = 1][if ballandbattery = 0][set ballandbattery 1][create station_ball][create battery_poking] > [position 9000 9000][position station_up_lift_cabin 1057 300][move station_up_lift_cabin 90 5][sound snd_lift_arrive][time 60] > [move station_up_lift_cabin 90 0][position player 1100 673][animations player spr_viktor_walk_left][move player 180 5][time 50]"
+			"entrance": "[if version debug][take pants][set cleanup 1][set philo_flag 1][set needs_wig 1][set wig_flag 1] > [if cleanup = 1][if ballandbattery = 0][set ballandbattery 1][create station_ball][create battery_poking] > [position 9000 9000][position station_up_lift_cabin 1057 300][move station_up_lift_cabin 90 5][sound snd_lift_arrive][time 60] > [move station_up_lift_cabin 90 0][position player 1100 673][animations player spr_viktor_walk_left][move player 180 5][time 50]"
 		}, {
 			"alias": "won",
 			"entrance": "[soundtrack dvorak][sound snd_gramophone][position 400 700][active donkey][conversation donkey won]"
@@ -5156,13 +5156,23 @@
 		"rgb": "200,232,235",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[set passguess 0][position player 300 670][set alreadywent 0][set tried_dumb_flag 0]",
+			"entrance": "[not item phone][set phone 3][take phone] > [set passguess 0][position player 300 670][set alreadywent 0][set tried_dumb_flag 0] > This looks cozy. > [not version debug] Now to find those anarchists. > [not version debug] They probably have armies, bombs and whatnot.",
 			"entrance2": "[set passguess 0][position player 300 670set alreadywent 0][set tried_dumb_flag 0] This looks cozy. > Now to find those anarchists. > They probably have armies, bombs and whatnot."
 		}, {
 			"alias": "toilet_exit",
 			"entrance": "[position player 1114 592][sound snd_gramophone] > [if alreadywent = 0] This was quite inspirational. Except for the smell. > [set alreadywent 1]"
 		}],
 		"objects": [{
+			"alias": "just_testing_delete_later",
+			"available": 0,
+			"inventory": {
+					"alias": "phone",
+					"name": "Phone",
+					"description": "Coal gauge is a bit low.",
+					"special": "[if currentRoom dirigibles][cloud 700 800][time 60] I don't have time for that shit. > [if currentRoom dirigibles][stop] > [if currentRoom dirigibles][if dirigibles_win = 1][room previous won] > [if currentRoom dirigibles][room previous lost] > [remember][destroy viktorsRoom_trin][destroy viktorsRoom_trin2][destroy viktorsRoom_trin3] > [if phone = 0][room phone start] > [if phone = 1][room viktorsRoom phone] > [if phone = 2][room phone start] > [if phone = 3][if currentRoom viktorsRoom] I just talked to him. > [if phone = 3][if currentRoom viktorsRoom][skip] > [room martinsRoom start]",
+					"picture": "spr_item_phone"
+				}
+		}, {
 			"comment": "tavern bar",
 			"alias": "tavern_bar",
 			"depth": -180,
@@ -5198,9 +5208,12 @@
 			"comment": "pic of the emperor",
 			"alias": "portrait_emperor",
 			"depth": -1200,
+			"direction" : "right",
 			"visible": 0,
 			"x": 515,
 			"y": 240,
+			"xCloud" : 500,
+			"yCloud" : 700,
 			"xInteract": 600,
 			"yInteract": 700,
 			"picture": "spr_various_token",
@@ -5209,7 +5222,8 @@
 			"description": "Emperor's portrait",
 			"order": "look",
 			"combinations": {
-				"look": "That's the bastard behind the electric field. > He's going down soon."
+				"look": "That's the bastard behind the electric field. > He's going down soon.",
+				"talk": "[conversation variable_test start]"
 			}
 		}, {
 			"comment": "tavern barrels front",
@@ -5446,8 +5460,8 @@
 			"yScale": 0.5,
 			"x": 950,
 			"y": 500,
-			"xCloud": 850,
-			"yCloud": 300,
+			"xCloud": 880,
+			"yCloud": 200,
 			"xInteract": 730,
 			"yInteract": 600,
 			"imageSpeed": 0.4,

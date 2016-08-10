@@ -500,6 +500,168 @@ end
 						[end]
 
 end
+
+== tavern ==
+
+Greetings!
+[if calledprague = 1] You have reached...
+[if calledprague = 1] Martin, I need psychic advice
+[if calledprague = 1] [section psychic_tavern]
+You have reached MARVIN THE MARVELLOUS!
+No relation to Martin the magnificent.
+Stroke your telephone gently and tell me your psychic concerns in a seductive voice.
+[set calledprague 1]
+== in_tavern ==
+
+	-[if talkedprague = 0] Martin, it's me, Viktor. I'm in Prague!
+		[section prague]
+	+ No time for stroking, Martin. I need psychic advice.
+		What do you seek?
+		[section psychic_tavern]
+	- ''Marvin the Marvellous''? Really?
+		Ah, do you not know, miss?
+		Age of magnificence is over. Age of marvel is upon us.
+		So... what are you wearing?
+			+ What kind of phone service are you running now, actually?
+				Umm... Psychic... phone service?
+					+ Please, let's get to some psychic advice, then.
+						Oh, Viktor, it's you.
+						Ask away, friend
+						[section psychic_tavern]					
+			+ Oh, I'm wearing a leather trenchcoat and practically nothing underneath.
+				Wait a minute...
+				That voice and style of clothing sound familiar...
+				Mother, is that you?
+					+ Must we have this conversation every time? Dude, it's me, Viktor!
+						Of course you were.
+							+ My voice sounds nothing like your mother.
+								No, of course not.
+								Now, let's change the subject. You probably have questions.
+								[section psychic_tavern]
+					+ Yes, this is mother. How did your Latin test go, little hoot?
+						Wait a minute, how did you know about...
+						Oh, it's you.
+							+ Hahahahahahaha
+								Get to the point, Viktor.
+									+[if talkedprague = 0] I'm in Prague.
+										[section prague]
+									+ I need psychic advice.
+										Ask away, friend
+										[section psychic tavern]
+							+ Yep. And I'm calling from the lovely, yet incredibly polluted Prague.
+								[section prague]
+			+ Let's not talk about me. What are YOU wearing?
+				Oh, many things, many things.
+				Like leopard-pattern thongs.
+				High heel leather boots.
+				Five different pairs of garters
+					+ I heard enough, it's me Viktor, I need psychic advice now, please.
+					And perhaps a therapist.
+					[section psychic_tavern]
+
+end
+== prague ==
+[set talkedprague 1]
+Enjoying your time as the new emperor, eh?
+	My senses were right, you are still alive and ruling these lands.
+	I'm surprised you even remembered me.
+		+ Actually, I ran into some minor difficulties.
+			I knew it!
+			My extrasensory senses told me you wpuld run into those.
+			What a stroke of luck that you called me for assistance.
+				[section in_tavern]
+		+ I think you've blinded your fourth eye again, Martin.
+			You might be right, I'll try to fix my tobacco-to-meditation ratio.
+			But enough about me, what the hell are you doing in Bratislawa?
+				Prague.
+					Actually, I'm no longer interested.
+						[section in_tavern]			
+
+
+end
+== psychic_tavern ==
+
+	-[if tried_dumb_flag = 0]  I'm looking for anarchists, but I can't seem to find anyone?
+		Seek god and you shall find anarchy.
+			Are you sure about that?
+				No.
+				[section psychic_tavern]
+	-[if metjekyll 0] There's a fox in a really nice suit
+		Irrelevant.
+		But harmless.
+		No, wait. There's something off about him that's more than meets the eye...
+		It's actually a woman in disguise!
+		Buy her a drink, man!
+			Rrrright....
+			[section psychic_tavern]
+	-[if tried_dumb_flag = 1] I need a watchword.
+		What's a watchword?
+		Actually, forget that question.
+		Just go relieve yourself in the toilet.
+		And think about a color.
+			What color?
+				I don't know, some color.
+				Try green.
+				Or blue, or something.
+					Is it green or blue, then?
+						Why are you asking me that?
+						What am I, psychic?
+						[animation martinsRoom_martin spr_martinsRoom_martin][time 15]
+						Oh, right...
+						Try... magenta!
+						[section psychic_tavern]
+	-[if metkafka 0] What can you tell me about a mouse drinking beer?
+		Oh, that's Franz Kafka.
+		He's an insurance salesman.
+		But he's going to become a famous writer some day.
+		Also, he sometimes turns into a cockroach.
+			You're just making this up, aren't you?
+				No, it's all true. I'm psychic, I tell you.
+					[section psychic_tavern]
+	-[if metkafka 1] Do you know about a mouse called Franz Kafka?
+		Yes, my mother met hin in Prague, once.
+		Bought insurance from him.
+		For a while she couldn't stop talking about signing that contract with his huge pen.
+			Actually, enough about him.
+			[section psychic_tavern]
+	-[if been_to_toilet = 1] There's a priest...
+		No.
+			But...
+				Just say no, Viktor.
+					No.
+						Attaboy.
+							[section psychic_tavern]
+	-[if triedorder = 1] There's a barman, he's really unhelpful.
+		Is she an armadillo?
+			He's an anteater, actually.
+				I knew it!
+					So.. what do I do?
+						About what?
+						[animation martinsRoom_martin spr_martinsRoom_martin][time 15]
+						Oh, right...
+						Try another bar!
+							But I need to find anarchists in this bar.
+								Oh... then everything will be all right once you find the anarchists.
+									[section psychic_tavern]
+	- What can you tell me about a porcupine playing a really strange guitar?
+		Oh, that's one of the backers.
+			One of whats?
+				Back-vocals. He does back-vocals in a superband.
+					What's a super-band?
+						Long story.
+							[section psychic_tavern]
+	+ I know enough, actually. Thanks, man!
+		Don't forget to brush your chakras before bed, Viktor.
+			[end]
+
+
+
+end
+== tavern_end ==
+
+
+
+end
 === noam ===
 
 Shalom, me lad.
@@ -850,7 +1012,8 @@ What is anger?
 		Let me think about it.
 		Yes, it is not!
 			[section pitanje3]
-	+ I will give you some of it if you don't give me a wig after I think I gave you correct answers.
+	++ I will give you some of it if you don't give me a wig after I think I gave you correct answers.
+	[mood angry] I will give you some of it if you don't give me a wig after I think I gave you correct answers.
 		Oh that was so lovely
 		[add brojtocnih 1]
 		Like a true poet you are.
@@ -931,12 +1094,13 @@ end
 
 == odabir ==
 
-[not brojtocnih < 3][section enough]
-[if brojtocnih < 3][section notenough]
-
+[if brojtocnih <= 2][section notenough]
+[section enough]
 
 == notenough ==
 You answered half or less of them wrong!
+I mean, half or more of them wrong!
+Anyway, you failed.
 But don't worry.
 Failure is always an option. 
 	+ Can I try again?
@@ -971,7 +1135,7 @@ Do you want one that makes you look like that Texas President Ronald McDrumpf?  
 		And off with me!
 		Where was I?
 		Where am I?
-			+ I'll just leave
+			[animations frog spr_frog_talk] I'll just leave
 				Am I in Africa?
 					[end]
 end
@@ -2019,6 +2183,39 @@ I respect that in an agent.
 end
 === -- !!! PRAG KRTCHMA !!! --- ====
 
+=== variable_test ===
+
+== start ==
+[animation player spr_viktor_phone_up]
+[set mood phone]
+[set testnumber 0]
+Test number is 0
+== test ==
+please test
+	+ add one
+		[section reply]
+	+ add another one
+		[section reply]
+	+ add moar one
+		[section reply]
+	+ restart
+		[animation player spr_viktor_phone_down]
+		[section start]
+	+ end
+		[animation player spr_viktor_phone_down]
+		[set mood]
+		[end]
+
+== reply ==
+[add testnumber 1]
+you added one
+[not testnumber < 0] you got 1
+[not testnumber < 1] you got 2
+[not testnumber < 2] you got 3
+[not testnumber < 3] you got 4
+[not testnumber < 4] you got 5
+[section test]
+
 
 === anteater ===
 
@@ -2035,7 +2232,7 @@ Long live the emperor, good sir. Do you wish to order a drink?
 				Of course not.
 				Nothing of the sort.
 					[section talkabout]
-			+ Some graffiti down in your toilet claim otherwise. (add if_toiletvisit)
+			+[if alreadywent = 1] Some graffiti down in your toilet claim otherwise.
 				Which emperor? Down where?
 				Has someone been writing in our spotless toilet again?
 				Oh no.
@@ -2083,6 +2280,20 @@ end
 		[set absintheknows 1]
 		[add beer_flag 1]
 		[section order]
+	-[not beer_flag < 1] How about a nice cup of tea?
+		Sorry, sir. Alcohol only after sundown.
+		[add beer_flag 1]
+		[section order]
+	-[not beer_flag < 2] Any Terrahawk Ale?
+		[section some_excuse]
+	-[not beer_flag < 3] I want a glass of Room Wiseau.
+		[section some_excuse]
+	-[not beer_flag < 4] Do you at least have some Turquoise Russian?
+		[section some_excuse]
+	-[if absintheknows = 1] How about some Hex On The Beach?
+		I told you, sir. No Absinthe or Absinthe-based drinks.
+		[add beer_flag 1]
+		[section order]
 	+ Do you have anything to eat?   //brian edit   added question mark (?) to end of sentence
 		Of course we do, sir.
 		Our cook is the finest cook in the building.
@@ -2094,6 +2305,7 @@ end
 								Oh, believe me, everything on the menu is fresh and of highest quality.
 									+Too bad. I was hoping for something fermented.
 										A beer, perhaps?
+											[add beer_flag 1]
 											[section order]
 			+ Do you have any Screaming Peanut Butter(tm)?
 				Of course we do.
@@ -2101,7 +2313,7 @@ end
 				But you cannot order it alone. You can get it as a side dish.
 				Or as a free canape when you order more than three glasses of beer.
 					[section order]
-	-[not beer flag < 2] Can I see the menu?
+	-[not beer_flag < 2] Can I see the menu?
 		No.
 			[section order]
 	-[not beer_flag < 3] Are you screwing with me?
@@ -2114,6 +2326,7 @@ end
 	+[if beer_flag < 3] Actually, I don't need anything right now.
 		[section talkabout]
 	+[not beer_flag < 3] Oh piss off.
+		[set triedorder 1]
 		[set mood]
 		[end]
 
@@ -2121,24 +2334,29 @@ end
 end		
 == some_excuse ==
 
-No sir, not right now.
-	[add beer_flag 1]
-	[section order]
+[set randomreply 5]
+[if randomreply = 0] No sir, not right now.
+[if randomreply = 1] We do not have that one.
+[if randomreply = 2] Yes but it's spoiled.   //brian edit   changed (it' is) to (it's)  spelling
+[if randomreply = 3] Waiting for the new shipment.
+[if randomreply = 4] It should be here by next week.
+[if randomreply = 5] I'm drinking the last one right now.
+[if randomreply = 5] Would you like some?
+	[if randomreply = 5] No, thank you.
+[add beer_flag 1]
+[not beer_flag < 1][set mood scared]
+[not beer_flag < 3][set mood angry]
+[section order]
 
 end
-== templist_excuses ==
-(temp list of excuses)
-We do not have that one.
-I'm drinking the last one right now.
-Waiting for the new shipment.
-It should be here by next week.
-Yes but it's spoiled.   //brian edit   changed (it' is) to (it's)  spelling
+== kafka_excuse ==
+
 Mr. Kafka is drinking the last one right now.
 [talk kafka] I hate beer from the bottom of the barrel.   //brian edit    added the word "the" in "I hate beer from the bottom of the barrel"  because it sounds more natural, imo and it's how it's usually said
-	[add beer_flag 1]
-	[section order]
-			
-			
+[add beer_flag 1]
+[section order]
+
+		
 			
 end
 === kafka ===
@@ -2448,7 +2666,7 @@ end
 === jekyll ===
 
 == hello ==
-	
+[set metjekyll 1]
 	+ Let's test boxing!
 		Are you looking for trouble!?
 		You got trouble!
