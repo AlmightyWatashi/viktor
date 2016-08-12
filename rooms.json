@@ -2,73 +2,112 @@
 	"version": "9.8.",
 	"rooms": [
 	{
-		"comment": "Warsaw shooter",
-		"alias": "shooter",
-		"gui": "default",
-		"background": "bcg_shooter",
+		"comment": "dig the tunnel to the bank",
+		"alias": "dig",
+		"gui": "empty",
+		"background": "",
 		"xBackground" : 0,
 		"yBackground" : 0,
 		"rgb": "255,255,255",
 		"border": "spr_various_token",
 		"entrances": [{
+		"alias": "start",
+		"entrance": "[create dig_controller][stop] > tu će bit pizdarije"
+		}],
+		"objects": [
+		{
+		"available" : 0,
+		"alias" : "dig_controller",
+		"object" : "obj_dig_controller"
+		}
+		]
+	},
+	{
+		"comment": "Warsaw shooter",
+		"alias": "shooter",
+		"gui": "empty",
+		"background": "bcg_shooter",
+		"xBackground" : 0,
+		"yBackground" : 80,
+		"rgb": "255,255,255",
+		"border": "spr_various_token",
+		"entrances": [{
 			"alias": "start",
-			"entrance": "[create shooter_controller][stop] > [room intro start]"
+			"entrance": "[create shooter_controller][stop] > [if shooter_win = 0][room shooter start] > [if shooter_win = 1][room tavern start]"
 		}],
 		"objects": [
 			{
 				"available" : 0,
+				"x" : 0,
+				"y" : 40,
 				"alias" : "shooter_controller",
 				"object" : "obj_shooter_controller",
 				"pictures" : {
 					"numberOfObjects" : 12,
+					"verticalSpeed" : 5,
+					"verticalHeight" : 50,
+					"turnedDelay" : 3,
+					"shootToWin" : 5,
 					"pic0" : "spr_shooter_awake",
 					"x0" : 100,
-					"y0" : 400,
+					"y0" : 410,
 					"speed0" : 15,
+					"delay0" : 22,
 					"pic1" : "spr_shooter_body",
 					"x1" : 350,
-					"y1" : 400,
+					"y1" : 420,
 					"speed1" : 15,
+					"delay1" : 17,
 					"pic2" : "spr_shooter_deer",
 					"x2" : 600,
-					"y2" : 400,
+					"y2" : 430,
 					"speed2" : 15,
+					"delay2" : 13,
 					"pic3" : "spr_shooter_dragons",
 					"x3" : 850,
-					"y3" : 400,
+					"y3" : 440,
 					"speed3" : 15,
+					"delay3" : 8,
 					"pic4" : "spr_shooter_head",
 					"x4" : 1100,
-					"y4" : 400,
+					"y4" : 450,
 					"speed4" : 15,
+					"delay4" : 1,
 					"pic5" : "spr_shooter_heart",
 					"x5" : 1350,
-					"y5" : 400,
+					"y5" : 460,
 					"speed5" : 15,
+					"delay5" : 1,
 					"pic6" : "spr_shooter_rocket",
 					"x6" : 50,
 					"y6" : 500,
 					"speed6" : 12,
+					"delay6" : 5,
 					"pic7" : "spr_shooter_saturn",
 					"x7" : 300,
-					"y7" : 500,
+					"y7" : 510,
 					"speed7" : 12,
+					"delay7" : 10,
 					"pic8" : "spr_shooter_sun",
 					"x8" : 550,
-					"y8" : 500,
+					"y8" : 520,
 					"speed8" : 12,
+					"delay8" : 15,
 					"pic9" : "spr_shooter_rocket",
 					"x9" : 800,
-					"y9" : 500,
+					"y9" : 530,
 					"speed9" : 12,
+					"delay9" : 20,
 					"pic10" : "spr_shooter_body",
 					"x10" : 1050,
-					"y10" : 500,
+					"y10" : 540,
 					"speed10" : 12,
+					"delay10" : 25,
 					"pic11" : "spr_shooter_dragons",
 					"x11" : 1300,
-					"y11" : 500,
-					"speed11" : 12
+					"y11" : 550,
+					"speed11" : 12,
+					"delay11" : 30
 				}
 			}
 		]
@@ -80,7 +119,7 @@
 		"scaleNear": 0.8,
 		"scaleFar": 0.8,
 		"background": "bcg_dungeon",
-		"border": "spr_border_viktorsRoom",
+		"border": "spr_border_dungeon",
 		"xBackground": 0,
 		"yBackground": 30,
 		"rgb": "0,0,0",
@@ -381,7 +420,7 @@
 				"x": 332,
 				"y": 821,
 				"xScale" : 0.8,
-				"yScale" : 0.8,
+				"yScale" : 0.8
 			}
 		]
 	},
@@ -419,7 +458,7 @@
 				"visible" : 0
 			},{
 				"alias" : "devil",
-				
+				"talkSoundOverride" : "snd_priest_talk",
 				"x" : 780,
 				"y" : 650,
 				"xCloud" : 780,
@@ -487,7 +526,7 @@
 		"scaleNear": 1,
 		"scaleFar": 0.8,
 		"background": "bcg_tower",
-		"border": "spr_border_viktorsRoom",
+		"border": "spr_border_tower",
 		"xBackground": -5,
 		"yBackground": 35,
 		"rgb": "0,0,0",
@@ -738,7 +777,7 @@
 		"scaleNear": 0.8,
 		"scaleFar": 0.7,
 		"background": "bcg_tesla",
-		"border": "spr_border_viktorsRoom",
+		"border": "spr_border_tesla",
 		"xBackground": 0,
 		"yBackground": 20,
 		"rgb": "0,0,0",
@@ -774,7 +813,7 @@
 				"y": 800,
 				"description": "Matilda!",
 				"combinations": {
-					"look" : "Her appearance is so soothing to me.",
+					"look" : "Her appearance is so soothing to me."
 				}
 			},			
 			{
@@ -792,7 +831,7 @@
 				"description": "Nikola Tesla",
 				"combinations": {
 					"look" : "Default text",
-					"talk" : "[conversation tesla start]",
+					"talk" : "[conversation tesla start]"
 				}
 			},
 			{
@@ -802,7 +841,7 @@
 				"y": 222,
 				"description": "Default description",
 				"combinations": {
-					"look" : "Default text",
+					"look" : "Default text"
 				}
 			},
 			{
@@ -812,7 +851,7 @@
 				"y": 222,
 				"description": "Default description",
 				"combinations": {
-					"look" : "Default text",
+					"look" : "Default text"
 				}
 			},
 			{
@@ -822,7 +861,7 @@
 				"y": 222,
 				"description": "Default description",
 				"combinations": {
-					"look" : "Default text",
+					"look" : "Default text"
 				}
 			},
 			{
@@ -832,7 +871,7 @@
 				"y": 222,
 				"description": "Default description",
 				"combinations": {
-					"look" : "Default text",
+					"look" : "Default text"
 				}
 			},
 			{
@@ -841,7 +880,7 @@
 				"y": 670,
 				"description": "Tesla bulb",
 				"combinations": {
-					"look" : "Default text",
+					"look" : "Default text"
 				}
 			},
 			{
@@ -850,7 +889,7 @@
 				"y": 246,
 				"description": "Tesla coil",
 				"combinations": {
-					"look" : "Default text",
+					"look" : "Default text"
 				}
 			},
 			{
@@ -896,7 +935,7 @@
 				"y": 556,
 				"description": "Tesla stairs",
 				"combinations": {
-					"look" : "Man powered escalation machine.",
+					"look" : "Man powered escalation machine."
 				}
 			},
 			{
@@ -916,7 +955,7 @@
 				"y": 196,
 				"description": "Tesla chamber",
 				"combinations": {
-					"look" : "It's probably the hydro-something-teleporter mr. Tesla was talking about.",
+					"look" : "It's probably the hydro-something-teleporter mr. Tesla was talking about."
 				}
 			},
 			{
@@ -925,7 +964,7 @@
 				"y": 45,
 				"description": "Tesla machine 2",
 				"combinations": {
-					"look" : "Default text",
+					"look" : "Default text"
 				}
 			},
 			{
@@ -934,7 +973,7 @@
 				"y": 459,
 				"description": "Incredible tesla machine.",
 				"combinations": {
-					"look" : "I think this is the one we need to set up.",
+					"look" : "I think this is the one we need to set up."
 				}
 			},
 			{
@@ -944,7 +983,7 @@
 				"depth" : 0,
 				"description": "Tesla pad",
 				"combinations": {
-					"look" : "It's a pad",
+					"look" : "It's a pad"
 				}
 			},
 			{
@@ -956,7 +995,7 @@
 				"y": 800,
 				"description": "Default description",
 				"combinations": {
-					"look" : "Default text",
+					"look" : "Default text"
 				}
 			}
 		]
@@ -968,7 +1007,7 @@
 		"scaleNear": 0.8,
 		"scaleFar": 0.7,
 		"background": "bcg_botanical",
-		"border": "spr_border_viktorsRoom",
+		"border": "spr_border_botanical",
 		"xBackground": -50,
 		"yBackground": 40,
 		"rgb": "0,0,0",
@@ -1003,7 +1042,7 @@
 				"y": 132,
 				"description": "Default description",
 				"combinations": {
-					"look" : "Default text",
+					"look" : "Default text"
 				}
 			},
 			{
@@ -1013,7 +1052,7 @@
 				"y": 350,
 				"description": "Default description",
 				"combinations": {
-					"look" : "Default text",
+					"look" : "Default text"
 				}
 			},
 			{
@@ -1023,7 +1062,7 @@
 				"y": 248,
 				"description": "Default description",
 				"combinations": {
-					"look" : "Default text",
+					"look" : "Default text"
 				}
 			},
 			{
@@ -1034,7 +1073,7 @@
 				"y": 248,
 				"description": "Default description",
 				"combinations": {
-					"look" : "Default text",
+					"look" : "Default text"
 				}
 			},
 			{
@@ -1044,9 +1083,9 @@
 				"y": 350,
 				"description": "Default description",
 				"combinations": {
-					"look" : "Default text",
+					"look" : "Default text"
 				}
-			},
+			}
 		]
 	},
 	{
@@ -1056,7 +1095,7 @@
 		"scaleNear": 0.8,
 		"scaleFar": 0.7,
 		"background": "bcg_garden",
-		"border": "spr_border_viktorsRoom",
+		"border": "spr_border_garden",
 		"xBackground": -40,
 		"yBackground": 35,
 		"rgb": "0,0,0",
@@ -1090,7 +1129,7 @@
 				"y": 566,
 				"description": "Default description",
 				"combinations": {
-					"look" : "Default text",
+					"look" : "Default text"
 				}
 			},
 			{
@@ -1099,7 +1138,7 @@
 				"y": 789,
 				"description": "Default description",
 				"combinations": {
-					"look" : "Default text",
+					"look" : "Default text"
 				}
 			},
 			{
@@ -1109,7 +1148,7 @@
 				"depth" : -800,
 				"description": "Default description",
 				"combinations": {
-					"look" : "Default text",
+					"look" : "Default text"
 				}
 			},
 			{
@@ -1117,7 +1156,7 @@
 				"idle" : 1,
 				"x": 530,
 				"y": 143,
-				"depth" : -1024,
+				"depth" : -1024
 			},
 			{
 				"alias": "garden_water_small",
@@ -1125,7 +1164,7 @@
 				"y": 383,
 				"description": "Default description",
 				"combinations": {
-					"look" : "Default text",
+					"look" : "Default text"
 				}
 			},
 			{
@@ -1135,9 +1174,9 @@
 				"y": 393,
 				"description": "Default description",
 				"combinations": {
-					"look" : "Default text",
+					"look" : "Default text"
 				}
-			},
+			}
 		]
 	},
 	{
@@ -1371,7 +1410,8 @@
 		}, {
 			"alias": "martinsRoom_pipe",
 			"x": 710,
-			"y": 500
+			"y": 500,
+			"object" : "obj_martinsRoom_pipe"
 		}, {
 			"alias": "martinsRoom_smoke",
 			"object": "obj_martinsRoom_smoke",
@@ -3959,12 +3999,18 @@
 				"picture": "spr_station_office",
 				"x": 0,
 				"y": 403,
+				"idle" : 1,
 				"xCloud": 100,
 				"yCloud": 350,
 				"depth": -1500,
 				"xInteract": 300,
 				"yInteract": 815,
 				"description": "Ticket office",
+				"banter" : [
+				"Please do not disturb me during lunch.",
+				"Is this to greasy to eat? Nah.",
+				"Mmm, this food is finger lickin' good."
+				],
 				"order": "look,talk",
 				"combinations": {
 					"look": "It's the ticket office. > For buying airship tickets. > They don't sell tram tickets. > Not that anyone ever buys those. > But I still like to annoy them by asking.",
@@ -5150,7 +5196,7 @@
 		"scaleNear": 0.8,
 		"scaleFar": 0.7,
 		"background": "bcg_tavern",
-		"border": "spr_border_viktorsRoom",
+		"border": "spr_border_tavern",
 		"xBackground": -15,
 		"yBackground": 5,
 		"rgb": "200,232,235",
@@ -5158,9 +5204,14 @@
 			"alias": "start",
 			"entrance": "[not item phone][set phone 3][take phone] > [set passguess 0][position player 300 670][set alreadywent 0][set tried_dumb_flag 0] > This looks cozy. > [not version debug] Now to find those anarchists. > [not version debug] They probably have armies, bombs and whatnot.",
 			"entrance2": "[set passguess 0][position player 300 670set alreadywent 0][set tried_dumb_flag 0] This looks cozy. > Now to find those anarchists. > They probably have armies, bombs and whatnot."
-		}, {
+		},
+		{
+			"alias" : "return",
+			"entrance" : "[recall] > That was somewhat helpful."
+		},
+		{
 			"alias": "toilet_exit",
-			"entrance": "[position player 1114 592][sound snd_gramophone] > [if alreadywent = 0] This was quite inspirational. Except for the smell. > [set alreadywent 1]"
+			"entrance": "[position player 1114 592] > [if alreadywent = 0] This was quite inspirational. Except for the smell. > [set alreadywent 1]"
 		}],
 		"objects": [{
 			"alias": "just_testing_delete_later",
@@ -5363,7 +5414,7 @@
 			"depth": -999,
 			"xScale": 0.83,
 			"yScale": 0.83,
-			"x": 885,
+			"x": 880,
 			"y": 623,
 			"xCloud": 970,
 			"yCloud": 550,
@@ -5374,9 +5425,9 @@
 			"description": "Krtek",
 			"order": "look, talk",
 			"banter" : [
-			"First",
-			"Second",
-			"Third"
+			"...prefferrably with a shovel",
+			"Like the dwarves do.",
+			"Possibly blow something up."
 			],
 			"combinations": {
 				"look": "Suspiciously equipped individual",
@@ -5388,7 +5439,7 @@
 			"depth": -998,
 			"xScale": 0.65,
 			"yScale": 0.65,
-			"x": 660,
+			"x": 667,
 			"y": 580,
 			"xCloud": 740,
 			"yCloud": 560,
@@ -5399,9 +5450,9 @@
 			"description": "Pferdinand",
 			"order": "look, talk",
 			"banter" : [
-			"First",
-			"Second",
-			"Third"
+			"How about a union with someone?",
+			"It's a fashion choice.",
+			"Hurry while that guy is vomiting."
 			],
 			"combinations": {
 				"look": "Regular-looking person",
@@ -5424,9 +5475,9 @@
 			"description": "Andras",
 			"order": "look, talk",
 			"banter" : [
-			"First",
-			"Second",
-			"Third"
+			"I can't wait to start writing this down.",
+			"Which color is next?",
+			"Move some troops, graze some grass..."
 			],
 			"combinations": {
 				"look": "Regular-looking person",
@@ -5435,6 +5486,7 @@
 		}, {
 			"comment": "Matilda!",
 			"alias": "matilda_tavern",
+			"talkSoundOverride" : "snd_matilda_talk",
 			"depth": -1002,
 			"xScale": 0.85,
 			"yScale": 0.85,
@@ -5448,6 +5500,11 @@
 			"idle": 1,
 			"description": "Matilda",
 			"order": "look, talk",
+			"banter" : [
+			"More freedom, more humane executions.",
+			"But what about women?",
+			"Bloody slavery!"
+			],
 			"combinations": {
 				"look": "Hot anarchist Zebra",
 				"talk": "Not yet."
@@ -5506,11 +5563,17 @@
 		"border": "spr_border_toilet",
 		"xBackground": -15,
 		"yBackground": 15,
+		"yBorder": 30,
 		"rgb": "200,232,235",
 		"entrances": [{
 				"alias": "start",
-				"entrance": "[set been_to_toilet 1][position 330 800]"
-			}, {
+				"entrance": "[set been_to_toilet 1][position 350 800] > [if toilet_is_opened = 1][position priest_back 930 680]"
+			},
+		{
+			"alias" : "return",
+			"entrance" : "[recall] > Nothing better then going to the toilet to have a nice telephone conversation."
+		},
+		{
 				"alias": "fight",
 				"entrance": "[position player 732 795][create fight_controller] > [stop] > [if viktorsRoom_win = 1] I won! > [if viktorsRoom_win = 0] I lost! > [room tavern start]"
 			}
@@ -5607,16 +5670,58 @@
 				"yScale": 1
 			},
 			{
+				"alias": "priest_back",
+				"x": 1140,
+				"y": 680,
+				"xInteract" : 900,
+				"yInteract" : 750,
+				"xCloud" : 1100,
+				"yCloud" : 300,
+				"idle": 1,
+				"depth" : 100,
+				"description": "Drunken priest.",
+				"combinations": {
+					"look" : "Figures.",
+					"talk" : "[conversation priest first]"
+				}
+			},
+			{
 				"alias": "toilet_chain",
 				"available": 1,
 				"visible": 1,
 				"x": 1145,
 				"y": 300,
 				"depth" : 1000,
+				"xInteract" : 1100,
+				"yInteract" : 750,
 				"description": "Flusher",
 				"order": "look",
 				"combinations": {
-					"look": "It's for fishing. > I mean, flushing."
+					"look": "It's for fishing. > I mean, flushing.",
+					"use" : "[if toilet_is_opened = 1][pickup] > [if toilet_is_opened = 0]Vomiting man of god is in the way."
+				},
+				"inventory": {
+					"alias": "toilet_chain",
+					"name": "Chain",
+					"description": "So much for flushing.",
+					"picture": "spr_toilet_chain"
+				}
+			},
+			{
+				"alias": "toilet_paper",
+				"picture": "spr_item_paper",
+				"available": 1,
+				"visible": 1,
+				"x": 530,
+				"y": 90,
+				"angle" : 30,
+				"xScale" : 0.5,
+				"yScale" : 0.5,
+				"depth": -100,
+				"description": "Toilet paper",
+				"order": "look",
+				"combinations": {
+					"look": "That's a strange place to put a roll of toilet paper."
 				}
 			},
 			{
@@ -5746,7 +5851,7 @@
 				"alias": "toilet_middle",
 				"available": 1,
 				"subimage": 0,
-				"x": 600,
+				"x": 606,
 				"y": 286,
 				"xInteract": 650,
 				"yInteract": 770,
@@ -5783,7 +5888,7 @@
 				"alias": "toilet_right",
 				"subimage": 0,
 				"available": 1,
-				"x": 800,
+				"x": 805,
 				"y": 286,
 				"xInteract": 906,
 				"yInteract": 770,
@@ -5794,7 +5899,7 @@
 				"order": "look, talk",
 				"combinations": {
 					"look": "Nice door.",
-					"use" : "[position toilet_right 862 286][animation toilet_right spr_toilet_right 1][time 3][destroy toilet_right 3][create toilet_right_open 3][destroy graffiti_door_3]"
+					"use" : "[position toilet_right 867 286][animation toilet_right spr_toilet_right 1][time 3][destroy toilet_right 3][create toilet_right_open 3][destroy graffiti_door_3][set toilet_is_opened 1]"
 				}
 			},
 			{
@@ -5813,7 +5918,7 @@
 				"order": "look, talk",
 				"combinations": {
 					"look": "Nice door.",
-					"use" : "[position toilet_right_open 862 286][animation toilet_right_open spr_toilet_right 1][time 3][destroy toilet_right_open 3][create toilet_right 3][create graffiti_door_3]"
+					"use" : "[position toilet_right_open 867 286][animation toilet_right_open spr_toilet_right 1][time 3][destroy toilet_right_open 3][create toilet_right 3][create graffiti_door_3]"
 				}
 			},
 			
@@ -6247,19 +6352,9 @@
 			}, {
 				"alias": "toilet_pipe",
 				"x": 510,
-				"y": 0
-			}, {
-				"alias": "priest_back",
-				"x": 1140,
-				"y": 680,
-				"xInteract" : 1100,
-				"yInteract" : 750,
-				"idle": 1,
-				"description": "Drunken priest.",
-				"combinations": {
-					"look": "Figures."
-				}
-			}, {
+				"y": 0,
+				"depth" : -200,
+			},  {
 				"alias": "toilet_exit",
 				"picture": "spr_various_token",
 				"visible": 0,
@@ -6268,7 +6363,7 @@
 				"xScale": 120,
 				"yScale": 400,
 				"xInteract": 210,
-				"yInteract": 714,
+				"yInteract": 745,
 				"idle": 1,
 				"description": "Exit",
 				"order": "look,use",
