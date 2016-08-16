@@ -5567,7 +5567,7 @@
 		"rgb": "200,232,235",
 		"entrances": [{
 				"alias": "start",
-				"entrance": "[set been_to_toilet 1][position 350 800] > [if toilet_is_opened = 1][position priest_back 930 680]"
+				"entrance": "[set toilet_is_opened 1][set been_to_toilet 1][position 350 800] > [if toilet_is_opened = 1][position priest_back 930 680]"
 			},
 		{
 			"alias" : "return",
@@ -5714,6 +5714,8 @@
 				"visible": 1,
 				"x": 530,
 				"y": 90,
+				"xInteract" : 800,
+				"yInteract" : 750,
 				"angle" : 30,
 				"xScale" : 0.5,
 				"yScale" : 0.5,
@@ -5721,8 +5723,19 @@
 				"description": "Toilet paper",
 				"order": "look",
 				"combinations": {
-					"look": "That's a strange place to put a roll of toilet paper."
+					"look": "That's a strange place to put a roll of toilet paper.",
+					"toilet_chain": "[animation spr_viktor_chain][time 83]"
 				}
+			},
+			{
+				"alias": "chain_flying",
+				"picture": "spr_toilet_chain_big",
+				"available": 1,
+				"visible": 1,
+				"x": 750,
+				"y": 600,
+				"angle" : 200,
+				"description": "chain",				
 			},
 			{
 				"alias": "graffiti_door_1d",
@@ -5823,7 +5836,7 @@
 				"order": "look, talk",
 				"combinations": {
 					"look": "Nice door.",
-					"use" : "[position toilet_left 486 286][animation toilet_left spr_toilet_left 1][time 3][destroy toilet_left 3][create toilet_left_open 3][destroy graffiti_door_1b][destroy graffiti_door_1c][destroy graffiti_door_1d]"
+					"use" : "[sound snd_door_open][position toilet_left 486 286][animation toilet_left spr_toilet_left 1][time 3][destroy toilet_left 3][create toilet_left_open 3][destroy graffiti_door_1b][destroy graffiti_door_1c][destroy graffiti_door_1d]"
 				}
 			},
 			{
@@ -5844,7 +5857,7 @@
 			"order": "look, talk",
 			"combinations": {
 				"look": "I wish I hadn't opened it",
-				"use" : "[position toilet_left_open 486 286][animation toilet_left_open spr_toilet_left 1][time 3][destroy toilet_left_open 3][create toilet_left 3][create graffiti_door_1b][create graffiti_door_1c][create graffiti_door_1d]"
+				"use" : "[sound snd_door_close][position toilet_left_open 486 286][animation toilet_left_open spr_toilet_left 1][time 3][destroy toilet_left_open 3][create toilet_left 3][create graffiti_door_1b][create graffiti_door_1c][create graffiti_door_1d]"
 			}
 			},
 			{
@@ -5862,7 +5875,7 @@
 				"order": "look, talk",
 				"combinations": {
 					"look": "Nice door.",
-					"use" : "[position toilet_middle 675 286][animation toilet_middle spr_toilet_middle 1][time 3][destroy toilet_middle 3][create toilet_middle_open 3][destroy graffiti_door_2b][destroy graffiti_door_2]"
+					"use" : "[sound snd_door_open][position toilet_middle 675 286][animation toilet_middle spr_toilet_middle 1][time 3][destroy toilet_middle 3][create toilet_middle_open 3][destroy graffiti_door_2b][destroy graffiti_door_2]"
 				}
 			}, 
 			{
@@ -5881,7 +5894,7 @@
 				"order": "look, talk",
 				"combinations": {
 					"look": "Nice door.",
-					"use" : "[position toilet_middle_open 675 286][animation toilet_middle_open spr_toilet_middle 1][time 3][destroy toilet_middle_open 3][create toilet_middle 3][create graffiti_door_2b][create graffiti_door_2]"
+					"use" : "[sound snd_door_close][position toilet_middle_open 675 286][animation toilet_middle_open spr_toilet_middle 1][time 3][destroy toilet_middle_open 3][create toilet_middle 3][create graffiti_door_2b][create graffiti_door_2]"
 				}
 			},
 			{
@@ -5899,7 +5912,7 @@
 				"order": "look, talk",
 				"combinations": {
 					"look": "Nice door.",
-					"use" : "[position toilet_right 867 286][animation toilet_right spr_toilet_right 1][time 3][destroy toilet_right 3][create toilet_right_open 3][destroy graffiti_door_3][set toilet_is_opened 1]"
+					"use" : "[sound snd_door_open][position toilet_right 867 286][animation toilet_right spr_toilet_right 1][time 3][destroy toilet_right 3][create toilet_right_open 3][destroy graffiti_door_3][set toilet_is_opened 1]"
 				}
 			},
 			{
@@ -5918,7 +5931,7 @@
 				"order": "look, talk",
 				"combinations": {
 					"look": "Nice door.",
-					"use" : "[position toilet_right_open 867 286][animation toilet_right_open spr_toilet_right 1][time 3][destroy toilet_right_open 3][create toilet_right 3][create graffiti_door_3]"
+					"use" : "[sound snd_door_close][position toilet_right_open 867 286][animation toilet_right_open spr_toilet_right 1][time 3][destroy toilet_right_open 3][create toilet_right 3][create graffiti_door_3]"
 				}
 			},
 			
