@@ -2223,6 +2223,8 @@ you added one
 
 == hello ==
 
+[if anarchist_trust = 1] Hello, friend. Would you like a drink?
+[if anarchist_trust = 1][section anarchy_hello]
 Long live the emperor, good sir. Do you wish to order a drink?
 	+ Long, long. What drinks can you offer?
 		Whatever your heart desires.
@@ -2240,7 +2242,8 @@ Long live the emperor, good sir. Do you wish to order a drink?
 				Oh no.
 					[section talkabout]
 
-end	
+
+end
 == talkabout ==
 
 	+ I would like to know more about the patrons in this establishment.
@@ -2260,6 +2263,11 @@ end
 			+ That loud group discussing politics?
 				Ah, the commun... um...
 				They like to communicate a lot.
+					[section talkabout]
+			+ You have a priest vomiting in the toilets.
+				What, all of them?
+					+ Never mind.
+						[section talkabout]
 	+ What drinks can you offer?
 		Whatever your heart desires.
 		As long as we have it available.
@@ -2344,7 +2352,7 @@ end
 [if randomreply = 4] It should be here by next week.
 [if randomreply = 5] I'm drinking the last one right now.
 [if randomreply = 5] Would you like some?
-	[if randomreply = 5] No, thank you.
+	[if randomreply = 5][mood scared] No, thank you.
 [add beer_flag 1]
 [not beer_flag < 1][set mood scared]
 [not beer_flag < 3][set mood angry]
@@ -2358,8 +2366,78 @@ Mr. Kafka is drinking the last one right now.
 [add beer_flag 1]
 [section order]
 
-		
-			
+end
+
+== anarchy_hello ==
+
+	- What's with the change of rhetoric all of the sudden?
+		You know the watchword.
+		Took you long enough to remember it.
+		But we had even dumber people join us, so why not.
+			[section anarchy_hello]
+	+ Don't mind if I do. What do you have?
+		Try this. It's on the house.
+			- What is it?
+				It's my personal brew made of fermented honey mixed with coffee...
+				five different kinds of fruit...
+				and a pinch of pure hatered.
+					+ Maybe later
+						It's here when you're ready for it.
+							[end]
+					+ Wow, I got to try this.
+						[animation spr_viktor_drink]
+						Wow, it tastes wonderful.
+						And extremely uplifting.
+						But the aftertaste is a bit funky.
+						Oh, that's probably hatered.
+							[end]
+			+ Wow, thank you.
+				No problem
+					[animation spr_viktor_drink]
+					That really hit the spot.
+					Makes me feel stronger, more agressive.
+						Don't go there, please.
+							Fair enough.
+								[end]
+			- This isn't some kind of knockout potion? I'm immune to those, you know
+				You slowly consume multiple types of poison in minor quantities to build up your tolerance?
+					+ Nah, I'm just too fat for most poisons.
+						I don't think fat works like that
+							Mine does.
+								So, a drink perhaps?
+								[section anarchy_hello]
+	+ I actually have some questions.
+		Ask away, friend.
+	+ Never mind, sorry to bother you.
+		Any time.
+			[end]
+== askaway ==
+			+ Fox with a very small green drink.
+				A tourist from Unwanted Kingdom.
+				First time here.
+				He already drank two bottles of Absinthe and he looks as sober as you.
+					[section askaway]
+			+ The mouse with an obviously cheap beer. Who is that?
+				Ah, the gentlemen is a nice insurance salesman who wants to be a writer.
+				His name is Franz Kafka.
+				[description kafka Kafka]
+				And that's not beer he's drinking.
+					[section askaway]
+			+ The anarchists, are they trustworthy?
+				Completely.
+				But a bit unreliable.
+				Too caught up in their own bureaucracy.
+					[section askaway]
+			+ Priest in the toilet
+				I'd ban him from visiting.
+				But he spends more money than all the patrons combined.
+					+ Maybe if you let more people buy some drinks.
+						I let them drink.
+						They just never find anything they would drink.
+							[section askaway]
+			+ Thanks, man. That's all I needed to know.
+				No problem. Anything to drink?
+				[end]
 end
 === kafka ===
 
@@ -2466,7 +2544,7 @@ end
 		Is this one of those silly stereotypes that all Jews know each other?
 		You know, it's not as if you just go around and suddenly you meet Sigmund Freud.
 		Oh all right, I may have talked to Mr. Freud a few times.
-		He was traveling to Germsland, so he wanted life insurance.
+		He was traveling to Germland, so he wanted life insurance.
 		Interesting man with some astonishing ideas.
 			[section sojew]
 	- I met a Jew recently. Noam McSmelliecock, a Scottish athlete. Do you know him?
@@ -2596,7 +2674,7 @@ end
 end
 == toiletpass ==
 [set toilet_pass_guesser 0]
-	+ Mr Plinkett was here...
+	+[if priest_moved = 1] Mr Plinkett was here...
 		[add toilet_pass_guesser 1]
 		[section toiletpass_2]
 	+ Sir Didymus was not here...
@@ -2617,13 +2695,13 @@ end
 	+ ...eating...
 		[section toiletpass_3]
 	+ ...kissing...
-		[add toilet_pass_guesser 1]
 		[section toiletpass_3]
 	+ ...resurrecting...
 		[section toiletpass_3]
 	+ ...scratching and scratching...
 		[section toiletpass_3]
 	+ ...killing in the name of...
+		[add toilet_pass_guesser 1]
 		[section toiletpass_3]
 	+ ...vomiting...
 		[section toiletpass_3]
@@ -2631,24 +2709,26 @@ end
 end
 == toiletpass_3 ==
 
-	+ ...Emperor...
+	+ ...Emperor.
 		[section possibly_right]
-	+ ...Floor and windows...
+	+ ...Mothers against Lorem Ipsum.
+		[section possibly_right]
+	+ ...Rasputin.
 		[add toilet_pass_guesser 1]
 		[section possibly_right]
-	+ ...Rasputin...
+	+ ...Cogs.
 		[section possibly_right]
-	+ ...Cogs...
+	+ ...Nanowar.
 		[section possibly_right]
-	+ ...Nanowar...
+	+ ...Screaming peanut butter.
 		[section possibly_right]
-	+ ...Screaming peanut butter...
+	+ ...Spartak Marimash.
 		[section possibly_right]
 
 end
 == possibly_right ==
 
-[not toilet_pass_guesser < 3][section correctpassword]
+[if toilet_pass_guesser = 3][section correctpassword]
 [talk mole] We let you blabber your things, now please let us blabber our own things in peace
 	+ So, I didn't guess it?
 		[talk matilda_tavern] We don't know what you're talking about.
@@ -2660,19 +2740,409 @@ end
 == correctpassword ==
 
 [talk mole] About bloody time!
-[talk matilda_tavern] And now to continue with something later. 
-[destroy anarchists]
+[talk horse1] Welcome aboard.
+[talk horse1] Did you have trouble finding us?
+	+ Finding Vida was the hardest part, I would say.
+		[talk mole] Finding her?
+		[section continuerd]
+	+ Nah, I learned to navigate through the smog while growing up in Agram.
+		[talk mole] You grew up... in Agram?
+		[section continuerd]
+
+end
+== continuerd ==
+[talk mole] Interesting
+[talk matilda_tavern] I think that's very hot.
+	+ Really?
+		[talk matilda_tavern] Oh yes, I'd like to talk about that a bit more.
+		[talk matilda_tavern] In private.
+			+ Well, private talk is my favorite kind of talk.
+				[talk matilda_tavern] Yes, let's talk privately.
+				[talk matilda_tavern] We should go to the other room.
+				[talk matilda_tavern] And find a good booth to... talk.
+					+ I know just the booth!
+						[set gunscene 1]
+						[set anarchist_trust 1]
+						[destroy anarchists]
+						[animations player spr_viktor_walk_right][move player 8 6][animations matilda_tavern spr_matilda_walk_right][move matilda_tavern 17 7][time 150]
+						[room toilet gunpoint]
+
+=== matilda ===
+
+You talk
 [end]
+
+end
+== gunpoint ==
+
+	I think the middle one is empty
+	Don't ask how I checked
+		Actually, right here is fine.
+			[set mood scared]
+			Are you sure?
+				Yes I'm sure.
+				[animation matilda spr_matilda_gun]
+				[mood matilda right_gun] Now, let's talk.
+					+ I'm not really into gunplay.
+						This isn't a game.
+						It's a potential murder scene.
+						So I suggest you talk.
+							[section gunpoint_who]
+					++ Why does my every romance talk look like this?
+					[mood angry] Why the hell does my every romance talk look like this?
+						What?
+							Well, you see, my landlord...
+								No, I don't want to hear about you using frail women's hearts as you see fit.
+									+ It's not like that, she's really old.
+										What the hell?!?
+										[talk priest] Oh this is gonna be good.
+										You go back to your prayers!
+										Now where was I?
+										Ah yes.
+											[section gunpoint_who]
+									+ I'm not using hearts of anything.
+									[mood angry] I'm nice and cuddly dammit.
+									[mood angry] Why can't people see that.
+										Let's change the subject.
+											[section gunpoint_who]
+									++ So you actually do like me?
+									[set mood] So you actually do like me?
+										What? No!
+										I'm holding you at gunpoint.
+											Yes, that happens to me from time to time.
+												[talk priest] Will you two love birds be quiet? I'm trying to pray in here.
+												Okay, enough fun and games.
+												[set mood scared]
+												[section gunpoint_who]
+					+ Help help, I'm being murdered!
+					Again.
+						This... happens to you often?
+						Actually, forget that.
+							[section gunpoint_who]
+
+				[end]
+
+== gunpoint_who ==
+
+Who are you and what the hell are you doing here?
+	+ My name is Viktor and I'm trying to oust the emperor.
+		[section gunpoint_commendable]
+	+ I'm Viktor and I want to join the anarchists.
+		You chose a weird way to do it.
+		How did you find us?
+			+ I got a message from Vida after getting kicked out of the emperor's palace.
+				Why did you get kicked out of the palace.
+					I tried to oust the emperor.
+						[section gunpoint_commendable]			
+	- It's complicated
+		Oh, you think your actions are too complicated for a woman?
+			+ Actually, it's too complicated for me.
+				Then simplify.
+					Okay... My name is Viktor
+					I went to Vienna to oust the emperor!
+						[section gunpoint_commendable]
+			+ It all started when I got fired from a crappy street sweeping job.
+				Are you stalling me?
+					+ Long story short, my name is Viktor and I went to Vienna to oust the emperor.
+						[section gunpoint_commendable]
+					+ Maybe a little.
+						Is the police coming?
+							+ No, I'm just panicking because of your gun.
+								If you don't start talking, you'll be dead because of my gun.
+								I'll repeat the question.
+									[section gunpoint_who]
+							+ No, I just kinda like talking to you
+								[talk priest] Aww.
+								Just answer the questions.
+									Honestly, I already forgot what I had to say!
+										I'll repeat once more.
+										And if you tell me it's complicated, I'm going to shoot you.
+										Let's go again...
+										[section gunpoint_who]
+										
+
+end
+== gunpoint_commendable ==
+
+That's commendable, I guess.
+	+ And put myself as the new emperor.
+		Wait, what?
+		If you want to be a new emperor...
+		why the hell are you infiltrating anarchists?
+		Do you even know what anarchy means?
+			+ Well, yes, but I think it would be better if we had monarchy with legalized anarchism.
+				That doesn't make any sense!
+					[section gunpoint_politics]
+			+ I wanted to discuss that after joining you, I didn't expect being at gunpoint.
+				Life is full of surprises.
+				Now talk
+				Why would we want to have another emperor?
+					[section gunpoint_politics]
+	+ So, what's your name?
+		I'm the one asking questions around here.
+			+ Oh come on, you'll either kill me or let me join you. What's your name?
+				[section gunpoint_name]
+			+ Am I not allowed to know the name of the girl who killed me?
+				[section gunpoint_name]
+end
+== gunpoint_name ==
+
+Oh all right.
+My name is Matilda.
+	+ Oh, that's such a beautiful name.
+	[talk priest] I think I'm going to puke.
+		Enough chit-chat.
+		Why are you infiltrating us?
+			(something something become the emperor)
+				[section gunpoint_politics]
+
+end
+== gunpoint_politics ==
+
+Mi smo anarhisti i komunisti
+pokušavamo se dogovorit već 10 godina
+i sad ti dođeš i predlažeš monarhiju
+	+ I just like the anarchists because I heard you have cookies.
+		Moraš bit uvjerljiviji od toga
+			[section gunpoint_politics_convincing]		
+	+ Mogla bi ti biti kraljica
+		Ne ne nikako nikako
+			Ali tako bi mogla birat što god želiš da radiš
+				sumnjivo mi je to
+					[section gunpoint_politics_convincing]	
+			Mogla bi biti drugačija kraljica, bolja po ljude
+				Daa, izjednačiti prava žena
+				Pomagati siromašnima
+				Imati kul crnu odoru
+				Ne, čekaj malo, nemoj me potkupljivati
+				I to nečim što nemaš
+					[section gunpoint_politics_convincing]		
+	+ Što je to zapravo komunizam?
+		To je vladavina gdje su svi jednaki
+			Znači kao demokracija?
+				Ne ne, ne postoji privatno vlasništvo već svi posjeduju sve
+					To zvuči kao da nitko ništa ne posjeduje
+						Da, malo je glupo, ali je zanimljivo raspravljati s njima
+						Drže kvalitetne zapisnike
+						Žele, kao i ja, srušiti vlast
+						Ponekad igramo stolne igre
+						Ali zašto bi htjeli stavljati tebe za cara?
+							[section gunpoint_politics_convincing]	
+	+ Dogovarate se već 10 godina?!? to bi se moglo sve rješit u 10 dana.
+		Ti bi krenuo odmah, što si lud?
+			Da
+				I like that
+					[section gunpoint_win]
+
+
+end
+== gunpoint_politics_convincing ==
+
+	+ Mene bi lakše svrgnuli
+		Vidiš, to je definitivno istina
+			[end]
+	+ A jel bi radije da ovi tvoji uvedu komunizam?
+	Sigurno bi prvu promjenu uveli nakon deset godina
+		To je definitivno istina.
+		A i ti se ne činiš kao dovoljno gadan kralj kojeg bi bilo teško svrgnuti
+			[end]
+	
+
+
+
+== gunpoint_win ===
+
+All right.
+[set mood]
+[noitamina matilda spr_matilda_gun]
+I trust you.
+But I'm still keeping my eye on you.
+	+ I like that. Can I keep my eye on you as well?
+		What?
+		[talk priest] Seriously, Viktor, that sounded creepy as hell
+			Sorry.
+				Don't listen to him, he's drunk.
+					[talk priest] I'm only drunk on god.
+
+end
+=== andras ===
+
+Better talk with Krtek, he's better at organizing.
+[end]
+
+
+
+=== pferdinand ===
+
+Better talk with Krtek, he's better at organizing.
+[end]
+
+
+
+=== krtek ===
+
+== hello ==
+
+	+ kako to da nemate papira?
+		trebali smo papir od zapisnika za wc
+		pa smo rekli da ćemo koristiti wc papir za zapisnik
+		na žalost, trenutno krčma nema wc papira
+			[section hello]
+	+ možete li naći još ljudi za srušiti cara?
+		naravno, imamo veze
+		ali nemamo ni jedan pištolj osim ovog tu
+		a ni za njega nemamo metaka
+		matilda: ajde glasnije da te cijela krčma čuje
+		kafka: ma ko te tu sluša
+			+ znači možete doći do ljudi?
+				ako bi imali dovoljno novaca, bez problema
+					[section hello]
+	+ kako stojite s financijama?
+		nemamo problema s tim
+		financija nemamo
+		ja povremeno pokušavam iskopati blago ili naftu
+		sve što sam zasad iskopao je bila hrpa divovskih kostiju
+			+ ti voliš kopati?
+				to mi je u neku ruku hobi
+				i kompulzija
+				što misliš zašto u wc-u nema jedne školjke?
+					[section but_no]
+			+ ako dobro kopaš, znam gdje bi mogli iskopati nešto novaca
+				piratsko blago?
+					ne, ali vlasnici su slični
+						šumski pljačkaši
+							bankari
+								au, ti su još gori
+									[section but_no]
+== but_no ==
+					
+[end]
+
+
+
+
+
+
+
+
+== returned ==
+
+matilda: u redu je... recimo to tako
+krtek: Dobro došao u našu skupinu
+krtek: ja sam krtek
+andras: ja sam pferdinand
+andras: ovo je andras
+pferdinand: Ne, čekaj, ja sam pferdinand, a ti si andras
+andras: da da, stvarno
+viktor: ja sam viktor
+	imam način kako neutralizirati carevo električno polje i njegove automatone
+	trebam ljude koji bi omeli stražu izvana
+andras: a ne ne, čekaj, ne možemo početi ovo bez zapisnika
+krtek: istina, to nikako
+pferdinand: kod koga je olovka?
+matilda: kod mene nije, kod mene je pištolj
+krtek: nije ni kod mene
+andras: ne možemo počet bez olovke
+[end]
+
+
+
+
+=== hyde ===
+
+hyde: šta je konju, why the long face
+andras: my face is fine, please leave me alone
+
+== start ==
+	- Dr. Jekyll, what happened to you?
+		Nisam ti ja dr. jekyll, šonjino
+		on je slab i pije loš apsint
+		kao i svi vi ovdje
+		mogao bih vas sve razbiti
+			[section start]
+	- Mislim da vam je dosta apsinta za danas
+		mislim da ste u pravu
+		konobar, dajte mi nešto bolje za piti
+		konobar: što bi ste popili?
+		tvoju krv ako mi ne doneseš nešto fino
+			+ ostavi konobara na miru
+				ma i tvoje ću se krvi napiti, kretenu
+					[section hyde_matilda]
+			+ nemoj da konobar zove policiju, to nitko ne želi
+				konobar: ne želim ni ja
+				kafka: a da glasamo?
+					[section hyde_matilda]
+	- molim vas, otiđite. pokušavamo imati sastanak
+		a zašto nebi i ja imao sastanak s vama?
+		vi mi platite piće, a ja vas ne razbijem
+			[section hyde_matilda]
+	
+== hyde_matilda ==
+
+	+ molim te nemoj da popizdim pred ženskom
+		Onda odi doma i pusti mene da se zabavljam
+		ja sam sada vaš novi vođa
+		andras: ali još nemamo papir za zapisnik
+		[if nema olovke] pferdinand: ni olovku
+		ti nosati, odi se zakopaj u wc
+		vas dva konja, donesite mi nešto za piti
+		a ti mala fufica sjedi kraj mene da me zabavljaš
+		matilda: (vadi gun) približi mi se i mrtav si
+		nisi trebala vaditi gun blizu dr. jekylla
+		vidio je već odavno da nemaš metaka
+		matilda: kvragu, trebam kupiti metke
+		hajde dođi ovdje da mi sjedneš na krilo
+			+ viktor: e sad mi je dosta, dolazi vamo da te ubijem
+				konobar: molim vas nemojte se ubijati usred birtije
+				konobar: otiđite u wc pa se ubijajte tamo
+				konobar: hvala
+				Hoćemo?
+					+ ajde bre
+						[end]
+		
+
+
+== hyde_win ==
+
+ok, sad mi je dosta svega, idemo nešto napokon napraviti
+	pferdinand: pa kako bez zapisnika
+		evo ti glupog wc papira pa radi zapisnike kakve želiš
+		znači, ovakav je plan
+		treba nam novac za ljudstvo, oružje i tehnologiju koja gasi carevo zaštitno polje
+			andras: čekaj čekaj, kako si ti sad vođa?
+				evo zapiši u zapisnik da jesam
+				upravo sam sredio prošlog vođu
+				leži vam tamo u wc-u
+					krtek: a ne ne, ne može to tako. Moramo glasati
+						u redu. Tko je za da ja budam novi vođa?
+							svi jedan po jedan pa i kafka: za
+							lake: ja sam suzdržan
+								Evo jednoglasno je.
+								sutra krećemo za budimpeštu
+								tamo ćemo opljačkati nacionalnu banku
+									pferdinand: ali ta banka je zaštićena sa svih strana
+									viktor: sa svih strana osim jedne
+									krtek: odozdola?
+									viktor: ponesite lopate
+									krtek: moja će biti dosta
+									
+									
+
+
+
 
 end
 === jekyll ===
 
 == hello ==
 [set metjekyll 1]
-	+ Let's test boxing!
-		Are you looking for trouble!?
-		You got trouble!
-		[fade in 0.03][time 35] > [fade][room toilet fight]
+	+ SUDO GO TO TOILET
+		Ok.
+		[animations jekyll spr_hyde_walk][move jekyll 355 5][time 160]
+			Ok.
+			[destroy jekyll]
+			[set jekyll_toilet 1]
+			[end]
 	+ Are you an anarchist?
 		Goodness me, not in the slightest.
 		I was under the impression that heads in your empire can roll just for asking questions like this.
@@ -2830,8 +3300,6 @@ I can't order anything from this waiter.
 
 end
 === priest ===
-
-
 
 == first ==
 [if didfirst = 1][section hello]
@@ -3329,17 +3797,17 @@ Were you hiding in that toilet bowl all the time?
 end			
 == viktor_later ==
 	+ My name is Viktor.
-		(CONVO MISSING)
-		[end]
+		Pleased to meet you, Viktor.
+		My name is am Gustav Klimt
+		[section viktor_later]
 	+ Are we in Germland?
-		(CONVO MISSING)
-		[end]
+		You most definitely are.
+		[section viktor_later]
 	+ Why are you painting a dungeon?
 		It's my job
 		Dr. Frankenstein told me to paint it and that he will pay me nicely for it.
 			+ What exactly are you painting?
-				I have to paint Dr. Frankenstein on this part of the wall. 
-				(CONVO MISSING)
+				I have to paint Dr. Frankenstein on this part of the wall.
 					[end]
 	+ Never mind
 		[end]
@@ -3367,32 +3835,88 @@ Hello, young lady.
 		Luckily, it's not my house, but Dr. Frankenstein's dungeon.
 			+ Oh
 				[end]
-	+ My name is Matilda, what is yours? 
+	- My name is Matilda, what is yours? 
 	[if toilet_matilda 1]
 		I'm Gustav Klimt. Painter and what is your job?
-			I'm an anarchist.
-				(CONVO MISSING)
+			+ I'm an anarchist.
+				That's cute.
 					[end]
-			Freelance murderer.
-				(CONVO MISSING)
-					[end]
-			Uh... I'm a plumber. We're both plumbers here.
-				(CONVO MISSING)
+			+ Freelance murderer.
+				Sounds like lots of work.
+				Do you murder a lot of people throughout the day?
+					+ Not really
+						I'm not sure if I should wish you more luck or less.
+						[end]
+					+ Just kidding, I'm not actually a murderer.
+					But it sounds better then saying I'm unemployed.
+						It really does.
+							[end]
+			+ Uh... I'm a plumber. We're both plumbers here.
+				Of course you are.
 					[end]
 	+ Sorry to disturb you, I'll just be on my way.
 		Thank you.
 			[end]
 
 end
+== after_machine ==
+
+	+ Could you make a painting for us?
+		Would it be nude?
+			+ In a way. We need a painting of the machine from the floor above.
+				Which one?
+					+ The coily one that stands inside the arm.
+						Can the arm be nude?
+							+ Why not.
+								I can start as soon as you make a downpayment.
+									You can get the full payment right now, just get to work.
+										[fade in 0.02][fade out 0.02]
+										Enjoy.
+											Oh, we will.
+												[end]
+
+
+end
 === frankenstein === // or igor?
 
 == first_entry ==
-svi se svađaju
-frankenštajn razbije mašinu
-okrivi viktora i matildu
-kaže im da moraju popraviti mašinu, oni kažu da dobro evo nešto će smisliti
-nakon toga igrač dobije kontrolu i može pričat sa svakim pojedinačno
-[end]
+
+Welcome to my laboratory!
+Everyone ist welcome in ze laboratory!
+Ich bin Dr. Frankenstein.
+Ze biggest mind in all ze universe!
+And zis is mein greatest creation!
+	+ The parrot psychiatrist?
+	
+	+ That thing assembled from random body parts?
+	
+	+ This dog next to you?
+
+
+== first_continue ==
+
+I can make thousands of super-soldiers fur mein beloved fuhrer.
+[talk freud] Yes, thousands of neurotic gender-confused children.
+Be silent, insolent minion.
+[talk freud] I am not a minion, I am a psychiatrist.
+[talk freud] And I won't be able to do anything if you keep interrupting the session
+Oh you and your sessions. Just fix ze moster already.
+[talk monster] I'm not a monster, father. I'm a delicate schmetterling.
+Nein nein nein, enough of zis schmetterling geschaft!
+(BACA STVARI OKOLO, RAZBIJE SE MAŠINA)
+Nooo, mein machinen!
+You two! Look what you did!
+	+ We didn't do anything!
+		Ja you did. You broke it!
+		And broke us all!
+		We were ze most harmonious family!
+		[talk monster] Oh, so we're a family after all?
+		Quiet, boy, I was talking about Igor!
+		[talk igor] hee hee hee.
+		You break, you fix!
+			+ What the...
+				[end]
+		
 
 end
 == viktor ==
@@ -3534,11 +4058,26 @@ end
 				[talk frankenstein][mood angry] It's a he!
 				[talk frankenstein][mood angry] Hurry up and fix that!
 					[end]
+	+ My name is Viktor.
+		Oh lovely, another one.
+		I am dr. Sigmund Freud.
+			+ Wow, the real one?
+				There are fake ones?
+					+ Good point.
+						[end]
+			+ Oh, you're the sex guy?
+				I prefer the term copulationist.
+					[end]
 
 end
 == matilda ==
-	+ (Convo missing)
-		[end]
+	+ Does the monster really need that instrument to be kept alive?
+		Probably not.
+		As far as I see, the machine doesn't even do anything.
+		[talk monster] Not entirely different from my father.
+			+ Have you tried convincing dr. Frankenstein about that?
+				I don't care enough to do that.
+					[end]
 
 
 
@@ -3739,3 +4278,60 @@ Enough of these charades.
 
 
 
+=== -- !!! SHROOM TRIP !!! --- ====
+
+=== snake ===
+
+Badger badger badger
+	+ thank you for that lovely palindrome
+		It was not a palindrome.
+			[end]
+	+ Are you sure about that?
+		No, I'm a snake.
+		Isn't that obvious?
+			[end]
+	+[if gong_assembled = 1] How do we hit the gong?
+		With a hammer, of course.
+			[end]
+
+
+=== rain ===
+
+It's raining men.
+	+ But you don't really care for music, do you?
+		Oh, you're those kinds of zebras, are you?
+		King of zebras?
+			+ Oh no no, king of Austrians and Hungarians.
+				There may be a chance.
+				But I need to fall first.
+					[end]
+	+ The baffled king composing Hallelujah
+		Sure is baffling.
+			[end]
+	+ What is your purpose?
+		I fall.
+		So you can be falling through the roof.
+			[end]
+
+=== matilda ===
+
+I would like to eat you slightly
+	+ But you already did that in the horrors bahznjjjjtkz.
+		Perhaps it is so.
+			[end]
+	+ It is not for me to speak of that.
+		Speak of that.
+			[end]
+
+
+=== viktor ===
+
+Stripes upon me
+	+ Strips of stripes, black and whites.
+		fighting for your rights
+			[end]
+	+ I never realised I'm actually a vegetable.
+		I am the eggplant.
+		They are the eggplant.
+		I am broccoli
+			[end]

@@ -5325,13 +5325,13 @@
 		}, {
 			"comment": "tavern barrel jekyll",
 			"alias": "tavern_barrel_jekyll",
-			"depth": -102,
+			"depth": -602,
 			"x": 346,
 			"y": 465
 		}, {
 			"comment": "Dr. Jekyll",
 			"alias": "jekyll",
-			"depth": -100,
+			"depth": -600,
 			"xScale": 0.4,
 			"yScale": 0.4,
 			"x": 358,
@@ -5431,7 +5431,7 @@
 			],
 			"combinations": {
 				"look": "Suspiciously equipped individual",
-				"talk": "Not yet."
+				"talk": "[conversation krtek]"
 			}
 		}, {
 			"comment": "Konj 1",
@@ -5456,7 +5456,7 @@
 			],
 			"combinations": {
 				"look": "Regular-looking person",
-				"talk": "Not yet."
+				"talk": "[conversation pferdinand]"
 			}
 		}, {
 			"comment": "Konj 2",
@@ -5481,13 +5481,13 @@
 			],
 			"combinations": {
 				"look": "Regular-looking person",
-				"talk": "Not yet."
+				"talk": "[conversation andras]"
 			}
 		}, {
 			"comment": "Matilda!",
 			"alias": "matilda_tavern",
 			"talkSoundOverride" : "snd_matilda_talk",
-			"depth": -1002,
+			"depth": -500,
 			"xScale": 0.85,
 			"yScale": 0.85,
 			"x": 290,
@@ -5507,7 +5507,7 @@
 			],
 			"combinations": {
 				"look": "Hot anarchist Zebra",
-				"talk": "Not yet."
+				"talk": "[conversation matilda]."
 			}
 		}, {
 			"comment": "Barman",
@@ -5567,19 +5567,40 @@
 		"rgb": "200,232,235",
 		"entrances": [{
 				"alias": "start",
-				"entrance": "[set toilet_is_opened 1][set been_to_toilet 1][position 350 800] > [if toilet_is_opened = 1][position priest_back 930 680]"
-			},
+				"entrance": "[if version debug][take umbrella][take toilet_chain] > [set priest_moved 1][set toilet_is_opened 1][set been_to_toilet 1][position player 350 800] > [if toilet_is_opened = 1][position priest_back 930 680] > [if jekyll_toilet = 1][destroy toilet_left][create toilet_left_jekyll]"
+		},
 		{
-			"alias" : "return",
-			"entrance" : "[recall] > Nothing better then going to the toilet to have a nice telephone conversation."
+				"alias": "gunpoint",
+				"entrance": "[set priest_moved 1][set toilet_is_opened 1][set been_to_toilet 1][position player 350 800] > [if toilet_is_opened = 1][position priest_back 930 680] > [if jekyll_toilet = 1][destroy toilet_left][create toilet_left_jekyll] > [position player 900 750][create matilda] > [active matilda][conversation matilda gunpoint]"
+		},
+		{
+				"alias" : "return",
+				"entrance" : "[recall] > Nothing better then going to the toilet to have a nice telephone conversation."
 		},
 		{
 				"alias": "fight",
 				"entrance": "[position player 732 795][create fight_controller] > [stop] > [if viktorsRoom_win = 1] I won! > [if viktorsRoom_win = 0] I lost! > [room tavern start]"
-			}
-
+		}
 		],
-		"objects": [{
+		"objects": [
+		{
+			"comment": "Matilda!",
+			"alias": "matilda",
+			"available" : 0,
+			"depth": -500,
+			"xScale": 0.85,
+			"yScale": 0.85,
+			"x": 600,
+			"y": 750,
+			"xCloud": 600,
+			"yCloud": 400,
+			"xInteract": 600,
+			"yInteract": 680,
+			"imageSpeed": 0.4,
+			"idle": 1,
+			"description": "Matilda"
+		},
+		{
 				"comment": "Fight controller",
 				"alias": "fight_controller",
 				"available": 0,
@@ -5723,19 +5744,50 @@
 				"description": "Toilet paper",
 				"order": "look",
 				"combinations": {
+					"nothing": "[create chain_flying][moveto chain_flying 590 90 40]",
+					"umbrella": "[moveto player 370 750] > [move player 0 0] > [animation player spr_viktor_umbrella1] > [noitamina player spr_viktor_umbrella1][time 45] > [animation player spr_viktor] > [direction front] I guess it's too far up.",
 					"look": "That's a strange place to put a roll of toilet paper.",
-					"toilet_chain": "[animation spr_viktor_chain][time 83]"
+					"toilet_chain": "[animation spr_viktor_chain][time 83] > [draw spr_toilet_chain_big 750 600 13 -180 1 1 200 40 110][time 13] > [animation player spr_viktor][move chain_flying 0 0] > [destroy chain_flying][draw spr_toilet_chain_big 590 100 46 -180 1 1 200 0 0 5][time 46] > [create chain_flying] > We need animation of lanac."
+				}
+			},
+			{
+				"alias": "toilet_paper_fallen",
+				"picture": "spr_item_paper",
+				"available": 0,
+				"visible": 1,
+				"x": 530,
+				"y": 90,
+				"xInteract" : 800,
+				"yInteract" : 750,
+				"angle" : 30,
+				"xScale" : 0.5,
+				"yScale" : 0.5,
+				"depth": -300,
+				"description": "Toilet paper",
+				"inventory": {
+					"alias": "paper",
+					"name": "Paper",
+					"description": "White three-sheeted toilet paper.",
+					"default": "That doesn't need cleaning.",
+					"picture": "spr_item_paper"
 				}
 			},
 			{
 				"alias": "chain_flying",
 				"picture": "spr_toilet_chain_big",
-				"available": 1,
+				"available": 0,
 				"visible": 1,
-				"x": 750,
-				"y": 600,
-				"angle" : 200,
-				"description": "chain",				
+				"x": 590,
+				"y": 100,
+				"xInteract" : 800,
+				"yInteract" : 750,
+				"depth" : -180,
+				"angle" : 0,
+				"description": "Chain",
+				"combinations" : {
+					"look" : "I should use my umbrella with this!",
+					"umbrella": "[moveto player 370 750] > [move player 0 0] > [animation player spr_viktor_umbrella1] > [noitamina player spr_viktor_umbrella1][time 45] > [animation player spr_viktor] > [destroy toilet_paper][create toilet_paper_fallen][move toilet_paper_fallen 270 30][move chain_flying 270 30][time 23] > [move toilet_paper_fallen 0 0][destroy chain_flying] > [animation player spr_viktor_use_right_low] > [take paper][destroy toilet_paper_fallen]",
+				}
 			},
 			{
 				"alias": "graffiti_door_1d",
@@ -5820,6 +5872,13 @@
 				"order": "look",
 				"combinations": {
 					"look": "Try the @LakeWaterOnTap!"
+				},
+				"inventory": {
+					"alias": "umbrella",
+					"name": "Umbrella",
+					"description": "My favorite rain protection device.",
+					"default": "Not everything can be solved with an umbrella.",
+					"picture": "spr_item_umbrella"
 				}
 			},
 			{
@@ -5837,6 +5896,26 @@
 				"combinations": {
 					"look": "Nice door.",
 					"use" : "[sound snd_door_open][position toilet_left 486 286][animation toilet_left spr_toilet_left 1][time 3][destroy toilet_left 3][create toilet_left_open 3][destroy graffiti_door_1b][destroy graffiti_door_1c][destroy graffiti_door_1d]"
+				}
+			},
+			{
+				"alias": "toilet_left_jekyll",
+				"picture" : "spr_toilet_left",
+				"talkSoundOverride" : "snd_jekyll_talk",
+				"available": 0,
+				"subimage": 0,
+				"x": 400,
+				"y": 286,
+				"xInteract": 400,
+				"yInteract": 570,
+				"xCloud": 400,
+				"yCloud": 500,
+				"description": "Closed toilet booth door with Jekyll inside",
+				"order": "look, talk",
+				"combinations": {
+					"look": "Jekyll is in that door vomiting.",
+					"use" : "[talk toilet_left_jekyll] It's busy!",
+					"talk" : "[conversation jekyll toilet]"
 				}
 			},
 			{
@@ -5870,6 +5949,7 @@
 				"yInteract": 770,
 				"xCloud": 400,
 				"yCloud": 500,
+				"depth" : -150,
 				"idle": 0,
 				"description": "Closed toilet booth door",
 				"order": "look, talk",
