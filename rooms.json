@@ -5207,7 +5207,11 @@
 		},
 		{
 			"alias" : "return",
-			"entrance" : "[recall] > That was somewhat helpful."
+			"entrance" : "[recall][set mood] > That was somewhat helpful."
+		},
+		{
+			"alias" : "gunpoint",
+			"entrance" : "[fade out 0.1][position player 600 700][position matilda_tavern 290 910][active matilda_tavern] > [conversation matilda gunpoint_cleared]"
 		},
 		{
 			"alias": "toilet_exit",
@@ -5567,11 +5571,11 @@
 		"rgb": "200,232,235",
 		"entrances": [{
 				"alias": "start",
-				"entrance": "[if version debug][take umbrella][take toilet_chain] > [set priest_moved 1][set toilet_is_opened 1][set been_to_toilet 1][position player 350 800] > [if toilet_is_opened = 1][position priest_back 930 680] > [if jekyll_toilet = 1][destroy toilet_left][create toilet_left_jekyll]"
+				"entrance": "[if version debug][take umbrella][take toilet_chain] > [set priest_moved 1][set toilet_is_opened 1][set been_to_toilet 1][position player 350 800] > [if toilet_is_opened = 1][position priest_back 930 680] > [if jekyll_toilet = 1][destroy toilet_left][create toilet_left_jekyll] > [if martins_watchword = 1] Martin was talking about some colors in the toilet... > [if martins_watchword = 1] Looks very brown to me."
 		},
 		{
 				"alias": "gunpoint",
-				"entrance": "[set priest_moved 1][set toilet_is_opened 1][set been_to_toilet 1][position player 350 800] > [if toilet_is_opened = 1][position priest_back 930 680] > [if jekyll_toilet = 1][destroy toilet_left][create toilet_left_jekyll] > [position player 900 750][create matilda] > [active matilda][conversation matilda gunpoint]"
+				"entrance": "[set priest_moved 1][set toilet_is_opened 1][set been_to_toilet 1][position player 350 800][fade in 0.1] > [if toilet_is_opened = 1][position priest_back 930 680] > [if jekyll_toilet = 1][destroy toilet_left][create toilet_left_jekyll] > [position player 900 750][create matilda] > [active matilda][conversation matilda gunpoint]"
 		},
 		{
 				"alias" : "return",
@@ -5955,7 +5959,7 @@
 				"order": "look, talk",
 				"combinations": {
 					"look": "Nice door.",
-					"use" : "[sound snd_door_open][position toilet_middle 675 286][animation toilet_middle spr_toilet_middle 1][time 3][destroy toilet_middle 3][create toilet_middle_open 3][destroy graffiti_door_2b][destroy graffiti_door_2]"
+					"use" : "[set saw_rasputin 1][sound snd_door_open][position toilet_middle 675 286][animation toilet_middle spr_toilet_middle 1][time 3][destroy toilet_middle 3][create toilet_middle_open 3][destroy graffiti_door_2b][destroy graffiti_door_2]"
 				}
 			}, 
 			{
@@ -6058,7 +6062,7 @@
 					"look": "Eating > Yes! Everything! Always! > My kind of guy."
 				}
 			}, {
-				"alias": "graffiti_wc2",
+				"alias": "graffiti_wc2emperor",
 				"picture": "spr_various_token",
 				"visible": 0,
 				"x": 677,
@@ -6223,7 +6227,7 @@
 				"depth" : 1400,
 				"order": "look",
 				"combinations": {
-					"look": "MartinB2000 is cool. > Sure is."
+					"look": "MarkB2000 is cool. > Sure is."
 				}
 			}, {
 				"alias": "graffiti_17",
@@ -6364,7 +6368,7 @@
 				"xScale": 66,
 				"yScale": 72,
 				"description": "Graffiti",
-				"depth" : 1400,
+				"depth" : -1400,
 				"order": "look,use",
 				"combinations": {
 					"look": "Laura!"

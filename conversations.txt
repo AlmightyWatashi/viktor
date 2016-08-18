@@ -517,7 +517,7 @@ Stroke your telephone gently and tell me your psychic concerns in a seductive vo
 	+ No time for stroking, Martin. I need psychic advice.
 		What do you seek?
 		[section psychic_tavern]
-	- ''Marvin the Marvellous''? Really?
+	-[if talkedprague = 0]  ''Marvin the Marvellous''? Really?
 		Ah, do you not know, miss?
 		[set calledprague 1]
 		Age of magnificence is over. Age of marvel is upon us.
@@ -547,7 +547,7 @@ Stroke your telephone gently and tell me your psychic concerns in a seductive vo
 										[section prague]
 									+ I need psychic advice.
 										Ask away, friend
-										[section psychic tavern]
+										[section psychic_tavern]
 							+ Yep. And I'm calling from the lovely, yet incredibly polluted Prague.
 								[section prague]
 			+ Let's not talk about me. What are YOU wearing?
@@ -565,25 +565,25 @@ end
 [set talkedprague 1]
 [set calledprague 1]
 Enjoying your time as the new emperor, eh?
-	My senses were right, you are still alive and ruling these lands.
-	I'm surprised you even remembered me.
-		+ Actually, I ran into some minor difficulties.
-			I knew it!
-			My extrasensory senses told me you wpuld run into those.
-			What a stroke of luck that you called me for assistance.
-				[section in_tavern]
-		+ I think you've blinded your fourth eye again, Martin.
-			You might be right, I'll try to fix my tobacco-to-meditation ratio.
-			But enough about me, what the hell are you doing in Bratislawa?
-				Prague.
-					Actually, I'm no longer interested.
-						[section in_tavern]			
+My senses were right, you are still alive and ruling these lands.
+I'm surprised you even remembered me.
+	+ Actually, I ran into some minor difficulties.
+		I knew it!
+		My extrasensory senses told me you wpuld run into those.
+		What a stroke of luck that you called me for assistance.
+			[section in_tavern]
+	+ I think you've blinded your fourth eye again, Martin.
+		You might be right, I'll try to fix my tobacco-to-meditation ratio.
+		But enough about me, what the hell are you doing in Bratislawa?
+			Prague.
+				Actually, I'm no longer interested.
+					[section in_tavern]			
 
 
 end
 == psychic_tavern ==
 
-	-[if tried_dumb_flag = 0]  I'm looking for anarchists, but I can't seem to find anyone?
+	-[if tried_dumb_flag = 0]  I'm looking for anarchists, but I can't seem to find anyone.
 		Seek god and you shall find anarchy.
 			Are you sure about that?
 				No.
@@ -598,6 +598,7 @@ end
 			[section psychic_tavern]
 	-[if tried_dumb_flag = 1] I need a watchword.
 		What's a watchword?
+		[set martins_watchword 1]
 		Actually, forget that question.
 		Just go relieve yourself in the toilet.
 		And think about a color.
@@ -2456,6 +2457,7 @@ end
 	+ My name is Viktor.
 		[if metkafka = 1]My name is still Franz Kafka.
 		[not metkafka = 1]Pleased to meet you. My name is Franz Kafka.   //brian edit  changed "iz" to "is"  (typo??)
+		[set metkafka 1]
 		[description kafka Franz Kafka]
 		[animation kafka spr_kafka_greetings]
 		Remember that name, it might be famous some day.
@@ -2535,7 +2537,8 @@ end
 	+ Well, good luck with writing. What else did you say you were doing?   //brian edit  corrected spelling of "els" to "else"
 		Selling insurance.
 			+ Sorry I asked.
-				[section hello]
+				Would you like to have insurance?
+					[section insurance]
 
 end
 == sojew ==
@@ -2580,7 +2583,7 @@ end
 	Matilda
 
 == hello ==
-	+[if tried_dumb_flag = 1][if alreadywent = 1] Okay, you have to let me try the password again!
+	+[if tried_dumb_flag = 1][if alreadywent = 1][if martins_watchword = 1] Okay, you have to let me try the password again!
 	[if tried_dumb_flag = 1] I know the system this time!
 		[talk mole] Do we humor the insane hobo?
 		[talk matilda_tavern] Well, he is kinda cute, why not?    //brian edit  changed ending period (.) to a question mark (?) since the dialog ends with a question
@@ -2713,7 +2716,7 @@ end
 		[section possibly_right]
 	+ ...Mothers against Lorem Ipsum.
 		[section possibly_right]
-	+ ...Rasputin.
+	+[if saw_rasputin = 1] ...Rasputin.
 		[add toilet_pass_guesser 1]
 		[section possibly_right]
 	+ ...Cogs.
@@ -2764,9 +2767,10 @@ end
 						[set gunscene 1]
 						[set anarchist_trust 1]
 						[destroy anarchists]
-						[animations player spr_viktor_walk_right][move player 8 6][animations matilda_tavern spr_matilda_walk_right][move matilda_tavern 17 7][time 150]
+						[animations player spr_viktor_walk_right][move player 8 6][animations matilda_tavern spr_matilda_walk_right][move matilda_tavern 17 8][fade in 0.1][time 150]
 						[room toilet gunpoint]
 
+end
 === matilda ===
 
 You talk
@@ -2776,6 +2780,7 @@ end
 == gunpoint ==
 
 	I think the middle one is empty
+	[set gunpoint_complicated 0]
 	Don't ask how I checked
 		Actually, right here is fine.
 			[set mood scared]
@@ -2784,82 +2789,85 @@ end
 				[animation matilda spr_matilda_gun]
 				[mood matilda right_gun] Now, let's talk.
 					+ I'm not really into gunplay.
-						This isn't a game.
-						It's a potential murder scene.
-						So I suggest you talk.
+						[mood matilda right_gun] This isn't a game.
+						[mood matilda right_gun] It's a potential murder scene.
+						[mood matilda right_gun] So I suggest you talk.
 							[section gunpoint_who]
 					++ Why does my every romance talk look like this?
 					[mood angry] Why the hell does my every romance talk look like this?
-						What?
+						[mood matilda right_gun][blocksound snd_matilda_ask2] What?
 							Well, you see, my landlord...
 								No, I don't want to hear about you using frail women's hearts as you see fit.
 									+ It's not like that, she's really old.
-										What the hell?!?
-										[talk priest] Oh this is gonna be good.
-										You go back to your prayers!
-										Now where was I?
-										Ah yes.
+										[mood matilda right_gun][blocksound snd_matilda_ask]What the hell?!?
+										[talk priest_back] Oh this is gonna be good.
+										[mood matilda right_gun]You go back to your prayers!
+										[mood matilda right_gun][blocksound snd_matilda_ask2]Now where was I?
+										[mood matilda right_gun]Ah yes.
 											[section gunpoint_who]
 									+ I'm not using hearts of anything.
 									[mood angry] I'm nice and cuddly dammit.
 									[mood angry] Why can't people see that.
-										Let's change the subject.
+										[mood matilda right_gun] Let's change the subject.
 											[section gunpoint_who]
 									++ So you actually do like me?
 									[set mood] So you actually do like me?
-										What? No!
-										I'm holding you at gunpoint.
+										[mood matilda right_gun] What? No!
+										[mood matilda right_gun] I'm holding you at gunpoint.
 											Yes, that happens to me from time to time.
-												[talk priest] Will you two love birds be quiet? I'm trying to pray in here.
-												Okay, enough fun and games.
+												[talk priest_back] Will you two love birds be quiet? I'm trying to pray in here.
+												[mood matilda right_gun] Okay, enough fun and games.
 												[set mood scared]
 												[section gunpoint_who]
 					+ Help help, I'm being murdered!
 					Again.
-						This... happens to you often?
-						Actually, forget that.
+						[mood matilda right_gun][blocksound snd_matilda_ask2] This... happens to you often?
+						[mood matilda right_gun] Actually, don't answer that.
 							[section gunpoint_who]
 
 				[end]
 
 == gunpoint_who ==
 
-Who are you and what the hell are you doing here?
+[mood matilda right_gun][blocksound snd_matilda_ask]Who are you and what the hell are you doing here?
 	+ My name is Viktor and I'm trying to oust the emperor.
 		[section gunpoint_commendable]
 	+ I'm Viktor and I want to join the anarchists.
-		You chose a weird way to do it.
-		How did you find us?
+		[mood matilda right_gun]You chose a weird way to do it.
+		[mood matilda right_gun][blocksound snd_matilda_ask2]How did you find us?
 			+ I got a message from Vida after getting kicked out of the emperor's palace.
-				Why did you get kicked out of the palace.
+				[mood matilda right_gun][blocksound snd_matilda_ask]Why did you get kicked out of the palace.
 					I tried to oust the emperor.
 						[section gunpoint_commendable]			
 	- It's complicated
-		Oh, you think your actions are too complicated for a woman?
+		[mood matilda right_gun][blocksound snd_matilda_ask2]Oh, you think your actions are too complicated for a woman?
 			+ Actually, it's too complicated for me.
-				Then simplify.
+				[mood matilda right_gun]Then simplify.
 					Okay... My name is Viktor
 					I went to Vienna to oust the emperor!
 						[section gunpoint_commendable]
 			+ It all started when I got fired from a crappy street sweeping job.
-				Are you stalling me?
+				[mood matilda right_gun][blocksound snd_matilda_ask]Are you stalling me?
 					+ Long story short, my name is Viktor and I went to Vienna to oust the emperor.
 						[section gunpoint_commendable]
 					+ Maybe a little.
-						Is the police coming?
+						[mood matilda right_gun][blocksound snd_matilda_ask2]Is the police coming?
 							+ No, I'm just panicking because of your gun.
-								If you don't start talking, you'll be dead because of my gun.
-								I'll repeat the question.
+								[mood matilda right_gun]If you don't start talking, you'll be dead because of my gun.
+								[mood matilda right_gun]I'll repeat the question.
 									[section gunpoint_who]
 							+ No, I just kinda like talking to you
-								[talk priest] Aww.
-								Just answer the questions.
-									Honestly, I already forgot what I had to say!
-										I'll repeat once more.
-										And if you tell me it's complicated, I'm going to shoot you.
-										Let's go again...
+								[talk priest_back] Aww.
+								[mood matilda right_gun]Just answer the questions.
+									Honestly, I already forgot your questions!
+										[mood matilda right_gun] I'll repeat once more.
+										[mood matilda right_gun] And if you tell me it's complicated, I'm going to shoot you.
+										[set gunpoint_complicated 1]
 										[section gunpoint_who]
-										
+	++[if gunpoint_complicated = 1] It's complicated
+	My name is Viktor, I wanted to oust the emperor, by failing that, I got contacted by your agent probably by mistake...
+	So I decided to meet you and talk to you about joining forces.
+		[section gunpoint_commendable]
 
 end
 == gunpoint_commendable ==
@@ -2890,79 +2898,123 @@ end
 Oh all right.
 My name is Matilda.
 	+ Oh, that's such a beautiful name.
-	[talk priest] I think I'm going to puke.
+	[talk priest_back] I think I'm going to puke.
 		Enough chit-chat.
 		Why are you infiltrating us?
-			(something something become the emperor)
+			I'm trying to get help and become a better emperor of Austria-Hungary
 				[section gunpoint_politics]
 
 end
 == gunpoint_politics ==
 
-Mi smo anarhisti i komunisti
-pokušavamo se dogovorit već 10 godina
-i sad ti dođeš i predlažeš monarhiju
+We're a group of anarchists and communists.
+And we've been trying to agree on basic principles for the last ten years.
+What makes you think we'd agree to fight for another monarchy?
 	+ I just like the anarchists because I heard you have cookies.
-		Moraš bit uvjerljiviji od toga
+		Please tell me something more convincing than that
 			[section gunpoint_politics_convincing]		
-	+ Mogla bi ti biti kraljica
-		Ne ne nikako nikako
-			Ali tako bi mogla birat što god želiš da radiš
-				sumnjivo mi je to
+	+ Do you think you would be a good empress of Austria-Hungary.
+		Oh no, I don't think I'd do a good job with that.
+			+ But then, the whole empire would work based on your own choices.
+				I'm not sure it would just work like that.
 					[section gunpoint_politics_convincing]	
-			Mogla bi biti drugačija kraljica, bolja po ljude
-				Daa, izjednačiti prava žena
-				Pomagati siromašnima
-				Imati kul crnu odoru
-				Ne, čekaj malo, nemoj me potkupljivati
-				I to nečim što nemaš
+			+ I'm completely sure you would be a great empress!
+			You would help the poor and create more honest work for people...
+				Oh yes and women would have equal rights to men
+				And I'd wear an awesome black uniform!
+				And...
+				Wait a minute, are you trying to fictionally bribe me into you bizzare scheme?
 					[section gunpoint_politics_convincing]		
-	+ Što je to zapravo komunizam?
-		To je vladavina gdje su svi jednaki
-			Znači kao demokracija?
-				Ne ne, ne postoji privatno vlasništvo već svi posjeduju sve
-					To zvuči kao da nitko ništa ne posjeduje
-						Da, malo je glupo, ali je zanimljivo raspravljati s njima
-						Drže kvalitetne zapisnike
-						Žele, kao i ja, srušiti vlast
-						Ponekad igramo stolne igre
-						Ali zašto bi htjeli stavljati tebe za cara?
-							[section gunpoint_politics_convincing]	
-	+ Dogovarate se već 10 godina?!? to bi se moglo sve rješit u 10 dana.
-		Ti bi krenuo odmah, što si lud?
-			Da
+	+ Wait, what is communism, actually?
+		In a nutshell, it's an idea of government where everyone is equal
+			+ Oh, like a democracy?
+				No no, there is no private property like in democracy.
+				Everyone owns everything.
+					Sounds to me like, the state owns everything
+					[section gunpoint_silly]
+			+ So, like Anarchy?
+				Not really, communism still has a governing body.
+					So, everyone is equal, but there is somebody better-off then everyone else?
+						[section gunpoint_silly]
+	+ Ten years? You could have resolved everything within ten days!
+		What, just go without a good plan and wing it?
+		What are you, nuts?
+			Basically, yes.
 				I like that
 					[section gunpoint_win]
+
+== gunpoint_silly ==
+
+Well yes, the idea of communism is a bit silly.
+But the communists are nice people, really interesting discussions.
+And the quality of their records is superb.
+And we have the common goal to oust the emperor.
+But why would we want to put YOU as an emperor?
+	[section gunpoint_politics_convincing]	
+
 
 
 end
 == gunpoint_politics_convincing ==
 
-	+ Mene bi lakše svrgnuli
-		Vidiš, to je definitivno istina
-			[end]
-	+ A jel bi radije da ovi tvoji uvedu komunizam?
-	Sigurno bi prvu promjenu uveli nakon deset godina
-		To je definitivno istina.
-		A i ti se ne činiš kao dovoljno gadan kralj kojeg bi bilo teško svrgnuti
-			[end]
+	+ It would be a lot easier to replace me than the current emperor
+		That... sounds good...
+			[section gunpoint_win]
+	+ Would you prefer communism?
+	It would probably take them about ten years for them to change a single law
+		That's definitely true
+		And you don't seem like some terribly evil emperor.
+		Or someone that couldn't easily be assassinated.
+			Yeah, I'm kind of a big target.
+				[section gunpoint_win]
 	
 
 
-
-== gunpoint_win ===
+end
+== gunpoint_win ==
 
 All right.
 [set mood]
-[noitamina matilda spr_matilda_gun]
+[noitamina matilda spr_matilda_gun][time 12]
 I trust you.
 But I'm still keeping my eye on you.
 	+ I like that. Can I keep my eye on you as well?
 		What?
-		[talk priest] Seriously, Viktor, that sounded creepy as hell
+		[talk priest_back] Seriously, Viktor, that sounded creepy as hell
 			Sorry.
 				Don't listen to him, he's drunk.
-					[talk priest] I'm only drunk on god.
+					[talk priest_back] I'm only drunk on god.
+						[animations player spr_viktor_walk_left][move player 180 8][animations matilda spr_matilda_walk_left][move matilda 177 6][time 150][fade in 0.1]
+						[room tavern gunpoint]
+
+end
+== gunpoint_cleared ==
+
+...and he's definitely going to help us oust the emperor.
+	+ definitely
+		[talk mole] All right.
+		[talk mole] Welcome aboard, boy.
+		[talk mole] My name is Krtek.
+		[talk horse2] I'm Pferdinand.
+		[talk horse2] This is Andras.
+		[talk horse1] No, wait, I'm Pferdinand and he's Andras.
+		[talk horse2] Oh, right, sorry.
+			+ My name is Viktor
+			And I know a way how to neutralise the emperor's electric field.
+			And his automatons.
+			All I need is a good distraction...
+				[set mood scared]
+				[talk horse2] Wait, wait, wait. We can't start a meeting without taking records.
+					+ What?
+						[talk mole] That is true, we truly cannot
+							+ Oh, come on.
+								[talk horse1] Okay, who's keeping the pen?
+								[talk matilda] I don't know, I keep the gun.
+								[talk mole] I keep the shovel.
+								[talk horse2] We cannot start without the pen.
+								[set mood]
+								[end]
+
 
 end
 === andras ===
@@ -3016,33 +3068,6 @@ Better talk with Krtek, he's better at organizing.
 									[section but_no]
 == but_no ==
 					
-[end]
-
-
-
-
-
-
-
-
-== returned ==
-
-matilda: u redu je... recimo to tako
-krtek: Dobro došao u našu skupinu
-krtek: ja sam krtek
-andras: ja sam pferdinand
-andras: ovo je andras
-pferdinand: Ne, čekaj, ja sam pferdinand, a ti si andras
-andras: da da, stvarno
-viktor: ja sam viktor
-	imam način kako neutralizirati carevo električno polje i njegove automatone
-	trebam ljude koji bi omeli stražu izvana
-andras: a ne ne, čekaj, ne možemo početi ovo bez zapisnika
-krtek: istina, to nikako
-pferdinand: kod koga je olovka?
-matilda: kod mene nije, kod mene je pištolj
-krtek: nije ni kod mene
-andras: ne možemo počet bez olovke
 [end]
 
 
@@ -3253,9 +3278,9 @@ end
 		When I was a kid, I fought a dragon.
 			+ Whoa!
 				Right when I almost strangled him, he stabbed his horn right in my eye!
-				Just kidding, both my eyes are fine.				
-				== lake_patch ==
+				Just kidding, both my eyes are fine.
 				I have an eyepatch because girls find it hot.
+				== lake_patch ==
 					- Don't you have a problem with depth perception while wearing the patch??
 						This world is pretty two-dimensional anyway.
 							[section lake_patch]
@@ -3275,14 +3300,17 @@ end
 			[section hello]
 	+ Can you tell me where I could find the anarchists?
 		I have no idea, I'm not from around here. > I'm from New York, Texas. > This is the first time I tried playing at this place.
-			I thought that everyone in Texas has at least two heads. Where's your other one?
+			+ I thought that everyone in Texas has at least two heads. Where's your other one?
 				Not everyone has multiple heads in Texas. There's me… > There's also that rat-face guy that looks like a parrot… > What was his name? > Oh yeah, John Oliver! > Do you think I would be smarter with two heads?   //brian edit  changed "=" to question mark (?) at end of sentence  (typo??)
-					I'm open minded. You're free to have as many heads as you choose.
+					+ I'm open minded. You're free to have as many heads as you choose.
 						That's what my girlfriend always says! > She has six of them.
-					Isn't John Oliver an asylant from Unwanted Kingdom?
+							[section hello]
+					+ Isn't John Oliver an asylant from Unwanted Kingdom?
 						Ah yes, I heard some of his jokes didn't resonate well with the queen of Unwanted Kingdom
-			So, how do you like Austria Hungary?
+							[section hello]
+			+ So, how do you like Austria Hungary?
 				Very pretty. > Except a couple of times when the police tried to arrest me. > First for mispronouncing the emperor's name. > Viktor: I still have no idea how it's pronounced > Me either. > And once I tried looking at his picture from a wrong angle. > Luckily, one of them got cut on my spines while arresting me. > He started bleeding all over the floor and the other one fainted from seeing the blood. > So I just left.  //brian edit   changed "Me neither." to "Me either." since there is no "nor" in this sentence--either/or  neither/nor, added period (.) to end of sentence
+					[section hello]
 
 == for_a_beer ==
 
