@@ -11,15 +11,19 @@
 	"firstCoinInInventoryDescription" : "My first paycheck.",
 	"firstCoinInInventoryName" : "Coin",
 	"firstCoinInInventoryNames" : "Coins",
-	"firstCoinInInventoryDescriptions" : " copper crowns",	
+	"firstCoinInInventoryDescriptions" : " copper crowns",
+	"clickToContinue" : "Click to continue",
+	"chooseOption" : "Choose an option",
 	"multiple" : 1,
 	"letterbox" : [
 		"0,0,0",
 		"88,9,51",
 		"4,60,60",
 		"79,41,10",
-		"79,41,10,4,60,60"
+		"89,7,65,110,15,81",
+		"63,36,4,79,47,10",
+		"62,62,62,48,48,48"
 	],
 	"stripe" : 100,
-	"action" : "new garden start",
+	"action" : "new tavern gunpoint",
 }

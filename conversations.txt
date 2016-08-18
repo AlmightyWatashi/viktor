@@ -229,7 +229,7 @@ Dearest friend, I am not in the mood for hostile merriment. > Unless you come ov
 end	
 == recognizes_you ==
 
-Wait, please, I... > [animation martinsRoom_martin spr_martinsRoom_martin][time 15] > Viktor, is that you?
+Wait, please, I... > [animation martinsRoom_martin spr_martinsRoom_martin][time 15] > [imagespeed martinsRoom_martin 0.3] > Viktor, is that you?
 	- Hahahahahahaha
 		[section in_no_mood]
 	- No, this is Mother. Hoot.    //brian edit capitalized Mother since it is used in place of the person's name (grammar rule)
@@ -610,6 +610,7 @@ end
 						Why are you asking me that?
 						What am I, psychic?
 						[animation martinsRoom_martin spr_martinsRoom_martin][time 15]
+						[imagespeed martinsRoom_martin 0.3]
 						Oh, right...
 						Try... magenta!
 						[section psychic_tavern]
@@ -641,6 +642,7 @@ end
 					So.. what do I do?
 						About what?
 						[animation martinsRoom_martin spr_martinsRoom_martin][time 15]
+						[imagespeed martinsRoom_martin 0.3]
 						Oh, right...
 						Try another bar!
 							But I need to find anarchists in this bar.
@@ -1248,6 +1250,7 @@ Is that a deal, mushroom eater?
 		Croatian gets into a coffee shop in Sarajevo.  //brian edit corrected spelling of "coffe" to  "coffee"
 			++ I'm not in the mood for this.
 			[mood angry] I'm not in the mood for this.
+				He says, please one coffee!   //brian edit corrected spelling of "coffe" to "coffee", added comma for readability
 				He says, please one coffee!   //brian edit corrected spelling of "coffe" to "coffee", added comma for readability
 				We have none.
 				How come?
@@ -2413,37 +2416,44 @@ end
 		Any time.
 			[end]
 == askaway ==
-			+ Fox with a very small green drink.
-				A tourist from Unwanted Kingdom.
-				First time here.
-				He already drank two bottles of Absinthe and he looks as sober as you.
+
+	+ Fox with a very small green drink.
+		A tourist from Unwanted Kingdom.
+		First time here.
+		He already drank two bottles of Absinthe and he looks as sober as you.
+			[section askaway]
+	+ The mouse with an obviously cheap beer. Who is that?
+		Ah, the gentlemen is a nice insurance salesman who wants to be a writer.
+		His name is Franz Kafka.
+		[description kafka Kafka]
+		And that's not beer he's drinking.
+			[section askaway]
+	+ The anarchists, are they trustworthy?
+		Completely.
+		But a bit unreliable.
+		Too caught up in their own bureaucracy.
+			[section askaway]
+	+ Priest in the toilet
+		I'd ban him from visiting.
+		But he spends more money than all the patrons combined.
+			+ Maybe if you let more people buy some drinks.
+				I let them drink.
+				They just never find anything they would drink.
 					[section askaway]
-			+ The mouse with an obviously cheap beer. Who is that?
-				Ah, the gentlemen is a nice insurance salesman who wants to be a writer.
-				His name is Franz Kafka.
-				[description kafka Kafka]
-				And that's not beer he's drinking.
-					[section askaway]
-			+ The anarchists, are they trustworthy?
-				Completely.
-				But a bit unreliable.
-				Too caught up in their own bureaucracy.
-					[section askaway]
-			+ Priest in the toilet
-				I'd ban him from visiting.
-				But he spends more money than all the patrons combined.
-					+ Maybe if you let more people buy some drinks.
-						I let them drink.
-						They just never find anything they would drink.
-							[section askaway]
-			+ Thanks, man. That's all I needed to know.
-				No problem. Anything to drink?
-				[end]
+	+ Thanks, man. That's all I needed to know.
+		No problem. Anything to drink?
+		[end]
 end
 === kafka ===
 
 == hello ==
-
+	-[if needs_pen = 1] Excuse me, do you have the pen I could borrow?
+		For customers only
+			[section insurance]
+	+[if offered_insurance = 1] So, you're selling insurance?
+		Yes, wonderful insurance that can help you in your darkest times.
+		Would you like to get some insurance?
+			[section insurance]
 	- Excuse me, sir. Are you one of the anarchists?
 		[set metkafka 1]
 		[description kafka Franz Kafka]
@@ -2564,13 +2574,22 @@ end
 end				
 == insurance ==
 
+[set offered_insurance 1]
 	+ No need for insurance, I'm a veteran boxer.
 		You could insure your snout or your tentacles.
 			+ You mean testicles?
 				Oh, those too.
 				People insure those all the time!
+				Anyway, if you ever feel like getting insurance, call me and I'll prepare the contract for your signature.
 					[section hello]
-
+	+[if needs_pen = 1] Can I see the contract?
+		Of course you can.
+		[set needs_pen 0]
+		And here is the pen for signing it.
+			+ Actually, never mind, I forgot my reading glasses.
+				Damn
+					[end]
+					
 
 end
 === anarchists_all ===
@@ -2583,30 +2602,30 @@ end
 	Matilda
 
 == hello ==
-	+[if tried_dumb_flag = 1][if alreadywent = 1][if martins_watchword = 1] Okay, you have to let me try the password again!
+	+[if tried_dumb_flag = 1][if alreadywent = 1][if martins_watchword = 1] Okay, you have to let me try the watchword again!
 	[if tried_dumb_flag = 1] I know the system this time!
 		[talk mole] Do we humor the insane hobo?
 		[talk matilda_tavern] Well, he is kinda cute, why not?    //brian edit  changed ending period (.) to a question mark (?) since the dialog ends with a question
 			[if tried_dumb_flag = 1][section toiletpass]
 			[section tryme]
-	+[if tried_dumb_flag = 0] It's me! I forgot the password!
+	+[if tried_dumb_flag = 0] It's me! I forgot the watchword!
 		[set tried_dumb_flag 1]
 		[if passguess < 6][section tryme]
 		[talk horse1] No, go away.
 		[end]
 		== tryme ==
 		[talk horse1] And this is me. I have no idea what you're talking about.
-			+ Yes you do, I'm sure I can remember the password if you helped me.
+			+ Yes you do, I'm sure I can remember the watchword if you helped me.
 				[talk mole] You are a strange person, blabbering nonsense.   //brian edit  added comma (,) for readability
-					+ Is ''nonsense'' the password?
-						[talk horse1] What password?
+					+ Is ''nonsense'' the watchword?
+						[talk horse1] What watchword?
 							+ Hmm, how about...
-								[section password]
+								[section watchword]
 			+ Oh come on, it's me! I got the letter in front of the palace.
 				[talk matilda_tavern] Still no idea what you're talking about.
 					Oh come on, let me try a few times!
 						[talk horse2] Try what?
-							[section password]
+							[section watchword]
 	+ Greetings ladies and gentlemen. Are you anarchists?
 		[talk horse2] Us?
 		[talk horse1] By god, we would never.
@@ -2623,7 +2642,7 @@ end
 			[end]
 
 end
-== password ==
+== watchword ==
 
 	- Workers Solidarity?
 		[add passguess 1]
@@ -2636,7 +2655,7 @@ end
 		[section nope]
 	- Unconventional Action?
 		[add passguess 1]
-		[talk mole] Who would take a name of an anarchist organisation as a password?
+		[talk mole] Who would take a name of an anarchist organisation as a watchword?
 			+ So you do know what you're talking about?
 				[section nope]
 	-[not passguess < 2] Hattori Hanzo?
@@ -2645,14 +2664,14 @@ end
 	-[not passguess < 3] Debbie does Detroit?
 		[add passguess 1]
 		[talk matilda_tavern] I'll pretend I didn't hear that.
-			[section password]
+			[section watchword]
 	-[not passguess < 4] Vida?
 		[add passguess 1]
 		[talk horse2] She will find you and she will kill you.
 		[talk matilda_tavern] The idiot meant to say nope.
 		[talk horse2] That hurt my feelings.
 		[talk matilda_tavern] Better feelings then fingers, Andras.
-			[section password]
+			[section watchword]
 	-[not passguess < 5] FF4xErg7z8X2?
 		[add passguess 1]
 		[talk horse1] You are getting tiresome
@@ -2672,7 +2691,7 @@ end
 == nope ==
 
 [talk matilda_tavern] nope
-	[section password]
+	[section watchword]
 			
 end
 == toiletpass ==
@@ -2731,7 +2750,7 @@ end
 end
 == possibly_right ==
 
-[if toilet_pass_guesser = 3][section correctpassword]
+[if toilet_pass_guesser = 3][section correctwatchword]
 [talk mole] We let you blabber your things, now please let us blabber our own things in peace
 	+ So, I didn't guess it?
 		[talk matilda_tavern] We don't know what you're talking about.
@@ -2740,7 +2759,7 @@ end
 				[end]
 
 
-== correctpassword ==
+== correctwatchword ==
 
 [talk mole] About bloody time!
 [talk horse1] Welcome aboard.
@@ -2758,16 +2777,17 @@ end
 [talk matilda_tavern] I think that's very hot.
 	+ Really?
 		[talk matilda_tavern] Oh yes, I'd like to talk about that a bit more.
-		[talk matilda_tavern] In private.
+		[talk matilda_tavern][blocksound snd_matilda_talk_whisper1][blocksound snd_matilda_talk_whisper2] In private.
 			+ Well, private talk is my favorite kind of talk.
-				[talk matilda_tavern] Yes, let's talk privately.
-				[talk matilda_tavern] We should go to the other room.
-				[talk matilda_tavern] And find a good booth to... talk.
+				[talk matilda_tavern][blocksound snd_matilda_talk_whisper3] Yes, let's talk privately.
+				[talk matilda_tavern][blocksound snd_matilda_talk_whisper4] We should go to the other room.
+				[talk matilda_tavern][blocksound snd_matilda_talk_whisper2] And find a good booth to... talk.
 					+ I know just the booth!
 						[set gunscene 1]
 						[set anarchist_trust 1]
+						[set needs_pen 1]
 						[destroy anarchists]
-						[animations player spr_viktor_walk_right][move player 8 6][animations matilda_tavern spr_matilda_walk_right][move matilda_tavern 17 8][fade in 0.1][time 150]
+						[animations player spr_viktor_walk_right][move player 8 6][animations matilda_tavern spr_matilda_walk_right][move matilda_tavern 17 8][fade in 0.03][time 150]
 						[room toilet gunpoint]
 
 end
@@ -2786,82 +2806,83 @@ end
 			[set mood scared]
 			Are you sure?
 				Yes I'm sure.
-				[animation matilda spr_matilda_gun]
-				[mood matilda right_gun] Now, let's talk.
+				[create matilda_gun][active matilda_gun][destroy matilda_tavern]
+				[animation matilda_gun spr_matilda_gun]
+				Now, let's talk.
 					+ I'm not really into gunplay.
-						[mood matilda right_gun] This isn't a game.
-						[mood matilda right_gun] It's a potential murder scene.
-						[mood matilda right_gun] So I suggest you talk.
+						This isn't a game.
+						It's a potential murder scene.
+						So I suggest you talk.
 							[section gunpoint_who]
 					++ Why does my every romance talk look like this?
 					[mood angry] Why the hell does my every romance talk look like this?
-						[mood matilda right_gun][blocksound snd_matilda_ask2] What?
+						[blocksound snd_matilda_talk_ask] What?
 							Well, you see, my landlord...
 								No, I don't want to hear about you using frail women's hearts as you see fit.
 									+ It's not like that, she's really old.
-										[mood matilda right_gun][blocksound snd_matilda_ask]What the hell?!?
+										[blocksound snd_matilda_talk_ask]What the hell?!?
 										[talk priest_back] Oh this is gonna be good.
-										[mood matilda right_gun]You go back to your prayers!
-										[mood matilda right_gun][blocksound snd_matilda_ask2]Now where was I?
-										[mood matilda right_gun]Ah yes.
+										You go back to your prayers!
+										[blocksound snd_matilda_talk_ask2]Now where was I?
+										Ah yes.
 											[section gunpoint_who]
 									+ I'm not using hearts of anything.
 									[mood angry] I'm nice and cuddly dammit.
 									[mood angry] Why can't people see that.
-										[mood matilda right_gun] Let's change the subject.
+										Let's change the subject.
 											[section gunpoint_who]
 									++ So you actually do like me?
 									[set mood] So you actually do like me?
-										[mood matilda right_gun] What? No!
-										[mood matilda right_gun] I'm holding you at gunpoint.
+										What? No!
+										I'm holding you at gunpoint.
 											Yes, that happens to me from time to time.
 												[talk priest_back] Will you two love birds be quiet? I'm trying to pray in here.
-												[mood matilda right_gun] Okay, enough fun and games.
+												Okay, enough fun and games.
 												[set mood scared]
 												[section gunpoint_who]
 					+ Help help, I'm being murdered!
 					Again.
-						[mood matilda right_gun][blocksound snd_matilda_ask2] This... happens to you often?
-						[mood matilda right_gun] Actually, don't answer that.
+						[blocksound snd_matilda_talk_ask2] This... happens to you often?
+						Actually, don't answer that.
 							[section gunpoint_who]
 
 				[end]
 
 == gunpoint_who ==
 
-[mood matilda right_gun][blocksound snd_matilda_ask]Who are you and what the hell are you doing here?
+[blocksound snd_matilda_talk_ask2]Who are you and what the hell are you doing here?
 	+ My name is Viktor and I'm trying to oust the emperor.
 		[section gunpoint_commendable]
 	+ I'm Viktor and I want to join the anarchists.
-		[mood matilda right_gun]You chose a weird way to do it.
-		[mood matilda right_gun][blocksound snd_matilda_ask2]How did you find us?
+		You chose a weird way to do it.
+		[blocksound snd_matilda_talk_ask2]How did you find us?
 			+ I got a message from Vida after getting kicked out of the emperor's palace.
-				[mood matilda right_gun][blocksound snd_matilda_ask]Why did you get kicked out of the palace.
+				[blocksound snd_matilda_talk_ask]Why did you get kicked out of the palace.
 					I tried to oust the emperor.
 						[section gunpoint_commendable]			
 	- It's complicated
-		[mood matilda right_gun][blocksound snd_matilda_ask2]Oh, you think your actions are too complicated for a woman?
+		[blocksound snd_matilda_talk_ask2]Oh, you think your actions are too complicated for a woman?
 			+ Actually, it's too complicated for me.
-				[mood matilda right_gun]Then simplify.
+				Then simplify.
 					Okay... My name is Viktor
 					I went to Vienna to oust the emperor!
 						[section gunpoint_commendable]
 			+ It all started when I got fired from a crappy street sweeping job.
-				[mood matilda right_gun][blocksound snd_matilda_ask]Are you stalling me?
+				[blocksound snd_matilda_talk_ask]Are you stalling me?
 					+ Long story short, my name is Viktor and I went to Vienna to oust the emperor.
 						[section gunpoint_commendable]
 					+ Maybe a little.
-						[mood matilda right_gun][blocksound snd_matilda_ask2]Is the police coming?
+						[blocksound snd_matilda_talk_ask2]Is the police coming?
 							+ No, I'm just panicking because of your gun.
-								[mood matilda right_gun]If you don't start talking, you'll be dead because of my gun.
-								[mood matilda right_gun]I'll repeat the question.
+								If you don't start talking, you'll be dead because of my gun.
+								I'll repeat the question.
 									[section gunpoint_who]
 							+ No, I just kinda like talking to you
 								[talk priest_back] Aww.
-								[mood matilda right_gun]Just answer the questions.
+								Just answer the questions.
 									Honestly, I already forgot your questions!
-										[mood matilda right_gun] I'll repeat once more.
-										[mood matilda right_gun] And if you tell me it's complicated, I'm going to shoot you.
+										I'll repeat once more.
+										And if you tell me it's complicated, I'm going to shoot you.
 										[set gunpoint_complicated 1]
 										[section gunpoint_who]
 	++[if gunpoint_complicated = 1] It's complicated
@@ -2874,10 +2895,10 @@ end
 
 That's commendable, I guess.
 	+ And put myself as the new emperor.
-		Wait, what?
+		[blocksound snd_matilda_talk_ask] Wait, what?
 		If you want to be a new emperor...
-		why the hell are you infiltrating anarchists?
-		Do you even know what anarchy means?
+		[blocksound snd_matilda_talk_ask2] Why the hell are you infiltrating anarchists?
+		[blocksound snd_matilda_talk_ask] Do you even know what anarchy means?
 			+ Well, yes, but I think it would be better if we had monarchy with legalized anarchism.
 				That doesn't make any sense!
 					[section gunpoint_politics]
@@ -2909,7 +2930,7 @@ end
 
 We're a group of anarchists and communists.
 And we've been trying to agree on basic principles for the last ten years.
-What makes you think we'd agree to fight for another monarchy?
+[blocksound snd_matilda_talk_ask2] What makes you think we'd agree to fight for another monarchy?
 	+ I just like the anarchists because I heard you have cookies.
 		Please tell me something more convincing than that
 			[section gunpoint_politics_convincing]		
@@ -2975,7 +2996,8 @@ end
 
 All right.
 [set mood]
-[noitamina matilda spr_matilda_gun][time 12]
+[create matilda_tavern][active matilda_tavern][destroy matilda_gun][noitamina matilda_tavern spr_matilda_gun][time 12]
+[imagespeed matilda_tavern 0.3]
 I trust you.
 But I'm still keeping my eye on you.
 	+ I like that. Can I keep my eye on you as well?
@@ -2984,13 +3006,20 @@ But I'm still keeping my eye on you.
 			Sorry.
 				Don't listen to him, he's drunk.
 					[talk priest_back] I'm only drunk on god.
-						[animations player spr_viktor_walk_left][move player 180 8][animations matilda spr_matilda_walk_left][move matilda 177 6][time 150][fade in 0.1]
-						[room tavern gunpoint]
+						[animations player spr_viktor_walk_left][move player 180 8][animations matilda_tavern spr_matilda_walk_left][move matilda_tavern 177 6][time 150][fade in 0.03]
+						[destroy matilda_tavern][set martins_watchword 0][room tavern gunpoint]
 
 end
+
+=== andras ===
+
+Better talk with Krtek, he's better at organizing.
+[end]
+
+
 == gunpoint_cleared ==
 
-...and he's definitely going to help us oust the emperor.
+[talk matilda_tavern] ...and he's definitely going to help us oust the emperor.
 	+ definitely
 		[talk mole] All right.
 		[talk mole] Welcome aboard, boy.
@@ -3004,12 +3033,13 @@ end
 			And his automatons.
 			All I need is a good distraction...
 				[set mood scared]
-				[talk horse2] Wait, wait, wait. We can't start a meeting without taking records.
+				[talk horse2] Wait, wait, wait, planning means starting an official meeting.
+				[talk horse2] And we can't start a meeting without taking records.
 					+ What?
 						[talk mole] That is true, we truly cannot
-							+ Oh, come on.
+							[mood angry] Oh, come on.
 								[talk horse1] Okay, who's keeping the pen?
-								[talk matilda] I don't know, I keep the gun.
+								[talk matilda_tavern] I don't know, I keep the gun.
 								[talk mole] I keep the shovel.
 								[talk horse2] We cannot start without the pen.
 								[set mood]
@@ -3017,13 +3047,6 @@ end
 
 
 end
-=== andras ===
-
-Better talk with Krtek, he's better at organizing.
-[end]
-
-
-
 === pferdinand ===
 
 Better talk with Krtek, he's better at organizing.
@@ -3161,6 +3184,12 @@ end
 
 == hello ==
 [set metjekyll 1]
+	-[if needs_pen = 1] Excuse me, do you have the pen I could borrow?
+		I'm terribly sorry, but I don't carry pens.
+		They can be needlessly lethal in my arms.
+			What?
+				Don't ask.
+					[section hello]
 	+ SUDO GO TO TOILET
 		Ok.
 		[animations jekyll spr_hyde_walk][move jekyll 355 5][time 160]
@@ -3191,10 +3220,10 @@ end
 				Ah, you disguised your person to fraternize with lower classes of your society.
 				How delightful, yet somewhat unnerving.
 					+ Actually, this is my only set of clothes.
-						(no convo)
+						Then I suggest purchasing another one.
 							[section hello]
 					+ No no, I have yet to become an emperor.   //brian edit  changed "am" to "have" in the phrase "I have yet to become an emperor." since this is the way it's usually said, so sounds more natural to me
-						(no convo)
+						I hope you don't mind, but I shall not pursue this train of conversation.
 							[section hello]
 			+ You are a medical expert of some sort?
 				If you ever need some sort of medication, I could possibly make arrangements at acceptable prices.
@@ -3231,7 +3260,11 @@ end
 === lake ===
 
 == hello ==
-
+	-[if needs_pen = 1] Excuse me, do you have the pen I could borrow?
+		Nah, I just carve things with my guitar pick.
+			+ That sounds terribly clumsy.
+				Trust me, you don't want my life.
+					[section hello]
 	- Are you an anarchist?
 		Naw, man. I just like wearing black
 		[section not_an_anarchist]

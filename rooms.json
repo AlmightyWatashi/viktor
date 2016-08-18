@@ -5211,7 +5211,7 @@
 		},
 		{
 			"alias" : "gunpoint",
-			"entrance" : "[fade out 0.1][position player 600 700][position matilda_tavern 290 910][active matilda_tavern] > [conversation matilda gunpoint_cleared]"
+			"entrance" : "[fade out 0.03][position player 600 700][position matilda_tavern 290 910][active horse2] > [conversation andras gunpoint_cleared]"
 		},
 		{
 			"alias": "toilet_exit",
@@ -5277,8 +5277,7 @@
 			"description": "Emperor's portrait",
 			"order": "look",
 			"combinations": {
-				"look": "That's the bastard behind the electric field. > He's going down soon.",
-				"talk": "[conversation variable_test start]"
+				"look": "That's the bastard behind the electric field. > He's going down soon."
 			}
 		}, {
 			"comment": "tavern barrels front",
@@ -5402,7 +5401,7 @@
 			"xCloud": 700,
 			"yCloud": 600,
 			"xInteract": 600,
-			"yInteract": 700,
+			"yInteract": 680,
 			"imageSpeed": 0.6,
 			"idle": 1,
 			"picture": "spr_tavern_party",
@@ -5455,8 +5454,8 @@
 			"order": "look, talk",
 			"banter" : [
 			"How about a union with someone?",
-			"It's a fashion choice.",
-			"Hurry while that guy is vomiting."
+			"It's a fashion choice...",
+			"...while that stupid priest is in the toilet again"
 			],
 			"combinations": {
 				"look": "Regular-looking person",
@@ -5575,11 +5574,11 @@
 		},
 		{
 				"alias": "gunpoint",
-				"entrance": "[set priest_moved 1][set toilet_is_opened 1][set been_to_toilet 1][position player 350 800][fade in 0.1] > [if toilet_is_opened = 1][position priest_back 930 680] > [if jekyll_toilet = 1][destroy toilet_left][create toilet_left_jekyll] > [position player 900 750][create matilda] > [active matilda][conversation matilda gunpoint]"
+				"entrance": "[animation toilet_middle_open spr_toilet_middle 2][animation toilet_right_open spr_toilet_right 2][set priest_moved 1][set toilet_is_opened 1][set been_to_toilet 1][position player 350 800][fade out 0.05] > [if toilet_is_opened = 1][position priest_back 930 680] > [if jekyll_toilet = 1][destroy toilet_left][create toilet_left_jekyll] > [position player 900 750][create matilda_tavern][active matilda_tavern] > [conversation matilda gunpoint]"
 		},
 		{
 				"alias" : "return",
-				"entrance" : "[recall] > Nothing better then going to the toilet to have a nice telephone conversation."
+				"entrance" : "[recall][set mood] > Nothing better then going to the toilet to have a nice telephone conversation."
 		},
 		{
 				"alias": "fight",
@@ -5588,8 +5587,29 @@
 		],
 		"objects": [
 		{
-			"comment": "Matilda!",
-			"alias": "matilda",
+			"comment": "Matilda before gun",
+			"alias": "matilda_tavern",
+			"talkSoundOverride" : "snd_matilda_talk",
+			"direction" : "left",
+			"available" : 0,
+			"depth": -500,
+			"xScale": 0.85,
+			"yScale": 0.85,
+			"x": 600,
+			"y": 750,
+			"xCloud": 600,
+			"yCloud": 400,
+			"xInteract": 600,
+			"yInteract": 680,
+			"imageSpeed": 0.4,
+			"idle": 1,
+			"description": "Matilda"
+		},
+		{
+			"comment": "Matilda with gun",
+			"alias": "matilda_gun",
+			"talkSoundOverride" : "snd_matilda_talk",
+			"direction" : "left",
 			"available" : 0,
 			"depth": -500,
 			"xScale": 0.85,
@@ -5698,16 +5718,37 @@
 				"alias": "priest_back",
 				"x": 1140,
 				"y": 680,
-				"xInteract" : 900,
+				"talkSoundOverride" : "snd_priest_talk",
+				"direction" : "back",
+				"moves": 1,
+				"xInteract" : 1000,
 				"yInteract" : 750,
-				"xCloud" : 1100,
-				"yCloud" : 300,
+				"xCloud" : -50,
+				"yCloud" : -350,
 				"idle": 1,
 				"depth" : 100,
 				"description": "Drunken priest.",
 				"combinations": {
 					"look" : "Figures.",
-					"talk" : "[conversation priest first]"
+					"talk" : "[destroy priest_back][create priest][active priest][if toilet_is_opened = 1][position priest 930 680] > [conversation priest first] > [destroy priest][create priest_back][if toilet_is_opened = 1][position priest_back 930 680]"
+				}
+			},
+			{
+				"alias": "priest",
+				"available" : 0,
+				"x": 1140,
+				"y": 680,
+				"moves": 1,
+				"direction" : "back",
+				"xInteract" : 900,
+				"yInteract" : 750,
+				"xCloud" : -50,
+				"yCloud" : -350,
+				"idle": 1,
+				"depth" : 100,
+				"description": "Drunken priest.",
+				"combinations": {
+					"look" : "Figures."
 				}
 			},
 			{
