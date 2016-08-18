@@ -2807,7 +2807,7 @@ end
 			Are you sure?
 				Yes I'm sure.
 				[create matilda_gun][active matilda_gun][destroy matilda_tavern]
-				[animation matilda_gun spr_matilda_gun]
+				[animation matilda_gun spr_matilda_gun_draw][time 12]
 				Now, let's talk.
 					+ I'm not really into gunplay.
 						This isn't a game.
@@ -2918,6 +2918,7 @@ end
 
 Oh all right.
 My name is Matilda.
+[set mood]
 	+ Oh, that's such a beautiful name.
 	[talk priest_back] I think I'm going to puke.
 		Enough chit-chat.
@@ -2986,6 +2987,7 @@ end
 		That's definitely true
 		And you don't seem like some terribly evil emperor.
 		Or someone that couldn't easily be assassinated.
+			[set mood]
 			Yeah, I'm kind of a big target.
 				[section gunpoint_win]
 	
@@ -3029,7 +3031,7 @@ Better talk with Krtek, he's better at organizing.
 		[talk horse1] No, wait, I'm Pferdinand and he's Andras.
 		[talk horse2] Oh, right, sorry.
 			+ My name is Viktor
-			And I know a way how to neutralise the emperor's electric field.
+			And I know a way how to neutralize the emperor's electric field.
 			And his automatons.
 			All I need is a good distraction...
 				[set mood scared]
