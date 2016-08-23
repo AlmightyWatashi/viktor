@@ -5324,7 +5324,7 @@
 			"depth": -200,
 			"picture": "spr_tavern_chair",
 			"x": 856,
-			"y": 495
+			"y": 480
 		}, {
 			"comment": "tavern barrel jekyll",
 			"alias": "tavern_barrel_jekyll",
@@ -5523,7 +5523,7 @@
 			"xCloud": 880,
 			"yCloud": 200,
 			"xInteract": 730,
-			"yInteract": 600,
+			"yInteract": 650,
 			"imageSpeed": 0.4,
 			"idle": 1,
 			"description": "Barman",
@@ -5769,8 +5769,9 @@
 				"inventory": {
 					"alias": "toilet_chain",
 					"name": "Chain",
-					"description": "So much for flushing.",
-					"picture": "spr_toilet_chain"
+					"description": "Chain chain chaaaaain.",
+					"picture": "spr_toilet_chain",
+					"default": "Let's not get violent just yet."
 				}
 			},
 			{
@@ -5952,9 +5953,9 @@
 				"x": 400,
 				"y": 286,
 				"xInteract": 400,
-				"yInteract": 570,
-				"xCloud": 400,
-				"yCloud": 500,
+				"yInteract": 760,
+				"xCloud": 550,
+				"yCloud": 300,
 				"description": "Closed toilet booth door with Jekyll inside",
 				"order": "look, talk",
 				"combinations": {
