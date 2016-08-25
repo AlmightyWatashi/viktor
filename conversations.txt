@@ -12,7 +12,7 @@
 0.11. alex backer beta version 16.06. 12h
 0.12. brian edit plus extra checks
 0.13. sven added stuff, wat fixed it into something semi-playable
-
+0.14. 24.8. alex frankenstein
 
 
 === crow ===
@@ -788,16 +788,11 @@ Aye, it is.
 == viktor_angry ==
 
 Shalom, lad.
-	+ What'cha looking at, Scottface?
-		I be lookin' at the wonderful scenery of this dirigibledrome
-			+ Oh piss off.
+	+ What'cha looking at?!
+		I be lookin' at the wonderful scenery of this dirigibledrome...
+			+ Oh, piss off.
+				Maybe you should find some way to relax, you are very tense, lad...
 				[end]
-	+ Give me some money, you stingy piece of shit!
-		Sorry lad, I needs meh travelin' expenses.
-			+ I'll wipe the floor with you
-				Please, man. I cannae fight yeh, me athlete's paw is acting up.
-					+ You're not worth my fists, you stingy son of a bitch!
-						[end]
 
 end	
 === frog ===
@@ -930,7 +925,7 @@ Possibly too much. So I decided to help out the philosophy circle.
 end	
 == viktor_angry ==
 
-	+[if wig_flag = 1] Gimmie a wig! 
+	+[if wig_flag = 1] Gimmme a wig! 
 		When you prove that you're a good philosopher, you can get a wig.
 			+ I'll shove each and every wig down your mouth until you start pooping hairballs!
 				Your orgies sound nothing like Roman orgies.
@@ -959,13 +954,13 @@ end
 						Cosa nostra!
 							+ I'm too angry for this.
 								[end]
-	+ Gimmie all your alcohol!
+	+ Gimmme all your alcohol!
 		I drank all of it already.
 			- You're lying!
 				Philosophers never truly lie, my friend!
 				We just interpret the truth differently.
 					[section viktor_angry]
-			+ I'm going to kill you
+			+ I'm going to kill you.
 				But what is killing?
 				Is it the act of ending a life? It might be.
 				But what is life?
@@ -1225,7 +1220,7 @@ end
 					[end]
 			++ You are obviously blind as a donkey. How the hell do you expect to drive with those shit eyes?
 			[mood angry]You are obviously blind as a donkey. How the hell do you expect to drive with those shit eyes?
-				[mood donkey angry] No, you will drive pig face? 
+				[mood donkey angry] No, you will drive, pig face? 
 					++ I could drive better and faster than you with one hand and no shoes!
 					[mood angry] I could drive better and faster than you with one hand and no shoes!
 						[mood donkey angry] Little shit wish to bet? I say you can not?  What I'm talking about, you are not that little at all.  //brian edit  added apostrophe to (I'm) and added comma (,) for readability
@@ -1250,7 +1245,6 @@ Is that a deal, mushroom eater?
 		Croatian gets into a coffee shop in Sarajevo.  //brian edit corrected spelling of "coffe" to  "coffee"
 			++ I'm not in the mood for this.
 			[mood angry] I'm not in the mood for this.
-				He says, please one coffee!   //brian edit corrected spelling of "coffe" to "coffee", added comma for readability
 				He says, please one coffee!   //brian edit corrected spelling of "coffe" to "coffee", added comma for readability
 				We have none.
 				How come?
@@ -3678,6 +3672,7 @@ Isn't that a great offer, my friend?
 
 
 end
+
 === tesla ===
 
 == hello ==
@@ -3687,10 +3682,9 @@ Now, how can I help you?
 [set but_flag = 0]
 	[section begin]
 
-end
 == begin ==
 
-	+ Let's not beat about the bush, Mr. Tesla. We need your help with breaking the emperor's electric field.
+	+ Let's not beat around the bush, Mr. Tesla. We need your help with breaking the emperor's electric field.
 		Ah, I expected this kind of inquiry sooner or later.
 		I would be glad to help you, but... hmm...
 			[section but]
@@ -3703,7 +3697,7 @@ end
 						Now, how can I help you?
 							[section begin]
 	+ Wow, it's really you. I recognize you from the photograph in that magazine about coils!
-		Yes, I recognize myself as well. The magazine was called Electro Shocker    //brian edit   capitalized "Electro Shocker" (since it's a magazine name--proper noun)
+		Yes, I recognize myself as well. The magazine was called Electro Shocker. //brian edit   capitalized "Electro Shocker" (since it's a magazine name--proper noun)
 			[section shocker]
 
 end
@@ -3716,7 +3710,7 @@ end
 						Oh...
 						Well, I would be glad to help you, but... hmm...
 							[section but]
-			+[if electric_flag < 1] Considering my electricity bill, I probably need like a billion such interviews every month.  //brian edit   Changed "yours" to "I", changed "needs" to "need" to match subject change to "I", and removed "of" to make the meaning clear, imo
+			+[if electric_flag < 1] Considering your electricity bill, you probably need like a billion such interviews every month.  //brian edit   Changed "yours" to "I", changed "needs" to "need" to match subject change to "I", and removed "of" to make the meaning clear, imo
 				[section infinite]
 	+ I tried to replicate your experiment from the magazine, but I just started a fire.
 		Explaining it to firemen must have been quite a scene.   //brian edit   added a period (.) to end of the sentence
@@ -3725,18 +3719,16 @@ end
 	+ Actually, let's change the subject.
 		[section begin]
 
-
-end
 == infinite ==
 That's not an issue for me. I discovered the secret of infinite electricity!   //brian edit  changed "a" with "the" in "I discovered the secret of infinite electricity!" because the definite article is appropriate here (is there more than one secret?  if not, then "the" is better)
 [set electric_flag 1] 
 	+ Wow, can I know the secret?
 		Yes.
-		You help the empire with building a hydroelectric plant and hooking up directly to it.   //brian edit   changed "hook" to "hooking" to match the verb tense earlier (building)
+		First you help the empire by building a hydroelectric plant, and then you hook up directly to it.   //brian edit   changed "hook" to "hooking" to match the verb tense earlier (building)
 		[talk matilda] So the emperor let you use as much power as you want?
 		I decided not to bother the busy emperor with that information.
 		[if but_flag = 1] [section but]
-		[if but_flag < 1] [section begin]
+		[if but_flag = 0] [section begin]
 	+ Are you saying that the world is soon going to have free electricity?
 		Probably not.
 		Political problems, long story.
@@ -3757,24 +3749,29 @@ That's not an issue for me. I discovered the secret of infinite electricity!   /
 								I could help you with that.
 								There is just one problem.
 									[section but]
+					
+					+ Actually, let's change the subject.
+						[section begin]
 
 end
 == but ==
 	- You fear the emperor's revenge?
-		I do not fear that.
-		Like for most other things I make, the journalists will write that Edison did it.
+		Not really...
+		Like for most other things I make, the journalists will say Edison did it.
 			[section but]
 	- Even you cannot undo your incredible invention?
 		It's not easy, but I can do it.
 			[section but]
-	-[if electric_flag < 1] You don't have enough electric power to do it?
+	-[if electric_flag = 0] You don't have enough electric power to do it?
 		[set but_flag = 1]
 			[section infinite]
-	+ You sure accepted our proposal quickly. Well then, please give us the way to break the field and we'll be on our way.
-		I have no trouble with you destroying that primitive war-mongering nincompoop.
-		Last year, his budget for non-military research was five copper crowns, a box of nails and a photograph of his signed photograph.
-		The problem is that for neutralizing such an electric field, you need a Frequency Ultra Conversion Kirlian.
-			[section fuck]
+	+ You sure accepted our proposal quickly...
+		[set accept_flag = 1]
+			Well then, please give us the way to break the field and we'll be on our way.
+				I have no trouble with you destroying that primitive war-mongering nincompoop.
+				Last year, his budget for non-military research was five copper crowns, a box of nails and a photograph of his signed photograph.
+				The problem is that for neutralizing such an electric field, you need a Frequency Ultra Conversion Kirlian.
+					[section fuck]
 
 end
 == fuck ==
@@ -3833,6 +3830,7 @@ end
 			[end]
 
 end
+
 === klimt ===
 
 == viktor_first ==
@@ -3848,30 +3846,53 @@ Were you hiding in that toilet bowl all the time?
 	- No, of course not. What kind of person would hide in a toilet bowl?
 		You tell me!
 			[section viktor_later]
-	- Yes, we are wizards from past and we have come for you throughout this magic portal. You are the chosen one.
-		Well then, lady and gentleman wizards. > I'm ready!
-			+ Do you need me to move so you could climb down, or will you just jump from here?
+	- Yes, we are wizards from the past and we have come for you through this magic portal. You are the chosen one.
+		Well then, lady and gentleman wizards...
+		I'm ready!
+			== joking ==
+			- Hold on tight!!!
+				OK!!!
+				[section joking]
+			- Do you need me to move so you could climb down, or will you just jump from here?
 				You jump first and I'll jump after you
-					+ I was just joking.
-						So was I, of course. > I saw Mr. Tesla go through that toilet a few times.
-							[section viktor_later]
+				[section joking]
+			- I was just joking.
+				So was I, of course.
+				I saw Mr. Tesla go through that toilet a few times.
+					So, anyway...
+					[section viktor_later]
 
-			
 end			
 == viktor_later ==
+	+[if frankenstein_thankful = 1] Could you make a painting for us?
+		I don't do favours.
+			We could pay you?
+				I don't do comissions.
+					But you're doing one right now?
+						Ok, let me rephrase: I don't do comissions for you.
+							[section viktor_later]
 	+ My name is Viktor.
 		Pleased to meet you, Viktor.
-		My name is am Gustav Klimt
+		My name is Gustav Klimt.
+		[description klimt Klimt]
 		[section viktor_later]
 	+ Are we in Germland?
 		You most definitely are.
 		[section viktor_later]
-	+ Why are you painting a dungeon?
+	+[if klimtPainting = 0] Why are you painting a dungeon?
 		It's my job
 		Dr. Frankenstein told me to paint it and that he will pay me nicely for it.
-			+ What exactly are you painting?
+			[set klimtPainting 1]
+			[section viktor_later]
+	+[if klimtPainting = 1] What exactly are you painting?
 				I have to paint Dr. Frankenstein on this part of the wall.
-					[end]
+					[set klimtPainting 2]
+					[section viktor_later]
+	+ Do you have Tesla's Frequency Ultra Conversion Kirlian?
+		Do I have his Frequency Ultra Conversion Kirlian device? 
+		No, I don't have it. 
+		Check with dr. Frankenstein upstairs.
+		[section viktor_later]
 	+ Never mind
 		[end]
 
@@ -3879,8 +3900,11 @@ end
 == matilda ==
 
 Hello, young lady.
-[not toilet_matilda = 1] How interesting to meet someone who just got out of a toilet bowl
-	+[not toilet_matilda = 1] I' m not sure am I glad to meet you sir.
+[if toilet_matilda = 0] How interesting to meet someone who just got out of a toilet bowl
+	+[if frankenstein_thankful = 1] Could you make a painting for us?
+		Anything for a young lady!
+		[section after_machine2]
+	+[if toilet_matilda = 0] I' m not sure am I glad to meet you sir.
 		[set toilet_matilda 1]
 			You have a skeleton over there and you look as if you...
 				Oh don't worry, Matilda. This is not my house. I'm just painting for the owner of this dungeon.
@@ -3890,18 +3914,17 @@ Hello, young lady.
 								Thank you.
 									[end]
 	+[if toilet_matilda = 1] I'm glad you decided to bring some colors into your house, because it looks like a bloody dungeon
-	[set toilet_matilda 1]
 		It is kinda...
 		Moist.
 		But in a bad way.
 		And that skeleton, oh so tacky.
-		Luckily, it's not my house, but Dr. Frankenstein's dungeon.
-			+ Oh
+		Luckily, it's not my house. It's Dr. Frankenstein's dungeon.
+			+ Oh.
 				[end]
-	- My name is Matilda, what is yours? 
-	[if toilet_matilda 1]
-		I'm Gustav Klimt. Painter and what is your job?
-			+ I'm an anarchist.
+	- My name is Matilda, what is yours?
+	[if toilet_matilda = 1]
+		I'm Gustav Klimt. I'm a painter, and you?
+			+ An anarchist.
 				That's cute.
 					[end]
 			+ Freelance murderer.
@@ -3921,82 +3944,127 @@ Hello, young lady.
 		Thank you.
 			[end]
 
-end
+end	
 == after_machine ==
 
 	+ Could you make a painting for us?
-		Would it be nude?
+		== after_machine2 ==
+		It would be a nude, I presume?
 			+ In a way. We need a painting of the machine from the floor above.
 				Which one?
 					+ The coily one that stands inside the arm.
 						Can the arm be nude?
 							+ Why not.
-								I can start as soon as you make a downpayment.
-									You can get the full payment right now, just get to work.
-										[fade in 0.02][fade out 0.02]
-										Enjoy.
-											Oh, we will.
-												[end]
+								I can start as soon as you bring me a... zillion golden crowns!!!
+								Can you do it?
+									[talk viktor] Um, yeah, sure, OK, I guess.
+									[talk matilda] We just robbed a bank, you see...
+									[talk viktor] Here you go...
+											[animation player spr_viktor_take_left_high]
+												[fade in 0.02][time 60] > [fade out 0.02][time 60]
+													Here is your art. Enjoy.
+													[end]
 
 
 end
+
 === frankenstein === // or igor?
 
 == first_entry ==
-
-Welcome to my laboratory!
+[set first_entry 1]
+Ah, welcome to my laboratory!
 Everyone ist welcome in ze laboratory!
 Ich bin Dr. Frankenstein.
 Ze biggest mind in all ze universe!
-And zis is mein greatest creation!
-	+ The parrot psychiatrist?
-	
-	+ That thing assembled from random body parts?
-	
-	+ This dog next to you?
-
+And das ist mein greatest creation!
+== questions ==
+	- The parrot?
+		No, zis iz ze parrot psychiatrist dr. Sigmund Freud!
+		[talk freud] Pleased to meet you, mister...
+			[set frankenstein_introduced 1] Viktor.
+				[talk freud] Ahh... So you believe you are always victorious in everything you do?
+				[talk freud] Schizoid delusions coupled with superiority complex, how intriguing!
+				[talk freud] I am right, ja?
+					Well, I hope so... I'm trying to become the emperor of Austria-Hungary
+						I zee you also need his psychiatric services.
+						But first, tell me what you think of mein greatest creation!
+						[section questions]
+	- That thing assembled from random body parts?
+		Ja!
+		The marvel of organic engineering!
+		A unique and monstrous creation!
+		[talk monster] There you go again dad! Talking like I'm not here!
+		Unfortunately, it has some sort of bug.
+		Ze psychiatrist will fix it soon.
+		[section first_continue]
+	- The dog?
+		No, that's Igor, my henchman.
+		[talk igor] hee hee hee.
+		He doesn't talk much.
+		[section questions]
+	+ Bye...
+		Don't you want to marvel at mein creation?!
+			Well, not really.
+				BUT YOU MUST!
+				MEIN GREATEST CREATION!!!
+				Kannst du see it!?!?!
+				[section questions]
+		
+end
 
 == first_continue ==
 
-I can make thousands of super-soldiers fur mein beloved fuhrer.
-[talk freud] Yes, thousands of neurotic gender-confused children.
-Be silent, insolent minion.
-[talk freud] I am not a minion, I am a psychiatrist.
-[talk freud] And I won't be able to do anything if you keep interrupting the session
-Oh you and your sessions. Just fix ze moster already.
-[talk monster] I'm not a monster, father. I'm a delicate schmetterling.
-Nein nein nein, enough of zis schmetterling geschaft!
-(BACA STVARI OKOLO, RAZBIJE SE MAŠINA)
-Nooo, mein machinen!
+Then, I can make thousands of super-soldiers fur mein beloved fuhrer.
+	[talk freud] Yes, thousands of neurotic gender-confused children.
+		Be silent, insolent minion.
+			[talk freud] I am not a minion, I am a psychiatrist.
+			[talk freud] And I won't be able to do anything if you keep interrupting the session
+				Oh you and your sessions. Just fix ze moster already.
+					[talk monster] I'm not a monster, father. I'm a delicate schmetterling.						
+						[section tantrum]
+
+== tantrum ==
+[mood frankenstein crazy] Nein nein nein, enough of zis schmetterling geschaft!
+[mood frankenstein crazy] Sad tu ide ono animacija da uzme i baci stolac tj. stolicu gore.
+[animations frankenstein spr_frankenstein_talk_crazy][time 30]
+[move tower_machine_blade4 270 30][move tower_machine_blade3 270 30][move tower_machine_blade2 270 30][move tower_machine_blade1 270 30][move tower_machine_nozzle 270 30][move tower_machine_cable 270 30][move tower_machine_body 270 30][move tower_machine_ball1 270 30][move tower_machine_ball2 270 30][time 20]
+[destroy tower_machine_blade4][destroy tower_machine_blade3][destroy tower_machine_blade2][destroy tower_machine_blade1][destroy tower_machine_nozzle][destroy tower_machine_cable][destroy tower_machine_body][destroy tower_machine_ball1][destroy tower_machine_ball2]
+[create tower_machine_broken]
+[sound snd_clock_break]
+[imagespeed frankenstein 0.9]
+[section blame_game]
+
+== blame_game ==
+[mood frankenstein amazed] Nooo, mein machinen!
 You two! Look what you did!
 	+ We didn't do anything!
-		Ja you did. You broke it!
+		Ja, you did! You broke it!
 		And broke us all!
 		We were ze most harmonious family!
 		[talk monster] Oh, so we're a family after all?
 		Quiet, boy, I was talking about Igor!
 		[talk igor] hee hee hee.
 		You break, you fix!
-			+ What the...
+			[direction front] What the...
 				[end]
 		
 
 end
 == viktor ==
 
-	+[if machine_fixed = 1] Here you go, we fixed your machine. Can we get Tesla's part now?
+	+[if machine_fixed = 1] We fixed your machine.
+		[set frankenstein_thankful 1] Danke.
+	+[if frankenstein_thankful = 1] Can we get Tesla's machine now?
 		Nein.
-		Frequency Ultra Conversion Kirlian ist ze crucial piece of machine you just fixed!
 		Without it, my creation will die!
-			+ Oh no.
+			Oh no!
 				Or even worse, turn into ze women!
-				[talk matilda] Wait, what?
-					[section viktor]
-			+ But you promised to give us Tesla's part if we fix the machine.
-				Ich did no such thing.
-				Ich said you will get ze Frequency Ultra Conversion Kirlian once ze machine is working.
-				Und without ze Frequency Ultra Conversion Kirlian, ich work nicht.
-					+ Then I'll just take the machine and you can't stop me
+					+[if promise = 1] But you promised to give us the Frequency Ultra Conversion Kirlian if we fix the machine.
+						Ich did no such thing.
+						Ich sagt once you fix mein machine, wir sprechen.
+						We are spreching, are we nicht?
+						Anyway, without ze Frequency Ultra Conversion Kirlian, ich work nicht.
+					+ I'll just take the machine and you can't stop me!
 						[talk monster] I can stop you.
 						[talk monster] Do not steal from my father!
 						You shut up und continue ze psychotherapy!
@@ -4015,19 +4083,17 @@ end
 						Das ist your fault ze machine ist broken!
 						You fix ze machine!
 							[section viktor]	
-	+[not machine_fixed = 1]  We want to claim Tesla's machine on behalf of Tesla.
-		As ich said. You get ze Frequency Ultra Conversion Kirlian once you fix ze machine
+	+[not machine_fixed = 1] We want to claim Tesla's machine on behalf of Tesla.
+		What?!
+		You break one machine and want ze other?!
+		First, fix ze machine you broke, dann wir sprechen!
+			[set promise 1]
 			[section viktor]
 	+ What happened to your dog friend?
 		Das is nicht a friend, you uneducated suidae!
 		Das ist a highly trained hausdiener, lab assistant und masseuse!
 		Refer to it with utmost respect!
-		It's name ist Igor!
-		[talk igor] I like to eat poop!
-			+ Hello Igor.
-				[talk igor] Do you have poop?
-					+ Not at the moment, sorry.
-						[section viktor]
+		Its name ist Igor!
 			+ Does he bite?
 				Ja.
 					[section viktor]
@@ -4037,6 +4103,8 @@ end
 end
 == matilda ==
 
+	+ [if machineDontWork = 1] You didn't even plug Tesla's machine in!
+		I know, but why bother with details if it works?
 	+[if machine_fixed = 1] We fixed your machine. Now it's time for you to do your part of the deal.
 		Nein.
 		Without ze Frequency Ultra Conversion Kirlian, ze machine does not work!
@@ -4054,7 +4122,7 @@ end
 	+[not machine_fixed = 1] We are here on behalf of Nikola Tesla
 		Ach, he wants ze Frequency Ultra Conversion Kirlian.
 		Well, he can't have it. I'm sorry.
-		You must first save my creation and fix ze machine that sustains it's life...
+		You must first save my creation and fix ze machine that sustains its life...
 		[talk freud] I'm sorry, sir, but we agreed that you will not refer to her as "it".
 		[talk monster] I want to be a "she" now.
 		Never!
@@ -4064,7 +4132,7 @@ end
 		[talk monster] You can not tell me to shut up.
 		Ja, ich can!
 		[talk monster] Why do you think so?
-		Because! I'm your father!!!
+		Because... I am your father!!!
 		[talk monster] Noooooo!
 		Shut up!
 			[section throw_stuff]
@@ -4077,22 +4145,8 @@ end
 	- Why wouldn't it be a "her"? You just replace some parts.
 		[talk igor] Hjee, hjeee, hjee, "parts".
 		Out of ze question.
-		Did you know how much digging Igor had to do to find acceptable boy parts?
-		[talk igor] I get hungry while digging.
-		Nicht to mention ze finger on it's waist.
-		If it had lady bits, it would abuse ze finger all day and night!
-			+ Now, sir, that is a normal part of puberty.
-			Back when I was in puberty, i could lose hours with my fingers.
-				(animacija ono di uđe u šok)
-				Was?
-				I do not wish to hear about this!
-				[talk freud] Well, I would.
-				[talk igor] Me too!
-				[talk viktor] I'm willing to join this hype train.
-					(animacija di iziđe iz šoka)
-					Nein!
-					Zis ist my tower and we have conversations that ich choose!
-						[section matilda]
+		Do you know how much digging Igor had to do to find acceptable boy parts?
+			[talk igor] A lot.
 	+ Never mind.
 		[end]
 
@@ -4104,10 +4158,24 @@ end
 
 
 
+=== igor ===
 
+Hurr durr!
+	+ Hurr durr?
+		Hurr!
+		[section start]
+	+ Hurr dee durr?
+		Dee! Durrrr!
+		[section start]
+	+ Hodor?
+		Ho dooooor!
+		[section start]
+	+ Bye
+		Bye.
+		[end]
 
-end
-=== freud === // or monster
+end.
+=== freud ===
 
 == viktor ==
 	+ You must be the psychotherapist.
@@ -4128,8 +4196,8 @@ end
 				There are fake ones?
 					+ Good point.
 						[end]
-			+ Oh, you're the sex guy?
-				I prefer the term copulationist.
+			+ Oh, you're the "everything is about sex" guy?
+				I prefer the term psychoanalyst. // because i didnt get the other joke. alex
 					[end]
 
 end
@@ -4138,8 +4206,10 @@ end
 		Probably not.
 		As far as I see, the machine doesn't even do anything.
 		[talk monster] Not entirely different from my father.
+		It's not even plugged in...
 			+ Have you tried convincing dr. Frankenstein about that?
 				I don't care enough to do that.
+					[set machineDontWork 1]
 					[end]
 
 

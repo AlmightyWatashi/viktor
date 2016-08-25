@@ -1,6 +1,30 @@
 {
-	"version": "9.8.",
+	"version": "24.8.",
 	"rooms": [
+	{
+		"comment": "fix frankensteins machine",
+		"alias": "machine",
+		"gui": "empty",
+		"background": "bcg_machine",
+		"xBackground" : 0,
+		"yBackground" : 0,
+		"rgb": "255,255,255",
+		"border": "spr_various_token",
+		"entrances": [
+			{
+			"alias": "start",
+			"2entrance": "[not available machine_controller][create machine_controller][stop] > [destroy machine_controller][room tower machine]",
+			"entrance": "[stop] > [room tower machine]"
+			}
+		],
+		"objects": [
+			{
+			"available" : 0,
+			"alias" : "machine_controller",
+			"object" : "obj_machine_controller"
+			}
+		]
+	},
 	{
 		"comment": "dig the tunnel to the bank",
 		"alias": "dig",
@@ -12,7 +36,7 @@
 		"border": "spr_various_token",
 		"entrances": [{
 		"alias": "start",
-		"entrance": "[create dig_controller][stop] > tu će bit pizdarije"
+		"entrance": "[create dig_controller][stop] > DO NOT PUT STUFF HERE"
 		}],
 		"objects": [
 		{
@@ -43,6 +67,7 @@
 				"alias" : "shooter_controller",
 				"object" : "obj_shooter_controller",
 				"pictures" : {
+					"restartOnFail" : 1,
 					"numberOfObjects" : 12,
 					"verticalSpeed" : 5,
 					"verticalHeight" : 50,
@@ -115,33 +140,66 @@
 	{
 		"comment": "Frankensteins Dungeon",
 		"alias": "dungeon",
-		"gui": "default",
+		"gui": "switch",
 		"scaleNear": 0.8,
 		"scaleFar": 0.8,
 		"background": "bcg_dungeon",
-		"border": "spr_border_dungeon",
+		"border": "spr_border_viktorsRoom",
 		"xBackground": 0,
 		"yBackground": 30,
 		"rgb": "0,0,0",
 		"entrances": [
 			{
 			"alias": "start",
-			"entrance": "[position player 500 800] The dungeon!"
+			"entrance": "[position player 9000 9000][position matilda 9000 9000][time 30] > [position player 740 780][position matilda 850 780] > [move dungeon_lid 90 30][draw spr_cloud_medium 840 830 10 -1000 1 1 0 15 45 0 0 0 -0.1][draw spr_cloud_medium 830 830 10 -1000 1 1 0 15 140 0 0 0 -0.1][draw spr_cloud_medium 830 810 10 -1000 1 1 0 15 90 0 0 0 -0.1][draw spr_cloud_medium 830 830 10 -1000 1 1 0 15 300 0 0 0 -0.1][create viktor_fell][sound snd_viktor_kick2][time 25] > [destroy dungeon_lid] > [moveto dungeon_lid 365 788 0] What a ride..."
+			},
+			{
+			"alias": "again",
+			"entrance": "[position player 740 780][position matilda 850 780] > [not available dungeon_painting1][create dungeon_painting1][skip] > [not available dungeon_painting2][create dungeon_painting2][skip] > [not available dungeon_painting3][create dungeon_painting3][skip] > [not available dungeon_painting4][create dungeon_painting4][skip]"
 			}
 		],
 		"objects": [
 			{
+				"alias" : "klimt",
+				"description" : "Painter",
+				"idle" : 1,
+				"imageSpeed" : 0.5,
+				"x" : 397,
+				"y" : 453,
+				"xInteract": 570,
+				"yInteract": 800,
+				"xCloud" : 458,
+				"yCloud" : 110,
+				"combinations" : {
+					"look" : "He looks focused.",
+					"talk" : "[if alias = viktor][conversation klimt viktor_first] > [not alias = viktor][conversation klimt matilda_first]"
+				}
+			},
+			{
 				"alias": "dungeon_ladder",
 				"x": 495,
-				"y": 253
+				"y": 253,
+				"xInteract": 570,
+				"yInteract": 800,
+				"description" : "Ladder",
+				"combinations": {
+					"look" : "Quite a big ladder.",
+					"use" : "If I removed your ladder, how would you get down? > [talk klimt] I'd jump, probably. > [talk klimt] Then I'd kick your ass. > [if alias = matilda][talk viktor] You'd kick a woman? > [if alias = matilda][talk klimt] It depends. Would she remove my ladder?",
+					"kick" : "[if alias = matilda] I don't want to inconvenience the artist. > [if alias = matilda][skip] > Destroying furniture and kicking random objects is just not my thing anymore." 
+				}
 			},
 			{
 				"alias": "dungeon_lid",
-				"x": 365,
-				"y": 788
+				"description" : "A lid",
+				"x": 704,
+				"y": 663,
+				"combinations" : {
+					"look" : "I wonder what's down there."
+				}
 			},
 			{
 				"alias": "dungeon_painting1",
+				"available": 0,
 				"x": 196,
 				"y": 55,
 				"depth" : 1504
@@ -149,6 +207,7 @@
 			},
 			{
 				"alias": "dungeon_painting2",
+				"available": 0,
 				"x": 186,
 				"y": 55,
 				"depth" : 1503
@@ -156,6 +215,7 @@
 			},
 			{
 				"alias": "dungeon_painting3",
+				"available": 0,
 				"x": 186,
 				"y": 55,
 				"depth" : 1502
@@ -163,6 +223,7 @@
 			},
 			{
 				"alias": "dungeon_painting4",
+				"available": 0,
 				"x": 249,
 				"y": 85,
 				"depth" : 1501
@@ -171,12 +232,23 @@
 			{
 				"alias": "dungeon_schakles",
 				"x": 98,
-				"y": 587
+				"y": 587,
+				"description" : "Dungeon equipment",
+				"combinations" : {
+					"look" : "This seems like a very reputable laboratory basement.",
+					"use" : "They're all rusty and useless."
+				}
 			},
 			{
 				"alias": "dungeon_stairs",
 				"x": 1002,
-				"y": 301
+				"y": 301,
+				"xInteract" : 928,
+				"yInteract" : 786,
+				"combinations" : {
+					"look" : "[if stairs = 0] Where do these stairs lead to? > [if stairs = 1] Where do these stairs lead to, again? > [talk klimt] Upstairs. > And what's upstairs? > [talk klimt] Dr. Frankensteins laboratory. > [set stairs 1]",
+					"use" : "[room tower start]"
+				}
 			},
 			{
 				"alias": "dungeon_stand_back",
@@ -191,7 +263,18 @@
 			{
 				"alias": "dungeon_toilet",
 				"x": 689,
-				"y": 661
+				"y": 661,
+				"xCloud": 689,
+				"yCloud": 561,
+				"xInteract" : 747,
+				"yInteract" : 791,
+				"description" : "Transporter device / Toilet",
+				"combinations" : {
+					"look" : "Tesla's transporter doesn't seem so high-tech on this end.",
+					"use" : "We should get Tesla's machine from dr. Frankenstein before returning.",
+					"kick" : "I don't want to destroy our only way back to Austria-Hungary.",
+					"talk": "Hello toilet. > [talk other][sound snd_toilet_hello] Hello.",
+				}
 			},
 			{
 				"alias": "dungeon_window_bars",
@@ -199,10 +282,36 @@
 				"y": 43
 			},
 			{
+				"alias" : "matilda",
+				"x" : 100,
+				"y" : 100,
+				"xScale" : 0.8,
+				"yScale" : 0.8,
+				"moves" : 1,
+				"combinations" : {
+					"look" : "That's Matilda, my love. > Or something...",
+					"use" : "[switch viktor matilda]"
+				}
+			},
+			{
+				"alias" : "viktor",
+				"x" : 100,
+				"y" : 100,
+				"available" : 0,
+				"moves" : 1,
+				"combinations" : {
+					"look" : "That's Viktor, my love. > Or something..."
+				}
+			},
+			{
 				"alias": "skeleton",
 				"idle":1,
 				"x": 979,
-				"y": 58
+				"y": 58,
+				"combinations" : {
+					"look" : "[if alias = viktor] I love the decor in this place! > [if alias = matilda] How tacky!",
+					"use" : "[if alias = viktor][animation player spr_viktor_take_right_high] > [if alias = viktor][animation other spr_skeleton_idle2] > [if alias = viktor] Whee! > [if alias = matilda] Nah..."
+				}
 			}
 		]
 	},
@@ -524,7 +633,7 @@
 		"alias": "tower",
 		"gui": "default",
 		"scaleNear": 1,
-		"scaleFar": 0.8,
+		"scaleFar": 1,
 		"background": "bcg_tower",
 		"border": "spr_border_tower",
 		"xBackground": -5,
@@ -532,33 +641,114 @@
 		"rgb": "0,0,0",
 		"entrances": [
 			{
-			"alias": "start",
-			"entrance": "[position player 700 700] Room in development!"
+				"alias": "start",
+				"entrance": "[set alias viktor] > [position matilda 310 781][position player 385 788] > [animation player spr_viktor_walk_right][animation matilda spr_matilda_walk_right][moveto matilda 588 817 5][moveto player 719 809 5][time 30] > [animation matilda spr_matilda][animation player spr_viktor][moveto matilda 719 809 0][if first_entry = 0][active frankenstein][conversation frankenstein first_entry]",
+			},
+			{
+				"alias" : "quickstart",
+				"entrance": "[set alias viktor][position matilda 588 817][position player 719 809] > [if first_entry = 0][active frankenstein][conversation frankenstein tantrum]"	
+			},
+			{
+				"alias" : "machine",
+				"entrance" : "[if machine_win = 0] Damn, this is complicated. > [if machine_win = 1][create tower_machine_blade4][create tower_machine_blade3][create tower_machine_blade2][create tower_machine_blade1][create tower_machine_nozzle][create tower_machine_cable][create tower_machine_body][create tower_machine_ball1][create tower_machine_ball2][set machine_fixed 1] Finally, it is fixed."
 			}
 		],
 		"objects": [
 			{
-				"alias": "return",
-				"x": 700,
-				"y": 200,
-				"xInteract": 600,
-				"yInteract": 700,
-				"picture": "spr_various_token",
-				"xScale": 100,
-				"yScale": 100,
-				"description": "Exit to another room",
-				"combinations": {
-					"talk": "[room tower start]",
-					"use": "[room tesla start]",
-					"look" : "[room botanical start]",
-					"kick": "[room garden start]"
+				"alias" : "exit",
+				"picture" : "spr_various_token",
+				"xScale" : 50,
+				"yScale" : 50,
+				"x": 235,
+				"y": 764,
+				"description" : "Downstairs",
+				"combinations" : {
+					"use" : "[room dungeon again]"
+				}
+			},
+			{
+				"alias" : "matilda",
+				"x" : 100,
+				"y" : 100,
+				"xScale" : 1,
+				"yScale" : 1,
+				"moves" : 1,
+				"combinations" : {
+					"look" : "That's Matilda, my love. > Or something...",
+					"use" : "[switch viktor matilda]"
+				}
+			},
+			{
+				"alias" : "viktor",
+				"x" : 100,
+				"y" : 100,
+				"available" : 0,
+				"moves" : 1,
+				"combinations" : {
+					"look" : "That's Viktor, my love. > Or something..."
+				}
+			},
+			{
+				"alias" : "igor",
+				"idle" : 1,
+				"x": 680,
+				"y" : 861,
+				"xInteract" : 644,
+				"yInteract" : 824,
+				"description" : "Igor",
+				"xCloud" : 680,
+				"yCloud" : 600,
+				"xScale" : 0.8,
+				"yScale" : 0.8,
+				"combinations" : {
+					"look" : "That's Frankenstein's henchman, the famous Igor.",
+					"talk" : "[if alias = viktor][conversation igor viktor] > [if alias = matilda][conversation igor matilda]"
+				}
+			},
+			{
+				"alias" : "freud",
+				"idle" : 1,
+				"direction" : "left",
+				"description" : "Freud",
+				"imageSpeed" : 0.6,
+				"x": 600,
+				"y" : 688,
+				"depth" : 1000,
+				"xInteract" : 652,
+				"yInteract" : 751,
+				"xCloud" : 611,
+				"yCloud" : 310,
+				"xScale" : 0.6,
+				"yScale" : 0.6,
+				"combinations" : {
+					"look" : "That's a psychiatrist.",
+					"talk" : "[if alias = viktor][conversation freud viktor] > [if alias = matilda][conversation freud matilda]"
+				}
+			},
+			{
+				"alias" : "monster",
+				"idle" : 1,
+				"x": 380,
+				"y" : 658,
+				"depth" : 1000,
+				"imageSpeed" : 0.6,
+				"description" : "Monster",
+				"xInteract" : 652,
+				"yInteract" : 751,
+				"xCloud" : 346,
+				"yCloud" : 464,
+				"xScale" : 1,
+				"yScale" : 1,
+				"combinations" : {
+					"look" : "That's Frankenstein's troubled monster.",
+					"talk" : "[if alias = viktor][conversation monster viktor] > [if alias = matilda][conversation monster matilda]"
 				}
 			},
 			{
 				"comment": "Dr. Frankenstein",
 				"alias": "frankenstein",
 				"available": 1,
-				"imagespeed": 0.6,
+				"imageSpeed": 0.6,
 				"x": 885,
 				"y": 808,
 				"xScale": 0.7,
@@ -566,14 +756,14 @@
 				"xInteract": 730,
 				"yInteract": 815,
 				"xCloud": 840,
-				"yCloud": 450,
+				"yCloud": 350,
 				"idle": 1,
 				"depth": -830,
-				"description": "Obviously mad scientist.",
+				"description": "Obviously mad scientist",
 				"order": "look,talk",
 				"combinations": {
-					"look": "Looks famously insane.",
-					"talk": "Not yet. > [talk frankenstein] soon."
+					"look": "He looks famously insane.",
+					"talk": "[if alias = viktor][conversation frankenstein viktor] > [if alias = viktor][skip] > [if alias = matilda][conversation frankenstein matilda]"
 				},
 				"inventory": {
 					"alias": "cell",
@@ -667,10 +857,13 @@
 				"alias": "tower_kirilian",
 				"x": 126,
 				"y": 436,
+				"xInteract" : 324,
+				"yInteract" : 771,
 				"depth" : 1001,
 				"description": "Tesla's part",
 				"combinations": {
-					"look" : "That's the one I need!"
+					"look" : "That's the one I need!",
+					"use" : "[if alias = viktor][animation player spr_viktor_take_left_high][time 10] > [talk frankenstein] Don't touch that! I need it!" 
 				}
 			},
 			{
@@ -678,7 +871,9 @@
 				"x": 840,
 				"y": 418				
 			},
+			
 			{
+				"comment" : "THE ONE THAT IS NOT BROKEN",
 				"alias": "tower_machine_ball1",
 				"x": 203,
 				"y": 186
@@ -721,6 +916,77 @@
 			{
 				"alias": "tower_machine_blade4",
 				"x": 213,
+				"y": 57
+			},
+			{
+				"alias" : "tower_machine_broken",
+				"available" : 0,
+				"picture" : "spr_various_token",
+				"xScale" : 30,
+				"yScale" : 30,
+				"x" : 331,
+				"y" : 789,
+				"xInteract" : 378,
+				"yInteract" : 788,
+				"description" : "Broken machine",
+				"combinations" : {
+					"look" : "This is all 'my' fault.",
+					"use" : "[room machine start]"
+				}
+			},
+			{
+				"comment" : "THE ONE THAT GETS BROKEN",
+				"alias": "tower_machine_ball1_2",
+				"picture": "spr_tower_machine_ball1",
+				"x": 953,
+				"y": 186
+			},
+			{
+				"alias": "tower_machine_ball2_2",
+				"picture": "spr_tower_machine_ball2",
+				"x": 1124,
+				"y": 178
+			},
+			{
+				"alias": "tower_machine_body_2",
+				"picture": "spr_tower_machine_body",
+				"x": 997,
+				"y": 39
+			},
+			{
+				"alias": "tower_machine_cable_2",
+				"picture": "spr_tower_machine_cable",
+				"x": 964,
+				"y": 238
+			},
+			{
+				"alias": "tower_machine_nozzle_2",
+				"picture": "spr_tower_machine_nozzle",
+				"x": 1004,
+				"y": 204
+			},
+			{
+				"alias": "tower_machine_blade1_2",
+				"picture": "spr_tower_machine_blade1",
+				"x": 978,
+				"y": 95
+			},
+			{
+				"alias": "tower_machine_blade2_2",
+				"picture": "spr_tower_machine_blade2",
+				"x": 972,
+				"y": 133
+			},
+			{
+				"alias": "tower_machine_blade3_2",
+				"picture": "spr_tower_machine_blade3",
+				"x": 970,
+				"y": 167
+			},
+			{
+				"alias": "tower_machine_blade4_2",
+				"picture": "spr_tower_machine_blade4",
+				"x": 973,
 				"y": 57
 			},
 			{
@@ -773,7 +1039,7 @@
 	{
 		"comment": "Teslas room",
 		"alias": "tesla",
-		"gui": "default",
+		"gui": "switch",
 		"scaleNear": 0.8,
 		"scaleFar": 0.7,
 		"background": "bcg_tesla",
@@ -973,7 +1239,8 @@
 				"y": 459,
 				"description": "Incredible tesla machine.",
 				"combinations": {
-					"look" : "I think this is the one we need to set up."
+					"look" : "I think this is the one we need to set up.",
+					"use" : "[room teslaslider start]"
 				}
 			},
 			{
@@ -1246,10 +1513,10 @@
 	{
 		"comment": "Tesla slider",
 		"alias": "teslaslider",
-		"gui": "default",
+		"gui": "empty",
 		"background": "bcg_teslaslider",
 		"xBackground" : 0,
-		"yBackground" : 20,
+		"yBackground" : 30,
 		"scaleNear": 1,
 		"scaleFar": 1,
 		"rgb": "255,255,255",
@@ -3080,7 +3347,7 @@
 				"order": "look,use,look_2,use_2",
 				"combinations": {
 					"look": "Never could clean off all the blood from that murder. > Just kidding, it's ketchup.",
-					"use": "[if crowgone = 1][move player 180 5][animations player spr_viktor_walk_left] > [if crowgone = 1][room agram start] > [if phone = 1] I'd love to go but the phone is ringing... > [if phone = 2] I'd love to go conquer the world, but first I should return my friend Martin's call... > [if phone = 3][skip 1] > [if phone < 3][skip] > Time to go out and conquer the world! > [sound snd_door_open][create viktorsRoom_door_open1][create viktorsRoom_door_open2][sound snd_door_open] > [create viktorsRoom_crow][position viktorsRoom_crow 0 690][move viktorsRoom_crow 0 5][move player 0 5][animation player spr_viktor_back_off] > [move viktorsRoom_crow 0 0][active viktorsRoom_crow][other][set mood scared] Not so fast! > [conversation crow start] > [animation player spr_viktor][destroy viktorsRoom_crow][create viktorsRoom_crow_walk][position viktorsRoom_crow_walk 300 690][move viktorsRoom_crow_walk 180 5][time 60][set crowgone 1] > Every month we have the same stupid conversation. > Senile old crow.> Oh well, time to go and conquer this kingdom once and for all.",
+					"use": "[if crowgone = 1][if available viktorsRoom_keys 0][take keys][animation player spr_viktor_take_left_middle] > [if crowgone = 1][move player 180 5][animations player spr_viktor_walk_left] > [if crowgone = 1][room agram start] > [if phone = 1] I'd love to go but the phone is ringing... > [if phone = 2] I'd love to go conquer the world, but first I should return my friend Martin's call... > [if phone = 3][skip 1] > [if phone < 3][skip] > Time to go out and conquer the world! > [sound snd_door_open][create viktorsRoom_door_open1][create viktorsRoom_door_open2][sound snd_door_open] > [create viktorsRoom_crow][position viktorsRoom_crow 0 690][move viktorsRoom_crow 0 5][move player 0 5][animation player spr_viktor_back_off] > [move viktorsRoom_crow 0 0][active viktorsRoom_crow][other][set mood scared] Not so fast! > [conversation crow start] > [animation player spr_viktor][destroy viktorsRoom_crow][create viktorsRoom_crow_walk][position viktorsRoom_crow_walk 300 690][move viktorsRoom_crow_walk 180 5][time 60][set crowgone 1] > Every month we have the same stupid conversation. > Senile old crow. > Oh well, time to go and conquer this kingdom once and for all.",
 					"log": "I don't need to build another door",
 					"keys": "It's already unlocked. I just need to use it.",
 					"look_2" : "The door is open! Beware, Austria-Hungary!",
@@ -5203,7 +5470,7 @@
 		"entrances": [{
 			"alias": "start",
 			"entrance": "[not item phone][set phone 3][take phone] > [set passguess 0][position player 300 670][set alreadywent 0][set tried_dumb_flag 0] > This looks cozy. > [not version debug] Now to find those anarchists. > [not version debug] They probably have armies, bombs and whatnot.",
-			"entrance2": "[set passguess 0][position player 300 670set alreadywent 0][set tried_dumb_flag 0] This looks cozy. > Now to find those anarchists. > They probably have armies, bombs and whatnot."
+			"entrance2": "[set passguess 0][position player 300 670][set alreadywent 0][set tried_dumb_flag 0] This looks cozy. > Now to find those anarchists. > They probably have armies, bombs and whatnot."
 		},
 		{
 			"alias" : "return",
@@ -5215,7 +5482,7 @@
 		},
 		{
 			"alias": "toilet_exit",
-			"entrance": "[position player 1114 592] > [if alreadywent = 0] This was quite inspirational. Except for the smell. > [set alreadywent 1]"
+			"entrance": "[if available kafka][if random 1][destroy kafka][create roach][skip 1] > [if available roach][if random 1][destroy roach][create kafka] > [position player 1114 592] > [if alreadywent = 0] This was quite inspirational. Except for the smell. > [set alreadywent 1]"
 		}],
 		"objects": [{
 			"alias": "just_testing_delete_later",
@@ -5371,7 +5638,29 @@
 				"look": "He has beer. > I like that in a person.",
 				"talk": "[conversation kafka hello]"
 			}
-		}, {
+		},
+{
+			"comment": "Roach",
+			"alias": "roach",
+			"available" : 0,
+			"depth": -200,
+			"xScale": -0.83,
+			"yScale": 0.83,
+			"x": 700,
+			"y": 253,
+			"xCloud": 575,
+			"yCloud": 290,
+			"xInteract": 700,
+			"yInteract": 660,
+			"imageSpeed": 0.4,
+			"idle": 1,
+			"description": "Roach",
+			"order": "look",
+			"combinations": {
+				"look": "Weird.",
+			}
+		},
+		{
 			"comment": "Lake",
 			"alias": "lake",
 			"depth": -200,
@@ -5889,7 +6178,7 @@
 				"description": "Graffiti",
 				"order": "look",
 				"combinations": {
-					"look": "I love you Igor... > Ivan... > Lawrence... > Me... > It's complicated?"
+					"look": "I love you, Lawrence... > Ivan... > Igor... > Me... > It's complicated, I guess?"
 				}
 			}, {
 				"alias": "graffiti_door_2",
