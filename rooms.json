@@ -155,7 +155,7 @@
 			},
 			{
 			"alias": "again",
-			"entrance": "[position player 740 780][position matilda 850 780] > [not available dungeon_painting1][create dungeon_painting1][skip] > [not available dungeon_painting2][create dungeon_painting2][skip] > [not available dungeon_painting3][create dungeon_painting3][skip] > [not available dungeon_painting4][create dungeon_painting4][skip]"
+			"entrance": "[set alias viktor] > [position player 740 780][position matilda 850 780] > [not available matilda][create matilda] > [if available viktor][destroy viktor] > [not available dungeon_painting1][create dungeon_painting1][skip] > [not available dungeon_painting2][create dungeon_painting2][skip] > [not available dungeon_painting3][create dungeon_painting3][skip] > [not available dungeon_painting4][create dungeon_painting4][skip]"
 			}
 		],
 		"objects": [
@@ -233,10 +233,12 @@
 				"alias": "dungeon_schakles",
 				"x": 98,
 				"y": 587,
+				"xInteract" : 300,
+				"yInteract" : 650,
 				"description" : "Dungeon equipment",
 				"combinations" : {
 					"look" : "This seems like a very reputable laboratory basement.",
-					"use" : "They're all rusty and useless."
+					"use" : "They're all rusty and useless. > [if version debug][set first_entry 2] Debug thing so you dont have to listen to the conversation upstairs."
 				}
 			},
 			{
@@ -247,7 +249,7 @@
 				"yInteract" : 786,
 				"combinations" : {
 					"look" : "[if stairs = 0] Where do these stairs lead to? > [if stairs = 1] Where do these stairs lead to, again? > [talk klimt] Upstairs. > And what's upstairs? > [talk klimt] Dr. Frankensteins laboratory. > [set stairs 1]",
-					"use" : "[room tower start]"
+					"use" : "[set alias viktor][room tower start]"
 				}
 			},
 			{
@@ -642,15 +644,11 @@
 		"entrances": [
 			{
 				"alias": "start",
-				"entrance": "[set alias viktor] > [position matilda 310 781][position player 385 788] > [animation player spr_viktor_walk_right][animation matilda spr_matilda_walk_right][moveto matilda 588 817 5][moveto player 719 809 5][time 30] > [animation matilda spr_matilda][animation player spr_viktor][moveto matilda 719 809 0][if first_entry = 0][active frankenstein][conversation frankenstein first_entry]",
-			},
-			{
-				"alias" : "quickstart",
-				"entrance": "[set alias viktor][position matilda 588 817][position player 719 809] > [if first_entry = 0][active frankenstein][conversation frankenstein tantrum]"	
+				"entrance": "[set alias viktor] > [position matilda 310 781][position player 385 788] > [animation player spr_viktor_walk_right][animation matilda spr_matilda_walk_right][moveto matilda 588 817 5][moveto player 719 809 5][time 30] > [animation matilda spr_matilda][animation player spr_viktor][moveto matilda 719 809 0][if first_entry = 0][active frankenstein][conversation frankenstein first_entry] > [if version debug][if first_entry = 2][active frankenstein][conversation frankenstein tantrum]",
 			},
 			{
 				"alias" : "machine",
-				"entrance" : "[if machine_win = 0] Damn, this is complicated. > [if machine_win = 1][create tower_machine_blade4][create tower_machine_blade3][create tower_machine_blade2][create tower_machine_blade1][create tower_machine_nozzle][create tower_machine_cable][create tower_machine_body][create tower_machine_ball1][create tower_machine_ball2][set machine_fixed 1] Finally, it is fixed."
+				"entrance" : "[if machine_win = 0] Damn, this is complicated. > [if machine_win = 1][create tower_machine_blade4][create tower_machine_blade3][create tower_machine_blade2][create tower_machine_blade1][create tower_machine_nozzle][create tower_machine_cable][create tower_machine_body][create tower_machine_ball1][create tower_machine_ball2][destroy tower_machine_broken][set machine_fixed 1] Finally, it is fixed."
 			}
 		],
 		"objects": [

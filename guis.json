@@ -268,8 +268,8 @@
 				"picture" : "spr_menu_gramophone",
 				"passive" : "spr_cursor_walk",
 				"active" : "spr_cursor_walk_active",
-				"x" : 0,
-				"y" : 770,
+				"x" : 120,
+				"y" : 900,
 				"binding" : "o"
 				}
 			]
@@ -442,8 +442,8 @@
 				"picture" : "spr_menu_gramophone",
 				"passive" : "spr_cursor_walk",
 				"active" : "spr_cursor_walk_active",
-				"x" : 0,
-				"y" : 770,
+				"x" : 120,
+				"y" : 900,
 				"binding" : "o"
 				},
 				{
@@ -457,8 +457,8 @@
 				"picture" : "spr_action_switch",
 				"passive" : "spr_cursor_walk",
 				"active" : "spr_cursor_walk_active",
-				"x" : 950,
-				"y" : -20,
+				"x" : 1170,
+				"y" : 120,
 				"binding" : "s"
 				}
 			]
