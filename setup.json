@@ -1,5 +1,6 @@
 {
 	"version" : "debug",
+	"action" : "menu main",
 	"fullscreen" : 0,
 	"room_speed" : 30,
 	"image_speed" : 0.25,
@@ -7,13 +8,16 @@
 	"update" : "https://raw.githubusercontent.com/AlmightyWatashi/viktor/master/",
 	"title" : "Viktor, a Steampunk Adventure",
 	"cursor_wait" : "spr_cursor_wait",
-	"firstCoinInInventoryDefault" : "Can't bribe my way out of this.",
-	"firstCoinInInventoryDescription" : "My first paycheck.",
-	"firstCoinInInventoryName" : "Coin",
-	"firstCoinInInventoryNames" : "Coins",
-	"firstCoinInInventoryDescriptions" : " copper crowns",
+	"coin": {
+		"default" : "Can't bribe my way out of this.",
+		"name" : "Coin",
+		"description" : "My first paycheck.",
+		"names" : "Coins",
+		"descriptions" : " copper crowns"
+	},
 	"clickToContinue" : "Click to continue",
 	"chooseOption" : "Choose an option",
+	"changeColorScheme" : "Change color scheme",
 	"multiple" : 1,
 	"letterbox" : [
 		"0,0,0",
@@ -25,5 +29,15 @@
 		"62,62,62,48,48,48"
 	],
 	"stripe" : 100,
-	"action" : "new dungeon start",
+	"records" : {
+		"mozart" : "Falco - Rock me Amadeus",
+		"joplin" : "Scott Joplin - Maple Leaf Rag - Performed by Stefano Ligoratti",
+		"rossini" : "Gioachino Antonio Rossini - The Barber Of Seville - From the European Archive",
+		"saens" : "Camille Saint-Saëns - Cello Concerto No. 1 in A Minor, Op. 33 - Allegro non troppo - Performed by Skidmore College Orchestra",
+		"strauss" : "Johann Strauss Jr - Wiener Blut Op.354 Waltz - From the European Archive",
+		"dvorak2" : "Antonín Dvořák - Humoresque no. 7 in Gb Op. 101/7 - Performed by Oliver Colbentson",
+		"brahms" : "Johannes Brahms - 7 Fantasien, Op. 116 - Performed by Ivan Ilic",
+		"bizet" : "Georges Bizet - Carmen - Selection of recorder performances by Papalin",
+		"bach" : "Johann Sebastian Bach - Bourree from Violin Partita no. 1 , BWV 1002, guitar performance by Accou"		
+	}
 }
