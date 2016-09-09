@@ -327,139 +327,6 @@
 				}
 			}
 		]
-	},	{
-		"comment": "Emperors royal hallway",
-		"alias": "hallway",
-		"gui": "default",
-		"scaleNear": 1.2,
-		"scaleFar": 1.2,
-		"background": "bcg_hallway",
-		"border": "spr_border_hallway",
-		"xBackground": -60,
-		"yBackground": 20,
-		"rgb": "0,0,0",
-		"entrances": [
-			{
-			"alias": "start",
-			"entrance": "[position player 500 800] The royal hallway!"
-			}
-		],
-		"objects": [
-			{
-				"alias": "hallway_camera",
-				"x": 30,
-				"y": 430
-			},
-			{
-				"alias": "hallway_frame_ape",
-				"x": 934,
-				"y": 116
-			},
-			{
-				"alias": "hallway_frame_big",
-				"x": 630,
-				"y": 293
-			},
-			{
-				"alias": "hallway_frame_filip",
-				"x": 1006,
-				"y": 303
-			},
-			{
-				"alias": "hallway_frame_goat",
-				"x": 383,
-				"y": 80
-			},
-			{
-				"alias": "hallway_frame_leonard",
-				"x": 230,
-				"y": 336
-			},
-			{
-				"alias": "hallway_pic_ape",
-				"x": 960,
-				"y": 156
-			},
-			{
-				"alias": "hallway_pic_big",
-				"x": 663,
-				"y": 346
-			},
-			{
-				"alias": "hallway_pic_emperor",
-				"x": 690,
-				"y": 30
-			},
-			{
-				"alias": "hallway_pic_filip",
-				"x": 1006,
-				"y": 324
-			},
-			{
-				"alias": "hallway_pic_goat",
-				"x": 412,
-				"y": 112
-			},
-			{
-				"alias": "hallway_pic_leopard",
-				"x": 286,
-				"y": 396
-			},
-			{
-				"alias": "hallway_text_leopard",
-				"picture" : "spr_various_token",
-				"visible" : 0,
-				"x": 308,
-				"y": 603,
-				"xScale" : 100,
-				"yScale" : 30
-			},
-			{
-				"alias": "hallway_text_goat",
-				"picture" : "spr_various_token",
-				"visible" : 0,
-				"x": 472,
-				"y": 399,
-				"xScale" : 100,
-				"yScale" : 30
-			},
-			{
-				"alias": "hallway_text_big_left",
-				"picture" : "spr_various_token",
-				"visible" : 0,
-				"x": 694,
-				"y": 593,
-				"xScale" : 100,
-				"yScale" : 30
-			},
-			{
-				"alias": "hallway_text_big_right",
-				"picture" : "spr_various_token",
-				"visible" : 0,
-				"x": 828,
-				"y": 587,
-				"xScale" : 100,
-				"yScale" : 30
-			},
-			{
-				"alias": "hallway_text_filip",
-				"picture" : "spr_various_token",
-				"visible" : 0,
-				"x": 1065,
-				"y": 587,
-				"xScale" : 100,
-				"yScale" : 30
-			},
-			{
-				"alias": "hallway_text_ape",
-				"picture" : "spr_various_token",
-				"visible" : 0,
-				"x": 971,
-				"y": 288,
-				"xScale" : 80,
-				"yScale" : 25
-			}
-		]
 	},
 	{
 		"comment": "Horror house in Warsaw",
@@ -5487,7 +5354,7 @@
 		"rgb": "200,232,235",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[soundtrack bach][record mozart][set anarchist_trust 1] > [not item phone][set phone 3][take phone][take umbrella] > [set passguess 0][position player 450 670][set alreadywent 0][set tried_dumb_flag 0] > This looks cozy. > [not version debug] Now to find those anarchists. > [not version debug] They probably have armies, bombs and whatnot.",
+			"entrance": "[soundtrack bach][record mozart] > [not item phone][set phone 3][take phone][take umbrella] > [set passguess 0][position player 450 670][set alreadywent 0][set tried_dumb_flag 0] > This looks cozy. > [not version debug] Now to find those anarchists. > [not version debug] They probably have armies, bombs and whatnot.",
 			"entrance2": "[set passguess 0][position player 450 670][set alreadywent 0][set tried_dumb_flag 0] This looks cozy. > Now to find those anarchists. > They probably have armies, bombs and whatnot."
 		},
 		{
@@ -5500,8 +5367,13 @@
 		},
 		{
 			"alias": "toilet_exit",
-			"entrance": "[set hyde_out 1] > [if hyde_out = 1][create hyde][destroy anarchists] > [if available kafka][if random 2][skip 1] > [if seenroach = 0][destroy kafka][create roach][set seenroach 1][skip 1] > [if available roach][if random 2][destroy roach][create kafka] > [position player 1114 592] > [if alreadywent = 0] This was quite inspirational. Except for the smell. > [set alreadywent 1] > [if priest_moved = 1][destroy tavern_flask][create tavern_flask_empty] > [if jekyll_toilet_first = 1][destroy tavern_barrel_jekyll][create tavern_barrel_jekyll_abs]"
-		}],
+			"entrance": "[if hyde_out = 1][set mood scared][destroy roach][create kafka][destroy jekyll][create hyde][destroy anarchists][destroy mole][create mole_scared][destroy matilda_tavern][create matilda_tavern_scared][destroy horse1][create horse1_scared][destroy horse2][create horse2_scared] > [if available kafka][if random 2][skip 1] > [if seenroach = 0][destroy kafka][create roach][set seenroach 1][skip 1] > [if available roach][if random 2][destroy roach][create kafka] > [position player 1114 592] > [if alreadywent = 0][if hyde_out = 0] This was quite inspirational. Except for the smell. > [set alreadywent 1] > [if priest_moved = 1][destroy tavern_flask][create tavern_flask_empty] > [if jekyll_toilet_first = 1][destroy tavern_barrel_jekyll][create tavern_barrel_jekyll_abs] > [if hyde_out = 1][talk hyde] Hey there, horse, why the long face? > [if hyde_out = 1][talk horse1_scared][direction left] My face is fine, leave me alone. > [set mood]"
+		},
+		{
+			"alias" : "win",
+			"entrance" : "[set mood angry][fade out 0.03][position player 600 700][position matilda_tavern 290 910][destroy jekyll][destroy hyde][destroy anarchists][destroy mole_scared][create mole][destroy matilda_tavern_scared][create matilda_tavern][destroy horse1_scared][create horse1][destroy horse2_scared][create horse2][active horse2] > [conversation hyde hyde_win]"
+		},
+		],
 		"objects": [{
 			"alias": "just_testing_delete_later",
 			"available": 0,
@@ -5521,21 +5393,22 @@
 				"xScale" : -0.8,
 				"yScale" : 0.8,
 				"depth" : -700,
-				"x": 550,
+				"x": 750,
 				"y": 450,				
-				"xInteract": 600,
+				"xInteract": 850,
 				"yInteract": 730,
-				"xCloud": 440,
-				"yCloud": 440,
+				"xCloud": 620,
+				"yCloud": 400,
 				"description": "Mr. Hyde",
 				"banter" : [
-				"Har har har",
-				"Banter banter banter",
-				"Ho ho ho"
+					"What's with the stupid shovel?",
+					"Buy me more drinks!",
+					"What's a zebra like you doing in a nice place like this?",
+					"This music is too enjoyable, play something boring!"
 				],
 				"combinations": {
 					"look": "Eww.",
-					"talk" : "Not yet > [talk hyde] yes.",
+					"talk" : "[conversation hyde start]"
 				}
 		},
 		{
@@ -5687,7 +5560,7 @@
 			"description": "Doctor's barrel",
 			"combinations": {
 				"look": "There's the bag behind the barrel!",
-				"use": "[if flask_taken = 0] There's probably no need to bring him the whole bottle > [if flask_taken = 0]He already poured some of it into his little flasks. > [if flask_taken = 0][pick][set flask_taken 1] > [if flask_taken = 1] I think one was enough."
+				"use": "[if flask_taken = 1] I think one was enough. > [if flask_taken = 0] There's probably no need to bring him the whole bottle > [if flask_taken = 0] He already poured some of it into his little flasks. > [if flask_taken = 0][pick][set flask_taken 1]"
 			},
 				"inventory": {
 					"alias": "flask",
@@ -5831,7 +5704,34 @@
 				"look": "Suspiciously equipped individual",
 				"talk": "[conversation krtek]"
 			}
-		}, {
+		},
+{
+			"comment": "Krtek with Hyde",
+			"alias": "mole_scared",
+			"picture" : "spr_mole",
+			"talkSoundOverride" : "snd_mole_talk",
+			"available" : 0,
+			"depth": -999,
+			"xScale": 0.83,
+			"yScale": 0.83,
+			"x": 880,
+			"y": 623,
+			"xCloud": 970,
+			"yCloud": 550,
+			"xInteract": 600,
+			"yInteract": 680,
+			"imageSpeed": 0.4,
+			"idle": 1,
+			"description": "Krtek",
+			"order": "look, talk",
+			"banter" : [
+			"Please, stop bothering us"
+			],
+			"combinations": {
+				"look": "His spirit is not yet crushed completely",
+				"talk": "Viktor, please do something about this obstructive individual."
+			}
+		},		{
 			"comment": "Konj 1",
 			"alias": "horse1",
 			"depth": -998,
@@ -5856,7 +5756,35 @@
 				"look": "Regular-looking person",
 				"talk": "[conversation pferdinand]"
 			}
-		}, {
+		},
+		{
+			"comment": "Konj 1 with hyde",
+			"alias": "horse1_scared",
+			"picture" : "spr_horse1",
+			"talkSoundOverride" : "snd_horse1_talk",
+			"available" : 0,
+			"depth": -998,
+			"xScale": 0.65,
+			"yScale": 0.65,
+			"x": 667,
+			"y": 580,
+			"xCloud": 740,
+			"yCloud": 560,
+			"xInteract": 620,
+			"yInteract": 660,
+			"imageSpeed": 0.4,
+			"idle": 1,
+			"description": "Pferdinand",
+			"order": "look, talk",
+			"banter" : [
+			"Stop talking about my face."
+			],
+			"combinations": {
+				"look": "His face does look a bit long.",
+				"talk": "First no pen, then no paper and now this!"
+			}
+		},
+		{
 			"comment": "Konj 2",
 			"alias": "horse2",
 			"depth": -997,
@@ -5881,7 +5809,35 @@
 				"look": "Regular-looking person",
 				"talk": "[conversation andras]"
 			}
-		}, {
+		},
+{
+			"comment": "Konj 2 with Hyde",
+			"alias": "horse2_scared",
+			"talkSoundOverride" : "snd_horse2_talk",
+			"picture" : "spr_horse2",
+			"available" : 0,
+			"depth": -997,
+			"xScale": 0.65,
+			"yScale": 0.65,
+			"x": 400,
+			"y": 600,
+			"xCloud": 510,
+			"yCloud": 500,
+			"xInteract": 510,
+			"yInteract": 680,
+			"imageSpeed": 0.4,
+			"idle": 1,
+			"description": "Andras",
+			"order": "look, talk",
+			"banter" : [
+			"This is highly irregular."
+			],
+			"combinations": {
+				"look": "Looks scared and annoyed.",
+				"talk": "Not good."
+			}
+		},
+		{
 			"comment": "Matilda!",
 			"alias": "matilda_tavern",
 			"talkSoundOverride" : "snd_matilda_talk",
@@ -5907,7 +5863,61 @@
 				"look": "Hot anarchist Zebra",
 				"talk": "[conversation matilda]."
 			}
-		}, {
+		},
+		{
+			"comment": "Matilda with hyde",
+			"alias": "matilda_tavern_scared",
+			"picture" : "spr_matilda_tavern",
+			"available" : 0,
+			"talkSoundOverride" : "snd_matilda_talk",
+			"depth": -1700,
+			"xScale": 0.85,
+			"yScale": 0.85,
+			"x": 290,
+			"y": 910,
+			"xCloud": 300,
+			"yCloud": 500,
+			"xInteract": 600,
+			"yInteract": 680,
+			"imageSpeed": 0.4,
+			"idle": 1,
+			"description": "Matilda",
+			"order": "look, talk",
+			"banter" : [
+			"I didn't need this today."
+			],
+			"combinations": {
+				"look": "Hot anarchist Zebra",
+				"talk": "[conversation matilda]."
+			}
+		},
+{
+			"comment": "Matilda with gun",
+			"alias": "matilda_gun",
+			"available" : 0,
+			"talkSoundOverride" : "snd_matilda_talk",
+			"depth": -1700,
+			"xScale": 0.85,
+			"yScale": 0.85,
+			"x": 290,
+			"y": 910,
+			"xCloud": 300,
+			"yCloud": 500,
+			"xInteract": 600,
+			"yInteract": 680,
+			"imageSpeed": 0.4,
+			"idle": 1,
+			"description": "Matilda",
+			"order": "look, talk",
+			"banter" : [
+			"I didn't need this today."
+			],
+			"combinations": {
+				"look": "Hot anarchist Zebra",
+				"talk": "[conversation matilda]."
+			}
+		},
+		{
 			"comment": "Barman",
 			"alias": "anteater",
 			"depth": -177,
@@ -5977,7 +5987,7 @@
 		},
 		{
 				"alias": "fight",
-				"entrance": "[position player 732 795][create fight_controller] > [stop] > [if viktorsRoom_win = 1] I won! > [if viktorsRoom_win = 0] I lost! > [room tavern start]"
+				"entrance": "[soundtrack nanowar][fade][position player 732 795][create fight_controller] > [stop] > [destroy fight_controller][soundtrack bach] > [if toilet_win = 1][room tavern win] > [if toilet_win = 0] I lost!"
 		}
 		],
 		"objects": [
@@ -6352,7 +6362,7 @@
 					"look": "Sounds busy.",
 					"use" : "[talk toilet_left_jekyll] It's busy!",
 					"talk" : "[if paper_fallen = 1][conversation jekyll toilet] > [if paper_fallen = 1][skip 1] > I don't need to bother him.",
-					"flask" : "[animation player spr_viktor_use_back_low] > [talk toilet_left_jekyll] Oh thank you, thank you. > [time 30] > [talk toilet_left_jekyll] Wait a minute... > [mood scared][talk toilet_left_jekyll][sound snd_pot_boil] This wasn't my absinthe, it was my medicine! >  So... even better? > [talk toilet_left_jekyll][blocksound snd_donkey_talk_muffled] No, you foool! > [talk toilet_left_jekyll][blocksound snd_donkey_talk_muffled] You have brought doom upon yourself! > I have what on whom? > [animations spr_viktor_back_off][move player 350 6][talk toilet_left_jekyll][blocksound snd_donkey_talk_muffled] GRRRRRRR [time 40] > [animations player spr_viktor_listen_left][sound snd_door_open][position toilet_left 486 286][animation toilet_left_jekyll spr_toilet_left 1][time 3][destroy toilet_left_jekyll 3][create toilet_left_open 3][destroy graffiti_door_1b][destroy graffiti_door_1c][destroy graffiti_door_1d][create hyde][animations hyde spr_hyde_walk][move hyde 240 5][time 10] > [animations player spr_viktor_listen_left][animations hyde spr_hyde_walk][move hyde 170 10][time 40] > [animations player spr_viktor_talk_left][set mood]The hell just happened?[set hyde_out 1]"
+					"flask" : "[animation player spr_viktor_use_back_low] > [talk toilet_left_jekyll] Oh thank you, thank you. > [time 30] > [talk toilet_left_jekyll] Wait a minute... > [mood scared][talk toilet_left_jekyll][sound snd_pot_boil] This wasn't my absinthe, it was my medicine! >  So... even better? > [talk toilet_left_jekyll][blocksound snd_hyde_talk2] No, you fool! > [talk toilet_left_jekyll][blocksound snd_hyde_talk3] You have brought doom upon yourself! > I have what on whom? > [animations spr_viktor_back_off][move player 350 6][talk toilet_left_jekyll][blocksound snd_hyde_scream] GRRRRRRR [time 40] > [animations player spr_viktor_listen_left][sound snd_door_open][position toilet_left 486 286][animation toilet_left_jekyll spr_toilet_left 1][time 3][destroy toilet_left_jekyll 3][create toilet_left_open 3][destroy graffiti_door_1b][destroy graffiti_door_1c][destroy graffiti_door_1d][create hyde][animations hyde spr_hyde_walk][move hyde 240 5][time 10] > [animations player spr_viktor_listen_left][animations hyde spr_hyde_walk][move hyde 170 10][time 40] > [animations player spr_viktor_talk_left][set mood]The hell just happened?[set hyde_out 1]"
 				}
 			},
 			{
@@ -6369,7 +6379,7 @@
 				"description": "Mr. Hyde",
 				"combinations": {
 					"look": "Eww.",
-					"talk" : "Not yet",
+					"talk" : "Not yet"
 				},
 				"inventory": {
 					"alias": "flask",
@@ -6416,7 +6426,7 @@
 				"order": "look, talk",
 				"combinations": {
 					"look": "Nice door.",
-					"use" : "[set saw_rasputin 1][sound snd_door_open][position toilet_middle 675 286][animation toilet_middle spr_toilet_middle 1][time 3][destroy toilet_middle 3][create toilet_middle_open 3][destroy graffiti_door_2b][destroy graffiti_door_2]"
+					"use" : "[set saw_rasputin 1][sound snd_door_open][position toilet_middle 675 286][animation toilet_middle spr_toilet_middle 1][time 3][destroy toilet_middle 3][create toilet_middle_open 3][destroy graffiti_door_2b][destroy graffiti_door_2][set middle_closed 1]"
 				}
 			}, 
 			{
@@ -6435,7 +6445,7 @@
 				"order": "look, talk",
 				"combinations": {
 					"look": "Nice door.",
-					"use" : "[sound snd_door_close][position toilet_middle_open 675 286][animation toilet_middle_open spr_toilet_middle 1][time 3][destroy toilet_middle_open 3][create toilet_middle 3][create graffiti_door_2b][create graffiti_door_2]"
+					"use" : "[sound snd_door_close][position toilet_middle_open 675 286][animation toilet_middle_open spr_toilet_middle 1][time 3][destroy toilet_middle_open 3][create toilet_middle 3][create graffiti_door_2b][create graffiti_door_2][set middle_closed 0]"
 				}
 			},
 			{

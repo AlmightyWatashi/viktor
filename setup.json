@@ -1,6 +1,6 @@
 {
 	"version" : "debug",
-	"action" : "new dungeon start",
+	"action" : "new tavern start",
 	"fullscreen" : 0,
 	"room_speed" : 30,
 	"image_speed" : 0.25,

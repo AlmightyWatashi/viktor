@@ -22,7 +22,7 @@
 				"passive" : "spr_cursor_walk",
 				"active" : "spr_cursor_walk_active",
 				"x" : 200,
-				"y" : 200,
+				"y" : 1000,
 				"binding" : "x"
 				}
 			]

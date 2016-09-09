@@ -13,6 +13,7 @@
 0.12. brian edit plus extra checks
 0.13. sven added stuff, wat fixed it into something semi-playable
 0.14. 24.8. alex frankenstein
+0.2 7.9. Frankenstein and tavern are playable, far from perfect
 
 
 === crow ===
@@ -609,7 +610,7 @@ end
 					Is it green or blue, then?
 						Why are you asking me that?
 						What am I, psychic?
-						[animation martinsRoom_martin spr_martinsRoom_martin][time 15]
+						[animation martinsRoom_martin spr_martinsRoom_martin][time 35]
 						[imagespeed martinsRoom_martin 0.3]
 						Oh, right...
 						Try... magenta!
@@ -2345,19 +2346,14 @@ end
 end		
 == some_excuse ==
 
-[set randomreply 1]
-Hello.
-[if randomreply = 0] Nula.
-[if randomreply < 1] Manje od jedan.
-[if randomreply = 1] Jedan.
-
+[set randomreply 5]
 [if randomreply = 0] No sir, not right now.
 [if randomreply = 1] We do not have that one.
 [if randomreply = 2] Yes but it's spoiled.   //brian edit   changed (it' is) to (it's)  spelling
 [if randomreply = 3] Waiting for the new shipment.
 [if randomreply = 4] It should be here by next week.
 [if randomreply = 5] I'm drinking the last one right now.
-[if randomreply = 5] Would you like some?
+[if randomreply = 5] Would you like some from my glass?
 	[if randomreply = 5][mood scared] No, thank you.
 [add beer_flag 1]
 [not beer_flag < 1][set mood scared]
@@ -2722,7 +2718,7 @@ end
 end		
 == nope ==
 
-[talk matilda_tavern] nope
+[talk matilda_tavern] Nope.
 	[section watchword]
 			
 end
@@ -2831,9 +2827,11 @@ You talk
 end
 == gunpoint ==
 
-	I think the middle one is empty
+	[if middle_closed = 1] I think the middle one is empty.
 	[set gunpoint_complicated 0]
-	Don't ask how I checked
+	[if middle_closed = 1] Don't ask how I know.
+	[if middle_closed = 0] Oh look, the middle one is empty.
+	[if middle_closed = 0] If this thing on the floor doesn't bother you...
 		Actually, right here is fine.
 			[set mood scared]
 			Are you sure?
@@ -2994,6 +2992,7 @@ And we've been trying to agree on basic principles for the last ten years.
 		What, just go without a good plan and wing it?
 		What are you, nuts?
 			Basically, yes.
+				Hmm...
 				I like that
 					[section gunpoint_win]
 
@@ -3132,86 +3131,147 @@ Better talk with Krtek, he's better at organizing.
 
 === hyde ===
 
-hyde: šta je konju, why the long face
-andras: my face is fine, please leave me alone
-
 == start ==
+[set mood scared]
 	- Dr. Jekyll, what happened to you?
-		Nisam ti ja dr. jekyll, šonjino
-		on je slab i pije loš apsint
-		kao i svi vi ovdje
-		mogao bih vas sve razbiti
+		I'm not Dr. Jekyll, you wimp.
+		Jekyll is weak and his absinthe is weak.
+		You are all weak.
+		I could smash you all to bits!
 			[section start]
-	- Mislim da vam je dosta apsinta za danas
-		mislim da ste u pravu
-		konobar, dajte mi nešto bolje za piti
-		konobar: što bi ste popili?
-		tvoju krv ako mi ne doneseš nešto fino
-			+ ostavi konobara na miru
-				ma i tvoje ću se krvi napiti, kretenu
+	- I think you had enough absinthe today.
+		I think you're right.
+		Barman, get me a stronger drink
+		[talk anteater] What would you like to drink, sir?
+		Your blood if you don't get me something good.
+			+ Leave the barman alone
+				I'll drink your blood as well
 					[section hyde_matilda]
-			+ nemoj da konobar zove policiju, to nitko ne želi
-				konobar: ne želim ni ja
-				kafka: a da glasamo?
+			+ Stop making trouble, we wouldn't want to call the police.
+				[talk anteater] I, in fact, wouldn't want to call the police.
+				[talk kafka] How about we take a vote?
 					[section hyde_matilda]
-	- molim vas, otiđite. pokušavamo imati sastanak
-		a zašto nebi i ja imao sastanak s vama?
-		vi mi platite piće, a ja vas ne razbijem
+	- Please go away! We're trying to have a meeting
+		Why wouldn't I have a meeting with you?
+		Here's a subject for the meeting.
+		You get me some drinks and I don't smash you all to bits!
 			[section hyde_matilda]
-	
+
+
+end
 == hyde_matilda ==
 
-	+ molim te nemoj da popizdim pred ženskom
-		Onda odi doma i pusti mene da se zabavljam
-		ja sam sada vaš novi vođa
-		andras: ali još nemamo papir za zapisnik
-		[if nema olovke] pferdinand: ni olovku
-		ti nosati, odi se zakopaj u wc
-		vas dva konja, donesite mi nešto za piti
-		a ti mala fufica sjedi kraj mene da me zabavljaš
-		matilda: (vadi gun) približi mi se i mrtav si
-		nisi trebala vaditi gun blizu dr. jekylla
-		vidio je već odavno da nemaš metaka
-		matilda: kvragu, trebam kupiti metke
-		hajde dođi ovdje da mi sjedneš na krilo
-			+ viktor: e sad mi je dosta, dolazi vamo da te ubijem
-				konobar: molim vas nemojte se ubijati usred birtije
-				konobar: otiđite u wc pa se ubijajte tamo
-				konobar: hvala
-				Hoćemo?
-					+ ajde bre
-						[end]
-		
+	+ Dude, please don't make me rage when there's girls around..
+		[set mood angry]
+		Then go home and be quiet.
+		I am now a leader of your group
+		[talk horse2_scared] We can't make you a leader!
+		[talk horse2_scared] We don't have any paper to record the shift in leadership.
+		[if needs_pen = 1] [talk horse1_scared] We don't have a pen either.
+		Be quiet!
+		You two horses, get me some drinks!
+		Shovel boy, go bury yourself into the toilet
+		And the hooch can come here and sit on my lap
+		[animation matilda_gun spr_matilda_gun_draw][time 12]
+		[destroy matilda_tavern_scared][create matilda_gun]
+		[set mood scared]
+		[talk matilda_gun] Enough of this.
+		Well well, would you look at that, little whooty flashes her gun again.
+		Doesn't know I spent years in the seediest bars of London, snorting gunpowder.
+			+ Doing what now?
+				I can smell it, you don't have any bullets.
+				[talk matilda_gun] Wanna try me?
+				Yes
+				[noitamina matilda_gun spr_matilda_gun_draw][time 12]
+				[destroy matilda_gun][create matilda_tavern_scared]
+				[talk matilda_tavern_scared] Dammit, I'll have to get some bullets eventually.
+				[set mood angry]
+					+ I had enough! Get over here, so I can smash your face in!
+						You don't know who you're dealing with, pig!
+							+ I can't wait to find out.
+							[set mood]
+							By the way, I was a professional boxer.
+								How nice for you
+								[set mood scared]
+								I'm a bloody MONSTER!
+								[animation hyde spr_hyde_shriek][blocksound snd_hyde_scream][time 48] GRRRRRRRRR
+								[imagespeed hyde 0.8]
+									That's... also imposing, I guess.
+										[talk anteater] Please do not kill each other in the middle of the tavern.
+										[talk anteater] We have a guest here.
+										[talk kafka] You sure do.
+										[talk lake] And a musician.
+										Well, we can't go outside.
+											+ Yeah, I don't want to get arrested again.
+												And I'm a foreigner
+												[talk horse2_scared] Oh wow, man. That's a bummer.
+												[talk matilda_tavern_scared] Stop helping, Andras.
+												[talk anteater] You can use the restroom like the rest of the angry drunkards
+													+ I'm okay with that
+														It's a good idea actually
+															+ Let's go.
+																[animations player spr_viktor_walk_right][move player 8 6][animations hyde spr_hyde_walk][move hyde 17 8][fade in 0.03][time 150]
+																	[room toilet fight]
+						
 
 
 == hyde_win ==
 
-ok, sad mi je dosta svega, idemo nešto napokon napraviti
-	pferdinand: pa kako bez zapisnika
-		evo ti glupog wc papira pa radi zapisnike kakve želiš
-		znači, ovakav je plan
-		treba nam novac za ljudstvo, oružje i tehnologiju koja gasi carevo zaštitno polje
-			andras: čekaj čekaj, kako si ti sad vođa?
-				evo zapiši u zapisnik da jesam
-				upravo sam sredio prošlog vođu
-				leži vam tamo u wc-u
-					krtek: a ne ne, ne može to tako. Moramo glasati
-						u redu. Tko je za da ja budam novi vođa?
-							svi jedan po jedan pa i kafka: za
-							lake: ja sam suzdržan
-								Evo jednoglasno je.
-								sutra krećemo za budimpeštu
-								tamo ćemo opljačkati nacionalnu banku
-									pferdinand: ali ta banka je zaštićena sa svih strana
-									viktor: sa svih strana osim jedne
-									krtek: odozdola?
-									viktor: ponesite lopate
-									krtek: moja će biti dosta
-									
-									
-
-
-
+[set mood angry]
+	+ I think we had enough shit to deal with, let's finally start planning.
+	[talk horse1] But we still don't have any paper for keeping records
+	If you want paper, go to the toilet and ask Dr. Jekyll to get it for you
+	[set mood]
+	[talk horse1] Fair enough. This one will be off the record.
+	[talk kafka] Oh no. Whatever shall you do?
+	Anyway, I will lay out my current plan.
+	Firstly, we'll need money.
+	[talk mole] Definitely.
+	So we could get weapons.
+	[talk matilda_tavern] Specifically, bullets.
+	We also need a lot of manpower.
+	[talk matilda_tavern] And womanpower!
+	And most importantly, the technology that would help us circumvent the emperor's electricity shield
+	[set mood angry]
+	[talk horse1] Wait a minute, why are you acting like our leader all of a sudden?
+	I just beat the crap out of your former leader back in the restroom.
+	Put that in your records.
+	[set mood scared]
+	[talk mole] But the boy is right, Viktor. We do need to at least take a vote on these issues.
+	[set mood]
+	All right. Who wants me to lead you into victory instead of bureaucracy?
+	[talk matilda_tavern] Agreed.
+	[talk horse1] Souds reasonable
+	[set mood angry]
+	[talk horse2] I need some time to think.
+	[animation horse2 spr_horse2][time 55] > [imagespeed horse2 0.4]
+	[talk horse2] Fine, I agree.
+	[set mood]
+	[talk mole] Agreed.
+	[talk kafka] Abstain.
+	[mute]
+	[talk lake] I wasn't paying attention, what was the vote about?
+	[animations lake spr_lake_listen][talk anteater] Just play your little song, Lake.
+	[imagespeeds lake 0.4]
+	[talk lake][animations lake spr_lake_talk] Oh all right.
+	[soundtrack bach]
+	There you go, it's more or less unanimous.
+	Short version of the plan, we need money for everything so we'll rob a bank.
+	[talk horse1] What?
+	[talk mole] Ooh, I like that plan. Does it include shovels?
+	It might.
+	[talk matilda_tavern] How about guns?
+	Hopefully not.
+	[talk matilda_tavern] Then I like the plan as well.
+	Then it's settled. Tomorrow we head for Budapest.
+	[talk horse2] You don't mean the national bank?
+	[talk horse1] That bank has the best protection in the empire.
+	[talk horse2] It's sealed and full of armed guards from all sides.
+	[talk mole] All sides but one.
+	[talk mole] Oh yes, this plan is definitely going to include shovels.
+	[talk mole] And possibly some explosives.				
+	[fade in 0.1][talk mole] Beautiful.[time 50]
+		[mute][fade][room dungeon start]
 
 end
 === jekyll ===
@@ -3302,10 +3362,10 @@ end
 			[section hello]
 	+[if absintheknows = 1][if priest_moved = 0] Is that absinthe you're drinking?
 	Is that absinthe you're drinking?
-	I didn't know this bar serves absinthe!
-			It does not.
-			I brought my own and paid the waiter as if I ordered it from him.
-				[section hello]
+			I didn't know this bar serves absinthe!
+				It does not.
+				I brought my own and paid the waiter as if I ordered it from him.
+					[section hello]
 	+ Never mind.
 		[end]
 
@@ -3916,7 +3976,6 @@ end
 			[end]
 
 end
-
 === klimt ===
 
 == viktor_first ==
@@ -4524,11 +4583,6 @@ Enough of these charades.
 
 
 
-
-
-
-
-end
 === -- !!! SHROOM TRIP !!! --- ====
 
 === snake ===
@@ -4586,3 +4640,5 @@ Stripes upon me
 		They are the eggplant.
 		I am broccoli
 			[end]
+end
+=== eof ===
