@@ -2243,7 +2243,10 @@ Long live the emperor, good sir. Do you wish to order a drink?
 
 end
 == talkabout ==
-
+	
+	-[if seenroach = 1] I think you have roaches in the bar.
+		Oh, that's a visitor.
+			[section talkabout]
 	+ I would like to know more about the patrons in this establishment.
 		Are you a government agent, possibly?
 		I don't know these people well, but feel free to try.
@@ -2342,7 +2345,12 @@ end
 end		
 == some_excuse ==
 
-[set randomreply 5]
+[set randomreply 1]
+Hello.
+[if randomreply = 0] Nula.
+[if randomreply < 1] Manje od jedan.
+[if randomreply = 1] Jedan.
+
 [if randomreply = 0] No sir, not right now.
 [if randomreply = 1] We do not have that one.
 [if randomreply = 2] Yes but it's spoiled.   //brian edit   changed (it' is) to (it's)  spelling
@@ -2367,7 +2375,12 @@ Mr. Kafka is drinking the last one right now.
 end
 
 == anarchy_hello ==
-
+	-[if seenroach = 1] I think you have roaches in the bar.
+		That's Franz Kafka.
+		[description roach Franz Kafka]
+		He has a condition.
+		Don't ask.
+			[section talkabout]
 	- What's with the change of rhetoric all of the sudden?
 		You know the watchword.
 		Took you long enough to remember it.
@@ -2390,10 +2403,10 @@ end
 						Oh, that's probably hatered.
 							[end]
 			+ Wow, thank you.
-				No problem
+				No problem.
 					[animation spr_viktor_drink]
 					That really hit the spot.
-					Makes me feel stronger, more agressive.
+					It makes me feel great! Smarter! More aggressive!
 						Don't go there, please.
 							Fair enough.
 								[end]
@@ -2409,6 +2422,11 @@ end
 	+ Never mind, sorry to bother you.
 		Any time.
 			[end]
+
+
+
+
+end
 == askaway ==
 
 	+ Fox with a very small green drink.
@@ -2441,6 +2459,10 @@ end
 === kafka ===
 
 == hello ==
+[if got_insurance = 1][section insured]
+	-[if seenroach = 1] You have an interesting condition.
+		I don't want to talk about it.
+			[section hello]
 	-[if needs_pen = 1] Excuse me, do you have the pen I could borrow?
 		For customers only
 			[section insurance]
@@ -2579,11 +2601,27 @@ end
 	+[if needs_pen = 1] Can I see the contract?
 		Of course you can.
 		[set needs_pen 0]
+		[take pen]
 		And here is the pen for signing it.
-			+ Actually, never mind, I forgot my reading glasses.
-				Damn
+			+ This is an eraseable pencil.
+				Oh... damn...
+				I'll get a better pen as soon as I finish my beer.
+				Please don't leave.
+				[set got_insurance 1]
 					[end]
 					
+
+end
+== insured ==
+
+I'm relaxing as fast as I can.
+You're just gonna have to wait some more.
+	+ You're a terrible insurance salesman.
+		Yes.
+			[end]
+	+ Okay.
+		[end]
+
 
 end
 === anarchists_all ===
@@ -3186,13 +3224,32 @@ end
 			What?
 				Don't ask.
 					[section hello]
-	+ SUDO GO TO TOILET
-		Ok.
-		[animations jekyll spr_hyde_walk][move jekyll 355 5][time 160]
-			Ok.
-			[destroy jekyll]
-			[set jekyll_toilet 1]
-			[end]
+	+[if priest_moved = 1] I see you finished your drink. Ready for another one?
+		Oh no no. I think I had too much.
+		I even feel slight illnes taking over me.
+			Yeah, I wouldn't recommend the toilets around here.
+				Oh my, how bad are they?
+					[animation jekyll spr_jekyll_idle2]Terrible! There's this priest who basically vomits everywhere.
+						[animation jekyll spr_jekyll_idle2]
+						[imagespeeds jekyll 0.6]
+						Oh no.
+							[animation jekyll spr_jekyll_idle2]He already filled two toilets full of strange liquids.
+								[animation jekyll spr_jekyll_idle2]
+								[imagespeeds jekyll 0.6]
+								Please stop describing it.
+									I think there's blood in it.
+										Excuse me...
+										[animation jekyll spr_jekyll_idle2]
+										[imagespeeds jekyll 0.6]
+										While I go outside.
+										[talk anteater] I wouldn't recommend that, sir.
+										[talk anteater] Vomiting in public while being a foreigner is punishable by death.
+										Oh god, I really don't need this.
+										[imagespeeds jekyll 0.6]
+										[animations jekyll spr_jekyll_walk][move jekyll 359 5][time 180]
+											[destroy jekyll]
+											[set jekyll_toilet 1]
+											[end]
 	+ Are you an anarchist?
 		Goodness me, not in the slightest.
 		I was under the impression that heads in your empire can roll just for asking questions like this.
@@ -3243,7 +3300,7 @@ end
 		Such lovely patches you have.
 		Marvelous choice of colors.
 			[section hello]
-	+[if absintheknows = 1] Is that absinthe you're drinking?
+	+[if absintheknows = 1][if priest_moved = 0] Is that absinthe you're drinking?
 	Is that absinthe you're drinking?
 	I didn't know this bar serves absinthe!
 			It does not.
@@ -3251,6 +3308,27 @@ end
 				[section hello]
 	+ Never mind.
 		[end]
+
+end
+== toilet ==
+
+	+[if jekyll_toilet_first = 0] Are you doing all right?
+		Not quite.
+		[set jekyll_toilet_first 1]
+		I lost the taste of absinthe and am starting to feel the smells around here.
+		Please bring me more of my absinthe as soon as possible!
+		The bottle is in my bag behind the barrel.
+			[end]
+	+[if jekyll_toilet_first = 1] Where did you say what was how?
+		My bag!
+		Bottle behind the barrel where I was sitting!
+		Green drink!
+		It smells awful in here and I might keep vomiting for the rest of the night.
+		Hurry!
+		Please!
+			Yeah, yeah.
+				[end]
+
 
 end
 === lake ===
@@ -3453,6 +3531,14 @@ end
 						[section needhelp]
 	+ Actually, just go and do whatever you are doing.
 		[section finish]
+	+[if priest_moved = 0][if priest_booths = 0] Could you please move to some other stall? I need to see something behind you.
+		I would use a more private booth.		
+		[set priest_booths 1]
+		But the door was stuck.
+		If you manage to open it, I'll move eventually.
+		But right now, I need to pray some more.
+		Go in peace, my son.
+			[end]
 end
 == needhelp ==
 
@@ -3959,48 +4045,50 @@ end
 								Can you do it?
 									[talk viktor] Um, yeah, sure, OK, I guess.
 									[talk matilda] We just robbed a bank, you see...
-									[talk viktor] Here you go...
+										Oh, all right, then
 											[animation player spr_viktor_take_left_high]
-												[fade in 0.02][time 60] > [fade out 0.02][time 60]
-													Here is your art. Enjoy.
+											[fade in 0.02][time 60] > [fade out 0.02][time 60]
+											[take fuck]
+												Here is your art. Enjoy.
 													[end]
 
 
 end
 
-=== frankenstein === // or igor?
+=== frankenstein ===
 
 == first_entry ==
 [set first_entry 1]
-Ah, welcome to my laboratory!
-Everyone ist welcome in ze laboratory!
+Ah, wilkommen to mein laboratory!
+Everyone ist wilkommen in ze laboratory!
 Ich bin Dr. Frankenstein.
 Ze biggest mind in all ze universe!
-And das ist mein greatest creation!
+Und das ist mein greatest creation!
 == questions ==
 	- The parrot?
-		No, zis iz ze parrot psychiatrist dr. Sigmund Freud!
+		Nein, das iz ze parrot psychiatrist, dr. Sigmund Freud!
+		[decription freud Sigmund Freud]
 		[talk freud] Pleased to meet you, mister...
 			[set frankenstein_introduced 1] Viktor.
 				[talk freud] Ahh... So you believe you are always victorious in everything you do?
 				[talk freud] Schizoid delusions coupled with superiority complex, how intriguing!
-				[talk freud] I am right, ja?
+				[talk freud] I am right, yes?
 					Well, I hope so... I'm trying to become the emperor of Austria-Hungary
 						I zee you also need his psychiatric services.
 						But first, tell me what you think of mein greatest creation!
 						[section questions]
 	- That thing assembled from random body parts?
 		Ja!
-		The marvel of organic engineering!
-		A unique and monstrous creation!
-		[talk monster] There you go again dad! Talking like I'm not here!
+		Ze marvel of organic engineering!
+		Eine unique and monstrous creation!
+		[talk monster] There you go again dad! Du bist sprechen like ich bin nicht here!
 		Unfortunately, it has some sort of bug.
 		Ze psychiatrist will fix it soon.
 		[section first_continue]
 	- The dog?
-		No, that's Igor, my henchman.
+		Nein, das ist Igor, mein henchman.
 		[talk igor] hee hee hee.
-		He doesn't talk much.
+		He does nicht talk much.
 		[section questions]
 	+ Bye...
 		Don't you want to marvel at mein creation?!
@@ -4014,50 +4102,61 @@ end
 
 == first_continue ==
 
-Then, I can make thousands of super-soldiers fur mein beloved fuhrer.
+Then, ich make thousands of super-soldiers fur mein beloved fuhrer.
 	[talk freud] Yes, thousands of neurotic gender-confused children.
 		Be silent, insolent minion.
-			[talk freud] I am not a minion, I am a psychiatrist.
+			[talk freud] I am not a minion, I am a hired psychiatrist.
 			[talk freud] And I won't be able to do anything if you keep interrupting the session
-				Oh you and your sessions. Just fix ze moster already.
-					[talk monster] I'm not a monster, father. I'm a delicate schmetterling.						
+				Oh you und your sessions. Just fix ze monster already.
+					[talk monster] Ich bin monster nicht, father. Ich bin ze delicate schmetterling.						
 						[section tantrum]
 
 == tantrum ==
 [mood frankenstein crazy] Nein nein nein, enough of zis schmetterling geschaft!
-[mood frankenstein crazy] Sad tu ide ono animacija da uzme i baci stolac tj. stolicu gore.
-[animations frankenstein spr_frankenstein_talk_crazy][time 30]
+[position frankenstein 9000 9000]
+[draw spr_frankenstein_throw_chair 885 808 57 -1000 0.7][destroy tower_stool 10][time 40]
+[draw spr_tower_stool 836 508 17 300 0.7 1 120 35 150][time 17]
+[draw spr_cloud_small 375 230 10 -1000 0.3 1 0 15 45 0 0 0 -0.01][draw spr_cloud_small 375 230 10 -1000 0.3 1 0 15 135 0 0 0 -0.01][draw spr_cloud_small 375 230 10 -1000 0.3 1 0 15 215 0 0 0 -0.01]
+[position frankenstein 885 808]
 [move tower_machine_blade4 270 30][move tower_machine_blade3 270 30][move tower_machine_blade2 270 30][move tower_machine_blade1 270 30][move tower_machine_nozzle 270 30][move tower_machine_cable 270 30][move tower_machine_body 270 30][move tower_machine_ball1 270 30][move tower_machine_ball2 270 30][time 20]
+[draw spr_cloud_large 290 750 10 -1000 0.3 1 0 15 45 0 0 0 -0.01][draw spr_cloud_large 290 750 10 -1000 0.3 1 0 15 135 0 0 0 -0.01][draw spr_cloud_large 290 750 10 -1000 0.3 1 0 15 215 0 0 0 -0.01]
 [destroy tower_machine_blade4][destroy tower_machine_blade3][destroy tower_machine_blade2][destroy tower_machine_blade1][destroy tower_machine_nozzle][destroy tower_machine_cable][destroy tower_machine_body][destroy tower_machine_ball1][destroy tower_machine_ball2]
 [create tower_machine_broken]
 [sound snd_clock_break]
+[animation frankenstein spr_frankenstein_amazed][time 30]
 [imagespeed frankenstein 0.9]
 [section blame_game]
 
 == blame_game ==
-[mood frankenstein amazed] Nooo, mein machinen!
-You two! Look what you did!
+[mood frankenstein amazed] Neeeein, mein machinen!
+[set mood scared]
+[mood frankenstein amazed] Du zwei! Look wat you did!
+[animation frankenstein spr_frankenstein_unamazed][time 30]
+[imagespeed frankenstein 0.9]
 	+ We didn't do anything!
-		Ja, you did! You broke it!
-		And broke us all!
-		We were ze most harmonious family!
-		[talk monster] Oh, so we're a family after all?
+		[mood frankenstein crazy] Ja, you did! You broke it!
+		[mood frankenstein crazy] Und broke us all!
+		[mood frankenstein crazy] We were ze most harmonious family!
+		[talk monster] Ach, so we're ze family after all?
 		Quiet, boy, I was talking about Igor!
-		[talk igor] hee hee hee.
+		[talk igor] Igor important.
 		You break, you fix!
 			[direction front] What the...
+			[set mood]
 				[end]
 		
 
 end
 == viktor ==
 
-	+[if machine_fixed = 1] We fixed your machine.
+	-[if machine_fixed = 1] We fixed your machine.
 		[set frankenstein_thankful 1] Danke.
+			[section viktor]
 	+[if frankenstein_thankful = 1] Can we get Tesla's machine now?
 		Nein.
-		Without it, my creation will die!
-			Oh no!
+		Without it, mein creation will die!
+			[if talked_thankful = 1] Oh no!
+			[set talked_thankful 1]
 				Or even worse, turn into ze women!
 					+[if promise = 1] But you promised to give us the Frequency Ultra Conversion Kirlian if we fix the machine.
 						Ich did no such thing.
@@ -4065,37 +4164,41 @@ end
 						We are spreching, are we nicht?
 						Anyway, without ze Frequency Ultra Conversion Kirlian, ich work nicht.
 					+ I'll just take the machine and you can't stop me!
-						[talk monster] I can stop you.
-						[talk monster] Do not steal from my father!
-						You shut up und continue ze psychotherapy!
+						[talk monster] Ich wouldst stop you.
+						[talk monster] Su bist nicht steal from mein father!
+						[mood frankenstein crazy] You shut up und continue ze psychotherapy!
 							[section viktor]
 	+[not machine_fixed = 1] Are you really Dr. Frankenstein?
 		Ja, ich bin Doctor Victor Frankenstein.
-		What are you doing in my tower?
+		Was are du bist doing in my tower?
 			+ Hey, my name is Viktor too!
 				Ich habe ze pride of mein name.
 				Nicht ruin it, bitte.
 					[section viktor]
 			+ Fixing your machine, apparently. Do you have some kind of blueprint?
 				Nein!
-				Everything is pretty obvious und every part snaps into this place perfectly!
+				Everything is pretty obvious und every part snaps into ze place perfectly!
 					+ Why don't you fix it then?
-						Das ist your fault ze machine ist broken!
+						[mood frankenstein crazy] Das ist your fault ze machine ist broken!
 						You fix ze machine!
 							[section viktor]	
 	+[not machine_fixed = 1] We want to claim Tesla's machine on behalf of Tesla.
-		What?!
-		You break one machine and want ze other?!
-		First, fix ze machine you broke, dann wir sprechen!
+	[animation frankenstein spr_frankenstein_amazed][time 30]
+		[mood frankenstein amazed] Was?!
+		[mood frankenstein amazed] Du break one machine und want ze other?!
+		[mood frankenstein crazy] First, fix ze machine you broke, dann wir sprechen!
 			[set promise 1]
 			[section viktor]
 	+ What happened to your dog friend?
-		Das is nicht a friend, you uneducated suidae!
-		Das ist a highly trained hausdiener, lab assistant und masseuse!
+		[mood frankenstein crazy] Das is nicht a friend, you uneducated suidae!
+		Das ist eine highly trained hausdiener, lab assistant und masseuse!
 		Refer to it with utmost respect!
 		Its name ist Igor!
 			+ Does he bite?
 				Ja.
+					[section viktor]
+			+ Does he do tricks?
+				He ist eine lab assistant, not ze magician.
 					[section viktor]
 	+ Never mind.
 		[end]
@@ -4104,25 +4207,32 @@ end
 == matilda ==
 
 	+ [if machineDontWork = 1] You didn't even plug Tesla's machine in!
-		I know, but why bother with details if it works?
+		Ich know, but why bother with details if it works?
+			[section matilda]
 	+[if machine_fixed = 1] We fixed your machine. Now it's time for you to do your part of the deal.
 		Nein.
 		Without ze Frequency Ultra Conversion Kirlian, ze machine does not work!
-		If you remove it, you did not do your part of ze deal.
+		If du removest it, du nicht fulfill your part of ze deal.
 			+ That doesn't make any sense
-				You can get ze Frequency Ultra Conversion Kirlian once monster finally accepts his masculinity.
+				Du can get ze Frequency Ultra Conversion Kirlian once ze monster finally accepts his masculinity.
 					+ I have a gun and I'm not afraid to use it
 						There are drei of us und ze monster.
 						Und ich bin das medizinisches genius!
 						Das pistol ist useless.
 							[section matilda]
+					+ Women could be soldiers too.
+						Das would be eine insult to Germland army.
+						Germland soldiers are proud und manly soldats!
+						With huge Wilhelms!
+							Sorry I asked.
+								[section matilda]
 			+ Yes we did. Your machine is here and working
-				You cannot fix ze machine only to break it.
+				Du cannot fix ze machine only to break it.
 					[section matilda]
-	+[not machine_fixed = 1] We are here on behalf of Nikola Tesla
+	+[not machine_fixed = 1] We are here on behalf of Nikola Tesla.
 		Ach, he wants ze Frequency Ultra Conversion Kirlian.
-		Well, he can't have it. I'm sorry.
-		You must first save my creation and fix ze machine that sustains its life...
+		Well, he can't have it. Ich bin sorry.
+		Du must first save mein creation und fix ze machine that sustains its life...
 		[talk freud] I'm sorry, sir, but we agreed that you will not refer to her as "it".
 		[talk monster] I want to be a "she" now.
 		Never!
@@ -4132,13 +4242,13 @@ end
 		[talk monster] You can not tell me to shut up.
 		Ja, ich can!
 		[talk monster] Why do you think so?
-		Because... I am your father!!!
-		[talk monster] Noooooo!
+		Because... Ich bin your father!!!
+		[talk monster] Neeeeeeein!
 		Shut up!
 			[section throw_stuff]
 	+[not machine_fixed = 1] Can we get a blueprint of this machine?
 		Nein!
-		Everything ist pretty obvious and every part snaps into ze place perfectly!
+		Everything ist pretty obvious und every part snaps into ze place perfectly!
 			+ Some parts don't seem to fit.
 				You made me break ze machine, you fix ze machine.
 					[section matilda]
@@ -4147,6 +4257,7 @@ end
 		Out of ze question.
 		Do you know how much digging Igor had to do to find acceptable boy parts?
 			[talk igor] A lot.
+				[section matilda]
 	+ Never mind.
 		[end]
 
@@ -4185,13 +4296,14 @@ end.
 				Oh the monster is wonderful.
 				She has nice and has a fascinating list of problems.
 				Her father, on the other hand.
-				[talk frankenstein][mood angry] His father!
-				[talk frankenstein][mood angry] It's a he!
-				[talk frankenstein][mood angry] Hurry up and fix that!
+				[talk frankenstein][mood frankenstein crazy] HIS father!
+				[talk frankenstein][mood frankenstein crazy] Das ist eine he!
+				[talk frankenstein][mood frankenstein crazy] Hurry up und fix that!
 					[end]
 	+ My name is Viktor.
 		Oh lovely, another one.
 		I am dr. Sigmund Freud.
+		[description freud Sigmund Freud]
 			+ Wow, the real one?
 				There are fake ones?
 					+ Good point.
@@ -4207,7 +4319,7 @@ end
 		As far as I see, the machine doesn't even do anything.
 		[talk monster] Not entirely different from my father.
 		It's not even plugged in...
-			+ Have you tried convincing dr. Frankenstein about that?
+			+ Have you tried talking to dr. Frankenstein about that?
 				I don't care enough to do that.
 					[set machineDontWork 1]
 					[end]
@@ -4271,7 +4383,7 @@ Sir, How dare you to come uninvited?
 
 end
 == fight ==
-tu počne borba
+tu pocne borba
 	ae stvarno
 		[end]
 
@@ -4366,12 +4478,13 @@ Who the hell bothers me at this time?
 				[talk matilda] My name is Matilda.
 				[talk matilda] And I've come to help you get off your throne.
 				Yes, yes. Once this is finished, you will definitely help me get off.
-				[talk matilda] I tald you to stop talking!
+				[talk matilda] I told you to stop talking!
 					+ Yeah, what she said!
 						[section enough]
 			+ You already forgot about me, old man?
 				All you hobo pigs and zebras look the same to me.
 						+ Take a good look, so you can remember who brought you down from your throne.
+							[section electricity]
 						+ We're the Spanish inquisition
 							But you were already here last week.
 							I don't have anyone for you.
@@ -4411,6 +4524,11 @@ Enough of these charades.
 
 
 
+
+
+
+
+end
 === -- !!! SHROOM TRIP !!! --- ====
 
 === snake ===

@@ -36,7 +36,7 @@
 		"border": "spr_various_token",
 		"entrances": [{
 		"alias": "start",
-		"entrance": "[create dig_controller][stop] > DO NOT PUT STUFF HERE"
+		"entrance": "[create dig_controller] > [stop] > [if dig_block = c][cloud dig][take coin] Wow, a coin! > [if dig_block = r][cloud dig][record joplin] Wow, a record! > [if dig_block = v][digout hell start]  > [skip -5]"
 		}],
 		"objects": [
 		{
@@ -144,7 +144,7 @@
 		"scaleNear": 0.8,
 		"scaleFar": 0.8,
 		"background": "bcg_dungeon",
-		"border": "spr_border_viktorsRoom",
+		"border": "spr_border_dungeon",
 		"xBackground": 0,
 		"yBackground": 30,
 		"rgb": "0,0,0",
@@ -172,7 +172,14 @@
 				"yCloud" : 110,
 				"combinations" : {
 					"look" : "He looks focused.",
-					"talk" : "[if alias = viktor][conversation klimt viktor_first] > [not alias = viktor][conversation klimt matilda_first]"
+					"talk" : "[if alias viktor][conversation klimt viktor_first] > [not alias viktor][conversation klimt matilda_first]"
+				},
+				"inventory": {
+					"alias": "fuck",
+					"name": "Klimt's picture",
+					"description": "A pictre of Tesla's device.",
+					"default": "Heh. Picture that!",
+					"picture": "spr_item_fuck"
 				}
 			},
 			{
@@ -184,8 +191,8 @@
 				"description" : "Ladder",
 				"combinations": {
 					"look" : "Quite a big ladder.",
-					"use" : "If I removed your ladder, how would you get down? > [talk klimt] I'd jump, probably. > [talk klimt] Then I'd kick your ass. > [if alias = matilda][talk viktor] You'd kick a woman? > [if alias = matilda][talk klimt] It depends. Would she remove my ladder?",
-					"kick" : "[if alias = matilda] I don't want to inconvenience the artist. > [if alias = matilda][skip] > Destroying furniture and kicking random objects is just not my thing anymore." 
+					"use" : "If I removed your ladder, how would you get down? > [talk klimt] I'd jump, probably. > [talk klimt] Then I'd kick your ass. > [if alias matilda][talk viktor] You'd kick a woman? > [if alias matilda][talk klimt] It depends. Would she remove my ladder?",
+					"kick" : "[if alias matilda] I don't want to inconvenience the artist. > [if alias matilda][skip] > Destroying furniture and kicking random objects is just not my thing anymore." 
 				}
 			},
 			{
@@ -273,9 +280,9 @@
 				"description" : "Transporter device / Toilet",
 				"combinations" : {
 					"look" : "Tesla's transporter doesn't seem so high-tech on this end.",
-					"use" : "We should get Tesla's machine from dr. Frankenstein before returning.",
+					"use" : "[not available realfuck] We should get Tesla's machine from dr. Frankenstein before returning. > [available realfuck][room tesla newstart]",
 					"kick" : "I don't want to destroy our only way back to Austria-Hungary.",
-					"talk": "Hello toilet. > [talk other][sound snd_toilet_hello] Hello.",
+					"talk": "Hello, toilet. > [talk other][sound snd_toilet_hello] Hello."
 				}
 			},
 			{
@@ -290,6 +297,7 @@
 				"xScale" : 0.8,
 				"yScale" : 0.8,
 				"moves" : 1,
+				"solid" : 1,
 				"combinations" : {
 					"look" : "That's Matilda, my love. > Or something...",
 					"use" : "[switch viktor matilda]"
@@ -308,16 +316,18 @@
 			{
 				"alias": "skeleton",
 				"idle":1,
+				"description" : "cage",
 				"x": 979,
-				"y": 58,
+				"y": 58,				
+				"xInteract" : 747,
+				"yInteract" : 791,
 				"combinations" : {
-					"look" : "[if alias = viktor] I love the decor in this place! > [if alias = matilda] How tacky!",
-					"use" : "[if alias = viktor][animation player spr_viktor_take_right_high] > [if alias = viktor][animation other spr_skeleton_idle2] > [if alias = viktor] Whee! > [if alias = matilda] Nah..."
+					"look" : "[if alias viktor] I love the decor in this place! > [if alias matilda] How tacky!",
+					"use" : "[if alias viktor][animation player spr_viktor_take_right_high] > [if alias viktor][animation other spr_skeleton_idle2] > [if alias viktor] Whee! > [if alias matilda] Nah..."
 				}
 			}
 		]
-	},
-	{
+	},	{
 		"comment": "Emperors royal hallway",
 		"alias": "hallway",
 		"gui": "default",
@@ -633,7 +643,7 @@
 	{
 		"comment": "Frankenstein room up",
 		"alias": "tower",
-		"gui": "default",
+		"gui": "switch",
 		"scaleNear": 1,
 		"scaleFar": 1,
 		"background": "bcg_tower",
@@ -644,11 +654,15 @@
 		"entrances": [
 			{
 				"alias": "start",
-				"entrance": "[set alias viktor] > [position matilda 310 781][position player 385 788] > [animation player spr_viktor_walk_right][animation matilda spr_matilda_walk_right][moveto matilda 588 817 5][moveto player 719 809 5][time 30] > [animation matilda spr_matilda][animation player spr_viktor][moveto matilda 719 809 0][if first_entry = 0][active frankenstein][conversation frankenstein first_entry] > [if version debug][if first_entry = 2][active frankenstein][conversation frankenstein tantrum]",
+				"entrance": "[set alias viktor] > [position matilda 240 781][position player 385 788] > [animation player spr_viktor_walk_right][animation matilda spr_matilda_walk_right][moveto matilda 588 817 5][moveto player 719 809 5][time 30] > [animation matilda spr_matilda][animation player spr_viktor][moveto matilda 719 809 0][if first_entry = 0][active frankenstein][conversation frankenstein first_entry] > [if version debug][if first_entry = 2][active frankenstein][conversation frankenstein first_entry]"
 			},
 			{
 				"alias" : "machine",
 				"entrance" : "[if machine_win = 0] Damn, this is complicated. > [if machine_win = 1][create tower_machine_blade4][create tower_machine_blade3][create tower_machine_blade2][create tower_machine_blade1][create tower_machine_nozzle][create tower_machine_cable][create tower_machine_body][create tower_machine_ball1][create tower_machine_ball2][destroy tower_machine_broken][set machine_fixed 1] Finally, it is fixed."
+			},
+			{
+				"alias" : "test",
+				"entrance" : "[set alias viktor] > [position matilda 240 781][position player 385 788] > [animation player spr_viktor_walk_right][animation matilda spr_matilda_walk_right][moveto matilda 588 817 5][moveto player 719 809 5][time 30] > [animation matilda spr_matilda][animation player spr_viktor][moveto matilda 719 809 0][active frankenstein][conversation frankenstein tantrum]"
 			}
 		],
 		"objects": [
@@ -699,15 +713,15 @@
 				"xScale" : 0.8,
 				"yScale" : 0.8,
 				"combinations" : {
-					"look" : "That's Frankenstein's henchman, the famous Igor.",
-					"talk" : "[if alias = viktor][conversation igor viktor] > [if alias = matilda][conversation igor matilda]"
+					"look" : "It's Igor, Dr. Frankenstein's famous henchman.",
+					"talk" : "[if alias viktor][conversation igor viktor] > [if alias matilda][conversation igor matilda]"
 				}
 			},
 			{
 				"alias" : "freud",
 				"idle" : 1,
-				"direction" : "left",
-				"description" : "Freud",
+				"direction" : "back",
+				"description" : "Psychiatrist",
 				"imageSpeed" : 0.6,
 				"x": 600,
 				"y" : 688,
@@ -719,8 +733,8 @@
 				"xScale" : 0.6,
 				"yScale" : 0.6,
 				"combinations" : {
-					"look" : "That's a psychiatrist.",
-					"talk" : "[if alias = viktor][conversation freud viktor] > [if alias = matilda][conversation freud matilda]"
+					"look" : "It's a psychiatrist.",
+					"talk" : "[if alias viktor][conversation freud viktor] > [if alias matilda][conversation freud matilda]"
 				}
 			},
 			{
@@ -733,13 +747,13 @@
 				"description" : "Monster",
 				"xInteract" : 652,
 				"yInteract" : 751,
-				"xCloud" : 346,
-				"yCloud" : 464,
+				"xCloud" : 316,
+				"yCloud" : 424,
 				"xScale" : 1,
 				"yScale" : 1,
 				"combinations" : {
-					"look" : "That's Frankenstein's troubled monster.",
-					"talk" : "[if alias = viktor][conversation monster viktor] > [if alias = matilda][conversation monster matilda]"
+					"look" : "Frankenstein's troubled monster.",
+					"talk" : "[if alias viktor][conversation monster viktor] > [if alias matilda][conversation monster matilda]"
 				}
 			},
 			{
@@ -761,7 +775,7 @@
 				"order": "look,talk",
 				"combinations": {
 					"look": "He looks famously insane.",
-					"talk": "[if alias = viktor][conversation frankenstein viktor] > [if alias = viktor][skip] > [if alias = matilda][conversation frankenstein matilda]"
+					"talk": "[if alias viktor][conversation frankenstein viktor] > [if alias viktor][skip] > [if alias matilda][conversation frankenstein matilda]"
 				},
 				"inventory": {
 					"alias": "cell",
@@ -774,7 +788,7 @@
 			{
 				"alias": "tower_ball",
 				"x": 403,
-				"y": 229,
+				"y": 180,
 				"description": "Electric ball",
 				"combinations": {
 					"look" : "Dr. Frankenstein sure has some big balls in his lab."
@@ -861,7 +875,15 @@
 				"description": "Tesla's part",
 				"combinations": {
 					"look" : "That's the one I need!",
-					"use" : "[if alias = viktor][animation player spr_viktor_take_left_high][time 10] > [talk frankenstein] Don't touch that! I need it!" 
+					"use" : "[if alias viktor][animation player spr_viktor_take_left_high][time 10] > [talk frankenstein] Don't touch that! I need it!" ,
+					"fuck": "OK, nobody's watching! > [fade in 0.03][time 30] > [fade out 0.03][time 30] > There! Looks like the real thing! > [give fuck][take realfuck]" 
+				},
+				"inventory": {
+					"alias": "realfuck",
+					"name": "The Frequency Ultra Conversion Kirilian",
+					"description": "Tesla's very own device",
+					"default": "I don't think it's the right voltage",
+					"picture": "spr_tower_kirilian"
 				}
 			},
 			{
@@ -869,7 +891,6 @@
 				"x": 840,
 				"y": 418				
 			},
-			
 			{
 				"comment" : "THE ONE THAT IS NOT BROKEN",
 				"alias": "tower_machine_ball1",
@@ -919,13 +940,14 @@
 			{
 				"alias" : "tower_machine_broken",
 				"available" : 0,
-				"picture" : "spr_various_token",
-				"xScale" : 30,
-				"yScale" : 30,
+				"picture": "spr_tower_machine_body",
+				"angle": 120,
+				"xScale" : 1,
+				"yScale" : 1,
 				"x" : 331,
-				"y" : 789,
+				"y" : 1019,
 				"xInteract" : 378,
-				"yInteract" : 788,
+				"yInteract" : 1019,
 				"description" : "Broken machine",
 				"combinations" : {
 					"look" : "This is all 'my' fault.",
@@ -2423,7 +2445,6 @@
 		}, {
 			"alias": "dirigible_power",
 			"available": 1,
-			"depth": 200,
 			"object": "obj_animation",
 			"picture": "spr_dirigibles_power",
 			"xScale": 0.7,
@@ -3927,7 +3948,7 @@
 			}
 		]
 	},  {
-		"comment": "Aerodrom dolje",
+		"comment": "Aerodrom dolje station down",
 		"alias": "station_down",
 		"gui": "default",
 		"scaleNear": 0.85,
@@ -3962,7 +3983,7 @@
 				"x": 122,
 				"y": 370
 			}, {
-				"comment": "Another smoke behind the tram",
+				"comment": "Another smoke behind the tram. Phone is here for testing and debugging",
 				"depth": 1998,
 				"alias": "station_smoke2",
 				"subimage": 1,
@@ -3970,7 +3991,6 @@
 				"path": "path_float_big",
 				"x": 132,
 				"y": 370,
-				"comment" : "i just want the phone here so i can pick it up for testing developing debugging purposes",
 				"inventory": {
 					"alias": "phone",
 					"name": "Phone",
@@ -4489,7 +4509,7 @@
 				"look": "How the hell did that cow throw this so high?",
 				"use": "[pickup]",
 				"kick": "It's not a football, it's a weight ball.",
-				"kick": "I'd just hurt my leg",
+				"kick_2": "I'd just hurt my leg",
 				"pants": "I don't get it.",
 				"cake": "Why and how? > And what?",
 				"cell": "This is no time for funniest home experiments.",
@@ -5467,8 +5487,8 @@
 		"rgb": "200,232,235",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[not item phone][set phone 3][take phone] > [set passguess 0][position player 300 670][set alreadywent 0][set tried_dumb_flag 0] > This looks cozy. > [not version debug] Now to find those anarchists. > [not version debug] They probably have armies, bombs and whatnot.",
-			"entrance2": "[set passguess 0][position player 300 670][set alreadywent 0][set tried_dumb_flag 0] This looks cozy. > Now to find those anarchists. > They probably have armies, bombs and whatnot."
+			"entrance": "[soundtrack bach][record mozart][set anarchist_trust 1] > [not item phone][set phone 3][take phone][take umbrella] > [set passguess 0][position player 450 670][set alreadywent 0][set tried_dumb_flag 0] > This looks cozy. > [not version debug] Now to find those anarchists. > [not version debug] They probably have armies, bombs and whatnot.",
+			"entrance2": "[set passguess 0][position player 450 670][set alreadywent 0][set tried_dumb_flag 0] This looks cozy. > Now to find those anarchists. > They probably have armies, bombs and whatnot."
 		},
 		{
 			"alias" : "return",
@@ -5480,7 +5500,7 @@
 		},
 		{
 			"alias": "toilet_exit",
-			"entrance": "[if available kafka][if random 1][destroy kafka][create roach][skip 1] > [if available roach][if random 1][destroy roach][create kafka] > [position player 1114 592] > [if alreadywent = 0] This was quite inspirational. Except for the smell. > [set alreadywent 1]"
+			"entrance": "[set hyde_out 1] > [if hyde_out = 1][create hyde][destroy anarchists] > [if available kafka][if random 2][skip 1] > [if seenroach = 0][destroy kafka][create roach][set seenroach 1][skip 1] > [if available roach][if random 2][destroy roach][create kafka] > [position player 1114 592] > [if alreadywent = 0] This was quite inspirational. Except for the smell. > [set alreadywent 1] > [if priest_moved = 1][destroy tavern_flask][create tavern_flask_empty] > [if jekyll_toilet_first = 1][destroy tavern_barrel_jekyll][create tavern_barrel_jekyll_abs]"
 		}],
 		"objects": [{
 			"alias": "just_testing_delete_later",
@@ -5492,7 +5512,33 @@
 					"special": "[if currentRoom dirigibles][cloud 700 800][time 60] I don't have time for that shit. > [if currentRoom dirigibles][stop] > [if currentRoom dirigibles][if dirigibles_win = 1][room previous won] > [if currentRoom dirigibles][room previous lost] > [remember][destroy viktorsRoom_trin][destroy viktorsRoom_trin2][destroy viktorsRoom_trin3] > [if phone = 0][room phone start] > [if phone = 1][room viktorsRoom phone] > [if phone = 2][room phone start] > [if phone = 3][if currentRoom viktorsRoom] I just talked to him. > [if phone = 3][if currentRoom viktorsRoom][skip] > [room martinsRoom start]",
 					"picture": "spr_item_phone"
 				}
-		}, {
+		},
+		{
+				"alias": "hyde",
+				"available": 0,
+				"idle" : 1,
+				"imageSpeed" : 0.8,
+				"xScale" : -0.8,
+				"yScale" : 0.8,
+				"depth" : -700,
+				"x": 550,
+				"y": 450,				
+				"xInteract": 600,
+				"yInteract": 730,
+				"xCloud": 440,
+				"yCloud": 440,
+				"description": "Mr. Hyde",
+				"banter" : [
+				"Har har har",
+				"Banter banter banter",
+				"Ho ho ho"
+				],
+				"combinations": {
+					"look": "Eww.",
+					"talk" : "Not yet > [talk hyde] yes.",
+				}
+		},
+		{
 			"comment": "tavern bar",
 			"alias": "tavern_bar",
 			"depth": -180,
@@ -5523,7 +5569,14 @@
 				"look_8": "I should never have left Agram.",
 				"look_9": "Life is just a series of disappointments.",
 				"use": "Goodbye... > [fade in 0.03][time 35] > [fade out 0.03][time 35] > Not."
-			}
+			},
+				"inventory": {
+					"alias": "umbrella",
+					"name": "Umbrella",
+					"description": "My favorite rain protection device.",
+					"default": "Not everything can be solved with an umbrella.",
+					"picture": "spr_item_umbrella"
+				}
 		}, {
 			"comment": "pic of the emperor",
 			"alias": "portrait_emperor",
@@ -5544,13 +5597,36 @@
 			"combinations": {
 				"look": "That's the bastard behind the electric field. > He's going down soon."
 			}
-		}, {
+		},
+		{
+			"comment": "Absinthe",
+			"alias": "tavern_flask",
+			"depth": -603,
+			"x": 425,
+			"y": 453
+		},
+		{
+			"comment": "Absinthe empty",
+			"alias": "tavern_flask_empty",
+			"available" : 0,
+			"depth": -603,
+			"x": 425,
+			"y": 453
+		},
+		{
 			"comment": "tavern barrels front",
 			"alias": "tavern_barrels_front",
 			"depth": -1000,
 			"x": 326,
 			"y": 730
-		}, {
+		},
+{
+			"comment": "tavern door",
+			"alias": "tavern_door",
+			"x": 1146,
+			"y": 288
+		},
+		{
 			"comment": "tavern bottle of wine",
 			"alias": "tavern_bottle_wine",
 			"depth": -160,
@@ -5596,13 +5672,38 @@
 			"depth": -602,
 			"x": 346,
 			"y": 465
-		}, {
+		},
+{
+			"comment": "tavern barrel jekyll absinthe",
+			"alias": "tavern_barrel_jekyll_abs",
+			"picture" : "spr_tavern_barrel_jekyll",
+			"available" : 0,
+			"depth": -602,
+			"x": 346,
+			"y": 465,
+			"xInteract": 550,
+			"yInteract": 660,
+			"idle": 1,
+			"description": "Doctor's barrel",
+			"combinations": {
+				"look": "There's the bag behind the barrel!",
+				"use": "[if flask_taken = 0] There's probably no need to bring him the whole bottle > [if flask_taken = 0]He already poured some of it into his little flasks. > [if flask_taken = 0][pick][set flask_taken 1] > [if flask_taken = 1] I think one was enough."
+			},
+				"inventory": {
+					"alias": "flask",
+					"name": "Jekyll's green liquid",
+					"description": "This doesn't really smell like absinthe",
+					"default": "Nah, I need to bring this to Dr. Jekyll",
+					"picture": "spr_item_flask"
+				}
+		},
+		{
 			"comment": "Dr. Jekyll",
 			"alias": "jekyll",
 			"depth": -600,
-			"xScale": 0.4,
+			"xScale": -0.4,
 			"yScale": 0.4,
-			"x": 358,
+			"x": 460,
 			"y": 315,
 			"xCloud": 430,
 			"yCloud": 330,
@@ -5611,7 +5712,6 @@
 			"imageSpeed": 0.6,
 			"idle": 1,
 			"description": "Fox",
-			"order": "look, talk",
 			"combinations": {
 				"look": "Doesn't look like he's from around here.",
 				"talk": "[conversation jekyll hello]"
@@ -5635,7 +5735,14 @@
 			"combinations": {
 				"look": "He has beer. > I like that in a person.",
 				"talk": "[conversation kafka hello]"
-			}
+			},
+				"inventory": {
+					"alias": "pencil",
+					"name": "pencil",
+					"description": "A writing utensil",
+					"default": "Not as written.",
+					"picture": "spr_item_pencil"
+				}
 		},
 {
 			"comment": "Roach",
@@ -5656,6 +5763,7 @@
 			"order": "look",
 			"combinations": {
 				"look": "Weird.",
+				"talk": "God, no."
 			}
 		},
 		{
@@ -5777,7 +5885,7 @@
 			"comment": "Matilda!",
 			"alias": "matilda_tavern",
 			"talkSoundOverride" : "snd_matilda_talk",
-			"depth": -500,
+			"depth": -700,
 			"xScale": 0.85,
 			"yScale": 0.85,
 			"x": 290,
@@ -5809,8 +5917,8 @@
 			"y": 500,
 			"xCloud": 880,
 			"yCloud": 200,
-			"xInteract": 730,
-			"yInteract": 650,
+			"xInteract": 800,
+			"yInteract": 610,
 			"imageSpeed": 0.4,
 			"idle": 1,
 			"description": "Barman",
@@ -5857,7 +5965,7 @@
 		"rgb": "200,232,235",
 		"entrances": [{
 				"alias": "start",
-				"entrance": "[if version debug][take umbrella][take toilet_chain] > [set priest_moved 1][set toilet_is_opened 1][set been_to_toilet 1][position player 350 800] > [if toilet_is_opened = 1][position priest_back 930 680] > [if jekyll_toilet = 1][destroy toilet_left][create toilet_left_jekyll] > [if martins_watchword = 1] Martin was talking about some colors in the toilet... > [if martins_watchword = 1] Looks very brown to me."
+				"entrance": "[set been_to_toilet 1][position player 350 800] > [if toilet_is_opened = 1][position priest_back 930 680][set priest_moved 1] > [if jekyll_toilet = 1][destroy toilet_left][create toilet_left_jekyll] > [if martins_watchword = 1] Martin was talking about some colors in the toilet... > [if martins_watchword = 1] Looks very brown to me."
 		},
 		{
 				"alias": "gunpoint",
@@ -6005,6 +6113,7 @@
 				"alias": "priest_back",
 				"x": 1140,
 				"y": 680,
+				"object" : "obj_toilet_priest",
 				"talkSoundOverride" : "snd_priest_talk",
 				"direction" : "back",
 				"moves": 1,
@@ -6016,8 +6125,8 @@
 				"depth" : 100,
 				"description": "Drunken priest.",
 				"combinations": {
-					"look" : "Figures.",
-					"talk" : "[destroy priest_back][create priest][active priest][if toilet_is_opened = 1][position priest 930 680] > [conversation priest first] > [destroy priest][create priest_back][if toilet_is_opened = 1][position priest_back 930 680]"
+					"look" : "Figures. > [if martins_watchword = 1]Hm, there's some grafitti behind him.",
+					"talk" : "[destroy priest_back][create priest][active priest][if priest_moved = 1][position priest 930 680] > [conversation priest first] > [destroy priest][create priest_back][if priest_moved = 1][position priest_back 930 680]"
 				}
 			},
 			{
@@ -6073,7 +6182,7 @@
 				"angle" : 30,
 				"xScale" : 0.5,
 				"yScale" : 0.5,
-				"depth": -100,
+				"depth": 100,
 				"description": "Toilet paper",
 				"order": "look",
 				"combinations": {
@@ -6095,7 +6204,7 @@
 				"angle" : 30,
 				"xScale" : 0.5,
 				"yScale" : 0.5,
-				"depth": -300,
+				"depth": 300,
 				"description": "Toilet paper",
 				"inventory": {
 					"alias": "paper",
@@ -6118,8 +6227,8 @@
 				"angle" : 0,
 				"description": "Chain",
 				"combinations" : {
-					"look" : "I should use my umbrella with this!",
-					"umbrella": "[moveto player 370 750] > [move player 0 0] > [animation player spr_viktor_umbrella1] > [noitamina player spr_viktor_umbrella1][time 45] > [animation player spr_viktor] > [destroy toilet_paper][create toilet_paper_fallen][move toilet_paper_fallen 270 30][move chain_flying 270 30][time 23] > [move toilet_paper_fallen 0 0][destroy chain_flying] > [animation player spr_viktor_use_right_low] > [take paper][destroy toilet_paper_fallen]",
+					"look" : "Still can't reach it.",
+					"umbrella": "[moveto player 370 750] > [move player 0 0] > [animation player spr_viktor_umbrella1] > [destroy toilet_pipe][create toilet_pipe_rotated][destroy toilet_paper][create toilet_paper_fallen][move toilet_paper_fallen 250 10][move chain_flying 270 30][noitamina player spr_viktor_umbrella1][time 23] > [animation player spr_viktor][move toilet_paper_fallen 0 0][destroy chain_flying][set paper_fallen 1]"
 				}
 			},
 			{
@@ -6176,7 +6285,7 @@
 				"description": "Graffiti",
 				"order": "look",
 				"combinations": {
-					"look": "I love you, Lawrence... > Ivan... > Igor... > Me... > It's complicated, I guess?"
+					"look": "I love you, Ivan... > Or Igor... > Or Lawrence... > Or me... > It's complicated, I guess?"
 				}
 			}, {
 				"alias": "graffiti_door_2",
@@ -6205,13 +6314,6 @@
 				"order": "look",
 				"combinations": {
 					"look": "Try the @LakeWaterOnTap!"
-				},
-				"inventory": {
-					"alias": "umbrella",
-					"name": "Umbrella",
-					"description": "My favorite rain protection device.",
-					"default": "Not everything can be solved with an umbrella.",
-					"picture": "spr_item_umbrella"
 				}
 			},
 			{
@@ -6235,20 +6337,46 @@
 				"alias": "toilet_left_jekyll",
 				"picture" : "spr_toilet_left",
 				"talkSoundOverride" : "snd_jekyll_talk",
+				"direction" : "back",
 				"available": 0,
 				"subimage": 0,
 				"x": 400,
 				"y": 286,
-				"xInteract": 400,
-				"yInteract": 760,
+				"xInteract": 450,
+				"yInteract": 740,
 				"xCloud": 550,
 				"yCloud": 300,
 				"description": "Closed toilet booth door with Jekyll inside",
 				"order": "look, talk",
 				"combinations": {
-					"look": "Jekyll is in that door vomiting.",
+					"look": "Sounds busy.",
 					"use" : "[talk toilet_left_jekyll] It's busy!",
-					"talk" : "[conversation jekyll toilet]"
+					"talk" : "[if paper_fallen = 1][conversation jekyll toilet] > [if paper_fallen = 1][skip 1] > I don't need to bother him.",
+					"flask" : "[animation player spr_viktor_use_back_low] > [talk toilet_left_jekyll] Oh thank you, thank you. > [time 30] > [talk toilet_left_jekyll] Wait a minute... > [mood scared][talk toilet_left_jekyll][sound snd_pot_boil] This wasn't my absinthe, it was my medicine! >  So... even better? > [talk toilet_left_jekyll][blocksound snd_donkey_talk_muffled] No, you foool! > [talk toilet_left_jekyll][blocksound snd_donkey_talk_muffled] You have brought doom upon yourself! > I have what on whom? > [animations spr_viktor_back_off][move player 350 6][talk toilet_left_jekyll][blocksound snd_donkey_talk_muffled] GRRRRRRR [time 40] > [animations player spr_viktor_listen_left][sound snd_door_open][position toilet_left 486 286][animation toilet_left_jekyll spr_toilet_left 1][time 3][destroy toilet_left_jekyll 3][create toilet_left_open 3][destroy graffiti_door_1b][destroy graffiti_door_1c][destroy graffiti_door_1d][create hyde][animations hyde spr_hyde_walk][move hyde 240 5][time 10] > [animations player spr_viktor_listen_left][animations hyde spr_hyde_walk][move hyde 170 10][time 40] > [animations player spr_viktor_talk_left][set mood]The hell just happened?[set hyde_out 1]"
+				}
+			},
+			{
+				"alias": "hyde",
+				"available": 0,
+				"xScale" : 0.8,
+				"yScale" : 0.8,
+				"x": 310,
+				"y": 410,
+				"xInteract": 400,
+				"yInteract": 760,
+				"xCloud": 550,
+				"yCloud": 300,
+				"description": "Mr. Hyde",
+				"combinations": {
+					"look": "Eww.",
+					"talk" : "Not yet",
+				},
+				"inventory": {
+					"alias": "flask",
+					"name": "Jekyll's green liquid",
+					"description": "This doesn't really smell like absinthe",
+					"default": "Nah, I need to bring this to Dr. Jekyll",
+					"picture": "spr_item_flask"
 				}
 			},
 			{
@@ -6325,7 +6453,8 @@
 				"order": "look, talk",
 				"combinations": {
 					"look": "Nice door.",
-					"use" : "[sound snd_door_open][position toilet_right 867 286][animation toilet_right spr_toilet_right 1][time 3][destroy toilet_right 3][create toilet_right_open 3][destroy graffiti_door_3][set toilet_is_opened 1]"
+					"use" : "[animation player spr_viktor_use_back_middle] >It's stuck",
+					"kick" : "[kick auto snd_log] > [position toilet_right 867 286][animation toilet_right spr_toilet_right 1][time 3][destroy toilet_right 3][create toilet_right_open 3][destroy graffiti_door_3][set toilet_is_opened 1]"
 				}
 			},
 			{
@@ -6344,10 +6473,15 @@
 				"order": "look, talk",
 				"combinations": {
 					"look": "Nice door.",
-					"use" : "[sound snd_door_close][position toilet_right_open 867 286][animation toilet_right_open spr_toilet_right 1][time 3][destroy toilet_right_open 3][create toilet_right 3][create graffiti_door_3]"
+					"use" : "[sound snd_door_close][position toilet_right_open 867 286][animation toilet_right_open spr_toilet_right 1][time 3][destroy toilet_right_open 3][create toilet_right 3][create graffiti_door_3][set toilet_is_opened 0] > Hmm, it's now stuck again."
 				}
 			},
-			
+			{
+				"alias": "toilet_flies",
+				"x": 630,
+				"y": 620,
+				"depth" : 1400
+			},
 			{
 				"alias": "graffiti_wc1",
 				"picture": "spr_various_token",
@@ -6514,7 +6648,7 @@
 				"depth" : 1400,
 				"order": "look",
 				"combinations": {
-					"look": "Mr Plinkett was here. > That's the guy who likes to copulate with moving pictures, I think."
+					"look": "[if priest_moved = 0]I can't see it. > [if priest_moved = 1]Mr Plinkett was here. > [if priest_moved = 1]That's the guy who likes to copulate with moving pictures, I think."
 				}
 			}, {
 				"alias": "graffiti_22",
@@ -6779,8 +6913,18 @@
 				"alias": "toilet_pipe",
 				"x": 510,
 				"y": 0,
-				"depth" : -200,
-			},  {
+				"depth" : -200
+			},
+{
+				"alias": "toilet_pipe_rotated",
+				"picture": "spr_toilet_pipe",
+				"available" : 0,
+				"x": 480,
+				"y": 30,
+				"angle" : -15,
+				"depth" : -200
+			},
+			{
 				"alias": "toilet_exit",
 				"picture": "spr_various_token",
 				"visible": 0,

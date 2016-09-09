@@ -1,16 +1,42 @@
 {
 	"guis" : [
 		{
-			"comment" : "GUI with nothing but the frame, no buttons",
-			"alias" : "empty",
+			"comment" : "GUI with the back button",
+			"alias" : "back",
 			"foreground" : "bcg_gui",
 			"background" : "bcg_black",
-			
+			"inventory" : {},
 			"default" : "walk",
 			"secondary" : "none",
 			"order" : "",
 			"actions" : [
+				{
+				"alias" : "back",
+				"type" : "immediate",
+				"available" : 1,
+				"visible" : 1,
+				"description" : "Exit minigame",
+				"name" : "Exit minigame",
+				"default" : "[room previous minigame]",
+				"picture" : "spr_menu_back",
+				"passive" : "spr_cursor_walk",
+				"active" : "spr_cursor_walk_active",
+				"x" : 200,
+				"y" : 200,
+				"binding" : "x"
+				}
 			]
+		},
+		{
+			"comment" : "empty GUI just with foreground",
+			"alias" : "empty",
+			"foreground" : "bcg_gui",
+			"background" : "bcg_black",
+			"inventory" : {},
+			"default" : "walk",
+			"secondary" : "none",
+			"order" : "",
+			"actions" : []
 		},
 		{
 			"comment" : "No GUI at all",
@@ -19,9 +45,21 @@
 			"background" : "",		
 			"default" : "",
 			"secondary" : "",
+			"inventory" : {},
 			"order" : "",
 			"actions" : [
 			]
+		},
+		{
+			"comment" : "GUI for the minigame of digging the tunnel",
+			"alias" : "dig",
+			"foreground" : "",
+			"background" : "",		
+			"default" : "",
+			"secondary" : "",
+			"inventory" : {},
+			"order" : "",
+			"actions" : []
 		},
 		{
 			"comment" : "GUI for the MAP minigame with only the LOOK cursor",
@@ -31,6 +69,7 @@
 			"default" : "look",
 			"secondary" : "none",
 			"order_before" : "look",
+			"inventory" : {},			
 			"order" : "",
 			"actions" : [
 				{
@@ -457,8 +496,8 @@
 				"picture" : "spr_action_switch",
 				"passive" : "spr_cursor_walk",
 				"active" : "spr_cursor_walk_active",
-				"x" : 1170,
-				"y" : 120,
+				"x" : 1115,
+				"y" : 170,
 				"binding" : "s"
 				}
 			]

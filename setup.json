@@ -1,6 +1,6 @@
 {
 	"version" : "debug",
-	"action" : "menu main",
+	"action" : "new dungeon start",
 	"fullscreen" : 0,
 	"room_speed" : 30,
 	"image_speed" : 0.25,
@@ -30,7 +30,7 @@
 	],
 	"stripe" : 100,
 	"records" : {
-		"mozart" : "Falco - Rock me Amadeus",
+		"mozart" : "Wolfgang Amadeus Mozart - March in D, K. 249 - From the European Archive",
 		"joplin" : "Scott Joplin - Maple Leaf Rag - Performed by Stefano Ligoratti",
 		"rossini" : "Gioachino Antonio Rossini - The Barber Of Seville - From the European Archive",
 		"saens" : "Camille Saint-Saëns - Cello Concerto No. 1 in A Minor, Op. 33 - Allegro non troppo - Performed by Skidmore College Orchestra",
