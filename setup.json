@@ -1,9 +1,11 @@
 {
 	"version" : "debug",
-	"action" : "new tavern start",
+	"action" : "menu main",
 	"fullscreen" : 0,
 	"room_speed" : 30,
 	"image_speed" : 0.25,
+	"viktor_walk" : 0.25,
+	"matilda_walk" : 0.75,
 	"player_speed" : 7,
 	"update" : "https://raw.githubusercontent.com/AlmightyWatashi/viktor/master/",
 	"title" : "Viktor, a Steampunk Adventure",
@@ -28,16 +30,10 @@
 		"63,36,4,79,47,10",
 		"62,62,62,48,48,48"
 	],
+	"shader" : "shd_default",
 	"stripe" : 100,
 	"records" : {
-		"mozart" : "Wolfgang Amadeus Mozart - March in D, K. 249 - From the European Archive",
-		"joplin" : "Scott Joplin - Maple Leaf Rag - Performed by Stefano Ligoratti",
-		"rossini" : "Gioachino Antonio Rossini - The Barber Of Seville - From the European Archive",
-		"saens" : "Camille Saint-Saëns - Cello Concerto No. 1 in A Minor, Op. 33 - Allegro non troppo - Performed by Skidmore College Orchestra",
-		"strauss" : "Johann Strauss Jr - Wiener Blut Op.354 Waltz - From the European Archive",
-		"dvorak2" : "Antonín Dvořák - Humoresque no. 7 in Gb Op. 101/7 - Performed by Oliver Colbentson",
-		"brahms" : "Johannes Brahms - 7 Fantasien, Op. 116 - Performed by Ivan Ilic",
-		"bizet" : "Georges Bizet - Carmen - Selection of recorder performances by Papalin",
-		"bach" : "Johann Sebastian Bach - Bourree from Violin Partita no. 1 , BWV 1002, guitar performance by Accou"		
+		"mozart" : "Falco - Rock me Amadeus",
+		"joplin" : "Janis Joplin - Take Another Little Piece of My Heart"
 	}
 }

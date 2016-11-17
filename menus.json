@@ -17,7 +17,7 @@
 					"x" : 720,
 					"y" : 448,
 					"picture" : "spr_menu_load",
-					"action" : "load save.json"
+					"action" : "savemenu load"
 				},
 				{
 					"x" : 1184,
@@ -66,6 +66,33 @@
 			]
 		},
 		{
+			"alias" : "savemenu",
+			"background" : "bcg_options",
+			"rgb" : "000,000,000",
+			"cursor" : "spr_cursor_walk_active",
+			"buttons" : [
+				{
+					"x" : 0,
+					"y" : 834,
+					"picture" : "spr_menu_back",
+					"action" : "options"
+				}
+			],
+			"slots" : {
+				"frame" : "spr_various_frame",
+				"frameScale" : 0.8,
+				"pictureScale" : 0.15,
+				"xPictureOffset" : 0,
+				"yPictureOffset" : -5,
+				"xStart" : 250,
+				"yStart" : 270,
+				"xOffset" : 280,
+				"yOffset" : 280,
+				"xMax" : 850,
+				"yMax" : 601
+			}
+		},
+		{
 			"alias" : "options",
 			"background" : "bcg_options",
 			"cursor" : "spr_cursor_walk_active",
@@ -74,13 +101,13 @@
 					"x" : 160,
 					"y" : 256,
 					"picture" : "spr_menu_save",
-					"action" : "save save.json"
+					"action" : "savemenu save"
 				},
 				{
 					"x" : 160,
 					"y" : 416,
 					"picture" : "spr_menu_load",
-					"action" : "load save.json"
+					"action" : "savemenu load"
 				},
 				{
 					"x" : 160,

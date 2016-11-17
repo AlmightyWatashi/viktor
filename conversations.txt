@@ -145,7 +145,7 @@ end
 			[mood angry]  Oh, you don't remember? The construction workers broke it when they installed the oven.
 			They still owe you money for that.
 				[section senile]				
-	- We start by taking some wine and light up your fireplace.
+	- We can start by taking some wine and light up your fireplace.
 		Ooh, I like that.
 		My fireplace hasn't been lit in a long long time.
 			+ Well, if you have the fireplace, I have some wood.
@@ -265,7 +265,7 @@ end
 If this is like that plan when you wanted to turn your landlord's bed into a lawnmower... > I'm not visiting you in the hospital again.
 	- This time, I have a perfect plan for us. A plan to take over the empire and finally make everything right!   //brian edit took away capitalization of empire (not proper noun like Austro-Hungarian Empire)
 		[section tobacco_plants]
-	- Actually, this one might get us killed or make us the supreme rulers of Austro-Hungary.
+	- Actually, this one might get us killed or make us the supreme rulers of Austria-Hungary.
 		[section tobacco_plants]
 
 end	
@@ -333,6 +333,7 @@ end
 == station ==
 
 Greetings.
+You have reached Martin, the three eyed owl.
 
 == hello ==
 
@@ -1264,12 +1265,12 @@ Is that a deal, mushroom eater?
 
 end	
 == lost ==
-	++[not dirigibles_part = 1] Not fair
+	++[not dirigibles_part = 1] Not fair!
 	[set mood angry] That's not fair, my dirigible has a part missing.
 		Deal is deal, bend over pig.
 		[animation player spr_viktor_walk_left_angry][moveto player 290 665]
 		[create asskick 40][destroy asskick 50][animation donkey spr_donkey_kick][imagespeed donkey 0.6][animation player spr_viktor_kicked][time 40]
-		[draw spr_cloud_medium 290 650 10 -1000 0.3 1 0 15 45 0 0 0 -0.01][draw spr_cloud_medium 290 650 10 -1000 0.3 1 0 15 135 0 0 0 -0.01][draw spr_cloud_medium 290 650 10 -1000 0.3 1 0 15 215 0 0 0 -0.01][moveto player 400 700]
+		[animation player spr_viktor_kicked][imageindex player 10][animation donkey spr_donkey kick][draw spr_cloud_medium 290 650 10 -1000 0.3 1 0 15 45 0 0 0 -0.01][draw spr_cloud_medium 290 650 10 -1000 0.3 1 0 15 135 0 0 0 -0.01][draw spr_cloud_medium 290 650 10 -1000 0.3 1 0 15 215 0 0 0 -0.01][move player 0 3][time 30]
 		[imagespeeds donkey 0.4][imagespeed donkey 0.4] Lucky you I will let you try again so I can kick your ass once again.
 			+ Lucky me
 				Hey, you know why was the pig ejected from the football game?
@@ -1655,7 +1656,7 @@ How is life faring for you, Viktor?   //brian edit changed "fairing" to "faring"
 	-[if chitchat_flag = 1] Why is your land named Gangrene anyway?
 		Some people say that it's a derivative of the river Ganges.
 		But actually, it's because some idiot let the explorers of Unwanted Kingdom put that name on the map.
-			+ Interesting
+			+ Interesting.
 				Wait until you learn about Abyssinia.
 					[section hello]
 			+ And what would be the correct translation of your country's name?
@@ -1668,7 +1669,7 @@ How is life faring for you, Viktor?   //brian edit changed "fairing" to "faring"
 				Possibly.
 				But I might need some metal to build it with.
 				Or money, money can easily be converted into anything.
-					+ Do you accept IOUs from a future emperor?    //brian edit removed apostrophe from "IOUs" (not correct)
+					+ Would you accept an IOU from a future emperor?    //brian edit removed apostrophe from "IOUs" (not correct)
 						I would have enough trouble accepting IOUs from the current emperor.    //brian edit removed apostrophe from "IOUs" (not correct)
 							[section hello]
 					++ Dammit, that should be your full time job, not this dead end excuse for hygiene!
@@ -2064,8 +2065,9 @@ end
 												Please forgive us.
 												[move palaceOutside_gate_left 180 5][move palaceOutside_gate_right 0 5][time 35]
 												[move palaceOutside_gate_left 180 0][move palaceOutside_gate_right 0 0]
+												[sound snd_lift_arrive]
 												Next time we will kill someone like you on the spot, like we usually do.
-													+ Good boy
+													+ Good boy.
 														[room palace_far start]
 														[end]
 	+ Never mind, sorry to disturb you
@@ -2075,6 +2077,7 @@ end
 === emperor ===
 
 State your business, minion. But hurry up.
+[section reveal]
 I have a war on Macedonian Republic to prepare.
 We plan on smashing them, crushing them and showing them their place in this geopolitical roller coaster.   //brian edit   corrected spelling of "coster" to "coaster"
 
@@ -2110,8 +2113,12 @@ We plan on smashing them, crushing them and showing them their place in this geo
 				You foul-smelling leftover!
 				You outdated fertilizer!
 				You... pig!
-				[time 150][move palace_curtain_left 90 3][move palace_curtain_right 90 3][sound snd_lift_leave]
-				[move palace_curtain_left 90 0][move palace_curtain_right 90 0] Are you aware that I'm protected with the finest automatons in this part of the world?
+				== reveal ==
+				[time 160][move palace_curtain_left 90 3][move palace_curtain_right 90 3][sound snd_lift_leave]
+				[move palace_curtain_left 90 0][move palace_curtain_right 90 0]
+				[imagespeed palace_automaton_bear_open 1][imagespeed palace_automaton_bull_open 1][time 44]
+				[animations palace_automaton_bear_open spr_palace_automaton_bear][animations palace_automaton_bull_open spr_palace_automaton_bull]
+				Are you aware that I'm protected with the finest automatons in this part of the world?
 					+ I was, in fact, not aware of that, you pompous mutt.
 						[mood emperor laugh]Ha ha ha ha ha.
 						[talk hyena][cloud reverse] hahahahahaha.    //brian edit   added period (.) to end of sentence
@@ -2477,8 +2484,8 @@ end
 		Also an amateur writer.
 			[section sojew]
 	+ My name is Viktor.
-		[if metkafka = 1]My name is still Franz Kafka.
-		[not metkafka = 1]Pleased to meet you. My name is Franz Kafka.   //brian edit  changed "iz" to "is"  (typo??)
+		[if metkafka = 1] My name is still Franz Kafka.
+		[not metkafka = 1] Pleased to meet you. My name is Franz Kafka.   //brian edit  changed "iz" to "is"  (typo??)
 		[set metkafka 1]
 		[description kafka Franz Kafka]
 		[animation kafka spr_kafka_greetings]
@@ -2597,7 +2604,7 @@ end
 	+[if needs_pen = 1] Can I see the contract?
 		Of course you can.
 		[set needs_pen 0]
-		[take pen]
+		[take pencil]
 		And here is the pen for signing it.
 			+ This is an eraseable pencil.
 				Oh... damn...
@@ -2654,7 +2661,8 @@ end
 					Oh come on, let me try a few times!
 						[talk horse2] Try what?
 							[section watchword]
-	+ Greetings ladies and gentlemen. Are you anarchists?
+	+[if anarchistsquestion = 0] Greetings ladies and gentlemen. Are you anarchists?
+		[set anarchistsquestion 1]
 		[talk horse2] Us?
 		[talk horse1] By god, we would never.
 		[talk mole] Long live the emperor!
@@ -2668,6 +2676,10 @@ end
 		[talk horse1] wink, wink, nothing.
 		[talk horse2] Go away.
 			[end]
+	+ Bye bye, anarchists...
+		[talk matilda] Goodbye...
+		[talk mole] And, we're not anarchists!
+		[end]
 
 end
 == watchword ==
@@ -2801,7 +2813,7 @@ end
 
 end
 == continuerd ==
-[talk mole] Interesting
+[talk mole] Interesting.
 [talk matilda_tavern] I think that's very hot.
 	+ Really?
 		[talk matilda_tavern] Oh yes, I'd like to talk about that a bit more.
@@ -2809,29 +2821,28 @@ end
 			+ Well, private talk is my favorite kind of talk.
 				[talk matilda_tavern][blocksound snd_matilda_talk_whisper3] Yes, let's talk privately.
 				[talk matilda_tavern][blocksound snd_matilda_talk_whisper4] We should go to the other room.
-				[talk matilda_tavern][blocksound snd_matilda_talk_whisper2] And find a good booth to... talk.
+				[talk matilda_tavern][blocksound snd_matilda_talk_whisper2] And find a cozy toilet booth to... talk about it.
 					+ I know just the booth!
 						[set gunscene 1]
 						[set anarchist_trust 1]
 						[set needs_pen 1]
 						[destroy anarchists]
-						[animations player spr_viktor_walk_right][move player 8 6][animations matilda_tavern spr_matilda_walk_right][move matilda_tavern 17 8][fade in 0.03][time 150]
-						[room toilet gunpoint]
+						[animations player spr_viktor_walk_right][move player 8 6][animations matilda_tavern spr_matilda_walk_right][move matilda_tavern 17 8][fade in 0.03][time 30][set gototoilet 1]
 
 end
 === matilda ===
 
-You talk
+Talk to Krtek, he's best at preparing these meetings.
 [end]
 
 end
 == gunpoint ==
 
-	[if middle_closed = 1] I think the middle one is empty.
+	[if middle_closed = 0] I think the middle one is empty.
 	[set gunpoint_complicated 0]
-	[if middle_closed = 1] Don't ask how I know.
-	[if middle_closed = 0] Oh look, the middle one is empty.
-	[if middle_closed = 0] If this thing on the floor doesn't bother you...
+	[if middle_closed = 0] Don't ask how I know.
+	[if middle_closed = 1] Oh look, the middle one is empty.
+	[if middle_closed = 1] If this thing on the floor doesn't bother you...
 		Actually, right here is fine.
 			[set mood scared]
 			Are you sure?
@@ -2961,7 +2972,7 @@ end
 
 We're a group of anarchists and communists.
 And we've been trying to agree on basic principles for the last ten years.
-[blocksound snd_matilda_talk_ask2] What makes you think we'd agree to fight for another monarchy?
+[blocksound snd_matilda_talk_ask2] What makes you think we'd put aside our differences and agree to fight together just to set up another monarchy?
 	+ I just like the anarchists because I heard you have cookies.
 		Please tell me something more convincing than that
 			[section gunpoint_politics_convincing]		
@@ -3034,7 +3045,7 @@ All right.
 I trust you.
 But I'm still keeping my eye on you.
 	+ I like that. Can I keep my eye on you as well?
-		What?
+		What?!
 		[talk priest_back] Seriously, Viktor, that sounded creepy as hell
 			Sorry.
 				Don't listen to him, he's drunk.
@@ -3075,7 +3086,13 @@ Better talk with Krtek, he's better at organizing.
 								[talk matilda_tavern] I don't know, I keep the gun.
 								[talk mole] I keep the shovel.
 								[talk horse2] We cannot start without the pen.
+								[talk horse1] And paper! We need paper!
 								[set mood]
+								[talk jekyll] Oh god, not this again! 
+								[talk jekyll] I think I'm gonna throw up!
+								[imagespeeds jekyll 0.6][animations jekyll spr_jekyll_walk][move jekyll 359 5][time 180]
+								[destroy jekyll]
+								[set jekyll_toilet 1]
 								[end]
 
 
@@ -3090,38 +3107,63 @@ Better talk with Krtek, he's better at organizing.
 === krtek ===
 
 == hello ==
-
-	+ kako to da nemate papira?
-		trebali smo papir od zapisnika za wc
-		pa smo rekli da ćemo koristiti wc papir za zapisnik
-		na žalost, trenutno krčma nema wc papira
+	- Can we have a meeting now?
+		Sure, after we find a pen and some paper for our notes.
+			[if item pencil] I have a pen!
+				[if item pencil] That's good, I guess.
+			[if item pencil][if item paper][if toiletpaperminutes = 1] And if you're still not above using toilet paper for minutes, I found some in the toilet.
+				[if item pencil][if item paper][if toiletpaperminutes = 1] Is it clean?
+					[if item pencil][if item paper][if toiletpaperminutes = 1] Surprisingly, yes!
+			[not item pencil][if item paper][if toiletpaperminutes = 1] Well, if you're still not above using toilet paper for minutes, I found some in the toilet.
+				[not item pencil][if item paper][if toiletpaperminutes = 1] Is it clean?
+			[not item pencil][if item paper][if toiletpaperminutes = 1] Surprisingly, yes!
+		[section hello]
+	+ How come you're out of paper?
+		Well, Pferdinand here used up our paper supply when he went to the toilet.
+		[set toiletpaperminutes 1] So we decided it is only fair to use toilet paper for our minutes.
+		Unfortunatelly this fine establishment is out of toilet paper.
+			Good to know.
 			[section hello]
-	+ možete li naći još ljudi za srušiti cara?
-		naravno, imamo veze
-		ali nemamo ni jedan pištolj osim ovog tu
-		a ni za njega nemamo metaka
-		matilda: ajde glasnije da te cijela krčma čuje
-		kafka: ma ko te tu sluša
-			+ znači možete doći do ljudi?
-				ako bi imali dovoljno novaca, bez problema
+	+ Can you find more people to take down the emperor?
+		Of course, we're well connected.
+		But we only have one gun.
+		And even that one is out of bullets.
+		[talk matilda] Could you say that a bit louder, I don't think the *ENTIRE tavern* heard you...
+		[talk kafka] As if we care...
+			So... can you raise me an army?
+				If we had enough cash, sure.
 					[section hello]
-	+ kako stojite s financijama?
-		nemamo problema s tim
-		financija nemamo
-		ja povremeno pokušavam iskopati blago ili naftu
-		sve što sam zasad iskopao je bila hrpa divovskih kostiju
-			+ ti voliš kopati?
-				to mi je u neku ruku hobi
-				i kompulzija
-				što misliš zašto u wc-u nema jedne školjke?
-					[section but_no]
-			+ ako dobro kopaš, znam gdje bi mogli iskopati nešto novaca
-				piratsko blago?
-					ne, ali vlasnici su slični
-						šumski pljačkaši
-							bankari
-								au, ti su još gori
-									[section but_no]
+	+ How are your finances?
+		We have no problems with our finance division.
+		In fact, we don't even have a finance division.
+		Occasionally, I dig up some gold or oil.
+			Really?
+				No, mostly I dig up dinosaur bones...
+				[set moledigs 1]
+				[section hello]
+					-[if moledigs = 1][if diggingask = 0] So... you like digging?
+						[set diggingask 1] It's a hobby of mine.
+						And a compulsion...
+						Why do you think there are no shells in the toilet...
+							[section hello]
+					-[if moledigs = 1][if diggingask2 = 0] I know where we could dig up some real treasure!
+						[if diggingask2 = 1] You told me already, we're going to rob some banksters...
+						[if diggingask2 = 1][section hello]
+						[if diggingask2 = 0][set diggingask2 1] As in pirate treasure?
+							No, but the owners are under the same moral code.
+								Grave robbers?
+									Bankers...
+										Ach, even worse!
+											[section hello]
+					+ Let's talk some more about our plan.
+						What do you want to know?
+						[section hello]
+	+ Never mind...
+		I won't.
+		[end]
+
+End.
+
 == but_no ==
 					
 [end]
@@ -3165,8 +3207,8 @@ end
 		[set mood angry]
 		Then go home and be quiet.
 		I am now a leader of your group
-		[talk horse2_scared] We can't make you a leader!
-		[talk horse2_scared] We don't have any paper to record the shift in leadership.
+		[talk horse2_scared][direction left] We can't make you a leader!
+		[talk horse2_scared][direction left] We don't have any paper to record the shift in leadership.
 		[if needs_pen = 1] [talk horse1_scared] We don't have a pen either.
 		Be quiet!
 		You two horses, get me some drinks!
@@ -3203,7 +3245,7 @@ end
 										[talk lake] And a musician.
 										Well, we can't go outside.
 											+ Yeah, I don't want to get arrested again.
-												And I'm a foreigner
+												And I'm a foreigner.
 												[talk horse2_scared] Oh wow, man. That's a bummer.
 												[talk matilda_tavern_scared] Stop helping, Andras.
 												[talk anteater] You can use the restroom like the rest of the angry drunkards
@@ -3229,7 +3271,7 @@ end
 	[talk mole] Definitely.
 	So we could get weapons.
 	[talk matilda_tavern] Specifically, bullets.
-	We also need a lot of manpower.
+	We also a lot of manpower.
 	[talk matilda_tavern] And womanpower!
 	And most importantly, the technology that would help us circumvent the emperor's electricity shield
 	[set mood angry]
@@ -3305,8 +3347,7 @@ end
 										[talk anteater] I wouldn't recommend that, sir.
 										[talk anteater] Vomiting in public while being a foreigner is punishable by death.
 										Oh god, I really don't need this.
-										[imagespeeds jekyll 0.6]
-										[animations jekyll spr_jekyll_walk][move jekyll 359 5][time 180]
+										[imagespeeds jekyll 0.6][animations jekyll spr_jekyll_walk][move jekyll 359 5][time 180]
 											[destroy jekyll]
 											[set jekyll_toilet 1]
 											[end]
@@ -3378,7 +3419,9 @@ end
 		I lost the taste of absinthe and am starting to feel the smells around here.
 		Please bring me more of my absinthe as soon as possible!
 		The bottle is in my bag behind the barrel.
-			[end]
+			Could you just give me the toilet paper that dropped in there?
+				I can't feel my arms!
+					[end]
 	+[if jekyll_toilet_first = 1] Where did you say what was how?
 		My bag!
 		Bottle behind the barrel where I was sitting!
@@ -3412,8 +3455,9 @@ end
 				[animation lake spr_lake_smile]
 				[set lake_is_musician 1]
 					[section hello]
-	-[if lake_is_musician = 1] How do you manage to sound like a whole orchestra?
-		I'm really good
+	-[if recordconversation = 0][if lake_is_musician = 1] How do you manage to sound like a whole orchestra?
+		I'm really good.
+		[set recordconversation 1]
 			+ But you aren't even playing your guitar right now!
 				Heh, you got me.
 				There's a record player inside the guitar.
@@ -3425,14 +3469,17 @@ end
 							+ Actually, I have one exactly like that!
 								Then just take mine and don't give me anything, please.
 								[talk kafka] You have something against cockroaches?
-								We already discussed that, Frank.
+								We already discussed this, Frank.
 								[talk kafka] It's Franz, you Texan cow herder!   //brian edit  capitalized "Franz" (proper noun)
 								Whatever, man.
+								Here, take a record.
+								[record bach]
 									[section hello]
 					- I also have a gramophone right here in my pocket. Can I get one of your records?
 						Oh, that was your record player poking out!
 						I just thought you were really glad to see me.
 						Here, take a record.
+							[record bach]
 							[section hello]
 	- This is a really interesting musical instrument.
 		[set lake_is_musician 1]
@@ -3446,9 +3493,10 @@ end
 			+ Whoa!
 				Right when I almost strangled him, he stabbed his horn right in my eye!
 				Just kidding, both my eyes are fine.
-				I have an eyepatch because girls find it hot.
+				[animation lake spr_lake_eyepatch][time 60]
+				I just have an eyepatch because girls find it hot.
 				== lake_patch ==
-					- Don't you have a problem with depth perception while wearing the patch??
+					- Don't you have a problem with depth perception while wearing the patch?
 						This world is pretty two-dimensional anyway.
 							[section lake_patch]
 					- And it really works?
@@ -3468,15 +3516,21 @@ end
 	+ Can you tell me where I could find the anarchists?
 		I have no idea, I'm not from around here. > I'm from New York, Texas. > This is the first time I tried playing at this place.
 			+ I thought that everyone in Texas has at least two heads. Where's your other one?
-				Not everyone has multiple heads in Texas. There's me… > There's also that rat-face guy that looks like a parrot… > What was his name? > Oh yeah, John Oliver! > Do you think I would be smarter with two heads?   //brian edit  changed "=" to question mark (?) at end of sentence  (typo??)
+				Not everyone has multiple heads in Texas. There's me…
+				There's also that rat-face guy that looks like a parrot…
+				What was his name?
+				Oh yeah, John Oliver!
+				Do you think I would be smarter with two heads?
 					+ I'm open minded. You're free to have as many heads as you choose.
 						That's what my girlfriend always says! > She has six of them.
 							[section hello]
 					+ Isn't John Oliver an asylant from Unwanted Kingdom?
 						Ah yes, I heard some of his jokes didn't resonate well with the queen of Unwanted Kingdom
 							[section hello]
+					+ I don't think anything can help you.
+						[section hello]
 			+ So, how do you like Austria Hungary?
-				Very pretty. > Except a couple of times when the police tried to arrest me. > First for mispronouncing the emperor's name. > Viktor: I still have no idea how it's pronounced > Me either. > And once I tried looking at his picture from a wrong angle. > Luckily, one of them got cut on my spines while arresting me. > He started bleeding all over the floor and the other one fainted from seeing the blood. > So I just left.  //brian edit   changed "Me neither." to "Me either." since there is no "nor" in this sentence--either/or  neither/nor, added period (.) to end of sentence
+				Very pretty. > Except a couple of times when the police tried to arrest me. > First for mispronouncing the emperor's name. > I still have no idea how it's pronounced > [other] Me neither. > And once I tried looking at his picture from a wrong angle. > Luckily, one of them got cut on my spines while arresting me. > He started bleeding all over the floor and the other one fainted from seeing the blood. > So I just left.  //brian edit   changed "Me neither." to "Me either." since there is no "nor" in this sentence--either/or  neither/nor, added period (.) to end of sentence
 					[section hello]
 
 == for_a_beer ==
@@ -4052,12 +4106,13 @@ Hello, young lady.
 	+[if toilet_matilda = 0] I' m not sure am I glad to meet you sir.
 		[set toilet_matilda 1]
 			You have a skeleton over there and you look as if you...
-				Oh don't worry, Matilda. This is not my house. I'm just painting for the owner of this dungeon.
+				[if klimtmatildaname = 1] Oh, don't worry, Matilda. This is not my house. I'm just painting for the owner of this dungeon.
+				[if klimtmatildaname = 0] Oh, don't worry, young lady. This is not my house. I'm just painting for the owner of this dungeon.
 					+ And who is the owner?
 							The dreaded Dr. Frankenstein.
 							He's upstairs, observing his biggest creation's psychotherapy.
 								Thank you.
-									[end]
+									[section matilda]
 	+[if toilet_matilda = 1] I'm glad you decided to bring some colors into your house, because it looks like a bloody dungeon
 		It is kinda...
 		Moist.
@@ -4065,29 +4120,30 @@ Hello, young lady.
 		And that skeleton, oh so tacky.
 		Luckily, it's not my house. It's Dr. Frankenstein's dungeon.
 			+ Oh.
-				[end]
+				[section matilda]
 	- My name is Matilda, what is yours?
+	[set klimtmatildaname 1]
 	[if toilet_matilda = 1]
 		I'm Gustav Klimt. I'm a painter, and you?
 			+ An anarchist.
 				That's cute.
-					[end]
+					[section matilda]
 			+ Freelance murderer.
 				Sounds like lots of work.
 				Do you murder a lot of people throughout the day?
 					+ Not really
 						I'm not sure if I should wish you more luck or less.
-						[end]
+						[section matilda]
 					+ Just kidding, I'm not actually a murderer.
 					But it sounds better then saying I'm unemployed.
 						It really does.
-							[end]
+							[section matilda]
 			+ Uh... I'm a plumber. We're both plumbers here.
 				Of course you are.
-					[end]
+					[section matilda]
 	+ Sorry to disturb you, I'll just be on my way.
 		Thank you.
-			[end]
+			[section matilda]
 
 end	
 == after_machine ==
@@ -4102,9 +4158,10 @@ end
 							+ Why not.
 								I can start as soon as you bring me a... zillion golden crowns!!!
 								Can you do it?
-									[talk viktor] Um, yeah, sure, OK, I guess.
+									[talk matilda] Sure...
 									[talk matilda] We just robbed a bank, you see...
-										Oh, all right, then
+										Oh, all right, then.
+											[switch viktor matilda]
 											[animation player spr_viktor_take_left_high]
 											[fade in 0.02][time 60] > [fade out 0.02][time 60]
 											[take fuck]
@@ -4124,8 +4181,8 @@ Ich bin Dr. Frankenstein.
 Ze biggest mind in all ze universe!
 Und das ist mein greatest creation!
 == questions ==
-	- The parrot?
-		Nein, das iz ze parrot psychiatrist, dr. Sigmund Freud!
+	- The vulture?
+		Nein, das iz ze psychiatrist, dr. Sigmund Freud!
 		[decription freud Sigmund Freud]
 		[talk freud] Pleased to meet you, mister...
 			[set frankenstein_introduced 1] Viktor.
@@ -4224,7 +4281,7 @@ end
 						Anyway, without ze Frequency Ultra Conversion Kirlian, ich work nicht.
 					+ I'll just take the machine and you can't stop me!
 						[talk monster] Ich wouldst stop you.
-						[talk monster] Su bist nicht steal from mein father!
+						[talk monster] Du bist nicht steal from mein father!
 						[mood frankenstein crazy] You shut up und continue ze psychotherapy!
 							[section viktor]
 	+[not machine_fixed = 1] Are you really Dr. Frankenstein?
@@ -4243,6 +4300,7 @@ end
 							[section viktor]	
 	+[not machine_fixed = 1] We want to claim Tesla's machine on behalf of Tesla.
 	[animation frankenstein spr_frankenstein_amazed][time 30]
+		[imagespeeds frankenstein 0.6]
 		[mood frankenstein amazed] Was?!
 		[mood frankenstein amazed] Du break one machine und want ze other?!
 		[mood frankenstein crazy] First, fix ze machine you broke, dann wir sprechen!
@@ -4265,7 +4323,7 @@ end
 end
 == matilda ==
 
-	+ [if machineDontWork = 1] You didn't even plug Tesla's machine in!
+	+[if machineDontWork = 1] You didn't even plug Tesla's machine in!
 		Ich know, but why bother with details if it works?
 			[section matilda]
 	+[if machine_fixed = 1] We fixed your machine. Now it's time for you to do your part of the deal.
@@ -4323,7 +4381,7 @@ end
 			
 end
 == throw_stuff ==
-(animation missing)
+
 [end]
 
 

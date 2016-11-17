@@ -21,8 +21,8 @@
 				"picture" : "spr_menu_back",
 				"passive" : "spr_cursor_walk",
 				"active" : "spr_cursor_walk_active",
-				"x" : 200,
-				"y" : 1000,
+				"x" : 70,
+				"y" : 850,
 				"binding" : "x"
 				}
 			]
@@ -496,9 +496,183 @@
 				"picture" : "spr_action_switch",
 				"passive" : "spr_cursor_walk",
 				"active" : "spr_cursor_walk_active",
-				"x" : 1115,
-				"y" : 170,
+				"x" : 1170,
+				"y" : 120,
 				"binding" : "s"
+				}
+			]
+		},
+		{
+			"comment" : "GUI for krakow, the old fashioned gui we had before Reboot Develop 2016",
+			"alias" : "krakow",
+			"inventory" : {
+				"x" : 300,
+				"y" : 200,
+				"xOffset" : 200,
+				"yOffset" : 200,
+				"xMaximum" : 900,
+				"background" : "bcg_inventory"
+			},
+			"showInterfaceOnClick" : 0,
+			"interfacePicture" : "spr_cursor_interface",
+			"interfaceScale": 0.5,
+			"interface" : [
+				{
+					"alias" : "kick",
+					"picture" : "spr_cursor_kick_interface",
+					"x": 30,
+					"y" : 35
+				},
+				{
+					"alias" : "use",
+					"picture" : "spr_cursor_use_interface",
+					"x": 20,
+					"y" : -48
+				},
+				{
+					"alias" : "look",
+					"picture" : "spr_cursor_look_interface",
+					"x": -45,
+					"y" : 38
+				},
+				{
+					"alias" : "talk",
+					"picture" : "spr_cursor_talk_interface",
+					"x": -75,
+					"y" : -38
+				}
+			],
+			"foreground" : "bcg_gui",
+			"background" : "bcg_black",
+			"description" : {
+				"x" : 640,
+				"y" : 920,
+				"rgb" : "255,255,255"
+			},
+			"default" : "walk",
+			"secondary" : "inventory",
+			"order" : "look,use,look",
+			"actions" : [
+				{
+				"alias" : "walk",
+				"type" : "movement",
+				"available" : 0,
+				"visible" : 0,
+				"description" : "",
+				"name" : "",
+				"default" : "",
+				"picture" : "",
+				"passive" : "spr_cursor_walk",
+				"active" : "spr_cursor_walk_active",
+				"x" : 0, 
+				"y" : 0,
+				"binding" : "wm0"
+				},
+				{
+				"alias" : "look",
+				"type" : "observation",
+				"available" : 0,
+				"visible" : 0,
+				"description" : "Look at",
+				"name" : "Look",
+				"default" : "Interesting.",
+				"picture" : "spr_action_look",
+				"passive" : "spr_cursor_look",
+				"active" : "spr_cursor_look_active",
+				"x" : 672, 
+				"y" : 921,
+				"binding" : "le3"
+				},
+				{
+				"alias" : "use",
+				"type" : "interaction",
+				"available" : 0,
+				"visible" : 0,
+				"description" : "Use",
+				"name" : "Use / Pick up",
+				"default" : "I can't use that.",
+				"picture" : "spr_action_use",
+				"passive" : "spr_cursor_use",
+				"active" : "spr_cursor_use_active",
+				"x" : 338,
+				"y" : 868,
+				"binding" : "up2"
+				},
+				{
+				"alias" : "useanywhere",
+				"type" : "observation",
+				"available" : 0,
+				"visible" : 0,
+				"description" : "Use",
+				"name" : "Use / Pick up",
+				"default" : "I can't use that.",
+				"picture" : "spr_action_use",
+				"passive" : "spr_cursor_use",
+				"active" : "spr_cursor_use_active",
+				"x" : 338,
+				"y" : 868,
+				"binding" : ""
+				},
+				{
+				"alias" : "kick",
+				"type" : "interaction",
+				"available" : 0,
+				"visible" : 0,
+				"description" : "Attack",
+				"name" : "Kick",
+				"default" : "I can't kick that.",
+				"picture" : "spr_action_kick",
+				"passive" : "spr_cursor_kick",
+				"active" : "spr_cursor_kick_active",
+				"x" : 128,
+				"y" : 790,
+				"binding" : "k1"
+				},
+				{
+				"alias" : "talk",
+				"type" : "interaction",
+				"available" : 0,
+				"visible" : 0,
+				"description" : "Talk to",
+				"name" : "Talk",
+				"default" : "I can't talk to that.",
+				"picture" : "spr_action_talk",
+				"passive" : "spr_cursor_talk",
+				"active" : "spr_cursor_talk_active",
+				"x" : 896,
+				"y" : 896,
+				"binding" : "t4"
+				},
+				{
+				"alias" : "inventory",
+				"type" : "combination",
+				"available" : 1,
+				"visible" : 1,
+				"description" : "Use",
+				"name" : "Inventory",
+				"default" : "I can't use these things together.",
+				"combinationDescription" : "with",
+				"picture" : "spr_action_inventory",
+				"passive" : "spr_cursor_inventory",
+				"active" : "spr_cursor_inventory_active",
+				"x" : 1088,
+				"y" : 879,
+				"binding" : "i5"
+				},
+				{
+				"alias" : "options",
+				"type" : "menu",
+				"available" : 1,
+				"visible" : 1,
+				"description" : "Options menu",
+				"name" : "Options menu",
+				"default" : "options",
+				"picture" : "spr_menu_gramophone",
+				"passive" : "spr_cursor_walk",
+				"active" : "spr_cursor_walk_active",
+				"x" : 120,
+				"y" : 900,
+				"binding" : "o"
 				}
 			]
 		}

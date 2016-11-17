@@ -1,20 +1,783 @@
 {
-	"version": "24.8.",
+	"version": "17.11.",
 	"rooms": [
+	{
+		"comment": "Test room",
+		"alias": "test",
+		"gui": "default",
+		"scaleNear": 1,
+		"scaleFar": 1,
+		"background": "bcg_inventory",
+		"border": "spr_various_token",
+		"xBackground": 0,
+		"yBackground": 0,
+		"rgb": "0,0,0",
+		"entrances": [
+			{
+			"alias": "start",
+			"entrance": "[not version debug][room intro start] > [occupied viktor][position player 700 700] Use = dig, Kick = machine, Talk = teslaslider"
+			},
+			{
+			"alias": "minigame",
+			"entrance": "[minigame][recall] Back from minigame. > [if machine_win = 1] machine_win = 1 > [if teslaslider_win = 1] teslaslider_win = 1"
+			},
+			{
+			"alias" : "return",
+			"entrance" : "[recall] Returned from telephone call."
+			},
+			{
+				"alias" : "map",
+				"entrance" : "[recall] Returned from watching the map."
+			}
+		],
+		"objects": [
+			{
+				"alias": "object",
+				"picture" : "spr_various_token",
+				"visible" : 0,
+				"x" : 0,
+				"y" : 0,
+				"xScale" : 1280,
+				"yScale" : 768,
+				"xInteract" : 700,
+				"yInteract" : 700,
+				"description" : "A test object",
+				"combinations" : {
+					"look" : "Use = dig, Kick = machine, Talk = teslaslider",
+					"use" : "[remember][room dig start]",
+					"kick" : "[remember][room machine start]",
+					"talk" : "[remember][room teslaslider start]"
+				}
+			}
+		]
+	},
+	{
+		"comment": "Budapest outside",
+		"alias": "budapest",
+		"gui": "default",
+		"scaleNear": 0.3,
+		"scaleFar": 0.3,
+		"background": "bcg_budapest",
+		"border": "spr_various_token",
+		"xBackground": 0,
+		"yBackground": 20,
+		"rgb": "0,0,0",
+		"entrances": [
+			{
+			"alias": "start",
+			"entrance": "[create budapest_light][position player 250 832][move player 0 1][move matilda 0 2][move dig_mole 0 1][animations player spr_viktor_walk_right][animations matilda spr_matilda_walk_right][animations dig_mole spr_dig_mole_walk][time 300] > [move player 0 0][move matilda 0 0][move dig_mole 0 0][animation matilda spr_matilda_listen_left][animation dig_mole spr_dig_mole] > [talk dig_mole][animations dig_mole spr_dig_mole_talk][direction left] OK, this is a good place to start digging. > [talk dig_mole][animations dig_mole spr_dig_mole_talk][direction left] We should head west until we reach the bank. > [talk dig_mole][animations dig_mole spr_dig_mole_talk][direction left] Just follow me. > [animation dig_mole spr_dig_mole_dig_new] > [position player -9000 -9000][room dig start]"
+			},
+			{
+			"alias": "back",
+			"entrance": "[position matilda -9000 -9000][position player -9000 -9000][create budapest_light][position dig_mole 391 894] > [talk dig_mole][animations dig_mole spr_dig_mole_talk] Whoops, not here again... > [room dig start]"
+			},
+			{
+			"alias" : "again",
+			"entrance": "[minigame][create budapest_light][position player 200 832][move player 0 1][move matilda 0 2][move dig_mole 0 1][animations player spr_viktor_walk_right][animations matilda spr_matilda_walk_right][animations dig_mole spr_dig_mole_walk][time 300][fade out 0.03 -9999 spr_various_token] > [fade][move player 0 0][move matilda 0 0][move dig_mole 0 0][animation matilda spr_matilda_listen_left][animation dig_mole spr_dig_mole] > [talk dig_mole][animations dig_mole spr_dig_mole_talk][direction left] OK, this is a good place to start digging. > [talk dig_mole][animations dig_mole spr_dig_mole_talk][direction left] We should head west until we reach the bank. > [direction front][cloud 522 636] Is anyone else feeling dejavu? > [position player -9000 -9000][room dig start]"
+			}
+		],
+		"objects": [
+			{
+				"alias": "budapest_light",
+				"available" : 0,
+				"object" : "obj_hell_lavaburn",
+				"depth" : -2000,
+				"xCloud" : 30,
+				"yCloud" : 3,
+				"imageSpeed" : 0.1,
+				"x": 358,
+				"y": 520
+			},
+			{
+				"alias": "budapest_fog",
+				"NOTobject": "obj_martinsRoom_smoke",
+				"path": "path_left_short",
+				"pathAction": "reverse",
+				"movementSpeed" : 1,
+				"depth" : -2000,
+				"x": 0,
+				"y": 0
+			},
+			{
+				"alias": "budapest_fog2",
+				"object": "obj_martinsRoom_smoke",
+				"depth" : -2000,
+				"x": -100,
+				"y": 0
+			},
+			{
+			"alias": "matilda",
+			"x": 34, "y": 832,
+			"xScale":0.3,
+			"yScale": 0.3,
+			"xCloud" : 306,
+			"yCloud" : 565
+			},
+			
+			{
+			"alias": "dig_mole", 
+			"talkSoundOverride" : "snd_mole_talk",
+			"x": 134, "y": 800,
+			"xScale":-0.3,
+			"yScale": 0.3,
+			"xCloud" : 438,
+			"yCloud" : 698
+			}
+		]
+	},
+	{
+		"comment": "Bank inside",
+		"alias": "bank",
+		"gui": "default",
+		"scaleNear": 0.7,
+		"scaleFar": 0.7,
+		"background": "bcg_bank",
+		"border": "spr_border_hallway",
+		"xBackground": 0,
+		"yBackground": 50,
+		"rgb": "0,0,0",
+		"entrances": [
+			{
+			"alias": "start",
+			"entrance": "[if version debug][skip] > [soundtrack bardi][position player 200 832][move player 0][move matilda 0][move dig_mole 0][time 120][animations player spr_viktor_walk_right][animations matilda spr_matilda_walk_right][animations dig_mole spr_dig_mole_walk] > [move player 0 0][move matilda 0 0][move dig_mole 0 0][animation matilda spr_matilda][animation dig_mole spr_dig_mole] > [DONT skip] > [talk matilda][animations matilda spr_matilda_talk_right] Finally! > So which safe do we have to crack? > [animations player spr_viktor_listen_left][time 30] > We do know which safe to crack, right? > [animations player spr_viktor_listen_left][time 30] > Oh, man, this is going to take forever! > [talk matilda] Wait a minute! I thought you can smell gold from a mile away, Krtek? Can't you just tell us which safe has gold? > [talk dig_mole][animations dig_mole spr_dig_mole_talk] Yes, usually I can... But, these safes are airtight... > [talk dig_mole][animations dig_mole spr_dig_mole_talk] Maybe if we unlocked one of them, I could smell if we're close. > Well... This really got conveniently overconvoluted."
+			},
+			{
+			"alias" : "minigame",
+			"entrance" : "[NO set safe_win 1] > [if safefirst = 0][safe randomize][set safefirst 1] > [position player 558 828] > [if safe_win = 0] Damn, that's the wrong combination. > [if safe_win = 1][safe open] Whee, it opened! > [if safe_win = 0][skip] > [safe detect] > [if safeUnlocked = 1][skip 8] > OK, take a good whiff? > [talk dig_mole][blocksound snd_viktor_idle_nosepick] Sniff sniff... > [if xSafe < 0][talk dig_mole][animations dig_mole spr_dig_mole_talk] It's a bit to the left, I think... > [not xSafe < 0][talk dig_mole][animations dig_mole spr_dig_mole_talk] It's a bit to the right, I think... > [if ySafe < 0][talk dig_mole][animations dig_mole spr_dig_mole_talk] And it's definitely not closer down than that... > [not ySafe < 0][talk dig_mole][animations dig_mole spr_dig_mole_talk] And it's definitely not higher than that... > OK, we're getting closer, I think... > [skip] > It's filled with gold!!! > [talk matilda][animations matilda spr_matilda_talk_right] We did it, we're rich! > Now lets bring down the emperor!!! > [talk dig_mole][animations dig_mole spr_dig_mole_talk] No, Viktor, you're forgetting the plan. > [talk dig_mole][animations dig_mole spr_dig_mole_talk] Now that we have the money, we need to get in touch with our contact, the arms dealer in Krakow. > [talk matilda][animations matilda spr_matilda_talk_right] OK, lets go! > [fade in 0.03][time 35] > [fade][room map_budapest_krakow start]"
+			}
+		],
+		"objects": [
+			{
+			"alias" : "bank_lift_up",
+			"subimage" : 0,
+			"x" : 800,
+			"y" : 832,
+			"moves" : 1,
+			"depth" : -850,
+			"xInteract" : 770,"yInteract" : 832,
+			"description" : "A bank lift",
+			"combinations" : {
+				"look" : "It's a lift. > I will probably need it for those higher vaults...",
+				"use" : "[if onlift = 1] It's not wise to tinker with the lift while standing on it. > [if onlift = 1][skip] > There's an automatic switch here. > [animation player spr_viktor_use_right_low] > [animation player spr_viktor_up][imagespeed player 0.25][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][time 60] > [noitamina player spr_viktor_up][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_down] > Neat!"
+			}
+			},
+			{
+			"alias": "matilda",
+			"description" : "Matilda, the anarchist zebra",
+			"x": 34, "y": 832,
+			"xScale":0.7,
+			"yScale": 0.7,
+			"xInteract" : 488,
+			"yInteract" : 817,
+			"xCloud" : 0,
+			"yCloud" : -300,
+			"moves" : 1,
+			"order" : "talk",
+			"combinations": {
+				"look" : "That is Matilda, the beautiful but deadly anarchist Zebra!",
+				"talk" : "[talk matilda] Quckly!"
+			}
+			},
+			
+			{
+			"alias": "dig_mole", 
+			"talkSoundOverride" : "snd_mole_talk",
+			"description" : "Krtek, the anarchist mole",
+			"x": 134, "y": 732,
+			"xScale":-0.7,
+			"yScale": 0.7,
+			"xInteract" : 488,
+			"yInteract" : 817,
+			"xCloud" : 0,
+			"yCloud" : -150,
+			"moves" : 1,
+			"order" : "use",
+			"combinations": {
+				"look" : "That is Krtek, the mole of our operation!",
+				"talk" : "[talk dig_mole][animations dig_mole spr_dig_mole_talk] Get cracking, fast!"
+			}
+			},
+			
+			{"alias": "a1", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 0] OK, I'll try to crack that one! > [animations player spr_viktor_walk_front][imagespeed player 0.5][time 30][move player 90 1] > [animations player spr_viktor_walk_front 0][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][move player 90 7][fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1118_A1","y":50},
+			{"alias": "a1o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1119_A1_open","available":0,"y":50},
+			{"alias": "a2", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 1] OK, I'll try to crack that one! > [animations player spr_viktor_walk_front][imagespeed player 0.5][time 30][move player 90 1] > [animations player spr_viktor_walk_front 0][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][move player 90 7][fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1120_A2","y":50},
+			{"alias": "a2o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1121_A2_open","available":0,"y":50},
+			{"alias": "a3", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 2] OK, I'll try to crack that one! > [animations player spr_viktor_walk_front][imagespeed player 0.5][time 30][move player 90 1] > [animations player spr_viktor_walk_front 0][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][move player 90 7][fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1122_A3","y":50},
+			{"alias": "a3o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1123_A3_open","available":0,"y":50},
+			{"alias": "a4", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 3] OK, I'll try to crack that one! > [animations player spr_viktor_walk_front][imagespeed player 0.5][time 30][move player 90 1] > [animations player spr_viktor_walk_front 0][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][move player 90 7][fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1124_A4","y":50},
+			{"alias": "a4o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1125_A4_open","available":0,"y":50},
+			{"alias": "a5", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 4] OK, I'll try to crack that one! > [animations player spr_viktor_walk_front][imagespeed player 0.5][time 30][move player 90 1] > [animations player spr_viktor_walk_front 0][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][move player 90 7][fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1126_A5","y":50},
+			{"alias": "a5o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1127_A5_open","available":0,"y":50},
+			{"alias": "a6", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 5] OK, I'll try to crack that one! > [animations player spr_viktor_walk_front][imagespeed player 0.5][time 30][move player 90 1] > [animations player spr_viktor_walk_front 0][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][move player 90 7][fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1128_A6_open","available":0,"y":50},
+			{"alias": "a7", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 6] OK, I'll try to crack that one! > [animations player spr_viktor_walk_front][imagespeed player 0.5][time 30][move player 90 1] > [animations player spr_viktor_walk_front 0][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][move player 90 7][fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1129_A7","y":50},
+			{"alias": "a7o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1130_A7_open","available":0,"y":50},
+			{"alias": "a8", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 7] OK, I'll try to crack that one! > [animations player spr_viktor_walk_front][imagespeed player 0.5][time 30][move player 90 1] > [animations player spr_viktor_walk_front 0][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][move player 90 7][fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1131_A8_open","available":0,"y":50},
+			{"alias": "b1", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 8] OK, I'll try to crack that one! > [animations player spr_viktor_walk_front][imagespeed player 0.5][time 30][move player 90 1] > [animations player spr_viktor_walk_front 0][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][move player 90 7][fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1132_B1","y":50},
+			{"alias": "b1o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1133_B1_open","available":0,"y":50},
+			{"alias": "b2", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 9] OK, I'll try to crack that one! > [animations player spr_viktor_walk_front][imagespeed player 0.5][time 30][move player 90 1] > [animations player spr_viktor_walk_front 0][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][move player 90 7][fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1134_B2","y":50},
+			{"alias": "b2o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1135_B2_open","available":0,"y":50},
+			{"alias": "b3", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 10] OK, I'll try to crack that one! > [animations player spr_viktor_walk_front][imagespeed player 0.5][time 30][move player 90 1] > [animations player spr_viktor_walk_front 0][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][move player 90 7][fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1136_B3","y":50},
+			{"alias": "b3o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1137_B3_open","available":0,"y":50},
+			{"alias": "b4", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 11] OK, I'll try to crack that one! > [animations player spr_viktor_walk_front][imagespeed player 0.5][time 30][move player 90 1] > [animations player spr_viktor_walk_front 0][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][move player 90 7][fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1138_B4","y":50},
+			{"alias": "b4o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1139_B4_open","available":0,"y":50},
+			{"alias": "b5", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 10] OK, I'll try to crack that one! > [animations player spr_viktor_walk_front][imagespeed player 0.5][time 30][move player 90 1] > [animations player spr_viktor_walk_front 0][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][move player 90 7][fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1140_B5","y":50},
+			{"alias": "b5o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1141_B5_open","available":0,"y":50},
+			{"alias": "b6", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 9] OK, I'll try to crack that one! > [animations player spr_viktor_walk_front][imagespeed player 0.5][time 30][move player 90 1] > [animations player spr_viktor_walk_front 0][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][move player 90 7][fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1142_B6","y":50},
+			{"alias": "b6o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1143_B6_open","available":0,"y":50},
+			{"alias": "b7", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 8] OK, I'll try to crack that one! > [animations player spr_viktor_walk_front][imagespeed player 0.5][time 30][move player 90 1] > [animations player spr_viktor_walk_front 0][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][move player 90 7][fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1144_B7","y":50},
+			{"alias": "b7o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1145_B7_open","available":0,"y":50},
+			{"alias": "b8", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 7] OK, I'll try to crack that one! > [animations player spr_viktor_walk_front][imagespeed player 0.5][time 30][move player 90 1] > [animations player spr_viktor_walk_front 0][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][move player 90 7][fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1146_B8","y":50},
+			{"alias": "b8o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1147_B8_open","available":0,"y":50},
+			{"alias": "c1", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 6] OK, I'll try to crack that one! > [animations player spr_viktor_walk_front][imagespeed player 0.5][time 30][move player 90 1] > [animations player spr_viktor_walk_front 0][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][move player 90 7][fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1148_C1","y":50},
+			{"alias": "c1o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1149_C1_open","available":0,"y":50},
+			{"alias": "c2", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 5] OK, I'll try to crack that one! > [animations player spr_viktor_walk_front][imagespeed player 0.5][time 30][move player 90 1] > [animations player spr_viktor_walk_front 0][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][move player 90 7][fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1150_C2","y":50},
+			{"alias": "c2o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1151_C2_open","available":0,"y":50},
+			{"alias": "c3", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 4] OK, I'll try to crack that one! > [animations player spr_viktor_walk_front][imagespeed player 0.5][time 30][move player 90 1] > [animations player spr_viktor_walk_front 0][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][move player 90 7][fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1152_C3","y":50},
+			{"alias": "c3o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1153_C3_open","available":0,"y":50},
+			{"alias": "c4", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 3] OK, I'll try to crack that one! > [animations player spr_viktor_walk_front][imagespeed player 0.5][time 30][move player 90 1] > [animations player spr_viktor_walk_front 0][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][move player 90 7][fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1154_C4","y":50},
+			{"alias": "c4o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1155_C4_open","available":0,"y":50},
+			{"alias": "c5", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 2] OK, I'll try to crack that one! > [animations player spr_viktor_walk_front][imagespeed player 0.5][time 30][move player 90 1] > [animations player spr_viktor_walk_front 0][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][move player 90 7][fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1156_C5","y":50},
+			{"alias": "c5o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1157_C5_open","available":0,"y":50},
+			{"alias": "c6", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 1] OK, I'll try to crack that one! > [animations player spr_viktor_walk_front][imagespeed player 0.5][time 30][move player 90 1] > [animations player spr_viktor_walk_front 0][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][move player 90 7][fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1158_C6","y":50},
+			{"alias": "c6o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1159_C6_open","available":0,"y":50},
+			{"alias": "c7", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 0] OK, I'll try to crack that one! > [animations player spr_viktor_walk_front][imagespeed player 0.5][time 30][move player 90 1] > [animations player spr_viktor_walk_front 0][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][move player 90 7][fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1160_C7","y":50},
+			{"alias": "c7o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1161_C7_open","available":0,"y":50},
+			{"alias": "c8", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 1] OK, I'll try to crack that one! > [animations player spr_viktor_walk_front][imagespeed player 0.5][time 30][move player 90 1] > [animations player spr_viktor_walk_front 0][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][move player 90 7][fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1162_C8","y":50},
+			{"alias": "c8o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1163_C8_open","available":0,"y":50},
+			{"alias": "c9", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 2] OK, I'll try to crack that one! > [animations player spr_viktor_walk_front][imagespeed player 0.5][time 30][move player 90 1] > [animations player spr_viktor_walk_front 0][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][move player 90 7][fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1164_C9","y":50},
+			{"alias": "c9o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1165_C9_open","available":0,"y":50},
+			{"alias": "d1", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 3] OK, I'll try to crack that one! > [animations player spr_viktor_walk_front][imagespeed player 0.5][time 30][move player 90 1] > [animations player spr_viktor_walk_front 0][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][move player 90 7][fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1166_D1","y":50},
+			{"alias": "d1o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1167_D1_open","available":0,"y":50},
+			{"alias": "d2", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 4] OK, I'll try to crack that one! > [animations player spr_viktor_walk_front][imagespeed player 0.5][time 30][move player 90 1] > [animations player spr_viktor_walk_front 0][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][move player 90 7][fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1168_D2","y":50},
+			{"alias": "d2o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1169_D2_open","available":0,"y":50},
+			{"alias": "d3", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 5] OK, I'll try to crack that one! > [animations player spr_viktor_walk_front][imagespeed player 0.5][time 30][move player 90 1] > [animations player spr_viktor_walk_front 0][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][move player 90 7][fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1170_D3","y":50},
+			{"alias": "d3o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1171_D3_open","available":0,"y":50},
+			{"alias": "d4", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 6] OK, I'll try to crack that one! > [animations player spr_viktor_walk_front][imagespeed player 0.5][time 30][move player 90 1] > [animations player spr_viktor_walk_front 0][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][move player 90 7][fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1172_D4","y":50},
+			{"alias": "d4o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1173_D4_open","available":0,"y":50},
+			{"alias": "d5", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 7] OK, I'll try to crack that one! > [animations player spr_viktor_walk_front][imagespeed player 0.5][time 30][move player 90 1] > [animations player spr_viktor_walk_front 0][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][move player 90 7][fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1174_D5","y":50},
+			{"alias": "d5o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1175_D5_open","available":0,"y":50},
+			{"alias": "d6", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 8] OK, I'll try to crack that one! > [animations player spr_viktor_walk_front][imagespeed player 0.5][time 30][move player 90 1] > [animations player spr_viktor_walk_front 0][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][move player 90 7][fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1176_D6","y":50},
+			{"alias": "d6o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1177_D6_open","available":0,"y":50},
+			{"alias": "d7", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 9] OK, I'll try to crack that one! > [animations player spr_viktor_walk_front][imagespeed player 0.5][time 30][move player 90 1] > [animations player spr_viktor_walk_front 0][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][move player 90 7][fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1178_D7","y":50},
+			{"alias": "d7o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1179_D7_open","available":0,"y":50},
+			{"alias": "d8", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 10] OK, I'll try to crack that one! > [animations player spr_viktor_walk_front][imagespeed player 0.5][time 30][move player 90 1] > [animations player spr_viktor_walk_front 0][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][move player 90 7][fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1180_D8","y":50},
+			{"alias": "d8o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1181_D8_open","available":0,"y":50},
+			{"alias": "d9", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 11] OK, I'll try to crack that one! > [animations player spr_viktor_walk_front][imagespeed player 0.5][time 30][move player 90 1] > [animations player spr_viktor_walk_front 0][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][move player 90 7][fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1182_D9","y":50},
+			{"alias": "d9o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1183_D9_open","available":0,"y":50},
+			{"alias": "d10", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 10] OK, I'll try to crack that one! > [animations player spr_viktor_walk_front][imagespeed player 0.5][time 30][move player 90 1] > [animations player spr_viktor_walk_front 0][imagespeed bank_lift_up 1][animation bank_lift_up spr_bank_lift_up][move player 90 7][fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1184_D10","y":50},
+			{"alias": "d10o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1185_D10_open","available":0,"y":50},
+			{"alias": "e1", "description" : "A vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 9] OK, I'll try to crack that one! > [fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1186_E1_open","available":0,"y":50},
+			{"alias": "e2", "description" : "A vault", "xInteract" : 331,"yInteract" : 821, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 8] OK, I'll try to crack that one! > [fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1187_E2","y":50},
+			{"alias": "e2o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1188_E2_open","available":0,"y":50},
+			{"alias": "e3", "description" : "A vault", "xInteract" : 360,"yInteract" : 818, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 7] OK, I'll try to crack that one! > [fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1189_E3","y":50},
+			{"alias": "e3o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1190_E3_open","available":0,"y":50},
+			{"alias": "e4", "description" : "A vault", "xInteract" : 489,"yInteract" : 817, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 6] OK, I'll try to crack that one! > [fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1191_E4","y":50},
+			{"alias": "e4o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1192_E4_open","available":0,"y":50},
+			{"alias": "e5", "description" : "A vault", "xInteract" : 586,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 5] OK, I'll try to crack that one! > [fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1193_E5","y":50},
+			{"alias": "e5o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1194_E5_open","available":0,"y":50},
+			{"alias": "e6", "description" : "A vault", "xInteract" : 670,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 4] OK, I'll try to crack that one! > [fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1195_E6","y":50},
+			{"alias": "e6o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1196_E6_open","available":0,"y":50},
+			{"alias": "e7", "description" : "A vault", "xInteract" : 790,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 3] OK, I'll try to crack that one! > [fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1197_E7","y":50},
+			{"alias": "e7o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1198_E7_open","available":0,"y":50},
+			{"alias": "e8", "description" : "A vault", "xInteract" : 905,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 2] OK, I'll try to crack that one! > [fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1199_E8","y":50},
+			{"alias": "e8o", "moves": 0, "description" : "An open vault", "xInteract" : 905,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1200_E8_open","available":0,"y":50},
+			{"alias": "e9", "description" : "A vault", "xInteract" : 906,"yInteract" : 832, "combinations" : {"look": "Maybe it's that one?", "use": "[safe select][set safe_type 1] OK, I'll try to crack that one! > [fade in 0.03][time 35] > [position player 700 700][remember][fade][room safe start]"},  "picture":"sprite1201_E9","y":50},
+			{"alias": "e9o", "moves": 0, "description" : "An open vault", "xInteract" : 800,"yInteract" : 832, "combinations" : {"look": "Just trinkets and heirlooms... No gold.", "use": "There is nothing of value to take..."},  "picture":"sprite1202_E9_open","available":0,"y":50}
+
+		]
+	},
+	
+	{
+		"comment": "Krakow fair",
+		"alias": "krakow",
+		"gui": "krakow",
+		"scaleNear": 0.8,
+		"scaleFar": 0.6,
+		"background": "bcg_krakow",
+		"border": "spr_border_krakow",
+		"xBackground": 0,
+		"yBackground": -135,
+		"rgb": "0,0,0",
+		"entrances": [
+			{
+			"alias": "start",
+			"entrance": "[if version debug][take stickyspunge][take bear][take stick][take pipe][take love] > [fade out 0.03][position player 650 800][set spungehammer 1][take cash silent][give coin][give coin][give coin][give coin][give coin][give coin][time 30] > [fade][talk dig_mole] OK, I'm going to talk to our contact, you stay here and have fun. > [move dig_mole 200 7][animations dig_mole spr_dig_mole_walk][time 90] > [destroy dig_mole]"
+			},
+			{
+			"alias": "minigame",
+			"entrance": "[if available wolf_smoke][destroy wolf_smoke][create wolf] > [if shooter_win = 0][not item butter][active krakow_butter_for_show][pickup] > [if shooter_win = 1][not item pipe][active krakow_pipe][pickup]"
+			},
+			{
+			"alias": "solo",
+			"entrance": "[if available wolf_smoke][destroy wolf_smoke][create wolf] > [position player 1070 703][moveto player 898 775][animations player spr_viktor_walk_left] > [move player 0 0]"
+			},
+			{
+			"alias": "horror",
+			"entrance": "[set matildainlove 1][if available wolf_smoke][destroy wolf_smoke][create wolf] > [position matilda 953 744][position player 1070 703] >  > [if matildainlove = 1][skip 5] > [move matilda 0 0][animation player spr_viktor_listen_left][animation matilda spr_matilda_no][time 30] > [animation player spr_viktor_listen_left_scared][moveto matilda 531 828 5][animations matilda spr_matilda_walk_left][time 60] > [move matilda 0 0][animations matilda spr_matilda] > [moveto player 898 775][animations player spr_viktor_walk_left] > [move player 0 0][skip] > [create dig_mole_right][direction left][talk dig_mole_right][animation matilda spr_matilda_listen_left] There you are! While you were having fun, I reached out to a lot of our contacts in Krakow. > [direction left][talk dig_mole_right] With the money we stole, we could buy a small army, but the problem is that nobody wants to go on a suicide mission. > [direction left][talk dig_mole_right] We need to find a way to disable the Emperor's electric shield before we can launch an assault. > So... Do any of you have a degree in electromagentics? > [direction left][talk matilda][animation matilda spr_matilda_talk_left] No, but I'm sure the guy who designed the shield might help us. > [direction left][talk matilda][animation matilda spr_matilda_talk_left] He's operating in a small lab in Sebenico, Croatia. > [direction left][talk matilda][animation matilda spr_matilda_talk_left] I think it's time we payed him a visit. > [direction left][talk dig_mole] OK, you give me a call when you're done. > [fade in 0.03][time 30] > [fade][room map_krakow_sebenico start]"
+			}
+		],
+		"objects": [
+			{
+			"alias": "dig_mole", 
+			"talkSoundOverride" : "snd_mole_talk",
+			"x": 800, "y": 700,
+			"xScale": 0.7,
+			"yScale": 0.7,
+			"xCloud" : 800,
+			"yCloud" : 520,
+			"depth" : -2000,
+			"inventory" : {
+				"alias" : "cash",
+				"name" : "Cash",
+				"picture" : "spr_item_cash",
+				"description" : "Zillions of coins from the bank",
+				"default" : "[animation player spr_viktor_no][blocksound snd_viktor_no3]"
+			}
+			},
+			{
+			"alias": "dig_mole_right",
+			"picture" : "spr_dig_mole",
+			"available" : 0,
+			"talkSoundOverride" : "snd_mole_talk",
+			"x": 800, "y": 700,
+			"xScale": -0.7,
+			"yScale": 0.7,
+			"xCloud" : 800,
+			"yCloud" : 520,
+			"depth" : -2000
+			},
+			{
+			"alias": "test_krakow",
+			"available" : 0,
+			"visible" : 0,
+			"x": 5, "y": 35,
+			"xScale":1,
+			"yScale": 1,
+			"transparency" : 0.9
+			},
+			{
+			"alias": "krakow_pipe",
+			"x": 500, "y": 492,
+			"xScale":0.7,
+			"yScale": 0.7,
+			"inventory" : {
+				"alias" : "pipe",
+				"name" : "Pipe",
+				"picture" : "spr_item_pipe",
+				"default" : "[animation player spr_viktor_no][blocksound snd_viktor_no2]",
+				"description" : "which I fairly won at a fair in Krakow"
+			}
+			},
+			{
+			"alias": "krakow_door",
+			"x": 855, "y": 446,
+			"xInteract" : 844,
+			"yInteract" : 633,
+			"moves" : 1,
+			"depth" : 55,
+			"xScale":1,
+			"yScale": 1,
+			"description" : "The 'Beloved Emperor' amusement ride",
+			"combinations" : {
+				"use" : "[if available wolf][animation player spr_viktor_listen_right][animation wolf spr_wolf_no][blocksound snd_wolf_talk][skip] > [animation player spr_viktor_no][blocksound snd_viktor_no3]",
+				"stick" : "[if available wolf][animation player spr_viktor_listen_right][animation wolf spr_wolf_no][blocksound snd_wolf_talk][skip] > [animations player spr_viktor_use_right_low][moveto krakow_door 855 390 1.2][create stick 30] > [give stick][move krakow_door 0 0]"
+			}
+			},
+			{
+				"alias" : "stick",
+				"x": 885,
+				"y": 623,
+				"angle": 90,
+				"picture" : "spr_krakow_hammer_body",
+				"available" : 0
+			},
+			{
+			"alias" : "krakow_door_horror",
+			"picture": "spr_various_token",
+			"xInteract" : 898,
+			"yInteract" : 773,
+			"visible" : 0,
+			"description" : "The 'House of Horror' amusement ride",
+			"x": 1093, "y": 464,
+			"depth" : 55,
+			"xScale":100,
+			"yScale": 200,
+			"combinations" : {
+				"use" : "[if available wolf][animation player spr_viktor_listen_right][animation wolf spr_wolf_no][blocksound snd_wolf_talk2][skip] > [room horror solo]"
+			}
+			},
+			{
+			"alias": "krakow_fist_light",
+			"available" : 0,
+			"x": 156, "y": 282,
+			"depth" : 19,
+			"xScale":1,
+			"yScale": 1
+			},
+			{
+			"alias": "krakow_fist",
+			"picture" : "spr_krakow_fist",
+			"x": 170, "y": 298,
+			"depth" : 20,
+			"xScale":1,
+			"yScale": 1
+			},
+			{
+			"alias": "krakow_pilon",
+			"x": 133, "y": 298,
+			"depth" : 2,
+			"xScale":1,
+			"yScale": 1
+			},
+			{
+			"alias": "krakow_resin",
+			"x": 319, "y": 495,
+			"xScale":1,
+			"yScale": 1,
+			"xInteract" : 336,
+			"yInteract" : 615,
+			"description" : "Resin",
+			"combinations" : {
+				"look" : "[animations player spr_viktor_no][blocksound snd_viktor_no][time 15]",
+				"spunge" : "[animation player spr_viktor_use_back_low][give spunge][take stickyspunge]"
+			},
+			"inventory" : {
+				"alias" : "stickyspunge",
+				"name" : "Sticky spunge",
+				"picture" : "spr_item_stickyspunge",
+				"default" : "[animation player spr_viktor_no][blocksound snd_viktor_no2]",
+				"description" : "Its very sticky"
+			}
+			},
+			{
+			"alias": "krakow_fence",
+			"x": 48, "y": 441,
+			"depth" : 100,
+			"xScale":1,
+			"yScale": 1
+			},
+			{
+			"alias": "krakow_anvil",
+			"x": 169, "y": 683,
+			"xScale":1,
+			"yScale": 1
+			},
+			{
+			"alias": "krakow_lights_off",
+			"x": 181, "y": 377,
+			"depth" : 1,
+			"xScale":1,
+			"yScale": 1
+			},
+			{
+			"alias": "krakow_lights_on",
+			"x": 179, "y": 373,
+			"depth" : 0,
+			"xScale":1,
+			"yScale": 1
+			},
+			{
+			"alias": "krakow_emperor",
+			"description" : "Sign",
+			"x": 816, "y": 272,
+			"xScale":1,
+			"yScale": 1
+			},
+			{
+				"alias" : "viktor_sign",
+				"x" : 858,
+				"y" : 540,
+				"xScale" : 0.8,
+				"yScale" : 0.8,
+				"available" : 0
+			},
+			{
+			"alias": "krakow_love",
+			"x": 868, "y": 276,
+			"xScale":1,
+			"yScale": 1,
+			"xInteract" : 798,
+			"yInteract" : 620,
+			"description" : "Inane propaganda",
+			"combinations" : {
+				"use" : "[if available wolf][animation player spr_viktor_listen_right][animation wolf spr_wolf_no][blocksound snd_wolf_talk][skip] > [not available stick][animation player spr_viktor_use_right_high][skip] > [create viktor_sign][position viktor_sign 798 620][position player 2000 2000][destroy krakow_love 60][time 15] > [move viktor_sign 100 6][time 20] > [take love][move viktor_sign 0 0][time 30] > [move viktor_sign 270 6][animation viktor_sign spr_viktor_sign][imageindex viktor_sign 24][time 15] > [destroy viktor_sign][position player 820 650][draw spr_cloud_medium 798 620 10 -1000 1 1 0 15 45 0 0 0 -0.1][draw spr_cloud_medium 798 620 10 -1000 1 1 0 15 140 0 0 0 -0.1][draw spr_cloud_medium 798 620 10 -1000 1 1 0 15 90 0 0 0 -0.1][draw spr_cloud_medium 798 620 10 -1000 1 1 0 15 300 0 0 0 -0.1][animation player spr_viktor_fell][sound snd_viktor_kick2][time 50] > [animation player spr_viktor_fall_stand][time 14]"
+			},
+			"inventory" : {
+				"alias" : "love",
+				"name" : "Love",
+				"description" : "All you need is...",
+				"default" : "[animation player spr_viktor_no][blocksound snd_viktor_no3]",
+				"picture": "spr_krakow_love"
+			}
+			},
+			{
+			"alias": "krakow_houseof",
+			"x": 1057, "y": 286,
+			"xScale":1,
+			"yScale": 1
+			},
+			{
+			"alias": "krakow_love_horror",
+			"picture": "spr_krakow_love",
+			"x": 1088, "y": 349,
+			"xScale":1,
+			"yScale": 1,
+			"available" : 0,
+			"depth" : -2001,
+			"description" : "House of... Love!",
+			"combinations" : {
+				"look": "[animation player spr_viktor_no][blocksound snd_viktor_no]"
+			}
+			},
+			{
+			"alias": "krakow_spunge_horror",
+			"picture": "spr_krakow_hammer_head",
+			"x": 1088, "y": 349,
+			"xScale":2,
+			"yScale": 1,
+			"available" : 0,
+			"depth" : -2000
+			},
+			{
+			"alias": "krakow_horror",
+			"x": 1088, "y": 349,
+			"xScale":1,
+			"yScale": 1,
+			"xInteract" : 1045,
+			"yInteract" : 709,
+			"description" : "House of... Horror!",
+			"combinations" : {
+				"use": "[animation player spr_viktor_use_right_high]",
+				"love": "[if available wolf][animation player spr_viktor_listen_right][animation wolf spr_wolf_no][blocksound snd_wolf_talk][skip] > [create viktor_sign][position viktor_sign 1045 709][position player 2000 2000][time 15][move viktor_sign 0 0] > [move viktor_sign 100 6][time 20] > [if spungesticks = 1][give love][destroy krakow_horror] > [create krakow_love_horror][move viktor_sign 0 0][time 30] > [move viktor_sign 270 6][animation viktor_sign spr_viktor_sign][imageindex viktor_sign 24][time 15] > [destroy viktor_sign][position player 1045 709][draw spr_cloud_medium 1045 709 10 -1000 1 1 0 15 45 0 0 0 -0.1][draw spr_cloud_medium 1045 709 10 -1000 1 1 0 15 140 0 0 0 -0.1][draw spr_cloud_medium 1045 709 10 -1000 1 1 0 15 90 0 0 0 -0.1][draw spr_cloud_medium 1045 709 10 -1000 1 1 0 15 300 0 0 0 -0.1][animation player spr_viktor_fell][sound snd_viktor_kick2][time 50] > [animation player spr_viktor_fall_stand][time 14] > [not available krakow_spunge_horror][animation player spr_viktor_use_right_high 0][destroy krakow_love_horror][draw spr_krakow_love 1088 349 30 -100 1 1 0 6 270 1][time 15] > [not available krakow_spunge_horror][animation player spr_viktor_use_right_high] > [not available krakow_spunge_horror][animation player spr_viktor_take]",
+				"spunge": "[if available wolf][animation player spr_viktor_listen_right][animation wolf spr_wolf_no][blocksound snd_wolf_talk][skip] > [create viktor_sign][position viktor_sign 1045 709][position player 2000 2000][destroy krakow_love 60][time 15] > [move viktor_sign 100 6][time 20] > [create krakow_spunge_horror][move viktor_sign 0 0][time 30] > [move viktor_sign 270 6][animation viktor_sign spr_viktor_sign][imageindex viktor_sign 24][time 15] > [destroy viktor_sign][position player 1045 709][draw spr_cloud_medium 1045 709 10 -1000 1 1 0 15 45 0 0 0 -0.1][draw spr_cloud_medium 1045 709 10 -1000 1 1 0 15 140 0 0 0 -0.1][draw spr_cloud_medium 1045 709 10 -1000 1 1 0 15 90 0 0 0 -0.1][draw spr_cloud_medium 1045 709 10 -1000 1 1 0 15 300 0 0 0 -0.1][animation player spr_viktor_fell][sound snd_viktor_kick2][time 50] > [animation player spr_viktor_fall_stand][time 14] > [animation player spr_viktor_use_right_high 0][destroy krakow_spunge_horror][draw spr_krakow_hammer_head 1088 349 30 -100 1 1 0 6 270 1][time 15] > [animation player spr_viktor_use_right_high]",
+				"stickyspunge": "[if available wolf][animation player spr_viktor_listen_right][animation wolf spr_wolf_no][blocksound snd_wolf_talk][skip] > [create viktor_sign][position viktor_sign 1045 709][position player 2000 2000][destroy krakow_love 60][time 15] > [move viktor_sign 100 6][time 20] > [create krakow_spunge_horror][move viktor_sign 0 0][time 30] > [move viktor_sign 270 6][animation viktor_sign spr_viktor_sign][imageindex viktor_sign 24][time 15] > [destroy viktor_sign][position player 1045 709][draw spr_cloud_medium 1045 709 10 -1000 1 1 0 15 45 0 0 0 -0.1][draw spr_cloud_medium 1045 709 10 -1000 1 1 0 15 140 0 0 0 -0.1][draw spr_cloud_medium 1045 709 10 -1000 1 1 0 15 90 0 0 0 -0.1][draw spr_cloud_medium 1045 709 10 -1000 1 1 0 15 300 0 0 0 -0.1][animation player spr_viktor_fell][sound snd_viktor_kick2][time 50] > [animation player spr_viktor_fall_stand][time 14] > [give stickyspunge]"
+			}
+			},
+			{
+			"alias": "krakow_tree",
+			"x": 81, "y": 132,
+			"depth" : 11,
+			"xScale":1,
+			"yScale": 1
+			},
+			{
+			"alias": "krakow_tree2",
+			"x": 87, "y": 88,
+			"depth" : 10,
+			"xScale":1,
+			"yScale": 1
+			},
+			{
+			"available" : 1,
+			"alias": "krakow_hammer",
+			"picture": "spr_various_token",
+			"x": 240, "y": 700,
+			"xInteract" : 320, "yInteract" : 740,
+			"depth" : -800,
+			"xScale":110,
+			"yScale": 80,
+			"visible" : 0,
+			"description" : "A toy hammer",
+			"order" : "look",
+			"combinations" : {
+				"use" : "
+				[if spungehammer = 2][pickup][destroy krakow_hammer_body 10][skip] >
+				[set mood angry][destroy krakow_lights_on][create krakow_lights_on 60][sound snd_shooter_miss 50]
+				[destroy krakow_butter][destroy krakow_hammer_body][destroy krakow_hammer_head] > 
+				[create krakow_hammer_body 80] > 
+				[if spungehammer = 1][create krakow_hammer_head 80] >
+				[if spungehammer = 0][animation player spr_viktor_hammer][sound snd_krakow_hammer_hard 50][sound snd_krakow_hammer_win 50] > 
+				[if spungehammer = 1][animation player spr_viktor_hammer2][sound snd_krakow_hammer_soft 50][sound snd_krakow_hammer_lose 50] > 
+				[if spungehammer = 1][animations player spr_viktor_listen_left_angry] >
+				[if spungehammer = 1][imageindex krakow_lights_on 8][imagespeed krakow_lights_on -0.3][time 30] > 
+				[if spungehammer = 0][animation player spr_viktor_hammer 18][imageindex krakow_lights_on 5][imagespeed krakow_lights_on 0.3][time 65] > 
+				[if spungehammer = 0][animation player spr_viktor_hammer 18][imageindex krakow_light_on 24][imagespeed krakow_lights_on 0][create krakow_fist_light][time 3] >
+				[if spungehammer = 0][animation player spr_viktor_hammer 18][imageindex krakow_light_on 0][imagespeed krakow_lights_on 0][destroy krakow_fist_light][time 3] >
+				[if spungehammer = 0][animation player spr_viktor_hammer 18][imageindex krakow_light_on 24][imagespeed krakow_lights_on 0][create krakow_fist_light][time 3] >
+				[if spungehammer = 0][animation player spr_viktor_hammer 18][imageindex krakow_light_on 0][imagespeed krakow_lights_on 0][destroy krakow_fist_light][time 3] >
+				[if spungehammer = 0][animation player spr_viktor_hammer 18][imageindex krakow_light_on 24][imagespeed krakow_lights_on 0][create krakow_fist_light][time 3] >
+				[if spungehammer = 0][animation player spr_viktor_hammer 18][imageindex krakow_light_on 0][imagespeed krakow_lights_on 0][destroy krakow_fist_light][time 3] >
+				[if spungehammer = 0][animation player spr_viktor_hammer 18][imageindex krakow_light_on 24][imagespeed krakow_lights_on 0][create krakow_fist_light][time 3] >
+				[if spungehammer = 0][animation player spr_viktor_hammer 18][imageindex krakow_light_on 0][imagespeed krakow_lights_on 0][destroy krakow_fist_light][time 3] >
+				[if spungehammer = 0][animation player spr_viktor_hammer 18][imageindex krakow_light_on 24][imagespeed krakow_lights_on 0][create krakow_fist_light][time 3] >
+				[if spungehammer = 0][animation player spr_viktor_hammer 18][imageindex krakow_light_on 0][imagespeed krakow_lights_on 0][destroy krakow_fist_light][time 3] >
+				[if spungehammer = 0][animation player spr_viktor_hammer 18][imageindex krakow_light_on 24][imagespeed krakow_lights_on 0][create krakow_fist_light][time 3] >
+				[if spungehammer = 0][animation player spr_viktor_hammer 18][imageindex krakow_light_on 0][imagespeed krakow_lights_on 0][destroy krakow_fist_light][time 3] >
+				[animation viktor spr_viktor_listen_left][destroy krakow_lights_on][time 10] > 
+				[create krakow_lights_on] > 
+				[if spungehammer = 1][kick] > 
+				[if spungehammer = 3][moveto player 241 695 5][animation player spr_viktor_walk_left] > 
+				[if spungehammer = 0][take bear][destroy krakow_bear 15][animation player spr_viktor_use_left_middle] >
+				[if spungehammer = 0][animation player spr_viktor_take] >
+				[if spungehammer = 3][moveto player 400 750][animation player spr_viktor_walk_right] >
+				[if spungehammer = 0][animation player spr_viktor][set spungehammer 2] > 
+				[set mood]",
+				"butter" : "[animation player spr_viktor_idle_look 10][time 10] > [animation player spr_viktor_idle_look 15][time 10] > [animation player spr_viktor_idle_look 10][time 10] > [animation player spr_viktor_idle_look 15][time 5] > [animation player spr_viktor_use_left_low][give butter][destroy krakow_hammer_head 10][create krakow_butter 10] > [if spungehammer = 1][set spungehammer 0][take spunge]",
+				"spunge" : "[animation player spr_viktor_idle_look 10][time 10] > [animation player spr_viktor_idle_look 15][time 10] > [animation player spr_viktor_idle_look 10][time 10] > [animation player spr_viktor_idle_look 15][time 5] > [animation player spr_viktor_use_left_low][give spunge][destroy krakow_butter 10][create krakow_hammer_head 10] > [if spungehammer = 0][set spungehammer 1][take butter]"
+			},
+			"inventory" : {
+				"alias" : "stick",
+				"name" : "Stick",
+				"description" : "A strong wooden stick",
+				"default" : "[animation player spr_viktor_no][blocksound snd_viktor_no]",
+				"picture" : "spr_krakow_hammer_body"
+			}
+			},
+			{
+			"available" : 1,
+			"alias": "krakow_hammer_body",
+			"x": 288, "y": 738,
+			"depth" : -765,
+			"xScale":1,
+			"yScale": 1,
+			"inventory" : {
+					"alias": "spunge",
+					"name": "Spunge",
+					"description": "A soft foamy spunge.",
+					"default": "[animation player spr_viktor_no][blocksound snd_viktor_no2]",
+					"picture": "spr_item_spunge"
+			}
+			},
+			{
+			"alias": "krakow_butter_for_show",
+			"picture" : "spr_krakow_butter",
+			"x": 668, "y": 510,
+			"angle" : 10,
+			"available" : 1,
+			"xScale":0.5,
+			"yScale": 0.5,
+			"inventory" : {
+					"alias": "butter",
+					"name": "Screaming Peanut Butter (tm)",
+					"description": "The best kind of screaming butter.",
+					"default": "[animation player spr_viktor_no][blocksound snd_viktor_no3]",
+					"picture": "spr_item_butter"
+			}
+			},
+			{
+			"alias": "krakow_butter",
+			"x": 246, "y": 698,
+			"available" : 0,
+			"xScale":1,
+			"yScale": 1
+			},
+			{
+			"available" : 1,
+			"alias": "krakow_hammer_head",
+			"x": 241, "y": 699,
+			"depth" : -765,
+			"xScale":1,
+			"yScale": 1
+			},
+			{
+			"alias": "krakow_bear",
+			"x": 54, "y": 580,
+			"xInteract": 400, "yInteract": 685,
+			"description" : "A toy koala!",
+			"depth" : 7,
+			"xScale":1,
+			"yScale": 1,
+			"combinations" : {
+				"use" : "[set mood scared][move player 0 4][animations spr_viktor_back_off][animation lion spr_lion_shove][time 30] > [animation lion spr_lion][move player 0 0][set mood]"
+			},
+			"inventory" : {
+				"alias" : "bear",
+				"name" : "Koala bear",
+				"description" : "A stuffed toy I won by cheating.",
+				"default" : "[animation player spr_viktor_no][blocksound snd_viktor_no]",
+				"picture" : "spr_krakow_bear"
+			}
+			},
+			{
+			"alias": "krakow_tents",
+			"x": 36, "y": 59,
+			"depth" : 50,
+			"xScale":1,
+			"yScale": 1
+			},
+			{
+			"alias": "krakow_minigame",
+			"description" : "A shooter game with many wonderful prizes",
+			"picture" : "spr_various_token",
+			"visible" : 0,
+			"x": 482, "y": 397,
+			"xInteract" : 617,
+			"yInteract" : 618,
+			"depth" : -50,
+			"xScale":230,
+			"yScale": 200,
+			"combinations": {
+				"use" : "[room shooter start]",
+				"kick" : "[kick]"
+			}
+			},
+			{
+			"alias": "lion",
+			"description" : "Mr. Lion game lion, the fair manager",
+			"idle" : 1,
+			"x": 258, "y": 682,
+			"xInteract": 480, "yInteract": 678,
+			"xScale":0.47,
+			"yScale": 0.47,
+			"order" : "use",
+			"combinations" : {
+				"talk" : "[animation player spr_viktor_listen_left][animation lion spr_lion_idle3][blocksound snd_donkey_talk2] > [animation lion spr_lion]"
+			}
+			},
+			{
+			"alias": "wolf",
+			"description" : "Mr. ACAB, the police officer",
+			"x": 1008, "y": 672,
+			"depth" : 0,
+			"xInteract": 892, "yInteract": 682,
+			"xScale":0.38,
+			"yScale": 0.38,
+			"order" : "use",
+			"combinations" : {
+				"talk" : "[animation player spr_viktor_listen_right][animation wolf spr_wolf_no][blocksound snd_wolf_talk3]",
+				"pipe" : "[animation player spr_viktor_pipe][create wolf_smoke 90][destroy wolf 90]"
+			}
+			},
+			{
+			"alias" : "wolf_smoke",
+			"x": 1008,
+			"y": 672,
+			"xScale":0.38,
+			"yScale": 0.38,
+			"depth" : 0,
+			"available" : 0
+			},
+			{
+			"alias": "matilda",
+			"description" : "Matilda, the anarchist zebra",
+			"x": 534, "y": 832,
+			"xCloud": 1016, "yCloud": 424,
+			"xScale":0.80,
+			"yScale": 0.80,
+			"xInteract" : 680,
+			"yInteract" : 830,
+			"order" : "use",
+			"combinations": {
+				"use": "[set mood scared][move player 0 2][animations spr_viktor_back_off][animation matilda spr_matilda_gun_draw][time 10] > [animation matilda spr_matilda_gun][time 30][move player 0 2][animations player spr_viktor_back_off] > [move player 0 0][animation player spr_viktor][noitamina matilda spr_matilda_gun_draw][time 10] > [animation matilda spr_matilda][set mood]",
+				"love": "[set mood scared][move player 0 2][animations spr_viktor_back_off][animation matilda spr_matilda_gun_draw][time 10] > [animation matilda spr_matilda_gun][time 30][move player 0 2][animations player spr_viktor_back_off] > [move player 0 0][animation player spr_viktor][noitamina matilda spr_matilda_gun_draw][time 10] > [animation matilda spr_matilda][set mood]",
+				"talk" : "[moveto player 936 720 4][moveto matilda 953 744 4][animations player spr_viktor_walk_right][animations matilda spr_matilda_walk_right] > [if available krakow_love_horror][room horror start] > [move matilda 0 0][animation player spr_viktor_listen_left][animation matilda spr_matilda_no][time 30] > [animation player spr_viktor_listen_left_scared][moveto matilda 531 828 5][animations matilda spr_matilda_walk_left][time 60] > [move matilda 0 0][animations matilda spr_matilda]"
+			}
+			}
+		]
+	},
 	{
 		"comment": "fix frankensteins machine",
 		"alias": "machine",
 		"gui": "empty",
 		"background": "bcg_machine",
 		"xBackground" : 0,
-		"yBackground" : 0,
+		"yBackground" : 13,
 		"rgb": "255,255,255",
 		"border": "spr_various_token",
 		"entrances": [
 			{
 			"alias": "start",
-			"2entrance": "[not available machine_controller][create machine_controller][stop] > [destroy machine_controller][room tower machine]",
-			"entrance": "[stop] > [room tower machine]"
+			"entrance": "[stop] > [room previous minigame]"
 			}
 		],
 		"objects": [
@@ -22,13 +785,20 @@
 			"available" : 0,
 			"alias" : "machine_controller",
 			"object" : "obj_machine_controller"
+			},
+			{
+				"alias" : "back",
+				"object" : "obj_back",
+				"picture" : "spr_menu_back",
+				"x" : 70,
+				"y" : 850
 			}
 		]
 	},
 	{
 		"comment": "dig the tunnel to the bank",
 		"alias": "dig",
-		"gui": "empty",
+		"gui": "none",
 		"background": "",
 		"xBackground" : 0,
 		"yBackground" : 0,
@@ -36,13 +806,16 @@
 		"border": "spr_various_token",
 		"entrances": [{
 		"alias": "start",
-		"entrance": "[create dig_controller] > [stop] > [if dig_block = c][cloud dig][take coin] Wow, a coin! > [if dig_block = r][cloud dig][record joplin] Wow, a record! > [if dig_block = v][digout hell start]  > [skip -5]"
-		}],
+		"entrance": "[set dig_legend 100][create dig_controller] > [stop] > [if dig_block = S][digout hungary back] > [if dig_block = c][cloud think][cloud dig viktor -50 -150][take coin][time 60] Wow, a coin! > [if dig_block = c][cloud think][cloud dig viktor -50 -150][time 60] So cool... > [if dig_block = d][sound snd_tunnel_dwarves] > [if dig_block = r][cloud dig viktor -50 -150][record joplin][time 60] Wow, a record! > [if dig_block = v][if hell_win = 0][digout hell start] > [if dig_block = v][if hell_win = 1] I already killed the devil! > [if dig_block = E][digout bank start] > [if (dig_block = m) or (dig_block = n)][cloud dig viktor -50 -150][time 60] What are you doing here, mr. Wells? > [if (dig_block = m) or (dig_block = n)][cloud dig viktor 50 50][blocksound snd_coupe_walrus_talk][time 60] Whoops, you weren't supposed to see me here. > [if (dig_block = m) or (dig_block = n)][cloud dig viktor 50 50][blocksound snd_coupe_walrus_talk][time 60] Let's fix that, shall we. > [if (dig_block = m) or (dig_block = n)][digout hungary again][minigame] > [skip -14]"
+		}
+		],
 		"objects": [
 		{
 		"available" : 0,
 		"alias" : "dig_controller",
-		"object" : "obj_dig_controller"
+		"object" : "obj_dig_controller",
+		"xCloud" : 100,
+		"description" : "255,255,255"
 		}
 		]
 	},
@@ -57,7 +830,7 @@
 		"border": "spr_various_token",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[create shooter_controller][stop] > [if shooter_win = 0][room shooter start] > [if shooter_win = 1][room tavern start]"
+			"entrance": "[create shooter_controller][stop] > [room krakow minigame]"
 		}],
 		"objects": [
 			{
@@ -67,72 +840,77 @@
 				"alias" : "shooter_controller",
 				"object" : "obj_shooter_controller",
 				"pictures" : {
+					"crosshair" : 4,
+					"xBullet" : 500,
+					"yBullet" : 900,
+					"bulletSize" : 0.5,
+					"bulletOffset" : 100,
 					"restartOnFail" : 1,
 					"numberOfObjects" : 12,
 					"verticalSpeed" : 5,
 					"verticalHeight" : 50,
 					"turnedDelay" : 3,
 					"shootToWin" : 5,
-					"pic0" : "spr_shooter_awake",
-					"x0" : 100,
-					"y0" : 410,
-					"speed0" : 15,
-					"delay0" : 22,
-					"pic1" : "spr_shooter_body",
-					"x1" : 350,
-					"y1" : 420,
-					"speed1" : 15,
-					"delay1" : 17,
-					"pic2" : "spr_shooter_deer",
-					"x2" : 600,
-					"y2" : 430,
-					"speed2" : 15,
-					"delay2" : 13,
-					"pic3" : "spr_shooter_dragons",
-					"x3" : 850,
-					"y3" : 440,
-					"speed3" : 15,
-					"delay3" : 8,
-					"pic4" : "spr_shooter_head",
-					"x4" : 1100,
-					"y4" : 450,
-					"speed4" : 15,
-					"delay4" : 1,
-					"pic5" : "spr_shooter_heart",
-					"x5" : 1350,
-					"y5" : 460,
-					"speed5" : 15,
-					"delay5" : 1,
-					"pic6" : "spr_shooter_rocket",
-					"x6" : 50,
-					"y6" : 500,
-					"speed6" : 12,
-					"delay6" : 5,
-					"pic7" : "spr_shooter_saturn",
-					"x7" : 300,
-					"y7" : 510,
-					"speed7" : 12,
-					"delay7" : 10,
-					"pic8" : "spr_shooter_sun",
-					"x8" : 550,
-					"y8" : 520,
-					"speed8" : 12,
-					"delay8" : 15,
-					"pic9" : "spr_shooter_rocket",
-					"x9" : 800,
-					"y9" : 530,
-					"speed9" : 12,
-					"delay9" : 20,
-					"pic10" : "spr_shooter_body",
-					"x10" : 1050,
-					"y10" : 540,
-					"speed10" : 12,
-					"delay10" : 25,
-					"pic11" : "spr_shooter_dragons",
-					"x11" : 1300,
-					"y11" : 550,
-					"speed11" : 12,
-					"delay11" : 30
+					"pic0" : "spr_shooter_rocket",
+					"x0" : 50,
+					"y0" : 500,
+					"speed0" : 12,
+					"delay0" : 5,
+					"pic1" : "spr_shooter_saturn",
+					"x1" : 300,
+					"y1" : 510,
+					"speed1" : 12,
+					"delay1" : 10,
+					"pic2" : "spr_shooter_sun",
+					"x2" : 550,
+					"y2" : 520,
+					"speed2" : 12,
+					"delay2" : 15,
+					"pic3" : "spr_shooter_rocket",
+					"x3" : 800,
+					"y3" : 530,
+					"speed3" : 12,
+					"delay3" : 20,
+					"pic4" : "spr_shooter_body",
+					"x4" : 1050,
+					"y4" : 540,
+					"speed4" : 12,
+					"delay4" : 25,
+					"pic5" : "spr_shooter_dragons",
+					"x5" : 1300,
+					"y5" : 550,
+					"speed5" : 12,
+					"delay5" : 30,
+					"pic6" : "spr_shooter_awake",
+					"x6" : 100,
+					"y6" : 410,
+					"speed6" : 15,
+					"delay6" : 22,
+					"pic7" : "spr_shooter_body",
+					"x7" : 350,
+					"y7" : 420,
+					"speed7" : 15,
+					"delay7" : 17,
+					"pic8" : "spr_shooter_deer",
+					"x8" : 600,
+					"y8" : 430,
+					"speed8" : 15,
+					"delay8" : 13,
+					"pic9" : "spr_shooter_dragons",
+					"x9" : 850,
+					"y9" : 440,
+					"speed9" : 15,
+					"delay9" : 8,
+					"pic10" : "spr_shooter_head",
+					"x10" : 1100,
+					"y10" : 450,
+					"speed10" : 15,
+					"delay10" : 1,
+					"pic11" : "spr_shooter_heart",
+					"x11" : 1350,
+					"y11" : 460,
+					"speed11" : 15,
+					"delay11" : 1
 				}
 			}
 		]
@@ -155,7 +933,7 @@
 			},
 			{
 			"alias": "again",
-			"entrance": "[set alias viktor] > [position player 740 780][position matilda 850 780] > [not available matilda][create matilda] > [if available viktor][destroy viktor] > [not available dungeon_painting1][create dungeon_painting1][skip] > [not available dungeon_painting2][create dungeon_painting2][skip] > [not available dungeon_painting3][create dungeon_painting3][skip] > [not available dungeon_painting4][create dungeon_painting4][skip]"
+			"entrance": "[if alias matilda][switch viktor matilda] > [position player 740 780][position matilda 850 780] > [not available matilda][create matilda] > [if available viktor][destroy viktor] > [not available dungeon_painting1][create dungeon_painting1][skip] > [not available dungeon_painting2][create dungeon_painting2][skip] > [not available dungeon_painting3][create dungeon_painting3][skip] > [not available dungeon_painting4][create dungeon_painting4][skip]"
 			}
 		],
 		"objects": [
@@ -172,7 +950,7 @@
 				"yCloud" : 110,
 				"combinations" : {
 					"look" : "He looks focused.",
-					"talk" : "[if alias viktor][conversation klimt viktor_first] > [not alias viktor][conversation klimt matilda_first]"
+					"talk" : "[if alias viktor][conversation klimt viktor_first] > [if alias matilda][conversation klimt matilda]"
 				},
 				"inventory": {
 					"alias": "fuck",
@@ -185,7 +963,7 @@
 			{
 				"alias": "dungeon_ladder",
 				"x": 495,
-				"y": 253,
+				"y": 223,
 				"xInteract": 570,
 				"yInteract": 800,
 				"description" : "Ladder",
@@ -199,7 +977,8 @@
 				"alias": "dungeon_lid",
 				"description" : "A lid",
 				"x": 704,
-				"y": 663,
+				"y": 603,
+				"depth" : 0,
 				"combinations" : {
 					"look" : "I wonder what's down there."
 				}
@@ -240,12 +1019,12 @@
 				"alias": "dungeon_schakles",
 				"x": 98,
 				"y": 587,
-				"xInteract" : 300,
-				"yInteract" : 650,
+				"xInteract" : 400,
+				"yInteract" : 750,
 				"description" : "Dungeon equipment",
 				"combinations" : {
 					"look" : "This seems like a very reputable laboratory basement.",
-					"use" : "They're all rusty and useless. > [if version debug][set first_entry 2] Debug thing so you dont have to listen to the conversation upstairs."
+					"use" : "They're all rusty and useless."
 				}
 			},
 			{
@@ -254,6 +1033,7 @@
 				"y": 301,
 				"xInteract" : 928,
 				"yInteract" : 786,
+				"description" : "Stairs",
 				"combinations" : {
 					"look" : "[if stairs = 0] Where do these stairs lead to? > [if stairs = 1] Where do these stairs lead to, again? > [talk klimt] Upstairs. > And what's upstairs? > [talk klimt] Dr. Frankensteins laboratory. > [set stairs 1]",
 					"use" : "[set alias viktor][room tower start]"
@@ -272,7 +1052,7 @@
 			{
 				"alias": "dungeon_toilet",
 				"x": 689,
-				"y": 661,
+				"y": 598,
 				"xCloud": 689,
 				"yCloud": 561,
 				"xInteract" : 747,
@@ -280,9 +1060,9 @@
 				"description" : "Transporter device / Toilet",
 				"combinations" : {
 					"look" : "Tesla's transporter doesn't seem so high-tech on this end.",
-					"use" : "[not available realfuck] We should get Tesla's machine from dr. Frankenstein before returning. > [available realfuck][room tesla newstart]",
+					"use" : "[not available realfuck] We should get Tesla's machine from dr. Frankenstein before returning. > [if available realfuck] Time to go back! > [if available realfuck][fade in 0.03][time 30] > [if available realfuck][fade][room map_ingolstadt_sebenico start]",
 					"kick" : "I don't want to destroy our only way back to Austria-Hungary.",
-					"talk": "Hello, toilet. > [talk other][sound snd_toilet_hello] Hello."
+					"talk": "Hello, toilet. > [talk other][sound snd_toilet_hello][direction left] Hello."
 				}
 			},
 			{
@@ -294,21 +1074,25 @@
 				"alias" : "matilda",
 				"x" : 100,
 				"y" : 100,
+				"xInteract" : -200,
+				"yInteract" : 0,
 				"xScale" : 0.8,
 				"yScale" : 0.8,
+				"description" : "Matilda",
 				"moves" : 1,
 				"solid" : 1,
 				"combinations" : {
-					"look" : "That's Matilda, my love. > Or something...",
-					"use" : "[switch viktor matilda]"
+					"look" : "That's Matilda, my love. > Or something..."
 				}
 			},
 			{
 				"alias" : "viktor",
 				"x" : 100,
 				"y" : 100,
+				"description" : "Viktor",
 				"available" : 0,
 				"moves" : 1,
+				"solid" : 1,
 				"combinations" : {
 					"look" : "That's Viktor, my love. > Or something..."
 				}
@@ -329,23 +1113,394 @@
 		]
 	},
 	{
+		"comment": "Emperors royal hallway",
+		"alias": "hallway",
+		"gui": "switch",
+		"scaleNear": 1.2,
+		"scaleFar": 1.2,
+		"background": "bcg_hallway",
+		"border": "spr_border_hallway",
+		"xBackground": -60,
+		"yBackground": 20,
+		"rgb": "0,0,0",
+		"entrances": [
+			{
+			"alias": "start",
+			"entrance": "[take umbrella silent][position matilda 1400 900][position player 1200 900] > [move matilda 180 5][move player 180 5][animations player spr_viktor_walk_left][animations matilda spr_matilda_walk_left][time 90] > [animations matilda spr_matilda][move matilda 0 0][move player 0 0]"
+			}
+		],
+		"objects": [
+			{
+				"alias" : "hallway_pipe",
+				"x" : 101,
+				"y" : 209
+			},
+			{
+				"alias" : "hallway_pipe_animated",
+				"x" : 101,
+				"y" : 209,
+				"available" : 0
+			},
+			{
+				"alias" : "viktor",
+				"x" : 100,
+				"y" : 100,
+				"description" : "Viktor",
+				"available" : 0,
+				"moves" : 1,
+				"solid" : 1,
+				"combinations" : {
+					"look" : "That's Viktor, my love. > Or something..."
+				},
+				"inventory" : {
+					"alias": "umbrella",
+					"name": "Umbrella",
+					"description": "My favorite rain protection device.",
+					"default": "Not everything can be solved with an umbrella.",
+					"picture": "spr_item_umbrella"
+				}
+			},
+			{
+				"alias" : "powder",
+				"picture" : "spr_various_token",
+				"x" : 45,
+				"y" : 387,
+				"xScale" : 110,
+				"yScale" : 15,
+				"xInteract": 482,
+				"yInteract": 894,
+				"description" : "Powder",
+				"available" : 0,
+				"visible" : 0,
+				"combinations" : {
+					"look" : "That's the camera powder for the Camera",
+					"use" : "[pickup] > [not available powder][create powder 15][create hallway_pipe_animated][destroy hallway_pipe_animated 15]"
+				},
+				"inventory" : {
+					"alias": "powder",
+					"name": "Powder",
+					"description": "Camera powder.",
+					"default": "I don't need to powder that.",
+					"picture": "spr_item_ball"
+				}
+			},
+			{
+				"alias" : "matilda",
+				"picture" : "spr_matilda_walk_front",
+				"x" : 955,
+				"y" : 900,
+				"xScale" : 1.2,
+				"yScale" : 1.2,
+				"moves" : 1,
+				"solid" : 1,
+				"description" : "Matilda",
+				"combinations" : {
+					"look" : "That's Matilda, my love. > Or something..."
+				}
+			},
+			{
+				"alias": "hallway_camera",
+				"x": 30,
+				"y": 403,
+				"xCloud": 30,
+				"yCloud": 403,
+				"xInteract": 482,
+				"yInteract": 894,
+				"description": "A camera",
+				"combinations" : {
+					"look" : "It looks like a camera is mounted on this door. > And there are no door knobs... > Weird.",
+					"kick" : "[mood angry] Time to kick the door down! > [time 60][animation player spr_viktor_shock][imagespeed player 1][music snd_dirigibles_power][move player 0 1] > [talk other][cloud phone][direction left][mood angry] Please do not play with the electronic door system. > [mood angry][direction front] Now it tells me...",
+					"use": "[talk other][cloud phone] Please stand still while we assertain your identity! > [time 15] > [fade in 0.3 -9999 spr_various_white][time 3] > [fade out 0.3 -9999 spr_various_white][time 3] > [fade] > [time 15] > [talk other][cloud phone] You have been identified as the traitor Viktor. > [talk other][cloud phone] Please wait while we dispatch assassins to your locations. > [direction front] Whoops. > [not available powder][create powder 15][create hallway_pipe_animated][destroy hallway_pipe_animated 15] >",
+					"leopard": "[talk other][cloud phone] Please stand still while we assertain your identity! > [time 15] > [fade in 0.3 -9999 spr_various_white][time 3] > [fade out 0.3 -9999 spr_various_white][time 3] > [fade] > [time 15] > [talk other][cloud phone] You have been identified as the Leopard. > [talk other][cloud phone] Since he is presumed dead, we cannot let you pass. > [talk other][cloud phone] Please inform the Coroner's office in Vienna that the reports of your death have been greatly exaggerated, then return here. > [direction front] Damn. > [not available powder][create powder 15][create hallway_pipe_animated][destroy hallway_pipe_animated 15]",
+					"emperor": "[talk other][cloud phone] Please stand still while we assertain your identity! > [time 15] > [fade in 0.3 -9999 spr_various_white][time 3] > [fade out 0.3 -9999 spr_various_white][time 3] > [fade] > [time 15] > [talk other][cloud phone] You have been identified as the Emperor. > [talk other][cloud phone] You are already inside. > [talk other][cloud phone] We are not allowed to let people inside twice, it messes up our count. > [direction front] Damn. > [not available powder][create powder 15][create hallway_pipe_animated][destroy hallway_pipe_animated 15]",
+					"goat": "[talk other][cloud phone] Please stand still while we assertain your identity! > [time 15] > [fade in 0.3 -9999 spr_various_white][time 3] > [fade out 0.3 -9999 spr_various_white][time 3] > [fade] > [time 15] > [talk other][cloud phone] You have been identified as the Goat. > [talk other][cloud phone] Since he is presumed dead, we cannot let you pass. > [talk other][cloud phone] Please inform the Coroner's office in Vienna that the reports of your death have been greatly exaggerated, then return here. > [direction front] Damn. > [not available powder][create powder 15][create hallway_pipe_animated][destroy hallway_pipe_animated 15]",
+					"ape": "[talk other][cloud phone] Please stand still while we assertain your identity! > [time 15] > [fade in 0.3 -9999 spr_various_white][time 3] > [fade out 0.3 -9999 spr_various_white][time 3] > [fade] > [time 15] > [talk other][cloud phone] You have been identified as the Ape. > [talk other][cloud phone] Sorry, no niggers inside. > [direction front] Damn. > [not available powder][create powder 15][create hallway_pipe_animated][destroy hallway_pipe_animated 15]",
+					"filip": "[talk other][cloud phone] Please stand still while we assertain your identity! > [time 15] > [fade in 0.3 -9999 spr_various_white][time 3] > [fade out 0.3 -9999 spr_various_white][time 3] > [fade] > [time 15] > [talk other][cloud phone] You have been identified as Filip. > [talk other][cloud phone] Since he is presumed dead, we cannot let you pass. > [talk other][cloud phone] Please inform the Coroner's office in Vienna that the reports of your death have been greatly exaggerated, then return here. > [direction front] Damn. > [not available powder][create powder 15][create hallway_pipe_animated][destroy hallway_pipe_animated 15]",
+					"big": "[talk other][cloud phone] Please stand still while we assertain your identity! > [time 15] > [fade in 0.3 -9999 spr_various_white][time 3] > [fade out 0.3 -9999 spr_various_white][time 3] > [fade] > [time 15] > [talk other][cloud phone] You have been identified as Charles. > [talk other][cloud phone] Welcome, Charles! > [direction front] Finally! > [room final start]"
+				}
+			},
+			{
+				"alias": "hallway_frame_ape",
+				"x": 934,
+				"y": 116
+			},
+			{
+				"alias": "hallway_frame_emperor",
+				"x": 690,
+				"y": 30
+			},
+			{
+				"alias": "hallway_frame_big",
+				"x": 630,
+				"y": 293
+			},
+			{
+				"alias": "hallway_frame_filip",
+				"x": 1006,
+				"y": 303
+			},
+			{
+				"alias": "hallway_frame_goat",
+				"x": 383,
+				"y": 74
+			},
+			{
+				"alias": "hallway_frame_leonard",
+				"x": 230,
+				"y": 321
+			},
+			{
+				"alias": "hallway_pic_ape",
+				"x": 960,
+				"y": 156,
+				"xInteract" : 700,
+				"yInteract" : 850,
+				"description" : "A picture",
+				"combinations" : {
+					"look" : "A picture of an ape.",
+					"use" : "Hey, Matilda, could you help me get that picture? > [talk matilda][animations matilda spr_matilda_talk_left] Sure. > [animation player spr_viktor][moveto matilda 700 850][time 35][animations matilda spr_matilda_walk_left] > [animation matilda spr_matilda_walk_left 0][move matilda 0 0][animation player spr_viktor_matilda] > [animation matilda spr_matilda_walk_left][animation player spr_viktor_matilda2][move matilda 105 12] > [move matilda 0 0][animation matilda spr_matilda_walk_back 0][animation player spr_viktor_holding][time 10] > [animation matilda spr_matilda_use_right_high][animation player spr_viktor_holding][time 60][destroy hallway_pic_ape 20][take ape] > [time 26][noitamina player spr_viktor_matilda2][move matilda 285 12][animation matilda spr_matilda_walk_right 0] > [noitamina player spr_viktor_matilda][time 25][move matilda 0 0][animations matilda spr_matilda] > [animation player spr_viktor][moveto matilda 955 900][time 35][animations matilda spr_matilda_walk_right] > [animation matilda spr_matilda][move matilda 0 0]"
+				},
+				"inventory" : {
+					"alias": "ape",
+					"name": "Ape picture",
+					"description": "A pictre of an ape",
+					"default": "Heh. Picture that!",
+					"picture": "spr_hallway_pic_ape"
+				}
+			},
+			{
+				"alias": "hallway_pic_goat",
+				"x": 412,
+				"y": 100,
+				"xInteract" : 700,
+				"yInteract" : 850,
+				"description" : "A picture",
+				"combinations" : {
+					"look" : "A picture of a goat.",
+					"use" : "Hey, Matilda, could you help me get that picture? > [talk matilda][animations matilda spr_matilda_talk_left] Sure. > [animation player spr_viktor][moveto matilda 700 850][time 35][animations matilda spr_matilda_walk_left] > [animation matilda spr_matilda_walk_left 0][move matilda 0 0][animation player spr_viktor_matilda] > [animation matilda spr_matilda_walk_left][animation player spr_viktor_matilda2][move matilda 105 12] > [move matilda 0 0][animation matilda spr_matilda_walk_back 0][animation player spr_viktor_holding][time 10] > [animation matilda spr_matilda_use_left_high][animation player spr_viktor_holding][time 60][destroy hallway_pic_goat 20][take goat] > [time 26][noitamina player spr_viktor_matilda2][move matilda 285 12][animation matilda spr_matilda_walk_right 0] > [noitamina player spr_viktor_matilda][time 25][move matilda 0 0][animations matilda spr_matilda] > [animation player spr_viktor][moveto matilda 955 900][time 35][animations matilda spr_matilda_walk_right] > [animation matilda spr_matilda][move matilda 0 0]"
+				},
+				"inventory" : {
+					"alias": "goat",
+					"name": "Goat picture",
+					"description": "A pictre of a goat",
+					"default": "Heh. Picture that!",
+					"picture": "spr_item_picture_goat"
+				}
+			},
+			{
+				"alias": "hallway_pic_emperor",
+				"x": 690,
+				"y": 30,
+				"xInteract" : 700,
+				"yInteract" : 850,
+				"description" : "A picture",
+				"combinations" : {
+					"look" : "Our beloved Emperor. > For another hour or so, anyway...",
+					"use" : "Hey, Matilda, could you help me get that picture? > [talk matilda][animations matilda spr_matilda_talk_left] Sure... > [animation player spr_viktor][moveto matilda 700 850][time 35][animations matilda spr_matilda_walk_left] > [animation matilda spr_matilda_walk_left 0][move matilda 0 0][animation player spr_viktor_matilda] > [animation matilda spr_matilda_walk_left][animation player spr_viktor_matilda2][move matilda 105 12] > [move matilda 0 0][animation matilda spr_matilda_walk_back 0][animation player spr_viktor_holding][time 10] > [animation matilda spr_matilda_use_left_high][animation player spr_viktor_holding][time 60][destroy hallway_pic_emperor 20][take emperor] > [time 26][noitamina player spr_viktor_matilda2][move matilda 285 12][animation matilda spr_matilda_walk_right 0] > [noitamina player spr_viktor_matilda][time 25][move matilda 0 0][animations matilda spr_matilda] > [animation player spr_viktor][moveto matilda 955 900][time 35][animations matilda spr_matilda_walk_right] > [animation matilda spr_matilda][move matilda 0 0]"
+				},
+				"inventory" : {
+					"alias": "emperor",
+					"name": "Emepror's picture",
+					"description": "A pictre of the emperor",
+					"default": "Heh. Picture that!",
+					"picture": "spr_hallway_pic_emperor"
+				}
+			},
+			{
+				"alias": "hallway_pic_filip",
+				"x": 1006,
+				"y": 324,
+				"xInteract" : 892,
+				"yInteract" : 835,
+				"description" : "A picture",
+				"combinations" : {
+					"look" : "A pretty picture.",
+					"use" : "[pickup]"
+				},
+				"inventory" : {
+					"alias": "filip",
+					"name": "Filip's picture",
+					"description": "A pictre of Filip",
+					"default": "Heh. Picture that!",
+					"picture": "spr_item_picture_filip"
+				}
+			},
+			{
+				"alias": "hallway_pic_big",
+				"x": 663,
+				"y": 336,
+				"xInteract" : 700,
+				"yInteract" : 850,
+				"description" : "A picture",
+				"combinations" : {
+					"look" : "A big family picture.",
+					"use" : "It's too big to take it all...",
+					"umbrella" : "Let's cut you guys up! > [destroy hallway_pic_big 10][animation player spr_viktor_use_back_high] > [take picture1][time 15] > [take picture2][time 15] > [take picture3][time 15]"
+				},
+				"inventory" : {
+					"alias": "picture1",
+					"name": "Green guy picture",
+					"description": "A pictre of a green guy",
+					"default": "Heh. Picture that!",
+					"picture": "spr_item_picture_1"
+				}
+			},
+			{
+				"alias": "hallway_pic_leopard",
+				"x": 286,
+				"y": 380,
+				"xInteract" : 419,
+				"yInteract" : 850,
+				"description" : "A picture",
+				"combinations" : {
+					"look" : "A picture of a leopard.",
+					"use" : "[pickup]"
+				},
+				"inventory" : {
+					"alias": "leopard",
+					"name": "Leopard picture",
+					"description": "A pictre of a leopard",
+					"default": "Heh. Picture that!",
+					"picture": "spr_item_picture_leopard"
+				}
+			},
+			{
+				"alias": "hallway_text_leopard",
+				"picture" : "spr_various_token",
+				"visible" : 0,
+				"x": 308,
+				"y": 590,
+				"xScale" : 100,
+				"yScale" : 30,
+				"description" : "A plaque.",
+				"combinations" : {
+					"look" : "Some boring text."
+				},
+				"inventory" : {
+					"alias": "picture2",
+					"name": "Horned guy picture",
+					"description": "A pictre of a horned guy",
+					"default": "Heh. Picture that!",
+					"picture": "spr_item_picture_2"
+				}
+			},
+			{
+				"alias": "hallway_text_goat",
+				"picture" : "spr_various_token",
+				"visible" : 0,
+				"x": 472,
+				"y": 389,
+				"xScale" : 100,
+				"yScale" : 30,
+				"description" : "A plaque.",
+				"combinations" : {
+					"look" : "Some boring text."
+				},
+				"inventory" : {
+					"alias": "picture3",
+					"name": "Monocle guy picture",
+					"description": "A pictre of a monocle guy",
+					"default": "Heh. Picture that!",
+					"picture": "spr_item_picture_3"
+				}
+			},
+			{
+				"alias": "hallway_text_big_left",
+				"picture" : "spr_various_token",
+				"visible" : 0,
+				"x": 694,
+				"y": 577,
+				"xScale" : 100,
+				"yScale" : 30,
+				"description" : "A plaque.",
+				"combinations" : {
+					"look" : "Some boring text."
+				}
+			},
+			{
+				"alias": "hallway_text_big_right",
+				"picture" : "spr_various_token",
+				"visible" : 0,
+				"x": 828,
+				"y": 577,
+				"xScale" : 100,
+				"yScale" : 30,
+				"description" : "A plaque.",
+				"combinations" : {
+					"look" : "Some boring text."
+				}
+			},
+			{
+				"alias": "hallway_text_filip",
+				"picture" : "spr_various_token",
+				"visible" : 0,
+				"x": 1065,
+				"y": 587,
+				"xScale" : 100,
+				"yScale" : 30,
+				"description" : "A plaque.",
+				"combinations" : {
+					"look" : "Some boring text."
+				}
+			},
+			{
+				"alias": "hallway_text_ape",
+				"picture" : "spr_various_token",
+				"visible" : 0,
+				"x": 971,
+				"y": 288,
+				"xScale" : 80,
+				"yScale" : 25,
+				"combinations" : {
+					"look" : "Some boring text."
+				}
+			}
+		]
+	},
+	{
 		"comment": "Horror house in Warsaw",
 		"alias": "horror",
-		"gui": "default",
+		"gui": "krakow",
 		"scaleNear": 0.8,
 		"scaleFar": 0.8,
 		"background": "bcg_horror",
-		"border": "spr_various_token",
+		"border": "spr_border_horror",
 		"xBackground": 0,
 		"yBackground": 0,
 		"rgb": "0,0,0",
 		"entrances": [
 			{
 			"alias": "start",
-			"entrance": "[position player 500 800] Textures are not yet assigned so this scene will render very slowly! > [draw spr_horror_shadow_axe 531 255 120 -1000 1 1 0 15 300 0.1 0.1 0.1 -0.1][move player 0 3][move horror_train 0 3][move matilda_tavern 0 3][time 60] > [move player 0 2][create horror_monster][time 90] > [room horror start]"
+			"entrance": "[position player 500 800] > [not available matilda_tavern][create matilda_tavern] > [not available horror_koala][draw spr_horror_shadow_axe 531 255 120 -1000 1 1 0 15 300 0.1 0.1 0.1 -0.1] > [move player 0 3][move horror_train 0 3][move matilda_tavern 0 3][time 60] > [move player 0 3][time 30][animation matilda_tavern spr_matilda_laugh][not available horror_koala][create horror_monster][animation matilda_tavern spr_matilda_eek] > [time 30][move player 0 3][not available horror_koala][animation matilda_tavern spr_matilda_eek2 0] > [time 30][move player 0 3][not available horror_koala][animation matilda_tavern spr_matilda_eek2] > [move player 0 3][fade in 0.03][time 30] > [if available horror_koala][set matildainlove 1] > [fade][room krakow horror]"
+			},
+			{
+			"alias": "solo",
+			"entrance": "[if version debug][take bear] > [not available horror_viktor][create horror_viktor] > [position player 0 0][destroy matilda_tavern] > [move horror_train 0 3][create horror_monster 60]"
 			}
 		],
 		"objects": [
+			{
+				"available" : 0,
+				"alias" : "horror_viktor",
+				"xScale" : 0.8,
+				"yScale" : 0.8,
+				"picture" : "spr_viktor_listen_right",
+				"object" : "obj_horror_viktor",
+				"pictures" : {
+					"follow": "horror_train",
+					"xMax" : 1200,
+					"playerVisible" : 0
+				},
+				"x" : 170,
+				"y" : 100,
+				"inventory" : {
+					"alias" : "bear",
+					"name" : "Koala bear",
+					"description" : "A stuffed toy I won by cheating.",
+					"default" : "[animation player spr_viktor_no][blocksound snd_viktor_no2]",
+					"picture" : "spr_krakow_bear"
+				}
+			},
 			{
 				"alias": "horror_size",
 				"visible" : 0,
@@ -388,10 +1543,31 @@
 				"available" : 0,
 				"depth" : -2300,
 				"x": 334,
-				"y": -250
+				"y": -250,
+				"xInteract" : 0,
+				"yInteract" : 0,
+				"description" : "Scary monster",
+				"combinations" : {
+					"look" : "[animation horror_viktor spr_viktor_listen_right_scared][time 30] > [animation horror_viktor spr_viktor_listen_right]",
+					"bear" : "[give bear][animation horror_viktor spr_viktor_use_back_high][time 30][destroy horror_monster 15][create horror_koala 15] > [animation horror_viktor spr_viktor_listen_right]"
+				}
+			},
+			{
+				"alias": "horror_koala",
+				"available" : 0,
+				"depth" : -2300,
+				"x": 334,
+				"y": -250,
+				"xInteract" : 0,
+				"yInteract" : 0,
+				"description" : "Cute koala",
+				"combinations": {
+					"look" : "[animation horror_viktor spr_viktor_up][time 70] > [animation horror_viktor spr_viktor_listen_right]"
+				}
 			},
 			{
 				"alias": "horror_shadow_axe",
+				"available" : 0,
 				"depth" : -2000,
 				"x": 531,
 				"y": 255
@@ -426,10 +1602,104 @@
 		"entrances": [
 			{
 			"alias": "start",
-			"entrance": "[position player 600 660][cloud player 20 300][create hell_lavaburn_1][create hell_lavaburn_2] > [active devil][conversation devil emperor]"
+			"entrance": "[create hell_lavaburn_1][create hell_lavaburn_2][draw spr_viktor_falling 760 -140 20 -900 -0.8 1 180 35 270 5][time 20] > [position player 820 650][draw spr_cloud_medium 798 620 10 -1000 1 1 0 15 45 0 0 0 -0.1][draw spr_cloud_medium 798 620 10 -1000 1 1 0 15 140 0 0 0 -0.1][draw spr_cloud_medium 798 620 10 -1000 1 1 0 15 90 0 0 0 -0.1][draw spr_cloud_medium 798 620 10 -1000 1 1 0 15 300 0 0 0 -0.1][animation player spr_viktor_fell][sound snd_viktor_kick2][time 50] > [position player 780 660][animation player spr_viktor_fall_stand] > [cloud player 20 300] > [active devil][conversation devil start] > [destroy devil][create fight_controller2] > [stop] > [if hell_win = 1] I won! > [if hell_win = 0] I lost! > [room dig start]"
 			}
 		],
 		"objects": [
+			{
+				"comment": "Fight controller",
+				"alias": "fight_controller2",
+				"available": 0,
+				"object": "obj_fight_controller",
+				"picture": "spr_boxing_use",
+				"pictures": {
+					"player": "viktor_boxing_left",
+					"enemy": "devil_boxing",
+
+					"playerHealth": 100,
+					"enemyHealth": 70,
+					"enemyHealthLoad" : 0,
+					
+					"directionPlayer" : 1,
+					"directionEnemy" : -1,
+					
+					"playerHitIndex": 8,
+					"enemyHitIndex": 12,
+
+					"playerImageSpeed": 0.3,
+					"enemyImageSpeed": 0.4,
+
+					"panelScale": 0.2,
+					"xPlayerPanel": 0,
+					"yPlayerPanel": -450,
+					"xEnemyPanel": -500,
+					"yEnemyPanel": -450,
+
+					"legend": 120,
+					"xLegend": 70,
+					"yLegend": 300,
+
+					"tiredHits": 3,
+					"tiredSeconds": 30,
+
+					"cog1x": 340,
+					"cog1y": 63,
+					"cog2x": 25,
+					"cog2y": 50,
+					"cog3x": 47,
+					"cog3y": 75,
+					"cog4x": 30,
+					"cog4y": 100,
+
+					"int_xArray[0]": 92,
+					"int_yArray[0]": 33,
+					"int_xArray[1]": 121,
+					"int_yArray[1]": 33,
+					"int_xArray[2]": 153,
+					"int_yArray[2]": 33,
+					"int_xArray[3]": 183,
+					"int_yArray[3]": 33,
+					"int_xArray[4]": 215,
+					"int_yArray[4]": 36,
+					"int_xArray[5]": 243,
+					"int_yArray[5]": 29,
+					"int_xArray[6]": 259,
+					"int_yArray[6]": 44,
+
+					"int_xArray[7]": 92,
+					"int_yArray[7]": 66,
+					"int_xArray[8]": 127,
+					"int_yArray[8]": 65,
+					"int_xArray[9]": 162,
+					"int_yArray[9]": 66,
+					"int_xArray[10]": 192,
+					"int_yArray[10]": 66,
+					"int_xArray[11]": 231,
+					"int_yArray[11]": 63,
+					"int_xArray[12]": 270,
+					"int_yArray[12]": 68,
+
+					"int_xArray[13]": 92,
+					"int_yArray[13]": 95,
+					"int_xArray[14]": 112,
+					"int_yArray[14]": 92,
+					"int_xArray[15]": 145,
+					"int_yArray[15]": 93,
+					"int_xArray[16]": 177,
+					"int_yArray[16]": 95,
+					"int_xArray[17]": 210,
+					"int_yArray[17]": 95,
+					"int_xArray[18]": 240,
+					"int_yArray[18]": 93,
+					"int_xArray[19]": 273,
+					"int_yArray[19]": 91
+
+				},
+				"x": 600,
+				"y": 650,
+				"xScale": 0.8,
+				"yScale": 0.8
+			},
 			{
 				"alias" : "matilda",
 				"x" : 0,
@@ -447,13 +1717,13 @@
 			},{
 				"alias" : "devil",
 				"talkSoundOverride" : "snd_priest_talk",
-				"x" : 780,
+				"x" : 600,
 				"y" : 650,
-				"xCloud" : 780,
-				"yCloud" : 300,
-				"xScale" : 0.8,
+				"xCloud" : 583,
+				"yCloud" : 310,
+				"xScale" : -0.8,
 				"yScale" : 0.8,
-				"direction" : "right",
+				"direction" : "left",
 				"idle" : 1
 			},
 			{
@@ -463,6 +1733,7 @@
 				"depth" : -2000,
 				"xCloud" : 10,
 				"yCloud" : 10,
+				"imagespeed" : 10,
 				"x": 471,
 				"y": 606
 			},
@@ -488,8 +1759,8 @@
 				"alias": "hell_smoke_1",
 				"object": "obj_martinsRoom_smoke",
 				"depth" : -2000,
-				"x": 443,
-				"y": 261
+				"x": 447,
+				"y": 382
 			},
 			{
 				"alias": "hell_smoke_2",
@@ -521,15 +1792,11 @@
 		"entrances": [
 			{
 				"alias": "start",
-				"entrance": "[set alias viktor] > [position matilda 240 781][position player 385 788] > [animation player spr_viktor_walk_right][animation matilda spr_matilda_walk_right][moveto matilda 588 817 5][moveto player 719 809 5][time 30] > [animation matilda spr_matilda][animation player spr_viktor][moveto matilda 719 809 0][if first_entry = 0][active frankenstein][conversation frankenstein first_entry] > [if version debug][if first_entry = 2][active frankenstein][conversation frankenstein first_entry]"
+				"entrance": "[set alias viktor] > [position matilda 240 781][position player 385 788] > [animation player spr_viktor_walk_right][animation matilda spr_matilda_walk_right][moveto matilda 588 817 5][moveto player 719 809 5][time 30] > [animation matilda spr_matilda][animation player spr_viktor][moveto matilda 719 809 0][if first_entry = 0][active frankenstein][conversation frankenstein first_entry]"
 			},
 			{
-				"alias" : "machine",
-				"entrance" : "[if machine_win = 0] Damn, this is complicated. > [if machine_win = 1][create tower_machine_blade4][create tower_machine_blade3][create tower_machine_blade2][create tower_machine_blade1][create tower_machine_nozzle][create tower_machine_cable][create tower_machine_body][create tower_machine_ball1][create tower_machine_ball2][destroy tower_machine_broken][set machine_fixed 1] Finally, it is fixed."
-			},
-			{
-				"alias" : "test",
-				"entrance" : "[set alias viktor] > [position matilda 240 781][position player 385 788] > [animation player spr_viktor_walk_right][animation matilda spr_matilda_walk_right][moveto matilda 588 817 5][moveto player 719 809 5][time 30] > [animation matilda spr_matilda][animation player spr_viktor][moveto matilda 719 809 0][active frankenstein][conversation frankenstein tantrum]"
+				"alias" : "minigame",
+				"entrance" : "[set alias viktor][position player 719 809][position matilda 409 809] > [if machine_win = 0] Damn, this is complicated. > [if machine_win = 1][create tower_machine_blade4][create tower_machine_blade3][create tower_machine_blade2][create tower_machine_blade1][create tower_machine_nozzle][create tower_machine_cable][create tower_machine_body][create tower_machine_ball1][create tower_machine_ball2][destroy tower_machine_broken][set machine_fixed 1] Finally, it is fixed."
 			}
 		],
 		"objects": [
@@ -538,11 +1805,18 @@
 				"picture" : "spr_various_token",
 				"xScale" : 50,
 				"yScale" : 50,
-				"x": 235,
-				"y": 764,
+				"x": 318,
+				"y": 795,
 				"description" : "Downstairs",
 				"combinations" : {
 					"use" : "[room dungeon again]"
+				},
+				"inventory": {
+					"alias": "fuck",
+					"name": "Klimt's picture",
+					"description": "A pictre of Tesla's device.",
+					"default": "Heh. Picture that!",
+					"picture": "spr_item_fuck"
 				}
 			},
 			{
@@ -552,9 +1826,10 @@
 				"xScale" : 1,
 				"yScale" : 1,
 				"moves" : 1,
+				"solid" : 1,
+				"description" : "Matilda",
 				"combinations" : {
-					"look" : "That's Matilda, my love. > Or something...",
-					"use" : "[switch viktor matilda]"
+					"look" : "That's Matilda, my love. > Or something..."
 				}
 			},
 			{
@@ -563,6 +1838,8 @@
 				"y" : 100,
 				"available" : 0,
 				"moves" : 1,
+				"solid" : 1,
+				"description": "Viktor",
 				"combinations" : {
 					"look" : "That's Viktor, my love. > Or something..."
 				}
@@ -620,7 +1897,7 @@
 				"yScale" : 1,
 				"combinations" : {
 					"look" : "Frankenstein's troubled monster.",
-					"talk" : "[if alias viktor][conversation monster viktor] > [if alias matilda][conversation monster matilda]"
+					"talk" : "[talk freud] Don't disturb him! > [talk freud] We're in the middle of a very delicate psychoanalitic process here!"
 				}
 			},
 			{
@@ -726,10 +2003,14 @@
 				"alias": "tower_hand",
 				"x": 40,
 				"y": 414,
+				"xInteract" : 324,
+				"yInteract" : 771,
 				"depth" : 1000,
 				"description": "Part holder",
 				"combinations": {
-					"look" : "I should have one of these in my room. > It could really come in handy."
+					"look" : "[if alias viktor] I should get one of these. > [if alias viktor] It could really come in... handy. > [if alias viktor][talk matilda] Oh, God, the puns... > [if alias matilda] That's a... hands on approach > [if alias matilda][talk viktor] Puntastic!",
+					"use" : "[if alias viktor][animation player spr_viktor_take_left_high][time 10] > [talk frankenstein] Don't touch that! I need it!",
+					"fuck": "OK, nobody's watching! > [fade in 0.03][time 30] > [fade out 0.03][time 30] > There! Looks like the real thing! > [give fuck][take realfuck]"
 				}
 			},
 			{
@@ -742,8 +2023,8 @@
 				"description": "Tesla's part",
 				"combinations": {
 					"look" : "That's the one I need!",
-					"use" : "[if alias viktor][animation player spr_viktor_take_left_high][time 10] > [talk frankenstein] Don't touch that! I need it!" ,
-					"fuck": "OK, nobody's watching! > [fade in 0.03][time 30] > [fade out 0.03][time 30] > There! Looks like the real thing! > [give fuck][take realfuck]" 
+					"use" : "[if alias viktor][animation player spr_viktor_take_left_high][time 10] > [talk frankenstein] Don't touch that! I need it!",
+					"fuck": "OK, nobody's watching! > [fade in 0.03][time 30] > [fade out 0.03][time 30] > There! Looks like the real thing! > [give fuck][take realfuck]"
 				},
 				"inventory": {
 					"alias": "realfuck",
@@ -811,14 +2092,14 @@
 				"angle": 120,
 				"xScale" : 1,
 				"yScale" : 1,
-				"x" : 331,
-				"y" : 1019,
-				"xInteract" : 378,
-				"yInteract" : 1019,
+				"x" : 423,
+				"y" : 1022,
+				"xInteract" : 496,
+				"yInteract" : 803,
 				"description" : "Broken machine",
 				"combinations" : {
 					"look" : "This is all 'my' fault.",
-					"use" : "[room machine start]"
+					"use" : "[if alias matilda][talk viktor] Wait, let me handle it! > [if alias matilda][talk viktor] I'm good with fixing contraptions! > [if alias matilda] Hmm... Suit yourself... > [room machine start]"
 				}
 			},
 			{
@@ -937,47 +2218,35 @@
 		"entrances": [
 			{
 			"alias": "start",
-			"entrance": "[position player 650 800] Room in development! > [switch viktor matilda] > [direction left] Hi. > [switch viktor matilda]"
+			"entrance": "[position player 650 800][active tesla][conversation tesla start] > [fade in 0.03][time 30] > [direction front] Now after the conversation is over, this is the part we didn't make yet, with Tesla's stuff and so on, so let's go directly to Frankenstein... > [fade][room map_sebenico_ingolstadt start]"
 			}
 		],
 		"objects": [
 			{
-				"alias": "return",
-				"x": 200,
-				"y": 200,
-				"xInteract": 600,
-				"yInteract": 700,
-				"picture": "spr_various_token",
-				"xScale": 100,
-				"yScale": 100,
-				"description": "Exit to another room",
-				"combinations": {
-					"talk": "[room tower start]",
-					"use": "[room tesla start]",
-					"look" : "[room botanical start]",
-					"kick": "[room garden start]"
+				"alias" : "matilda",
+				"x" : 826,
+				"y" : 800,
+				"xCloud" : 50,
+				"yCloud" : -300,
+				"xScale" : 0.75,
+				"yScale" : 0.75,
+				"direction": "right",
+				"description" : "Matilda",
+				"moves" : 1,
+				"solid" : 1,
+				"combinations" : {
+					"look" : "That's Matilda, my love. > Or something..."
 				}
 			},
 			{
-				"alias": "matilda",
-				"xScale" : 0.78,
-				"yScale" : 0.78,
-				"x": 826,
-				"y": 800,
-				"description": "Matilda!",
-				"combinations": {
-					"look" : "Her appearance is so soothing to me."
-				}
-			},			
-			{
 				"alias": "tesla",
 				"idle" : 1,
-				"x": 500,
-				"y": 800,
+				"x": 997,
+				"y": 731,
 				"xScale" : 0.6,
 				"yScale" : 0.6,
-				"xCloud" : 500,
-				"yCloud" : 300,
+				"xCloud" : 968,
+				"yCloud" : 359,
 				"xInteract" : 700,
 				"yInteract" : 800,
 				"depth" : -1100,
@@ -1139,18 +2408,6 @@
 				"combinations": {
 					"look" : "It's a pad"
 				}
-			},
-			{
-				"alias": "viktor",
-				"available" : 0,
-				"xScale" : 0.78,
-				"yScale" : 0.78,
-				"x": 650,
-				"y": 800,
-				"description": "Default description",
-				"combinations": {
-					"look" : "Default text"
-				}
 			}
 		]
 	},
@@ -1158,55 +2415,387 @@
 		"comment": "Botanical room",
 		"alias": "botanical",
 		"gui": "default",
-		"scaleNear": 0.8,
-		"scaleFar": 0.7,
+		"scaleNear": 0.75,
+		"scaleFar": 0.75,
 		"background": "bcg_botanical",
-		"border": "spr_border_botanical",
+		"border": "spr_various_token",
 		"xBackground": -50,
 		"yBackground": 40,
 		"rgb": "0,0,0",
 		"entrances": [
 			{
 			"alias": "start",
-			"entrance": "[position player 620 830] Room in development! > [animation botanical_pitcher spr_botanical_pitcher_eat] > [destroy botanical_pitcher][create botanical_pitcher_fed]"
+			"entrance": "[fade out 0][time 60] > [fade][fade out 0.03][position player 9000 9000][move viktor 180 3][move matilda 180 3][time 90][animations viktor spr_viktor_walk_left][animations matilda spr_matilda_walk_left] > [fade][move matilda 0 0][move viktor 0 0][animation matilda spr_matilda_listen_right] > [cloud reverse][cloud 630 330][animations viktor spr_viktor_talk_front][talk viktor] Shh, be very quiet, Matilda... > [cloud reverse][cloud 630 330][animations viktor spr_viktor_talk_front][talk viktor] And very careful! We could drop down any moment! > [sound snd_viktor_kick][destroy viktor][draw spr_viktor_falling 620 300 15 -900 -0.75 1 180 35 270 5][time 15][draw spr_cloud_medium 598 300 10 -1000 1 1 0 15 45 0 0 0 -0.1][draw spr_cloud_medium 598 300 10 -1000 1 1 0 15 140 0 0 0 -0.1][draw spr_cloud_medium 598 300 10 -1000 1 1 0 15 90 0 0 0 -0.1][draw spr_cloud_medium 598 300 10 -1000 1 1 0 15 300 0 0 0 -0.1] > [position player 620 830][draw spr_cloud_medium 598 720 10 -1000 1 1 0 15 45 0 0 0 -0.1][draw spr_cloud_medium 598 720 10 -1000 1 1 0 15 140 0 0 0 -0.1][draw spr_cloud_medium 598 720 10 -1000 1 1 0 15 90 0 0 0 -0.1][draw spr_cloud_medium 598 720 10 -1000 1 1 0 15 300 0 0 0 -0.1][animation player spr_viktor_fell][sound snd_viktor_kick2][time 50] > [animation player spr_viktor_fall_stand] > Whoops. > [DONT skip 5] > [active general][conversation general start] > [destroy general][create fight_controller3] > [stop] > [create general][position player 9000 9000][animations player spr_viktor_boxing_damaged_defeat 11][draw spr_viktor 620 830 40 0 0.75][animation botanical_pitcher spr_botanical_pitcher_eat] > [destroy botanical_pitcher][create botanical_pitcher_fed] > [talk matilda][cloud reverse][cloud 430 330][animations matilda spr_matilda_talk_front] Oh no, Viktor!!! > [move matilda 0 5][animations matilda spr_matilda_walk_right][time 30] > [move matilda 0 0] > [talk matilda][cloud reverse][cloud 630 330][animations matilda spr_matilda_talk_front] Oh, good, he didn't hear me... Time to use stealth! > [destroy matilda][sound snd_viktor_kick][draw spr_matilda 620 100 15 -900 0.75 1 180 35 270 0][time 15][draw spr_cloud_medium 598 300 10 -1000 1 1 0 15 45 0 0 0 -0.1][draw spr_cloud_medium 598 300 10 -1000 1 1 0 15 140 0 0 0 -0.1][draw spr_cloud_medium 598 300 10 -1000 1 1 0 15 90 0 0 0 -0.1][draw spr_cloud_medium 598 300 10 -1000 1 1 0 15 300 0 0 0 -0.1] > [switch viktor matilda][position player 620 830][draw spr_cloud_medium 598 720 10 -1000 1 1 0 15 45 0 0 0 -0.1][draw spr_cloud_medium 598 720 10 -1000 1 1 0 15 140 0 0 0 -0.1][draw spr_cloud_medium 598 720 10 -1000 1 1 0 15 90 0 0 0 -0.1][draw spr_cloud_medium 598 720 10 -1000 1 1 0 15 300 0 0 0 -0.1][animation player spr_matilda_fell][sound snd_viktor_kick2][time 50] > [animation player spr_matilda_fall_up][imagespeed matilda 0.8] > [imagespeed matilda 0.3][direction left] Whoops again. > [if alias viktor][switch viktor matilda] > [position player 620 830] > [conversation general matilda] > [destroy general][create fight_controller4] > [stop] > [create general_down] > And stay down! > [minigame][destroy fight_controller3][destroy fight_controller4]"
+			},
+			{
+				"alias": "back",
+				"entrance" : "[position player 620 830]"
 			}
 		],
 		"objects": [
 			{
-				"alias": "return",
-				"x": 200,
-				"y": 200,
-				"xInteract": 600,
-				"yInteract": 700,
-				"picture": "spr_various_token",
-				"xScale": 100,
-				"yScale": 100,
-				"description": "Exit to another room",
-				"combinations": {
-					"talk": "[room tower start]",
-					"use": "[room tesla start]",
-					"look" : "[room botanical start]",
-					"kick": "[room garden start]"
+				"comment": "Fight controller",
+				"alias": "fight_controller3",
+				"available": 0,
+				"object": "obj_fight_controller",
+				"picture": "spr_boxing_use",
+				"pictures": {
+					"player": "viktor_boxing_left",
+					"enemy": "general_boxing",
+
+					"playerHealth": 100,
+					"enemyHealth": 200,
+					"enemyHealthLoad" : 0,
+					
+					"directionPlayer" : 1,
+					"directionEnemy" : 1,
+					
+					"playerHitIndex": 8,
+					"enemyHitIndex": 8,
+
+					"playerImageSpeed": 0.3,
+					"enemyImageSpeed": 0.55,
+
+					"panelScale": 0.2,
+					"xPlayerPanel": 0,
+					"yPlayerPanel": -450,
+					"xEnemyPanel": -500,
+					"yEnemyPanel": -450,
+
+					"legend": 120,
+					"xLegend": 70,
+					"yLegend": 300,
+
+					"tiredHits": 3,
+					"tiredSeconds": 30,
+
+					"cog1x": 340,
+					"cog1y": 63,
+					"cog2x": 25,
+					"cog2y": 50,
+					"cog3x": 47,
+					"cog3y": 75,
+					"cog4x": 30,
+					"cog4y": 100,
+
+					"int_xArray[0]": 92,
+					"int_yArray[0]": 33,
+					"int_xArray[1]": 121,
+					"int_yArray[1]": 33,
+					"int_xArray[2]": 153,
+					"int_yArray[2]": 33,
+					"int_xArray[3]": 183,
+					"int_yArray[3]": 33,
+					"int_xArray[4]": 215,
+					"int_yArray[4]": 36,
+					"int_xArray[5]": 243,
+					"int_yArray[5]": 29,
+					"int_xArray[6]": 259,
+					"int_yArray[6]": 44,
+
+					"int_xArray[7]": 92,
+					"int_yArray[7]": 66,
+					"int_xArray[8]": 127,
+					"int_yArray[8]": 65,
+					"int_xArray[9]": 162,
+					"int_yArray[9]": 66,
+					"int_xArray[10]": 192,
+					"int_yArray[10]": 66,
+					"int_xArray[11]": 231,
+					"int_yArray[11]": 63,
+					"int_xArray[12]": 270,
+					"int_yArray[12]": 68,
+
+					"int_xArray[13]": 92,
+					"int_yArray[13]": 95,
+					"int_xArray[14]": 112,
+					"int_yArray[14]": 92,
+					"int_xArray[15]": 145,
+					"int_yArray[15]": 93,
+					"int_xArray[16]": 177,
+					"int_yArray[16]": 95,
+					"int_xArray[17]": 210,
+					"int_yArray[17]": 95,
+					"int_xArray[18]": 240,
+					"int_yArray[18]": 93,
+					"int_xArray[19]": 273,
+					"int_yArray[19]": 91
+
+				},
+				"x": 480,
+				"y": 830,
+				"xScale": 0.6,
+				"yScale": 0.6
+			},
+			{
+				"comment": "Fight controller",
+				"alias": "fight_controller4",
+				"available": 0,
+				"object": "obj_fight_controller",
+				"picture": "spr_boxing_use",
+				"pictures": {
+					"player": "matilda_boxing_right",
+					"enemy": "general_boxing",
+
+					"playerHealth": 200,
+					"enemyHealth": 200,
+					"enemyHealthLoad" : 1,
+					
+					"directionPlayer" : -1,
+					"directionEnemy" : 1,
+					
+					"playerHitIndex": 8,
+					"enemyHitIndex": 8,
+
+					"playerImageSpeed": 0.3,
+					"enemyImageSpeed": 0.55,
+
+					"panelScale": 0.2,
+					"xPlayerPanel": 0,
+					"yPlayerPanel": -450,
+					"xEnemyPanel": -500,
+					"yEnemyPanel": -450,
+
+					"legend": 120,
+					"xLegend": 70,
+					"yLegend": 300,
+
+					"tiredHits": 3,
+					"tiredSeconds": 30,
+
+					"cog1x": 340,
+					"cog1y": 63,
+					"cog2x": 25,
+					"cog2y": 50,
+					"cog3x": 47,
+					"cog3y": 75,
+					"cog4x": 30,
+					"cog4y": 100,
+
+					"int_xArray[0]": 92,
+					"int_yArray[0]": 33,
+					"int_xArray[1]": 121,
+					"int_yArray[1]": 33,
+					"int_xArray[2]": 153,
+					"int_yArray[2]": 33,
+					"int_xArray[3]": 183,
+					"int_yArray[3]": 33,
+					"int_xArray[4]": 215,
+					"int_yArray[4]": 36,
+					"int_xArray[5]": 243,
+					"int_yArray[5]": 29,
+					"int_xArray[6]": 259,
+					"int_yArray[6]": 44,
+
+					"int_xArray[7]": 92,
+					"int_yArray[7]": 66,
+					"int_xArray[8]": 127,
+					"int_yArray[8]": 65,
+					"int_xArray[9]": 162,
+					"int_yArray[9]": 66,
+					"int_xArray[10]": 192,
+					"int_yArray[10]": 66,
+					"int_xArray[11]": 231,
+					"int_yArray[11]": 63,
+					"int_xArray[12]": 270,
+					"int_yArray[12]": 68,
+
+					"int_xArray[13]": 92,
+					"int_yArray[13]": 95,
+					"int_xArray[14]": 112,
+					"int_yArray[14]": 92,
+					"int_xArray[15]": 145,
+					"int_yArray[15]": 93,
+					"int_xArray[16]": 177,
+					"int_yArray[16]": 95,
+					"int_xArray[17]": 210,
+					"int_yArray[17]": 95,
+					"int_xArray[18]": 240,
+					"int_yArray[18]": 93,
+					"int_xArray[19]": 273,
+					"int_yArray[19]": 91
+
+				},
+				"x": 480,
+				"y": 830,
+				"xScale": 0.6,
+				"yScale": 0.6
+			},
+			{
+				"alias": "tothegarden",
+				"picture" : "spr_various_token",
+				"visible" : 0,
+				"x" : 1000,
+				"y" : 690,
+				"xInteract" : 923,
+				"yInteract" : 802,
+				"xScale" : 200,
+				"yScale" : 300,
+				"description" : "Hallway to the Botanical garden",
+				"combinations" : {
+					"look" : "There seems to be more plants over there.",
+					"use" : "[room garden start]"
+				},
+				"inventory" : {
+					"alias" : "flaskempty",
+					"name" : "Flask",
+					"picture" : "spr_item_flask_empty",
+					"description" : "An empty flask",
+					"default" : "I can't pour that inside the flask"
 				}
+			},
+			{
+				"alias" : "plant1",
+				"picture" : "spr_various_token",
+				"visible" : 0,
+				"x" : 400,
+				"y" : 300,
+				"xScale" : 120,
+				"yScale" : 157,
+				"xInteract" : 572,
+				"yInteract" : 821,
+				"description" : "A yellow flower.",
+				"combinations" : {
+					"look" : "A yellow dandellion. > How quaint.",
+					"use" : "Nah, that plant is completely useless."
+				}
+				
+			},
+			{
+				"alias" : "plant2",
+				"picture" : "spr_various_token",
+				"visible" : 0,
+				"x" : 378,
+				"y" : 561,
+				"xScale" : 120,
+				"yScale" : 157,
+				"xInteract" : 572,
+				"yInteract" : 821,
+				"description" : "A purple flower.",
+				"combinations" : {
+					"look" : "A purple forget-me-not flower. > How quaint.",
+					"use" : "Nah, that plant is completely useless."
+				}
+				
+			},
+			{
+				"alias" : "plant3",
+				"picture" : "spr_various_token",
+				"visible" : 0,
+				"x" : 448,
+				"y" : 556,
+				"xScale" : 120,
+				"yScale" : 157,
+				"xInteract" : 572,
+				"yInteract" : 821,
+				"description" : "A tropical plant.",
+				"combinations" : {
+					"look" : "For all I know, it might be plastic.",
+					"use" : "Nah, that plant is completely useless."
+				}
+				
+			},
+			{
+				"alias" : "plant3",
+				"picture" : "spr_various_token",
+				"visible" : 0,
+				"x" : 960,
+				"y" : 280,
+				"xScale" : 120,
+				"yScale" : 157,
+				"xInteract" : 572,
+				"yInteract" : 821,
+				"description" : "A bush plant.",
+				"combinations" : {
+					"look" : "[if stupidpunplant3 = 1] George seems happy. > [if stupidpunplant3 = 1][skip] > It's a Bush. > I'll call it George. > [set stupidpunplant3 1][description plant3 George]",
+					"use" : "Nah, that plant is completely useless."
+				}
+				
+			},
+			{
+				"alias" : "matilda",
+				"x" : 700,
+				"y" : 300,
+				"xScale" : 0.75,
+				"yScale" : 0.75,
+				"description" : "Matilda",
+				"moves" : 1,
+				"solid" : 1,
+				"combinations" : {
+					"look" : "That's Matilda, my love. > Or something..."
+				}
+			},
+			{
+				"alias" : "viktor",
+				"x" : 850,
+				"y" : 300,
+				"xScale" : 0.75,
+				"yScale" : 0.75,
+				"description" : "Viktor",
+				"available" : 1,
+				"moves" : 1,
+				"solid" : 1,
+				"combinations" : {
+					"look" : "That's Viktor, my love. > Or something..."
+				}
+			},
+			{
+				"alias" : "general",
+				"direction" : "left",
+				"x": 480,
+				"y": 830,
+				"xScale" : 0.6,
+				"yScale" : 0.6,
+				"xCloud" : 555,
+				"yCloud" : 444
 			},
 			{
 				"alias": "botanical_cactus",
 				"idle" : 1,
 				"x": -49,
 				"y": 132,
-				"description": "Default description",
+				"description": "A cactus",
 				"combinations": {
-					"look" : "Default text"
+					"look" : "Wouldn't want to touch that!"
+				}
+			},
+			{
+				"alias": "botanical_plant_dead",
+				"picture": "spr_botanical_plant",
+				"available": 1,
+				"subimage" : 0,
+				"x": 1005,
+				"y": 350,
+				"xInteract" : 980,
+				"yInteract" : 780,
+				"description": "A dead plant",
+				"combinations": {
+					"look" : "I wonder what type of plant that was...",
+					"use" : "What use is a dead plant?",
+					"talk" : "Hey, little plant... > Wake up! > We love you!",
+					"flaskempty" : "Would you like some water, little plant? > Too bad, I'm all out.",
+					"flaskwater" : "[animation player spr_matilda_use_right_high][give flaskwater][destroy botanical_plant_dead 15][create botanical_plant 15] > Wow, it really doesn't need much."
 				}
 			},
 			{
 				"alias": "botanical_plant",
-				"available": 1,
+				"available": 0,
+				"subimage" : 7,
 				"x": 1005,
 				"y": 350,
-				"description": "Default description",
+				"xInteract" : 980,
+				"yInteract" : 780,
+				"description": "A beautiful plant",
 				"combinations": {
-					"look" : "Default text"
+					"look" : "It's so lively! > Oh, but what a pungent smell!",
+					"use" : "[if item flower] I already have one. > [not item flower][pick]",
+					"talk" : "[if viktorfree = 1] Thanks, plant! > [if viktorfree = 1][skip] > Hey, little plant... > I helped you, now you help me set my boyfriend free. > Please?"
+				},
+				"inventory": {
+					"alias": "flower",
+					"name": "Flower",
+					"description": "A beautiful purple rose",
+					"picture": "spr_item_flower"
 				}
 			},
 			{
@@ -1214,9 +2803,9 @@
 				"idle": 1,
 				"x": 318,
 				"y": 248,
-				"description": "Default description",
+				"description": "A pitcher plant",
 				"combinations": {
-					"look" : "Default text"
+					"look" : "What an evil plant."
 				}
 			},
 			{
@@ -1225,9 +2814,12 @@
 				"idle": 1,
 				"x": 318,
 				"y": 248,
-				"description": "Default description",
+				"xInteract" : 578,
+				"yInteract" : 820,
+				"description": "A pitcher plant",
 				"combinations": {
-					"look" : "Default text"
+					"look" : "What an evil plant.",
+					"talk" : "[if alias matilda] Let my boyfriend go! > [if alias viktor] You bastard!"
 				}
 			},
 			{
@@ -1256,43 +2848,102 @@
 		"entrances": [
 			{
 			"alias": "start",
-			"entrance": "[position player 620 830] Room in development! > [destroy garden_water_small][create garden_water_start] > [animation garden_water_start spr_garden_water_start] > [animations garden_water_start spr_garden_water_loop]"
+			"entrance": "[not item flaskempty][take flaskempty silent] > [position player 100 830] > [if alias matilda][animations player spr_matilda_walk_right][move player 0 4][time 50] > [if alias viktor][animations player spr_viktor_walk_right][move player 0 4][time 50] > [move player 0 0] Wow, it's really leafy in here."
 			}
 		],
 		"objects": [
 			{
+				"alias" : "elephant",
+				"idle" : 1,
+				"x" : 305,
+				"y" : 577,
+				"xInteract" : 308,
+				"yInteract" : 806,
+				"xScale" : 0.3,
+				"yScale" : 0.3,
+				"description" : "A royal gardener",
+				"xCloud" : 461,
+				"yCloud" : 482,
+				"combinations" : {
+					"talk" : "[conversation elephant start]"
+				},
+				"inventory" : {
+					"alias" : "flaskempty",
+					"name" : "Flask",
+					"picture" : "spr_item_flask_empty",
+					"description" : "An empty flask",
+					"default" : "I can't pour that inside the flask"
+				}
+			},
+			{
+				"alias" : "garden_shrooms_top",
+				"x" : 700,
+				"y" : 750,
+				"xInteract" : 680,
+				"yInteract" : 830,
+				"description" : "Mushroom tops",
+				"combinations" : {
+					"look" : "Pretty mushrooms. > [talk elephant] Toxic, corrosive mushrooms.",
+					"use" : "[pickup]"
+				},
+				"inventory" : {
+					"alias" : "mushrooms",
+					"name" : "Mushrooms",
+					"description" : "Toxic and corrosive",
+					"default" : "Wanna try some shrooms? > No?",
+					"picture" : "spr_shroom"
+				}
+			},
+			{
+				"alias" : "garden_shrooms_bottom",
+				"x" : 700,
+				"y" : 750,
+				"xInteract" : 680,
+				"yInteract" : 830,
+				"description" : "Mushroom bottoms",
+				"combinations" : {
+					"look" : "Pretty mushrooms. > [talk elephant] Toxic, corrosive mushrooms.",
+					"use" : "I only need the mushroom tops. > [talk elephant] What kind of a person only eats mushroom tops?!"
+				}
+			},
+			{
+				"alias" : "leaves2",
+				"NOobject" : "obj_leaves",
+				"visible" : 0,
+				"available" : 1
+			},
+			{
 				"alias": "return",
-				"x": 200,
+				"visible" : 0,
+				"x": 0,
 				"y": 200,
-				"xInteract": 600,
-				"yInteract": 700,
+				"xInteract": 390,
+				"yInteract": 813,
 				"picture": "spr_various_token",
-				"xScale": 100,
-				"yScale": 100,
-				"description": "Exit to another room",
+				"xScale": 250,
+				"yScale": 700,
+				"description": "Botanical garden entrance",
 				"combinations": {
-					"talk": "[room tower start]",
-					"use": "[room tesla start]",
-					"look" : "[room botanical start]",
-					"kick": "[room garden start]"
+					"look": "That's the place where we came in from.",
+					"use": "[room botanical back]"
 				}
 			},
 			{
 				"alias": "garden_fountain",
 				"x": 462,
 				"y": 566,
-				"description": "Default description",
+				"description": "Beautiful fountain",
 				"combinations": {
-					"look" : "Default text"
+					"look" : "It's beautiful."
 				}
 			},
 			{
 				"alias": "garden_hose_base",
 				"x": 925,
 				"y": 789,
-				"description": "Default description",
+				"description": "A hose",
 				"combinations": {
-					"look" : "Default text"
+					"look" : "I like my hose wet. > Get it, get it?"
 				}
 			},
 			{
@@ -1300,9 +2951,9 @@
 				"x": 809,
 				"y": 789,
 				"depth" : -800,
-				"description": "Default description",
+				"description": "Hose top",
 				"combinations": {
-					"look" : "Default text"
+					"look" : "Should I take the top of my hose off? > Get it, get it?"
 				}
 			},
 			{
@@ -1316,9 +2967,20 @@
 				"alias": "garden_water_small",
 				"x": 614,
 				"y": 383,
-				"description": "Default description",
+				"xInteract" : 600,
+				"yInteract" : 832,
+				"description": "Water",
 				"combinations": {
-					"look" : "Default text"
+					"look" : "Nice water.",
+					"mushrooms" : "Let's mix in some shrooms in here. > [if alias viktor][animation player spr_viktor_use_back_low] > [if alias matilda][animations player spr_matilda_walk_back][time 45] > [destroy garden_water_small][create garden_water_start] > [animation garden_water_start spr_garden_water_start] > [animations garden_water_start spr_garden_water_loop]",
+					"flaskempty" : "[animation player spr_matilda_use_right_high][give flaskempty][take flaskwater]"
+				},
+				"inventory" : {
+					"alias" : "flaskwater",
+					"name" : "Vial of water",
+					"picture": "spr_item_flask_water",
+					"description" : "A vial filled with water",
+					"default" : "That doesn't need water"
 				}
 			},
 			{
@@ -1326,9 +2988,10 @@
 				"available" : 0,
 				"x": 614,
 				"y": 393,
-				"description": "Default description",
+				"description": "Water",
 				"combinations": {
-					"look" : "Default text"
+					"look" : "Nice water.",
+					"flaskempty" : "[animation player spr_matilda_use_left_high][give bottle][take flaskwater]"
 				}
 			}
 		]
@@ -1346,9 +3009,15 @@
 		"border": "spr_various_token",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[set safe_type 0][create bank_controller] > [stop] > [if safe_win = 1][room bank_inside open] > [room bank_inside locked]"
+			"entrance": "[position 9000 9000] > [create bank_controller] > [if safe_type = 0][cloud 300 300][cloud reverse] This safe belongs to Robin Hood. > [if safe_type = 0][blocksound snd_matilda_talk2][cloud 300 300][cloud reverse] *The* Robin Hood?! > > [if safe_type = 0][cloud 300 300][cloud reverse] He must be loaded. > [if safe_type = 1][cloud 300 300][cloud reverse] This safe belongs to Emma Centipede. > [if safe_type = 2][cloud 300 300][cloud reverse] This safe belongs to Otto von Cudgel. > [if safe_type = 3][cloud 300 300][cloud reverse] This safe belongs to Alexander Thorn. > [if safe_type = 4][cloud 300 300][cloud reverse] This safe belongs to Forks and Knives Co. > [if safe_type = 5][cloud 300 300][cloud reverse] This safe belongs to Karl Hellebard. > [if safe_type = 9][cloud 300 300][cloud reverse] This safe belongs to Adelina Venom. > [if safe_type = 6][cloud 300 300][cloud reverse] This safe belongs to Alfred Hubert Oliver Paul Sherman Mustache. > [if safe_type = 7][cloud 300 300][cloud reverse] This safe belongs to Egon Hubert Frederick Blackship. > [if safe_type = 8][cloud 300 300][cloud reverse] This safe belongs to Arnold Digger. > [if safe_type = 10][cloud 300 300][cloud reverse] This safe belongs to Gustav Egon Sword. > [if safe_type = 11][cloud 300 300][cloud reverse] This safe belongs to Duke Ferenc Atila. > [stop] > [room bank minigame]"
 		}],
 		"objects": [
+			{
+				"alias" : "bank_button",
+				"object" : "obj_bank_button",
+				"x" : 200,
+				"y" : 200
+			},
 			{
 				"available" : 0,
 				"alias" : "bank_controller",
@@ -1413,6 +3082,13 @@
 			"entrance": "[create tesla_controller] > [stop] > [room previous slider]"
 		}],
 		"objects": [
+			{
+				"alias" : "back",
+				"object" : "obj_back",
+				"picture" : "spr_menu_back",
+				"x" : 70,
+				"y" : 850
+			},
 			{
 				"available" : 0,
 				"alias" : "tesla_controller",
@@ -1545,7 +3221,7 @@
 		"border": "spr_various_token",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[if mood angry][set moodangry 1] > [if mood][set moodangry 0] > [position player 200 850][set mood phone][active martinsRoom_martin] > [if previousRoom viktorsRoom][conversation martin beginning] > [if previousRoom station_down][conversation martin station] > [if previousRoom station_up][conversation martin station] > [if previousRoom palace_outside][conversation martin palace] > [if previousRoom tavern][conversation martin tavern] > [if previousRoom toilet][conversation martin tavern] >  [room previous return]"
+			"entrance": "[if nighttime = 1][create martinsRoom_window] > [if nighttime = 0][destroy martinsRoom_window] > [if mood angry][set moodangry 1] > [if mood][set moodangry 0] > [position player 200 850][set mood phone][active martinsRoom_martin] > [if previousRoom viktorsRoom][conversation martin beginning] > [if previousRoom station_down][conversation martin station] > [if previousRoom station_up][conversation martin station] > [if previousRoom palace_outside][conversation martin palace] > [if previousRoom tavern][conversation martin tavern] > [if previousRoom toilet][conversation martin tavern] >  [room previous return]"
 		}],
 		"objects": [{
 			"alias": "martinsRoom_martin",
@@ -1554,7 +3230,15 @@
 			"idle": 1,
 			"xCloud": 860,
 			"yCloud": 400
-		}, {
+		}, 
+		{
+			"alias" : "martinsRoom_window",
+			"x" : 755,
+			"y" : 188,
+			"depth" : 500,
+			"available" : 0
+		},
+		{
 			"alias": "martinsRoom_boat",
 			"x": 780,
 			"y": 660,
@@ -1645,8 +3329,7 @@
 			"entrance": "[set dirtravel 1][fade out 0.1][soundtrack saens][cloud player 100 0][position player 577 290][direction left][set mood coupe] > [active coupe_walrus][conversation walrus beginning] > [set mood default][mood default][cloud player 50 300][set dirigible_type travel][room dirigibles start]"
 		}, {
 			"alias": "won",
-			"entrance": "[room title_palace start]",
-			"entrance_old": "[cloud player 100 0][position player 577 290][direction left][set mood coupe] I saved the day! > And now to become the emperor. > [set mood][cloud player 50 300][room title_palace start]"
+			"entrance": "[room title_palace start]"
 		}, {
 			"alias": "lost",
 			"entrance": "[shake 2 6000][destroy coupe_clouds1][destroy coupe_clouds2][destroy coupe_clouds3][destroy coupe_clouds4][destroy coupe_clouds5][destroy coupe_clouds6][destroy coupe_clouds7][destroy coupe_clouds8][destroy coupe_clouds9][destroy coupe_clouds0][create coupe_cloudfall1][create coupe_cloudfall2][create coupe_cloudfall3][create coupe_cloudfall4][create coupe_cloudfall5][create coupe_cloudfall6] > [position player 9000 290][active coupe_walrus][other] Dear me, dear me, it seems that we are plunging into our deaths. > [position player 9000 290][active coupe_walrus][other] Good thing I brought my trusty time machine with me. > [animation coupe_walrus spr_coupe_walrus_watch][time 20] > [fade in 0.03 -9999 spr_various_token][time 40] > [shake 0 0][fade][room dirigibles start]"
@@ -1830,7 +3513,134 @@
 			"depth" : 2050
 		}
 		]
-	}, {
+	},
+	{
+		"comment": "Cutscene - AU map - Prague to Budapest",
+		"alias": "map_prague_budapest",
+		"gui": "empty",
+		"background": "bcg_map",
+		"rgb": "255,255,255",
+		"border": "spr_various_token",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[time 140] > [time 40][fade in 0.05] > [fade][room title_budapest start]"
+		}],
+		"objects": [{
+			"alias": "map_prague_vienna_budapest",
+			"x": 463,
+			"y": 161,
+			"xScale": 1.2,
+			"yScale": 0.8,
+			"imageSpeed": 0.1
+		}
+		]
+	},
+	{
+		"comment": "Cutscene - AU map - Sebenico to Ingolstadt - BACK",
+		"alias": "map_ingolstadt_sebenico",
+		"gui": "empty",
+		"background": "bcg_map",
+		"rgb": "255,255,255",
+		"border": "spr_various_token",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[time 20] > [time 40][fade in 0.05] > [fade][room title_sebenico_again start]"
+		}],
+		"objects": [{
+			"alias": "map_sebenico_ingolstadt",
+			"x": 296,
+			"y": 269,
+			"xScale": 0.56,
+			"yScale": 0.56,
+			"imageSpeed": 0.5
+		}
+		]
+	},
+	{
+		"comment": "Cutscene - AU map - Sebenico to Vienna",
+		"alias": "map_sebenico_vienna",
+		"gui": "empty",
+		"background": "bcg_map",
+		"rgb": "255,255,255",
+		"border": "spr_various_token",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[time 180] > [time 40][fade in 0.05] > [fade][room title_vienna_again start]"
+		}],
+		"objects": [{
+			"alias": "map_sebenico_vienna",
+			"x": 456,
+			"y": 286,
+			"xScale": 1.2,
+			"yScale": 1.2,
+			"imageSpeed": 0.2
+		},
+		]
+	},
+	{
+		"comment": "Cutscene - AU map - Sebenico to Ingolstadt",
+		"alias": "map_sebenico_ingolstadt",
+		"gui": "empty",
+		"background": "bcg_map",
+		"rgb": "255,255,255",
+		"border": "spr_various_token",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[time 20] > [time 40][fade in 0.05] > [fade][room title_ingolstadt start]"
+		}],
+		"objects": [{
+			"alias": "map_ingolstadt_sebenico",
+			"x": 296,
+			"y": 269,
+			"xScale": 0.56,
+			"yScale": 0.56,
+			"imageSpeed": 0.4
+		}
+		]
+	},
+	{
+		"comment": "Cutscene - AU map - Krakow to Sebenico",
+		"alias": "map_krakow_sebenico",
+		"gui": "empty",
+		"background": "bcg_map",
+		"rgb": "255,255,255",
+		"border": "spr_various_token",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[time 140] > [time 40][fade in 0.05] > [fade][room title_sebenico start]"
+		}],
+		"objects": [{
+			"alias": "map_krakow_sebenico",
+			"x": 373,
+			"y": 83,
+			"xScale": 1.2,
+			"yScale": 1.2,
+			"imageSpeed": 0.3
+		},
+		]
+	},
+	{
+		"comment": "Cutscene - AU map - Budapest to Krakow",
+		"alias": "map_budapest_krakow",
+		"gui": "empty",
+		"background": "bcg_map",
+		"rgb": "255,255,255",
+		"border": "spr_various_token",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[time 170] > [time 40][fade in 0.05] > [fade][room title_krakow start]"
+		}],
+		"objects": [{
+			"alias": "map_budapest_krakow",
+			"x": 422,
+			"y": 110,
+			"xScale": 1.2,
+			"yScale": 1.2,
+			"imageSpeed": 0.3
+		}
+		]
+	},
+	{
 		"comment": "Cutscene - AU map - Agram to Vienna",
 		"alias": "map_agram_vienna",
 		"gui": "empty",
@@ -1899,7 +3709,159 @@
 			"y": 510,
 			"subimage": 4
 		}]
-	}, {
+	}, 
+	{
+		"comment": "Title - Ingolstadt ",
+		"alias": "title_ingolstadt",
+		"gui": "empty",
+		"background": "bcg_title",
+		"xBackground": -20,
+		"yBackground": -10,	
+		"rgb": "255,255,255",
+		"border": "spr_various_token",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[soundtrack brahms][time 90] > [room dungeon start]"
+		}],
+		"objects": [{
+			"alias": "various_title",
+			"x": 360,
+			"y": 290,
+			"subimage": 7
+		}, {
+			"alias": "various_title",
+			"x": 360,
+			"y": 400,
+			"subimage": 8
+		}, {
+			"alias": "various_title",
+			"x": 360,
+			"y": 510,
+			"subimage": 9
+		}]
+	}, 
+	{
+		"comment": "Title - Sebenico",
+		"alias": "title_sebenico",
+		"gui": "empty",
+		"background": "bcg_title",
+		"xBackground": -20,
+		"yBackground": -10,	
+		"rgb": "255,255,255",
+		"border": "spr_various_token",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[time 90] > [room tesla start]"
+		}],
+		"objects": [{
+			"alias": "various_title",
+			"x": 360,
+			"y": 290,
+			"subimage": 2
+		}, {
+			"alias": "various_title",
+			"x": 360,
+			"y": 400,
+			"subimage": 12
+		}, {
+			"alias": "various_title",
+			"x": 360,
+			"y": 510,
+			"subimage": 13
+		}]
+	},
+	{
+		"comment": "Title - Sebenico again",
+		"alias": "title_sebenico_again",
+		"gui": "empty",
+		"background": "bcg_title",
+		"xBackground": -20,
+		"yBackground": -10,	
+		"rgb": "255,255,255",
+		"border": "spr_various_token",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[time 90] > [room tesla again]"
+		}],
+		"objects": [{
+			"alias": "various_title",
+			"x": 360,
+			"y": 290,
+			"subimage": 2
+		}, {
+			"alias": "various_title",
+			"x": 360,
+			"y": 400,
+			"subimage": 12
+		}, {
+			"alias": "various_title",
+			"x": 360,
+			"y": 510,
+			"subimage": 13
+		}]
+	},	
+	{
+		"comment": "Title - Budapest ",
+		"alias": "title_budapest",
+		"gui": "empty",
+		"background": "bcg_title",
+		"xBackground": -20,
+		"yBackground": -10,	
+		"rgb": "255,255,255",
+		"border": "spr_various_token",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[time 90] > [room budapest start]"
+		}],
+		"objects": [{
+			"alias": "various_title",
+			"x": 360,
+			"y": 290,
+			"subimage": 2
+		}, {
+			"alias": "various_title",
+			"x": 360,
+			"y": 400,
+			"subimage": 5
+		}, {
+			"alias": "various_title",
+			"x": 360,
+			"y": 510,
+			"subimage": 6
+		}]
+	}, 
+	{
+		"comment": "Title - Krakow ",
+		"alias": "title_krakow",
+		"gui": "empty",
+		"background": "bcg_title",
+		"xBackground": -20,
+		"yBackground": -10,	
+		"rgb": "255,255,255",
+		"border": "spr_various_token",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[soundtrack bizet][time 90] > [room krakow start]"
+		}],
+		"objects": [{
+			"alias": "various_title",
+			"x": 360,
+			"y": 290,
+			"subimage": 2
+		}, {
+			"alias": "various_title",
+			"x": 360,
+			"y": 400,
+			"subimage": 17
+		}, {
+			"alias": "various_title",
+			"x": 360,
+			"y": 510,
+			"subimage": 17,
+			"available" : 0
+		}]
+	}, 
+	{
 		"comment": "Title - Station",
 		"alias": "title_station",
 		"gui": "empty",
@@ -1987,7 +3949,67 @@
 			"y": 520,
 			"subimage": 15
 		}]
-	}, 
+	},
+	{
+		"comment": "Title - Palace in Vienna again",
+		"alias": "title_vienna_again",
+		"gui": "empty",
+		"background": "bcg_title",
+		"xBackground": -20,
+		"yBackground": -10,	
+		"rgb": "255,255,255",
+		"border": "spr_various_token",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[time 90] > [room botanical start]"
+		}],
+		"objects": [{
+			"alias": "various_title",
+			"x": 360,
+			"y": 290,
+			"subimage": 2
+		}, {
+			"alias": "various_title",
+			"x": 360,
+			"y": 400,
+			"subimage": 14
+		}, {
+			"alias": "various_title",
+			"x": 360,
+			"y": 520,
+			"subimage": 15
+		}]
+	},	
+	{
+		"comment": "Title - Palace in Vienna again",
+		"alias": "title_later",
+		"gui": "empty",
+		"background": "bcg_title",
+		"xBackground": -20,
+		"yBackground": -10,	
+		"rgb": "255,255,255",
+		"border": "spr_various_token",
+		"entrances": [{
+			"alias": "start",
+			"entrance": "[time 90] > [room end start]"
+		}],
+		"objects": [{
+			"alias": "various_title",
+			"x": 360,
+			"y": 290,
+			"subimage": 14
+		}, {
+			"alias": "various_title",
+			"x": 360,
+			"y": 400,
+			"subimage": 15
+		}, {
+			"alias": "various_title",
+			"x": 360,
+			"y": 520,
+			"subimage": 17
+		}]
+	},	
 	{
 		"comment": "Title - Palace in Vienna, night",
 		"alias": "title_palace_2",
@@ -2055,7 +4077,7 @@
 		"border": "spr_various_token",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[set tram_scale -0.003][move agram_tram 170 5][time 50] > [set tram_scale -0.0076][move agram_tram 172][time 25] > [set tram_scale -0.007][move agram_tram 174][time 27.5] > [set tram_scale -0.0058][move agram_tram 176][time 45] > [room title_station start]"
+			"entrance": "[sound snd_tram_travel][set tram_scale -0.003][move agram_tram 170 5][time 50] > [set tram_scale -0.0076][move agram_tram 172][time 25] > [set tram_scale -0.007][move agram_tram 174][time 27.5] > [set tram_scale -0.0058][move agram_tram 176][time 45] > [room title_station start]"
 		}],
 		"objects": [{
 			"object": "obj_agram_tram",
@@ -2312,6 +4334,7 @@
 		}, {
 			"alias": "dirigible_power",
 			"available": 1,
+			"depthHM?": 200,
 			"object": "obj_animation",
 			"picture": "spr_dirigibles_power",
 			"xScale": 0.7,
@@ -2942,7 +4965,7 @@
 			"entrance": "[recall] > [if phone = 0][animation player spr_viktor_phone_down][sound snd_phone_hangup] > [if phone = 0][mood] That was the phone number of my good friend Martin, but he's not answering right now... > [if phone = 0][skip] > [animation player spr_viktor_phone_up] > [room martinsRoom start]"
 		}, {
 			"alias": "return",
-			"entrance": "[recall][set mood][if moodangry = 1][set mood angry] >[animation player spr_viktor_phone_down][sound snd_phone_hangup] > He hung up... > [set phone 3] > [if phone = 3][destroy viktorsRoom_door_closed_angry][create viktorsRoom_door_closed_happy] Time to conquer the world! > [set phone 3][not item phone][take phone]"
+			"entrance": "[recall][set mood][if moodangry = 1][set mood angry] >[animation player spr_viktor_phone_down][sound snd_phone_hangup] > He hung up... > [set phone 3] > [if phone = 3][destroy viktorsRoom_door_closed_angry][create viktorsRoom_door_closed_happy] Time to become the new emperor! > [set phone 3][not item phone][take phone]"
 		}],
 		"objects": [{
 				"comment": "Pots in viktors room",
@@ -3003,12 +5026,22 @@
 				"comment": "Airship flying bigger",
 				"depth": 2023,
 				"alias": "viktorsRoom_background_zeppelin_1",
-				"path": "path_left",
+				"path": "path_left_long",
 				"picture": "spr_viktorsRoom_dirigible_large",
 				"x": 690,
 				"y": 316
 			},
-{
+			 {
+				"comment": "Airship flying smaller",
+				"depth": 2025,
+				"alias": "viktorsRoom_background_zeppelin_2",
+				"path": "path_left_long",
+				"movementSpeed" : 2,
+				"picture": "spr_viktorsRoom_dirigible_small",
+				"x": 1290,
+				"y": 316
+			},
+			{			
 				"comment": "Oven in Viktor's room, unbroken",
 				"alias": "viktorsRoom_oven_unbroken",
 				"visible": 0,
@@ -3233,7 +5266,7 @@
 				"order": "look,use,look_2,use_2",
 				"combinations": {
 					"look": "Never could clean off all the blood from that murder. > Just kidding, it's ketchup.",
-					"use": "[if crowgone = 1][if available viktorsRoom_keys 0][take keys][animation player spr_viktor_take_left_middle] > [if crowgone = 1][move player 180 5][animations player spr_viktor_walk_left] > [if crowgone = 1][room agram start] > [if phone = 1] I'd love to go but the phone is ringing... > [if phone = 2] I'd love to go conquer the world, but first I should return my friend Martin's call... > [if phone = 3][skip 1] > [if phone < 3][skip] > Time to go out and conquer the world! > [sound snd_door_open][create viktorsRoom_door_open1][create viktorsRoom_door_open2][sound snd_door_open] > [create viktorsRoom_crow][position viktorsRoom_crow 0 690][move viktorsRoom_crow 0 5][move player 0 5][animation player spr_viktor_back_off] > [move viktorsRoom_crow 0 0][active viktorsRoom_crow][other][set mood scared] Not so fast! > [conversation crow start] > [animation player spr_viktor][destroy viktorsRoom_crow][create viktorsRoom_crow_walk][position viktorsRoom_crow_walk 300 690][move viktorsRoom_crow_walk 180 5][time 60][set crowgone 1] > Every month we have the same stupid conversation. > Senile old crow. > Oh well, time to go and conquer this kingdom once and for all.",
+					"use": "[if crowgone = 1][if available viktorsRoom_keys 0][take keys][animation player spr_viktor_take_left_middle] > [if crowgone = 1][move player 180 5][animations player spr_viktor_walk_left] > [if crowgone = 1][room agram start] > [if phone = 1] I'd love to go but the phone is ringing... > [if phone = 2] I'd love to go conquer the world, but first I should return my friend Martin's call... > [if phone = 3][skip 1] > [if phone < 3][skip] > It is time. > Nothing can stop me now. > [sound snd_door_open][create viktorsRoom_door_open1][create viktorsRoom_door_open2][sound snd_door_open] > [create viktorsRoom_crow][position viktorsRoom_crow 0 690][move viktorsRoom_crow 0 5][move player 0 5][animation player spr_viktor_back_off] > [move viktorsRoom_crow 0 0][active viktorsRoom_crow][other][set mood scared] Not so fast! > [conversation crow start] > [animation player spr_viktor][destroy viktorsRoom_crow][create viktorsRoom_crow_walk][position viktorsRoom_crow_walk 300 690][move viktorsRoom_crow_walk 180 5][time 60][set crowgone 1] > Every month we have the same stupid conversation. > Senile old crow. > Oh well, time to go and conquer this kingdom once and for all.",
 					"log": "I don't need to build another door",
 					"keys": "It's already unlocked. I just need to use it.",
 					"look_2" : "The door is open! Beware, Austria-Hungary!",
@@ -3293,6 +5326,7 @@
 				},
 				"inventory": {
 					"alias": "map",
+					"name": "World map",
 					"picture": "spr_item_map",
 					"description": "Some day, this will all be mine.",
 					"default": "Unchartable!",
@@ -3599,7 +5633,7 @@
 					"look": "[mood]It's a toilet. > [mood]So lovely to have one in the bedroom. > [mood]Which is also a kitchen.",
 					"kick": "[kick auto] > Stupid toilet!!!",
 					"use": "[mood]I already went at work. > [mood]Into the filing cabinet.",
-					"talk": "Hello toilet. > [talk other][blocksound snd_toilet_hello][animation player snd_viktor_listen_right_scared] Hello, Viktor.",
+					"talk": "Hello, toilet. > [talk other][blocksound snd_toilet_hello][animation player snd_viktor_listen_right_scared] Hello, Viktor.",
 					"log": "So, you want me to ''drop a log?''... > Heh heh.",
 					"keys": "It's a toilet, not a door.",
 					"coin": "Tried it, doesn't work"
@@ -3624,7 +5658,7 @@
 					"look": "It's a toilet. > And my phone's in it. > Good thing it's waterproof, fireproof and urineproof",
 					"kick": "[kick] > [mood angry][direction right] Stupid toilet!!! > Now my phone stinks...",
 					"use": "[position viktorsRoom_trin2 1000 950][position viktorsRoom_trin3 1000 900][position viktorsRoom_trin 1000 950][pickup right middle]",
-					"talk": "Hello toilet. > [talk other][blocksound snd_toilet_hello][animation player snd_viktor_listen_right_scared] Hello, Viktor.",
+					"talk": "Hello, toilet. > [talk other][blocksound snd_toilet_hello][animation player snd_viktor_listen_right_scared] Hello, Viktor.",
 					"log": "So, you want me to ''drop a log?''... > Heh heh.",
 					"keys": "It's a toilet, not a door.",
 					"coin": "Tried it, doesn't work"
@@ -3815,7 +5849,7 @@
 			}
 		]
 	},  {
-		"comment": "Aerodrom dolje station down",
+		"comment": "Aerodrom dolje",
 		"alias": "station_down",
 		"gui": "default",
 		"scaleNear": 0.85,
@@ -3850,7 +5884,7 @@
 				"x": 122,
 				"y": 370
 			}, {
-				"comment": "Another smoke behind the tram. Phone is here for testing and debugging",
+				"comment": "Another smoke behind the tram",
 				"depth": 1998,
 				"alias": "station_smoke2",
 				"subimage": 1,
@@ -3858,6 +5892,7 @@
 				"path": "path_float_big",
 				"x": 132,
 				"y": 370,
+				"comment2" : "i just want the phone here so i can pick it up for testing developing debugging purposes",
 				"inventory": {
 					"alias": "phone",
 					"name": "Phone",
@@ -4029,7 +6064,7 @@
 				"order_angry": "kick",
 				"combinations": {
 					"look": "This is new.",
-					"talk": "[if mood][direction right][conversation noam hello] > [if mood angry][direction right][conversation noam viktor_angry] > [move player 90 5][animations player spr_viktor_walk_back][time 15] > [move player 0 0]",
+					"talk": "[set talked_to_dog 1] > [if mood][direction right][conversation noam hello] > [if mood angry][direction right][conversation noam viktor_angry] > [move player 90 5][animations player spr_viktor_walk_back][time 15] > [move player 0 0]",
 					"use": "I oppose pickpocketing. > Especially people in kilts.",
 					"keys": "[talk station_dog]Interestin' keys lad. > Umm, yes.",
 					"wig": "[set noamsawwig 1] Look at me now. I'm completely Jewish! I have a hair thing and everything! > [talk station_dog] Ach, a fine payot it be. > [if noamsawdress = 0][talk station_dog] But ye still don' look Scottish, boy. > [if noamsawdress = 0][skip] > [conversation noam everything]",
@@ -4261,15 +6296,15 @@
 			}, {
 				"alias": "station_cake",
 				"available": 0,
-				"x": 450,
-				"y": 605,
-				"xInteract": 450,
+				"x": 396,
+				"y": 598,
+				"xInteract": 396,
 				"yInteract": 665,
 				"subimage": 0,
 				"description": "Something delicious",
 				"combinations": {
 					"look": "Just like momma use to make 'em!",
-					"use": "[pickup]",
+					"use": "[pickup back low]",
 					"kick": "Never!",
 					"pants": "Strange idea. Try picking it up instead.",
 					"ball": "I don't want to ruin the ball. > I mean, cake!",
@@ -4305,7 +6340,7 @@
 			"entrance": "[soundtrack dvorak][sound snd_gramophone][position 400 700][active donkey][conversation donkey won]"
 		}, {
 			"alias": "lost",
-			"entrance": "[soundtrack dvorak][sound snd_gramophone][position 400 700][active donkey][conversation donkey lost]"
+			"entrance": "[soundtrack dvorak][sound snd_gramophone][position 350 700][active donkey][conversation donkey lost]"
 		},
 		{
 			"alias" : "return",
@@ -4338,7 +6373,7 @@
 			"idle": 1,
 			"depth": -656,
 			"picture": "spr_dirigibles_bzz",
-			"description": "Robot",
+			"description": "Broken parts",
 			"order": "look, use",
 			"combinations": {
 				"look": "I think the robot's auxilliary battery is poking out. > And the robot still works. > Wow.",
@@ -4376,7 +6411,7 @@
 				"look": "How the hell did that cow throw this so high?",
 				"use": "[pickup]",
 				"kick": "It's not a football, it's a weight ball.",
-				"kick_2": "I'd just hurt my leg",
+				"kick2": "I'd just hurt my leg",
 				"pants": "I don't get it.",
 				"cake": "Why and how? > And what?",
 				"cell": "This is no time for funniest home experiments.",
@@ -4704,7 +6739,7 @@
 				"ball": "[talk beaver] I train with five of those every morning > [talk beaver] One for each limb. > [talk hyena][mood hyena laugh] Hahahahahhahahahaha",
 				"pants": "Hi, I'm selling these fine pants. > [talk beaver] Sell them somewhere else.",
 				"cake": "[talk beaver] Is that an attempt to bribe or poison me? > I'll just enjoy this cake myself, then.",
-				"cell": "[talk beaver] That's nice, dear. > Now go play somewhere else.",
+				"cell": "[talk beaver] That's nice, dear. > [talk beaver] Now go play somewhere else.",
 				"coin": "[talk beaver] Are you trying to bribe me? > Yes > [mood scared][talk beaver] Then you're gonna need a lot more of those.",
 				"umbrella": "[talk beaver] I hate that song!",
 				"dress": "[talk beaver] Not even going to ask."
@@ -4738,7 +6773,7 @@
 				"keys": "[mood scared][talk hyena][mood hyena laugh] Hahahahahhahahahaha.",
 				"ball": "[talk hyena] You have just one ball? > [talk hyena][mood hyena laugh] Hahahahahhahahahaha",
 				"pants": "[talk hyena] They are girl pants! > So, you don't want them? > [talk hyena][mood hyena laugh] Hahahahahhahahahaha",
-				"cake": "[animations player spr_viktor_walk_right][move player 0 5][time 30] >[animation player spr_viktor_use_right_middle] > [talk hyena] Thank you > [mood scared][give cake][talk hyena] Now buzz off. > [mood angry]I gave you the cake. Why don't you let me in? > [mood angry][talk hyena] Why would I?",
+				"cake": "[animations player spr_viktor_walk_right][move player 0 5][time 30] >[animation player spr_viktor_use_right_middle] > [talk hyena] Thank you > [mood scared][give cake][talk hyena] Now buzz off. > [mood angry] I gave you the cake. Why don't you let me in? > [mood angry][talk hyena] Why would I? > [talk beaver] Come on, he's being nice... > [talk hyena] Ok, here' have this record and piss off... > [record strauss] > [mood angry] I don't want a stinking record, I want to kill the emperor! > [talk hyena] Tough luck.",
 				"cell": "[animations player spr_viktor_walk_right][move player 0 5][time 30] >[animation player spr_viktor_use_right_middle] > [talk hyena] Thank you > [mood scared][give cell][talk hyena] Now buzz off. > [mood angry]Aren't you going to let me in? > [mood angry][talk hyena]  No I won't.",
 				"coin": "[talk hyena] I'm not allowed to take those. > [talk hyena] Give me something else.",
 				"umbrella": "[mood scared][talk hyena][mood hyena laugh] Hahahahahhahahahaha.",
@@ -4817,8 +6852,8 @@
 			"alias": "usporedba_palaca",
 			"x": 0,
 			"y": 50,
-			"image_xScale": 1,
-			"image_yScale": 1,
+			"xScale": 1,
+			"yScale": 1,
 			"depth" : -9000
 		},
 		
@@ -5032,21 +7067,23 @@
 			"depth" : -1100
 		},
 		{
-			"alias" : "palace_automaton_bull",
+			"alias" : "palace_automaton_bull_open",
+			"subimage" : 0,
 			"visible":1,
-			"x" : 124,
-			"y" : 424,
-			"xScale" : 0.45,
-			"yScale" : 0.45,
+			"x" : 233,
+			"y" : 675,
+			"xScale" : 1,
+			"yScale" : 1,
 			"depth" : -1000
 		},
 		{
-			"alias" : "palace_automaton_bear",
+			"alias" : "palace_automaton_bear_open",
+			"subimage" : 0,
 			"visible":1,
-			"x" : 908,
-			"y" : 421,
-			"xScale" : 0.45,
-			"yScale" : 0.45,
+			"x" : 1028,
+			"y" : 672,
+			"xScale" : 1,
+			"yScale" : 1,
 			"depth" : -1000
 		},  
 		{
@@ -5354,7 +7391,7 @@
 		"rgb": "200,232,235",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[soundtrack bach][record mozart] > [not item phone][set phone 3][take phone][take umbrella] > [set passguess 0][position player 450 670][set alreadywent 0][set tried_dumb_flag 0] > This looks cozy. > [not version debug] Now to find those anarchists. > [not version debug] They probably have armies, bombs and whatnot.",
+			"entrance": "[set nighttime 1][soundtrack bach][record mozart] > [not item phone][set phone 3][take phone][take umbrella] > [set passguess 0][position player 450 670][set alreadywent 0][set tried_dumb_flag 0] > This looks cozy. > [not version debug] Now to find those anarchists. > [not version debug] They probably have armies, bombs and whatnot.",
 			"entrance2": "[set passguess 0][position player 450 670][set alreadywent 0][set tried_dumb_flag 0] This looks cozy. > Now to find those anarchists. > They probably have armies, bombs and whatnot."
 		},
 		{
@@ -5363,7 +7400,7 @@
 		},
 		{
 			"alias" : "gunpoint",
-			"entrance" : "[fade out 0.03][position player 600 700][position matilda_tavern 290 910][active horse2] > [conversation andras gunpoint_cleared]"
+			"entrance" : "[set nighttime 1][if version debug][set gunscene 1][set anarchist_trust 1][set needs_pen 1][destroy anarchists] > [fade out 0.03][position player 600 700][position matilda_tavern 290 910][active horse2] > [conversation andras gunpoint_cleared]"
 		},
 		{
 			"alias": "toilet_exit",
@@ -5372,7 +7409,7 @@
 		{
 			"alias" : "win",
 			"entrance" : "[set mood angry][fade out 0.03][position player 600 700][position matilda_tavern 290 910][destroy jekyll][destroy hyde][destroy anarchists][destroy mole_scared][create mole][destroy matilda_tavern_scared][create matilda_tavern][destroy horse1_scared][create horse1][destroy horse2_scared][create horse2][active horse2] > [conversation hyde hyde_win]"
-		},
+		}
 		],
 		"objects": [{
 			"alias": "just_testing_delete_later",
@@ -5540,7 +7577,7 @@
 			"x": 856,
 			"y": 480
 		}, {
-			"comment": "tavern barrel jekyll",
+			"comment": "tavern barrel",
 			"alias": "tavern_barrel_jekyll",
 			"depth": -602,
 			"x": 346,
@@ -5599,8 +7636,8 @@
 			"y": 303,
 			"xCloud": 575,
 			"yCloud": 290,
-			"xInteract": 700,
-			"yInteract": 660,
+			"xInteract": 635,
+			"yInteract": 590,
 			"imageSpeed": 0.4,
 			"idle": 1,
 			"description": "Mouse",
@@ -5697,12 +7734,16 @@
 			"order": "look, talk",
 			"banter" : [
 			"...prefferrably with a shovel",
-			"Like the dwarves do.",
-			"Possibly blow something up."
+			"...like the dwarves do.",
+			"Possibly blow something up?"
 			],
 			"combinations": {
 				"look": "Suspiciously equipped individual",
-				"talk": "[conversation krtek]"
+				"talk": "[conversation krtek]",
+				"kick" : "Not while he has that shovel",
+				"use" : "Hey, miner! > [talk other] What? > Nah, forget it.",
+				"paper" : "Is this good paper for our minutes? > [talk other] Well, we had worse... > [talk horse1] Much worse...",
+				"pencil" : "I found a pencil! > [talk other] Good job."
 			}
 		},
 {
@@ -5725,11 +7766,11 @@
 			"description": "Krtek",
 			"order": "look, talk",
 			"banter" : [
-			"Please, stop bothering us"
+			"Please, stop bothering us..."
 			],
 			"combinations": {
 				"look": "His spirit is not yet crushed completely",
-				"talk": "Viktor, please do something about this obstructive individual."
+				"talk": "[talk other] Viktor, please do something about this obstructive individual."
 			}
 		},		{
 			"comment": "Konj 1",
@@ -5748,9 +7789,9 @@
 			"description": "Pferdinand",
 			"order": "look, talk",
 			"banter" : [
-			"How about a union with someone?",
+			"How about we join a union?",
 			"It's a fashion choice...",
-			"...while that stupid priest is in the toilet again"
+			"...while that stupid priest is in the toilet again..."
 			],
 			"combinations": {
 				"look": "Regular-looking person",
@@ -5781,7 +7822,7 @@
 			],
 			"combinations": {
 				"look": "His face does look a bit long.",
-				"talk": "First no pen, then no paper and now this!"
+				"talk": "[talk other] First no pen, then no paper and now this!"
 			}
 		},
 		{
@@ -5834,7 +7875,7 @@
 			],
 			"combinations": {
 				"look": "Looks scared and annoyed.",
-				"talk": "Not good."
+				"talk": "[talk other] Not good."
 			}
 		},
 		{
@@ -5888,7 +7929,7 @@
 			],
 			"combinations": {
 				"look": "Hot anarchist Zebra",
-				"talk": "[conversation matilda]."
+				"talk": "[talk other] Can't you see we have enough problems with one chauvinist pig, we don't need another! > I'm a boar, actually..."
 			}
 		},
 {
@@ -5957,7 +7998,8 @@
 			"order": "look, use",
 			"combinations": {
 				"look": "I think this is the way to the restrooms.",
-				"use": "[room toilet start]"
+				"use": "[room toilet start]",
+				"kick" : "[room toilet gunpoint]"
 			}
 		}]
 	}, 
@@ -5975,11 +8017,11 @@
 		"rgb": "200,232,235",
 		"entrances": [{
 				"alias": "start",
-				"entrance": "[set been_to_toilet 1][position player 350 800] > [if toilet_is_opened = 1][position priest_back 930 680][set priest_moved 1] > [if jekyll_toilet = 1][destroy toilet_left][create toilet_left_jekyll] > [if martins_watchword = 1] Martin was talking about some colors in the toilet... > [if martins_watchword = 1] Looks very brown to me."
+				"entrance": "[not item umbrella][create toilet_paper][take umbrella][take toilet_chain] > [set been_to_toilet 1][position player 350 800] > [if toilet_is_opened = 1][position priest_back 930 680][set priest_moved 1] > [if jekyll_toilet = 1][destroy toilet_left][create toilet_left_jekyll] > [not available toilet_paper_fallen][if jekyll_toilet = 1][create toilet_paper] > [if martins_watchword = 1] Martin was talking about some colors in the toilet... > [if martins_watchword = 1] Looks very brown to me."
 		},
 		{
 				"alias": "gunpoint",
-				"entrance": "[animation toilet_middle_open spr_toilet_middle 2][animation toilet_right_open spr_toilet_right 2][set priest_moved 1][set toilet_is_opened 1][set been_to_toilet 1][position player 350 800][fade out 0.05] > [if toilet_is_opened = 1][position priest_back 930 680] > [if jekyll_toilet = 1][destroy toilet_left][create toilet_left_jekyll] > [position player 900 750][create matilda_tavern][active matilda_tavern] > [conversation matilda gunpoint]"
+				"entrance": "TESTING > [set priest_moved 1][set toilet_is_opened 1][set been_to_toilet 1][position player 350 660][fade out 0.05][time 30] > [if toilet_is_opened = 1][position priest_back 930 680] > [if jekyll_toilet = 1][destroy toilet_left][create toilet_left_jekyll] > [position player 750 750][create matilda_tavern][active matilda_tavern] > [conversation matilda gunpoint]"
 		},
 		{
 				"alias" : "return",
@@ -5987,47 +8029,16 @@
 		},
 		{
 				"alias": "fight",
-				"entrance": "[soundtrack nanowar][fade][position player 732 795][create fight_controller] > [stop] > [destroy fight_controller][soundtrack bach] > [if toilet_win = 1][room tavern win] > [if toilet_win = 0] I lost!"
+				"entrance": "[destroy hyde][destroy toilet_left_jekyll] > [soundtrack nanowar][fade][position player 732 795][create fight_controller] > [stop] > [destroy fight_controller][soundtrack bach] > [if toilet_win = 1][create hyde_boxing_damaged_defeat][noitamoina player spr_viktor_boxing_left_start][time 30] > [if toilet_win = 1] Well, that was fun. > [if toilet_win = 0][position player 9000 9000][create viktor_boxing_left_damaged_defeat][time 30][fade in 0.03] > [if toilet_win = 0][time 30][destroy viktor_boxing_left_damaged_defeat] > [if toilet_win = 0][fade out 0.03][time 30][position player 732 795] > [if toilet_win = 0] Damn, he's good..."
 		}
 		],
 		"objects": [
 		{
-			"comment": "Matilda before gun",
-			"alias": "matilda_tavern",
-			"talkSoundOverride" : "snd_matilda_talk",
-			"direction" : "left",
-			"available" : 0,
-			"depth": -500,
-			"xScale": 0.85,
-			"yScale": 0.85,
-			"x": 600,
-			"y": 750,
-			"xCloud": 600,
-			"yCloud": 400,
-			"xInteract": 600,
-			"yInteract": 680,
-			"imageSpeed": 0.4,
-			"idle": 1,
-			"description": "Matilda"
-		},
-		{
-			"comment": "Matilda with gun",
-			"alias": "matilda_gun",
-			"talkSoundOverride" : "snd_matilda_talk",
-			"direction" : "left",
-			"available" : 0,
-			"depth": -500,
-			"xScale": 0.85,
-			"yScale": 0.85,
-			"x": 600,
-			"y": 750,
-			"xCloud": 600,
-			"yCloud": 400,
-			"xInteract": 600,
-			"yInteract": 680,
-			"imageSpeed": 0.4,
-			"idle": 1,
-			"description": "Matilda"
+			"alias": "viktor_boxing_left_damaged_defeat",
+			"subimage" : 11,
+			"x" : 732,
+			"y" : 795,
+			"available" : 0
 		},
 		{
 				"comment": "Fight controller",
@@ -6039,9 +8050,12 @@
 					"player": "viktor_boxing_left",
 					"enemy": "hyde_boxing",
 
-					"playerHealth": 200,
-					"enemyHealth": 200,
-
+					"playerHealth": 20,
+					"enemyHealth": 20,
+					"enemyHealthLoad" : 0,
+					"directionPlayer" : 1,
+					"directionEnemy" : 1,
+					
 					"playerHitIndex": 8,
 					"enemyHitIndex": 12,
 
@@ -6059,7 +8073,7 @@
 					"yLegend": 300,
 
 					"tiredHits": 3,
-					"tiredSeconds": 2,
+					"tiredSeconds": 30,
 
 					"cog1x": 340,
 					"cog1y": 63,
@@ -6119,7 +8133,65 @@
 				"xScale": -1,
 				"yScale": 1
 			},
-			{
+		{
+			"alias" : "hyde_boxing_damaged_defeat",
+			"x": 700,
+			"y": 430,
+			"xScale" : -1,
+			"imageSpeed" : 0,
+			"subimage" : 27,
+			"available" : 0,
+			"description" : "Knocked out Hyde",
+			"combinations" : {
+				"look" : "I'll just let him sleep it off..."
+			}
+		},
+		{
+			"comment": "Matilda before gun",
+			"alias": "matilda_tavern",
+			"talkSoundOverride" : "snd_matilda_talk",
+			"direction" : "left",
+			"available" : 0,
+			"depth": -500,
+			"xScale": 0.85,
+			"yScale": 0.85,
+			"x": 460,
+			"y": 750,
+			"xCloud": 460,
+			"yCloud": 400,
+			"xInteract": 600,
+			"yInteract": 680,
+			"imageSpeed": 0.4,
+			"idle": 1,
+			"description": "Matilda",
+			"inventory" : {
+					"alias": "umbrella",
+					"name": "Umbrella",
+					"description": "My favorite rain protection device.",
+					"default": "Not everything can be solved with an umbrella.",
+					"picture": "spr_item_umbrella"
+				}
+		},
+		{
+			"comment": "Matilda with gun",
+			"alias": "matilda_gun",
+			"talkSoundOverride" : "snd_matilda_talk",
+			"direction" : "left",
+			"available" : 0,
+			"depth": -500,
+			"xScale": 0.85,
+			"yScale": 0.85,
+			"x": 460,
+			"y": 750,
+			"xCloud": 460,
+			"yCloud": 400,
+			"xInteract": 600,
+			"yInteract": 680,
+			"imageSpeed": 0.4,
+			"idle": 1,
+			"description": "Matilda"
+		},
+		{
 				"alias": "priest_back",
 				"x": 1140,
 				"y": 680,
@@ -6135,11 +8207,11 @@
 				"depth" : 100,
 				"description": "Drunken priest.",
 				"combinations": {
-					"look" : "Figures. > [if martins_watchword = 1]Hm, there's some grafitti behind him.",
-					"talk" : "[destroy priest_back][create priest][active priest][if priest_moved = 1][position priest 930 680] > [conversation priest first] > [destroy priest][create priest_back][if priest_moved = 1][position priest_back 930 680]"
+					"look" : "Figures. > [if martins_watchword = 1] Hm, there's some grafitti behind him.",
+					"talk" : "[destroy priest_back][create priest][active priest] > [if priest_moved = 1][position priest 930 680] > [conversation priest first] > [destroy priest][create priest_back] > [if priest_moved = 1][position priest_back 930 680]"
 				}
-			},
-			{
+		},
+		{
 				"alias": "priest",
 				"available" : 0,
 				"x": 1140,
@@ -6156,8 +8228,8 @@
 				"combinations": {
 					"look" : "Figures."
 				}
-			},
-			{
+		},
+		{
 				"alias": "toilet_chain",
 				"available": 1,
 				"visible": 1,
@@ -6170,7 +8242,7 @@
 				"order": "look",
 				"combinations": {
 					"look": "It's for fishing. > I mean, flushing.",
-					"use" : "[if toilet_is_opened = 1][pickup] > [if toilet_is_opened = 0]Vomiting man of god is in the way."
+					"use" : "[if priest_moved = 1][pickup] > [if priest_moved = 0] Vomiting man of god is in the way."
 				},
 				"inventory": {
 					"alias": "toilet_chain",
@@ -6179,11 +8251,11 @@
 					"picture": "spr_toilet_chain",
 					"default": "Let's not get violent just yet."
 				}
-			},
-			{
+		},
+		{
 				"alias": "toilet_paper",
 				"picture": "spr_item_paper",
-				"available": 1,
+				"available": 0,
 				"visible": 1,
 				"x": 530,
 				"y": 90,
@@ -6199,21 +8271,22 @@
 					"nothing": "[create chain_flying][moveto chain_flying 590 90 40]",
 					"umbrella": "[moveto player 370 750] > [move player 0 0] > [animation player spr_viktor_umbrella1] > [noitamina player spr_viktor_umbrella1][time 45] > [animation player spr_viktor] > [direction front] I guess it's too far up.",
 					"look": "That's a strange place to put a roll of toilet paper.",
-					"toilet_chain": "[animation spr_viktor_chain][time 83] > [draw spr_toilet_chain_big 750 600 13 -180 1 1 200 40 110][time 13] > [animation player spr_viktor][move chain_flying 0 0] > [destroy chain_flying][draw spr_toilet_chain_big 590 100 46 -180 1 1 200 0 0 5][time 46] > [create chain_flying] > We need animation of lanac."
+					"toilet_chain": "[give toilet_chain][animation spr_viktor_chain][time 80] > [draw spr_toilet_chain_big 750 600 13 -180 1 1 200 40 110][time 13] > [animation player spr_viktor][move chain_flying 0 0] > [destroy chain_flying][draw spr_toilet_chain_big 590 100 46 -180 1 1 200 0 0 5][time 46] > [time 15] > [draw spr_toilet_chain_big 590 100 10 -180 1 1 70 0 0 -5][time 10] > [draw spr_toilet_chain_hook 590 100 202 -180][time 202] > [create chain_flying]"
 				}
-			},
-			{
+		},
+		{
 				"alias": "toilet_paper_fallen",
 				"picture": "spr_item_paper",
 				"available": 0,
 				"visible": 1,
 				"x": 530,
 				"y": 90,
-				"xInteract" : 800,
+				"xInteract" : 494,
 				"yInteract" : 750,
 				"angle" : 30,
 				"xScale" : 0.5,
 				"yScale" : 0.5,
+				"moves" : 1,
 				"depth": 300,
 				"description": "Toilet paper",
 				"inventory": {
@@ -6222,25 +8295,30 @@
 					"description": "White three-sheeted toilet paper.",
 					"default": "That doesn't need cleaning.",
 					"picture": "spr_item_paper"
+				},
+				"combinations" : {
+					"kick" : "Nah, I'm guessing that's how it got up there in the first place",
+					"look" : "Clean toilet paper in a place like this? > It's a miracle!",
+					"use" : "[pickup back high]"
 				}
-			},
-			{
+		},
+		{
 				"alias": "chain_flying",
 				"picture": "spr_toilet_chain_big",
 				"available": 0,
 				"visible": 1,
-				"x": 590,
-				"y": 100,
+				"x": 595,
+				"y": 95,
 				"xInteract" : 800,
 				"yInteract" : 750,
 				"depth" : -180,
 				"angle" : 0,
 				"description": "Chain",
 				"combinations" : {
-					"look" : "Still can't reach it.",
+					"look" : "It's stuck to that toilet paper. > I still can't reach it.",
 					"umbrella": "[moveto player 370 750] > [move player 0 0] > [animation player spr_viktor_umbrella1] > [destroy toilet_pipe][create toilet_pipe_rotated][destroy toilet_paper][create toilet_paper_fallen][move toilet_paper_fallen 250 10][move chain_flying 270 30][noitamina player spr_viktor_umbrella1][time 23] > [animation player spr_viktor][move toilet_paper_fallen 0 0][destroy chain_flying][set paper_fallen 1]"
 				}
-			},
+		},
 			{
 				"alias": "graffiti_door_1d",
 				"picture": "spr_various_token",
@@ -6353,7 +8431,7 @@
 				"x": 400,
 				"y": 286,
 				"xInteract": 450,
-				"yInteract": 740,
+				"yInteract": 747,
 				"xCloud": 550,
 				"yCloud": 300,
 				"description": "Closed toilet booth door with Jekyll inside",
@@ -6362,7 +8440,14 @@
 					"look": "Sounds busy.",
 					"use" : "[talk toilet_left_jekyll] It's busy!",
 					"talk" : "[if paper_fallen = 1][conversation jekyll toilet] > [if paper_fallen = 1][skip 1] > I don't need to bother him.",
-					"flask" : "[animation player spr_viktor_use_back_low] > [talk toilet_left_jekyll] Oh thank you, thank you. > [time 30] > [talk toilet_left_jekyll] Wait a minute... > [mood scared][talk toilet_left_jekyll][sound snd_pot_boil] This wasn't my absinthe, it was my medicine! >  So... even better? > [talk toilet_left_jekyll][blocksound snd_hyde_talk2] No, you fool! > [talk toilet_left_jekyll][blocksound snd_hyde_talk3] You have brought doom upon yourself! > I have what on whom? > [animations spr_viktor_back_off][move player 350 6][talk toilet_left_jekyll][blocksound snd_hyde_scream] GRRRRRRR [time 40] > [animations player spr_viktor_listen_left][sound snd_door_open][position toilet_left 486 286][animation toilet_left_jekyll spr_toilet_left 1][time 3][destroy toilet_left_jekyll 3][create toilet_left_open 3][destroy graffiti_door_1b][destroy graffiti_door_1c][destroy graffiti_door_1d][create hyde][animations hyde spr_hyde_walk][move hyde 240 5][time 10] > [animations player spr_viktor_listen_left][animations hyde spr_hyde_walk][move hyde 170 10][time 40] > [animations player spr_viktor_talk_left][set mood]The hell just happened?[set hyde_out 1]"
+					"flask" : "[direction back] I brought you the absinthe. > [give flask][take flaskempty][animation player spr_viktor_use_back_low] > [talk toilet_left_jekyll] Oh thank you, thank you. > [time 30] > [talk toilet_left_jekyll] Wait a minute... > [mood scared][talk toilet_left_jekyll][sound snd_pot_boil] This wasn't my absinthe, it was my medicine! >  So... even better? > [talk toilet_left_jekyll][blocksound snd_hyde_talk2] No, you fool! > [talk toilet_left_jekyll][blocksound snd_hyde_talk3] You have brought doom upon yourself! > I have what on whom? > [animations spr_viktor_back_off][move player 350 6][talk toilet_left_jekyll][sound snd_hyde_scream][blocksound snd_viktor_kick] GRRRRRRR [time 40] > [animations player spr_viktor_listen_left][sound snd_door_open][position toilet_left 486 286][animation toilet_left_jekyll spr_toilet_left 1][time 3][destroy toilet_left_jekyll 3][create toilet_left_open 3][destroy graffiti_door_1b][destroy graffiti_door_1c][destroy graffiti_door_1d][create hyde][animations hyde spr_hyde_walk][move hyde 240 5][time 10] > [animations player spr_viktor_listen_left][animations hyde spr_hyde_walk][move hyde 170 10][time 40] > [animations player spr_viktor_talk_left][set mood] The hell just happened? > [set hyde_out 1]"
+				},
+				"inventory" : {
+					"alias" : "flaskempty",
+					"name" : "Flask",
+					"picture" : "spr_item_flask_empty",
+					"description" : "An empty flask",
+					"default" : "I can't pour that inside the flask"
 				}
 			},
 			{
@@ -6396,13 +8481,14 @@
 			"picture" : "spr_various_token",
 			"subimage": 0,
 			"x": 374,
-			"y": 568,
+			"y": 409,
 			"xScale" : 200,
-			"yScale" : 160,
+			"yScale" : 320,
 			"xInteract": 400,
 			"yInteract": 770,
 			"xCloud": 400,
 			"yCloud": 500,
+			"depth": 9000,
 			"description": "Toilet booth",
 			"order": "look, talk",
 			"combinations": {
@@ -6426,7 +8512,7 @@
 				"order": "look, talk",
 				"combinations": {
 					"look": "Nice door.",
-					"use" : "[set saw_rasputin 1][sound snd_door_open][position toilet_middle 675 286][animation toilet_middle spr_toilet_middle 1][time 3][destroy toilet_middle 3][create toilet_middle_open 3][destroy graffiti_door_2b][destroy graffiti_door_2][set middle_closed 1]"
+					"use" : "[set saw_rasputin 1][sound snd_door_open][position toilet_middle 675 286][animation toilet_middle spr_toilet_middle 1][time 3][destroy toilet_middle 3][create toilet_middle_open 3][create toilet_middle_open_token 3][destroy graffiti_door_2b][destroy graffiti_door_2][set middle_closed 1]"
 				}
 			}, 
 			{
@@ -6445,9 +8531,30 @@
 				"order": "look, talk",
 				"combinations": {
 					"look": "Nice door.",
-					"use" : "[sound snd_door_close][position toilet_middle_open 675 286][animation toilet_middle_open spr_toilet_middle 1][time 3][destroy toilet_middle_open 3][create toilet_middle 3][create graffiti_door_2b][create graffiti_door_2][set middle_closed 0]"
+					"use" : "[sound snd_door_close][position toilet_middle_open 675 286][animation toilet_middle_open spr_toilet_middle 1][time 3][destroy toilet_middle_open 3][destroy toilet_middle_open_token 3][create toilet_middle 3][create graffiti_door_2b][create graffiti_door_2][set middle_closed 0]"
 				}
 			},
+			{
+			"alias": "toilet_middle_open_token",
+			"available": 0,
+			"visible" : 0,
+			"picture" : "spr_various_token",
+			"subimage": 0,
+			"x": 617,
+			"y": 314,
+			"xScale" : 200,
+			"yScale" : 320,
+			"xInteract": 650,
+			"yInteract": 770,
+			"depth": 9000,
+			"description": "Toilet booth",
+			"order": "look, talk",
+			"combinations": {
+				"look": "I wish I hadn't opened it",
+				"use" : "[sound snd_door_close][position toilet_middle_open 675 286][animation toilet_middle_open spr_toilet_middle 1][time 3][destroy toilet_middle_open 3][destroy toilet_middle_open_token 3][create toilet_middle 3][create graffiti_door_2b][create graffiti_door_2][set middle_closed 0]"
+			}
+			},
+			
 			{
 				"alias": "toilet_right",
 				"subimage": 0,
@@ -6490,7 +8597,15 @@
 				"alias": "toilet_flies",
 				"x": 630,
 				"y": 620,
-				"depth" : 1400
+				"xInteract": 658,
+				"yInteract": 755,
+				"depth" : 1400,
+				"description" : "A pile of poo",
+				"combinations" : {
+					"use" : "Ugh, no!",
+					"kick" : "Ugh, no!",
+					"look" : "How did someone manage to miss that far!?"
+				}
 			},
 			{
 				"alias": "graffiti_wc1",
@@ -6858,7 +8973,7 @@
 				"depth" : 1400,
 				"order": "look",
 				"combinations": {
-					"look": "Screaming peanut butter. > Yes, plaese."
+					"look": "Screaming peanut butter. > Yes, please."
 				}
 			}, {
 				"alias": "graffiti_6",
