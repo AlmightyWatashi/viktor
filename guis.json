@@ -496,8 +496,8 @@
 				"picture" : "spr_action_switch",
 				"passive" : "spr_cursor_walk",
 				"active" : "spr_cursor_walk_active",
-				"x" : 1170,
-				"y" : 120,
+				"x" : 1100,
+				"y" : 160,
 				"binding" : "s"
 				}
 			]

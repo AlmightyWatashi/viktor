@@ -929,7 +929,7 @@
 		"entrances": [
 			{
 			"alias": "start",
-			"entrance": "[position player 9000 9000][position matilda 9000 9000][time 30] > [position player 740 780][position matilda 850 780] > [move dungeon_lid 90 30][draw spr_cloud_medium 840 830 10 -1000 1 1 0 15 45 0 0 0 -0.1][draw spr_cloud_medium 830 830 10 -1000 1 1 0 15 140 0 0 0 -0.1][draw spr_cloud_medium 830 810 10 -1000 1 1 0 15 90 0 0 0 -0.1][draw spr_cloud_medium 830 830 10 -1000 1 1 0 15 300 0 0 0 -0.1][create viktor_fell][sound snd_viktor_kick2][time 25] > [destroy dungeon_lid] > [moveto dungeon_lid 365 788 0] What a ride..."
+			"entrance": "[position player 9000 9000][position matilda 9000 9000][time 30] > [position player 740 780][position matilda 850 780] > [move dungeon_lid 90 30][draw spr_cloud_medium 770 730 10 -1000 1 1 0 15 45 0 0 0 -0.1][draw spr_cloud_medium 750 730 10 -1000 1 1 0 15 140 0 0 0 -0.1][draw spr_cloud_medium 750 710 10 -1000 1 1 0 15 90 0 0 0 -0.1][draw spr_cloud_medium 750 730 10 -1000 1 1 0 15 300 0 0 0 -0.1][sound snd_viktor_kick2][time 25][animation player spr_viktor_falling][move player 90 20][animation matilda spr_matilda_jump 0][move matilda 90 20] > [animation player spr_viktor_falling][move player 270 17][animation matilda spr_matilda_jump][imagespeed matilda 0.4][move matilda 270 20][destroy dungeon_lid][time 30] > [animation player spr_viktor_fell][position matilda 846 762][draw spr_cloud_medium 840 830 10 -1000 1 1 0 15 45 0 0 0 -0.1][draw spr_cloud_medium 830 830 10 -1000 1 1 0 15 140 0 0 0 -0.1][draw spr_cloud_medium 830 810 10 -1000 1 1 0 15 90 0 0 0 -0.1][draw spr_cloud_medium 830 830 10 -1000 1 1 0 15 300 0 0 0 -0.1][move matilda 0 0][sound snd_viktor_kick][animation matilda spr_matilda_jump2][moveto dungeon_lid 365 788 0] > [animation player spr_viktor_fall_stand][animation matilda spr_matilda_jump3][time 45] > Well, that was great!"
 			},
 			{
 			"alias": "again",
@@ -971,6 +971,13 @@
 					"look" : "Quite a big ladder.",
 					"use" : "If I removed your ladder, how would you get down? > [talk klimt] I'd jump, probably. > [talk klimt] Then I'd kick your ass. > [if alias matilda][talk viktor] You'd kick a woman? > [if alias matilda][talk klimt] It depends. Would she remove my ladder?",
 					"kick" : "[if alias matilda] I don't want to inconvenience the artist. > [if alias matilda][skip] > Destroying furniture and kicking random objects is just not my thing anymore." 
+				},
+				"inventory": {
+					"alias": "realfuck",
+					"name": "The Frequency Ultra Conversion Kirilian",
+					"description": "Tesla's very own device",
+					"default": "I don't think it's the right voltage",
+					"picture": "spr_tower_kirilian"
 				}
 			},
 			{
@@ -1053,6 +1060,7 @@
 				"alias": "dungeon_toilet",
 				"x": 689,
 				"y": 598,
+				"depth": 1500,
 				"xCloud": 689,
 				"yCloud": 561,
 				"xInteract" : 747,
@@ -1060,8 +1068,8 @@
 				"description" : "Transporter device / Toilet",
 				"combinations" : {
 					"look" : "Tesla's transporter doesn't seem so high-tech on this end.",
-					"use" : "[not available realfuck] We should get Tesla's machine from dr. Frankenstein before returning. > [if available realfuck] Time to go back! > [if available realfuck][fade in 0.03][time 30] > [if available realfuck][fade][room map_ingolstadt_sebenico start]",
-					"kick" : "I don't want to destroy our only way back to Austria-Hungary.",
+					"use" : "[not item realfuck] We should get Tesla's machine from dr. Frankenstein before returning. > [if item realfuck] Time to go back! > [if item realfuck][fade in 0.03][time 30] > [if item realfuck][fade][room map_ingolstadt_sebenico start]",
+					"kick" : "I don't want to destroy our only way back to Austria-Hungary. > [if version debug][take realfuck]",
 					"talk": "Hello, toilet. > [talk other][sound snd_toilet_hello][direction left] Hello."
 				}
 			},
@@ -1107,7 +1115,7 @@
 				"yInteract" : 791,
 				"combinations" : {
 					"look" : "[if alias viktor] I love the decor in this place! > [if alias matilda] How tacky!",
-					"use" : "[if alias viktor][animation player spr_viktor_take_right_high] > [if alias viktor][animation other spr_skeleton_idle2] > [if alias viktor] Whee! > [if alias matilda] Nah..."
+					"use" : "[if alias viktor][animation player spr_viktor_use_right_high] > [if alias viktor][animation player spr_viktor_listen_left][animation skeleton spr_skeleton_idle2][time 60] > [if alias viktor] That was fun. > [if alias matilda] Nah..."
 				}
 			}
 		]
@@ -2009,9 +2017,15 @@
 				"description": "Part holder",
 				"combinations": {
 					"look" : "[if alias viktor] I should get one of these. > [if alias viktor] It could really come in... handy. > [if alias viktor][talk matilda] Oh, God, the puns... > [if alias matilda] That's a... hands on approach > [if alias matilda][talk viktor] Puntastic!",
-					"use" : "[if alias viktor][animation player spr_viktor_take_left_high][time 10] > [talk frankenstein] Don't touch that! I need it!",
-					"fuck": "OK, nobody's watching! > [fade in 0.03][time 30] > [fade out 0.03][time 30] > There! Looks like the real thing! > [give fuck][take realfuck]"
+					"use" : "[if alias viktor][animation player spr_viktor_use_left_high][time 10] > [talk frankenstein] Don't touch that! I need it!",
+					"fuck": "OK, nobody's watching! > [animation player spr_viktor_use_left_middle][fade in 0.03][time 30] > [create item_fuck][fade out 0.03][time 30] > [give fuck][take realfuck] There! Looks like the real thing!"
 				}
+			},
+			{
+				"alias" : "item_fuck",
+				"available" : 0,
+				"x" : 96,
+				"y" : 400
 			},
 			{
 				"alias": "tower_kirilian",
@@ -2023,7 +2037,7 @@
 				"description": "Tesla's part",
 				"combinations": {
 					"look" : "That's the one I need!",
-					"use" : "[if alias viktor][animation player spr_viktor_take_left_high][time 10] > [talk frankenstein] Don't touch that! I need it!",
+					"use" : "[if alias viktor][animation player spr_viktor_use_left_high][time 10] > [talk frankenstein] Don't touch that! I need it!",
 					"fuck": "OK, nobody's watching! > [fade in 0.03][time 30] > [fade out 0.03][time 30] > There! Looks like the real thing! > [give fuck][take realfuck]"
 				},
 				"inventory": {
@@ -2218,7 +2232,15 @@
 		"entrances": [
 			{
 			"alias": "start",
-			"entrance": "[position player 650 800][active tesla][conversation tesla start] > [fade in 0.03][time 30] > [direction front] Now after the conversation is over, this is the part we didn't make yet, with Tesla's stuff and so on, so let's go directly to Frankenstein... > [fade][room map_sebenico_ingolstadt start]"
+			"entrance": "[position player 650 1100][position matilda 830 1100][move player 90 3][move matilda 90 3][animations matilda spr_matilda_walk_back][animations player spr_viktor_walk_back][time 90] > [move player 0 0][move matilda 0 0][animation matilda spr_matilda][animation player spr_viktor_listen_right] > [active tesla][conversation tesla start] > [move player 160 3][move matilda 168 3][animations matilda spr_matilda_walk_left][animations player spr_viktor_walk_left][time 170] > [move matilda 0 0] Wait, has this been tested? > [move tesla_machine1 0 5][time 5] > [move tesla_machine1 180 5][time 5] > [move tesla_machine1 0 5][time 5] > [move tesla_machine1 180 5][time 5] > [move tesla_machine1 0 5][time 5] > [move tesla_machine1 180 5][time 5] > [move tesla_machine1 0 0][talk tesla] It's tested now... > [fade in 0.03][time 30] > [fade][room map_sebenico_ingolstadt start]"
+			},
+			{
+			"alias": "again",
+			"entrance": "[if version debug][take realfuck] > [if alias matilda][switch viktor matilda] > [position player 185 658][position matilda 307 684] > [move tesla_machine1 0 5][time 5] > [move tesla_machine1 180 5][time 5] > [move tesla_machine1 0 5][time 5] > [move tesla_machine1 180 5][time 5] > [move tesla_machine1 0 5][time 5] > [move tesla_machine1 180 5][time 5] > [move tesla_machine1 0 0][talk tesla] Ah, my test subjects are back. > [talk tesla] I hope not horribly disfigured like the last ones. > [move player 340 3][move matilda 340 3][animations matilda spr_matilda_walk_right][animations player spr_viktor_walk_right][time 170] > [animations matilda spr_matilda][animations player spr_viktor_listen_right][move player 0 0][move matilda 0 0] > [if item realfuck][active tesla][conversation tesla again] > [remember][room teslaslider start]"
+			},
+			{
+			"alias" : "minigame",
+			"entrance" : "[recall] > [if teslaslider_win = 0] Damn, I should try again... > [if teslaslider_win = 0][skip] > Ok, we did it, now there should be some animation and so on... > [fade in 0.03][time 30] > [fade][room map_sebenico_vienna]"
 			}
 		],
 		"objects": [
@@ -2236,6 +2258,13 @@
 				"solid" : 1,
 				"combinations" : {
 					"look" : "That's Matilda, my love. > Or something..."
+				},
+				"inventory": {
+					"alias": "realfuck",
+					"name": "The Frequency Ultra Conversion Kirilian",
+					"description": "Tesla's very own device",
+					"default": "I don't think it's the right voltage",
+					"picture": "spr_tower_kirilian"
 				}
 			},
 			{
@@ -2375,6 +2404,7 @@
 				"alias": "tesla_machine1",
 				"x": 0,
 				"y": 196,
+				"depth" : -1400,
 				"description": "Tesla chamber",
 				"combinations": {
 					"look" : "It's probably the hydro-something-teleporter mr. Tesla was talking about."
@@ -2393,10 +2423,12 @@
 				"alias": "tesla_machine3",
 				"x": 716,
 				"y": 459,
+				"xInteract": 791,
+				"yInteract": 723,
 				"description": "Incredible tesla machine.",
 				"combinations": {
 					"look" : "I think this is the one we need to set up.",
-					"use" : "[room teslaslider start]"
+					"use" : "[remember][room teslaslider start]"
 				}
 			},
 			{
@@ -3079,7 +3111,7 @@
 		"border": "spr_various_token",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[create tesla_controller] > [stop] > [room previous slider]"
+			"entrance": "[create tesla_controller] > [stop] > [room previous minigame]"
 		}],
 		"objects": [
 			{
@@ -3544,7 +3576,7 @@
 		"border": "spr_various_token",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[time 20] > [time 40][fade in 0.05] > [fade][room title_sebenico_again start]"
+			"entrance": "[time 50] > [room title_sebenico_again start]"
 		}],
 		"objects": [{
 			"alias": "map_sebenico_ingolstadt",
@@ -3552,7 +3584,7 @@
 			"y": 269,
 			"xScale": 0.56,
 			"yScale": 0.56,
-			"imageSpeed": 0.5
+			"imageSpeed": 0.3
 		}
 		]
 	},
@@ -3586,7 +3618,7 @@
 		"border": "spr_various_token",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[time 20] > [time 40][fade in 0.05] > [fade][room title_ingolstadt start]"
+			"entrance": "[time 50] > [room title_ingolstadt start]"
 		}],
 		"objects": [{
 			"alias": "map_ingolstadt_sebenico",
@@ -3594,7 +3626,7 @@
 			"y": 269,
 			"xScale": 0.56,
 			"yScale": 0.56,
-			"imageSpeed": 0.4
+			"imageSpeed": 0.3
 		}
 		]
 	},
@@ -5266,7 +5298,7 @@
 				"order": "look,use,look_2,use_2",
 				"combinations": {
 					"look": "Never could clean off all the blood from that murder. > Just kidding, it's ketchup.",
-					"use": "[if crowgone = 1][if available viktorsRoom_keys 0][take keys][animation player spr_viktor_take_left_middle] > [if crowgone = 1][move player 180 5][animations player spr_viktor_walk_left] > [if crowgone = 1][room agram start] > [if phone = 1] I'd love to go but the phone is ringing... > [if phone = 2] I'd love to go conquer the world, but first I should return my friend Martin's call... > [if phone = 3][skip 1] > [if phone < 3][skip] > It is time. > Nothing can stop me now. > [sound snd_door_open][create viktorsRoom_door_open1][create viktorsRoom_door_open2][sound snd_door_open] > [create viktorsRoom_crow][position viktorsRoom_crow 0 690][move viktorsRoom_crow 0 5][move player 0 5][animation player spr_viktor_back_off] > [move viktorsRoom_crow 0 0][active viktorsRoom_crow][other][set mood scared] Not so fast! > [conversation crow start] > [animation player spr_viktor][destroy viktorsRoom_crow][create viktorsRoom_crow_walk][position viktorsRoom_crow_walk 300 690][move viktorsRoom_crow_walk 180 5][time 60][set crowgone 1] > Every month we have the same stupid conversation. > Senile old crow. > Oh well, time to go and conquer this kingdom once and for all.",
+					"use": "[if crowgone = 1][if available viktorsRoom_keys 0][take keys][animation player spr_viktor_use_left_middle] > [if crowgone = 1][move player 180 5][animations player spr_viktor_walk_left] > [if crowgone = 1][room agram start] > [if phone = 1] I'd love to go but the phone is ringing... > [if phone = 2] I'd love to go conquer the world, but first I should return my friend Martin's call... > [if phone = 3][skip 1] > [if phone < 3][skip] > It is time. > Nothing can stop me now. > [sound snd_door_open][create viktorsRoom_door_open1][create viktorsRoom_door_open2][sound snd_door_open] > [create viktorsRoom_crow][position viktorsRoom_crow 0 690][move viktorsRoom_crow 0 5][move player 0 5][animation player spr_viktor_back_off] > [move viktorsRoom_crow 0 0][active viktorsRoom_crow][other][set mood scared] Not so fast! > [conversation crow start] > [animation player spr_viktor][destroy viktorsRoom_crow][create viktorsRoom_crow_walk][position viktorsRoom_crow_walk 300 690][move viktorsRoom_crow_walk 180 5][time 60][set crowgone 1] > Every month we have the same stupid conversation. > Senile old crow. > Oh well, time to go and conquer this kingdom once and for all.",
 					"log": "I don't need to build another door",
 					"keys": "It's already unlocked. I just need to use it.",
 					"look_2" : "The door is open! Beware, Austria-Hungary!",
@@ -7137,10 +7169,6 @@
 		"entrances": [{
 			"alias": "start",
 			"entrance": "[position player 9880 9830][time 60][animations player spr_viktor_fell] > [sound snd_clock_break][set mood angry][draw spr_viktor_falling 1010 580 60 0 -0.3 1 0 15 90 3][time 60] > [create vida_front][time 40] > [move vida_front 180 30][time 30] > [animations player spr_cloud_medium][destroy vida_front][draw spr_viktor_falling 810 -140 25 -900 -0.56 1 180 35 270 5][time 25] > [draw spr_cloud_medium 840 830 10 -1000 1 1 0 15 45 0 0 0 -0.1][draw spr_cloud_medium 830 830 10 -1000 1 1 0 15 140 0 0 0 -0.1][draw spr_cloud_medium 830 810 10 -1000 1 1 0 15 90 0 0 0 -0.1][draw spr_cloud_medium 830 830 10 -1000 1 1 0 15 300 0 0 0 -0.1][create viktor_fell][sound snd_viktor_kick2][time 50] > [destroy viktor_fell][create viktor_fall_stand][time 14] > [destroy viktor_fall_stand][position player 840 830] > [direction left] This is just a minor setback! > [set mood scared][direction left][talk offscreenpsst][sound snd_vida_talk_shh] Psst! > [direction left]I need a way to avoid that stupid energy field! > [direction left][talk offscreenpsst][sound snd_vida_talk_shh3]PSSST! > [direction left]I either got concussion-induced hallucinations, or I hear a bug spray. > [talk offscreenpsst][sound snd_vida_talk_shh2][time 45]PSSSSST PSSS PSSST!!! > What the... > [animation player spr_viktor_talk_right 0][create vida_gets_in][move vida_gets_in 180 26][time 12][direction right] > [animation player spr_viktor_talk_right 0][move vida_gets_in 180 0][time 50] > [destroy vida_gets_in][create vida] > [active vida][conversation vida start] > [animation vida spr_vida_exit][move vida 0 30] > [animation player spr_viktor_letter1] > [animation player spr_viktor_letter2] We find you acceptable to join our revolutionary cause. Meet us at the copper garter bar in Prague. This message is self-destructing while you are reading it. > [animation player spr_viktor_letter3][sound snd_letter_burn][time 70] > [sound snd_letter_burn][time 140] > Well, I always wanted to visit Prague... > [fade in 0.03][time 60] > [fade][room map_vienna_prague start]"
-		},
-		{
-			"alias" : "test",
-			"entrance" : "[position player 840 825][create vida][position vida 912 611][active vida][conversation vida package] > [animation vida spr_vida_exit][move vida 0 30] > [animation player spr_viktor_letter1] > [animation player spr_viktor_letter2] We find you acceptable to join our revolutionary cause. Meet us at the copper garter bar in Prague. This message is self-destructing while you are reading it. > [animation player spr_viktor_letter3][sound snd_letter_burn][time 70] > [sound snd_letter_burn][time 140] > Well, I always wanted to visit Prague... > [fade in 0.03][time 60] > [fade][room map_vienna_prague start]"
 		}
 		],
 		"objects": [

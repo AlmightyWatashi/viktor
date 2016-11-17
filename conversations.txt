@@ -3882,6 +3882,12 @@ Now, how can I help you?
 [set but_flag = 0]
 	[section begin]
 
+== again ==
+
+	We found the Frequency Ultra Conversion Kirlian!
+		Great, let's just fast forward because I don't have this part!
+		[end]
+
 == begin ==
 
 	+ Let's not beat around the bush, Mr. Tesla. We need your help with breaking the emperor's electric field.
@@ -4100,7 +4106,7 @@ end
 
 Hello, young lady.
 [if toilet_matilda = 0] How interesting to meet someone who just got out of a toilet bowl
-	+[if frankenstein_thankful = 1] Could you make a painting for us?
+	+[if (version debug) or (frankenstein_thankful = 1)] Could you make a painting for us?
 		Anything for a young lady!
 		[section after_machine2]
 	+[if toilet_matilda = 0] I' m not sure am I glad to meet you sir.
@@ -4158,14 +4164,12 @@ end
 							+ Why not.
 								I can start as soon as you bring me a... zillion golden crowns!!!
 								Can you do it?
-									[talk matilda] Sure...
-									[talk matilda] We just robbed a bank, you see...
+									Sure...
+									We just robbed a bank, you see...
 										Oh, all right, then.
-											[switch viktor matilda]
-											[animation player spr_viktor_take_left_high]
 											[fade in 0.02][time 60] > [fade out 0.02][time 60]
 											[take fuck]
-												Here is your art. Enjoy.
+												[animation player spr_matilda_use_left_high] Here is your art. Enjoy.
 													[end]
 
 
