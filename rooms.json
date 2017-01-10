@@ -3945,9 +3945,11 @@
 				"yInteract" : 821,
 				"description" : "A yellow flower.",
 				"combinations" : {
-					"flaskempty" : "You look well enough without water.",
-					"use" : "[if hidinginbush = 2] Can't reach it... > [if hidinginbush = 1] I can't see, what is that flower over there? > [if hidinginbush = 1][talk matilda_bush] Hush, keep your voice down! > [not hidinginbush = 0][skip] > Nah, that plant is completely useless.",
-					"look" : "[if hidinginbush = 2] Some kind of flower... > [if hidinginbush = 1] I can't see, what is that flower over there? > [if hidinginbush = 1][talk matilda_bush] Hush, keep your voice down! > [not hidinginbush = 0][skip] > A yellow dandellion. > How quaint."
+					"flaskempty" : "I'm not sure I need any samples",
+					"flaskwater" : "It doesn't look like it needs watering.",
+					"use" : "[if hidinginbush = 2] Can't reach it... > [if hidinginbush = 1] I can't see, what is that flower over there? > [if hidinginbush = 1][talk matilda_bush] Hush, keep your voice down! > [not hidinginbush = 0][skip] > Nah, that plant looks completely useless.",
+					"look" : "[if hidinginbush = 2] Some kind of flower... > [if hidinginbush = 1] I can't see, what is that flower over there? > [if hidinginbush = 1][talk matilda_bush] Hush, keep your voice down! > [not hidinginbush = 0][skip] > A yellow dandellion. > How quaint.",
+					"flower" : "It's a real plant, not a model."
 				}
 				
 			},
@@ -3963,9 +3965,11 @@
 				"yInteract" : 821,
 				"description" : "A purple flower.",
 				"combinations" : {
-					"flaskempty" : "You look well enough without water.",
+					"flaskempty" : "You look well enough without water. > My flask is empty anyway.",
+					"flaskwater" : "Someone's already tending to these plants pretty well.",
 					"look" : "[if hidinginbush = 2] Some kind of flower... > [if hidinginbush = 1] I can't see, what is that flower over there? > [if hidinginbush = 1][talk matilda_bush] Hush, keep your voice down! > [not hidinginbush = 0][skip] > A purple forget-me-not flower. > How quaint.",
-					"use" : "[if hidinginbush = 2] Can't reach it... > [if hidinginbush = 1] I can't see, what is that flower over there? > [if hidinginbush = 1][talk matilda_bush] Hush, keep your voice down! > [not hidinginbush = 0][skip] > Nah, that plant is completely useless."
+					"use" : "[if hidinginbush = 2] Can't reach it... > [if hidinginbush = 1] I can't see, what is that flower over there? > [if hidinginbush = 1][talk matilda_bush] Hush, keep your voice down! > [not hidinginbush = 0][skip] > It's fine as it is.",
+					"flower" : "No."
 				}
 				
 			},
@@ -3981,9 +3985,11 @@
 				"yInteract" : 821,
 				"description" : "A tropical plant.",
 				"combinations" : {
-					"flaskempty" : "You look well enough without water.",
+					"flaskempty" : "I don't want to put it in a flask.",
+					"flaskwater" : "Looks watered enough.",
 					"look" : "[if hidinginbush = 2] Some kind of plant... > [if hidinginbush = 1] I can't see, what is that plant over there? > [if hidinginbush = 1][talk matilda_bush] Hush, keep your voice down! > [not hidinginbush = 0][skip] > For all I know, it might be plastic.",
-					"use" : "[if hidinginbush = 2] Can't reach it... > [if hidinginbush = 1] I can't see, what is that plant over there? > [if hidinginbush = 1][talk matilda_bush] Hush, keep your voice down! > [not hidinginbush = 0][skip] > Nah, that plant is completely useless."
+					"use" : "[if hidinginbush = 2] Can't reach it... > [if hidinginbush = 1] I can't see, what is that plant over there? > [if hidinginbush = 1][talk matilda_bush] Hush, keep your voice down! > [not hidinginbush = 0][skip] > Nah, that plant is completely useless.",
+					"flower" : "Wrong plant. > Or wrong flower."
 				}
 				
 			},
@@ -3999,9 +4005,11 @@
 				"yInteract" : 821,
 				"description" : "A bush plant.",
 				"combinations" : {
-					"flaskempty" : "You look well enough without water.",
+					"flaskempty" : "Wouldn't look as pretty in the flask.",
+					"flaskwater" : "Looks watered enough.",
 					"look" : "[if hidinginbush = 2] Some kind of plant... > [if hidinginbush = 1] I can't see, what is that plant over there? > [if hidinginbush = 1][talk matilda_bush] Hush, keep your voice down! > [not hidinginbush = 0][skip] > [if stupidpunplant3 = 1] George seems happy. > [if stupidpunplant3 = 1][skip] > It's a bush. > I'll just call it George. > [set stupidpunplant3 1][description plant3 George]",
-					"use" : "[if hidinginbush = 2] Can't reach it... > [if hidinginbush = 1] I can't see, what is that plant over there? > [if hidinginbush = 1][talk matilda_bush] Hush, keep your voice down! > [not hidinginbush = 0][skip] > Nah, that plant is completely useless."
+					"use" : "[if hidinginbush = 2] Can't reach it... > [if hidinginbush = 1] I can't see, what is that plant over there? > [if hidinginbush = 1][talk matilda_bush] Hush, keep your voice down! > [not hidinginbush = 0][skip] > I'll just leave it be.",
+					"flower" : "It doesn't belong here."
 				}
 				
 			},
@@ -4012,9 +4020,11 @@
 				"y": 132,
 				"description": "A cactus",
 				"combinations": {
-					"flaskempty" : "You look well enough without water.",
+					"flaskempty" : "I'm not extracting water from this.",
+					"flaskwater" : "No, it's a cactus.",
 					"look" : "[if hidinginbush = 2] Some kind of cactus. > [if hidinginbush = 1] I can't see, what is that plant over there? > [if hidinginbush = 1][talk matilda_bush] Hush, keep your voice down! > [not hidinginbush = 0][skip] > Looks painful. > [if alias viktor] Feels worse.",
-					"use" : "[if hidinginbush = 2] Some kind of cactus. > [if hidinginbush = 1] I can't see, what is that plant over there? > [if hidinginbush = 1][talk matilda_bush] Hush, keep your voice down! > [not hidinginbush = 0][skip] > [if alias matilda] Nah, that plant is completely useless. > [if alias viktor] Wouldn't want to touch that... > [if alias viktor] ...again..."
+					"use" : "[if hidinginbush = 2] Some kind of cactus. > [if hidinginbush = 1] I can't see, what is that plant over there? > [if hidinginbush = 1][talk matilda_bush] Hush, keep your voice down! > [not hidinginbush = 0][skip] > [if alias matilda] Nah, that plant is completely useless. > [if alias viktor] Wouldn't want to touch that... > [if alias viktor] ...again...",
+					"flower" : "I don't think gardening works like this"
 				}
 			},
 			{
@@ -4032,7 +4042,7 @@
 					"use" : "What use is a dead plant?",
 					"talk" : "Hey, little plant... > Wake up! > We love you!",
 					"flaskempty" : "Would you like some water, little plant? > Too bad, I'm all out.",
-					"flaskwater" : "Would you like some water, little plant? > [animation player spr_matilda_use_right_high][give flaskwater] > [sound snd_botanical_flower][animation botanical_plant_dead spr_botanical_plant][destroy botanical_plant_dead 30][create botanical_plant 30] > Wow, it really doesn't need much."
+					"flaskwater" : "Would you like some water, little plant? > [sound snd_botanical_flower][animation player spr_matilda_use_right_high][give flaskwater] > [sound snd_botanical_flower][animation botanical_plant_dead spr_botanical_plant][destroy botanical_plant_dead 30][create botanical_plant 30] > Wow, it really doesn't need much."
 				}
 			},
 			{
@@ -4045,9 +4055,12 @@
 				"yInteract" : 821,
 				"description": "A beautiful plant",
 				"combinations": {
-					"look" : "It looks so lively! > Ugh, but what awful smell!",
+					"look" : "It looks so lively! > And a nice peppery smell.",
 					"use" : "[if item flower] I already have one. > [not item flower][if alias matilda][animation player spr_matilda_use_right_high][take flower] > [if alias viktor][not item flower][pick]",
-					"talk" : "[if plant = 0] Thanks, plant! > [if plant = 0][skip] > Hey, little plant... > [if plant = 1] I helped you, now you help me to get my boyfriend out of that plant? > [if plant = 1] Please? > [if plant = 1] Ugh, there is never solidarity between flora and fauna... > [if plant = 0] Thanks for the help!"
+					"talk" : "[if plant = 0] Thanks, plant! > [if plant = 0][skip] > Hey, little plant... > [if plant = 1] I helped you, now you help me to get my boyfriend out of that plant? > [if plant = 1] Please? > [if plant = 1] Ugh, there is never solidarity between flora and fauna... > [if plant = 0] Thanks for the help!",
+					"flaskwater" : "I wouldn't want to overdo it.",
+					"flaskempty" : "I can't put the water back.",
+					"flower" : "I can't put it back now"
 				},
 				"inventory": {
 					"alias": "flower",
@@ -4083,7 +4096,8 @@
 					"umbrella" : "If only I had Viktor's umbrella, I'd beat you on the head with it till you spat him out!",
 					"leopard" : "Boo! > Not scared of the leopard, eh?",
 					"filip" : "Boo! > Oh just cough him up...",
-					"flaskwater" : "Here, have a drink? > No?",
+					"flaskwater" : "Here, have a drink. > No? > Damn.",
+					"flaskempty" : "I don't think plants can give you urine samples.",
 					"flower" : "Take a whiff of this, you evil oversized flora! > [animation player spr_matilda_use_right_high] > [animation player spr_matilda][sound snd_water_drop][animation botanical_pitcher_fed spr_botanical_pitcher_spit][imagespeed botanical_pitcher_fed 1][time 13][destroy botanical_pitcher_fed 25][create botanical_pitcher2 25] > [sound snd_water_drop 10][animation botanical_cactus spr_botanical_cactus_spring][imagespeed botanical_cactus 1][time 18] > [time 4][draw spr_viktor 550 450 15 -10000 0.6 1 0 50 0] > [animations botanical_cactus spr_botanical_cactus] > [time 15] > [time 90][sound snd_clock_break] > [create viktor][position viktor 1200 850][animations viktor spr_viktor_walk_left][move viktor 180 5][time 60] > [move viktor 0 0][animations viktor spr_viktor] > [talk viktor] Ouch... > [set plant 0][set normalswitch 0][angle viktor 0][angle matilda 0][angle player 0][occupied none]"
 				}
 			},
@@ -4100,7 +4114,9 @@
 				"combinations" : {
 					"talk" : "Bad plant!",
 					"flower" : "We did that already.",
-					"umbrella" : "Do you eat umbrellas?"
+					"umbrella" : "Do you eat umbrellas?",
+					"flaskwater" : "No. It's grounded.",
+					"flaskempty" : "I don't think it would eat glass."
 				}
 			},
 			{
@@ -4131,7 +4147,7 @@
 		"entrances": [
 			{
 			"alias": "start",
-			"entrance": "[if plant = 0][if backfromshrooms = 0][not available elephant][create elephant][create garden_shrooms_top][create garden_shrooms_bottom] > [not item flaskempty][if firsttimefountain = 0][take flaskempty silent] > [position player 0 841][animations player spr_matilda_walk_right][time 0] > [if plant = 0][if alias matilda][create viktor][position viktor -100 841][move viktor 0 5][animations viktor spr_viktor_walk_right][time 0] > [if alias viktor][create matilda][position player -100 841][position matilda 0 841][move matilda 0 5][animations matilda spr_matilda_walk_right][animations player spr_viktor_walk_right][time 0] > [move player 0 5][time 80] > [move viktor 0 0][move matilda 0 0][animations viktor spr_viktor][animations matilda spr_matilda][time 0] > [if firsttimefountain = 0][set firsttimefountain 1] It's really leafy in here. > [if firsttimeelephant = 0][if available elephant][talk elephant] You must be the pig who trashed all my plants! > [if firsttimeelephant = 0][if available elephant][talk elephant] And with this fountain not working, I'll never be finished watering them... > [if firsttimeelephant = 0][if available elephant][talk elephant][set firsttimeelephant 1] Thank you so much for that."
+			"entrance": "[if plant = 0][if backfromshrooms = 0][not available elephant][create elephant][create garden_shrooms_top][create garden_shrooms_bottom] > [not item flaskempty][if firsttimefountain = 0][take flaskempty silent] > [position player 0 841][animations player spr_matilda_walk_right][time 0] > [if plant = 0][if alias matilda][create viktor][position viktor -100 841][move viktor 0 5][animations viktor spr_viktor_walk_right][time 0] > [if alias viktor][create matilda][position player -100 841][position matilda 0 841][move matilda 0 5][animations matilda spr_matilda_walk_right][animations player spr_viktor_walk_right][time 0] > [move player 0 5][time 80] > [move viktor 0 0][move matilda 0 0][animations viktor spr_viktor][animations matilda spr_matilda][time 0] > [if firsttimefountain = 0][set firsttimefountain 1] It's really leafy in here. > [if plant = 0][if firsttimeelephant = 0][if available elephant][talk elephant] You must be the pig who trashed all my plants! > [if plant = 0][if firsttimeelephant = 0][if available elephant][talk elephant] And with this fountain not working, I'll never be finished watering them... > [if plant = 0][if firsttimeelephant = 0][if available elephant][talk elephant][set firsttimeelephant 1] Thank you so much for that."
 			},
 			{
 			"alias" : "wake",
@@ -4228,7 +4244,7 @@
 			},
 			{
 				"alias" : "elephant",
-				"available" : 0,
+				"available" : 1,
 				"idle" : 1,
 				"x" : 316,
 				"y" : 512,
@@ -4254,7 +4270,7 @@
 			},
 			{
 				"alias" : "garden_shrooms_top",
-				"available" : 0,
+				"available" : 1,
 				"x" : 502,
 				"y" : 745,
 				"xInteract" : 502,
@@ -4274,7 +4290,7 @@
 			},
 			{
 				"alias" : "garden_shrooms_bottom",
-				"available" : 0,
+				"available" : 1,
 				"x" : 507,
 				"y" : 743,
 				"xInteract" : 507,
@@ -4282,7 +4298,7 @@
 				"description" : "Mushroom bottoms",
 				"combinations" : {
 					"look" : "Pretty mushrooms. > [talk elephant] Toxic, corrosive mushrooms.",
-					"use" : "I only need the mushroom tops. > [talk elephant] What kind of a person only eats mushroom tops?!"
+					"use" : "I only need the mushroom tops. > [talk elephant] What kind of a person only eats mushroom tops?"
 				}
 			},
 			{
@@ -4295,7 +4311,7 @@
 				"combinations": {
 					"look" : "This costs more than what I make in a year... > Lifetime, actually...",
 					"use" : "There's almost no water inside, the fountain must be jammed by something...",
-					"mushrooms" : "Let's mix in some shrooms in here. > [if alias viktor][animation player spr_viktor_use_back_high] > [if alias matilda][animation player spr_matilda_use_left_high] > [if alias viktor][animation player spr_viktor] > [if alias matilda][animation player spr_matilda] > [destroy garden_water_small][create garden_water_start] > [animation garden_water_start spr_garden_water_start] > [animations garden_water_start spr_garden_water_loop] > [talk elephant] Well, that unclogged it! > [talk elephant] What did you use? > Oh, just those corrosive mushrooms. > [talk elephant] Just those hallucination-inducing, dangerous, poisonous mushrooms? > [blocksound][sound snd_viktor_slow][time 45][draw spr_botanical_smoke -23 50 400 -833 1 0 0 0 0 0 0 0 0 0.03] Yeah, why? > [draw spr_botanical_smoke -23 50 400 -833 1 0 0 0 0 0 1 0 0 0.03][time 10] > [draw spr_botanical_smoke -23 50 400 -833 1 0 0 0 0 0 2 0 0 0.03][time 10] > [draw spr_botanical_smoke -23 50 400 -833 1 0 0 0 0 0 3 0 0 0.03][time 10] > [draw spr_botanical_smoke -23 50 400 -833 1 0 0 0 0 0 4 0 0 0.03][time 10] > [draw spr_botanical_smoke -23 50 400 -833 1 0 0 0 0 0 5 0 0 0.03][time 10] > [draw spr_botanical_smoke -23 50 400 -833 1 0 0 0 0 0 6 0 0 0.03][time 10] > [draw spr_botanical_smoke -23 50 400 -833 1 0 0 0 0 0 7 0 0 0.03][time 10] > [draw spr_botanical_smoke -23 50 400 -833 1 0 0 0 0 0 8 0 0 0.03][time 10] > [fade in 0.015][draw spr_botanical_smoke -23 50 400 -833 1 0 0 0 0 0 9 0 0 0.03][time 20] > [draw spr_botanical_smoke -23 50 400 -833 1 0 0 0 0 0 10 0 0 0.03][time 10] > [draw spr_botanical_smoke -23 50 400 -833 1 0 0 0 0 0 11 0 0 0.03][time 30] > [fade][room shrooms start]",
+					"mushrooms" : "[if available garden_water_loop] That's taken care of. > [if available garden_water_loop][skip] >These mushrooms might melt through the dirt. > [if alias viktor][animation player spr_viktor_use_back_high] > [if alias matilda][animation player spr_matilda_use_left_high] > [if alias viktor][animation player spr_viktor] > [if alias matilda][animation player spr_matilda] > [destroy garden_water_small][create garden_water_start] > [animation garden_water_start spr_garden_water_start] > [animations garden_water_start spr_garden_water_loop] > [talk elephant] Well, that unclogged it! > [talk elephant] What did you use? > Oh, just those corrosive mushrooms. > [talk elephant] Just those hallucination-inducing, dangerous, poisonous mushrooms? > [blocksound][sound snd_viktor_slow][time 45][draw spr_botanical_smoke -23 50 400 -833 1 0 0 0 0 0 0 0 0 0.03] Yeah, why? > [draw spr_botanical_smoke -23 50 400 -833 1 0 0 0 0 0 1 0 0 0.03][time 10] > [draw spr_botanical_smoke -23 50 400 -833 1 0 0 0 0 0 2 0 0 0.03][time 10] > [draw spr_botanical_smoke -23 50 400 -833 1 0 0 0 0 0 3 0 0 0.03][time 10] > [draw spr_botanical_smoke -23 50 400 -833 1 0 0 0 0 0 4 0 0 0.03][time 10] > [draw spr_botanical_smoke -23 50 400 -833 1 0 0 0 0 0 5 0 0 0.03][time 10] > [draw spr_botanical_smoke -23 50 400 -833 1 0 0 0 0 0 6 0 0 0.03][time 10] > [draw spr_botanical_smoke -23 50 400 -833 1 0 0 0 0 0 7 0 0 0.03][time 10] > [draw spr_botanical_smoke -23 50 400 -833 1 0 0 0 0 0 8 0 0 0.03][time 10] > [fade in 0.015][draw spr_botanical_smoke -23 50 400 -833 1 0 0 0 0 0 9 0 0 0.03][time 20] > [draw spr_botanical_smoke -23 50 400 -833 1 0 0 0 0 0 10 0 0 0.03][time 10] > [draw spr_botanical_smoke -23 50 400 -833 1 0 0 0 0 0 11 0 0 0.03][time 30] > [fade][room shrooms start]",
 					"flaskempty" : "I'll just pour some water inside this little flask... > [animation player spr_matilda_use_right_high][give flaskempty][take flaskwater]"
 				}
 			},
@@ -4337,8 +4353,9 @@
 				"yInteract" : 832,
 				"description": "Water",
 				"combinations": {
-					"look" : "[not available elephant] Why is the stream so small? > [not available elephant][skip] > [if available elephant][if alias viktor][cloud talk][animation player spr_viktor_talk_back] Why is the stream so small? > [if available elephant][if alias matilda][cloud talk][animation player spr_matilda_talk_back] Why is the stream so small? > [cloud talk][talk elephant] Because limescale clogged the fountain! > [cloud talk][direction back] The what now? > [cloud talk][talk elephant] Limescale, you know, a white caustic alkaline substance consisting of calcium oxide, obtained by heating limestone. > Oh...",
-					"mushrooms" : "Let's mix in some shrooms in here. > [if alias viktor][animation player spr_viktor_use_back_high] > [if alias matilda][animation player spr_matilda_use_left_high] > [if alias viktor][animation player spr_viktor] > [if alias matilda][animation player spr_matilda] > [destroy garden_water_small][create garden_water_loop] > [animation garden_water_loop spr_garden_water_start] > [animations garden_water_loop spr_garden_water_loop] > [talk elephant] Well, that unclogged it! > [talk elephant] What did you use? > Oh, just those corrosive mushrooms. > [talk elephant] Just those hallucination-inducing, dangerous, poisonous mushrooms? > [blocksound][sound snd_viktor_slow][time 45][draw spr_botanical_smoke -23 50 400 -830 1 0 0 0 0 0 0 0 0 0.03] Yeah, why? > [draw spr_botanical_smoke -23 50 400 -830 1 0 0 0 0 0 1 0 0 0.03][time 10] > [draw spr_botanical_smoke -23 50 400 -830 1 0 0 0 0 0 2 0 0 0.03][time 10] > [draw spr_botanical_smoke -23 50 400 -830 1 0 0 0 0 0 3 0 0 0.03][time 10] > [draw spr_botanical_smoke -23 50 400 -830 1 0 0 0 0 0 4 0 0 0.03][time 10] > [draw spr_botanical_smoke -23 50 400 -830 1 0 0 0 0 0 5 0 0 0.03][time 10] > [draw spr_botanical_smoke -23 50 400 -830 1 0 0 0 0 0 6 0 0 0.03][time 10] > [draw spr_botanical_smoke -23 50 400 -830 1 0 0 0 0 0 7 0 0 0.03][time 10] > [draw spr_botanical_smoke -23 50 400 -830 1 0 0 0 0 0 8 0 0 0.03][time 10] > [fade in 0.015][draw spr_botanical_smoke -23 50 400 -830 1 0 0 0 0 0 9 0 0 0.03][time 20] > [draw spr_botanical_smoke -23 50 400 -830 1 0 0 0 0 0 10 0 0 0.03][time 10] > [draw spr_botanical_smoke -23 50 400 -830 1 0 0 0 0 0 11 0 0 0.03][time 30] > [fade][room shrooms start]",
+					"look" : "Something seems to be clogging the stream.",
+					"talk" : "[not available elephant] Why is the stream so small? > [not available elephant][skip] > [if available elephant][if alias viktor][cloud talk][animation player spr_viktor_talk_back] This stream looks clogged. > [if available elephant][if alias matilda][cloud talk][animation player spr_matilda_talk_back] Why is the stream so small? > [direction left][cloud talk][talk elephant] Because limescale clogged the fountain! > [cloud talk][direction back] The what now? > [direction left][cloud talk][talk elephant] Limescale, you know, a white caustic alkaline substance consisting of calcium oxide, obtained by heating limestone. > [direction left]Oh...",
+					"mushrooms" : "Let's try putting some mushrooms in here. > [if alias viktor][animation player spr_viktor_use_back_high] > [if alias matilda][animation player spr_matilda_use_left_high] > [if alias viktor][animation player spr_viktor] > [if alias matilda][animation player spr_matilda] > [destroy garden_water_small][create garden_water_loop] > [animation garden_water_loop spr_garden_water_start] > [animations garden_water_loop spr_garden_water_loop] > [talk elephant] Well, that unclogged it! > [talk elephant] What did you use? > Oh, just those corrosive mushrooms. > [talk elephant] Just those hallucination-inducing, dangerous, poisonous mushrooms? > [blocksound][sound snd_viktor_slow][time 45][draw spr_botanical_smoke -23 50 400 -830 1 0 0 0 0 0 0 0 0 0.03] Yeah, why? > [draw spr_botanical_smoke -23 50 400 -830 1 0 0 0 0 0 1 0 0 0.03][time 10] > [draw spr_botanical_smoke -23 50 400 -830 1 0 0 0 0 0 2 0 0 0.03][time 10] > [draw spr_botanical_smoke -23 50 400 -830 1 0 0 0 0 0 3 0 0 0.03][time 10] > [draw spr_botanical_smoke -23 50 400 -830 1 0 0 0 0 0 4 0 0 0.03][time 10] > [draw spr_botanical_smoke -23 50 400 -830 1 0 0 0 0 0 5 0 0 0.03][time 10] > [draw spr_botanical_smoke -23 50 400 -830 1 0 0 0 0 0 6 0 0 0.03][time 10] > [draw spr_botanical_smoke -23 50 400 -830 1 0 0 0 0 0 7 0 0 0.03][time 10] > [draw spr_botanical_smoke -23 50 400 -830 1 0 0 0 0 0 8 0 0 0.03][time 10] > [fade in 0.015][draw spr_botanical_smoke -23 50 400 -830 1 0 0 0 0 0 9 0 0 0.03][time 20] > [draw spr_botanical_smoke -23 50 400 -830 1 0 0 0 0 0 10 0 0 0.03][time 10] > [draw spr_botanical_smoke -23 50 400 -830 1 0 0 0 0 0 11 0 0 0.03][time 30] > [fade][room shrooms start]",
 					"flaskempty" : "[animation player spr_matilda_use_right_high][give flaskempty][take flaskwater]"
 				},
 				"inventory" : {
@@ -10231,7 +10248,7 @@
 					"use" : "[animation player spr_viktor_use_back_middle] > It's locked...",
 					"kick" : "[kick auto snd_log] > This one is very stuck...",
 					"use_old" : "[sound snd_door_open][position toilet_left 486 286][animation toilet_left spr_toilet_left 1][time 3][destroy toilet_left 3][create toilet_left_open 3][destroy graffiti_door_1b][destroy graffiti_door_1c][destroy graffiti_door_1d]",
-					"kick" : "[kick] > [sound snd_door_open][position toilet_left 486 286][animation toilet_left spr_toilet_left 1][time 3][destroy toilet_left 3][create toilet_left_open 3][destroy graffiti_door_1b][destroy graffiti_door_1c][destroy graffiti_door_1d]"
+					"not_kick" : "[kick] > [sound snd_door_open][position toilet_left 486 286][animation toilet_left spr_toilet_left 1][time 3][destroy toilet_left 3][create toilet_left_open 3][destroy graffiti_door_1b][destroy graffiti_door_1c][destroy graffiti_door_1d]"
 				}
 			},
 			{
