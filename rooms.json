@@ -4131,7 +4131,7 @@
 		"entrances": [
 			{
 			"alias": "start",
-			"entrance": "[if plant = 0][if backfromshrooms = 0][not available elephant][create elephant][create garden_shrooms_top][create garden_shrooms_bottom] > [if version debug][if firsttimefountain = 0][take flaskempty silent] > [position player 0 841][animations player spr_matilda_walk_right][time 0] > [if plant = 0][if alias matilda][create viktor][position viktor -100 841][move viktor 0 5][animations viktor spr_viktor_walk_right][time 0] > [if alias viktor][create matilda][position player -100 841][position matilda 0 841][move matilda 0 5][animations matilda spr_matilda_walk_right][animations player spr_viktor_walk_right][time 0] > [move player 0 5][time 80] > [move viktor 0 0][move matilda 0 0][animations viktor spr_viktor][animations matilda spr_matilda][time 0] > [if firsttimefountain = 0][set firsttimefountain 1] It's really leafy in here. > [if firsttimeelephant = 0][if available elephant][talk elephant] You must be the pig who trashed all my plants! > [if firsttimeelephant = 0][if available elephant][talk elephant] And with this fountain not working, I'll never be finished watering them... > [if firsttimeelephant = 0][if available elephant][talk elephant][set firsttimeelephant 1] Thank you so much for that."
+			"entrance": "[if plant = 0][if backfromshrooms = 0][not available elephant][create elephant][create garden_shrooms_top][create garden_shrooms_bottom] > [not item flaskempty][if firsttimefountain = 0][take flaskempty silent] > [position player 0 841][animations player spr_matilda_walk_right][time 0] > [if plant = 0][if alias matilda][create viktor][position viktor -100 841][move viktor 0 5][animations viktor spr_viktor_walk_right][time 0] > [if alias viktor][create matilda][position player -100 841][position matilda 0 841][move matilda 0 5][animations matilda spr_matilda_walk_right][animations player spr_viktor_walk_right][time 0] > [move player 0 5][time 80] > [move viktor 0 0][move matilda 0 0][animations viktor spr_viktor][animations matilda spr_matilda][time 0] > [if firsttimefountain = 0][set firsttimefountain 1] It's really leafy in here. > [if firsttimeelephant = 0][if available elephant][talk elephant] You must be the pig who trashed all my plants! > [if firsttimeelephant = 0][if available elephant][talk elephant] And with this fountain not working, I'll never be finished watering them... > [if firsttimeelephant = 0][if available elephant][talk elephant][set firsttimeelephant 1] Thank you so much for that."
 			},
 			{
 			"alias" : "wake",
@@ -9009,7 +9009,7 @@
 		"rgb": "200,232,235",
 		"entrances": [{
 			"alias": "start",
-			"entrance": "[set nighttime 1] > [not item phone][set phone 3][take phone][take umbrella] > [set passguess 0][position player 450 670][set alreadywent 0][set tried_dumb_flag 0] > This looks cozy. > [not version debug] Now to find those anarchists. > [not version debug] They probably have armies, bombs and whatnot."
+			"entrance": "[set nighttime 1] > [not item phone][set phone 3][take phone][take umbrella] > [set passguess 0][position player 450 670][set alreadywent 0][set tried_dumb_flag 0] > This looks cozy. > Now to find those anarchists. > They probably have armies, bombs and whatnot."
 		},
 		{
 			"alias" : "return",
