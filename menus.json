@@ -1,4 +1,5 @@
 {
+	"version": "5.1.",
 	"menus" : [
 		{
 			"alias" : "main",
@@ -80,6 +81,7 @@
 			],
 			"slots" : {
 				"frame" : "spr_various_frame",
+				"frameFront" : "spr_various_frame_transparent",
 				"frameScale" : 0.8,
 				"pictureScale" : 0.15,
 				"xPictureOffset" : 0,

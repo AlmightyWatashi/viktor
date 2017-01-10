@@ -1,20 +1,6 @@
 ﻿=== version ===
 
-0.00 wat dodao probno noama
-0.01 alex ubacio u program
-0.02 wat dodao gornji kat aerodroma
-0.03 alex ubacio u program
-0.06 wat dodao jos nekih likovlja
-0.07 alex ubacio u program
-0.08 ovo je wata poslao 26.4. u 17h
-0.09 alex 27.4. 17h do 28.4.
-0.10. wat post-reboot 6.5.
-0.11. alex backer beta version 16.06. 12h
-0.12. brian edit plus extra checks
-0.13. sven added stuff, wat fixed it into something semi-playable
-0.14. 24.8. alex frankenstein
-0.2 7.9. Frankenstein and tavern are playable, far from perfect
-
+5.1.2017.
 
 === crow ===
 
@@ -27,7 +13,7 @@ Time for you to die, pig boy!
 == first ==
 
 	- I'm actually a boar.
-		I don't think my stew pot knows the difference.   //brian edit added period (.) to end of sentence
+		I don't think my stew pot knows the difference.
 		[set imaboar_flag 1]
 			[section first]
 	-[if imaboar_flag = 1] It's mostly taxonomy, but there are some physiological differences as well...
@@ -39,11 +25,11 @@ Time for you to die, pig boy!
 		[set imaboar_flag 0]
 		[section havemoney]
 	- My god, woman. You look so beautiful today!
-		Flattery will get you nowhere, pig.   //brian edit added period (.) to end of sentence
+		Flattery will get you nowhere, pig.
 		[set imaboar_flag 0]
 		[set flattery_flag 1]
 			[section first]
-	-[if flattery_flag = 1] But your eyes look so bright, young and ravishing today. I can't help myself.   //brian edit added period (.) to end of sentence
+	-[if flattery_flag = 1] But your eyes look so bright, young and ravishing today. I can't help myself.
 		Well, I have been to the eye doctor lately.
 			[section woo]
 
@@ -62,7 +48,7 @@ How much money do you have?
 					[sound snd_vase_break][sound snd_viktorsRoom_crow_talk2][move draw 345 8][animations player spr_viktor_coin5][moveto player 0 690 6][animations viktorsRoom_crow spr_viktorsRoom_crow_coin_fly][moveto viktorsRoom_crow 900 400 5][time 36]
 					[fade in 0.02][sound snd_vase_break][sound snd_viktorsRoom_crow_talk3][move draw 250 8][animations player spr_viktor_coin5][moveto player 0 690 6][animations viktorsRoom_crow spr_viktorsRoom_crow_coin_fly][moveto viktorsRoom_crow 900 900 5][time 50]
 					[sound snd_clock_break][move draw 0 0][animations player spr_viktor_coin5][moveto player 0 690 6]
-					[fade][room agram start]
+					[fade][set leaveroom 1]
 						[end]
 			+ Could we take care of this some other way?
 				You said that in a strange tone of voice.
@@ -83,15 +69,15 @@ Good night pig.
 		One more reason to kill you, lazy pig!
 			+[if didmoney_flag = 0] But I still have some money!
 				[section havemoney]
-			- If you kill me, you don't get anything from my last paycheck.  //re-edited brian
+			- If you kill me, you don't get anything from my last paycheck.
 				You are still worth more as pork chops.
 				[set crowmoar_flag 1]
 					[section moar]
-			+[if crowfunder_flag = 0] I can crowdfund my rent for you.   //brian edit added period (.) to end of sentence
+			+[if crowfunder_flag = 0] I can crowdfund my rent for you.
 				The hell are you talking about, pig?
 					+ You haven't heard of crowdfunding?
 						[section crowdfunding]
-			+ But I did pay you. I left the rent in your mailbox this morning.  //re-edited brian
+			+ But I did pay you. I left the rent in your mailbox this morning.
 				[section senile]
 
 
@@ -101,7 +87,7 @@ end
 [if crowmoar_flag = 0] This conversation tires me.
 Prepare to die.	
 	+[if crowfunder_flag = 0] Well, I have another option. See, there's people who might want to fund me.
-		What the hell are you talking about, pig?  //brian edit added What as first word in sentence
+		What the hell are you talking about, pig?
 		[set crowmoar_flag 1]
 			+ Have you ever heard of crowdfunding?
 				[section crowdfunding]
@@ -110,7 +96,7 @@ Prepare to die.
 		[set crowmoar_flag 1]
 			[section moar]
 	- Well, there is also one more thing we could do, if you know what I mean...
-		Your voice sounded strange, yet familiar just then.  //brian edit changed "back there" to "just then"  (refers to time, not place)
+		Your voice sounded strange, yet familiar just then.
 		What the hell are you on to, pig?
 			[section woo]
 
@@ -119,7 +105,7 @@ end
 
 Yes I have, in fact.
 [set crowfunder_flag 1]
-	+ It's where thousands of people give you money to continue your adventures.  //brian edit changed "tousands" to "thousands" and added ending period.
+	+ It's where thousands of people give you money to continue your adventures.
 		Yes, yes it is.
 		But only if you already have tons of money for marketing
 		Or personally know a buttload of foreign journalists
@@ -132,10 +118,10 @@ end
 
 [set mood]
 	- Let's say we go to your place and you slip into something more comfortable...
-		I'm pretty comfortable in this outfit.   //brian edit added period (.) at end of sentence
+		I'm pretty comfortable in this outfit.
 		It's the finest cotton and wool, you know.
 		Keeps me warm and protected from this murderous draft.
-		Is that window broken? How did it get broken?   //brian edit changed "How is it broken?" to "How did it get broken?"
+		Is that window broken? How did it get broken?
 			- Shhh, don't ruin this enchanting moment between us.
 				Oh...
 				That's what you're talking about.
@@ -211,7 +197,7 @@ Perhaps. Perhaps not. > Maybe it's faith that brought you here.
 		Is this going to get weird? Because that costs extra.
 			- Martin, you dumbass. It's me, Viktor!
 				[section sensed_it]
-			- I am planning to take over the Austro-Hungarian Empire and you shall help me.  //brian edit capitalized Empire (proper noun)
+			- I am planning to take over the Austro-Hungarian Empire and you shall help me.
 				[section tobacco_plants]
 			- Then I must have a wrong number. It was not destiny after all.
 				[section recognizes_you]
@@ -231,9 +217,9 @@ end
 == recognizes_you ==
 
 Wait, please, I... > [animation martinsRoom_martin spr_martinsRoom_martin][time 15] > [imagespeed martinsRoom_martin 0.3] > Viktor, is that you?
-	- Hahahahahahaha
+	- [blocksound snd_viktor_laugh] Hahahahahahaha!
 		[section in_no_mood]
-	- No, this is Mother. Hoot.    //brian edit capitalized Mother since it is used in place of the person's name (grammar rule)
+	- No, this is Mother. Hoot.
 		[section in_no_mood]
 	- Martin, I got fired.
 		[section got_fired]
@@ -248,7 +234,7 @@ What the hell, Viktor. How could you get fired from street sweeping? > Did you s
 		Actually, let's not talk about it. > Preferably, let's not talk about it over a nice game of Cyclops Chess. > Do you want to come over tonight?
 			- No time for that, Martin. I just got fired and I have a new plan to make everything better. 
 					[section the_plan]
-			- No, Martin! Today is the day when I begin my plan of taking over the empire and then the world!   //brian edit took away capitalization of empire (not proper noun like Austro-Hungarian Empire)
+			- No, Martin! Today is the day when I begin my plan of taking over the empire and then the world!
 				[section tobacco_plants]
 	- My whole life has been going in the wrong direction. But, I have a way to fix it.
 		[section the_plan]
@@ -256,14 +242,14 @@ What the hell, Viktor. How could you get fired from street sweeping? > Did you s
 		Actually, let's not talk about it. > Preferably, let's not talk about it over a nice game of Cyclops Chess. > Do you want to come over tonight?
 			- No time for that, Martin. I just got fired and I have a new plan to make everything better.
 				[section the_plan]
-			- No, Martin! Today is the day when I begin my plan of taking over the empire and then the world!   //brian edit took away capitalization of empire (not proper noun like Austro-Hungarian Empire)
+			- No, Martin! Today is the day when I begin my plan of taking over the empire and then the world!
 				[section tobacco_plants]
 
 end	
 == the_plan ==
 
 If this is like that plan when you wanted to turn your landlord's bed into a lawnmower... > I'm not visiting you in the hospital again.
-	- This time, I have a perfect plan for us. A plan to take over the empire and finally make everything right!   //brian edit took away capitalization of empire (not proper noun like Austro-Hungarian Empire)
+	- This time, I have a perfect plan for us. A plan to take over the empire and finally make everything right!
 		[section tobacco_plants]
 	- Actually, this one might get us killed or make us the supreme rulers of Austria-Hungary.
 		[section tobacco_plants]
@@ -302,16 +288,16 @@ Yes! My wisdom shall guide you. > Whenever you call me, I can give you guidance.
 		[section ending1]
 	- Well, that's close enough, I guess. 
 		[section ending1]
-	- Can you also give me some money? I think I hear my landlord sneaking up in the hallway.   //brian edit added "up" in this sentence
+	- Can you also give me some money? I think I hear my landlord sneaking up in the hallway.
 		[section ending1]
 
 end	
 == acting_up ==
 
-Viktor, my dear friend. > If I wanted someone to act like this, I would just live with my mother. > Please, do your thing and call me when you need advice. > I shall be available 24/7, just for you.    //brian edit added "just" to "I would live with my mother."
+Viktor, my dear friend. > If I wanted someone to act like this, I would just live with my mother. > Please, do your thing and call me when you need advice. > I shall be available 24/7, just for you.
 	- Well, thanks, I guess.
 		[section ending1]
-	- Thank you, Martin. I shall report on my progress.   //brian edit changed "advancement" to "progress"
+	- Thank you, Martin. I shall report on my progress.
 		[section ending1]
 
 end	
@@ -337,13 +323,13 @@ You have reached Martin, the three eyed owl.
 
 == hello ==
 
-	+[if already_called_station = 1] Turn on your third and fourth eye, Martin. I need psychic advice.   //brian edit changed "martin" to "Martin"
+	+[if already_called_station = 1] Turn on your third and fourth eye, Martin. I need psychic advice.
 		Way ahead of you, sir.
 			[section psychic]
-	-+ Hey Martin, it's me, Viktor. I need money for a ticket to Vienna.   //brian edit added period (.) to end of sentence
+	-+ Hey Martin, it's me, Viktor. I need money for a ticket to Vienna.
 	Hey Martin, it's me, Viktor...
 		I already told you, I'm out of money this month.
-			+ Your cold reading is really improving, psychic man.
+			+ Your 'cold reading' is really improving, psychic man.
 				Do not be cheeky Viktor. Try focusing on your goal.
 					[section hello]
 	- Martin, it's me, Viktor. I need your psychic services.
@@ -354,7 +340,7 @@ You have reached Martin, the three eyed owl.
 		This pleases me.
 		Which one was Attar?
 		== is_it_attar ==
-			- Attar, the Sikh rhino.     //brian edit changed "sikh" to "Sikh"
+			- Attar, the Sikh rhino.
 				You mean that hypochondriac hippo from the board game club?
 					+ No, Martin, not... never mind.
 						[section is_it_attar]
@@ -368,12 +354,12 @@ You have reached Martin, the three eyed owl.
 endi
 == psychic ==
 	
-	-[if talked_to_dog = 1] There's this dog with that Jewish hat and wearing a kilt.    //brian edit changed "jewish" to "Jewish"
+	-[if talked_to_dog = 1] There's this dog with that Jewish hat and wearing a kilt.
 		Yes yes, he sounds stingy as hell.
 			+ You must be psychic or something.
 				He wants you to put things on his head.
 					+ He already has things on his head
-						Then maybe on someone else's head.  //brian edit changed "elses" to (else's)
+						Then maybe on someone else's head.
 						Or your head.
 						Oh, I don't know, just try putting some things on some heads.
 							+ I think your head has some things to take care of, man.
@@ -384,12 +370,12 @@ endi
 		I sense something about law enforcement.
 		And a skirt.
 		Don't look under her skirt or you will have trouble with law enforcement.
-			+ That was obvious even without you saying it.
+			That was obvious even without you saying it.
 			But thanks anyway.
 				Any time, friend.
 					[section psychic]
 	-[if talked_to_frog = 1] Can you sense anything about a drunken frog in a toga?
-		Is he Slovenian?   //brian edit changed "slovenian" to "Slovenian"
+		Is he Slovenian?
 			+ Martin, just because you're a Slovenian doesn't mean every drunk person in a toga is Slovenian.
 				Anyone can be Slovenian if drunk enough.
 					+ I tried it a lot of times, but it didn't work, remember?
@@ -400,7 +386,7 @@ endi
 					+ That's nice, but what about the guy in a toga?
 						Ah, yes yes.
 							[section toga_advice]
-			+ No, I think he's roman.   //brian edit changed "roman" to "Roman"
+			+ No, I think he's roman.
 				== toga_advice ==
 				Heed my advice.
 				Make every hair fall off his head.
@@ -413,7 +399,7 @@ endi
 		I feel like I need a drink.
 			+ Very funny.
 				But honestly, you don't need my advice about that.
-				What did we say, how do we deal with anyone from the Balkan area?    //brian edit changed "balkan" to "Balkan"
+				What did we say, how do we deal with anyone from the Balkan area?
 					+ Kick him in the groin and steal his wallet?
 						[section ending_advice]
 					+ Offer him a drink and become his best friend?
@@ -423,7 +409,7 @@ endi
 	- That cow is working at the kiosk again.
 		[set cow_fun_flag 1]
 		Do not make fun of her, Viktor.
-		The repercussions would be severe.
+		The reprecussions would be severe.
 			+ So, what you're saying is that I should make fun of her a lot?
 				No, Viktor. Do not make fun of her.
 					+ Okay, I'm going to make fun of her right now. Talk to you later.
@@ -456,10 +442,10 @@ end
 == palace ==
 
 Who dares to bother me just as I wanted to take a short break in my bath?
-	+ Oh come on, you practically live in your bath.   //brian edit  added period (.) at end of sentence
+	+[if palacefirst = 0] Oh come on, you practically live in your bath.
 		Viktor, my friend, it's you. How's your travels?
 			[section palace_hello]
-	+ Martin, it's me, Viktor.
+	+[if palacefirst = 0] Martin, it's me, Viktor.
 		Viktor! > You survived! > My third eye told me you wouldn't survive your trip!
 			[section palace_hello]
 	+ Quit your whining, Martin. I have urgent questions.
@@ -471,13 +457,15 @@ Who dares to bother me just as I wanted to take a short break in my bath?
 			[set mood]
 			[end]
 end
+
 == palace_hello ==
 
+[set palacefirst 1]
 	- The dirigible almost crashed, I had to drive it for my survival.
 		Yes, I felt that in your phone vibrations. > They scare and excite me.
 			[section palace_hello]
-	- What can you tell me about a beaver and a hyena guarding an entrance?   //brian edit changed "enterance" to "entrance" to correct spelling
-		An entrance to the palace?   //brian edit changed "enterance" to "entrance" to correct spelling
+	+ What can you tell me about a beaver and a hyena guarding an entrance?
+		An entrance to the palace?
 			== somequestions ==
 			- Wow, you are so psychic.
 				Very amusing Viktor.
@@ -500,7 +488,13 @@ end
 					+ Bye.
 						[set mood]
 						[end]
-
+	+ Actually, I'll figure it out from here. Thanks Martin.
+				Any time.
+				I'm looking forward to tomorrow's newspapers.
+				Goodbye Viktor
+					+ Bye.
+						[set mood]
+						[end]
 end
 
 == tavern ==
@@ -543,7 +537,7 @@ Stroke your telephone gently and tell me your psychic concerns in a seductive vo
 					+ Yes, this is mother. How did your Latin test go, little hoot?
 						Wait a minute, how did you know about...
 						Oh, it's you.
-							+ Hahahahahahaha
+							+[blocksound snd_viktor_laugh2] Hahahahahahaha!
 								Get to the point, Viktor.
 									+[if talkedprague = 0] I'm in Prague.
 										[section prague]
@@ -571,7 +565,7 @@ My senses were right, you are still alive and ruling these lands.
 I'm surprised you even remembered me.
 	+ Actually, I ran into some minor difficulties.
 		I knew it!
-		My extrasensory senses told me you wpuld run into those.
+		My extrasensory senses told me you would run into those.
 		What a stroke of luck that you called me for assistance.
 			[section in_tavern]
 	+ I think you've blinded your fourth eye again, Martin.
@@ -625,7 +619,7 @@ end
 				No, it's all true. I'm psychic, I tell you.
 					[section psychic_tavern]
 	-[if metkafka = 1] Do you know about a mouse called Franz Kafka?
-		Yes, my mother met hin in Prague, once.
+		Yes, my mother met him in Prague, once.
 		Bought insurance from him.
 		For a while she couldn't stop talking about signing that contract with his huge pen.
 			Actually, enough about him.
@@ -652,7 +646,7 @@ end
 									[section psychic_tavern]
 	- What can you tell me about a porcupine playing a really strange guitar?
 		Oh, that's one of the backers.
-			One of whats?
+			One of what?
 				Back-vocals. He does back-vocals in a superband.
 					What's a super-band?
 						Long story.
@@ -664,11 +658,17 @@ end
 
 
 end
-== tavern_end ==
-
-
 
 end
+
+== shrooms ==
+
+Shrooms.
+	Shrooms.
+		Shroomees.
+			[end]
+
+
 === noam ===
 
 Shalom, me lad.
@@ -677,68 +677,76 @@ Shalom, me lad.
 
 == hello ==
 
-	- How come you're not in the line for the dirigible?
-		Ach feh! I cannae go there yet. > Walking around just wears out meh shoes.
-		[section hello]
-	- My name is Viktor.
-		Pleased to be meetin' ya
-		Me name is Noam McSmelliecock
+	-[if noam2 = 0] My name is Viktor.
+		[set noam2 1] Pleased to be meetin' ya
+		Me name is Noam McSmelliecock.
 		[description station_dog Noam]
 		An athlete.
-			+ I used to do semi-professional boxing.
+			I used to do semi-professional boxing.
 				How wonderfool. Which category be ya fightin' in?
-					+ I thought it was apparent.
+					I thought it was apparent.
 						[section hello]
-	- Hey, mr. traveler. Where do you plan on traveling?   //brian edit changed "mr. traveler" to "Mr. Traveler"
-		I just be travelin' to Vienna.   //brian edit changed (traveling') to (travelin') apostrophe needed only if the word is truncated, so I truncated it and left the apostrophe
-		The Jewish Athletes of Scotland Kibbutz, be visitin' the emperor of Austria-Hungary.   //brian edit changed "Kibbitz" to "Kibbutz" (kibitz is chat informally, kibbutz is communal settlement), changed (visiting') to (visitin') same reason as line 520
+	-[if noam1 = 0] How come you're not in the line for the dirigible?
+		[set noam1 1] Ach feh! I cannae go there yet. > Walking around just wears out meh shoes.
+		[section hello]
+	-[if noam2 = 1][if noam3 = 0] Hey, Noam! Where do you plan on traveling?
+		[section travelling]
+	-[if noam2 = 0][if noam3 = 0] Hey, mr. traveler. Where do you plan on traveling?
+		== travelling2 ==
+		I just be travelin' to Vienna.
+		The Jewish Athletes of Scotland Kibbutz, be visitin' the emperor of Austria-Hungary.
 		[set jew_flag 1]
-			+ What a coincidence. I'm traveling to the same place. But I'm planning to overthrow the emperor.   // brian edit changed "travelling" to "traveling" there were 10 instances of "traveling" vs 1 instance of "traveling" need to be consistent
+			+ What a coincidence. I'm traveling to the same place. But I'm planning to overthrow the emperor.
 				Strange. I got the feelin's that bein' an emperor is a lifelong shtick.
-					+ Shticks are meant to be changed.   //brian edit added "meant" to this sentence for clearer meaning (in my opinion), also see my opinion of "shtick" elsewhere (I think this should be changed)
+					+ Shticks are meant to be changed.
 						If ye be sayin' so.
 							[section hello]
-	-[if jew_flag = 1] You are Jewish? I heard you people are loaded with money! Could you spare a few coins for a ticket?
+	-[if jew_flag = 1][if noam4 = 0] You are Jewish? I heard you people are loaded with money! Could you spare a few coins for a ticket?
+		[set noam4 1]
 		Of course, all stereotypes are true.
-		But I need as much money as I can get.   //brian edit changed "have" to "get" since this is the "usual" way this is said, it's an idiomatic expression, in my opinion
+		But I need as much money as I can get.
 		Vienna is a pricey place, even for Scottish-Jewish athletes.
-		If I wasn't the only member of the kibbutz, I would easily skip the meeting.   //brian edit changed "kibbitz" to "kibbutz" ("kibitz" means speak informally, "kibbutz" is a communal settlement in Israel, typically a farm)
+		If I wasn't the only member of the kibbutz, I would easily skip the meeting.
 			+ If you gave me the ticket, I could go in your place and save you from the terrible expenses.
 				You are such a mensch, lad.
 				But a Slavic mensch.
-				Even the daft old emperor would see that you are neither Jewish nor Scottish.   //brian edit  changed "neither Jewish or Scottish" to "neither Jewish nor Scottish" since when using neither, nor is correct grammar--not or
+				Even the daft old emperor would see that you are neither Jewish nor Scottish.
 				Let aloon an athlete.
 					+ What if I had a disguise?
 						Only if it were magical.
 						[set needs_wig 1]
 							[section hello]
-			+ Scotland... Is that the county of Unwanted Kingdom?  //brian edit changed "Scottland" to "Scotland" to correct spelling
+			+ Scotland... Is that the county of Unwanted Kingdom?
 				[section unwanted]
-	+ Could you please spare a few coins for an airship ticket?
+	+[if needs_wig = 0] Could you please spare a few coins for an airship ticket?
 		Amusing question, son.
 		I wouldn't be lendin' money to the emperor of Austria-Hungary himself, let alone you.
 			+ I give you my word, I will give you a thousand crowns for every crown you lend me.
 				I give ye mah word, I'll be lendin' you a crown fer every thousand crowns you give meh.
 				[section hello]
-			+ I understand your point, but this is just a few coins a for better life of all citizens of Austria-Hungary.  //brian edit changed "a few coins for better life" to "a few coins for a better life" since this is how this is normally said
-				I'm not really sure I do care for those citizens.   //brian edit added an apostrophe (') to (I'm), changed order of words (from "really sure do I care" to "really sure I do care")
+			+ I understand your point, but this is just a few coins a for better life of all citizens of Austria-Hungary.
+				I'm not really sure I do care for those citizens.
 				Let me think a bit.
-				No, I do not care at all. I like my coins better.  //brian edit added an ending period to this sentence
+				No, I do not care at all. I like my coins better.
 				[section hello]
 			+ I wouldn't lend money to him either. But I would definitely lend some to me.
 				As for meh, I wouldn't be takin' any money from meself, lad.
 				My own interest rate would kill meh.
-			+ So if I was a Jew and Scotsman like you, would you then be so nice and lend me some money?   //brian edit changed "would be" to "was", changed "jew" to "Jew", changed "Scotman" to "Scotsman", changed "as" to "like", added comma (,) between "you" and "would" for readability, changed "than" to "then" for grammar
+			+[if needs_wig = 0] But if I was a Jew and Scotsman like you, would you then be so nice and lend me some money?
 				[section in_place_of]
-	+[if item wig][not item dress] Look, I have this wig, can I pass as a member of your kibbutz?   //brian edit changed "Kibutz" to "kibbutz" to fix spelling and remove capitalization (not needed--it's generic name)
+			+ OK, nevermind...
+				Aye.
+				[end]
+	+[if needs_wig = 1][if item wig][not item dress] Look, I have this wig, can I pass as a member of your kibbutz?
 		Ah, a fine payot it be.
 		But they be expecting a Scottish Jew, boy. > Nothing Scottish about you yet.
 			[section hello]
-	+[if item kilt][not item wig] I got this dress, can I pass as a Scotsman?
+	+[if needs_wig = 1][if item kilt][not item wig] I got this dress, can I pass as a Scotsman?
 		[section kilt]
-	+[if item dress][if item wig] I got this dress and this wig, can I pass as a Jewish-Scotsman?
-				[section everything] 
-		
+	+[if needs_wig = 1][if item dress][if item wig] I got this dress and this wig, can I pass as a Jewish-Scotsman?
+				[section everything]
+	+[if needs_wig = 1] So you will give me your ticket?
+		[section in_place_of]
 	+ Never mind.
 		[end]
 
@@ -746,25 +754,30 @@ end
 == in_place_of ==
 
 No.
-But I must admit, I really do not wish to go on that trip.   //brian edit changed "to go to that trip" to "to go on that trip" for grammar and usual way of saying this
+But I must admit, I really do not wish to go on that trip.
 If ye were me mishpocheh, I would just give ya meh ticket.
-	So, basically, if I looked like you?   //brian edit changed "i" to "I"
-		That might help, lad.
-			[set needs_wig 1]
-			[section hello]
-				
+	[if needs_wig = 0] If I were your what?
+		[if needs_wig = 0] You know, my mishpocheh... My doppleganger... My lookalike!
+			[if needs_wig = 1] So, basically, if I looked like you, you would give me the ticket to go instead of you?
+			[if needs_wig = 0] So, basically, if I looked like you?
+				[if needs_wig = 0] That might help, lad.
+				[if needs_wig = 1] Yes, lad.
+				[set needs_wig 1]
+				[section hello]
 end			
 == kilt ==
 
 	+ Look, I have a kilt! Do I look Scottish now?
-		It don' look like it be fittin' ye, lad. 
+		It don' look like it be fittin' ye, lad.
 			+ What if I wore it on my head as a hat?
 				Cunning lad.
-				But you don't be lookin' Jewish at all.   //brian edit changed "jewish" to "Jewish"
+				But you don't be lookin' Jewish at all.
 				The emperor would be seein' through yer disguise and have ye shot.
+				[end]
 
 end	
 == everything ==
+
 Aye, a kilt and a payot, that's the ticket, laddy!
 	Speaking of tickets...
 	Can I get yours now?
@@ -792,7 +805,7 @@ Aye, it is.
 Shalom, lad.
 	+ What'cha looking at?!
 		I be lookin' at the wonderful scenery of this dirigibledrome...
-			+ Oh, piss off.
+			+ Oh, piss off!
 				Maybe you should find some way to relax, you are very tense, lad...
 				[end]
 
@@ -803,7 +816,8 @@ end
 [set talked_to_frog 1]
 [not brojtocnih < 3][section got_a_wig]
 	
-	- Excuse me. Is this the line for the airship?
+	-[if frogline = 0] Is this the line for the airship?
+		[set frogline 1]
 		Line? But, what is a line, really?
 		Is it a man standing beside a man of whom each one waits to solve his own problem?
 		[mood frog smart] Or is it a large combined thought made for relaxation of each individual mind?
@@ -820,22 +834,27 @@ end
 						He asked a philosopher what he was doing there.
 						The answer lasted for two years.
 							[section excuse]
-			+ You are needlessly complicated and I do not wish to talk to you right now?
+			+ You are needlessly complicated and I do not wish to talk to you right now.
 				[mood frog smart] But talking, what is talking anyway?
-					+ Piss off.
+					This conversation is getting too deep for me.
 						[end]
-	+ Aren't you cold in that toga of yours?  //brian edit changed "this" to "that" because it's not in possession of Viktor (so not close by), it's being worn by the drunk frog (it's "away"), therefore "that" is appropriate and sounds better.  ref:  http://english.stackexchange.com/questions/42306/this-vs-that
+	+[if frogcold = 0] Aren't you cold in that toga of yours?
+		== cold ==
+		[set frogcold 1]
 		The truth warms me, young man!
 		The truth and the wine!
 		[mood frog smart] Because, in wine lies the truth.
 			[section vino_veritas]
+	+[if frogcold = 1] Are you sure you're not cold?!
+		[section cold]
 	+[if philo_flag = 1] So, you're a philosopher, eh?
 		[section philosopher]
-	- Are you alright, sir? You look a bit ill.
+	-[if frogill = 0] Are you alright, sir? You look a bit ill.
+		[set frogill 1]
 		I'm gorgeous, my friend.
 		[mood frog smart] I'm just perfect!
 		You would see it if you were in the right state of mind.
-		My grandfather said
+		My grandfather said...
 		[mood frog smart]''drink at least 2 bottles of wine each day and you will never be ill.''
 		Maybe I look a bit ill because I did not drink enough today.
 		But I would like to shake my ass!!!
@@ -855,21 +874,21 @@ end
 		Truth is where you left it. Truth is always drunk my dear friend. She never lies.
 		[mood frog smart] And also, the truth is she and the lie is he!
 		[mood frog smart] Drunk should be you and me! Can't you see?
-		[mood frog smart] I'm happy like all you tree!! So everyone should sing with me!  //brian edit  removed extra space in (I' m)
+		[mood frog smart] I'm happy like all you tree!! So everyone should sing with me!
 		In vino veritas!
 			[vino_veritas]
 	+ Ah yes, ''in vino veritas''. I had Latin in school, it's the only thing I remember.
-		Ooeeee
-		I believe you do remember also:  ''Wiena delenda est'' and ''Audentes fortuna iuvat''.   //brian edit corrected spelling of "belive" to "believe"
+		Ooeeee!
+		I believe you do remember also:  ''Vienna delenda est'' and ''Audentes fortuna iuvat''.
 			+ Nope, never heard of them.
 				Come to Rome with me and I will teach you all proverbs.
-				[mood frog smart] We will drink from dusk till dawn and make jokes about my emperor!   //brian edit made "Emperor" lower case (capitalization not needed)
+				[mood frog smart] We will drink from dusk till dawn and make jokes about my emperor!
 				[mood frog smart] I'm the greatest frog in the world because I'm...
 				I'm...
 				What am I, anyway?
 					[section excuse]
-			+ Fortune favours the audience?  //brian edit corrected spelling of "favours" from "favors" to match line 704 (either spelling is correct British English vs American English, but needs to be consistent, imo)
-				No, Fortune favours the bold.
+			+ Fortune favours the audience?
+				No, Fortune favours the bald.
 				Like Captain Picard.
 				Or was it about bravery?
 				[mood frog smart] Anyway, he who is not drunk is lost! Who is drunk will puke!
@@ -888,46 +907,70 @@ Of course I am.
 [mood frog smart] In a way, everyone's a philosopher!
 I'm just better then most of you because I'm a member of a philosophy school.
 I also earn a living wage out of it.
-	+ Which philosophy school do you attend
-		The biggest and quietest one, of course!
+	+[if frogschool = 0] Which school of philosophy did you say you belong to?
+		I told you already, how can you forget!?
+			Or did I forget?
+				Anyway...
+				[section cosanostra]
+	+[if frogschool = 0] Which school of philosophy are you?
+		[set frogschool 1] The biggest and quietest one, of course!
+		== cosanostra ==
 		It is called Cosa Nostra.
 		But that's all I'm allowed to say.
 		Very secretive school.
-		It practically rules over the Roman Empire and a big part of Texas from the shadows.   //brian edit added the word "the" before Roman Empire, capitalized Empire (proper noun)
+		It practically rules over the Roman Empire and a big part of Texas from the shadows.
 		But you didn't hear it from me. I never talk about my school.
-			+ What are the conditions to get into the Cosa Nostra school?
+			+ What are the conditions to get into the Cosa Nostra?
 				Ah, I cannot tell you that.
 				[mood frog smart] It's a secret!
+				[if frogjob = 0][set frogjob 1]
 				But I can tell you about my other job.
-					++ Do I want to hear it?
-					[mood viktor scared] Do I want to hear it?
+					+ No, I really want to learn about Cosa Nostra!
+						And I really want to not tell you!
+						So that's that.
+						[section excuse]
+					+[not frogjob = 2] What other job?
 						[section wigs]
-	+ You can afford to be an alcoholic by doing philosophy?
-		Of course not!
+					+[if frogjob = 2] You told me already, you sell wigs...
+						I did?
+						Well, I do.
+						[section wigs2]
+					+ Maybe some other time.
+						Your loss!
+						[section excuse]
+	+[if frogafford = 0] Can you afford to be an alcoholic by doing philosophy?
+		[set frogafford 1] Of course not!
 			[section wigs]
 				
 end	
 == wigs ==
 
-I also sell wigs.
+[set frogjob 2] I sell wigs!
+== wigs2 ==
 Wigs earn tons of money.
 Possibly too much. So I decided to help out the philosophy circle.
 [mood frog smart] Free wigs for all philosophers!
 	+[if needs_wig = 1] So, can I get a free wig? I've always wanted to have long and curly hair.
 		[mood frog smart][set wig_flag 1] You, my boy, look way too sober to be a philosopher.
 			[section viktor_philosophy]
+	+ Why would a philosopher need a wig?
+		Maybe to impersonate another philosopher?
+			Or to impersonate himself.
+			[section excuse]
 	+ That's noble of you, I guess.
 		I'm noble all over!
 		No, wait, what's the other word like noble, but drunk?
 		Oh yes, drunk!
 		Free wigs for all philosophers!
-			[section hello]
-
-			
+			[section excuse]
 end	
+
 == viktor_angry ==
 
-	+[if wig_flag = 1] Gimmme a wig! 
+You look angry, my friend.
+Anger leads to hate.
+And hate leads to drinking.
+	+[if frogjob = 2][if needs_wig = 1] Gimmme a wig!
 		When you prove that you're a good philosopher, you can get a wig.
 			+ I'll shove each and every wig down your mouth until you start pooping hairballs!
 				Your orgies sound nothing like Roman orgies.
@@ -968,8 +1011,14 @@ end
 				But what is life?
 					+ I think I'll go home and demolish my room again.
 						[end]
+	+ Piss off, frogger!
+		Yes!
+		But first I have to drink a lot.
+		Then pissing.
+		[end]
 
 end	
+
 == viktor_philosophy ==
 When you prove that you're a good philosopher, you can get a wig.
 	+ Ask me something about philosophy.
@@ -1000,8 +1049,8 @@ When you prove that you're a good philosopher, you can get a wig.
 == pitanje2 ==
 Next question!
 What is anger?
-	+ Anger is sleeping at the bottom of a wine bottle?  //brian edit "added the word "a" before "wine bottle"  (just sounds better and could still be said by a drunk frog, lol   )
-		Then I would be angry at least 5 times a day.  //brian edit changed "timed" to "times" since this is the word you meant
+	+ Anger is sleeping at the bottom of a wine bottle?
+		Then I would be angry at least 5 times a day.
 		And I'm not.
 		I also love bottoms!!
 		bottommmszz o it sounds so mmmmm bottom, bottom
@@ -1047,20 +1096,20 @@ What is the most perfect test of our character?
 		Oh yes, i like that.
 		Like the emperor!
 		[add brojtocnih 1]
-		But with a few more bottles of wine!  //brian edit added the word "a" before "more bottles of wine" because it just sounds better, imo
+		But with a few more bottles of wine!
 		Correct!
 			[section pitanje4]
 	+ Tasty food?
 		With wine or without?
 			+ Including wine
 				I would like it better that way.
-				But it's still wrong wrong wrong!   /brian edit  removed the word "the" before "wrong, wrong, wrong"  (is not grammatically correct to use it here), added commas between "wrongs" (is correct grammatically, and matches line 901 ("always, always, always")
+				But it's still wrong wrong wrong!
 				Err, what?
 				Oh yes, answer.
 				The answer was wrong!
 					[section pitanje4]
 			+ Without
-				Oh God, how did you imagine that?   //brian edit "God" is capitalized (proper noun)
+				Oh God, how did you imagine that?
 				So far from thruth you are.
 					[section pitanje4]
 end
@@ -1072,7 +1121,7 @@ Allllways?
 	+ Wigs?
 		No no no.
 		That's just my speciality.
-		So I can earn money and look sexy like Elvis Presley or Johnny Doop.
+		So I can earn money and look sexy like Eelvis or Johnny Doop.
 			[section odabir]
 	+ A pistol?
 		Why the hell?
@@ -1106,12 +1155,12 @@ Anyway, you failed.
 But don't worry.
 Failure is always an option. 
 	+ Can I try again?
-		Well I believe you can.   //brian edit corrected spelling of "belive" to "believe"
+		Well I believe you can.
 		Time is strange thing, maybe you are more of a philosopher now hic!
 		Or is it just me?
 		Well there are always different ways to get to goal
-		But you can commit a foul and get red card like those parrots in Brassierian Empire!   //brian edit capitalized Empire (proper noun)
-		And then you have to go of a pitsh and pee on carpet and hic.   //brian edit changed "than" to "then" for grammar
+		But you can commit a foul and get red card like those parrots in Brassierian Empire!
+		And then you have to go of a pitsh and pee on carpet and hic.
 		Where do I go with this?
 		Who the hell are you?
 			+ Let me think about this
@@ -1120,17 +1169,18 @@ Failure is always an option.
 					[end]
 
 end
+
 == enough ==
 Woooowwhataaaa
 Waaaa!!!
 Ware the odds to see a great philosopher here in Agram on a dirigibledrome shtation!
 Here, my friend you can get a wig. Can you get a wig? Yes, you can get a wig!
-Do you want one that makes you look like that Texas President Ronald McDrumpf?  //brian edit capitalized "President" since it is part of a proper noun ("President Ronald McDrumpf")
-	+ Actually, I would like to have a Jewish orthodox wig.  //brian edit added a period (.) to make the sentence complete
+Do you want one that makes you look like that Texas President Ronald McDrumpf?
+	+ Actually, I would like to have a Jewish orthodox wig.
 		I have exactly what you need!
 		A long curly wig!
 		Made from the hair of the finest poodle buried in the catacombs under the Arena!
-		Our finest Arena!  //brian edit capitalized "Arena" since it was capitalized in line 962 (for consistency)  both should be either capitalized or not, either is ok, imo
+		Our finest Arena!
 		Here you go!
 		[animation player spr_viktor_use_left_middle][take wig]
 		Now off with you!
@@ -1141,63 +1191,74 @@ Do you want one that makes you look like that Texas President Ronald McDrumpf?  
 				Am I in Africa?
 					[end]
 end
+
 == got_a_wig ==
+
 Ah, my philosopher friend.
 We will not sit in same cupe hic, unfortunately.
 They don't let me sit with other people.
-But I hope that soon enough, we would have a great philosophic disssssscussssssion.  //brian edit  added comma between "enough" and "we" for readability (note, left mispelling of disscusion because character is drunk--he might slur words and I added more "s" to show this
+But I hope that soon enough, we would have a great philosophic disssssscussssssion.
 	+ I hope that next time you talk with me as an emperor.
 		[section wewill]
-	+[if mood] We will, we will.
+	+ We will, we will.
 		== wewill ==
 		So till next time my dear phylosopher Emperor.
 		Philosempre... Phisolemphres...
 		Emperor of philosophy!
 		Emperor of wine!
-		And truth! The truth! And nothing but it!
+		And truth! The whole truth! And nothing but it!
 		Oh look at me blabbering.
-		I have to drink more so I' get smart again.
+		I have to drink more so I get smart again.
 			[end]
 
 end
+
 === donkey ===
 
 == start ==
 [set talked_to_donkey 1]
 	+ I would like to enter the dirigible
-		And your ticket is where?   //brian edit  changed "you" to "your" for grammar
+		And your ticket is where?
+			+[if coins = 5] I don't have it, but I have money to buy it.
+				[section buy]
+			+[if coins < 5] I don't have it, but I have money to buy it.
+				You need 5 coins, piggy!
+				Come back when you have enough money, poor Cro piggy.
+				[section start]
 			+[if item ticket] Here it is!
 				OK, the ticket is good, go on!
-				[animations player player spr_viktor_walk_left][move player 180 3][time 60] > [room coupe start]
-			+ I don't need a ticket, I'm on the list
-				[mood donkey angry] List? What fuckin' list. Do not give me shit man, go down there and buy yourself a ticket.   //brian edit added apostrophe to (fuckin') since it's a "abbreviated word"
+				[animations player player spr_viktor_walk_left][move player 180 3][time 60] > [set ticketgood 1][end]
+			+[not item ticket] I don't need a ticket, I'm on the list
+				[mood donkey angry] List? What list?! Do not give me shit man, go down there and buy yourself a ticket.
 					[section start]
-			+ Why would I need a ticket? I'm the next emperor of Austria-Hungary.
-				[mood donkey angry] Are you zonked? What are you gibbering all about. Seems like you are doped like horse ass.   //brian edit changed "Seams" to "Seems" as this is the correct word spelling when used like this
+			+[not item ticket] Why would I need a ticket? I'm the next emperor of Austria-Hungary.
+				[mood donkey angry] Are you zonked? What are you gibbering all about. Seems like you are doped like horse ass.
 					[section start]
-			+ Oh come on, you would let a cousin in. My mother's uncle's chiropractician is Bosnian, just like you.
-				[mood donkey angry] Of course I would let cousin in, but I believe you try to make monkey out of me, bro.  //brian edit added space between "Of" and "course", corrected spelling of "believe", added comma after "in" and before "but" and "me" and before "bro" for readability
-				[mood donkey angry] How the smag can I know that your uncle's mother's neighbour is from Bosnia?  //brian edit made (mother's) possessive since it was shown that way originally in line 1009
+			+[not item ticket] Oh come on, you would let a cousin in. My mother's uncle's chiropractician is Bosnian, just like you.
+				[mood donkey angry] Of course I would let cousin in, but I believe you try to make monkey out of me, bro.
+				[mood donkey angry] How the smag can I know that your uncle's mother's neighbour is from Bosnia?
 					[section start]
-			+ Can't we take care of this some other way?
+			+[not item ticket] Can't we take care of this some other way?
 				No.
 					[end]
-	+ My name is Viktor. I'm the next emperor of Austria Hungary. Let me aboard.  //brian edit  added period (.) at end of sentence
-		Did you smoke some weird shit man?  //brian edit  corrected spelling of "wierd" to "weird"
-		[mood donkey angry] What the fuck are you bullshitting around here?  //brian edit corrected spelling of "bullshitting" (from "bullshiting") and make the statement a question (since it is)
-		[mood donkey angry] You lasagna eater, go suck your lasagnas.   //brian edit   added comma (,) between "eater" and "go" for readability
+	+ My name is Viktor. I'm the next emperor of Austria Hungary. Let me aboard.
+		Did you smoke some weird shit man?
+		[mood donkey angry] What are you bullshitting around here?
+		[mood donkey angry] You lasagna eater, go suck your lasagnas.
 			+ Sir, I'm a customer of this dirigibledrome and you have no right to talk to me like this.
 				[mood donkey angry] You are just a douchebag.
 				[mood donkey angry] Without ticket.
 				[mood donkey angry] Ticketless douchebag.
+					[if item ticket] Actually, I have a ticket.
+						[if item ticket] You're still a douchebag.
 					[section start]
 			+ Look who's talking! A Bosnian donkey that will smash this dirigible into the first chimney.
-				[mood donkey angry] Like you would drive it better, you fat grey, piece of vomit.   //brian edit  added comma (,) between "better" and "you" for readability, added comma between "fat" and "grey", changed "peace" to "piece" since this is the correct spelling for this word meaning
+				[mood donkey angry] Like you would drive it better, you fat grey, piece of vomit.
 					Let's race and find out!
 					[section bet]
-	+ Is this the dirigible for Vienna?   //brian edit capitalized "Vienna" (proper noun)
-		Nope my friend, it will leave for Sarajevo.   //brian edit added comma (,) between "friend" and "it" for readability
-		Yeeea it will go for Wiena, you illiterate piggy.  //brian edit added comma (,) between "Wiena" and "you" for readability
+	+ Is this the dirigible for Vienna?
+		Nope my friend, it will leave for Sarajevo.
+		[mood donkey angry] Yeaaaa it will go for Vienna, you illiterate piggy!
 		[mood donkey angry] Can't you read your ticket, dumbass?
 			++ No, you dumbass because I don't, in fact, have a ticket.
 			[mood angry] No, you dumbass because I don't, in fact, have a ticket.
@@ -1206,67 +1267,83 @@ end
 	+ Never mind.
 		[end]
 	+[if raced = 1] Let's race again!
-			[room dirigibles start]
+			[set racenow 1][end]
 
 end			
 == viktor_angry ==
 
-	++What'cha looking at, moron?
+[set donkeyangry 1]
+	++ What'cha looking at, moron?
 	[mood angry]What'cha looking at, moron?
 		What, what??
-		[mood donkey angry] Well, when you are standing in front of me as pile of shit, I have to look at you.  //brian edit  added commas for readability
+		[mood donkey angry] Well, when you are standing in front of me as pile of shit, I have to look at you.
 			-+ Your mom is a pile of shit, you son of a pile of shit
-			[mood angry]Your mom is a pile of shit, you son of a pile of shit
+			[mood angry] Your mom is a pile of shit, you son of a pile of shit!
 				Look piggy is trying to insult someone from Bosnia.
-				[mood donkey angry] Go fuck yourself and stand there in line like everyone.   //brian edit inserted space between words "fuck" and "yourself" for readability
+				[mood donkey angry] I shit on your grandfather now go stand in line like everyone.
+				[animations donkey spr_donkey_talk_angry][animations player spr_viktor_talk_left_angry][time 30]
+				[animations donkey spr_donkey_talk_angry][animations player spr_viktor_talk_left_angry][talk rabbit] What is going on over there?
+				[animations donkey spr_donkey_talk_angry][animations player spr_viktor_talk_left_angry][talk frog] They are practicing Balkan philosophy.
+					I shit on you!
+						[mood donkey angry] No, I shit on you!
 					[end]
 			++ You are obviously blind as a donkey. How the hell do you expect to drive with those shit eyes?
 			[mood angry]You are obviously blind as a donkey. How the hell do you expect to drive with those shit eyes?
 				[mood donkey angry] No, you will drive, pig face? 
 					++ I could drive better and faster than you with one hand and no shoes!
 					[mood angry] I could drive better and faster than you with one hand and no shoes!
-						[mood donkey angry] Little shit wish to bet? I say you can not?  What I'm talking about, you are not that little at all.  //brian edit  added apostrophe to (I'm) and added comma (,) for readability
+						[mood donkey angry] Little shit wish to bet? I say you can not?  What I'm talking about, you are not that little at all.
 							[section bet]
 					++ I can and I will, let me in!
 					[mood angry] I can and I will, let me in!
 						No, no you can not drive this one. I have smaller ones if you wish to try.
 							[section bet]
+	++ Let me in the dirigible!
+	[mood angry] Let me in the dirigible you dumb-ass!
+		No.
+		[end]
 
-end	
+end
+
 == bet ==
 
 [set raced 1]
-If you win, what will not happened, because you looks like lost case, I will let you fly without ticket.  //brian edit  this is not grammatically correct, but this is deliberate, but needs commas for readability, imo
+[set mood angry]
+If you win, what will not happened, because you looks like lost case, I will let you fly without ticket.
 [talk frog] Can I try it also?
-[mood donkey angry] Shut up you drunky, blabbing smag, you already have a ticket  //brian edit  added commas for readability, and corrected spelling for "blabbing"
-Aha and if I win, I will, I will hmm ... have right to kick you in the butt!?   //brian edit added comma and ... for readability
+[mood donkey angry] Shut up you drunky, blabbing smag, you already have a ticket...
+Aha and if I win, I will, I will hmm ... have right to kick you in the butt!?
 Is that a deal, mushroom eater?  
-	- A cockroach would drive better then you, asshead!
+	- A cockroach would drive better then you, ass-head!
+		[talk frog] Actually, I once met a cockroach in Prague...
+		[talk frog] I think he would be a great driver.
+		[talk frog] He has six arms to pilot after all.
 		Ooo piggy is still trying to provoke me.
 		I have a joke for you Cro piggy pig.
-		Croatian gets into a coffee shop in Sarajevo.  //brian edit corrected spelling of "coffe" to  "coffee"
-			++ I'm not in the mood for this.
-			[mood angry] I'm not in the mood for this.
-				He says, please one coffee!   //brian edit corrected spelling of "coffe" to "coffee", added comma for readability
+		Croatian gets into a coffee shop in Sarajevo.
+			+ I'm not in the mood for this!
+				He says, please one coffee!
 				We have none.
 				How come?
-				What are all those customers drink around than?   //brian edit capitalized "What"  left "than" in place even though it's wrong because this is the donkey
-				Café    //brian edit changed "Cafe" to "Café"  (accent symbol on e)
+				What are all those customers drink around than?
+				Café
 				That is the same!
 				Is it same if I ping or pong your wife?
-					+ And what did you try to tell me with that? It's not even a joke!
-						You see, I'm smarter than you.     //brian edit   added comma for readability
+					And what did you try to tell me with that? It's not even a joke!
+						You see, I'm smarter than you.
 						I know what I tried to say with that and you do not.
-							+ Let's just race, ass.
-								[set race 1][room dirigibles start]
+							Let's just race, ass.
+							[set mood][set racenow 1][end]
+			+ Shut up and drive!
+				[set mood][set racenow 1][end]
 	+ Shut up and drive!
-		[room dirigibles start]
+		[set mood][set racenow 1][end]
 
 
 end	
 == lost ==
 	++[not dirigibles_part = 1] Not fair!
-	[set mood angry] That's not fair, my dirigible has a part missing.
+	[set mood angry] That's not fair, my dirigible had a part missing.
 		Deal is deal, bend over pig.
 		[animation player spr_viktor_walk_left_angry][moveto player 290 665]
 		[create asskick 40][destroy asskick 50][animation donkey spr_donkey_kick][imagespeed donkey 0.6][animation player spr_viktor_kicked][time 40]
@@ -1276,18 +1353,23 @@ end
 				Hey, you know why was the pig ejected from the football game?
 					+ I'm no longer listening
 						For playing dirty.
-						Hahahahaha
+						Hahahahaha!
 						[set mood]
+						[if donkeyangry = 1][set donkeyangry 0][set mood angry]
+						
 							[end]
-	+[if dirigibles_part = 1] I'm mega, super, turbo, giga, ultra sure I will win the next race.   //brian edit removed extra space from (I'm)
-		There is only one way we can find it out, pig face.   //brian edit added comma for readability
+	+[if dirigibles_part = 1] I'm mega, super, turbo, giga, ultra sure I will win the next race!
+		There is only one way we can find it out, pig face.
 		Now bend over.
+		== kickass ==
 		[animation player spr_viktor_walk_left_angry][moveto player 290 665]
 		[create asskick 40][destroy asskick 50][animation donkey spr_donkey_kick][imagespeed donkey 0.6][animation player spr_viktor_kicked][time 40]
-		[draw spr_cloud_medium 290 650 10 -1000 0.3 1 0 15 45 0 0 0 -0.01][draw spr_cloud_medium 290 650 10 -1000 0.3 1 0 15 135 0 0 0 -0.01][draw spr_cloud_medium 290 650 10 -1000 0.3 1 0 15 215 0 0 0 -0.01][moveto player 400 700]
+		[draw spr_cloud_medium 290 650 10 -1000 0.3 1 0 15 45 0 0 0 -0.01][draw spr_cloud_medium 290 650 10 -1000 0.3 1 0 15 135 0 0 0 -0.01][draw spr_cloud_medium 290 650 10 -1000 0.3 1 0 15 215 0 0 0 -0.01][move player 0 3][time 20]
 		[imagespeeds donkey 0.4][imagespeed donkey 0.4]
-			+ You will eat my dust this time.
+			+ You will eat my dust next time!
 				As well as you will be new emperor.
+					[set mood]
+					[if donkeyangry = 1][set donkeyangry 0][set mood angry]
 					[end]
 		
 end	
@@ -1296,9 +1378,11 @@ end
 	+ So, I get to drive for free now?
 		If you this good, you are even free to pilot.
 		[take ticket] Here, have a ticket.
-			+ No need, I'll just get a nice coupe.   //brian edit  added period (.) to end of sentence
-			[direction front] Well, this really, really made me happy.   //brian edit added comma (,) between the two "really" for readability
-			[direction front] My plan is going perfectly!			
+			+ No need, I'll just get a nice coupe.
+			[direction front] Well, this really, really made me happy.
+			[direction front] My plan is going perfectly!		
+			[animations player player spr_viktor_walk_left][move player 180 3][time 60] > [set ticketgood 1]
+				[set mood]
 				[end]
 
 
@@ -1309,11 +1393,11 @@ Is that 5 coins?
 	+[if coins = 5] Yes, I would like to buy a ticket.
 		Enjoy your trip, sir.
 		I hope you die in a crash.
-		[if coins = 5][give coin]
+		[give coin]
 		[take ticket][set coins 0]
-			[direction front] Well, this really, really made me happy.   //brian edit  added comma (,) between the two "really" for readability
+			[direction front] Well, this really, really made me happy.
 			[direction front] My plan is going perfectly!			
-			[end]
+			[set ticketgood 1][end]
 	+ Never mind
 		[end]
 
@@ -1323,10 +1407,10 @@ end
 
 == start ==
 [set talked_to_rabbit 1]
-	+ What an awesome automaton. Where is it from?
-		[section robot]						
-	+ I am Viktor, a soon-to-be emperor of Austria Hungary.
-		Tee hee (⌒ω⌒)
+	+[if rabbitrobot = 0] What an awesome automaton. Where is it from?
+		[set rabbitrobot 1][section robot]
+	+[if rabbitname = 0] I am Viktor, a soon-to-be emperor of Austria Hungary.
+		[set rabbitname 1] Tee hee (⌒ω⌒)
 		I am Fuka Misaki, soon-to-be angry passenger (⌒_⌒;)
 		[description rabbit Ms. Misaki]
 			+ You already decided you will dislike the service in the airship?
@@ -1336,12 +1420,12 @@ end
 		+ What a coincidence, I also plan on being an angry passenger.
 			I already angry (｀ﾛ´) so now must become passenger (*^ω^)
 				[section letme]
-	- Are you standing in a line for the airship?
-		Sadness no, desu (o︶︹︺) > I just wait here all worries!
+	+[if rabbitline = 0] Are you standing in a line for the airship?
+		[set rabbitline 1] Sadness no, desu (o︶︹︺) > I just wait here all worries!
 			[section letme]
-	-[if cleanup = 1] Is there something wrong with your automaton?
-		Slightly sadness, desu (´д｀)
-		ROBOTOTRON4ULTRA get hit by huge ball of abyss (」゜ロ゜)」
+	-[if cleanup = 1][if cleanuptalk = 0] Is there something wrong with your automaton?
+		[set cleanuptalk 1] Slightly sadness, desu (´д｀)
+		ROBOTOTRON4ULTRA get hit by huge ball of abyss (」•ロ•)」
 		But lucky, ROBOTOTRON4ULTRA may lose many parts before stop work fully (*^ω^)
 			+ Can I take the parts that are falling off?
 				No possibility senpai.
@@ -1370,7 +1454,7 @@ They impolitely not let me inside, desu (＃￣ω￣)
 end	
 == robot ==
 
-Tee-hee, it ROBOTOTRON4ULTRA from the Empire of Nippleon ^^      //brian edit capitalized Empire (proper noun)
+Tee-hee, it ROBOTOTRON4ULTRA from the Empire of Nippleon ^^
 [set imfromnip 1]
 Ultra-kawai-machine for movements of greater speed.
 And is protection from impolite men, of course, desu. ^^
@@ -1380,9 +1464,9 @@ And is protection from impolite men, of course, desu. ^^
 			[section start]
 	+ I heard Nippleonian soldiers can cut the head of any villager they wish.
 		You misunderstand rules of conducts (￣ヘ￣)
-		Samurai is not all just go places decapitate villagers.   //brian edit correct spelling of "decapitate" (since it was shown correct for this characters all other places), corrected spelling of "villagers"
+		Samurai is not all just go places decapitate villagers.
 		Exception of Miyamoto Wasabi, he is just decapitate villagers all the time! (─‿‿─)♡.
-		Everywhere he go, he is just decapitate, decapitate, decapitate!   //brian edit added commas between "decapitate"
+		Everywhere he go, he is just decapitate, decapitate, decapitate!
 		(´｡• ω •｡`) ♡
 		But he not real, is action star from manga, desu.
 			[section start]
@@ -1390,7 +1474,7 @@ And is protection from impolite men, of course, desu. ^^
 end	
 == diet ==
 
-But person impolitely say I am too heavy for enter.  //brian edit added period (.) for end of sentence
+But person impolitely say I am too heavy for enter.
 So now I go on extra diet (´д｀)
 I so hungry, I could decapitate!
 	[section diet2]
@@ -1399,7 +1483,7 @@ end
 == diet2 ==
 
 	+ Would you like me to recommend you a diet? I know a few really good ones.
-		Do not be in offence, senpai.   //brian edit  added comma for readability
+		Do not be in offence, senpai.
 		But I see highly apparent your diet is not of most successful kind, desu （*´▽｀*）
 			- Oh it would work great if I wouldn't give up on it after a few hours.
 				My most long diet is being for six years.
@@ -1422,7 +1506,7 @@ end
 									[section finish]
 	+ You do understand that you would be much lighter without the automaton, right?
 		Oh no no no...
-		I could never be travel without ROBOTOTRON4ULTRA (」゜ロ゜)」
+		I could never be travel without ROBOTOTRON4ULTRA (」•ロ•)」
 		If Shitsureina find out, I seppuku for sure, desu
 			+ Shitsureina is your mother?
 				[section shitsureina]
@@ -1468,7 +1552,7 @@ end
 == finish ==
 
 	+ This conversation is starting of confusion.
-	Oh great, now I start talking like you! (」゜ロ゜)」 > Sorry, I need to rest a bit .
+	Oh great, now I start talking like you! (」•ロ•)」 > Sorry, I need to rest a bit.
 		Sayonara senpai ^^
 			[end]
 
@@ -1494,7 +1578,7 @@ What?
 			+[if cow_fun_flag = 1] So, you don't have any newspapers?
 				[section away]
 			+ It looks like a ticket office
-				Yes Mr. Sherlock. It's a ticket office.    //brian edit capitalized "Mr."
+				Yes Mr. Sherlock. It's a ticket office.
 				And you're annoying me during my meal.
 					-[if cow_fun_flag = 1] Do you have tram tickets?
 						No, just dirigible tickets
@@ -1502,25 +1586,25 @@ What?
 								[section away]
 							+ And what about newspapers?
 								[section away]
-							+ Then I would like a ticket to Vienna.   //brian edit  added a period (.) to end of sentence
+							+ Then I would like a ticket to Vienna.
 								[section price]
-					+ I would like a ticket to Vienna.   //brian edit   added a period (.) to end of sentence
+					+ I would like a ticket to Vienna.
 						Why would you want a ticket to Vienna?						
 						[set mood angry] Better spend that money on a new coat.
-							++ Don't tell me how to spend my money.   //brian edit   added a period (.) to end of sentence
-							Don't tell me how to spend my money.    //brian edit   added a period (.) to end of sentence
+							++ Don't tell me how to spend my money.
+							Don't tell me how to spend my money.
 								[section price]
 							+ I'll get a new coat once I go to Vienna and become the next emperor.
 								[section price]
-			+[if cow_fun_flag = 1] It looks like a prison for an aging cow.  //brian edit   added a period (.) to end of sentence
+			+[if cow_fun_flag = 1] It looks like a prison for an aging cow.
 				We sell dirigible tickets here.
-				And the price just went up.   //brian edit added a period (.) to end of sentence
+				And the price just went up.
 					++ Who gave you the right to set ticket prices?
 					[mood angry] Who gave you the right to set ticket prices?
 						Who gave you the right to ask me who gave me the right to set ticket prices?
 						I can do whatever I want here.
-							++ What do you know about rights or anything from this smelly, old kiosk?   //brian edit  added comma (,) between "smelly" and "old" for readability
-							[mood angry] What do you know about rights or anything from this smelly, old kiosk?   //brian edit   added comma (,) between "smelly" and "old" for readability
+							++ What do you know about rights or anything from this smelly, old kiosk?
+							[mood angry] What do you know about rights or anything from this smelly, old kiosk?
 								[section anger]
 
 end										
@@ -1528,7 +1612,7 @@ end
 
 [set mood scared]
 Whatever floats your rock, son.
-Ticket to Vienna will be five crowns.   //brian edit  added period (.) to end of sentence
+Ticket to Vienna will be five crowns.
 Do you even have that much? I believe not.
 	+ I do not, in fact, have that much, but thank you for your concern.
 		Goodbye. Don't come back ever again.
@@ -1540,10 +1624,10 @@ Do you even have that much? I believe not.
 	+ I may or may not have that much. What do you care?
 		You look like you don't have that much.
 		[set mood angry]
-			++[if cow_fun_flag = 1] And you look like a smelly, old cow trapped in a kiosk.   //brian edit   added comma between "smelly" and "old" for readability
-			[mood angry] And you look like a smelly, old cow trapped in a kiosk.   //brian edit  added comma between "smelly" and "old" for readability
+			++[if cow_fun_flag = 1] And you look like a smelly, old cow trapped in a kiosk.
+			[mood angry] And you look like a smelly, old cow trapped in a kiosk.
 				[section anger]
-			+ Do not judge a person by his garments.   //brian edit   added period (.) to end of sentence
+			+ Do not judge a person by his garments.
 				I am not a judge, I'm here to sell tickets.
 					+ Then sell them to someone else. You just lost a customer.
 						There was a customer behind you?
@@ -1556,6 +1640,7 @@ Do you even have that much? I believe not.
 			+ Let me think about it, actually
 				You can think while I eat.
 				Good bye.
+					[set mood]
 					[end]
 			+ Yes, I want the ticket.
 				[give coin][take ticket][set coins 0]
@@ -1571,7 +1656,7 @@ Retract your statement, young man. Retract it right now!!!
 	+ I'm sorry granny. I talked about another kiosk, not yours.
 		This is the only kiosk in the area.
 		What kiosk did you talk about, then?
-			+[if cleanup = 0] Some other kiosk with some other ugly old cow imprisoned inside.    //brian edit  added period (.) to end of sentence
+			+[if cleanup = 0] Some other kiosk with some other ugly old cow imprisoned inside.
 				[section throwstuff]
 			+ The kebab kiosk in the lower Agram.
 				Eww. That sounds terrible.
@@ -1585,7 +1670,7 @@ end
 [set mood scared][direction left][other][animations spr_viktor_listen_left_scared] Get ready to meet your maker, pig!
 [move player 0 5][animations spr_viktor_back_off][time 10][draw spr_station_anchor 0 500 30 1501 1 1 0 30 15 3 -1 1] > [sound snd_take2][move player 0 5][time 10][draw spr_station_ball 0 500 180 1501 1 1 0 30 45 3 -1 1] > [move player 0 5][time 10][draw spr_station_hammer 0 500 180 1501 1 1 0 30 15 10 -1 1] > [move player 0 5][time 10][draw spr_station_sickle 0 500 180 1501 1 1 0 30 45 3 -1 1] > [sound snd_take2][move player 0 5][sound snd_glass_break][time 10][sound snd_oven_break][draw spr_station_hanger 0 500 180 1501 1 1 0 30 15 3 -1 1] > [sound snd_take2][move player 0 5][time 10][draw spr_station_pipe 0 500 180 1501 1 1 0 30 45 3 -1 1] > [sound snd_take2][move player 0 5][time 10][create station_cake 20][draw spr_station_cake 0 600 20 1500 1 1 0 20 0 1 -1 1][draw spr_station_plate 0 630 20 1501 1 1 0 20 0 1 -1 1] > [sound snd_take2][move player 0 5][time 10][sound snd_glass_break][create station_stuck 30][draw spr_station_record 0 500 30 1501 1 1 0 27 2 0 -1 1] > [sound snd_log][move player 0 0][animations spr_viktor_listen_left_scared][time 10][create station_pants 20][draw spr_station_pants 0 600 15 1500 1 1 -45 15 0 1 -1 1] > [sound snd_vase_break][time 10][draw spr_station_plant 0 500 30 1501 1 1 0 12 -30 0 0 0] > [sound snd_take2][time 20][draw spr_station_suriken 0 500 180 1501 1 1 0 30 15 10 -1 1] > [set mood scared][direction left][other][draw spr_station_plant 330 740 13 1501 1 1 0 0 0 0 -1 1][create station_plant 12][sound snd_clock_break]
 [other] Did I hit him?
-[direction left][talk station_dog] I'm afraid not, ma'am.        //brian edit changed "mam" to "ma'am" for spelling
+[direction left][talk station_dog] I'm afraid not, ma'am.
 [player][direction left][mood angry] I'm still here, old cow!
 [other] Damn. > [set mood][other] Clean up on section 2!
 [end]
@@ -1611,7 +1696,7 @@ end
 	+ Attar!
 [if attar_seen = 0] Viktor, is that you?
 [if attar_seen = 0][set attar_seen 1] I almost had trouble recognizing you out of your work uniform.
-How is life faring for you, Viktor?   //brian edit changed "fairing" to "faring" as this is the spelling of the word for this meaning
+How is life faring for you, Viktor?
 
 == hello ==
 
@@ -1630,7 +1715,7 @@ How is life faring for you, Viktor?   //brian edit changed "fairing" to "faring"
 					+ I don't think I would do a worse job then generations of inbred show dogs.
 						The emperor is cruel, yet effective.
 						You are a nice and intelligent person, until anger starts controlling you.
-						Rage is one of the seven thieves inside us, Viktor.    //brian edit  added the word "the" before "seven" for grammar
+						Rage is one of the seven thieves inside us, Viktor.
 						Learn to subdue it, and you might become good emperor material.
 							[section thief]
 			+ This can be won, Attar! Nobody really expects a person to just march into the palace and overthrow the emperor.
@@ -1639,7 +1724,7 @@ How is life faring for you, Viktor?   //brian edit changed "fairing" to "faring"
 		Making steam toys, my friend, is a great way to earn extra pocket change.
 		[set chitchat_flag 1]
 		[if bought_cell_flag = 1][set toys_flag 1]
-		Unfortunately, street sweeping is still the job that feeds my family.   //brian edit  substituted "the" for "a" in "is still the job that feeds my family" since this refers to a definite job ("a" is an indefinite article)
+		Unfortunately, street sweeping is still the job that feeds my family.
 			+ What about that job doing technical support over telephones?
 				Ah...
 				They expect a person to speak fluently in nine different European languages.
@@ -1665,12 +1750,12 @@ How is life faring for you, Viktor?   //brian edit changed "fairing" to "faring"
 	-[if toys_flag = 1] I love your toys! Did you build anything new recently?
 		Nothing exciting, I'm afraid.
 		I have mostly been making spare parts for the airport's flying shuttles.
-			+ So, if I described to you, a broken part of the airport shuttle, you could make me one?   //brian edit substituted "the" for "a" in "is still the job that feeds my family" since this refers to a definite job ("a" is an indefinite article)added "to" to the phrase "if I described to you, a broken part of the airport shuttle" for readability, added comma between "you" and "a" for readability
+			+ So, if I described to you, a broken part of the airport shuttle, you could make me one?
 				Possibly.
 				But I might need some metal to build it with.
 				Or money, money can easily be converted into anything.
-					+ Would you accept an IOU from a future emperor?    //brian edit removed apostrophe from "IOUs" (not correct)
-						I would have enough trouble accepting IOUs from the current emperor.    //brian edit removed apostrophe from "IOUs" (not correct)
+					+ Would you accept an IOU from a future emperor?
+						I would have enough trouble accepting an IOU from the current emperor.
 							[section hello]
 					++ Dammit, that should be your full time job, not this dead end excuse for hygiene!
 					[mood angry] Dammit, that should be your full time job, not this dead end excuse for hygiene!
@@ -1679,6 +1764,7 @@ How is life faring for you, Viktor?   //brian edit changed "fairing" to "faring"
 						Otherwise, I would have to work in a factory.
 						They would probably ship me to Mei Din.
 						In a box, like most factory workers.
+						[set mood]
 			+ That means you could probably use some spare parts.
 				Of course. I would even be willing to pay money for quality parts.
 					++ Dammit, that should be your full time job, not this dead end excuse for hygiene!
@@ -1723,7 +1809,7 @@ How is life faring for you, Viktor?   //brian edit changed "fairing" to "faring"
 					+ Can't wait to see it!
 						[section hello]
 	+[if item cell][if bought_cell_flag = 1] Changed your mind about the cell?
-		No, I don't want it.   //brian edit  added apostrophe to (don't)
+		No, I don't want it.
 		Unless you don't want it.
 			+ For a coin, I don't want it.
 				Done.
@@ -1761,16 +1847,16 @@ Do you really think that everyone will just listen to you because you are the on
 			[section hello]
 	+ Would you listen?
 		Good point.
-		But it's still too risky for me.   //brian edit   changed "myself" to "me" (because it sounds better, imo)
+		But it's still too risky for me.
 		My wife would kill me.
 			[section hello]
 end
 == thief ==
 	- There is nothing wrong with getting a blackout-inducing bloodlust from time to time. It helped me a lot in prison.
 		Please, Viktor. No more prison stories.
-		You were there less than a year and it's like you have a different story for each day.  //brian edit changed changed "have been there" to "were there", also changed "less then a year" to "less than a year" for grammar
+		You were there less than a year and it's like you have a different story for each day.
 			[section hello]
-	- Again with you and your thieves. I wouldn't be surprised if you stop making toys and start making alarm systems.   //brian edit  changed "won't" to (wouldn't) to make the verb tense the same in the sentence
+	- Again with you and your thieves. I wouldn't be surprised if you stop making toys and start making alarm systems.
 		[set toys_flag 1]
 		You cannot put an alarm system on your soul.
 		But you can conjure an alarm system in your mind.
@@ -1840,12 +1926,12 @@ end
 			+ Oh yes. Mozart, Dvorak, even the modern stuff like Joplin.
 				Exquisite choice.
 				I recently tried listening to some Saint-Saëns.
-					+ Charles-Camille Saint-Saëns? I love the Carnival of Animals!   //brian edit  corrected spelling of "Saint-Saens" to "Saint-Saëns"  (ë character) to match line 1671
+					+ Charles-Camille Saint-Saëns? I love the Carnival of Animals!
 						That goes without question.
 						But my current favorite is the Cello Concerto in A-Minor.
 						Beautiful music for rainy weather.
-						I even bought an extra record to listen to, during my travel.   //brian edit  added the word "to" and a comma after "listen" and before "during" for readability
-						I can give it to you if you want.   //brian edit changed "wanted" to "want" to match verb tense in the sentence
+						I even bought an extra record to listen to, during my travel.
+						I can give it to you if you want.
 							+ Oh, I couldn't really.
 								I insist
 									+ Well, if you insist...
@@ -1864,18 +1950,17 @@ end
 		Let's just say I have a feeling that something important will happen on this journey.
 		[add vienna_travel 1]
 			[section hello]	
-	-[if repair_flag = 1] I hope you won't mind seeing a new emperor of Austria-Hungary.  //brian edit  changed "wouldn't seeing a new emperor" to "won't be seeing a new emperor" for grammar  (This is HG Wells, after all) - Watashi added "mind", I have no idea how this got lost -.-
+	-[if repair_flag = 1] I hope you won't mind seeing a new emperor of Austria-Hungary.
 		I didn't know the empire plans on switching to democratic elections.
 		[set ouster_talked 1]
 			+ I'm not sure what you mean by ''elections''.
-			But I've heard of ''democracy''. It's when idiotic majority rules over the intelligent minority.   //brian edit  changed "I" to (I've) for grammar
-				When you simplify it that much, yes, it's something like that.
+			But I've heard of ''democracy''. It's when idiotic majority rules over the intelligent minority.
 				But democracy might have its advantages and opportunities.
 				Especially for an eloquent person of the lower class, such as yourself.
 					[section hello]		
 	-[if ouster_talked = 1] I'm actually traveling to Vienna to oust the emperor.
 	How's that for an opportunity?
-		Sounds very ambitious.   //brian edit  corrected spelling of "ambitous" to "ambitious"
+		Sounds very ambitious.
 		You think that ousting the emperor would improve this country's progress?
 			+ Unquestionably! Everything would be better with me as an emperor! Everything!
 				For you personally, I'm sure everything would be better.
@@ -1893,8 +1978,8 @@ end
 								Understandably.
 									+ This weather is kinda scaring me.
 										[section falling_dirigible]
-					+ You mean that educated ruler known for discriminating against people for their nationality or gender?   //brian edit  changed "You mean that educated ruler known for discriminating people for their nation or gender?" to "You mean that educated ruler known for discriminating against people for their nationality or gender?" for grammar
-						[animation player spr_viktor_talk_left_coupe 5]Nationality, religion, breed, social class...   //brian edit  changed "Nation" to "Nationality" for grammar
+					+ You mean that educated ruler known for discriminating against people for their nationality or gender?
+						[animation player spr_viktor_talk_left_coupe 5]Nationality, religion, breed, social class...
 						[animation player spr_viktor_talk_left_coupe 5]Everyone discriminates in a way.
 						[animation player spr_viktor_talk_left_coupe 5]It's just that it's really obvious with an emperor.
 						[animation player spr_viktor_talk_left_coupe 5]All eyes are constantly on him.
@@ -1933,31 +2018,31 @@ end
 [set mood]
 	- Greetings, gentlemen. I would like to enter the premises.
 		[set mood scared]
-		[talk hyena][mood hyena laugh] ahahahahahhahahahah hihihihih uhuhuhuh
+		[talk hyena][mood hyena laugh] ahahahahahhahahahah hihihihih uhuhuhuh!
 		Very funny Joke. Wanna hear mine?
 			+ Why aren't I allowed to get in??
 				[talk hyena][mood hyena laugh] khihih
 				The emperor doesn't allow any good-for-nothing loafer to enter his palace.
 					+ I'm not a loafer. I am here to be your new emperor.
 						[set mood angry]
-						Look, you mouthy, Slavic bum.    //brian edit added comma (,) between "mouthy" and "Slavic" for readability, capitalized "Slavic"
+						Look, you mouthy, Slavic bum.
 						You could lose your tongue for saying things like this.
-							+ Look who's talking about mouths. With those teeth, you look like an Englishman.   //brian edit   changed "this" to "those"  for grammar
+							+ Look who's talking about mouths. With those teeth, you look like an Englishman.
 								I'm sorry, I didn't listen to you.
 								I was admiring the scenery.
 								Until I noticed you tarnishing it with your look.
-								[talk hyena][mood hyena laugh]ahahahahahhahahahah.   //brian edit  added period to end of sentence
+								[talk hyena][mood hyena laugh] ahahahahahhahahahah!
 								Now go away while I'm still in a good mood.
 									[section hello]
 					++ You find all this funny?
 					[set mood angry][direction right] You find all this funny?
 						[set mood scared]
-						He just had too much cough medicine.   //brian edit   corrected spelling of "mouch" to "much"
+						He just had too much cough medicine.
 						But at least he no longer has that annoying cough.
-						[talk hyena][mood hyena laugh]ahahahahahhahahahah.
+						[talk hyena][mood hyena laugh]ahahahahahhahahahah!
 						Don't worry, he's not laughing at you. He's laughing with you.
 						[set mood angry]
-						[talk hyena][mood hyena laugh]ahahahahahhahahahah.
+						[talk hyena][mood hyena laugh]ahahahahahhahahahah!
 							[section hello]
 	- I am the palace inspector and I have come to inspect your palace.
 		We had an inspection last week.
@@ -1966,8 +2051,8 @@ end
 		So the emperor had the inspectors executed.
 		Are you still sure that you're a palace inspector?
 			[section hello]
-	++ Get out of my way, I'm here to oust the emperor.   //brian edit  added period (.) to end the sentence
-	[set mood angry] Get out of my way, I'm here to oust the emperor.  //brian edit added period (.) to end the sentence
+	++ Get out of my way, I'm here to oust the emperor.
+	[set mood angry] Get out of my way, I'm here to oust the emperor.
 		You and what army?
 		[set mood scared]
 		You know we can cut you into pieces just for saying this?? 
@@ -1977,20 +2062,20 @@ end
 				Oh...
 				Now that I think about it, we really shouldn't cut you into pieces.
 				It is obvious that you're an escapee from a mental hospital.
-				[talk hyena]So, cutting you into pieces would be really rude of us.   //brian edit  changed "from" to "of" to make the sentence sound better
+				[talk hyena]So, cutting you into pieces would be really rude of us.
 					[section army]
-			- Would you like me to be your emperor? I would be a much better emperor!   //brian edit removed capitalization of "emperor" (twice) because it is not a proper noun as used here (doesn't include a proper name--example Emperor Hirohito)
+			- Would you like me to be your emperor? I would be a much better emperor!
 				Really?
 				How much would you pay us?
 					+ Hmmm... 30 coins a month?
 						[set mood scared]
-						[talk hyena] Ahahahah ihihihihi ohohho.   //brian edit added period (.) to end sentence
+						[talk hyena] Ahahahah ihihihihi ohohho!
 						We earn 90 coins a month now.
 							+ Really? 90 coins? That... that's nice.
 							I did not earn half that much even when I won a naked boxing tournament.
 								Yes we are royal guard, you oversized moron
-								And we are not Slavs or some other nonsense ethnic group.    //brian edit corrected spelling of "ehnic" to "ethnic"
-								So we deserve good pay.   //brian edit  removed word "a"  (not needed and sounds more natural without it)
+								And we are not Slavs or some other nonsense ethnic group.
+								So we deserve good pay.
 								[talk hyena] hihi Yes.
 									[section army]
 			- If I answered a few of your philosophic questions, could I enter the palace?
@@ -2000,39 +2085,39 @@ end
 				Marvelous idea!
 				[set mood angry]
 				[talk hyena] Not!
-				[talk hyena][mood hyena laugh] HAHAHAHAHAHAHAHAHAHA.   //brian edit  added period (.) to end of sentence
+				[talk hyena][mood hyena laugh] HAHAHAHAHAHAHAHAHAHA!
 				[set mood]
 					[section army]
-			+ Could you give me some ideas about how a person could enter the palace?   //brian edit   added "about" between "ideas" and "how" to make the sentence sound more natural
-				No
+			+ Could you give me some ideas about how a person could enter the palace?
+				No.
 				[set mood scared]
 				And it's better for you to go away before our new guard commander comes.
-				We heard he's a fat bastard who immediately kills anyone suspicious.   //brian edit   this is palace guard  added "a" between (he's) and "fat" for grammar  (I'm really not sure if you're going for a not quite native sounding speaker here though)
+				We heard he's a fat bastard who immediately kills anyone suspicious.
 				[talk hyena] Like Miyamoto Wasabi, but worse!
 				Consider this like we saved your life today twice.
-				[talk hyena] hihihih yes.   //brian edit   added period (.) to end of sentence
+				[talk hyena] hihihih yes.
 				[talk hyena] First from us, then from the commander.
-				[talk hyena] We are so good today.  //brian edit   added period (.) to end of sentence
-				[talk hyena][mood hyena laugh] hihihih so good khh khhh we are like angels.   //brian edit   added period (.) to end of sentence
-				[talk hyena][mood hyena laugh] hihihih angels hi hi.   //brian edit   added period (.) to end of sentence
+				[talk hyena] We are so good today.
+				[talk hyena][mood hyena laugh] hihihih so good khh khhh we are like angels.
+				[talk hyena][mood hyena laugh] hihihih angels hi hi.
 				[set mood]
 					+ Do you know the name of your new guard commander?
 						No, we never saw him.
 						But he is coming.
-						[talk hyena] so you better run.   //brian edit added period (.) to end of sentence
-						[talk hyena][mood hyena laugh] hihihhhi.    //brian edit   added period (.) to end of sentence
+						[talk hyena] so you better run.
+						[talk hyena][mood hyena laugh] hihihhhi...
 						[set commander_flag 1]
 							[end]
 	+[if commander_flag = 1] ATTENTION! I am your guard commander.
 		You do understand that we remember you?
-		You are the same guy that was talking to us just now?   //brian edit  changed "right" to "just" because this conveys the meaning more clearly, in my opinion  ("just now" is immediate past, but "right now" is present)
-			+ Of course I know that you know, and I hoped that you knew, that I know that you know.   //brian edit  I added just a couple of commas to make this sentence just a little easier to parse (but it is deliberately confusing for humor, I know)
+		You are the same guy that was talking to us just now?
+			+ Of course I know that you know, and I hoped that you knew, that I know that you know.
 			This was all a test. I am in disguise.
 			[set mood angry]
-			And I must say I'm not happy with your job!   //brian edit removed extra apostrophe (') from (I '), removed extra spaces from (I ' m)
+			And I must say I'm not happy with your job!
 				Really? Why?
-					+ You were supposed to cut me into pieces   //brian edit removed extra "p" from "suppposed"
-					Or at least arrest me and bring me to justice.   //brian edit   added period (.) to end of sentence
+					+ You were supposed to cut me into pieces.
+					Or at least arrest me and bring me to justice.
 					And you did none of those things!
 						Well, we can cut you into pieces now if you insist.
 							+ Now when you know that I'm your superior?
@@ -2045,7 +2130,7 @@ end
 							++ How come I don't hear you laughing anymore?
 							[direction right] How come I don't hear you laughing anymore?
 							You did not do your job properly!
-							You had to kill me or let the emperor judge me   //brian edit   removed capitalization of "emperor" since it doesn't have a name shown with it (not a proper noun as used here)
+							You had to kill me or let the emperor judge me!
 							Because you know how much he loves to judge.
 							== so ==
 							[set mood]
@@ -2062,13 +2147,13 @@ end
 											Open the doors at once!
 											[set mood]
 												Ah yes, of course, it's the only logical way.
+												== forgive ==
 												Please forgive us.
-												[move palaceOutside_gate_left 180 5][move palaceOutside_gate_right 0 5][time 35]
-												[move palaceOutside_gate_left 180 0][move palaceOutside_gate_right 0 0]
-												[sound snd_lift_arrive]
+												[if gate = 0][sound snd_lift_arrive]
+												[if gate = 0][move palaceOutside_gate_left 180 5][move palaceOutside_gate_right 0 5][time 35]
+												[if gate = 0][create enter][set gate 1][move palaceOutside_gate_left 180 0][move palaceOutside_gate_right 0 0]
 												Next time we will kill someone like you on the spot, like we usually do.
 													+ Good boy.
-														[room palace_far start]
 														[end]
 	+ Never mind, sorry to disturb you
 		[end]
@@ -2079,19 +2164,19 @@ end
 State your business, minion. But hurry up.
 [section reveal]
 I have a war on Macedonian Republic to prepare.
-We plan on smashing them, crushing them and showing them their place in this geopolitical roller coaster.   //brian edit   corrected spelling of "coster" to "coaster"
+We plan on smashing them, crushing them and showing them their place in this geopolitical roller coaster.
 
 == hello ==
 
-	- My name is Viktor and I came here to take your place as the new emperor!   //brian edit  substituted "the" for "a" in "take your place as the new emperor"  (using definite article instead of indefinite article--grammar)
+	- My name is Viktor and I came here to take your place as the new emperor!
 		Who let you in?
 		I will hang all the guards outside right after I hang you twice!
 			[section handover]
 	- Hello sir, I'm here to take up my crown.
-		I'm sorry sir, I never noticed you forgot a crown here.   //brian edit  changed "notice" to "noticed" to match verb tense (past tense) of "forgot"
+		I'm sorry sir, I never noticed you forgot a crown here.
 		Which kingdom are you from?
-		Judging from your clothes, probably a kingdom south of here.   //brian edit  changed "from" to "of" in "probably a kingdom south of here"  (sounds more natural, imo)
-			+ I think this was a bit of a misunderstanding.   //brian edit   added period (.) to end of sentence
+		Judging from your clothes, probably a kingdom south of here.
+			+ I think this was a bit of a misunderstanding.
 				[section hello]
 	+ Your highness, I wish to exclaim that you are not competent enough to rule this kingdom.
 	== handover ==
@@ -2103,12 +2188,12 @@ We plan on smashing them, crushing them and showing them their place in this geo
 		I'm rich
 		Third, I'm the legal heir to the throne
 		And most importantly,
-		I don't feel like getting up.   //brian edit   added period (.) to end of sentence
-		[talk hyena][cloud reverse][mood hyena laugh] hahahahahaha.   //brian edit   added period (.) to end of sentence
-		So please hang yourself right now and spare us from the needless paperwork.   //brian edit  added period (.) to end of sentence
+		I don't feel like getting up.
+		[talk hyena][cloud reverse][mood hyena laugh] hahahahahaha!
+		So please hang yourself right now and spare us from the needless paperwork.
 			+ Just get off the throne or I'll pull you down.
 				Listen you insane bum.
-				You aimless vagabond!    //brian edit   removed capitalization from "vagabond"  (not a proper noun)
+				You aimless vagabond!
 				You worthless excuse for a citizen!
 				You foul-smelling leftover!
 				You outdated fertilizer!
@@ -2120,10 +2205,10 @@ We plan on smashing them, crushing them and showing them their place in this geo
 				[animations palace_automaton_bear_open spr_palace_automaton_bear][animations palace_automaton_bull_open spr_palace_automaton_bull]
 				Are you aware that I'm protected with the finest automatons in this part of the world?
 					+ I was, in fact, not aware of that, you pompous mutt.
-						[mood emperor laugh]Ha ha ha ha ha.
-						[talk hyena][cloud reverse] hahahahahaha.    //brian edit   added period (.) to end of sentence
+						[mood emperor laugh] Ha ha ha ha ha!
+						[talk hyena][cloud reverse] hahahahahaha!
 							[cloud talk][section tired]
-					+ Hah, someone sold you security automatons with exposed fireboxes.   //brian edit   made "fireboxes" plural (to match plural automatons)
+					+ Hah, someone sold you security automatons with exposed fireboxes.
 					Your business skills are even worse then your governing abilities.
 						[section tired]
 							
@@ -2141,7 +2226,7 @@ I grow tired of this tirade.
 	[time 60][animation player spr_viktor_shock][imagespeed player 1][music snd_dirigibles_power][move player 270 1]
 	[mute snd_dirigibles_power][set mood angry]
 	What the hell is going on?
-	[talk hyena][cloud reverse][mood hyena laugh] hahahahahaha
+	[talk hyena][cloud reverse][mood hyena laugh] hahahahahaha!
 		[cloud talk] Oh, I see that you are also not aware of the electric force field around the throne?
 		This was a lot of fun.
 		But unfortunately, my automatons need to show you some basic gravitational physics.
@@ -2158,8 +2243,8 @@ end
 	+ Hey, I remember you! You're Vida. We went to grade school together, remember?
 		[set mood]
 		[set knownamevida 1] Mention my name again and I will cut your throat!
-			+ So, what should I call you?   //brian edit  changed "how" to "what" in "what should I call you?"  because this is normally how it is said and it sounds better, imo
-				just don't...     //brian edit   added elipsis (...) to show that it is an incomplete phrase  (Vida just stopped talking)
+			+ So, what should I call you?
+				Just don't...
 					[section package]
 			+ Ah, good old Vida. You haven't changed a bit.
 				You idiot, I'll change your pancreas into...
@@ -2180,7 +2265,7 @@ I respect that in an agent.
 		[animation player spr_viktor_use_right_middle][animation vida spr_vida_give][imageindex vida 12]
 		Read and destroy.
 		You know the watchword.
-			+ Wait! what?    //brian edit changed apostrophe (') to exclamation point (!) after "Wait!"  (not sure what the significance of the apostrophe was)
+			+ Wait! what?
 				[end]
 			+[if knownamevida = 1] Thanks, Vida!
 				[end]
@@ -2229,16 +2314,16 @@ you added one
 
 == hello ==
 
-[if anarchist_trust = 1] Hello, friend. Would you like a drink?
-[if anarchist_trust = 1][section anarchy_hello]
+[if (anarchist_trust = 1) or (available hyde)] Hello, friend. Would you like a drink?
+[if (anarchist_trust = 1) or (available hyde)][section anarchy_hello]
 Long live the emperor, good sir. Do you wish to order a drink?
 	+ Long, long. What drinks can you offer?
 		Whatever your heart desires.
 		As long as we have it available.
 			[section order]
-	+ I'd prefer a shorter life for him.    //brian edit  added period (.) to end of sentence
+	+ I'd prefer a shorter life for him.
 		Please sir, this establishment allows only the best words for our great emperor.
-			+ I thought this is the place where anarchists mingle.   //brian edit   added period (.) to end of sentence
+			+ I thought this is the place where anarchists mingle.
 				Of course not.
 				Nothing of the sort.
 					[section talkabout]
@@ -2313,7 +2398,7 @@ end
 		I told you, sir. No Absinthe or Absinthe-based drinks.
 		[add beer_flag 1]
 		[section order]
-	+ Do you have anything to eat?   //brian edit   added question mark (?) to end of sentence
+	+ Do you have anything to eat?
 		Of course we do, sir.
 		Our cook is the finest cook in the building.
 			+ Do you have anything with noodles?
@@ -2336,7 +2421,7 @@ end
 		No.
 			[section order]
 	-[not beer_flag < 3] Are you screwing with me?
-		I do not believe I had the pleasure, sir.   //brian edit   removed capitalization of "sir"  (not a proper noun)
+		I do not believe I had the pleasure, sir.
 			[section order]
 	-[not beer_flag < 2] Do you have any beer other than those?
 		Yes.
@@ -2353,10 +2438,11 @@ end
 end		
 == some_excuse ==
 
+[set triedtoorder 1]
 [set randomreply 5]
 [if randomreply = 0] No sir, not right now.
 [if randomreply = 1] We do not have that one.
-[if randomreply = 2] Yes but it's spoiled.   //brian edit   changed (it' is) to (it's)  spelling
+[if randomreply = 2] Yes but it's spoiled.
 [if randomreply = 3] Waiting for the new shipment.
 [if randomreply = 4] It should be here by next week.
 [if randomreply = 5] I'm drinking the last one right now.
@@ -2371,7 +2457,7 @@ end
 == kafka_excuse ==
 
 Mr. Kafka is drinking the last one right now.
-[talk kafka] I hate beer from the bottom of the barrel.   //brian edit    added the word "the" in "I hate beer from the bottom of the barrel"  because it sounds more natural, imo and it's how it's usually said
+[talk kafka] I hate beer from the bottom of the barrel.
 [add beer_flag 1]
 [section order]
 
@@ -2390,36 +2476,39 @@ end
 		But we had even dumber people join us, so why not.
 			[section anarchy_hello]
 	+ Don't mind if I do. What do you have?
+		[animation anteater spr_anteater_use_left_high]
+		[animation anteater spr_anteater_use_left_middle][animation player spr_viktor_use_back_middle]
 		Try this. It's on the house.
+		== tryit ==
 			- What is it?
 				It's my personal brew made of fermented honey mixed with coffee...
-				five different kinds of fruit...
-				and a pinch of pure hatered.
-					+ Maybe later
-						It's here when you're ready for it.
+				Five different kinds of fruit...
+				And a pinch of pure hatered.
+					+ Maybe later.
+							[animation anteater spr_anteater_use_left_middle][animation player spr_viktor_use_back_middle]
+							[animation anteater spr_anteater_use_left_high]
+							It'll be waiting for you when you're ready for it.
 							[end]
 					+ Wow, I got to try this.
-						[animation spr_viktor_drink]
-						Wow, it tastes wonderful.
-						And extremely uplifting.
-						But the aftertaste is a bit funky.
-						Oh, that's probably hatered.
-							[end]
+						[section drink]
 			+ Wow, thank you.
 				No problem.
-					[animation spr_viktor_drink]
+					== drink ==
+					[animation player spr_viktor_drink]
+					[noitamina player spr_viktor_drink][time 92]
+					[set potion 1]
 					That really hit the spot.
 					It makes me feel great! Smarter! More aggressive!
 						Don't go there, please.
 							Fair enough.
 								[end]
-			- This isn't some kind of knockout potion? I'm immune to those, you know
+			- This isn't some kind of knockout potion? I'm immune to those, you know...
 				You slowly consume multiple types of poison in minor quantities to build up your tolerance?
 					+ Nah, I'm just too fat for most poisons.
 						I don't think fat works like that
 							Mine does.
 								So, a drink perhaps?
-								[section anarchy_hello]
+								[section tryit]
 	+ I actually have some questions.
 		Ask away, friend.
 	+ Never mind, sorry to bother you.
@@ -2467,25 +2556,25 @@ end
 		I don't want to talk about it.
 			[section hello]
 	-[if needs_pen = 1] Excuse me, do you have the pen I could borrow?
-		For customers only
+		I do, actually, but it's for customers only.
 			[section insurance]
 	+[if offered_insurance = 1] So, you're selling insurance?
 		Yes, wonderful insurance that can help you in your darkest times.
-		Would you like to get some insurance?
 			[section insurance]
-	- Excuse me, sir. Are you one of the anarchists?
+	-[if kafkaisnoanarchist = 0] Excuse me, sir. Are you one of the anarchists?
 		[set metkafka 1]
+		[set kafkaisnoanarchist 1]
 		[description kafka Franz Kafka]
 		You have quite an interesting way to meet people.
-		My name is Franz Kafka.   //brian edit   added period (.) to end of sentence
+		My name is Franz Kafka.
 		[animation kafka spr_kafka_greetings]
-		I'm afraid, I'm much worse then that.
-		I am a Jew and an insurance salesman.
+		I'm afraid, I'm in a much worse situation than the anarchists.
+		You see, I am a Jew in Prague selling insurance.
 		Also an amateur writer.
 			[section sojew]
 	+ My name is Viktor.
 		[if metkafka = 1] My name is still Franz Kafka.
-		[not metkafka = 1] Pleased to meet you. My name is Franz Kafka.   //brian edit  changed "iz" to "is"  (typo??)
+		[not metkafka = 1] Pleased to meet you. My name is Franz Kafka.
 		[set metkafka 1]
 		[description kafka Franz Kafka]
 		[animation kafka spr_kafka_greetings]
@@ -2493,14 +2582,15 @@ end
 			+ You should remember mine as well. You might be looking at the next emperor of Austria Hungary.
 				I'll do my best.
 					[section hello]
-			+ You plan on blowing something up?
+			+ Do you plan on blowing something up?
 				Not exactly.
 				I hope to make my fame and fortune as a writer.
 					+ So, that's why you look like you're listening to every conversation at once.
-						Oh no, that's just because of my large ears and tendency for voyeurism.   //brian edit  correct spelling of "voyourism" to "voyeurism"
+						Oh no, that's just because of my large ears and tendency for voyeurism.
 						Also, my medical condition makes me a bit jumpy.
 						But I don't like discussing that with people.
 						I'll write a book about it one day.
+							[set kafkawriter 1]
 							[section writing]
 	+ This thing you're drinking smells great. What is it?
 		Ah, you sound like a man who's trying to avoid the whole process of ordering.
@@ -2516,8 +2606,15 @@ end
 				I mostly do short stories.
 				But I'm thinking about making a satirical novel about this bar and it's patrons.
 				I'm also trying to write about my health condition.
-				But it's a personal issue and I don't enjoy discussing it.   //brian edit   removed capitalization of (it's)   (typo??)
+				But it's a personal issue and I don't enjoy discussing it.
+					[set kafkawriter 1]
 					[section writing]
+	+[if kafkawriter = 1] Tell me about your writing.
+		I mostly do short stories.
+		But I'm thinking about making a satirical novel about this bar and it's patrons.
+		I'm also trying to write about my health condition.
+		But it's a personal issue and I don't enjoy discussing it.
+			[section writing]
 	+ You seem like you listen to everything that happens in this place.
 		Ah yes, listening to people relaxes me during work.
 			[section relax]
@@ -2527,7 +2624,7 @@ end
 end
 == relax ==
 	+ It's a late evening in a bar and you're drinking. How could you possibly be working right now?
-		An insurance salesman's work is never done. Are you interested in buying insurance?
+		An insurance salesman's work is never done.
 			[section insurance]
 	+ So, you probably know about the anarchists in this place
 		[add anarcho_flag 1]
@@ -2551,48 +2648,51 @@ end
 == writing ==
 
 	+ You don't like discussing your condition, but you want to write about it? What is it, really?
-		If I tried to explain, you wouldn't believe me.    //brian edit  changed spelling of "beleive" to "believe"
-		You have to see it to believe it.   //brian edit  changed "You should see it to believe it." to "You have to see it to believe it." since I think this is what you mean and this is the usual way to say this
+		If I tried to explain, you wouldn't believe me.
+		You have to see it to believe it.
 		Wait for a while and maybe you will.
-			[section writing]
+			[section hello]
 	+ You want to write a novel about people in a bar?
 		It wouldn't happen in a bar. Once I put some words on paper, I'll feel more keen on discussing this.
-			[section writing]
+			[section hello]
 	+ It seems to me that you would be a more successful writer if you could talk about your work a bit more.
 		I impolitely disagree.
 		You must put your story on paper and let people read it.
 		Everything else is just bragging, elevator pitching and kickstartering.
-			[section writing]
-	+ Well, good luck with writing. What else did you say you were doing?   //brian edit  corrected spelling of "els" to "else"
+			[section hello]
+	+ Well, good luck with writing. What else did you say you were doing?
 		Selling insurance.
 			+ Sorry I asked.
-				Would you like to have insurance?
-					[section insurance]
+				[section insurance]
 
 end
 == sojew ==
 
-	- So, you probably know all the Jews in Austria Hungary. Did you ever meet Sigmund Freud?
+	- You probably know all the Jews in Austria Hungary! Did you ever meet Sigmund Freud?
 		Is this one of those silly stereotypes that all Jews know each other?
 		You know, it's not as if you just go around and suddenly you meet Sigmund Freud.
 		Oh all right, I may have talked to Mr. Freud a few times.
 		He was traveling to Germland, so he wanted life insurance.
 		Interesting man with some astonishing ideas.
-			[section sojew]
+			[section hello]
 	- I met a Jew recently. Noam McSmelliecock, a Scottish athlete. Do you know him?
 		Am I supposed to know him?
 		Is this some kind of stereotyping where I'm supposed to know every Jew you ever met?
 			+ So, you don't know him?
 				Well, yes, I met him once or twice.
-				He was looking for an amateur writer to write his biography.   //brian edit   changed "make" to "write" because you usually "write a biography" not "make a biography"
-					[section sojew]
-	+ Writer, insurance salesman and a Jew... That doesn't sound terrible.   //brian edit   changed capitalization of "Jew"
-		Then you definitely need insurance.
+				He was looking for an amateur writer to write his biography.
+					[section hello]
+	+ Writer, insurance salesman and a Jew... That doesn't sound terrible.
+		You definitely need insurance.
 			[section insurance]
-
+	
 end				
 == insurance ==
 
+[if got_insurance = 1] Speaking of... I still can't find a normal pen.
+[if got_insurance = 1] Don't go anywhere, I have it somewhere.
+[if got_insurance = 1][end]
+Speaking of... Would you like some insurance?
 [set offered_insurance 1]
 	+ No need for insurance, I'm a veteran boxer.
 		You could insure your snout or your tentacles.
@@ -2601,14 +2701,13 @@ end
 				People insure those all the time!
 				Anyway, if you ever feel like getting insurance, call me and I'll prepare the contract for your signature.
 					[section hello]
-	+[if needs_pen = 1] Can I see the contract?
+	+ Sure! Can I see the contract?
 		Of course you can.
-		[set needs_pen 0]
-		[take pencil]
 		And here is the pen for signing it.
-			+ This is an eraseable pencil.
-				Oh... damn...
-				I'll get a better pen as soon as I finish my beer.
+		[take pencil]
+			+ Hmm... This is an eraseable pencil.
+				Damn, that's not good for signatures.
+				I'll get you a better pen as soon as I finish my beer.
 				Please don't leave.
 				[set got_insurance 1]
 					[end]
@@ -2640,7 +2739,7 @@ end
 	+[if tried_dumb_flag = 1][if alreadywent = 1][if martins_watchword = 1] Okay, you have to let me try the watchword again!
 	[if tried_dumb_flag = 1] I know the system this time!
 		[talk mole] Do we humor the insane hobo?
-		[talk matilda_tavern] Well, he is kinda cute, why not?    //brian edit  changed ending period (.) to a question mark (?) since the dialog ends with a question
+		[talk matilda_tavern] Well, he is kinda cute, why not?
 			[if tried_dumb_flag = 1][section toiletpass]
 			[section tryme]
 	+[if tried_dumb_flag = 0] It's me! I forgot the watchword!
@@ -2651,7 +2750,7 @@ end
 		== tryme ==
 		[talk horse1] And this is me. I have no idea what you're talking about.
 			+ Yes you do, I'm sure I can remember the watchword if you helped me.
-				[talk mole] You are a strange person, blabbering nonsense.   //brian edit  added comma (,) for readability
+				[talk mole] You are a strange person, blabbering nonsense.
 					+ Is ''nonsense'' the watchword?
 						[talk horse1] What watchword?
 							+ Hmm, how about...
@@ -2666,7 +2765,7 @@ end
 		[talk horse2] Us?
 		[talk horse1] By god, we would never.
 		[talk mole] Long live the emperor!
-		[talk matilda_tavern] I'm not an anarchist either.    //brian edit   capitalized (I'm) since it's always capitalized
+		[talk matilda_tavern] I'm not an anarchist either.
 		[talk mole] Fuj anarchists.
 		[talk kafka] Long live wossizname.
 			Then you must be communists.
@@ -2760,7 +2859,7 @@ end
 		[section toiletpass_3]
 	+ ...resurrecting...
 		[section toiletpass_3]
-	+ ...scratching and scratching...
+	+ ...scratching and screatching...
 		[section toiletpass_3]
 	+ ...killing in the name of...
 		[add toilet_pass_guesser 1]
@@ -2803,12 +2902,15 @@ end
 
 [talk mole] About bloody time!
 [talk horse1] Welcome aboard.
-[talk horse1] Did you have trouble finding us?
+[talk horse2] Did you have trouble finding us?
 	+ Finding Vida was the hardest part, I would say.
 		[talk mole] Finding her?
 		[section continuerd]
 	+ Nah, I learned to navigate through the smog while growing up in Agram.
 		[talk mole] You grew up... in Agram?
+		[section continuerd]
+	+ The toughest part was figuring out your stupid watchword...
+		[talk mole] Yes, you didn't seem to know it before...
 		[section continuerd]
 
 end
@@ -2823,11 +2925,8 @@ end
 				[talk matilda_tavern][blocksound snd_matilda_talk_whisper4] We should go to the other room.
 				[talk matilda_tavern][blocksound snd_matilda_talk_whisper2] And find a cozy toilet booth to... talk about it.
 					+ I know just the booth!
-						[set gunscene 1]
-						[set anarchist_trust 1]
-						[set needs_pen 1]
-						[destroy anarchists]
-						[animations player spr_viktor_walk_right][move player 8 6][animations matilda_tavern spr_matilda_walk_right][move matilda_tavern 17 8][fade in 0.03][time 30][set gototoilet 1]
+						[set gototoilet 1][set toiletnow 1][set gunscene 1][set anarchist_trust 1][set needs_pen 1][destroy anarchists][animations player spr_viktor_walk_right][move player 8 6][animations matilda_tavern spr_matilda_walk_right][move matilda_tavern 17 8][fade in 0.03][time 40]
+						[end]
 
 end
 === matilda ===
@@ -2848,7 +2947,8 @@ end
 			Are you sure?
 				Yes I'm sure.
 				[create matilda_gun][active matilda_gun][destroy matilda_tavern]
-				[animation matilda_gun spr_matilda_gun_draw][time 12]
+				[animation matilda_gun spr_matilda_gun_draw][time 30]
+				[imagespeed matilda_gun 0.3]
 				Now, let's talk.
 					+ I'm not really into gunplay.
 						This isn't a game.
@@ -2926,7 +3026,7 @@ end
 										And if you tell me it's complicated, I'm going to shoot you.
 										[set gunpoint_complicated 1]
 										[section gunpoint_who]
-	++[if gunpoint_complicated = 1] It's complicated
+	++[if gunpoint_complicated = 1] It's complicated.
 	My name is Viktor, I wanted to oust the emperor, by failing that, I got contacted by your agent probably by mistake...
 	So I decided to meet you and talk to you about joining forces.
 		[section gunpoint_commendable]
@@ -3040,7 +3140,8 @@ end
 
 All right.
 [set mood]
-[create matilda_tavern][active matilda_tavern][destroy matilda_gun][noitamina matilda_tavern spr_matilda_gun][time 12]
+[create matilda_tavern][active matilda_tavern][destroy matilda_gun]
+[noitamina matilda_tavern spr_matilda_gun_draw][time 14]
 [imagespeed matilda_tavern 0.3]
 I trust you.
 But I'm still keeping my eye on you.
@@ -3050,8 +3151,9 @@ But I'm still keeping my eye on you.
 			Sorry.
 				Don't listen to him, he's drunk.
 					[talk priest_back] I'm only drunk on god.
-						[animations player spr_viktor_walk_left][move player 180 8][animations matilda_tavern spr_matilda_walk_left][move matilda_tavern 177 6][time 150][fade in 0.03]
-						[destroy matilda_tavern][set martins_watchword 0][room tavern gunpoint]
+						[animations player spr_viktor_walk_left][move player 180 8][animations matilda_tavern spr_matilda_walk_left][move matilda_tavern 177 6][time 60][fade in 0.03]
+						[destroy matilda_tavern][set martins_watchword 0]
+						[end]
 
 end
 
@@ -3108,21 +3210,28 @@ Better talk with Krtek, he's better at organizing.
 
 == hello ==
 	- Can we have a meeting now?
+		[if krtekhaspen = 1][if item paper][if toiletpaperminutes = 1] Yes.
+		[if krtekhaspen = 1][if item paper][if toiletpaperminutes = 1][end]
 		Sure, after we find a pen and some paper for our notes.
-			[if item pencil] I have a pen!
-				[if item pencil] That's good, I guess.
-			[if item pencil][if item paper][if toiletpaperminutes = 1] And if you're still not above using toilet paper for minutes, I found some in the toilet.
-				[if item pencil][if item paper][if toiletpaperminutes = 1] Is it clean?
-					[if item pencil][if item paper][if toiletpaperminutes = 1] Surprisingly, yes!
-			[not item pencil][if item paper][if toiletpaperminutes = 1] Well, if you're still not above using toilet paper for minutes, I found some in the toilet.
-				[not item pencil][if item paper][if toiletpaperminutes = 1] Is it clean?
-			[not item pencil][if item paper][if toiletpaperminutes = 1] Surprisingly, yes!
+			[if (item pencil) or (penwin = 1)][set krtekhaspen 1] I have a pen!
+				[if (item pencil) or (penwin = 1)][set krtekhaspen 1][give pencil][set penwin 1] That's good, I guess.
+			[if (item pencil) or (penwin = 1)][if (item paper) or (paperwin = 1)][if toiletpaperminutes = 1] And if you're still not above using toilet paper for minutes, I found some in the toilet.
+				[if (item pencil) or (penwin = 1)][if (item paper) or (paperwin = 1)][if toiletpaperminutes = 1] Is it clean?
+					[if (item pencil) or (penwin = 1)][if (item paper) or (paperwin = 1)][if toiletpaperminutes = 1][give paper][set paperwin 1] Surprisingly, yes!
+			[not item pencil][not penwin = 1][if (item paper) or (paperwin = 1)][if toiletpaperminutes = 1] Well, if you're still not above using toilet paper for minutes, I found some in the toilet.
+				[not item pencil][not penwin = 1][if (item paper) or (paperwin = 1)][if toiletpaperminutes = 1] Is it clean?
+			[not item pencil][not penwin = 1][if (item paper) or (paperwin = 1)][if toiletpaperminutes = 1][set toiletpaperminutes 1][give paper][set paperwin 1] Surprisingly, yes!
+				[if penwin = 1][if paperwin = 1] OK, we can start!
+				[if penwin = 1][if paperwin = 1][end]
 		[section hello]
 	+ How come you're out of paper?
 		Well, Pferdinand here used up our paper supply when he went to the toilet.
 		[set toiletpaperminutes 1] So we decided it is only fair to use toilet paper for our minutes.
 		Unfortunatelly this fine establishment is out of toilet paper.
 			Good to know.
+			[if item paper][if toiletpaperminutes = 1] Because I found some toilet paper in the toilet.
+			[if item paper][if toiletpaperminutes = 1][if item pencil] And with the pen that's all we need!
+			[if item paper][if toiletpaperminutes = 1][if item pencil][end]
 			[section hello]
 	+ Can you find more people to take down the emperor?
 		Of course, we're well connected.
@@ -3175,6 +3284,9 @@ End.
 
 == start ==
 [set mood scared]
+[if lostagainsthyde = 1][talk hyde] You just don't know when to quit, do you!? 
+[if lostagainsthyde = 1][section bothgototoilet]
+
 	- Dr. Jekyll, what happened to you?
 		I'm not Dr. Jekyll, you wimp.
 		Jekyll is weak and his absinthe is weak.
@@ -3183,17 +3295,20 @@ End.
 			[section start]
 	- I think you had enough absinthe today.
 		I think you're right.
-		Barman, get me a stronger drink
+		Barman, get me a stronger drink!
 		[talk anteater] What would you like to drink, sir?
 		Your blood if you don't get me something good.
-			+ Leave the barman alone
+			+ Leave the barman alone!
 				I'll drink your blood as well
 					[section hyde_matilda]
 			+ Stop making trouble, we wouldn't want to call the police.
 				[talk anteater] I, in fact, wouldn't want to call the police.
 				[talk kafka] How about we take a vote?
 					[section hyde_matilda]
-	- Please go away! We're trying to have a meeting
+			+ Umm... I'll just leave quietly then...
+				Yeah, bugger off!
+					[end]
+	- Please go away! We're trying to have a meeting!
 		Why wouldn't I have a meeting with you?
 		Here's a subject for the meeting.
 		You get me some drinks and I don't smash you all to bits!
@@ -3203,40 +3318,52 @@ End.
 end
 == hyde_matilda ==
 
-	+ Dude, please don't make me rage when there's girls around..
+	- I'm just gonna ask you once, leave now!
+		Then I'm just gonna answer once - bugger off!
+		[section hyde_matilda]
+	+ Dude, please don't make me rage when there's girls around...
+		[section hyde_matilda2]
+	+ Umm... I'll just leave quietly then...
+		Yeah, bugger off!
+		[end]
+
+end
+== hyde_matilda2 ==
 		[set mood angry]
 		Then go home and be quiet.
-		I am now a leader of your group
+		I am now a leader of your group!
 		[talk horse2_scared][direction left] We can't make you a leader!
 		[talk horse2_scared][direction left] We don't have any paper to record the shift in leadership.
-		[if needs_pen = 1] [talk horse1_scared] We don't have a pen either.
+		[if needs_pen = 1][talk horse1_scared][direction left] We don't have a pen either.
 		Be quiet!
 		You two horses, get me some drinks!
-		Shovel boy, go bury yourself into the toilet
-		And the hooch can come here and sit on my lap
-		[animation matilda_gun spr_matilda_gun_draw][time 12]
+		Shovel boy, go bury yourself in the toilet.
+		And the bimbo can come here and sit on my lap!
 		[destroy matilda_tavern_scared][create matilda_gun]
+		[animation matilda_gun spr_matilda_gun_draw][time 30]
+		[imagespeed matilda_gun 0.3]
 		[set mood scared]
-		[talk matilda_gun] Enough of this.
-		Well well, would you look at that, little whooty flashes her gun again.
-		Doesn't know I spent years in the seediest bars of London, snorting gunpowder.
+		[talk matilda_gun] I think I've had enough of this.
+		[destroy hyde][create hyde2][talk hyde2] Well well, would you look at that, little whooty flashes her gun again.
+		[talk hyde2] Doesn't know I spent years in the seediest bars of London, snorting gunpowder.
+		[destroy hyde2][create hyde]
 			+ Doing what now?
-				I can smell it, you don't have any bullets.
+				I can smell it, pig, she doesn't have any bullets...
 				[talk matilda_gun] Wanna try me?
-				Yes
+				[destroy hyde][create hyde2][talk hyde2] Yes.
 				[noitamina matilda_gun spr_matilda_gun_draw][time 12]
 				[destroy matilda_gun][create matilda_tavern_scared]
 				[talk matilda_tavern_scared] Dammit, I'll have to get some bullets eventually.
-				[set mood angry]
-					+ I had enough! Get over here, so I can smash your face in!
+				[destroy hyde2][create hyde][set mood angry]
+					+ I've had enough! Get over here, so I can smash your face in!
 						You don't know who you're dealing with, pig!
 							+ I can't wait to find out.
 							[set mood]
 							By the way, I was a professional boxer.
-								How nice for you
+								How nice for you...
 								[set mood scared]
 								I'm a bloody MONSTER!
-								[animation hyde spr_hyde_shriek][blocksound snd_hyde_scream][time 48] GRRRRRRRRR
+								[animation hyde spr_hyde_shriek][blocksound snd_hyde_scream][time 48] GRRRRRRRRR!!!
 								[imagespeed hyde 0.8]
 									That's... also imposing, I guess.
 										[talk anteater] Please do not kill each other in the middle of the tavern.
@@ -3252,10 +3379,31 @@ end
 													+ I'm okay with that
 														It's a good idea actually
 															+ Let's go.
+																== bothgototoilet ==
 																[animations player spr_viktor_walk_right][move player 8 6][animations hyde spr_hyde_walk][move hyde 17 8][fade in 0.03][time 150]
-																	[room toilet fight]
-						
+																	[end]
+end
 
+== hyde_win_long ==
+
++ I think we had enough shit to deal with, let's finally start planning.
+	[if krtekhaspaper = 0][talk horse1] But we still need some paper for keeping records!
+	[if krtekhaspaper = 0][if krtekhaspen = 0][talk horse2] And a pen!
+	[if krtekhaspaper = 1][if krtekhaspen = 0][talk horse2] But we still need a pencil for keeping records!
+	[if krtekhaspaper = 1][if krtekhaspen = 0][talk mole] Talk to me when you have it.
+	[if krtekhaspaper = 0][if krtekhaspen = 1][talk mole] Talk to me when you have it.
+	[if krtekhaspaper = 0][if krtekhaspen = 0][talk mole] Talk to me when you have them.
+	[if krtekhaspaper = 1][if krtekhaspen = 1][talk horse1] Do we have the pen and paper?
+	[if krtekhaspaper = 1][if krtekhaspen = 1][talk mole] Yes, we do!
+	[if krtekhaspaper = 0][end]
+	[if krtekhaspen = 0][end]
+	[section plan]
+
+end
+
+== plan_finally ==
+Finally!
+[section plan]
 
 == hyde_win ==
 
@@ -3266,14 +3414,18 @@ end
 	[set mood]
 	[talk horse1] Fair enough. This one will be off the record.
 	[talk kafka] Oh no. Whatever shall you do?
-	Anyway, I will lay out my current plan.
-	Firstly, we'll need money.
+	Anyway... 
+	
+	== plan ==
+	
+	I will now lay out the plan.
+	First, we'll need money.
 	[talk mole] Definitely.
 	So we could get weapons.
 	[talk matilda_tavern] Specifically, bullets.
-	We also a lot of manpower.
+	We also need a lot of manpower.
 	[talk matilda_tavern] And womanpower!
-	And most importantly, the technology that would help us circumvent the emperor's electricity shield
+	Whatever. Most importantly we need the technology that would help us circumvent the emperor's electricity shield.
 	[set mood angry]
 	[talk horse1] Wait a minute, why are you acting like our leader all of a sudden?
 	I just beat the crap out of your former leader back in the restroom.
@@ -3311,9 +3463,9 @@ end
 	[talk horse2] It's sealed and full of armed guards from all sides.
 	[talk mole] All sides but one.
 	[talk mole] Oh yes, this plan is definitely going to include shovels.
-	[talk mole] And possibly some explosives.				
-	[fade in 0.1][talk mole] Beautiful.[time 50]
-		[mute][fade][room dungeon start]
+	[talk mole] And possibly some explosives.
+	[fade in 0.1][talk mole][time 50]  Beautiful.
+		[mute][fade][set gotobudapest 1][end]
 
 end
 === jekyll ===
@@ -3328,7 +3480,7 @@ end
 					[section hello]
 	+[if priest_moved = 1] I see you finished your drink. Ready for another one?
 		Oh no no. I think I had too much.
-		I even feel slight illnes taking over me.
+		I even feel slight illness taking over me.
 			Yeah, I wouldn't recommend the toilets around here.
 				Oh my, how bad are they?
 					[animation jekyll spr_jekyll_idle2]Terrible! There's this priest who basically vomits everywhere.
@@ -3362,7 +3514,7 @@ end
 					+ How do you withstand such conditions?
 						Self medication
 							+ This drink protects you from the plague?
-								Yes, why not?   //brian edit  changed ending period (.) to a question mark since the dialog ends with a question
+								Yes, why not?
 									[section hello]
 			+ Actually, they never do because this isn't France. Our emperor uses firing squads.
 				 [section hello]
@@ -3376,7 +3528,7 @@ end
 					+ Actually, this is my only set of clothes.
 						Then I suggest purchasing another one.
 							[section hello]
-					+ No no, I have yet to become an emperor.   //brian edit  changed "am" to "have" in the phrase "I have yet to become an emperor." since this is the way it's usually said, so sounds more natural to me
+					+ No no, I have yet to become an emperor.
 						I hope you don't mind, but I shall not pursue this train of conversation.
 							[section hello]
 			+ You are a medical expert of some sort?
@@ -3443,14 +3595,14 @@ end
 				Trust me, you don't want my life.
 					[section hello]
 	- Are you an anarchist?
-		Naw, man. I just like wearing black
+		Naw, man. I just like wearing black.
 		[section not_an_anarchist]
 	+[if is_lake_anarchist = 1] So, you like wearing black?
 		[section not_an_anarchist]
 	- My name is Viktor
 		I'm Kubilius. Lake Kubilius. Musician and seducer!
 		[description lake Lake Kubilius]
-			They say that one goes along really well with the other.   //brian edit  added period (.) to end of the sentence
+			They say that one goes along really well with the other.
 				Wouldn't know. Both are going beautifully.
 				[animation lake spr_lake_smile]
 				[set lake_is_musician 1]
@@ -3463,23 +3615,21 @@ end
 				There's a record player inside the guitar.
 				[animation lake spr_lake_smile]
 				The only problem is, I took two records to play tonight.
-				Turned out that they are both the same.   //brian edit   added period (.) to end of the sentence
+				Turned out that they are both the same.
 					- If I gave you a record, would you trade?
 						Do you maybe have a record that was partially damaged by roaches?
 							+ Actually, I have one exactly like that!
 								Then just take mine and don't give me anything, please.
-								[talk kafka] You have something against cockroaches?
-								We already discussed this, Frank.
-								[talk kafka] It's Franz, you Texan cow herder!   //brian edit  capitalized "Franz" (proper noun)
-								Whatever, man.
-								Here, take a record.
-								[record bach]
+								[if available kafka][talk kafka] You have something against cockroaches?
+								[if available kafka] We already discussed this, Frank.
+								[if available kafka][talk kafka] It's Franz, you Texan cow herder!
+								[if available kafka] Whatever, man.
+								[record bach] Here, take a record.
 									[section hello]
 					- I also have a gramophone right here in my pocket. Can I get one of your records?
 						Oh, that was your record player poking out!
 						I just thought you were really glad to see me.
-						Here, take a record.
-							[record bach]
+						[record bach] Here, take a record.
 							[section hello]
 	- This is a really interesting musical instrument.
 		[set lake_is_musician 1]
@@ -3530,7 +3680,7 @@ end
 					+ I don't think anything can help you.
 						[section hello]
 			+ So, how do you like Austria Hungary?
-				Very pretty. > Except a couple of times when the police tried to arrest me. > First for mispronouncing the emperor's name. > I still have no idea how it's pronounced > [other] Me neither. > And once I tried looking at his picture from a wrong angle. > Luckily, one of them got cut on my spines while arresting me. > He started bleeding all over the floor and the other one fainted from seeing the blood. > So I just left.  //brian edit   changed "Me neither." to "Me either." since there is no "nor" in this sentence--either/or  neither/nor, added period (.) to end of sentence
+				Very pretty. > Except a couple of times when the police tried to arrest me. > First for mispronouncing the emperor's name. > I still have no idea how it's pronounced > [talk player] Me neither. > And once I tried looking at his picture from a wrong angle. > Luckily, one of them got cut on my quills while arresting me. > He started bleeding all over the floor and the other one fainted from seeing the blood. > So I just left.
 					[section hello]
 
 == for_a_beer ==
@@ -3538,15 +3688,17 @@ end
 For a beer, I could play you a wonderful one.
 Any beer.
 Please.
-I can't order anything from this waiter.
-	+ Unfortunately, I have the exact same problem
-		eh...
+I can't order anything from this waiter!
+	+[if triedtoorder = 1] Unfortunately, I have the exact same problem
+		Eh...
 			[section hello]
 	+ Don't you get a free drink for playing the music here?
 		I do, but I have to choose my own beer and...
 		Never mind, it's complicated.
 			[section hello]
-
+	+[if triedtoorder = 0] I'll get you a beer, no problem...
+		Good luck...
+			[section hello]
 end
 === priest ===
 
@@ -3572,7 +3724,7 @@ end
 								Everything you need to know is written in the good book.
 								Everything.
 									+ I'm not sure which part of your book is good.
-									Is it the slavery or misoginy?
+									Is it the slavery or misogyny?
 									How about god's random mass murders for reasons of jealousy?
 										[section allegory]
 									+ Yes, wonderful stories. People talking to bushes, having sex with family members...
@@ -3585,7 +3737,7 @@ end
 												About the Leviathan.
 												Would you like to see one?
 													++ I hope you're not planing to do what I think you're planing to do
-													[mood angry]If you open your robe, I'm going to kick you in the labiathan
+													[mood angry] If you open your robe, I'm going to kick you in the labiathan!
 														Why would you do that?
 														Is a man not allowed to open his robe when in the toilet booth?
 															+ You should really use the one with the door
@@ -3608,15 +3760,18 @@ end
 												And that made me the man of god I am today.
 												Speaking of which, I feel another prayer coming up
 													[section finish]
+											+ Actually, just go and do whatever you are doing.
+												[section finish]
+									+ Actually, just go and do whatever you are doing.
+										[section finish]
 	+ Hello, good sir, are you, perhaps, an anarchist?
 		Hail Mary full of grace, thank god that I'm not.
 		Now go away, I have important things to do
 			[end]
-
 end
 == hello ==
 
-	+ I always wandered why you priestly types decided to wear this black robe and white collar thing?
+	+ I always wondered why you priestly types decided to wear this black robe and white collar thing?
 		You know what they say, once you go black, you don't go back.
 			+ I don't think that means what you think it means.
 				Who cares what it means. The allegory's important.
@@ -3636,7 +3791,7 @@ end
 											+ When did he say that?
 												[section allegory]
 	+ So, isn't it time for you to finally start paying taxes like the rest of us?
-		Pay taxes with god's hard earn money? That would be sacrilege!
+		Pay taxes with god's hard earned money? That would be sacrilege!
 			+ Better get used to some sacrilege. Once I become an emperor, there will be some changes.
 				Are you mad, boy?
 				That's blasphemy.
@@ -3645,12 +3800,16 @@ end
 						[section needhelp]
 	+ Actually, just go and do whatever you are doing.
 		[section finish]
-	+[if priest_moved = 0][if priest_booths = 0] Could you please move to some other stall? I need to see something behind you.
-		I would use a more private booth.		
-		[set priest_booths 1]
-		But the door was stuck.
-		If you manage to open it, I'll move eventually.
-		But right now, I need to pray some more.
+	+[if priest_moved = 0] Could you please move to some other stall? I need to see something behind you.
+		[if priest_booths = 0][set priest_booths 1] I would use a more private booth.
+		[if priest_booths = 0] But the door was stuck.
+		[if priest_booths = 0] If you manage to open it, I'll move eventually.
+		[if priest_booths = 0] But right now, I need to pray some more.
+		[if priest_booths = 1] I told you already, the booth next door is stuck shut...
+			[if toilet_is_opened = 1] No it's not, I just opened it!
+				[if toilet_is_opened = 1] Oh...
+				[if toilet_is_opened = 1] Well, I'll move later.
+				[if toilet_is_opened = 1] Go away, give me some privacy!
 		Go in peace, my son.
 			[end]
 end
@@ -3658,7 +3817,7 @@ end
 
 You truly need help, boy.
 Here is my offer.
-Get on your knees and give me 34 Hail Maries and you shall be forgiven by the almighty.
+Get on your knees and give me 34 Hail Marys and you shall be forgiven by the almighty.
 	+ Here's my offer. Get on your knees and kiss my ass.
 		Oh, you would like, that, wouldn't you, sinful piggy?
 		You would like my soft and holy nose touching...
@@ -3696,12 +3855,19 @@ end
 == start ==
 
 [set mood scared]
-Well well well.
-If it isn't my dearest hatemonger.
+[if beentohell = 0] Well well well.
+[if beentohell = 0] If it isn't my dearest hatemonger.
+[if beentohell = 1] You again...
+
 == hello ==
 Welcome to your future home!
 [set mood]
-	+ Who the hell are you and what the hell is this place?
+	+[if beentohell = 1] I wanna kick your ass!
+		[mood laugh] Hahahaha!
+		Just like last time, huh?
+		[end]
+	+[if knowsdevil = 0] Who the hell are you and what the hell is this place?
+		[set knowsdevil 0]
 		It is the den of eternal regret.
 		For those who spent their life making other peoples' lives a living hell.
 			+ Wait, this is hell and you are the Devil?
@@ -3710,10 +3876,17 @@ Welcome to your future home!
 			+ So, you're the devil. Soon there might not be any place for you in this country.
 			Once I become the emperor.
 				[section emperor]
-	+ I'm not a hatemonger, you catholic piece of shit! I'm extremely liberal!
-		[mood laugh] Hahahahahahaha.
+	+[if beentohell = 0] I'm not a hatemonger, you catholic piece of shit! I'm extremely liberal!
+		[mood laugh] Hahahahahahaha!
 		My actions upon this world are nothing compared to the pure anger within you.
 			+ What do you mean? Aren't you the one guilty of everything wrong with this world?
+				No, that's the Jews.
+				[mood laugh] Hahahahahahaha!
+					[mood angry] I think it's time for me to get rid of you and this place forever.
+						You can't get rid of me, pig.
+						I'm a part of you.
+						All of you!
+							[section fight]
 				Me? Oh, no no. You must be thinking of feminists.
 				[talk matilda][cloud reverse] What?
 				Feminists are women that make each other work in all those smart jobs made for men.
@@ -3885,8 +4058,23 @@ Now, how can I help you?
 == again ==
 
 	We found the Frequency Ultra Conversion Kirlian!
-		Great, let's just fast forward because I don't have this part!
-		[end]
+		Great job!
+		[animations player spr_viktor_walk_right][moveto player 929 745]
+		[animation player spr_viktor_use_right_middle][animation tesla spr_tesla_use_right_middle][give realfuck]
+		Yes, this seems to be the part... I'll just plug it in and the start up the machine!
+		[animations tesla spr_tesla_walk_right][move tesla 150 3][time 30][imagespeed tesla 0.6]
+		[move tesla 0 0][noitamina tesla spr_tesla_use_left_middle][time 60]
+		Ugh, these wires are in such a mess...
+		I, um, unfortunately, have no time to fix it right now...
+		So you just make sure the wires are connected properly. 
+		Then step up on the platform to get your electrons polarised.
+			And that will make me impervious to the emperors electric field?
+				Let's say yes... The Kirilian should have enough power to polarise one person.
+				Anyway, good luck! I have to go to America now. 
+				Remember me when you become Emperor!
+				[animations tesla spr_tesla_walk_left][move tesla 320 5][time 90][imagespeed tesla 0.6]
+				[destroy tesla]
+				[end]
 
 == begin ==
 
@@ -3898,39 +4086,39 @@ Now, how can I help you?
 		Last time I checked, I still had that misfortune.
 			+ I'm sorry, I didn't understand. Are you Nikola Tesla or not?
 				[talk matilda] Viktor honey, what did we say about aggravating famous people?
-					+ Oh, all right. I'm sorry Mr. Tesla.    //brian edit   capitalized "Mr."
+					+ Oh, all right. I'm sorry Mr. Tesla.
 						You are forgiven.
 						Now, how can I help you?
 							[section begin]
 	+ Wow, it's really you. I recognize you from the photograph in that magazine about coils!
-		Yes, I recognize myself as well. The magazine was called Electro Shocker. //brian edit   capitalized "Electro Shocker" (since it's a magazine name--proper noun)
+		Yes, I recognize myself as well. The magazine was called Electro Shocker.
 			[section shocker]
 
 end
 == shocker ==
 	+ You are not embarrassed giving an interview for an article about an erotic fetish?
 		Considering how much this empire spends on non-military science, you should be more embarrassed about reading it.
-			+ It seems that you would really enjoy a change of government. I might possibly help with that.    //brian edit   changed "about" to "with" in the phrase "I might possibly help with that."  since that's the way it is normally said and sounds more natural
+			+ It seems that you would really enjoy a change of government. I might possibly help with that.
 				Excuse me?
 					+ We have everything ready, but we need your help with breaking the emperor's electric field.
 						Oh...
 						Well, I would be glad to help you, but... hmm...
 							[section but]
-			+[if electric_flag < 1] Considering your electricity bill, you probably need like a billion such interviews every month.  //brian edit   Changed "yours" to "I", changed "needs" to "need" to match subject change to "I", and removed "of" to make the meaning clear, imo
+			+[if electric_flag < 1] Considering your electricity bill, you probably need like a billion such interviews every month.
 				[section infinite]
 	+ I tried to replicate your experiment from the magazine, but I just started a fire.
-		Explaining it to firemen must have been quite a scene.   //brian edit   added a period (.) to end of the sentence
+		Explaining it to firemen must have been quite a scene.
 			+ Actually, let's change the subject.
 				[section begin]
 	+ Actually, let's change the subject.
 		[section begin]
 
 == infinite ==
-That's not an issue for me. I discovered the secret of infinite electricity!   //brian edit  changed "a" with "the" in "I discovered the secret of infinite electricity!" because the definite article is appropriate here (is there more than one secret?  if not, then "the" is better)
+That's not an issue for me. I discovered the secret of infinite electricity!
 [set electric_flag 1] 
 	+ Wow, can I know the secret?
 		Yes.
-		First you help the empire by building a hydroelectric plant, and then you hook up directly to it.   //brian edit   changed "hook" to "hooking" to match the verb tense earlier (building)
+		First you help the empire by building a hydroelectric plant, and then you hook up directly to it.
 		[talk matilda] So the emperor let you use as much power as you want?
 		I decided not to bother the busy emperor with that information.
 		[if but_flag = 1] [section but]
@@ -3998,7 +4186,7 @@ end
 end
 == frank ==
 
-	- Why would a doctor need need an electric frequency converter?   //brian edit   corrected spelling of "convertor" to "converter"
+	- Why would a doctor need need an electric frequency converter?
 		He says it's for medical experiments.
 		I'm really looking forward to reading his future research articles.
 		Electricity can do incredible things for your health
@@ -4013,11 +4201,11 @@ end
 				[add ing_flag 1]
 					[section frank]			
 	- Is Dr. Frankenstein also planning to attack the emperor of Austria-Hungary?
-		Not as far as I know.   //brian edit  removed the comma (,) after "not"  (sounds better without it, imo)
+		Not as far as I know.
 		He needed it for some of his medical experiments.
 		[add ing_flag 1]
 			[section frank]
-	- Reminds me of the time I lent my Antonin Dvorak record to my ex-girlfriend. Later I saw it in her litter box.   //brian edit  made "ex girlfriend" a hyphenated word (this is usually how it is shown), also correct spelling of "girlfrend" to "girlfriend" (typo)
+	- Reminds me of the time I lent my Antonin Dvorak record to my ex-girlfriend. Later I saw it in her litter box.
 		Thank you for that lovely mental image.
 		[add ing_flag 1]
 					[section frank]
@@ -4030,9 +4218,9 @@ end
 == ingol ==
 	
 	+ There must be an easier way then traveling to Ingolstadt
-		Luckily, my hydro-teleporter is set up in his castle.   //brian edit   changed "to" to "in" in the phrase "Luckily, my hydro-teleporter is set up in his castle." for grammar
-		You just need to reset its datafiles.   //brian edit   removed apostrophe from "its" because this is the correct spelling for possessive of "it"
-		Or whatever the mini-game will be about.	
+		Luckily, my hydro-teleporter is set up to travel to his castle.
+		You can travel there now, the teleporter is right behind you!
+			Great, let's go!
 			[end]
 
 end
@@ -4102,9 +4290,10 @@ end
 		[end]
 
 end
-== matilda ==
 
+== matilda ==
 Hello, young lady.
+== matilda2 ==
 [if toilet_matilda = 0] How interesting to meet someone who just got out of a toilet bowl
 	+[if (version debug) or (frankenstein_thankful = 1)] Could you make a painting for us?
 		Anything for a young lady!
@@ -4118,38 +4307,38 @@ Hello, young lady.
 							The dreaded Dr. Frankenstein.
 							He's upstairs, observing his biggest creation's psychotherapy.
 								Thank you.
-									[section matilda]
+									[section matilda2]
 	+[if toilet_matilda = 1] I'm glad you decided to bring some colors into your house, because it looks like a bloody dungeon
-		It is kinda...
-		Moist.
-		But in a bad way.
-		And that skeleton, oh so tacky.
+	It is kinda...
+	Moist.
+	But in a bad way.
+	And that skeleton, oh so tacky.
 		Luckily, it's not my house. It's Dr. Frankenstein's dungeon.
 			+ Oh.
-				[section matilda]
+				[section matilda2]
 	- My name is Matilda, what is yours?
 	[set klimtmatildaname 1]
 	[if toilet_matilda = 1]
 		I'm Gustav Klimt. I'm a painter, and you?
 			+ An anarchist.
 				That's cute.
-					[section matilda]
+					[section matilda2]
 			+ Freelance murderer.
 				Sounds like lots of work.
 				Do you murder a lot of people throughout the day?
 					+ Not really
 						I'm not sure if I should wish you more luck or less.
-						[section matilda]
+						[section matilda2]
 					+ Just kidding, I'm not actually a murderer.
 					But it sounds better then saying I'm unemployed.
 						It really does.
-							[section matilda]
+							[section matilda2]
 			+ Uh... I'm a plumber. We're both plumbers here.
 				Of course you are.
-					[section matilda]
+					[section matilda2]
 	+ Sorry to disturb you, I'll just be on my way.
 		Thank you.
-			[section matilda]
+			[end]
 
 end	
 == after_machine ==
@@ -4235,7 +4424,7 @@ Then, ich make thousands of super-soldiers fur mein beloved fuhrer.
 [mood frankenstein crazy] Nein nein nein, enough of zis schmetterling geschaft!
 [position frankenstein 9000 9000]
 [draw spr_frankenstein_throw_chair 885 808 57 -1000 0.7][destroy tower_stool 10][time 40]
-[draw spr_tower_stool 836 508 17 300 0.7 1 120 35 150][time 17]
+[draw spr_tower_stool 836 508 17 -900 0.7 1 120 35 150][time 17]
 [draw spr_cloud_small 375 230 10 -1000 0.3 1 0 15 45 0 0 0 -0.01][draw spr_cloud_small 375 230 10 -1000 0.3 1 0 15 135 0 0 0 -0.01][draw spr_cloud_small 375 230 10 -1000 0.3 1 0 15 215 0 0 0 -0.01]
 [position frankenstein 885 808]
 [move tower_machine_blade4 270 30][move tower_machine_blade3 270 30][move tower_machine_blade2 270 30][move tower_machine_blade1 270 30][move tower_machine_nozzle 270 30][move tower_machine_cable 270 30][move tower_machine_body 270 30][move tower_machine_ball1 270 30][move tower_machine_ball2 270 30][time 20]
@@ -4389,6 +4578,21 @@ end
 [end]
 
 
+== buzzed == 
+
+	+ Quick, what do I do?!
+		[talk frankenstein_right] Ach, just unplug ze Router...
+		[talk freud] Or find another boar, that also works.
+		[talk monster] I've got a bit of boar in me, methinks.
+		[section buzzed]
+	+ How can you stand idly by while the love of my life is being electrocuted?
+		It is very entertaining.
+		[talk monster] You see, we don't have cable...
+		[section buzzed]
+	+ No time to talk...
+		[end]
+
+end.
 
 === igor ===
 
@@ -4415,11 +4619,11 @@ end.
 		I usually love my job, but this screaming madhouse is a bit too much for me.
 			+ The monster's inner problems are getting to you?
 				Oh the monster is wonderful.
-				She has nice and has a fascinating list of problems.
-				Her father, on the other hand.
+				She is nice and has a fascinating list of problems.
+				Her father, on the other hand...
 				[talk frankenstein][mood frankenstein crazy] HIS father!
 				[talk frankenstein][mood frankenstein crazy] Das ist eine he!
-				[talk frankenstein][mood frankenstein crazy] Hurry up und fix that!
+				[talk frankenstein][mood frankenstein crazy] Hurry up und fix that, you so called "psychotherapist"!
 					[end]
 	+ My name is Viktor.
 		Oh lovely, another one.
@@ -4430,7 +4634,7 @@ end.
 					+ Good point.
 						[end]
 			+ Oh, you're the "everything is about sex" guy?
-				I prefer the term psychoanalyst. // because i didnt get the other joke. alex
+				I prefer the term psychoanalyst.
 					[end]
 
 end
@@ -4453,49 +4657,54 @@ end
 == start ==
 
 Sir, How dare you to come uninvited?
+	[if version debug] DEBUG - SKIP TO THE FIGHT...
+	[if version debug][section fight]
+	[section viktor]
+	
+== matilda ==
+
+More rebel scum!?
+You will be dealt with as well!
+		[section fight]
 
 == viktor ==
 	+ My throne is waiting there for me
-	I can hear it call me
-	[blocksound snd_vase_sing]"Come, come my lover!"
-	[blocksound snd_vase_sing]"Sit on my face"
+	I can hear it call me...
+	[blocksound snd_vase_sing] "Come, come my lover!"
+	[blocksound snd_vase_sing] "Sit on my face"
 		I'm not as amused by your humor as you would hope.
-		You talk directly against my emperor.
-		And yours too, slavic scoundrel.
-		Prepare to fight.
+		You talk directly against my Emperor.
+		And yours too, slavic scoundrel!
+		Prepare to fight!
 			[section fight]
 	+ Did you ever think about getting a change in your leadership?
 		Thank you, but no.
 		Let me introduce myself before I kick your ass.
 		I, sir, am General Mayor Oskar Mayer
-		Please let me know who I'm going to beat the hell out of, Sir.
-			+ My name is Viktor the horible and I'm about to become the new emperor of Austria-Hungary!
-			[set mood scared]
-			[talk matilda] Viktor, honey, we already discussed this!
-			[talk matilda] It's not a good idea to call yourself "the horrible".
-			Oh, all right
-			[set mood] My name is Viktor and I'm about to become the new emperor of Austria-Hungary!
-				Please, Sir Viktor, let us start a fight.
-				Unless you have a last wish.
+		Please let me know who I'm going to beat the hell out of, Sir?
+			My name is Viktor and I'm about to become the new emperor of Austria-Hungary!
+				Then please, Sir Viktor, let us start a fight.
+				But first, do you have a last wish?
 					+ I actually have a lot of wishes.
-					And you look like a true gentlemen who would thruthfully fulfill my last wish.
+						And you look like a true gentlemen who would thruthfully fulfill my last wish.
 							+ My wish is for us to not fight. How about that?
-								No
-								And I will not kill you, so do not worry.
-								Let us fight, now
+								No.
+								But I will not kill you, so do not worry.
 									[section fight]
 							+ I would like some spaghetti with tomato sauce.
 							Ooh, and some cheese.
 							And a glass of beer.
 							And wine.
 							And some cucumbers.
-								Just put up your dukes, Sir Viktor.
+								Just put up your dukes, Sir Viktor!
 									[section fight]
-					+ I would like you to help me with overthrowing the old fart on the throne
-						Ok' that was enough.
+					+ I would like you to help me with overthrowing the old fart on the throne.
+						I heard enough!
 						I will sweep the floor with you now.
 						Hands up and fight me!
 							[section fight]
+					+ Shut up and fight!
+						[section fight]
 	- But I was invited, did nobody tell you?
 		My apologies, good sir.
 		I did not notice your "Come through the roof of the emperor's botanical garden" invitation.
@@ -4504,18 +4713,21 @@ Sir, How dare you to come uninvited?
 
 end
 == fight ==
-tu pocne borba
-	ae stvarno
 		[end]
 
 
-=== gardener ===
+=== elephant ===
+
+== start ==
+
+Good day to you.
+[if alias viktor][section viktor]
+[if alias matilda][section matilda_start]
 
 == viktor ==
 
-Good day to you. 
-	- Good day to you too, sir.
-	You are not surprised to see us here? 
+	-[if elepconvo1 = 0] Good day to you too, sir.
+	[set elepconvo1 1] You are not surprised to see us here? 
 		Not really.
 		It's a semi-public place.
 		People walk aroung here all the time.
@@ -4525,53 +4737,119 @@ Good day to you.
 				But I'm willing to believe that the emperor prefers it like this.
 					+ Lovely.
 						[end]			
-	+ We plan to fire your boss!
+	- We plan to fire your boss!
 		That sounds unreasonable, yet feasible.
-			+ You sound like you don't care one bit about this
+			+ You sound like you don't care one bit about this?
 				You are a very wise and perceptive young man.
 				I always said that biggest brains reside in people's bellies.
 					+ That sounds highly unlikely, but I'm willing to accept it as absolute truth.
 						You sound like a true gardener. Did you ever consider asking for a job in this garden?
-							+ Actually, I'll just go and oust the emperor now.
+							+ No, I'll just go and oust the emperor now.
 								Enjoy yourself.
-									[end]						
+									[section viktor]						
 			+ Do you wish to join us?
 				Oh no no, I would never.
 				I don't even bother doing the work that I'm supposed to be doing.
 					+ Your loss.
-						[end]
-				
-
+						[section viktor]
+	- Could you borrow those scissors to me?
+		== section scissors ==
+		Oh, I couldn't possibly.
+		You see, there are all these plants to trim and groom...
+		And grooming them is so much trouble...
+			+[if eleptriedno = 0] What if we promised to trim the plants for you?
+				[if eleptriedno = 0][section no]
+				[if eleptriedno = 1] Unfortunately, no.
+				[if eleptriedno = 1][section viktor]
+				== section no ==
+				[section eleptriedno 1] No, the last time I trusted other people with my scissors it turned out badly. 
+				They turned out to be anarchists who needed the scissors to cut down one of those paintings in the lobby.
+					Oh come on, how likely is it for that to happen twice?
+						Since one of them was this lovely zebra, I would say very likely.
+							[direction front] Matilda, when was this?!
+								[talk matilda] It was a very badly thought out plan.
+								[talk matilda] I don't like to talk about it...
+								[set introelep 1][section viktor]
+			+ What if we just borrowed them for five minutes?
+				[if eleptriedno = 0][section no]
+				[if eleptriedno = 1] Unfortunately, no.
+				[if eleptriedno = 1][section viktor]
+			+ What about a trade?
+				[if taskunclogfountain = 1] Yes, I am comfortable with the deal we made. 
+				[if taskunclogfountain = 1] Just unclog the fountain and I will give you the scissors.
+				[if taskunclogfountain = 1][section viktor]
+				[if whatelse = 1] I did not like anything you had to show me...
+				[if whatelse = 0] That sounds reasonable.
+				[if whatelse = 0] But what do you have?
+				== section what ==
+				[if whatelse = 1] What else do you have?
+				[set whatelse 1]
+					+ This fine leather jacket!
+						I do not like leather... Or jackets...
+						[section what]
+					+ This wonderful umbrella!
+						What use is an umbrella indoors?
+							You'd be amazed!
+								Alas, I am not interested.
+								[section what]
+					+ This wonderful pipe!
+						Alas, I do not smoke.
+						[section what]
+					+ How about some favor in return for the scissors?
+						Well, there is something I need done...
+						The fountain is clogged and I am too lazy to fix it.
+						If you unclog the fountain, I will lend you the scissors.
+							Great!
+							[set taskunclogfountain 1]
+							[section viktor]
+					+ I have nothing.
+	+ What's wrong with the fountain?
+		It is clogged by something deep in the tubes, I think.
+		[section viktor]
+	+ Bye for now.
+		Have fun.
+		[end]
 end
-== matilda ==
+== matilda_start ==
 
-	+ Drop your weapon or I will annihilate you!
-		I do not have a weapon
-			+ Do not play smart with me!
-				I really do not.
+[if introelep = 0] Have we met already?
+
+== matilda ==
+	+[if introelep = 0] I'm Matilda and I'm here with Viktor to oust the Emperor!
+		[set introelep 1] Oh.
+		Well...
+		Good luck with your ousting.
+		[section matilda]
+	+[if (elepscis = 0) or (elepsmart = 0)] Drop your weapon or I will annihilate you!
+		I do not have a weapon.
+			+[if elepsmart = 0] Do not play smart with me!
+				[set elepsmart 1] I really am not.
 				I was never very smart.
 				I had a very sad childhood.
-				People would say "oh, look at that elephant. He doesn't seem smart at all".
+				People would say "Oh, look at that elephant. He doesn't seem smart at all".
 					+ Ok, stop it, stop it.
-					You are no longer a child, for god sake.
 						So, you are not going to kill me?
 							+ Nah, I lost interest.
-								[end]
-			+ You have these scissors
-				That's not a weapon, that's a tool
+								[section matilda]
+			+[if elepscis = 0] You have these scissors
+				[set elepscis 1] That's not a weapon, that's a tool
 					+ And this gun is a tool for murdering
 						But if I drop my scissors, I'll have to bend all the way down to pick them up later.
 							+ Just... just do your gardening.
 								Do I really have to?
-								My back hurts from all the gardening I sometimes do.
-									[end]
-	+ We will make a Frappe out of your ugly emperor.
-		A Frappe? What is that?
+								My back hurts from all the gardening I sometimes do...
+									[section matilda]
+			+ Ok, forget it...
+				[section matilda]
+	+[if frapelep = 0] We will make a Frappe out of your ugly emperor.
+		[set frapelep 1] A Frappe? What is that?
 			+ It's a kind of milk shake, but with coffee.
 				I don't think anyone would like to shake milk.
 				It would just spill everywhere
 					+ It was just a figure of... oh, never mind.
 						[end]
+	+ Never mind.
+		[end]
 
 end
 === final_emperor ===
@@ -4623,7 +4901,7 @@ Running low on electricity, are we?
 Come closer and you'll get as much as you need.
 	+ I can come as close as I want, Mr. Tesla gave me immunity to your silly field.
 		[talk matilda] Viktor, darling, I'm not sure telling him that was a good idea.
-			+ [time 150][move palace_curtain_left 90 3][move palace_curtain_right 90 3][sound snd_lift_leave] Why? What's he gonna do? Make another field? 					
+			[time 150][move palace_curtain_left 90 3][move palace_curtain_right 90 3][sound snd_lift_leave] Why? What's he gonna do? Make another field? 					
 					[move palace_curtain_left 90 0][move palace_curtain_right 90 0] Oh, right... the automatons.
 						[section enough]
 	+ Don't be cheeky behind that thing. Come and fight me like a man
@@ -4637,7 +4915,6 @@ end
 == enough ==
 
 Enough of these charades.
-(something something battle)
 [end]
 
 
@@ -4703,4 +4980,149 @@ Stripes upon me
 		I am broccoli
 			[end]
 end
-=== eof ===
+
+=== camera ===
+
+== start ==
+
+	Umm... Hello?
+		You have reached the Automated Palace Response Door.
+		== enter ==
+		Would you like to enter this door?
+	== enter2 ==
+	+[if behinddoor = 0] What is behind this door?
+		[set behinddoor 1] The Emperor's Inner Sanctum.
+		[section enter]
+	+ I would like to enter, yes.
+		== enter3 ==
+		Please wait while we assertain your identity.
+		[not available hallway_pipe_animated][not available powder][create powder 100][create hallway_pipe_animated][imageindex hallway_pipe_animated 0][destroy hallway_pipe_animated 150]
+		Ready for the picture?
+			+ Yes!
+				[section enter4]
+			+ On second thought, I changed my mind.
+				[section enter4]
+		== enter4 ==
+		Are you sure?
+			+ Yes!
+				[section enter5]
+			+ On second thought, I changed my mind.
+				[section enter5]
+		== enter5 ==
+		Well, ready or not, here it comes!
+		[if available powder2][destroy powder2]
+		[not available powder][create powder -1][create powder2]
+		[if available powder][destroy powder]
+		[fade in 0.3 -9999 spr_various_white][time 3] > [if available hallway_pipe_animated][imageindex hallway_pipe_animated 33] > [fade out 0.3 -9999 spr_various_white][time 3] > [fade] > [time 15]
+		[if alias viktor] You have been identified as the traitor Viktor.
+		[if alias matilda] You have been identified as the traitor Matilda.
+		Please wait while we dispatch assassins to your locations.
+		[set assassins 1]
+			[direction front] Whoops.
+			[end]
+	+ If I say yes, will something bad happen?
+		No, you will just be visually scanned and identified.
+		If you are a known traitor of the Empire, we will dispatch assassins to your location.
+		So unless you are an anarchist bent on overthrowing the Emperor, you are safe.
+		[section enter]
+	+[if assassins = 1][if camerabored = 0] So, where are those assassins you dispatched?
+		Unfortunately, all assassins are busy at the present time.
+		In the meantime, you can chat with me.
+			No, thank you.
+				Please? It's terribly lonely being a camera automaton...
+					OK, OK, what can you talk about?
+						Well...
+						[set camerabored 1]
+						[section enter]
+	+[if camerabored = 1] Is this all you can talk about?
+		No.
+		I can also take pictures of people and open the door if they are invited.
+			+ So... Who is invited inside?
+				Sorry, that information is classified.
+				[section enter2]
+			+ Could you take my picture for fun?
+				[if alias viktor][not item viktor] Sure!
+				[if alias matilda][not item matilda] Sure!
+				[if alias viktor][if item viktor] I already made you a picture!
+				[if alias matilda][if item matilda] I already made you a picture!
+					[if alias matilda][if item matilda] But I don't like how I turned out!
+					[if alias viktor][if item viktor] But I don't like how I turned out!
+						[if alias matilda][if item matilda] I'm sorry, but I have to conserve powder.
+						[if alias viktor][if item viktor] I'm sorry, but I have to conserve powder.
+						[if alias matilda][if item matilda][section enter2]
+						[if alias viktor][if item viktor][section enter2]
+				[not available hallway_pipe_animated][not available powder][create powder 150][create hallway_pipe_animated][destroy hallway_pipe_animated 150][time 150] > [time 15]
+				[time 15] > [destroy powder][fade in 0.3 -9999 spr_various_white][time 3] > [fade out 0.3 -9999 spr_various_white][time 3] > [fade] > [time 15]
+				[if alias viktor][take picture_viktor][draw spr_hallway_viktor 31 403 30 -402 1 1 0 0 0 0 0 1][animation player spr_viktor_use_left_middle][time 31]
+				[if alias matilda][take viktor][draw spr_hallway_matilda 31 403 30 -402 1 1 0 0 0 0 0 1][animation player spr_matilda_use_left_middle][time 31]
+					Wow, that's great, thanks!
+						A pleasure. Now... Would you like to enter this door?
+						[section enter2]
+			+ Nooooo, just send those assassins!!!
+				How about you try entering the door again?
+				[section enter2]
+	+ No, not just yet.
+		Thank you.
+		[end]
+
+end
+=== debug ===
+
+== bank ==
+
+++ 0
+	[set safe_type 0]
+	[end]
+++ 1
+	[set safe_type 1]
+	[end]
+++ 2
+	[set safe_type 2]
+	[end]
+++ 3
+	[set safe_type 3]
+	[end]
+++ 4
+	[set safe_type 4]
+	[end]
+++ NEXT
+	[section bank_more1]
+
+end	
+
+== bank_more1 ==
+
+++ PREV
+	[section bank]
+++ 5
+	[set safe_type 5]
+	[end]
+++ 6
+	[set safe_type 6]
+	[end]
+++ 7
+	[set safe_type 7]
+	[end]
+++ 8
+	[set safe_type 8]
+	[end]
+++ MORE
+	[section bank_more2]
+
+end
+
+== bank_more2 ==
+
+++ PREV
+	[section bank_more1]
+++ 9
+	[set safe_type 9]
+	[end]
+++ 10
+	[set safe_type 10]
+	[end]
+++ 11
+	[set safe_type 11]
+	[end]
+
+end
