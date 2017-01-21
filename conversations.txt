@@ -74,7 +74,7 @@ Good night pig.
 				[set crowmoar_flag 1]
 					[section moar]
 			+[if crowfunder_flag = 0] I can crowdfund my rent for you.
-				The hell are you talking about, pig?
+				What the hell are you talking about, pig?
 					+ You haven't heard of crowdfunding?
 						[section crowdfunding]
 			+ But I did pay you. I left the rent in your mailbox this morning.
@@ -217,8 +217,7 @@ end
 == recognizes_you ==
 
 Wait, please, I... > [animation martinsRoom_martin spr_martinsRoom_martin][time 15] > [imagespeed martinsRoom_martin 0.3] > Viktor, is that you?
-	++ Hahahahahahaha!
-	[blocksound snd_viktor_laugh] Hahahahahahaha!
+	- [blocksound snd_viktor_laugh] Hahahahahahaha!
 		[section in_no_mood]
 	- No, this is Mother. Hoot.
 		[section in_no_mood]
@@ -410,7 +409,7 @@ endi
 	- That cow is working at the kiosk again.
 		[set cow_fun_flag 1]
 		Do not make fun of her, Viktor.
-		The reprecussions would be severe.
+		The repercussions would be severe.
 			+ So, what you're saying is that I should make fun of her a lot?
 				No, Viktor. Do not make fun of her.
 					+ Okay, I'm going to make fun of her right now. Talk to you later.
@@ -585,7 +584,7 @@ end
 			Are you sure about that?
 				No.
 				[section psychic_tavern]
-	-[if metjekyll = 0][if martinfox = 0] There's a fox in a really nice suit
+	-[if metjekyll = 0][if martinfox = 0] There's a fox in a really nice suit.
 		[set martinfox 1] Irrelevant.
 		But harmless.
 		No, wait. There's something off about him that's more than meets the eye...
@@ -872,11 +871,11 @@ end
 		What were we talking about? Hipsters? Emperor? Me? Wigs?
 		[set philo_flag 1]
 			[section excuse]
-	+[if wig_flag = 1][if needs_wig = 1] About that wig...
-		[section viktor_philosophy]
 	+ Never mind
 		[end]
-	
+	+[if wig_flag = 1][if needs_wig = 1] About that wig...
+		[section viktor_philosophy]
+
 end	
 == vino_veritas ==
 
@@ -897,8 +896,8 @@ end
 				I'm...
 				What am I, anyway?
 					[section excuse]
-			+ Fortune favours the audience?
-				No, Fortune favours the bald.
+			+ Fortune favors the audience? 
+				No, Fortune favors the bald.
 				Like Captain Picard.
 				Or was it about bravery?
 				[mood frog smart] Anyway, he who is not drunk is lost! Who is drunk will puke!
@@ -951,9 +950,7 @@ I also earn a living wage out of it.
 	+[if frogafford = 0] Can you afford to be an alcoholic by doing philosophy?
 		[set frogafford 1] Of course not!
 			[section wigs]
-	++[if frogafford = 1][if frogschool = 1] Anyway?
-		[section excuse]
-		
+				
 end	
 == wigs ==
 
@@ -1136,7 +1133,7 @@ Allllways?
 		So I can earn money and look sexy like Eelvis or Johnny Doop.
 			[section odabir]
 	+ A pistol?
-		Why the hell?
+		What the hell?
 			[section odabir]
 	+ A brain?
 		Well that is for sure
@@ -1415,7 +1412,6 @@ Is that 5 coins?
 
 
 end
-
 === rabbit ===
 
 == start ==
@@ -1423,23 +1419,23 @@ end
 	+[if rabbitrobot = 0] What an awesome automaton. Where is it from?
 		[set rabbitrobot 1][section robot]
 	+[if rabbitname = 0] I am Viktor, a soon-to-be emperor of Austria Hungary.
-		[set rabbitname 1] Tee hee (⌒ω⌒)
-		I am Fuka Misaki, soon-to-be angry passenger (⌒_⌒;)
+		[set rabbitname 1] Tee hee (???)
+		I am Fuka Misaki, soon-to-be angry passenger (?_?;)
 		[description rabbit Ms. Misaki]
 			+ You already decided you will dislike the service in the airship?
 				[section letme]
 		+ And is this automaton of yours also soon-to-be angry passenger?
 			[section robot]
 		+ What a coincidence, I also plan on being an angry passenger.
-			I already angry (｀ﾛ´) so now must become passenger (*^ω^)
+			I already angry (`?´) so now must become passenger (*^?^)
 				[section letme]
 	+[if rabbitline = 0] Are you standing in a line for the airship?
-		[set rabbitline 1] Sadness no, desu (o︶︹︺) > I just wait here all worries!
+		[set rabbitline 1] Sadness no, desu (o???) > I just wait here all worries!
 			[section letme]
 	-[if cleanup = 1][if cleanuptalk = 0] Is there something wrong with your automaton?
-		[set cleanuptalk 1] Slightly sadness, desu (´д｀)
-		ROBOTOTRON4ULTRA get hit by huge ball of abyss (」•ロ•)」
-		But lucky, ROBOTOTRON4ULTRA may lose many parts before stop work fully (*^ω^)
+		[set cleanuptalk 1] Slightly sadness, desu (´?`)
+		ROBOTOTRON4ULTRA get hit by huge ball of abyss (?•?•)?
+		But lucky, ROBOTOTRON4ULTRA may lose many parts before stop work fully (*^?^)
 			+ Can I take the parts that are falling off?
 				No possibility senpai.
 				It need me to show repairwomen many part.
@@ -1452,7 +1448,7 @@ end
 end	
 == letme ==
 
-They impolitely not let me inside, desu (＃￣ω￣)
+They impolitely not let me inside, desu (#???)
 	+ Why won't they let you in?
 		I show ticket to person.
 			[section diet]
@@ -1472,15 +1468,15 @@ Tee-hee, it ROBOTOTRON4ULTRA from the Empire of Nippleon ^^
 Ultra-kawai-machine for movements of greater speed.
 And is protection from impolite men, of course, desu. ^^
 	+ Nippleon? I heard that your emperor is a madman who ate his own children.
-		Never be anger Nippleonian when we hungry, desu (´｡• ᵕ •｡`)
-		HUNGRY!!! ψ(｀∇´)ψ
+		Never be anger Nippleonian when we hungry, desu (´?• ? •?`)
+		HUNGRY!!! ?(`?´)?
 			[section start]
 	+ I heard Nippleonian soldiers can cut the head of any villager they wish.
-		You misunderstand rules of conducts (￣ヘ￣)
+		You misunderstand rules of conducts (???)
 		Samurai is not all just go places decapitate villagers.
-		Exception of Miyamoto Wasabi, he is just decapitate villagers all the time! (─‿‿─)♡.
+		Exception of Miyamoto Wasabi, he is just decapitate villagers all the time! (¦??¦)?.
 		Everywhere he go, he is just decapitate, decapitate, decapitate!
-		(´｡• ω •｡`) ♡
+		(´?• ? •?`) ?
 		But he not real, is action star from manga, desu.
 			[section start]
 
@@ -1488,7 +1484,7 @@ end
 == diet ==
 
 But person impolitely say I am too heavy for enter.
-So now I go on extra diet (´д｀)
+So now I go on extra diet (´?`)
 I so hungry, I could decapitate!
 	[section diet2]
 
@@ -1497,29 +1493,29 @@ end
 
 	+ Would you like me to recommend you a diet? I know a few really good ones.
 		Do not be in offence, senpai.
-		But I see highly apparent your diet is not of most successful kind, desu （*´▽｀*）
+		But I see highly apparent your diet is not of most successful kind, desu (*´?`*)
 			- Oh it would work great if I wouldn't give up on it after a few hours.
 				My most long diet is being for six years.
-				I started with year nine of age. I hope it will be a finish soon. ⃛ヾ(๑❛ ▿ ◠๑ )
+				I started with year nine of age. I hope it will be a finish soon. ??(?‘ ? ?? )
 					[section diet2]
 			- I assure you, young lady, if you took my diet, you would soon disappear or fall through the sewer grating.
-				Tee-hee, that is impossible to be happen when I ride ROBOTOTRON4ULTRA o((▽))o .
-				I'm terribly hungry (｀ﾛ´)
+				Tee-hee, that is impossible to be happen when I ride ROBOTOTRON4ULTRA o((?))o .
+				I'm terribly hungry (`?´)
 					[section diet2]
 			+ If you need a few more weeks of dieting, it would be a shame if your ticket would go to waste.
-				I must go to Vienna now! (＃`Д´)
+				I must go to Vienna now! (#`?´)
 				This silly town is only pants for overweight girl.
-				I want a tight pants for being moderen Europe ヽ(♡‿♡)ノ
+				I want a tight pants for being moderen Europe ?(???)?
 					+ So, if I got you some pants, you would no longer need a ticket, right?
-						I would still wish to be travel, even with pants in my size, desu ╮(￣～￣)╭
+						I would still wish to be travel, even with pants in my size, desu ?(?~?)?
 						I could give you this old dress of school.
 							+ What the hell would I do with your school dress?
-								You could be cuddle and smell at home (o^▽^o)
-								Or wear it like hat! (ﾟ▽ﾟ)
+								You could be cuddle and smell at home (o^?^o)
+								Or wear it like hat! (???)
 									[section finish]
 	+ You do understand that you would be much lighter without the automaton, right?
 		Oh no no no...
-		I could never be travel without ROBOTOTRON4ULTRA (」•ロ•)」
+		I could never be travel without ROBOTOTRON4ULTRA (?•?•)?
 		If Shitsureina find out, I seppuku for sure, desu
 			+ Shitsureina is your mother?
 				[section shitsureina]
@@ -1545,31 +1541,32 @@ We like to be in opposition with authority!
 end	
 == shits2 ==
 
-Nothing needlessly drastic, senpai. (*^ω^)
+Nothing needlessly drastic, senpai. (*^?^)
 We are show our disdain with obvious signs.
-Like wear a slight surplus of makeup. (✧∀✧)
+Like wear a slight surplus of makeup. (???)
 Also don't call men senpai all the time. Just sometimes.
 If we embarrass, not always do seppuku.
-We especially have our dance moves, desu, very provocative! (*♡∀♡)
+We especially have our dance moves, desu, very provocative! (*???)
 	+ None of this sounds very effective.
-		Gang is not for effective, you silly senpai ⌒(o＾▽＾o)ノ
+		Gang is not for effective, you silly senpai ?(o^?^o)?
 		It is for have fun and trade manga.
 			[section finish]
 	+ Can I see the dance moves?
-		You cannot now. (⌒‿⌒)
+		You cannot now. (???)
 		Not dance when I am on ROBOTOTRON4ULTRA and so hungry.
-		SO HUNGRY!!! ψ(｀∇´)ψ
+		SO HUNGRY!!! ?(`?´)?
 			[section finish]
 			
 end	
 == finish ==
 
 	+ This conversation is starting of confusion.
-	Oh great, now I start talking like you! (」•ロ•)」 > Sorry, I need to rest a bit.
+	Oh great, now I start talking like you! (?•?•)? > Sorry, I need to rest a bit.
 		Sayonara senpai ^^
 			[end]
 
 end 
+
 === kiosk ===
 
 == viktor_angry ==
@@ -1938,8 +1935,8 @@ end
 		But if you are literary afficionado, then you must also enjoy music.
 			+ Oh yes. Mozart, Dvorak, even the modern stuff like Joplin.
 				Exquisite choice.
-				I recently tried listening to some Saint-Saens.
-					+ Charles-Camille Saint-Saens? I love the Carnival of Animals!
+				I recently tried listening to some Saint-Saëns.
+					+ Charles-Camille Saint-Saëns? I love the Carnival of Animals!
 						That goes without question.
 						But my current favorite is the Cello Concerto in A-Minor.
 						Beautiful music for rainy weather.
@@ -3683,8 +3680,8 @@ end
 		I'm from New York, Texas.
 		This is the first time I tried playing at this place.
 			+ I thought that everyone in Texas has at least two heads. Where's your other one?
-				Not everyone has multiple heads in Texas. There's me...
-				There's also that rat-face guy that looks like a parrot...
+				Not everyone has multiple heads in Texas. There's me…
+				There's also that rat-face guy that looks like a parrot…
 				What was his name?
 				Oh yeah, John Oliver!
 				Do you think I would be smarter with two heads?
@@ -4088,9 +4085,9 @@ Now, how can I help you?
 		Ugh, these wires are in such a mess...
 		I, um, unfortunately, have no time to fix it right now...
 		So you just make sure the wires are connected properly. 
-		Then step up on the platform to get your electrons polarised.
-			And that will make me impervious to the emperors electric field?
-				Let's say yes... The Kirilian should have enough power to polarise one person.
+		Then step up on the platform to get your electrons polarized.
+			And that will make me impervious to the emperor's electric field?
+				Let's say yes... The Kirilian should have enough power to polarize one person.
 				Anyway, good luck! I have to go to America now. 
 				Remember me when you become Emperor!
 				[animations tesla spr_tesla_walk_left][move tesla 320 5][time 90][imagespeed tesla 0.6]
@@ -4279,9 +4276,9 @@ Were you hiding in that toilet bowl all the time?
 end			
 == viktor_later ==
 	+[if beentotower = 1][if klimtdrew = 0] Could you make a painting for us?
-		I don't do favours.
+		I don't do favors.
 			We could pay you?
-				I don't do comissions.
+				I don't do commissions.
 					But you're doing one right now?
 						Ok, let me rephrase: I don't do comissions for you.
 							[section viktor_later]
@@ -4326,7 +4323,7 @@ end
 	+[if beentotower = 1][if klimtdrew = 0] Could you make a painting for us?
 		Anything for a young lady!
 		[section after_machine2]
-	+[if gladtomeetyou = 0] I' m not sure am I glad to meet you sir.
+	+[if gladtomeetyou = 0] I'm not sure I am glad to meet you sir.  removed extra space from "I' m" and changed order of words "am I" to "I am"
 		[set sladtomeetyou 1]
 			You have a skeleton over there and you look as if you...
 				[if klimtmatildaname = 1] Oh, don't worry, Matilda. This is not my house. I'm just painting for the owner of this dungeon.
@@ -4613,7 +4610,7 @@ end
 		[talk freud] I'm sorry, sir, but we agreed that you will not refer to her as "it".
 		[talk monster] I want to be a "she" now.
 		[set hesheit 1] Never!
-		[talk monster] I'm a she! I must be a she! I'm so delicate, as Dr.Freud sad!
+		[talk monster] I'm a she! I must be a she! I'm so delicate, as Dr. Freud said!
 		[talk monster] Let me be a she!
 		Ach shut up, will you?
 		[talk monster] You can not tell me to shut up.
@@ -4755,7 +4752,7 @@ More rebel scum!?
 				Then please, Sir Viktor, let us start a fight.
 				But first, do you have a last wish?
 					+ I actually have a lot of wishes.
-						And you look like a true gentlemen who would thruthfully fulfill my last wish.
+						And you look like a true gentlemen who would truthfully fulfill my last wish.
 							+ My wish is for us to not fight. How about that?
 								No.
 								But I will not kill you, so do not worry.
@@ -4799,7 +4796,7 @@ Good day to you.
 	[set elepconvo1 1] You are not surprised to see us here? 
 		Not really.
 		It's a semi-public place.
-		People walk aroung here all the time.
+		People walk around here all the time.
 		Until the plant eats them.
 			+ Aren't you supposed to do something about that plant.
 				Possibly.
@@ -4821,9 +4818,9 @@ Good day to you.
 				I don't even bother doing the work that I'm supposed to be doing.
 					+ Your loss.
 						[section viktor]
-	- Could you borrow those scissors to me?
+	- Could we borrow those scissors?
 		== section scissors ==
-		Oh, I couldn't possibly.
+		Oh, you couldn't possibly.
 		You see, there are all these plants to trim and groom...
 		And grooming them is so much trouble...
 			+[if eleptriedno = 0] What if we promised to trim the plants for you?
@@ -4831,7 +4828,7 @@ Good day to you.
 				[if eleptriedno = 1] Unfortunately, no.
 				[if eleptriedno = 1][section viktor]
 				== section no ==
-				[section eleptriedno 1] No, the last time I trusted other people with my scissors it turned out badly. 
+				[section eleptriedno 1] No, the last time I trusted other people with my scissors, it turned out badly.
 				They turned out to be anarchists who needed the scissors to cut down one of those paintings in the lobby.
 					Oh come on, how likely is it for that to happen twice?
 						Since one of them was this lovely zebra, I would say very likely.
@@ -4993,7 +4990,7 @@ Automatons, attack the intruders!
 === snake ===
 
 Badger badger badger
-	+ thank you for that lovely palindrome
+	+ thank you for that lovely palindrome.
 		It was not a palindrome.
 			[end]
 	+ Are you sure about that?
@@ -5009,7 +5006,7 @@ Badger badger badger
 
 It's raining men.
 	+ But you don't really care for music, do you?
-		Oh, you're those kinds of zebras, are you?
+		Oh, you're that kind of zebra, are you?
 		King of zebras?
 			+ Oh no no, king of Austrians and Hungarians.
 				There may be a chance.
@@ -5037,13 +5034,13 @@ I would like to eat you slightly
 === viktor ===
 
 Stripes upon me
-	+ Strips of stripes, black and whites.
-		fighting for your rights
+	+ Strips of stripes, black and white.
+		fighting for your rights.
 			[end]
 	+ I never realised I'm actually a vegetable.
 		I am the eggplant.
 		They are the eggplant.
-		I am broccoli
+		I am broccoli.
 			[end]
 end
 
@@ -5061,7 +5058,7 @@ end
 		[section enter]
 	+ I would like to enter, yes.
 		== enter3 ==
-		Please wait while we assertain your identity.
+		Please wait while we ascertain your identity.
 		[not available hallway_pipe_animated][not available powder][create powder 100][create hallway_pipe_animated][imageindex hallway_pipe_animated 0][destroy hallway_pipe_animated 150]
 		Ready for the picture?
 			+ Yes!
@@ -5082,7 +5079,7 @@ end
 		[fade in 0.3 -9999 spr_various_white][time 3] > [if available hallway_pipe_animated][imageindex hallway_pipe_animated 33] > [fade out 0.3 -9999 spr_various_white][time 3] > [fade] > [time 15]
 		[if alias viktor] You have been identified as the traitor Viktor.
 		[if alias matilda] You have been identified as the traitor Matilda.
-		Please wait while we dispatch assassins to your locations.
+		Please wait while we dispatch assassins to your location.
 		[set assassins 1]
 			[direction front] Whoops.
 			[end]
