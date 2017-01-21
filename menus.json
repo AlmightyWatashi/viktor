@@ -122,7 +122,7 @@
 					"y" : 834,
 					"picture" : "spr_menu_back",
 					"action" : "options"
-				},
+				}
 			],
 			"records" : {
 				"x" : 416,

@@ -168,6 +168,12 @@
 					"y" : -48
 				},
 				{
+					"alias" : "useanywhere",
+					"picture" : "spr_cursor_use_interface",
+					"x": 20,
+					"y" : -48
+				},
+				{
 					"alias" : "go",
 					"picture" : "spr_cursor_use_interface",
 					"x": 20,
@@ -358,6 +364,12 @@
 				},
 				{
 					"alias" : "use",
+					"picture" : "spr_cursor_use_interface",
+					"x": 20,
+					"y" : -48
+				},
+				{
+					"alias" : "useanywhere",
 					"picture" : "spr_cursor_use_interface",
 					"x": 20,
 					"y" : -48

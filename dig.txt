@@ -20,7 +20,7 @@ a = animal - snake
 
 map:
 XXXSXXXXXXXXXXXXXXXXXXXXXXXXEXX 
-XooooXXXXXXXXXXXXXXXXXXXXXXXoXX 
+XoowoXXXXXXXXXXXXXXXXXXXXXXXoXX 
 XoXoooooooXoo_wXoooopqooXowXooX 
 XoXooowoooooXwaXooXXXXXoX_aXooX 
 XoXaoooXXXXXXXoXoboowwXoXoXXooX 
