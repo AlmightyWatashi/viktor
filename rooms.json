@@ -105,7 +105,11 @@
 		"x": 622, "y": 645,
 		"xCloud" : 0,
 		"yCloud" : -100,
-		"xScale": 1, "yScale": 1
+		"xScale": 1, "yScale": 1,
+		"description" : "Viktor",
+		"combinations" : {
+			"look" : "Wow, what happened to Viktor!?"
+		}
 		},
 		{
 			"alias" : "shrooms_snake",
@@ -246,7 +250,11 @@
 		"xCloud" : 0,
 		"yCloud" : -100,
 		"x": 457, "y": 735,
-		"xScale": 1, "yScale": 1
+		"xScale": 1, "yScale": 1,
+		"description" : "Matilda",
+		"combinations" : {
+			"look" : "Wow, what happened to Matilda!?"
+		}
 		},
 		{
 		"alias": "shrooms_leaf_red",
@@ -331,7 +339,7 @@
 		"description" : "An hourglass",
 		"combinations" : {
 			"look" : "Time is frozen.",
-			"useanywhere" : "[if waterlevel = 0] It's out of reach. > [if waterlevel = 0][skip] > [take hourglass]"
+			"useanywhere" : "[if waterlevel = 0] It's out of reach. > [if waterlevel = 0][skip] > [take hourglass][destroy]"
 		},
 		"inventory" : {
 			"alias" : "hourglass",
@@ -430,7 +438,7 @@
 		"description" : "A belt",
 		"combinations" : {
 			"look" : "Is this my imagination or yours?",
-			"useanywhere" : "[if waterlevel = 1][take belt] > [if waterlevel = 0] It's out of reach."
+			"useanywhere" : "[if waterlevel = 1][take belt][destroy] > [if waterlevel = 0] It's out of reach."
 		},
 		"inventory" : {
 			"picture" : "spr_item_belt",
@@ -2359,7 +2367,7 @@
 					"talk" : "[conversation camera start]",
 					"pipe" : "[if alias matilda] I don't smoke. > [if alias matilda][skip] > [animation player spr_viktor_pipe] > [talk other][cloud phone] Your low-quality tobacco is no match for my ultra-precision sensors!",
 					"kick" : "[if alias matilda] The door is too massive to use violence. > [if plant = 1] Besides, Viktor needs my help over there! > [if plant = 1][skip] > [if alias matilda][skip] > [mood angry] Time to kick the door down! > [time 60][animation player spr_viktor_shock][imagespeed player 1][sound snd_dirigibles_power][move player 0 1] > [talk other][cloud phone][direction left][mood angry] Please do not play with the electronic door system. > [mood angry][direction front] Now it tells me...",
-					"use": "[talk other][cloud phone] Please stand still while we assertain your identity! > [not available hallway_pipe_animated][not available powder][create powder 150][create hallway_pipe_animated][destroy hallway_pipe_animated 150][time 150] > [time 15] > [destroy powder][fade in 0.3 -9999 spr_various_white][time 3] > [fade out 0.3 -9999 spr_various_white][time 3] > [fade] > [time 15] > [if alias viktor][talk other][cloud phone] You have been identified as the traitor Viktor. > [if alias matilda][talk other][cloud phone] You have been identified as the traitor Matilda. > [talk other][cloud phone] Please wait while we dispatch assassins to your locations. > [direction front] Whoops. >",
+					"use": "[talk other][cloud phone] Please stand still while we assertain your identity! > [not available hallway_pipe_animated][not available powder][create powder 150][create hallway_pipe_animated][destroy hallway_pipe_animated 150][time 150] > [time 15] > [destroy powder][fade in 0.3 -9999 spr_various_white][time 3] > [fade out 0.3 -9999 spr_various_white][time 3] > [fade] > [time 15] > [if alias viktor][talk other][cloud phone] You have been identified as the traitor Viktor. > [if alias matilda][talk other][cloud phone] You have been identified as the traitor Matilda. > [talk other][cloud phone] Please wait while we dispatch assassins to your location. > [direction front] Whoops. >",
 					"leopard": "[talk other][cloud phone] Please stand still while we assertain your identity! > [not available hallway_pipe_animated][not available powder][create powder 150][create hallway_pipe_animated][destroy hallway_pipe_animated 150][time 150] > [time 15] > [destroy powder][fade in 0.3 -9999 spr_various_white][time 3] > [fade out 0.3 -9999 spr_various_white][time 3] > [fade] > [time 15] > [talk other][cloud phone] You have been identified as the Leopard. > [talk other][cloud phone] Since he is presumed dead, we cannot let you pass. > [talk other][cloud phone] Please inform the Coroner's office in Vienna that the reports of your death have been greatly exaggerated, then return here. > [direction front] Damn.",
 					"emperor": "[talk other][cloud phone] Please stand still while we assertain your identity! > [not available hallway_pipe_animated][not available powder][create powder 150][create hallway_pipe_animated][destroy hallway_pipe_animated 150][time 150] > [time 15] > [destroy powder][fade in 0.3 -9999 spr_various_white][time 3] > [fade out 0.3 -9999 spr_various_white][time 3] > [fade] > [time 15] > [talk other][cloud phone] You have been identified as the Emperor. > [talk other][cloud phone] You are already inside. > [talk other][cloud phone] We are not allowed to let people inside twice, it messes up our count. > [direction front] Damn.",
 					"goat": "[talk other][cloud phone] Please stand still while we assertain your identity! > [not available hallway_pipe_animated][not available powder][create powder 150][create hallway_pipe_animated][destroy hallway_pipe_animated 150][time 150] > [time 15] > [destroy powder][fade in 0.3 -9999 spr_various_white][time 3] > [fade out 0.3 -9999 spr_various_white][time 3] > [fade] > [time 15] > [talk other][cloud phone] You have been identified as the Goat. > [talk other][cloud phone] Since he is presumed dead, we cannot let you pass. > [talk other][cloud phone] Please inform the Coroner's office in Vienna that the reports of your death have been greatly exaggerated, then return here. > [direction front] Damn.",
@@ -2455,7 +2463,8 @@
 					"name": "Emepror's picture",
 					"description": "A pictre of the emperor",
 					"default": "Heh. Picture that!",
-					"picture": "spr_item_picture_emperor"
+					"NEWpicture": "spr_item_picture_emperor",
+					"picture" : "spr_hallway_pic_emperor"
 				}
 			},
 			{
