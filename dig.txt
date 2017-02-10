@@ -1,4 +1,4 @@
-5.1.
+2.2.
 S = START
 E = END
 X = rock
@@ -13,24 +13,27 @@ k = dinosaur
 p = basement
 q = basement2
 d = dwarves
-_ = danger starts - close to spider
+_ = danger starts, put close to spider
 - = danger ends
 w = web
-a = animal - snake
+a = animal, snake
 
 map:
 XXXSXXXXXXXXXXXXXXXXXXXXXXXXEXX 
 XoowoXXXXXXXXXXXXXXXXXXXXXXXoXX 
-XoXoooooooXoo_wXoooopqooXowXooX 
-XoXooowoooooXwaXooXXXXXoX_aXooX 
+XoXoooooooXooowXoooopqooXowXooX 
+XoXooowoooooXwaXooXXXXXoXoaXooX 
 XoXaoooXXXXXXXoXoboowwXoXoXXooX 
 XooooooXoooXmnoXXXXXaaXoooXoooX 
-XoXXoXXXoXoXXXXXooo_ooXXXoXoXXX 
+XoXXoXXXoXoXXXXXooooooXXXoXoXXX 
 XoXoocXooXooooXwoooXXXooXoXoooX 
 XoXoooXooXooooXooXoXooooXoXoooX 
 XoXXXXXoXXXooXXooXoookooXodoooX 
-XoooooooXroooo_aoXooooooXoXXooX 
-XXXXXXXHXooXXXXXXXXXXXXXooXXXXX 
+XoooooooXroooooaoXooooooXoXXooX 
+XXXXXXXoXooXXXXXXXXXXXXXooXXXXX 
 XXXXXXXoXXXXXXXXXXXXXXXXooXXXXX 
+XXXXXXXHXXXXXXXXXXXXXXXXXXXXXXX 
+XXXXXXXoXXXXXXXXXXXXXXXXXXXXXXX 
+XXXXXXXoXXXXXXXXXXXXXXXXXXXXXXX 
 XXXXXXXoXXXXXXXXXXXXXXXXXXXXXXX 
 XXXXXXXvXXXXXXXXXXXXXXXXXXXXXXX 
