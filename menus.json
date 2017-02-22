@@ -1,5 +1,5 @@
 {
-	"version": "2.2.",
+	"version": "21.2.",
 	"menus" : [
 		{
 			"alias" : "main",
@@ -197,7 +197,7 @@
 			]
 		},
 		{
-			"alias" : "more",
+			"alias" : "evenmore",
 			"background" : "",
 			"rgb" : "238,232,178",
 			"buttons" : [
@@ -205,14 +205,17 @@
 					"x" : 1111,
 					"y" : 861,
 					"picture" : "spr_menu_back",
-					"action" : "menu main"
+					"action" : "menu more"
 				},
 				{
-					"x" : 512,
-					"y" : 900,
-					"picture" : "spr_menu_more",
-					"action" : "menu evenmore"
-				}
+					"x" : 710,
+					"y" : 685,
+					"picture" : "spr_various_none",
+					"rgb" : "255,000,000",
+					"text" : "List of backers goes here somewhere I guess... Also mention people who helped during the KS/IGG campaigns - Bruno Papa with KS marketing, Sven Horvatic with IGG marketing, Marko Zadro with wordproofing",
+					"scale" : 1,
+					"width" : 750
+				},
 			]
 		},
 		{

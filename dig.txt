@@ -1,4 +1,5 @@
-2.2.
+
+21.2.
 S = START
 E = END
 X = rock
@@ -19,7 +20,7 @@ w = web
 a = animal, snake
 
 map:
-XXXSXXXXXXXXXXXXXXXXXXXXXXXXEXX 
+XXoSXXXXXXXXXXXXXXXXXXXXXXXXEXX 
 XoowoXXXXXXXXXXXXXXXXXXXXXXXoXX 
 XoXoooooooXooowXoooopqooXowXooX 
 XoXooowoooooXwaXooXXXXXoXoaXooX 

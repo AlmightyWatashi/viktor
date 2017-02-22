@@ -1,7 +1,7 @@
 {
-	"date" : "2.2.",
-	"version" : "debug",
-	"action" : "menu more",
+	"date" : "21.2.",
+	"version" : "nondebug",
+	"action" : "menu main",
 	"bug" : "http://www.studiospektar.hr/viktor/bugs.php",
 	"reminder" : "[draw sprite x y time depth scale alpha angle speed direction rotation subimage imagespeed dscale dalpha][cloud player 50 300]",
 	"fullscreen" : 0,

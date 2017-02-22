@@ -1,6 +1,6 @@
 === version ===
 
-2.2.2017.
+21.2.2017.
 
 === crow ===
 
@@ -658,7 +658,7 @@ end
 	+ Any general advice?
 		When in doubt, try everything!
 			Thanks a lot...
-			[end]
+			[section psychic_tavern]
 	+	I know enough, actually. Thanks, man!
 		Don't forget to brush your chakras before bed, Viktor.
 			[end]
@@ -1238,7 +1238,7 @@ end
 				[section start]
 			+[if item ticket] Here it is!
 				OK, the ticket is good, go on!
-				[animations player player spr_viktor_walk_left][move player 180 3][time 60] > [set ticketgood 1][end]
+				[animations player spr_viktor_walk_left][move player 180 3][time 60] > [set ticketgood 1][end]
 			+[not item ticket] I don't need a ticket, I'm on the list.
 				[mood donkey angry] List? What list?! Do not give me shit man, go down there and buy yourself a ticket.
 					[section start]
@@ -1276,7 +1276,7 @@ end
 				Well that's your problem. 
 				 [section start]
 	+ Never mind.
-		[end]
+		[set racenow 0][end]
 	+[if raced = 1] Let's race again!
 			[set racenow 1][end]
 
@@ -1312,7 +1312,7 @@ end
 	++ Let me in the dirigible!
 	[mood angry] Let me in the dirigible you dumb-ass!
 		No.
-		[end]
+		[set racenow 0][end]
 
 end
 
@@ -1404,8 +1404,8 @@ Is that 5 coins?
 	+[if coins = 5] Yes, I would like to buy a ticket.
 		Enjoy your trip, sir.
 		I hope you die in a crash.
-		[give coin]
-		[take ticket][set coins 0]
+		[give coin][give coin][give coin][give coin][give coin]
+		[take ticket][set coins 0][give coin]
 			[direction front] Well, this really, really made me happy.
 			[direction front] My plan is going perfectly!			
 			[set ticketgood 1][end]
@@ -1422,23 +1422,23 @@ end
 	+[if rabbitrobot = 0] What an awesome automaton. Where is it from?
 		[set rabbitrobot 1][section robot]
 	+[if rabbitname = 0] I am Viktor, a soon-to-be emperor of Austria Hungary.
-		[set rabbitname 1] Tee hee (???)
-		I am Fuka Misaki, soon-to-be angry passenger (?_?;)
+		[set rabbitname 1] Tee hee (⌒ω⌒)
+		I am Fuka Misaki, soon-to-be angry passenger (⌒_⌒;)
 		[description rabbit Ms. Misaki]
 			+ You already decided you will dislike the service in the airship?
 				[section letme]
 		+ And is this automaton of yours also soon-to-be angry passenger?
 			[section robot]
 		+ What a coincidence, I also plan on being an angry passenger.
-			I already angry (`?´) so now must become passenger (*^?^)
+			I already angry (｀ﾛ´) so now must become passenger (*^ω^)
 				[section letme]
 	+[if rabbitline = 0] Are you standing in a line for the airship?
-		[set rabbitline 1] Sadness no, desu (o???) > I just wait here all worries!
+		[set rabbitline 1] Sadness no, desu (o︶︹︺) > I just wait here all worries!
 			[section letme]
 	-[if cleanup = 1][if cleanuptalk = 0] Is there something wrong with your automaton?
-		[set cleanuptalk 1] Slightly sadness, desu (´?`)
-		ROBOTOTRON4ULTRA get hit by huge ball of abyss (?•?•)?
-		But lucky, ROBOTOTRON4ULTRA may lose many parts before stop work fully (*^?^)
+		[set cleanuptalk 1] Slightly sadness, desu (´д｀)
+		ROBOTOTRON4ULTRA get hit by huge ball of abyss (」•ロ•)」
+		But lucky, ROBOTOTRON4ULTRA may lose many parts before stop work fully (*^ω^)
 			+ Can I take the parts that are falling off?
 				No possibility senpai.
 				It need me to show repairwomen many part.
@@ -1451,7 +1451,7 @@ end
 end	
 == letme ==
 
-They impolitely not let me inside, desu (#???)
+They impolitely not let me inside, desu (＃￣ω￣)
 	+ Why won't they let you in?
 		I show ticket to person.
 			[section diet]
@@ -1471,15 +1471,15 @@ Tee-hee, it ROBOTOTRON4ULTRA from the Empire of Nippleon ^^
 Ultra-kawai-machine for movements of greater speed.
 And is protection from impolite men, of course, desu. ^^
 	+ Nippleon? I heard that your emperor is a madman who ate his own children.
-		Never be anger Nippleonian when we hungry, desu (´?• ? •?`)
-		HUNGRY!!! ?(`?´)?
+		Never be anger Nippleonian when we hungry, desu (´｡• ᵕ •｡`)
+		HUNGRY!!! ψ(｀∇´)ψ
 			[section start]
 	+ I heard Nippleonian soldiers can cut the head of any villager they wish.
-		You misunderstand rules of conducts (???)
+		You misunderstand rules of conducts (￣ヘ￣)
 		Samurai is not all just go places decapitate villagers.
-		Exception of Miyamoto Wasabi, he is just decapitate villagers all the time! (¦??¦)?.
+		Exception of Miyamoto Wasabi, he is just decapitate villagers all the time! (─‿‿─)♡.
 		Everywhere he go, he is just decapitate, decapitate, decapitate!
-		(´?• ? •?`) ?
+		(´｡• ω •｡`) ♡
 		But he not real, is action star from manga, desu.
 			[section start]
 
@@ -1487,7 +1487,7 @@ end
 == diet ==
 
 But person impolitely say I am too heavy for enter.
-So now I go on extra diet (´?`)
+So now I go on extra diet (´д｀)
 I so hungry, I could decapitate!
 	[section diet2]
 
@@ -1496,29 +1496,29 @@ end
 
 	+ Would you like me to recommend you a diet? I know a few really good ones.
 		Do not be in offence, senpai.
-		But I see highly apparent your diet is not of most successful kind, desu (*´?`*)
+		But I see highly apparent your diet is not of most successful kind, desu （*´▽｀*）
 			- Oh it would work great if I wouldn't give up on it after a few hours.
 				My most long diet is being for six years.
-				I started with year nine of age. I hope it will be a finish soon. ??(?‘ ? ?? )
+				I started with year nine of age. I hope it will be a finish soon. ⃛ヾ(๑❛ ▿ ◠๑ )
 					[section diet2]
 			- I assure you, young lady, if you took my diet, you would soon disappear or fall through the sewer grating.
-				Tee-hee, that is impossible to be happen when I ride ROBOTOTRON4ULTRA o((?))o .
-				I'm terribly hungry (`?´)
+				Tee-hee, that is impossible to be happen when I ride ROBOTOTRON4ULTRA o((▽))o .
+				I'm terribly hungry (｀ﾛ´)
 					[section diet2]
 			+ If you need a few more weeks of dieting, it would be a shame if your ticket would go to waste.
-				I must go to Vienna now! (#`?´)
+				I must go to Vienna now! (＃`Д´)
 				This silly town is only pants for overweight girl.
-				I want a tight pants for being moderen Europe ?(???)?
+				I want a tight pants for being moderen Europe ヽ(♡‿♡)ノ
 					+ So, if I got you some pants, you would no longer need a ticket, right?
-						I would still wish to be travel, even with pants in my size, desu ?(?~?)?
+						I would still wish to be travel, even with pants in my size, desu ╮(￣～￣)╭
 						I could give you this old dress of school.
 							+ What the hell would I do with your school dress?
-								You could be cuddle and smell at home (o^?^o)
-								Or wear it like hat! (???)
+								You could be cuddle and smell at home (o^▽^o)
+								Or wear it like hat! (ﾟ▽ﾟ)
 									[section finish]
 	+ You do understand that you would be much lighter without the automaton, right?
 		Oh no no no...
-		I could never be travel without ROBOTOTRON4ULTRA (?•?•)?
+		I could never be travel without ROBOTOTRON4ULTRA (」•ロ•)」
 		If Shitsureina find out, I seppuku for sure, desu
 			+ Shitsureina is your mother?
 				[section shitsureina]
@@ -1544,27 +1544,27 @@ We like to be in opposition with authority!
 end	
 == shits2 ==
 
-Nothing needlessly drastic, senpai. (*^?^)
+Nothing needlessly drastic, senpai. (*^ω^)
 We are show our disdain with obvious signs.
-Like wear a slight surplus of makeup. (???)
+Like wear a slight surplus of makeup. (✧∀✧)
 Also don't call men senpai all the time. Just sometimes.
 If we embarrass, not always do seppuku.
-We especially have our dance moves, desu, very provocative! (*???)
+We especially have our dance moves, desu, very provocative! (*♡∀♡)
 	+ None of this sounds very effective.
-		Gang is not for effective, you silly senpai ?(o^?^o)?
+		Gang is not for effective, you silly senpai ⌒(o＾▽＾o)ノ
 		It is for have fun and trade manga.
 			[section finish]
 	+ Can I see the dance moves?
-		You cannot now. (???)
+		You cannot now. (⌒‿⌒)
 		Not dance when I am on ROBOTOTRON4ULTRA and so hungry.
-		SO HUNGRY!!! ?(`?´)?
+		SO HUNGRY!!! ψ(｀∇´)ψ
 			[section finish]
 			
 end	
 == finish ==
 
 	+ This conversation is starting of confusion.
-	Oh great, now I start talking like you! (?•?•)? > Sorry, I need to rest a bit.
+	Oh great, now I start talking like you! (」•ロ•)」 > Sorry, I need to rest a bit.
 		Sayonara senpai ^^
 			[end]
 
@@ -1665,7 +1665,7 @@ Retract your statement, young man. Retract it right now!!!
 [set mood]
 	+[if cleanup = 0] And what are you going to do, squirt milk on me?
 		[section throwstuff]
-	+ I'm sorry granny. I talked about another kiosk, not yours.
+	+ I'm sorry... I was talking about another kiosk, not yours.
 		This is the only kiosk in the area.
 		What kiosk did you talk about, then?
 			+[if cleanup = 0] Some other kiosk with some other ugly old cow imprisoned inside.
@@ -1846,7 +1846,7 @@ end
 			+ Come on, come on, come on, come on, you know you want it.
 				Oh, all right, I want it.
 				[set sold_cell_flag 1]
-				[animation player spr_viktor_use_right_middle][add coins 1][give cell]
+				[animation player spr_viktor_use_right_middle][take coin][give cell]
 					+ Well, gotta go. See you, Attar.
 						[section goodbye]
 	+ Your loss.
@@ -2169,11 +2169,12 @@ end
 												Ah yes, of course, it's the only logical way.
 												== forgive ==
 												Please forgive us.
-												[if gate = 0][sound snd_lift_arrive]
+												[if gate = 0][sound snd_lift_leave]
 												[if gate = 0][move palaceOutside_gate_left 180 5][move palaceOutside_gate_right 0 5][time 35]
 												[if gate = 0][create enter][set gate 1][move palaceOutside_gate_left 180 0][move palaceOutside_gate_right 0 0]
 												Next time we will kill someone like you on the spot, like we usually do.
 													+ Good boy.
+														[set leavetheguards 1]
 														[end]
 	+ Never mind, sorry to disturb you
 		[end]
@@ -2236,13 +2237,13 @@ We plan on smashing them, crushing them and showing them their place in this geo
 I grow tired of this tirade.
 	+ Yes, it is time to finish it.
 	[time 10][animations player spr_viktor_walk_back][move player 90 6]
-	[time 60][animation player spr_viktor_shock][imagespeed player 1][music snd_dirigibles_power][move player 270 1]
+	[time 60][animations player spr_viktor_shock][imagespeed player 1][music snd_dirigibles_power][move player 270 1]
 	[mute snd_dirigibles_power][set mood scared]
 	Hmm... there seems to be a lot of static in the air.
 	[set mood]
 	Oh well, let's finally do this.
 	[time 10][animations player spr_viktor_walk_back][move player 90 6]
-	[time 60][animation player spr_viktor_shock][imagespeed player 1][music snd_dirigibles_power][move player 270 1]
+	[time 60][animations player spr_viktor_shock][imagespeed player 1][music snd_dirigibles_power][move player 270 1]
 	[mute snd_dirigibles_power][set mood angry]
 	What the hell is going on?
 	[talk hyena][cloud reverse][mood hyena laugh] hahahahahaha!
@@ -2347,7 +2348,7 @@ Long live the emperor, good sir. Do you wish to order a drink?
 				Nothing of the sort.
 					[section talkabout]
 			+[if alreadywent = 1] Some graffiti down in your toilet claim otherwise.
-				Which emperor? Down where?
+				Which graffiti? Down where?
 				Has someone been writing in our spotless toilet again?
 				Oh no.
 					[section talkabout]
@@ -2514,7 +2515,7 @@ end
 				No problem.
 					== drink ==
 					[animation player spr_viktor_drink]
-					[noitamina player spr_viktor_drink][time 92]
+					[noitamina player spr_viktor_drink][time 88]
 					[set potion 1]
 					That really hit the spot.
 					It makes me feel great! Smarter! More aggressive!
@@ -2936,14 +2937,14 @@ end
 == continuerd ==
 [talk mole] Interesting.
 [talk matilda_tavern] I think that's very hot.
-	+ Really?
+	Really?
 		[talk matilda_tavern] Oh yes, I'd like to talk about that a bit more.
 		[talk matilda_tavern][blocksound snd_matilda_talk_whisper1][blocksound snd_matilda_talk_whisper2] In private.
-			+ Well, private talk is my favorite kind of talk.
+			[blocksound snd_viktor_talk_whisper2] Well, private talk is my favorite kind of talk.
 				[talk matilda_tavern][blocksound snd_matilda_talk_whisper3] Yes, let's talk privately.
 				[talk matilda_tavern][blocksound snd_matilda_talk_whisper4] We should go to the other room.
 				[talk matilda_tavern][blocksound snd_matilda_talk_whisper2] And find a cozy toilet booth to... talk about it.
-					+ I know just the booth!
+					[blocksound snd_viktor_talk_whisper3] I know just the booth!
 						[set gototoilet 1][set toiletnow 1][set anarchist_trust 1][set needs_pen 1][destroy anarchists][animations player spr_viktor_walk_right][move player 8 6][animations matilda_tavern spr_matilda_walk_right][move matilda_tavern 17 8][fade in 0.03][time 40]
 						[end]
 
@@ -3209,6 +3210,7 @@ Better talk with Krtek, he's better at organizing.
 								[talk horse2] We cannot start without the pen.
 								[talk horse1] And paper! We need paper!
 								[set mood]
+								[not available jekyll][end]
 								[talk jekyll] Oh god, not this again! 
 								[talk jekyll] I think I'm gonna throw up!
 								[imagespeeds jekyll 0.6][animations jekyll spr_jekyll_walk][move jekyll 359 5][time 180]
@@ -3400,6 +3402,7 @@ end
 															+ Let's go.
 																== bothgototoilet ==
 																[animations player spr_viktor_walk_right][move player 8 6][animations hyde spr_hyde_walk][move hyde 17 8][fade in 0.03][time 150]
+																[set gototoiletandfight 1]
 																	[end]
 end
 
@@ -3499,14 +3502,14 @@ end
 					[section hello]
 	+[if priest_moved = 1] I see you finished your drink. Ready for another one?
 		Oh no no. I think I had too much.
-		I even feel slight illness taking over me.
+		I even feel a slight illness taking over me.
 			Yeah, I wouldn't recommend the toilets around here.
 				Oh my, how bad are they?
-					[animation jekyll spr_jekyll_idle2]Terrible! There's this priest who basically vomits everywhere.
+					[animation jekyll spr_jekyll_idle2] Terrible! There's this priest who basically vomits everywhere.
 						[animation jekyll spr_jekyll_idle2]
 						[imagespeeds jekyll 0.6]
 						Oh no.
-							[animation jekyll spr_jekyll_idle2]He already filled two toilets full of strange liquids.
+							[animation jekyll spr_jekyll_idle2] He already filled two toilets full of strange liquids.
 								[animation jekyll spr_jekyll_idle2]
 								[imagespeeds jekyll 0.6]
 								Please stop describing it.
@@ -3517,8 +3520,8 @@ end
 										While I go outside.
 										[talk anteater] I wouldn't recommend that, sir.
 										[talk anteater] Vomiting in public while being a foreigner is punishable by death.
-										Oh god, I really don't need this.
-										[imagespeeds jekyll 0.6][animations jekyll spr_jekyll_walk][move jekyll 359 5][time 180]
+										Oh god, I really don't need this...
+											[imagespeeds jekyll 0.6][animations jekyll spr_jekyll_walk][move jekyll 359 5][time 180]
 											[destroy jekyll]
 											[set jekyll_toilet 1]
 											[end]
@@ -3612,7 +3615,7 @@ end
 	-[if is_lake_anarchist = 0] Are you an anarchist?
 		Naw, man. I just like wearing black.
 		[section not_an_anarchist]
-	+[if is_lake_anarchist = 1] So, you like wearing black?
+	+[if is_lake_anarchist = 1][if (lakeanarchists = 0) or (lakeblack = 0)] So, you like wearing black?
 		[section not_an_anarchist]
 	- My name is Viktor
 		I'm Kubilius. Lake Kubilius. Musician and seducer!
@@ -4328,7 +4331,7 @@ end
 	+[if beentotower = 1][if klimtdrew = 0] Could you make a painting for us?
 		Anything for a young lady!
 		[section after_machine2]
-	+[if gladtomeetyou = 0] I'm not sure I am glad to meet you sir.  removed extra space from "I' m" and changed order of words "am I" to "I am"
+	+[if gladtomeetyou = 0] I'm not sure I am glad to meet you sir.
 		[set sladtomeetyou 1]
 			You have a skeleton over there and you look as if you...
 				[if klimtmatildaname = 1] Oh, don't worry, Matilda. This is not my house. I'm just painting for the owner of this dungeon.
@@ -4728,7 +4731,7 @@ end
 == start ==
 
 Sir, How dare you come uninvited?
-	[if version debug] DEBUG VERSION - SKIP TO THE FIGHT...
+	[if version debug] THIS IS THE DEBUG VERSION - SKIP TO THE FIGHT...
 	[if version debug][section fight]
 	[section viktor]
 	
@@ -5002,11 +5005,12 @@ Automatons, attack the intruders!
 		== enter ==
 		Would you like to enter this door?
 	== enter2 ==
-	+[if beentoemperor = 1] Didn't we do this already?
-		No, I would have remembered.
+	+[if beentoemperor = 1][if dothiscamera = 0] Didn't we do this already?
+		[set dothiscamera 1] No, I would have remembered.
 		The only person I let in today was Karl Zezil.
 		And you definitely don't look like him.
 		Would you like to enter?
+		[section enter2]
 	+[if behinddoor = 0][if beentoemperor = 0] What is behind this door?
 		[set behinddoor 1] The Emperor's Inner Sanctum.
 		[section enter]
@@ -5018,25 +5022,25 @@ Automatons, attack the intruders!
 			+ Yes!
 				[section enter4]
 			+ On second thought, I changed my mind.
-				[section enter4]
+				[section toobad]
 		== enter4 ==
 		Are you sure?
 			+ Yes!
 				[section enter5]
 			+ On second thought, I changed my mind.
-				[section enter5]
+				[section toobad]
 		== enter5 ==
 		Well, ready or not, here it comes!
-		[if available powder2][destroy powder2]
-		[not available powder][create powder -1][create powder2]
-		[if available powder][destroy powder]
-		[fade in 0.3 -9999 spr_various_white][time 3] > [if available hallway_pipe_animated][imageindex hallway_pipe_animated 33] > [fade out 0.3 -9999 spr_various_white][time 3] > [fade] > [time 15]
+		[create powder -1][destroy powder][fade in 0.3 -9999 spr_various_white][time 3] > [if available hallway_pipe_animated][imageindex hallway_pipe_animated 33] > [fade out 0.3 -9999 spr_various_white][time 3] > [fade] > [time 15]
 		[if alias viktor] You have been identified as the traitor Viktor.
 		[if alias matilda] You have been identified as the traitor Matilda.
 		Please wait while we dispatch assassins to your location.
 		[set assassins 1]
 			[direction front] Whoops.
 			[end]
+		== toobad ==
+		Okay, be sure to tell me when you change your mind!
+		[end]
 	+[if camerabad = 0] If I say yes, will something bad happen?
 		[set camerabad 1] No, you will just be visually scanned and identified.
 		If you are a known traitor of the Empire, we will dispatch assassins to your location.
@@ -5068,20 +5072,20 @@ Automatons, attack the intruders!
 				[section enter2]
 	+[if takesphotos = 1] Could you take my picture for fun?
 		== takephoto ==
-		[if alias viktor][not item viktor] Sure!
-		[if alias matilda][not item matilda] Sure!
-		[if alias viktor][if item viktor] I already made you a picture!
-		[if alias matilda][if item matilda] I already made you a picture!
-			[if alias matilda][if item matilda] But I don't like how I turned out!
-			[if alias viktor][if item viktor] But I don't like how I turned out!
-				[if alias matilda][if item matilda] I'm sorry, but I have to conserve powder.
-				[if alias viktor][if item viktor] I'm sorry, but I have to conserve powder.
-				[if alias matilda][if item matilda][section enter2]
-				[if alias viktor][if item viktor][section enter2]
-		[not available hallway_pipe_animated][not available powder][create powder 150][create hallway_pipe_animated][destroy hallway_pipe_animated 150][time 150] > [time 15]
+		[if alias viktor][if givenviktorpic = 0] Sure!
+		[if alias matilda][if givenmatildapic = 0] Sure!
+		[if alias viktor][if givenviktorpic = 1] I already made you a picture!
+		[if alias matilda][if givenmatildapic = 1] I already made you a picture!
+			[if alias matilda][if givenmatildapic = 1] But I don't like how I turned out!
+			[if alias viktor][if givenviktorpic = 1] But I don't like how I turned out!
+				[if alias matilda][if givenmatildapic = 1] I'm sorry, but I have to conserve paper.
+				[if alias viktor][if givenviktorpic = 1] I'm sorry, but I have to conserve paper.
+				[if alias matilda][if givenmatildapic = 1][section enter2]
+				[if alias viktor][if givenviktorpic = 1][section enter2]
+		[not available hallway_pipe_animated][not available powder][create powder 100][create hallway_pipe_animated][imageindex hallway_pipe_animated 0][destroy hallway_pipe_animated 150][time 100]
 		[time 15] > [destroy powder][fade in 0.3 -9999 spr_various_white][time 3] > [fade out 0.3 -9999 spr_various_white][time 3] > [fade] > [time 15]
-		[if alias viktor][take viktorspic][draw spr_hallway_viktor 31 403 30 -402 1 1 0 0 0 0 0 1][animation player spr_viktor_use_left_middle][time 31]
-		[if alias matilda][take matildaspic][draw spr_hallway_matilda 31 403 30 -402 1 1 0 0 0 0 0 1][animation player spr_matilda_use_left_middle][time 31]
+		[if alias viktor][set givenviktorpic 1][take viktorspic][draw spr_hallway_viktor 31 403 30 -402 1 1 0 0 0 0 0 1][animation player spr_viktor_use_left_middle][time 31]
+		[if alias matilda][set givenmatildapic 1][take matildaspic][draw spr_hallway_matilda 31 403 30 -402 1 1 0 0 0 0 0 1][animation player spr_matilda_use_left_middle][time 31]
 			Wow, that's great, thanks!
 				A pleasure. Now... Would you like to enter this door?
 				[section enter2]
@@ -5254,7 +5258,6 @@ Are we done talking? Can I kill you now?
 === celebration ===
 
 == start ==
-
 	My dear subjects...
 	I will bring a few new laws right now to improve the lives of people in all of the Empire!
 	First, the maximum working hour for street sweepers instead of 9 hours a day will be 7 hours a day.
@@ -5319,7 +5322,7 @@ Are we done talking? Can I kill you now?
 	+ Absolutely not!
 		[section solo]
 	== solo ==
-	[talk lake] Oh. Ok then... How about a solo then?
+	//[talk lake] Oh. Ok then... How about a solo then?
 [animation lake spr_lake][sound snd_solo]
 [animation lake spr_lake_listen]
 [talk anteater] I have an idea! A great one! 
@@ -5358,6 +5361,7 @@ Are we done talking? Can I kill you now?
 				[section weed]
 
 == weed ==
+[section interruption]
 [talk martin] What about mushrooms and grass and all that lovely food?
 	Yes, what about it?
 		[talk martin] Will you make it legal?
@@ -5384,12 +5388,13 @@ Are we done talking? Can I kill you now?
 [talk general] I suggest we send dirigibles and armored trains to annihilate them and knock at the doors of Rome!
 	First of all, there are no railways in the Roman Empire! 
 	Secondly, I do not want tens of thousands dead for nothing. 
-	I will do this myself. 
 	If you wish a job done well you should do it by yourself. 
-	And with some help from friends...
-	[animation player spr_viktor_crown]
-	[animation player spr_viktor_fly]
-	[animation player spr_viktor_fly_talk][create viktor_fly_smoke] Rome, tremble! Here comes the Viktor!
+	So I take care of this myself. 
+	And with a little help from friends...
+	== theend ==
+	[animation player spr_viktor_crown][animation matilda_chalk spr_matilda_use_right_high]
+	[animation player spr_viktor_fly][animation matilda_chalk spr_matilda_listen_left]
+	[animation player spr_viktor_fly_talk][create viktor_fly_smoke] Rome, tremble! Here comes Viktor!
 	[animation player spr_viktor_fly2][move player 90 40][time 22]
 	[end]
 
