@@ -6491,7 +6491,7 @@
 			"border": "spr_various_token",
 			"entrances": [{
 				"alias": "start",
-				"entrance": "[video intro.avi][stop] > [room title_viktorsRoom start]"
+				"entrance": "[if skipvideo = 0][video intro.avi][stop] > [room title_viktorsRoom start]"
 			}, {
 				"alias": "",
 				"entrance": "[room title_viktorsRoom start]"
@@ -6511,7 +6511,7 @@
 				"entrance": "[video logo.avi][stop] > [menu main]"
 			}, {
 				"alias": "skip",
-				"entrance": "[menu noavi]"
+				"entrance": "[set skipvideo 1][menu main]"
 			}
 			],
 			"objects": []

@@ -1,0 +1,2717 @@
+Here is everything you need to know.
+
+Table of contents
+1. Uploading/downloading a mod
+2. Rules of modding
+3. List of resources
+4. Contact
+
+------------------------------
+1. Uploading/downloading a mod
+------------------------------
+
+When uploading a mod somewhere online, you can put all the game files from the config folder where they can all be reached via the same link (the program just adds "rooms.json" and so on to the end).
+
+FOR EXAMPLE: if you use Github to store the files, all the files are accessible under "raw.githubusercontent.com/foo/bar/master/"
+
+When downloading a mod, you can go to your setup.json (located in the config folder of wherever you installed the game, for example it might be "C:/Program files (x86)/Steam/steamapps/common/Viktor, a Steampunk Adventure/config"). In the third line of the setup.json file just type in the link to where you are downloading the mod from, FOR EXAMPLE: "update" : "raw.githubusercontent.com/foo/bar/master/",
+
+Then in the game you can press F5 and the game automatically downloads all the new config files from the link to the local app data folder.
+
+-------------------
+2. Rules of modding
+-------------------
+
+When the game loads, it searches for "setup.json", in the following folders:
+1) in the root folder of the %localappdata% folder - where it might have been downloaded as an update/mod
+2) in the root folder of the game executable - it's not here (unless you put it here)
+3) in the config subfolder of the %localappdata% folder - it's not here (unless you put it here)
+4) in the config subfolder of the game executable - where the non-updated game data is (to avoid cluttering the root folder)
+
+setup - the first JSON map which is loaded in the game, consisting of the following variables:
+	date - just to keep trach of things
+	version - game version
+		accepts: string or special word "debug" (which allows SPACE to toggle the debug mode)
+	action - the metagame function that is started when the game loads
+		accepts: one of the following strings:
+			"menu X" - where X is the alias of the menu to load
+			"new X Y" - where X is the alias of the game room to load and Y in the alias of the room entrance that starts the room
+			"polite X Y Z" - the same as "new" but if there already is a game in progress, leads to menu Z
+			"save X" - where X is the name of the savefile to save
+			"load X" - where X is the name of the savefile to load
+			"savemenu X" - where X is the type of the save menu to open - either "save" or "load"
+			"exit" - exits the game
+			"options" - toggles the options menu
+	steam - whether the game uses steam achievements and steam cloud save
+		accepts: boolean
+	stupidjoke - whether the game exits with a crash report or not
+		accepts: boolean
+	fullscreen - whether the game starts in fullscreen (can be changed with F10 any time)
+		accepts: boolean
+	room_speed - the number of frames per second, the game is tailored to 30
+		accepts: real
+	image_speed - the default number of images per frame for an object, the game is tailored to 0.25
+		accepts: real
+	viktor_walk - the default image speed of player animations when walking as viktor, the game is tailored to 0.25
+		accepts: real
+	matilda_walk - the default image speed of player animations when walking as matilda, the game is tailored to 0.25
+		accepts: real
+	player_speed - the default speed of the player when moving in pixels per frame, the game is tailored to 7
+		accepts: real
+	constantSave - whether the game will autosave on every change or only on the [autosave] block option
+		accepts: boolean
+	update - the web address which hosts the files (for update purposes)
+		accepts: url
+	title - the window caption of the game when in windowed mode
+		accepts: string
+	cursor_wait - the cursor picture when an in-game dialogue is played out
+		accepts: sprite asset name as string
+	cursor_cutscene - the cursor picture when an in-game cutscene is played out
+		accepts: sprite asset name as string
+	coin - a map consisting of variables defining the in-game monetary system:
+		default - the default response to using coins with an object
+			accepts: string
+		name - the inventory name for coins when there is only 1 coin in the inventory
+			accepts: string
+		description - the inventory description of coins when there is only 1 coin in the inventory
+			accepts: string
+		names - the inventory name for coins when there is more than 1 coin in the inventory
+			accepts: string
+		descriptions - the inventory description of coins when there is more than 1 coin in the inventory
+			accepts: string
+	clickToContinue - the description text during dialogue
+		accepts: string
+	chooseOption - the description text when the interface opens
+		accepts: string
+	changeColorScheme - the description text when the use hovers over different wallpapers
+		accepts: string
+	multiple - whether all other JSON lists (rooms, guis, menus) are packed into this one or in json maps in seperate files
+		accepts: boolean
+	letterbox - list of strings defining wallpaper RGB schemes in a "xxx,yyy,zzz" format (or "xxx,yyy,zzz,qqq,www,eee" format for dual-color schemes)
+		accepts: string
+	shader - default shader which the game graphics pass through when pressing f2 in debug mode
+		accepts: shader asset name as string
+	records - list of strings defining the description text when the user hovers over different music tracks
+		accepts: string (with # for new line)
+
+---
+
+menus - a JSON list of menus describing buttons and backgrounds for them, with the following variables:
+	alias - name by which that menu is called forth
+		accepts: string or special words "savemenu" (for the save menu) or "options" (for the options menu)
+	cursor - the mouse cursor in this menu
+		accepts: sprite asset name as string
+	background - background image for this 
+		accepts: background asset name as string
+	music - the music playing on this menu as a loop
+		accepts: sound asset name as string or undefined
+	rgb - background color
+		accepts: string in "xxx,yyy,zzz" format
+	buttons - list of maps defining menu buttons, each consisting of:
+		action - the metagame function which gets called when the button is clicked
+			accepts: one of the strings defined above
+		picture - the picture of the button
+			accepts: sprite asset name as string
+		x,y - location of the button
+			accepts: real
+		text - text drawn on button
+			accepts: string
+		rgb - color of text drawn on button
+			accepts: string in "xxx,yyy,zzz" format
+	slots - a map of variables defining the save slots if the alias of the menu is "savemenu":
+		frame - the picture frame of the save slots
+			accepts: sprite asset name as string
+		frameScale - the scale of the picture of the save slots
+			accepts: real
+		pictureScale - the scale of the game screenshot shown in the frame
+			accepts: real
+		xPictureOffset, yPictureOffset - the offset of the picture with regard to the frame
+			accepts: real
+		xStart, yStart - the location of the first save slot
+			accepts: real
+		xOffset, yOffset - distance between two save slots
+			accepts: real
+		xMax - maximum x value before slots go to the next row
+			accepts: real
+		yMax - maximum y value after which the save slots are no longer created
+			accepts: real
+	records - a map of variables defining the position of soundtrack records if the alias of the menu is "options":
+		x,y - location of the first record
+		xOffset, yOffset - distance between two records
+	colors - a map of variables defining the position of wallpaper buttons if the alias of the menu is "options":
+		x,y - location of the first wallpaper button
+		xOffset, yOffset - distance between two wallpaper buttons
+
+---
+
+guis - a JSON list of guis describing various interfaces, with the following variables:
+	alias - name by which that gui is called forth 
+	order - what is the default order of actions on an object if the gui is streamlined (like in Broken Age)
+		accepts: string (coded in "x,y,z,..." format) or undefined (the gui is not streamlined)
+	showInterfaceOnClick - whether an interface pops up when clicking on an object (e.g. like in MI3) or actions are defined as buttons (e.g. like in MI1)
+		accepts: boolean or undefined
+	interfacePicture - background sprite for the interface which opens when the player clicks on an interactable object
+		accepts: sprite asset name as string
+	interfaceScale - image scale of the interface background sprite
+		accepts: real
+	interface - list of maps containing variables about the interface buttons:
+		alias - an alias which corresponds to an action button
+			accepts: string
+		picture - a picture of the interface button which corresponds to this action
+			accepts: sprite asset name as string
+		x,y - offset of button with regard to the interface background image
+			accepts: real
+	foreground - what is the GUI foreground image
+		accepts: background asset name (as string)
+	background - what is the GUI background image
+		accepts: background asset name (as string)
+	inventory - a map with the following variables regarding the inventory:
+		x,y - starting position of inventory items
+			accepts: real
+		xOffset, yOffset - distance between two inventory items
+			accepts: real
+		xMaximum - maximum x value before items go to the next row
+			accepts: real
+	description - a map with the following variables regarding the description box:
+		x,y - starting position of description text
+			accepts: real
+		rgb - color of description text
+			accepts: string in "x,y,z" format
+	default - default left click action on object
+		accepts: button alias (as string)
+	secondary - default right click action on object
+		accepts: button alias (as string)
+	actions - a list of buttons that start player actions, each consisting of:
+		alias - name by which that action button is called forth
+			accepts: string or special word "look" (which adds "[mood][cloud think][animation player spr_{PLAYERALIAS}]" to the front of game blocks)
+		x,y - location of the button on screen
+			accepts: real
+		type - type of button
+			accepts: one of the following strings: 
+				"movement" - when a position is selected on the screen, move to its position without starting any interaction
+				"observation" - when an object is selected on the screen, start the designated interaction without moving toward it (such as the LOOK action)
+				"interaction" - when an object is selected on the screen, move to that objects interaction location and start the designated interaction 
+				(or don't move if moveForInteraction is false in rooms.json, then it's just like observation)
+				"combination" - pick 1) an inventory item and 2) an object; move to that objects interaction location and start the designated interaction 
+				(or don't move if moveForInteraction is false in rooms.json)
+				"immediate" - immediately start the interaction defined in this actions default variable
+				scr_setRoom line 225
+		default - what is the default player reaction with an object for this action
+			accepts: string (coded as game blocks)
+		available - is this action available (can be used to temporarily deactivate an action)
+			accepts: boolean
+		visible - is the action button visible on the gui
+			accepts: boolean
+		description - text which appears before the object/item name as a description when mouse hovers on an object with this action activated
+			accepts: string
+		combinationDescription - text which appears after the item name as a description when mouse hovers on an object with this action activated
+			accepts: string or undefined
+		name - text which appears as a description of the action when mouse hovers on the action button
+			accepts: string
+		binding - which keyboard keys correspond to which button actions
+			accepts: string of characters (that can be pressed on a keyboard) in a "xyz..." format
+		picture - image of the action button on the gui
+			accepts: sprite asset name as string
+		passive - image of the cursor when this action is activated and no object is under the cursor
+			accepts: sprite asset name as string
+		active - image of the cursor when this action is activated and an interactable object is under the cursor
+			accepts: sprite asset name as string
+			
+---
+
+rooms - a list of rooms describing game levels (rooms) with the following variables:
+	alias - name by which that room is called forth
+		accepts: string
+	texture - which texture group does this room belong to?
+		accepts: undefined, any string or special word "previous"
+	border - transparent sprite used to determine border of walking in the room
+		accepts: sprite asset name as string
+	xBorder, yBorder - offset of the border sprite
+		accepts: real or undefined
+	background - background image for the room
+		accepts: background asset name (as string)
+	xBackground, yBackground - offset of the background image
+		accepts: real or undefined
+	backgroundScale - scale of the background image
+		accepts: real or undefined
+	gui - which user interface to load for this room
+		accepts: gui alias as defined in guis.json (as string)
+	rgb - background color for the room
+		accepts: string in "x,y,z" format or undefined
+	moveForInteraction - whether the player should move to object coordinates when interacting with the object
+		accepts: boolean
+	entrances - list of maps with variables defining how a room can begin, each consisting of:
+		alias - name by which that entrance is called forth
+			accepts: string
+		entrance - game blocks that run at the start of the room
+			accepts: string (coded as game blocks)
+	objects - list of maps with variables defining all the objects in the room, each consisting of:
+		alias - name by which that object is called forth
+			accepts: string or undefined (if undefined, the alias becomes "token_alias")
+		available - if the object is available when the room starts
+			accepts: boolean
+		visible - if the object is visible when available
+			accepts: boolean
+		idle - if the object starts a {PICTURE}_idle animation at random intervals and also (but more rarely) {PICTURE}_idleX (where X is a number) animations
+		path - a predifend path for the object
+			accepts: path asset name as string or undefined (if undefined, the object does not move)
+		pathAction - what happens after the path is over
+			accepts: strings "restart", "continue", "reverse" or "stop" or undefined (if undefined, it defaults to "restart")
+		pathDelay - how long to wait before starting the path
+			accepts: real or undefined (defaults to 0)
+		depth - depth of the object layer, a higher value is further away from the screen
+			accepts: real or undefined (if undefined, the depth changes according to the -y position)
+		text - text drawn on button
+			accepts: string or undefined (defaults to no text)
+		rgb - color of text drawn on button
+			accepts: string in "xxx,yyy,zzz" format or undefined (defaults to black)
+		picture - the picture of the object
+			accepts: sprite asset name as string or undefined (if undefined, the picture defaults to spr_{ALIAS} - if it exists)
+		subimage - show a fixed subimage of the object instead of running the animation
+			accepts: real of undefined (defaults to -1 meaning no fixed subimage)
+		sounds - list of sounds for that object, each consisting of a string, the "default" variable being played in a loop while the object is available
+			accepts: sound asset name as string or undefined (defaults to no sound)
+		variables - list of additional variables for that object
+			accepts: anything
+		x,y - location of the object on screen
+			accepts: real or undefined (defaults to 0,0)
+		moves - if the object will move inside the room, if set to yes, the new position will be remembered instead of the old one when re-entering the room
+			accepts: boolean or undefined (defaults to false)
+		xInteract, yInteract - location where the player needs to stand to interact with the object
+			accepts: real or undefined (defaults to x,y)
+		changeInteractPosition - if the interact position is relative to the objects current x,y (useful when objects are moving)
+			accepts: boolean or undefined (defaults to false)
+		interactWithoutMoving - if the player should interact with this object without moving to its interact position
+			accepts: boolean or undefined (defaults to false)
+		moveInteract - same thing ???
+		solid - if the player should avoid this object when moving around the room (the object receives a small collision mask)
+			accepts: boolean or undefined (defaults to false)
+		transparency - the alpha value of the object
+			accepts: real or undefined (defaults to 0)
+		angle - the angle (rotation) of the object
+			accepts: real or undefined (defaults to 0)
+		xScale, yScale - the scale of the object
+			accepts: real or undefined (defaults to 1)
+		banter - a list of strings that the object speaks at random intervals
+			accepts: string or undefined (defaults to no idle banter)
+		direction - direction the player should be facing when interacting with this object
+			accepts: string "left" or "right" or "front" or "back" or undefined (defaults to automatic calculation of players direction)
+		movementSpeed - default speed of motion for this object (when moving on a path or otherwise)
+			accepts: real or undefined (defaults to 5)
+		talkSoundOverride - default sound for speeches (a random sound asset is chosen which begins with the given string)
+			accepts: sound asset name as string (defaults to snd_{ALIAS}_talk
+		cloud - direction of the speech cloud for this object
+			accepts: "left" or "right" or undefined (defaults to "left" if the object is in the right part of the screen and vice versa)
+		xCloud, yCloud - location of the speech cloud relative to the objects location
+			accepts: real or undefined (defaults to 0,0)
+		description - description text when the mouse hovers over the object
+			accepts: string or undefined (defaults to "")
+		order - defines the order of actions to be activated each time the object is interacted with (if the streamlined gui is selected in guis.json)
+			accepts: string (coded in "x,y,z,..." format) or undefined (the order variable is taken from guis.json)
+		inventory - a map defining an item, consisting of variables:
+			alias - name by which the item is called forth
+				accepts: string
+			name - the in-game name of the item
+				accepts: string
+			picture - the picture of the item in the inventory
+				accepts: sprite asset name as string
+			description - description text when the mouse hovers over the item in the inventory
+				accepts: string
+			default - default game block that runs when the item is used with an object
+				accepts: string (coded as game blocks)
+			special - whether using the item prompts a special game block to run (such as the map or the phone)
+				accepts: string (coded as game blocks) or undefined (no special game block runs when the item is used)
+			combinations - a map consisting of variables where the variable names correspond to item aliases and action aliases
+				accepts: string (coded as game blocks)
+
+Game Blocks
+	- strings
+	- each game block in a string is seperated by a > sign
+	- each game block can have options and / or speech
+	- options are given at the beginning of a block and enclosed in [brackets]
+	- speech is given after the options
+- examples:
+"this is a game block > this is another block > a game block contains some dialogues > it will be said out loud by the player"
+"[some option] speech with one block option > [an option][another option] speech with two block options > speech without options"
+
+List of block options
+	The asterisk * means that the argument is optional and can be ommited.
+	The uppercase letters are variables (so for example you wouldn't write [room X Y], you write [room garden wake] and so on).
+	When referencing an object, use its alias, or use "player" for the player object, or use "other" for the object the player is interacting with.
+	Here is a list and explanation of all the block options in the game and their arguments:
+	
+	[autosave] - autosave the game at this point (and make a screenshot, ideal for between levels
+	[menu X] - end the current game and open a menu X
+	[gamemenu X] - open a menu X without ending the current game
+	[banter] - raise a flag that the current objects "idle banter" contains no text (otherwise an empty cloud appears)
+	[clean] - destroy all objects which are not the parser and the player
+	[minigame X] - destroy a minigame object with the alias X
+	[minigame] - destroy all minigame objects
+	[digout X Y] - like [room], but for use when exiting the tunnel minigame
+	[safe randomize] - select an unopened safe which is not safeCurrent and set it to safeCorrect
+	[safe select] - set safeCurrent to the alias of the currently chosen safe
+	[safe open] - destroy the object of the currently locked safe and create an object of the opened safe
+	[safe detect] - check if the safeCurrent is safeCorrect and if so, set safeUnlocked to 1 and show gold and glow objects
+	[panel X] - for all obj_panel_screw set bool_screws = X and start their alarm 1
+	[speed X] - set FPS to X
+	[angle X Y] - for instance alias X set image angle Y
+	[movement X] - whether the player moves when interacting or not
+	[picture X] - fix the player object to one picture and don't change it
+	[picture] - deactivate fixed picture for object
+	[shader X] - create shader X in game
+	[shader X Y] - create shader X in game with shader speed Y
+	[shader] - destroy the current shader
+	[occupied X] - set player objects occupied variable to X
+	[switch X Y] - switch the player object with another object
+	[change X Y] - change alias of object X to Y
+	[alias X] - change alias of player to X
+	[shake X Y] - shake the screen with magnitude X for duration Y
+	[restart] - restart the game
+	[finish] - end the game
+	[finish X] - end the game and open a website X
+	[remember] - remember the player objects exact location
+	[recall] - put the player object on the remembered location
+	[video X] - play a video (X accepts only intro.avi and logo.avi)
+	[description X Y] - set description for object X to Y
+	[zoom X Y] - zoom the camera by X with a speed of Y
+	[fade X Y Z* W*] - create a fade object fading in or out (set X as "in" or "out") with speed of Y and depth of Z and with picture W
+	[fade] - destroy the fade object
+	[endfade] - the created fade object will cover the gui as well
+	[path X Y Z* W* Q*] - after a delay of Q, set object X to path Y with speed Z and when the path ends do action W ("continue", "stop", "reverse", "restart")
+	[cloud] - set positon of the speech cloud to the object you are interacting with
+	[cloud X] - set the shape of the cloud to X where X is "talk", "think", "phone" or "reverse"
+	[cloud X] - set the position of the cloud to the object X
+	[cloud X Y] - set the cloud to position X,Y
+	[cloud player X Y] - set the player objects default cloud position to X,Y
+	[cloud dig X Y] - set positon of the speech cloud to X,Y relative to the mole in the tunnel minigame
+	[cloud dig X Y Z] - set positon of the speech cloud to Y,Z relative to the digging object with alias X in the tunnel minigame
+	[blocksound] - play no sound during the speech in this game block
+	[blocksound X] - play sound X during the speech in this game block
+	[sound X] - play sound X
+	[sound X Y] - play sound X with delay Y
+	[mute] - stop all sounds
+	[mute X] - stop sound X
+	[music] - stop all looping music
+	[music X] - play X in a looping mode
+	[soundtrack X] - stop current soundtrack and play the soundtrack snd_X
+	[give] - remove active item from inventory
+	[give X] - remove item X from inventory
+	[record X] - add a record X to your gramophone collection (where X is just the composer name)
+	[record X silent] - same as record but without the record visually going to the gramophone
+	[active X] - set object X as active object
+	[position X Y Z] - set object X to position Y,Z
+	[position X Y] - set object X to the position of object Y
+	[position X] - set object X to previous position
+	[position] - set player to previous position
+	[moveto] - stop all objects from moving
+	[moveto X] - stop object X from moving
+	[moveto X Y Z W*] - move object X to position Y,Z with speed W
+	[move X Y Z*] - move object X in direction Y with speed Z
+	[destroy] - destroy active object
+	[destroy X] - destroy object X
+	[create X Y*] - create object X with delay Y (or immediately if Y is ommited)
+	[imageindex X Y] - set image_index of object X to Y (image_index is the current picture in the animation)
+	[imagespeeds X Y] - set the default image speed for object X to Y
+	[imagespeed X Y] - set current image speed for object X to Y
+	[animations] - same as animation but continue after the animation ends
+	[animation X] - set player animation to X
+	[animation X Y] - animate to object X with sprite Y
+	[animation X Y Z] - animate object X with sprite Y fixed on subimage Z
+	[snoitamina] - same as animations but the animation is played in reverse
+	[noitamina] - same as animation but the animation is played in reverse
+	[type] - same as animation but plays a sound and animates the object using Y from map_pictures and map_sounds
+	[silent] - same as type but without the sound playing
+	[direction X] - set the player objects direction to X
+	[talk X] - set the object X to the currently speaking object (which will set up its talking animation, block sound and speech bubble)
+	[other] - same as [talk other]
+	[player] - same as [talk player]
+	[conversation X Y] - with the active object, start a dialogue X from section Y
+	[end] - end the current conversation
+	[section X] - jump to section X of the current conversation
+	[mood X Y] - the object X is in mood Y (just for this game block) - the mood corresponds to different sprites and sounds when talking/listening
+	[mood X] - the player is in mood X (just for this game block) - the player can be "angry", "scared"...
+	[pickup X* Y*] - pick up the item from the active object from direction X ("left", "right", "back", "front") and height Y ("low", "middle", "high")
+	[pick] - same as pickup but the object stays on the screen (it can be picked again)
+	[take] - put item from currently active object into inventory
+	[take X] - put item X into inventory
+	[kick X* Y*] - the player kicks the object in direction X ("left", "right" or "auto" to figure it out automatically) with a breaking sound Y
+	[draw SPRITE X Y TIME* DEPTH* SCALE* ALPHA* ANGLE* SPEED* DIR* ROT* SUBIMAGE* IMAGESPEED* DSCALE* DALPHA*] - draw a sprite on location X,Y
+		notes:		
+			time - for how long will the sprite appear on screen (or use the keyword "once" to show the sprite until it has finished its animation)
+			depth, scale, alpha, angle - depth, image scale, image alpha and image angle of the sprite on screen
+			speed, dir - the speed and direction at which the sprite is moving
+			rot - the rotation at which the sprite is rotating
+			subimage - the subimage the sprites animatino is fixed on
+			imagespeed - the speed of the animation
+			dscale - how much the image scale is changed each step (positive values mean the sprite gets larger)
+			dalpha - how much the image alpha is changed each step (positive values mean the sprite gets more opaque)
+	[room X Y] - go to room X (or keyword "previous" or "current") and use the entrance alias Y (or keyword "previous" or "current")
+	[room X] - go to the last visited room with entrance X
+	[room] - go to the last room with the last visited entrance
+	[time X] - how many frames should the block last before going to the next block
+	[time X Y] - the block will last as many frames as it takes for the player to reach object X with speed Y
+	[time X Y Z] - the block will last as many frames as it takes for object X to reach object Y with speed Z
+	[miliseconds] - same as time but with miliseconds instead of frames
+	[stop] - stops execution of blocks until further notice from another object (for example until the minigame is done)
+	[skip] - skip all game blocks
+	[skip X] - move X game blocks ahead (or behind if X is negative)
+	[set alias X] - set the player objects alias to X
+	[set mood X] - set the default mood of the player to X
+	[set mood X Y] - set the default mood of object X to Y
+	[set randomboolean] - set the variable randomboolean randomly to 0 or 1
+	[set randomreply X] - set the variable randomreply randomly to an integer from 0 to Y
+	[set X] - set variable X to ""
+	[set X Y] - set variable X to Y
+	[add X Y] - add to variable X value Y
+	[clear] - delete all variables from memory
+	[clear X] - delete variable X from memory
+	[if X] - parse the rest of this block if any of the conditions X are true
+	[not X] - parse the rest of this block if any of the conditions X are not true
+		notes:
+			The if and not statements take conditions such as [if item umbrella] or [if coins = 5]
+			They can also take multiple conditions and evaluate if any of them is true such as [if (item umbrella) or (coins = 5)]
+			The conditions are:
+			shaders - returns true if shaders are supported
+			shader X - returns true if shader X is compiled
+			occupied - returns true if the player is occupied
+			occupied X - return true if the player objects occupied variable is X
+			alias X - return true if the player objects alias variable is X
+			item X - return true if item X is in the inventory
+			mood X - return true if player objects mood variable is X
+			random X - a chance to return true is 1/X
+			chance X - same as random X
+			version X - return true if the game version in setup.json is X
+			available X - return true if object X is available
+			X < Y - return true if variable X is smaller than Y
+			X <= Y - return true if variable X is smaller or equal to Y
+			X = Y - return true if variable X is equal to Y
+			X == Y - same as X = Y
+			(instead of X you can use the keyword "scale" which will check the player objects image scale variable)
+
+---
+
+conversations.txt - a text file consisting of all the conversations in the game that are activated using the [conversation] game block
+
+These conversations vaguely resemble the rules of "ink", a program to write conversations.
+Here is an illustrative example:
+
+=== this_is_a_conversation_name ===
+== this_is_a_section_name ==
+	Every TAB means a change in roles.
+	Even number of TABs means that the player is speaking.
+		Odd number of TABs means that the other character is speaking.
+			So this is the player speaking again.
+			[talk someone_else] And this is a third person speaking...
+			+ Dialogue options have a + in front
+				Each dialogue is initiated only if the player selects that option
+				After the dialogue is over, a block option should divert it to another section:
+				[section this_is_a_section_name]
+			+ If the dialogue option has one plus, the player will read it
+				[section this_is_a_section_name]
+			++ If the dialogue option has another plus, the player will not read it aloud.
+					Instead, the player can read something else.
+					[section this_is_a_section_name]
+			- If the dialogue option has a minus, it will show up only once.
+				[section this_is_a_section_name]
+			-+ Same as before, an extra plus means the player will not read this line aloud.
+				[section this_is_a_section_name]
+			+[if item umbrella] Options can have conditions
+				Options with conditions will only show to the player if the condition is met.
+					+ There can be nested options
+						[section this_is_a_section_name]
+					+ And new sections can be identified anywhere
+						== some_section ==
+						Such as above.
+						[section this_is_a_section_name]
+					+ If there is only one option to choose from...
+						Like in the example below:
+							+ It will be selected automatically.
+								[section this_is_a_section_name]
+			+ Also, beware infinite loops.
+				== this_is_a_loop ==
+				Such as this one.
+				[section this_is_a_loop]
+			+ When the conversation is over, use the block option end:
+				The game will continue where it left off before the conversation was initiated.
+				[end]
+always end the dialogue options tree with some text.
+
+== some_completely_unrelated_section ==
+			+ For example, if there was no line "always end the dialogue options tree with some text"...
+				...then this unrelated line would also be included in the dialogue options
+				Because it is indented the same number of times.
+				[end]
+end.
+
+--------------------
+3. List of resources
+--------------------
+
+BACKGROUNDS
+bcg_agram
+bcg_bank
+bcg_black
+bcg_botanical
+bcg_budapest
+bcg_coupe
+bcg_credits
+bcg_dirigibles
+bcg_dungeon
+bcg_garden
+bcg_gui
+bcg_hallway
+bcg_hell
+bcg_horror
+bcg_inventory
+bcg_krakow
+bcg_machine
+bcg_main
+bcg_map
+bcg_martinsRoom
+bcg_more
+bcg_options
+bcg_palaceDay
+bcg_palaceNight
+bcg_panel
+bcg_phone
+bcg_roaches
+bcg_schema
+bcg_shooter
+bcg_shrooms
+bcg_station
+bcg_stationup
+bcg_tavern
+bcg_tesla
+bcg_teslaslider
+bcg_title
+bcg_toilet
+bcg_tower
+bcg_viktorsRoom
+bcg_world
+
+PATHS
+path_down
+path_down_medium
+path_down_short
+path_eight
+path_float
+path_float_big
+path_float_big2
+path_left
+path_left_long
+path_left_short
+path_paper
+path_right_small
+path_ring
+path_shrooms
+path_shrooms2
+path_shrooms3
+path_small
+path_up
+path_up_short
+
+SOUNDS
+snd_anteater_talk
+snd_anteater_talk10
+snd_anteater_talk11
+snd_anteater_talk12
+snd_anteater_talk2
+snd_anteater_talk3
+snd_anteater_talk4
+snd_anteater_talk5
+snd_anteater_talk6
+snd_anteater_talk7
+snd_anteater_talk8
+snd_anteater_talk9
+snd_automaton
+snd_automaton2
+snd_automaton_break
+snd_automaton_talk
+snd_automaton_talk2
+snd_automaton_talk3
+snd_bach
+snd_bach_muffled
+snd_bank_ok
+snd_bank_windfast
+snd_bank_windfast2
+snd_bank_wrong
+snd_bardi
+snd_bardi_muffled
+snd_beaver_talk
+snd_beaver_talk10
+snd_beaver_talk11
+snd_beaver_talk2
+snd_beaver_talk3
+snd_beaver_talk4
+snd_beaver_talk5
+snd_beaver_talk6
+snd_beaver_talk7
+snd_beaver_talk8
+snd_beaver_talk9
+snd_bee_talk
+snd_bee_talk1
+snd_bee_talk2
+snd_bensound
+snd_bizet
+snd_bizet_muffled
+snd_boing
+snd_boing2
+snd_botanical_flower
+snd_boxing_defend
+snd_boxing_defend2
+snd_boxing_hit
+snd_boxing_hit2
+snd_boxing_hit3
+snd_boxing_hit4
+snd_brahms
+snd_broom
+snd_camera
+snd_camera_talk
+snd_camera_talk2
+snd_camera_talk3
+snd_camera_talk4
+snd_cheer_bank
+snd_cheer_end
+snd_cheer_fight
+snd_clock_break
+snd_coupe_walrus_talk
+snd_coupe_walrus_talk2
+snd_coupe_walrus_talk3
+snd_coupe_walrus_talk4
+snd_coupe_walrus_talk5
+snd_delibes
+snd_dirigibles_clack
+snd_dirigibles_cloud_hit
+snd_dirigibles_end
+snd_dirigibles_open
+snd_dirigibles_power
+snd_dirigibles_red
+snd_dirigibles_slow
+snd_dirigibles_speed
+snd_dirigibles_start
+snd_dirigibles_thunder
+snd_dirigibles_thunder2
+snd_donkey_talk
+snd_donkey_talk10
+snd_donkey_talk11
+snd_donkey_talk2
+snd_donkey_talk3
+snd_donkey_talk4
+snd_donkey_talk5
+snd_donkey_talk6
+snd_donkey_talk7
+snd_donkey_talk8
+snd_donkey_talk9
+snd_donkey_talk_angry
+snd_donkey_talk_angry2
+snd_donkey_talk_angry3
+snd_donkey_talk_angry4
+snd_donkey_talk_angry5
+snd_donkey_talk_muffled
+snd_donkey_talk_muffled2
+snd_donkey_talk_muffled3
+snd_donkey_talk_muffled4
+snd_donkey_talk_muffled5
+snd_door_close
+snd_door_open
+snd_dvorak2
+snd_elephant_talk
+snd_elephant_talk2
+snd_elephant_talk3
+snd_elephant_talk4
+snd_elephant_talk5
+snd_emperor_talk
+snd_emperor_talk10
+snd_emperor_talk11
+snd_emperor_talk12
+snd_emperor_talk13
+snd_emperor_talk2
+snd_emperor_talk3
+snd_emperor_talk4
+snd_emperor_talk5
+snd_emperor_talk6
+snd_emperor_talk7
+snd_emperor_talk8
+snd_emperor_talk9
+snd_emperor_talk_laugh
+snd_emperor_talk_laugh2
+snd_emperor_talk_laugh3
+snd_emperor_talk_laugh4
+snd_emperor_talk_shout
+snd_emperor_talk_shout2
+snd_emperor_talk_shout3
+snd_frankenstein_talk
+snd_frankenstein_talk10
+snd_frankenstein_talk11
+snd_frankenstein_talk2
+snd_frankenstein_talk3
+snd_frankenstein_talk4
+snd_frankenstein_talk5
+snd_frankenstein_talk6
+snd_frankenstein_talk7
+snd_frankenstein_talk8
+snd_frankenstein_talk9
+snd_freud_talk
+snd_freud_talk2
+snd_freud_talk3
+snd_freud_talk4
+snd_freud_talk5
+snd_freud_talk6
+snd_freud_talk7
+snd_freud_talk8
+snd_frog_talk
+snd_frog_talk10
+snd_frog_talk11
+snd_frog_talk12
+snd_frog_talk13
+snd_frog_talk14
+snd_frog_talk15
+snd_frog_talk16
+snd_frog_talk2
+snd_frog_talk3
+snd_frog_talk4
+snd_frog_talk5
+snd_frog_talk6
+snd_frog_talk7
+snd_frog_talk8
+snd_frog_talk9
+snd_general_boxing_defeat
+snd_general_boxing_hit
+snd_general_boxing_hit1
+snd_general_boxing_hit2
+snd_general_boxing_hit3
+snd_general_boxing_hit4
+snd_general_boxing_hit5
+snd_general_boxing_hit6
+snd_general_boxing_hit7
+snd_general_boxing_hit8
+snd_general_talk
+snd_general_talk2
+snd_general_talk3
+snd_general_talk4
+snd_general_talk5
+snd_general_talk6
+snd_glass_break
+snd_gramophone
+snd_gun
+snd_gun_fire
+snd_gun_fire1
+snd_gun_fire2
+snd_gun_fire3
+snd_gun_fire4
+snd_gun_x3
+snd_holst
+snd_horse1_talk
+snd_horse1_talk2
+snd_horse1_talk3
+snd_horse1_talk4
+snd_horse1_talk5
+snd_horse1_talk6
+snd_horse1_talk7
+snd_horse1_talk8
+snd_horse2_talk
+snd_horse2_talk2
+snd_horse2_talk3
+snd_horse2_talk4
+snd_horse2_talk5
+snd_horse2_talk6
+snd_horse2_talk7
+snd_horse2_talk8
+snd_horse2_talk9
+snd_hyde_boxing_defeat
+snd_hyde_boxing_hit
+snd_hyde_boxing_hit2
+snd_hyde_boxing_hit3
+snd_hyde_boxing_hit4
+snd_hyde_scream
+snd_hyde_talk
+snd_hyde_talk1
+snd_hyde_talk2
+snd_hyde_talk3
+snd_hyde_talk4
+snd_hyde_talk5
+snd_hyde_talk6
+snd_hyde_talk7
+snd_hyde_talk8
+snd_hydroporter
+snd_hyena_cough
+snd_hyena_idle4
+snd_hyena_talk
+snd_hyena_talk2
+snd_hyena_talk3
+snd_hyena_talk4
+snd_hyena_talk5
+snd_hyena_talk_hybrid
+snd_hyena_talk_hybrid2
+snd_hyena_talk_hybrid3
+snd_hyena_talk_laugh
+snd_hyena_talk_laugh2
+snd_hyena_talk_laugh3
+snd_hyena_talk_muffled
+snd_hyena_talk_muffled2
+snd_hyena_talk_muffled3
+snd_igor_talk
+snd_igor_talk2
+snd_igor_talk3
+snd_igor_talk4
+snd_igor_talk5
+snd_igor_talk6
+snd_inventory
+snd_jekyllsick_talk
+snd_jekyllsick_talk2
+snd_jekyllsick_talk3
+snd_jekyll_talk
+snd_jekyll_talk2
+snd_jekyll_talk3
+snd_jekyll_talk4
+snd_jekyll_talk5
+snd_jekyll_talk6
+snd_jekyll_talk7
+snd_jekyll_talk8
+snd_jekyll_talk9
+snd_joplin
+snd_kafka_talk
+snd_kafka_talk10
+snd_kafka_talk11
+snd_kafka_talk12
+snd_kafka_talk2
+snd_kafka_talk3
+snd_kafka_talk4
+snd_kafka_talk5
+snd_kafka_talk6
+snd_kafka_talk7
+snd_kafka_talk8
+snd_kafka_talk9
+snd_klimt_talk
+snd_klimt_talk2
+snd_klimt_talk3
+snd_klimt_talk4
+snd_klimt_talk5
+snd_klimt_talk6
+snd_klimt_talk7
+snd_klimt_talk8
+snd_krakow_hammer_hard
+snd_krakow_hammer_lose
+snd_krakow_hammer_soft
+snd_krakow_hammer_win
+snd_krakow_koala
+snd_krakow_monster
+snd_krtek_sniff
+snd_krtek_sniff2
+snd_krtek_sniff3
+snd_lake_talk
+snd_lake_talk2
+snd_lake_talk3
+snd_lake_talk4
+snd_lake_talk5
+snd_letter_burn
+snd_lift_arrive
+snd_lift_leave
+snd_log
+snd_martinsRoom_martin_talk
+snd_martinsRoom_martin_talk2
+snd_martinsRoom_martin_talk3
+snd_martinsRoom_martin_talk4
+snd_martinsRoom_martin_talk5
+snd_martinsRoom_martin_talk6
+snd_martinsRoom_martin_talk7
+snd_martinsRoom_martin_talk8
+snd_matilda_sneeze
+snd_matilda_talk
+snd_matilda_talk10
+snd_matilda_talk11
+snd_matilda_talk12
+snd_matilda_talk13
+snd_matilda_talk14
+snd_matilda_talk15
+snd_matilda_talk16
+snd_matilda_talk17
+snd_matilda_talk18
+snd_matilda_talk19
+snd_matilda_talk2
+snd_matilda_talk20
+snd_matilda_talk21
+snd_matilda_talk22
+snd_matilda_talk23
+snd_matilda_talk24
+snd_matilda_talk25
+snd_matilda_talk3
+snd_matilda_talk4
+snd_matilda_talk5
+snd_matilda_talk6
+snd_matilda_talk7
+snd_matilda_talk8
+snd_matilda_talk9
+snd_matilda_talk_ask
+snd_matilda_talk_ask2
+snd_matilda_talk_whisper
+snd_matilda_talk_whisper2
+snd_matilda_talk_whisper3
+snd_matilda_talk_whisper4
+snd_mole_talk
+snd_mole_talk10
+snd_mole_talk2
+snd_mole_talk3
+snd_mole_talk4
+snd_mole_talk5
+snd_mole_talk6
+snd_mole_talk7
+snd_mole_talk8
+snd_mole_talk9
+snd_mole_whiff
+snd_mole_whiff2
+snd_mole_whiff3
+snd_monster_talk
+snd_monster_talk10
+snd_monster_talk11
+snd_monster_talk2
+snd_monster_talk3
+snd_monster_talk4
+snd_monster_talk5
+snd_monster_talk6
+snd_monster_talk7
+snd_monster_talk8
+snd_monster_talk9
+snd_mozart
+snd_nanowar
+snd_nanowar_short
+snd_oven_break
+snd_oven_burn
+snd_phone_button
+snd_phone_hangup
+snd_phone_ring
+snd_phone_toot
+snd_phone_water
+snd_pickup
+snd_pipe_bend
+snd_pobran
+snd_pobran2
+snd_pot_boil
+snd_pot_water
+snd_priest_idle
+snd_priest_idle2
+snd_priest_idle3
+snd_priest_idle4
+snd_priest_idle5
+snd_priest_idle6
+snd_priest_laugh_1
+snd_priest_laugh_2
+snd_priest_talk
+snd_priest_talk_10
+snd_priest_talk_11
+snd_priest_talk_12
+snd_priest_talk_2
+snd_priest_talk_3
+snd_priest_talk_4
+snd_priest_talk_5
+snd_priest_talk_6
+snd_priest_talk_7
+snd_priest_talk_8
+snd_priest_talk_9
+snd_rabbit_cake
+snd_rabbit_pants_talk
+snd_rabbit_pants_talk10
+snd_rabbit_pants_talk11
+snd_rabbit_pants_talk12
+snd_rabbit_pants_talk13
+snd_rabbit_pants_talk14
+snd_rabbit_pants_talk15
+snd_rabbit_pants_talk2
+snd_rabbit_pants_talk3
+snd_rabbit_pants_talk4
+snd_rabbit_pants_talk5
+snd_rabbit_pants_talk6
+snd_rabbit_pants_talk7
+snd_rabbit_pants_talk8
+snd_rabbit_pants_talk9
+snd_rabbit_talk
+snd_rabbit_talk10
+snd_rabbit_talk11
+snd_rabbit_talk12
+snd_rabbit_talk13
+snd_rabbit_talk14
+snd_rabbit_talk15
+snd_rabbit_talk2
+snd_rabbit_talk3
+snd_rabbit_talk4
+snd_rabbit_talk5
+snd_rabbit_talk6
+snd_rabbit_talk7
+snd_rabbit_talk8
+snd_rabbit_talk9
+snd_rhino_magic
+snd_rhino_talk
+snd_rhino_talk2
+snd_rhino_talk3
+snd_rhino_talk4
+snd_rhino_talk5
+snd_rhino_talk6
+snd_rhino_talk7
+snd_rhino_talk8
+snd_roaches_hit
+snd_roaches_miss
+snd_rossini
+snd_saens
+snd_safe_danube1
+snd_safe_danube2
+snd_safe_danube3
+snd_safe_danube4
+snd_safe_danube5
+snd_safe_funky1
+snd_safe_funky2
+snd_safe_funky3
+snd_safe_funky4
+snd_safe_funky5
+snd_safe_hornpipe1
+snd_safe_hornpipe2
+snd_safe_hornpipe3
+snd_safe_hornpipe4
+snd_safe_hornpipe5
+snd_safe_jacques1
+snd_safe_jacques2
+snd_safe_jacques3
+snd_safe_jacques4
+snd_safe_jacques5
+snd_safe_mary1
+snd_safe_mary2
+snd_safe_mary3
+snd_safe_mary4
+snd_safe_mary5
+snd_safe_rythm
+snd_safe_sample
+snd_schubert
+snd_shooter_hit
+snd_shooter_kick
+snd_shooter_miss
+snd_shooter_wrong
+snd_shrooms_gong
+snd_smoke
+snd_smoke_start
+snd_sneeze
+snd_solo
+snd_station_dog_talk
+snd_station_dog_talk2
+snd_station_dog_talk3
+snd_station_dog_talk4
+snd_station_dog_talk5
+snd_station_dog_talk6
+snd_station_dog_talk7
+snd_station_dog_talk8
+snd_station_dog_talk9
+snd_station_office_talk
+snd_station_office_talk2
+snd_station_office_talk3
+snd_station_office_talk4
+snd_station_office_talk5
+snd_station_office_talk6
+snd_station_office_talk7
+snd_strauss
+snd_strauss2
+snd_take
+snd_take2
+snd_take3
+snd_teapot_break
+snd_teslaslider_buzz
+snd_teslaslider_buzz2
+snd_teslaslider_buzz3
+snd_teslaslider_slide
+snd_teslaslider_slide2
+snd_teslaslider_slide3
+snd_tesla_beam
+snd_tesla_talk
+snd_tesla_talk2
+snd_tesla_talk3
+snd_tesla_talk4
+snd_tesla_talk5
+snd_tesla_talk6
+snd_toilet_hello
+snd_toilet_water
+snd_tram_travel
+snd_tunnel_dig
+snd_tunnel_dig2
+snd_tunnel_dig3
+snd_tunnel_dig4
+snd_tunnel_dwarves
+snd_tunnel_stone
+snd_tunnel_stone2
+snd_tunnel_stone3
+snd_vase_break
+snd_vase_sing
+snd_vase_sing2
+snd_vida_talk
+snd_vida_talk2
+snd_vida_talk3
+snd_vida_talk4
+snd_vida_talk5
+snd_vida_talk6
+snd_vida_talk7
+snd_vida_talk8
+snd_vida_talk_shh
+snd_vida_talk_shh2
+snd_vida_talk_shh3
+snd_viktorsRoom_crow_talk
+snd_viktorsRoom_crow_talk2
+snd_viktorsRoom_crow_talk3
+snd_viktorsRoom_crow_talk4
+snd_viktorsRoom_crow_talk5
+snd_viktor_boxing_left_breathe_long
+snd_viktor_boxing_left_breathe_short
+snd_viktor_boxing_left_defend
+snd_viktor_boxing_left_defend2
+snd_viktor_boxing_left_growl
+snd_viktor_boxing_left_hit
+snd_viktor_boxing_left_hit2
+snd_viktor_boxing_left_hit3
+snd_viktor_boxing_left_hit4
+snd_viktor_eww
+snd_viktor_idle_apple
+snd_viktor_idle_cheese
+snd_viktor_idle_nosepick
+snd_viktor_jump
+snd_viktor_kick
+snd_viktor_kick2
+snd_viktor_laugh
+snd_viktor_laugh2
+snd_viktor_laugh3
+snd_viktor_no
+snd_viktor_no2
+snd_viktor_no3
+snd_viktor_sigh
+snd_viktor_slow
+snd_viktor_talk
+snd_viktor_talk10
+snd_viktor_talk11
+snd_viktor_talk12
+snd_viktor_talk13
+snd_viktor_talk14
+snd_viktor_talk15
+snd_viktor_talk16
+snd_viktor_talk17
+snd_viktor_talk18
+snd_viktor_talk19
+snd_viktor_talk2
+snd_viktor_talk20
+snd_viktor_talk21
+snd_viktor_talk3
+snd_viktor_talk4
+snd_viktor_talk5
+snd_viktor_talk6
+snd_viktor_talk7
+snd_viktor_talk8
+snd_viktor_talk9
+snd_viktor_talk_angry
+snd_viktor_talk_angry2
+snd_viktor_talk_angry3
+snd_viktor_talk_angry4
+snd_viktor_talk_angry5
+snd_viktor_talk_angry6
+snd_viktor_talk_angry7
+snd_viktor_talk_whisper
+snd_viktor_talk_whisper2
+snd_viktor_talk_whisper3
+snd_viktor_talk_whisper4
+snd_viktor_talk_whisper5
+snd_viktor_talk_whisper6
+snd_walk
+snd_warsound_grenade
+snd_warsound_guns1
+snd_warsound_guns2
+snd_warsound_guns3
+snd_warsound_guns4
+snd_warsound_guns5
+snd_warsound_sword1
+snd_warsound_sword2
+snd_warsound_sword3
+snd_warsound_sword4
+snd_warsound_sword5
+snd_warsound_sword6
+snd_warsound_wilhem
+snd_warsound_wounded1
+snd_warsound_wounded2
+snd_warsound_wounded3
+snd_water_drop
+snd_water_strong
+snd_water_weak
+snd_williams
+snd_window
+snd_wolf_talk
+snd_wolf_talk2
+snd_wolf_talk3
+snd_woosh
+snd_woosh2
+
+SPRITES
+sprite1118_A1
+sprite1119_A1_open
+sprite1120_A2
+sprite1121_A2_open
+sprite1122_A3
+sprite1123_A3_open
+sprite1124_A4
+sprite1125_A4_open
+sprite1126_A5
+sprite1127_A5_open
+sprite1128_A6_open
+sprite1129_A7
+sprite1130_A7_open
+sprite1131_A8_open
+sprite1132_B1
+sprite1133_B1_open
+sprite1134_B2
+sprite1135_B2_open
+sprite1136_B3
+sprite1137_B3_open
+sprite1138_B4
+sprite1139_B4_open
+sprite1140_B5
+sprite1141_B5_open
+sprite1142_B6
+sprite1143_B6_open
+sprite1144_B7
+sprite1145_B7_open
+sprite1146_B8
+sprite1147_B8_open
+sprite1148_C1
+sprite1149_C1_open
+sprite1150_C2
+sprite1151_C2_open
+sprite1152_C3
+sprite1153_C3_open
+sprite1154_C4
+sprite1155_C4_open
+sprite1156_C5
+sprite1157_C5_open
+sprite1158_C6
+sprite1159_C6_open
+sprite1160_C7
+sprite1161_C7_open
+sprite1162_C8
+sprite1163_C8_open
+sprite1164_C9
+sprite1165_C9_open
+sprite1166_D1
+sprite1167_D1_open
+sprite1168_D2
+sprite1169_D2_open
+sprite1170_D3
+sprite1171_D3_open
+sprite1172_D4
+sprite1173_D4_open
+sprite1174_D5
+sprite1175_D5_open
+sprite1176_D6
+sprite1177_D6_open
+sprite1178_D7
+sprite1179_D7_open
+sprite1180_D8
+sprite1181_D8_open
+sprite1182_D9
+sprite1183_D9_open
+sprite1184_D10
+sprite1185_D10_open
+sprite1186_E1_open
+sprite1187_E2
+sprite1188_E2_open
+sprite1189_E3
+sprite1190_E3_open
+sprite1191_E4
+sprite1192_E4_open
+sprite1193_E5
+sprite1194_E5_open
+sprite1195_E6
+sprite1196_E6_open
+sprite1197_E7
+sprite1198_E7_open
+sprite1199_E8
+sprite1200_E8_open
+sprite1201_E9
+sprite1202_E9_open
+spr_action_inventory
+spr_action_kick
+spr_action_look
+spr_action_switch
+spr_action_switch_shrooms
+spr_action_talk
+spr_action_use
+spr_agram_gentleman
+spr_agram_lamp
+spr_agram_people
+spr_agram_tram
+spr_agram_wire
+spr_anteater
+spr_anteater_idle
+spr_anteater_talk
+spr_anteater_use_left_high
+spr_anteater_use_left_middle
+spr_anteater_use_right_high
+spr_anteater_use_right_middle
+spr_anteater_walk_left
+spr_anteater_walk_right
+spr_automaton_bear
+spr_automaton_bear_atttack
+spr_automaton_bear_damaged
+spr_automaton_bear_damaged_last
+spr_automaton_bear_enter
+spr_automaton_bear_off
+spr_automaton_bear_on
+spr_automaton_bear_sweep
+spr_automaton_bear_walk
+spr_automaton_bear_watered
+spr_automaton_bull
+spr_automaton_bull_attack
+spr_automaton_bull_damaged
+spr_automaton_bull_damaged_last
+spr_automaton_bull_enter
+spr_automaton_bull_off
+spr_automaton_bull_on
+spr_automaton_bull_sweep
+spr_automaton_bull_walk
+spr_automaton_bull_watered
+spr_automaton_emperor
+spr_automaton_emperor_attack
+spr_automaton_emperor_enter
+spr_automaton_emperor_laugh
+spr_automaton_emperor_lose
+spr_automaton_emperor_sweep
+spr_automaton_emperor_talk
+spr_automaton_emperor_walk
+spr_automaton_hand
+spr_bank_glow
+spr_bank_gold
+spr_bank_lift_down
+spr_bank_lift_up
+spr_beaver
+spr_beaver_idle
+spr_beaver_idle2
+spr_beaver_idle3
+spr_beaver_pipe
+spr_beaver_pipe1
+spr_beaver_pipe2
+spr_beaver_pipe3
+spr_beaver_pipe_idle
+spr_beaver_talk
+spr_border_bank
+spr_border_botanical
+spr_border_dungeon
+spr_border_garden
+spr_border_hallway
+spr_border_horror
+spr_border_krakow
+spr_border_palaceOutside
+spr_border_roaches
+spr_border_station
+spr_border_stationup
+spr_border_tavern
+spr_border_tesla
+spr_border_toilet
+spr_border_tower
+spr_border_viktorsRoom
+spr_botanical_bloom
+spr_botanical_cactus
+spr_botanical_cactus_idle
+spr_botanical_cactus_spring
+spr_botanical_hanging
+spr_botanical_holder
+spr_botanical_pitcher
+spr_botanical_pitcher_eat
+spr_botanical_pitcher_fed
+spr_botanical_pitcher_fed_idle
+spr_botanical_pitcher_idle
+spr_botanical_pitcher_spit
+spr_botanical_plant
+spr_botanical_sign1
+spr_botanical_sign2
+spr_botanical_smoke
+spr_boxing_defend_clicked
+spr_boxing_defend_down
+spr_boxing_defend_middle
+spr_boxing_defend_up
+spr_boxing_hit_clicked
+spr_boxing_hit_down
+spr_boxing_hit_middle
+spr_boxing_hit_up
+spr_boxing_use
+spr_broom
+spr_budapest_dig
+spr_budapest_dig2
+spr_budapest_fog
+spr_budapest_fog2
+spr_budapest_light
+spr_chandelier_swing
+spr_cloud_large
+spr_cloud_medium
+spr_cloud_small
+spr_confetti
+spr_control_light_yellow
+spr_coupe_background
+spr_coupe_clouds
+spr_coupe_walrus
+spr_coupe_walrus_idle
+spr_coupe_walrus_idle_hat
+spr_coupe_walrus_idle_smoke
+spr_coupe_walrus_talk
+spr_coupe_walrus_watch
+spr_crosshair_big
+spr_crosshair_mini
+spr_crosshair_small
+spr_crosshair_tiny
+spr_crosshair_transparent
+spr_cursor_interface
+spr_cursor_inventory
+spr_cursor_inventory_active
+spr_cursor_kick
+spr_cursor_kick_active
+spr_cursor_kick_interface
+spr_cursor_look
+spr_cursor_look_active
+spr_cursor_look_interface
+spr_cursor_menu
+spr_cursor_roaches
+spr_cursor_screwdriver
+spr_cursor_talk
+spr_cursor_talk_active
+spr_cursor_talk_interface
+spr_cursor_use
+spr_cursor_use_active
+spr_cursor_use_interface
+spr_cursor_wait
+spr_cursor_walk
+spr_cursor_walk_active
+spr_devil
+spr_devil_boxing_damaged_defeat
+spr_devil_boxing_damaged_down
+spr_devil_boxing_damaged_middle
+spr_devil_boxing_damaged_up
+spr_devil_boxing_defend_down
+spr_devil_boxing_defend_middle
+spr_devil_boxing_defend_up
+spr_devil_boxing_hit_down
+spr_devil_boxing_hit_middle
+spr_devil_boxing_hit_up
+spr_devil_boxing_idle
+spr_devil_boxing_start
+spr_devil_hurt
+spr_devil_idle
+spr_devil_idle2
+spr_devil_laugh
+spr_devil_laugh_start
+spr_devil_talk
+spr_devil_talk_scheming
+spr_dig_black
+spr_dig_crossroads
+spr_dig_fossil
+spr_dig_mole
+spr_dig_mole_dig
+spr_dig_mole_dig_new
+spr_dig_mole_talk
+spr_dig_mole_walk
+spr_dig_mole_walk_new
+spr_dig_mole_whee
+spr_dig_rock
+spr_dig_sign
+spr_dig_snake
+spr_dig_snake_idle
+spr_dig_snake_move
+spr_dig_snake_web
+spr_dig_straight
+spr_dig_straight2
+spr_dig_straight_end
+spr_dig_straight_hell
+spr_dig_T
+spr_dig_turn
+spr_dig_use
+spr_dig_web
+spr_dirigibles2
+spr_dirigibles3
+spr_dirigibles4
+spr_dirigibles5
+spr_dirigibles6
+spr_dirigibles7
+spr_dirigibles_arrows
+spr_dirigibles_arrows_big
+spr_dirigibles_button
+spr_dirigibles_button_big
+spr_dirigibles_button_red
+spr_dirigibles_bzz
+spr_dirigibles_chimney
+spr_dirigibles_cloud
+spr_dirigibles_cloud_top
+spr_dirigibles_controls
+spr_dirigibles_controls_travel
+spr_dirigibles_controls_travel_ship
+spr_dirigibles_counter
+spr_dirigibles_enemy
+spr_dirigibles_fire
+spr_dirigibles_glow
+spr_dirigibles_hooks
+spr_dirigibles_hook_horizontal
+spr_dirigibles_hook_vertical
+spr_dirigibles_lever_horizontal
+spr_dirigibles_lever_vertical
+spr_dirigibles_lightning
+spr_dirigibles_panel
+spr_dirigibles_power
+spr_dirigibles_power_bzz
+spr_dirigibles_power_justbzz
+spr_dirigibles_race_end
+spr_dirigibles_race_end2
+spr_dirigibles_start
+spr_dirigibles_travel
+spr_dirigibles_travel_end
+spr_dirigibles_use
+spr_dirigibles_use2
+spr_dirigibles_viktor
+spr_donkey
+spr_donkey_idle
+spr_donkey_idle_sleep
+spr_donkey_idle_yawn
+spr_donkey_kick
+spr_donkey_talk
+spr_donkey_talk_angry
+spr_dungeon_ladder
+spr_dungeon_lid
+spr_dungeon_painting1
+spr_dungeon_painting2
+spr_dungeon_painting3
+spr_dungeon_painting4
+spr_dungeon_schakles
+spr_dungeon_schema
+spr_dungeon_stairs
+spr_dungeon_stand_back
+spr_dungeon_stand_front
+spr_dungeon_toilet
+spr_dungeon_window_bars
+spr_elephant
+spr_elephant_asleep
+spr_elephant_confused
+spr_elephant_idle
+spr_elephant_idle2
+spr_elephant_idle3
+spr_elephant_talk
+spr_emperor
+spr_emperor_bald
+spr_emperor_dead
+spr_emperor_dead_idle
+spr_emperor_handle
+spr_emperor_idle
+spr_emperor_idle2
+spr_emperor_talk
+spr_emperor_talk_laugh
+spr_empty
+spr_end
+spr_fight_background
+spr_fight_light_A1
+spr_fight_light_A2
+spr_fight_light_A3
+spr_fight_light_A4
+spr_fight_light_A5
+spr_fight_light_A6
+spr_fight_light_A7
+spr_fight_light_B1
+spr_fight_light_B2
+spr_fight_light_B3
+spr_fight_light_B4
+spr_fight_light_B5
+spr_fight_light_B6
+spr_fight_light_C1
+spr_fight_light_C2
+spr_fight_light_C3
+spr_fight_light_C4
+spr_fight_light_C5
+spr_fight_light_C6
+spr_fight_light_C7
+spr_fight_needle
+spr_fight_wheel_down
+spr_fight_wheel_mid
+spr_fight_wheel_up
+spr_final
+spr_frankenstein
+spr_frankenstein_amazed
+spr_frankenstein_idle
+spr_frankenstein_idle1
+spr_frankenstein_idle2
+spr_frankenstein_listen_amazed
+spr_frankenstein_look
+spr_frankenstein_look2
+spr_frankenstein_talk
+spr_frankenstein_talk_amazed
+spr_frankenstein_talk_crazy
+spr_frankenstein_throw
+spr_frankenstein_throw_chair
+spr_frankenstein_unamazed
+spr_frankestein_idle3
+spr_freud
+spr_freud_idle
+spr_freud_idle2
+spr_freud_talk
+spr_freud_talk_angry
+spr_frog
+spr_frog_idle
+spr_frog_idle_swing
+spr_frog_talk
+spr_frog_talk_smart
+spr_garden_fountain
+spr_garden_hose
+spr_garden_hose_base
+spr_garden_hose_top
+spr_garden_palm
+spr_garden_palm_idle
+spr_garden_palm_idle2
+spr_garden_shrooms_bottom
+spr_garden_shrooms_top
+spr_garden_sign
+spr_garden_water_loop
+spr_garden_water_small
+spr_garden_water_start
+spr_general
+spr_general_bow
+spr_general_boxing_damaged_defeat
+spr_general_boxing_damaged_down
+spr_general_boxing_damaged_middle
+spr_general_boxing_damaged_up
+spr_general_boxing_defend_down
+spr_general_boxing_defend_middle
+spr_general_boxing_defend_up
+spr_general_boxing_hit_down
+spr_general_boxing_hit_middle
+spr_general_boxing_hit_up
+spr_general_boxing_idle
+spr_general_boxing_start
+spr_general_fall
+spr_general_idle
+spr_general_idle2
+spr_general_idle3
+spr_general_talk
+spr_general_talk_explain
+spr_general_walk
+spr_hallway_camera
+spr_hallway_emperor
+spr_hallway_frame_big
+spr_hallway_frame_emperor
+spr_hallway_frame_filip
+spr_hallway_frame_goat
+spr_hallway_frame_leonard
+spr_hallway_frame_panther
+spr_hallway_matilda
+spr_hallway_pic_big
+spr_hallway_pic_emperor
+spr_hallway_pic_filip
+spr_hallway_pic_goat
+spr_hallway_pic_leopard
+spr_hallway_pic_panther
+spr_hallway_pipe
+spr_hallway_pipe_animated
+spr_hallway_powder
+spr_hallway_sign
+spr_hallway_viktor
+spr_hell_burn1
+spr_hell_burn2
+spr_hell_lavaburn_1
+spr_hell_lavaburn_2
+spr_hell_light
+spr_hell_smoke_1
+spr_hell_smoke_2
+spr_hell_smoke_ball
+spr_horror_bone
+spr_horror_boneyard
+spr_horror_cloud1
+spr_horror_cloud2
+spr_horror_cloud3
+spr_horror_hearts
+spr_horror_koala
+spr_horror_monster
+spr_horror_shadow_axe
+spr_horror_size
+spr_horror_train
+spr_horse1
+spr_horse1_idle
+spr_horse1_idle1
+spr_horse1_idle2
+spr_horse1_idle3
+spr_horse1_listen
+spr_horse1_listen_idle
+spr_horse1_listen_right
+spr_horse1_talk
+spr_horse1_talk_right
+spr_horse2
+spr_horse2_idle
+spr_horse2_idle1
+spr_horse2_idle2
+spr_horse2_idle3
+spr_horse2_listen
+spr_horse2_listen_idle
+spr_horse2_listen_right
+spr_horse2_talk
+spr_hyde
+spr_hyde_boxing_damaged_defeat
+spr_hyde_boxing_damaged_down
+spr_hyde_boxing_damaged_middle
+spr_hyde_boxing_damaged_up
+spr_hyde_boxing_defend_down
+spr_hyde_boxing_defend_middle
+spr_hyde_boxing_defend_up
+spr_hyde_boxing_hit_down
+spr_hyde_boxing_hit_middle
+spr_hyde_boxing_hit_up
+spr_hyde_boxing_idle
+spr_hyde_boxing_idle2
+spr_hyde_boxing_start
+spr_hyde_boxing_talk
+spr_hyde_idle
+spr_hyde_shriek
+spr_hyde_talk
+spr_hyde_walk
+spr_hyena
+spr_hyena_idle
+spr_hyena_idle2
+spr_hyena_idle3
+spr_hyena_idle4
+spr_hyena_idle5
+spr_hyena_idle6
+spr_hyena_idle7
+spr_hyena_pipe
+spr_hyena_pipe1
+spr_hyena_pipe2
+spr_hyena_pipe3
+spr_hyena_pipe_idle
+spr_hyena_talk
+spr_hyena_talk_laugh
+spr_hyena_talk_laugh2
+spr_igor
+spr_igor_idle
+spr_igor_idle2
+spr_igor_jump
+spr_igor_scared
+spr_igor_talk
+spr_igor_talk_laugh
+spr_igor_walk
+spr_item_ball
+spr_item_belt
+spr_item_broom
+spr_item_bullet
+spr_item_butter
+spr_item_cake
+spr_item_cash
+spr_item_cell
+spr_item_chain
+spr_item_chess
+spr_item_cog
+spr_item_coin
+spr_item_coins
+spr_item_emperor
+spr_item_flask
+spr_item_flask_empty
+spr_item_flask_water
+spr_item_flower
+spr_item_fuck
+spr_item_gramophone
+spr_item_heart
+spr_item_hourglass
+spr_item_key
+spr_item_keys
+spr_item_kilt
+spr_item_log
+spr_item_love
+spr_item_map
+spr_item_matilda
+spr_item_mug
+spr_item_pants
+spr_item_paper
+spr_item_pencil
+spr_item_phone
+spr_item_picture_1
+spr_item_picture_2
+spr_item_picture_3
+spr_item_picture_emperor
+spr_item_picture_filip
+spr_item_picture_goat
+spr_item_picture_leopard
+spr_item_picture_panther
+spr_item_pillow
+spr_item_pipe
+spr_item_powder
+spr_item_schema
+spr_item_scissors
+spr_item_screwdriver
+spr_item_shield
+spr_item_shroom
+spr_item_spunge
+spr_item_stickyspunge
+spr_item_ticket
+spr_item_umbrella
+spr_item_viktor
+spr_item_wig
+spr_jekyll
+spr_jekyll_idle
+spr_jekyll_idle2
+spr_jekyll_idle3
+spr_jekyll_talk
+spr_jekyll_walk
+spr_kafka
+spr_kafka_back
+spr_kafka_back_idle
+spr_kafka_back_idle2
+spr_kafka_back_talk
+spr_kafka_back_wave
+spr_kafka_clueless
+spr_kafka_greetings
+spr_kafka_idle
+spr_kafka_idle2
+spr_kafka_listen
+spr_kafka_listen_idle
+spr_kafka_listen_idle2
+spr_kafka_listen_idle3
+spr_kafka_talk
+spr_klimt
+spr_klimt_end
+spr_klimt_idle
+spr_klimt_idle2
+spr_klimt_listen
+spr_klimt_listen_idle
+spr_klimt_listen_idle2
+spr_klimt_start
+spr_klimt_talk
+spr_krakow_anvil
+spr_krakow_bear
+spr_krakow_butter
+spr_krakow_door
+spr_krakow_emperor
+spr_krakow_fence
+spr_krakow_fist
+spr_krakow_fist_light
+spr_krakow_hammer_body
+spr_krakow_hammer_head
+spr_krakow_heart
+spr_krakow_horror
+spr_krakow_houseof
+spr_krakow_lights_off
+spr_krakow_lights_on
+spr_krakow_love
+spr_krakow_love2
+spr_krakow_pilon
+spr_krakow_pipe
+spr_krakow_resin
+spr_krakow_sticky
+spr_krakow_tents
+spr_krakow_tree
+spr_krakow_tree2
+spr_lake
+spr_lake_eyepatch
+spr_lake_idle
+spr_lake_listen
+spr_lake_smile
+spr_lake_talk
+spr_leaves0
+spr_leaves1
+spr_leaves10
+spr_leaves11
+spr_leaves12
+spr_leaves13
+spr_leaves14
+spr_leaves15
+spr_leaves2_0
+spr_leaves2_10
+spr_leaves2_11
+spr_leaves2_12
+spr_leaves2_13
+spr_leaves2_14
+spr_leaves2_15
+spr_leaves2_16
+spr_leaves2_17
+spr_leaves2_18
+spr_leaves2_19
+spr_leaves2_2
+spr_leaves2_20
+spr_leaves2_21
+spr_leaves2_22
+spr_leaves2_23
+spr_leaves2_24
+spr_leaves2_25
+spr_leaves2_26
+spr_leaves2_28
+spr_leaves2_3
+spr_leaves2_4
+spr_leaves2_5
+spr_leaves2_6
+spr_leaves2_7
+spr_leaves2_8
+spr_leaves2_9
+spr_leaves2_last
+spr_leaves3
+spr_leaves4
+spr_leaves5
+spr_leaves6
+spr_leaves7
+spr_leaves8
+spr_leaves9
+spr_leaves_last
+spr_lion
+spr_lion_gave
+spr_lion_idle
+spr_lion_idle2
+spr_lion_koala
+spr_lion_peanut
+spr_lion_pipe
+spr_lion_shove
+spr_love_boom
+spr_love_swing
+spr_machine_help
+spr_machine_part1
+spr_machine_part2
+spr_machine_part3
+spr_machine_part4
+spr_machine_part5
+spr_machine_part6
+spr_machine_part7
+spr_machine_part8
+spr_machine_part9
+spr_map_agram_vienna
+spr_map_budapest_krakow
+spr_map_budapest_sebenico
+spr_map_ingolstadt_sebenico
+spr_map_krakow_sebenico
+spr_map_prague_vienna_budapest
+spr_map_prague_vienna_budapest2
+spr_map_sebenico_ingolstadt
+spr_map_sebenico_vienna
+spr_map_vienna_prague
+spr_martinsRoom_boat
+spr_martinsRoom_martin
+spr_martinsRoom_martin_idle
+spr_martinsRoom_martin_talk
+spr_martinsRoom_pipe
+spr_martinsRoom_smoke
+spr_martinsRoom_window
+spr_matilda
+spr_matilda_boxing_right_damaged_defeat
+spr_matilda_boxing_right_damaged_down
+spr_matilda_boxing_right_damaged_middle
+spr_matilda_boxing_right_damaged_up
+spr_matilda_boxing_right_defend_down
+spr_matilda_boxing_right_defend_middle
+spr_matilda_boxing_right_defend_up
+spr_matilda_boxing_right_hit_down
+spr_matilda_boxing_right_hit_middle
+spr_matilda_boxing_right_hit_up
+spr_matilda_boxing_right_idle
+spr_matilda_boxing_right_start
+spr_matilda_boxing_right_tired
+spr_matilda_chalk
+spr_matilda_eek
+spr_matilda_eek2
+spr_matilda_fall_up
+spr_matilda_fell
+spr_matilda_flower
+spr_matilda_gun
+spr_matilda_gun_draw
+spr_matilda_gun_talk
+spr_matilda_hose
+spr_matilda_hose_aim
+spr_matilda_hose_take
+spr_matilda_hose_use
+spr_matilda_idle
+spr_matilda_idle_hose
+spr_matilda_jump
+spr_matilda_jump2
+spr_matilda_jump3
+spr_matilda_koala
+spr_matilda_koala2
+spr_matilda_laugh
+spr_matilda_laugh_middle
+spr_matilda_left
+spr_matilda_listen_back
+spr_matilda_listen_front
+spr_matilda_listen_left
+spr_matilda_listen_left_hose
+spr_matilda_listen_left_whisper
+spr_matilda_listen_right
+spr_matilda_listen_right_gun
+spr_matilda_listen_right_hose
+spr_matilda_no
+spr_matilda_picture
+spr_matilda_sad
+spr_matilda_shock
+spr_matilda_shoot
+spr_matilda_sneeze
+spr_matilda_talk
+spr_matilda_talk_back
+spr_matilda_talk_back_hose
+spr_matilda_talk_front
+spr_matilda_talk_front_hose
+spr_matilda_talk_left
+spr_matilda_talk_left_angry
+spr_matilda_talk_left_hose
+spr_matilda_talk_left_whisper
+spr_matilda_talk_right
+spr_matilda_talk_right_angry
+spr_matilda_talk_right_gun
+spr_matilda_talk_right_hose
+spr_matilda_tavern
+spr_matilda_tavern_idle
+spr_matilda_tavern_talk
+spr_matilda_tavern_talk_angry
+spr_matilda_use_left_high
+spr_matilda_use_left_middle
+spr_matilda_use_right_high
+spr_matilda_use_right_middle
+spr_matilda_walk_back
+spr_matilda_walk_front
+spr_matilda_walk_left
+spr_matilda_walk_right
+spr_matilda_whee
+spr_menu_back
+spr_menu_button
+spr_menu_cover_bach
+spr_menu_cover_bardi
+spr_menu_cover_bizet
+spr_menu_cover_brahms
+spr_menu_cover_delibes
+spr_menu_cover_dvorak
+spr_menu_cover_dvorak2
+spr_menu_cover_holst
+spr_menu_cover_joplin
+spr_menu_cover_mozart
+spr_menu_cover_nanowar
+spr_menu_cover_pobran
+spr_menu_cover_pobran2
+spr_menu_cover_rossini
+spr_menu_cover_saens
+spr_menu_cover_schubert
+spr_menu_cover_strauss
+spr_menu_cover_strauss2
+spr_menu_cover_williams
+spr_menu_credits
+spr_menu_exit
+spr_menu_gramophone
+spr_menu_load
+spr_menu_minigames
+spr_menu_more
+spr_menu_music
+spr_menu_new
+spr_menu_quit
+spr_menu_record_bach
+spr_menu_record_bardi
+spr_menu_record_bizet
+spr_menu_record_brahms
+spr_menu_record_delibes
+spr_menu_record_dvorak
+spr_menu_record_dvorak2
+spr_menu_record_holst
+spr_menu_record_joplin
+spr_menu_record_main
+spr_menu_record_mozart
+spr_menu_record_nanowar
+spr_menu_record_pobran
+spr_menu_record_pobran2
+spr_menu_record_rossini
+spr_menu_record_saens
+spr_menu_record_schubert
+spr_menu_record_strauss
+spr_menu_record_strauss2
+spr_menu_record_williams
+spr_menu_save
+spr_menu_slider
+spr_menu_web
+spr_mole
+spr_mole_idle
+spr_mole_idle2
+spr_mole_surprised
+spr_mole_talk
+spr_monster
+spr_monster_idle
+spr_monster_idle2
+spr_monster_idle3
+spr_monster_listen
+spr_monster_talk
+spr_palaceOutside_gate_left
+spr_palaceOutside_gate_right
+spr_palaceOutside_star_big
+spr_palaceOutside_star_medium
+spr_palaceOutside_star_small
+spr_palaceOutside_walls_day
+spr_palaceOutside_walls_night
+spr_palace_automaton_bear
+spr_palace_automaton_bear_open
+spr_palace_automaton_bull
+spr_palace_automaton_bull_open
+spr_palace_back
+spr_palace_chandelier
+spr_palace_chandelier_cracked
+spr_palace_chandelier_fall
+spr_palace_cloud
+spr_palace_cog
+spr_palace_crown
+spr_palace_curtain_left
+spr_palace_curtain_main
+spr_palace_curtain_right
+spr_palace_front
+spr_palace_left
+spr_palace_middle
+spr_palace_plant
+spr_palace_plant_flip
+spr_palace_plant_idle
+spr_palace_plant_leaf
+spr_palace_pot
+spr_palace_right
+spr_palace_sign
+spr_palace_sign2
+spr_palace_smoke
+spr_panel_beam
+spr_panel_button
+spr_panel_door
+spr_panel_emperor
+spr_panel_hook
+spr_panel_insert
+spr_panel_light
+spr_panel_matilda
+spr_panel_picture
+spr_panel_screw
+spr_panel_screw2
+spr_panel_screw3
+spr_panel_viktor
+spr_phone_button
+spr_priest
+spr_priest_back
+spr_priest_back_idle
+spr_priest_back_idle2
+spr_priest_idle
+spr_priest_idle2
+spr_priest_idle3
+spr_priest_talk
+spr_rabbit
+spr_rabbit_cake1
+spr_rabbit_cake2
+spr_rabbit_dress
+spr_rabbit_idle
+spr_rabbit_idle_clap
+spr_rabbit_idle_think
+spr_rabbit_pants
+spr_rabbit_pants_cake1
+spr_rabbit_pants_idle
+spr_rabbit_pants_idle_clap
+spr_rabbit_pants_idle_think
+spr_rabbit_pants_punch
+spr_rabbit_pants_talk
+spr_rabbit_punch
+spr_rabbit_talk
+spr_rhino
+spr_rhino_broom
+spr_rhino_broom_idle
+spr_rhino_broom_listen
+spr_rhino_broom_listen_idle
+spr_rhino_broom_talk
+spr_rhino_broom_walk
+spr_rhino_broom_yes
+spr_rhino_listen
+spr_rhino_listen_idle
+spr_rhino_talk
+spr_roach
+spr_roaches_roach
+spr_roaches_roach_dead
+spr_roaches_sinkhole
+spr_roach_idle
+spr_roach_idle2
+spr_roach_idle3
+spr_safe_background
+spr_safe_button_outside
+spr_safe_button_play
+spr_safe_button_speaker
+spr_safe_foreground
+spr_safe_lift
+spr_safe_lift_viktor
+spr_safe_picture1
+spr_safe_picture2
+spr_safe_picture3
+spr_safe_picture4
+spr_safe_picture5
+spr_safe_rotator
+spr_safe_slot1
+spr_safe_slot2
+spr_safe_slot3
+spr_safe_slot4
+spr_safe_slot5
+spr_safe_symbol
+spr_scratch
+spr_shooter_awake
+spr_shooter_awake2
+spr_shooter_body
+spr_shooter_body2
+spr_shooter_bullet
+spr_shooter_curtain
+spr_shooter_deer
+spr_shooter_deer2
+spr_shooter_dragons
+spr_shooter_dragons2
+spr_shooter_head
+spr_shooter_head2
+spr_shooter_heart
+spr_shooter_heart2
+spr_shooter_rocket
+spr_shooter_rocket2
+spr_shooter_saturn
+spr_shooter_saturn2
+spr_shooter_stick
+spr_shooter_sun
+spr_shooter_sun2
+spr_shrooms_bee
+spr_shrooms_beexit
+spr_shrooms_belt
+spr_shrooms_break
+spr_shrooms_emperor
+spr_shrooms_fix
+spr_shrooms_glow_mechanical
+spr_shrooms_glow_spiral
+spr_shrooms_gong
+spr_shrooms_gong_holders
+spr_shrooms_gong_shield
+spr_shrooms_gong_stand
+spr_shrooms_hammer
+spr_shrooms_hourglass
+spr_shrooms_kingpic_5
+spr_shrooms_lamp
+spr_shrooms_lamp_light
+spr_shrooms_lamp_line
+spr_shrooms_leaf_red
+spr_shrooms_matilda
+spr_shrooms_moon
+spr_shrooms_rain
+spr_shrooms_rain_single
+spr_shrooms_satan_1
+spr_shrooms_satan_2
+spr_shrooms_screwdriver
+spr_shrooms_seed_red
+spr_shrooms_shower
+spr_shrooms_shower_1
+spr_shrooms_shower_2
+spr_shrooms_shower_3
+spr_shrooms_shower_eye
+spr_shrooms_shower_head
+spr_shrooms_shower_jaw
+spr_shrooms_teething
+spr_shrooms_viktor
+spr_shrooms_water_level
+spr_skeleton
+spr_skeleton_idle
+spr_skeleton_idle2
+spr_skeleton_paper
+spr_skeleton_paper_idle
+spr_skeleton_paper_idle2
+spr_stationup_dirigible
+spr_stationup_fence_back
+spr_stationup_fence_front
+spr_stationup_lift_front
+spr_stationup_lift_hole
+spr_stationup_post
+spr_station_anchor
+spr_station_ball
+spr_station_cake
+spr_station_columns_back
+spr_station_columns_front
+spr_station_dog
+spr_station_dog_idle
+spr_station_dog_idle2
+spr_station_dog_talk
+spr_station_fence
+spr_station_hammer
+spr_station_hanger
+spr_station_lift_back
+spr_station_lift_cabin
+spr_station_lift_front
+spr_station_office
+spr_station_pants
+spr_station_pipe
+spr_station_plant
+spr_station_plate
+spr_station_record
+spr_station_sickle
+spr_station_sign
+spr_station_smoke
+spr_station_stuck
+spr_station_suriken
+spr_station_tram
+spr_station_wire
+spr_tavern_bar
+spr_tavern_barrels_front
+spr_tavern_barrel_jekyll
+spr_tavern_bottle_wine
+spr_tavern_cabin_door_left
+spr_tavern_cabin_door_right
+spr_tavern_cabin_door_up
+spr_tavern_chair
+spr_tavern_door
+spr_tavern_flask
+spr_tavern_flask_empty
+spr_tavern_party
+spr_tavern_peanut
+spr_tesla
+spr_teslaslider_block_empty
+spr_teslaslider_block_straight
+spr_teslaslider_block_turn
+spr_teslaslider_electricity_straight
+spr_teslaslider_electricity_turn
+spr_teslaslider_lamp
+spr_teslaslider_lamp_on
+spr_tesla_back
+spr_tesla_back_idle
+spr_tesla_back_idle2
+spr_tesla_back_talk
+spr_tesla_back_wave
+spr_tesla_beam1
+spr_tesla_beam2
+spr_tesla_beam3
+spr_tesla_beam4
+spr_tesla_beam_long
+spr_tesla_beam_short
+spr_tesla_bulb
+spr_tesla_coil
+spr_tesla_column
+spr_tesla_electricity1
+spr_tesla_electricity2
+spr_tesla_electricity3
+spr_tesla_electricity4
+spr_tesla_electricity5
+spr_tesla_fence_back
+spr_tesla_fence_front
+spr_tesla_idle
+spr_tesla_idle2
+spr_tesla_machine1
+spr_tesla_machine2
+spr_tesla_machine3
+spr_tesla_pad
+spr_tesla_stairs
+spr_tesla_talk
+spr_tesla_use_left_middle
+spr_tesla_use_right_middle
+spr_tesla_walk_left
+spr_tesla_walk_right
+spr_toilet_chain
+spr_toilet_chain_big
+spr_toilet_chain_fall
+spr_toilet_chain_hook
+spr_toilet_chain_wave
+spr_toilet_closed
+spr_toilet_flies
+spr_toilet_left
+spr_toilet_middle
+spr_toilet_pipe
+spr_toilet_right
+spr_tower_ball
+spr_tower_ball_cable_down
+spr_tower_ball_cable_up
+spr_tower_bed_board
+spr_tower_bed_holder_back
+spr_tower_bed_holder_front
+spr_tower_bzz
+spr_tower_bzz2
+spr_tower_cloud
+spr_tower_control_lever1
+spr_tower_control_lever2
+spr_tower_control_light_blue
+spr_tower_control_light_green
+spr_tower_control_light_red
+spr_tower_control_light_yellow
+spr_tower_hand
+spr_tower_kirilian
+spr_tower_lamplight
+spr_tower_machine_ball1
+spr_tower_machine_ball2
+spr_tower_machine_blade1
+spr_tower_machine_blade2
+spr_tower_machine_blade3
+spr_tower_machine_blade4
+spr_tower_machine_body
+spr_tower_machine_cable
+spr_tower_machine_nozzle
+spr_tower_phone
+spr_tower_poster
+spr_tower_stairs
+spr_tower_stool
+spr_tower_things
+spr_various_black
+spr_various_bug
+spr_various_cloud_down
+spr_various_cloud_left
+spr_various_cloud_phone
+spr_various_cloud_reverse
+spr_various_cloud_right
+spr_various_cloud_talk
+spr_various_cloud_think
+spr_various_frame
+spr_various_frame_transparent
+spr_various_mask
+spr_various_next
+spr_various_none
+spr_various_record
+spr_various_title
+spr_various_token
+spr_various_tutorial
+spr_various_white
+spr_vida
+spr_vida_enter
+spr_vida_exit
+spr_vida_front
+spr_vida_give
+spr_vida_idle
+spr_vida_idle2
+spr_vida_idle3
+spr_vida_talk
+spr_viktor
+spr_viktorsMap_abyssinia
+spr_viktorsMap_akan
+spr_viktorsMap_alsoUK
+spr_viktorsMap_asspain
+spr_viktorsMap_austriaHungary
+spr_viktorsMap_ban_an_as
+spr_viktorsMap_brassiere
+spr_viktorsMap_folder
+spr_viktorsMap_france
+spr_viktorsMap_franceAfrika
+spr_viktorsMap_gangrene
+spr_viktorsMap_germanGuinea
+spr_viktorsMap_germland
+spr_viktorsMap_hole
+spr_viktorsMap_inkanland
+spr_viktorsMap_khanat
+spr_viktorsMap_khmer
+spr_viktorsMap_khongo
+spr_viktorsMap_macedonia
+spr_viktorsMap_madagascar
+spr_viktorsMap_maoriLand
+spr_viktorsMap_mayana
+spr_viktorsMap_mei_din
+spr_viktorsMap_mexico
+spr_viktorsMap_nippleon
+spr_viktorsMap_nordland
+spr_viktorsMap_persia
+spr_viktorsMap_rhodesia
+spr_viktorsMap_romanEmpire
+spr_viktorsMap_russia
+spr_viktorsMap_salike
+spr_viktorsMap_senileLand
+spr_viktorsMap_songhai
+spr_viktorsMap_southAsspain
+spr_viktorsMap_sriVijaya
+spr_viktorsMap_tasmania
+spr_viktorsMap_texas
+spr_viktorsMap_unwantedKingdom
+spr_viktorsMap_zululand
+spr_viktorsRoom_bed
+spr_viktorsRoom_broom
+spr_viktorsRoom_chess
+spr_viktorsRoom_clock_broken
+spr_viktorsRoom_crow
+spr_viktorsRoom_crow_coin
+spr_viktorsRoom_crow_coin_fly
+spr_viktorsRoom_crow_coin_talk
+spr_viktorsRoom_crow_idle
+spr_viktorsRoom_crow_talk
+spr_viktorsRoom_crow_walk
+spr_viktorsRoom_dirigible_large
+spr_viktorsRoom_dirigible_small
+spr_viktorsRoom_door_open1
+spr_viktorsRoom_door_open2
+spr_viktorsRoom_keys
+spr_viktorsRoom_map
+spr_viktorsRoom_oven_broken
+spr_viktorsRoom_oven_hot
+spr_viktorsRoom_phone
+spr_viktorsRoom_picture1
+spr_viktorsRoom_picture2
+spr_viktorsRoom_picture3
+spr_viktorsRoom_pot1
+spr_viktorsRoom_pot1_boil
+spr_viktorsRoom_pot1_boiling
+spr_viktorsRoom_pot2
+spr_viktorsRoom_pots
+spr_viktorsRoom_teapot
+spr_viktorsRoom_teapot_broken
+spr_viktorsRoom_toilet
+spr_viktorsRoom_trin
+spr_viktorsRoom_tub_clean
+spr_viktorsRoom_tub_roaches2
+spr_viktorsRoom_umbrella
+spr_viktorsRoom_vase_broken
+spr_viktor_angry
+spr_viktor_back_off
+spr_viktor_boxing_left_damaged_defeat
+spr_viktor_boxing_left_damaged_down
+spr_viktor_boxing_left_damaged_middle
+spr_viktor_boxing_left_damaged_up
+spr_viktor_boxing_left_defend_down
+spr_viktor_boxing_left_defend_middle
+spr_viktor_boxing_left_defend_up
+spr_viktor_boxing_left_hit_down
+spr_viktor_boxing_left_hit_middle
+spr_viktor_boxing_left_hit_up
+spr_viktor_boxing_left_idle
+spr_viktor_boxing_left_start
+spr_viktor_boxing_left_talk
+spr_viktor_boxing_left_tired
+spr_viktor_cake
+spr_viktor_chain
+spr_viktor_coin
+spr_viktor_coin2
+spr_viktor_coin3
+spr_viktor_coin4
+spr_viktor_coin5
+spr_viktor_crown
+spr_viktor_door
+spr_viktor_drink
+spr_viktor_end
+spr_viktor_end_idle
+spr_viktor_falling
+spr_viktor_fall_stand
+spr_viktor_fell
+spr_viktor_fly
+spr_viktor_fly2
+spr_viktor_fly_smoke
+spr_viktor_fly_smoke_start
+spr_viktor_fly_talk
+spr_viktor_hammer
+spr_viktor_hammer2
+spr_viktor_holding
+spr_viktor_hose
+spr_viktor_hose_aim
+spr_viktor_hose_take
+spr_viktor_hose_use
+spr_viktor_idle
+spr_viktor_idle_angry
+spr_viktor_idle_apple
+spr_viktor_idle_cheese
+spr_viktor_idle_holding
+spr_viktor_idle_hose
+spr_viktor_idle_look
+spr_viktor_idle_nosepick
+spr_viktor_kicked
+spr_viktor_kick_left
+spr_viktor_kick_right
+spr_viktor_koala
+spr_viktor_koala2
+spr_viktor_koala_in
+spr_viktor_koala_out
+spr_viktor_left
+spr_viktor_left_up
+spr_viktor_letter1
+spr_viktor_letter2
+spr_viktor_letter3
+spr_viktor_listen_back
+spr_viktor_listen_front
+spr_viktor_listen_front_angry
+spr_viktor_listen_front_end
+spr_viktor_listen_idle_front
+spr_viktor_listen_idle_front_angry
+spr_viktor_listen_idle_front_end
+spr_viktor_listen_idle_left
+spr_viktor_listen_idle_left_angry
+spr_viktor_listen_idle_left_coupe
+spr_viktor_listen_idle_left_coupe_scared
+spr_viktor_listen_idle_left_scared
+spr_viktor_listen_idle_right
+spr_viktor_listen_idle_right_angry
+spr_viktor_listen_idle_right_phone
+spr_viktor_listen_idle_right_scared
+spr_viktor_listen_left
+spr_viktor_listen_left_angry
+spr_viktor_listen_left_coupe
+spr_viktor_listen_left_coupe_scared
+spr_viktor_listen_left_hose
+spr_viktor_listen_left_scared
+spr_viktor_listen_right
+spr_viktor_listen_right_angry
+spr_viktor_listen_right_hose
+spr_viktor_listen_right_phone
+spr_viktor_listen_right_phone_angry
+spr_viktor_listen_right_scared
+spr_viktor_listen_right_whisper
+spr_viktor_love_show
+spr_viktor_matilda
+spr_viktor_matilda2
+spr_viktor_no
+spr_viktor_no_left
+spr_viktor_no_right
+spr_viktor_phone_down
+spr_viktor_phone_up
+spr_viktor_picture
+spr_viktor_pipe
+spr_viktor_pot1_carry
+spr_viktor_pot1_lift
+spr_viktor_pot1_lower
+spr_viktor_pot1_take1
+spr_viktor_pot1_take2
+spr_viktor_pot1_throw
+spr_viktor_pot2_carry
+spr_viktor_pot2_take
+spr_viktor_pot2_throw
+spr_viktor_right
+spr_viktor_right_up
+spr_viktor_scissors
+spr_viktor_shock
+spr_viktor_shock_idle
+spr_viktor_shock_idle2
+spr_viktor_sign
+spr_viktor_sign_big
+spr_viktor_take
+spr_viktor_talk
+spr_viktor_talk_back
+spr_viktor_talk_back_hose
+spr_viktor_talk_front
+spr_viktor_talk_front_angry
+spr_viktor_talk_front_end
+spr_viktor_talk_front_hose
+spr_viktor_talk_left
+spr_viktor_talk_left_angry
+spr_viktor_talk_left_coupe
+spr_viktor_talk_left_hose
+spr_viktor_talk_left_scared
+spr_viktor_talk_right
+spr_viktor_talk_right_angry
+spr_viktor_talk_right_hose
+spr_viktor_talk_right_phone
+spr_viktor_talk_right_phone_angry
+spr_viktor_talk_right_whisper
+spr_viktor_teapot
+spr_viktor_teapot_angry
+spr_viktor_tub_angry
+spr_viktor_tub_sigh
+spr_viktor_tub_unsigh
+spr_viktor_umbrella1
+spr_viktor_umbrella2
+spr_viktor_umbrella_chain
+spr_viktor_umbrella_chain2
+spr_viktor_umbrella_throw
+spr_viktor_use_back_high
+spr_viktor_use_back_low
+spr_viktor_use_back_middle
+spr_viktor_use_front_low
+spr_viktor_use_front_middle
+spr_viktor_use_left_high
+spr_viktor_use_left_low
+spr_viktor_use_left_middle
+spr_viktor_use_right_high
+spr_viktor_use_right_low
+spr_viktor_use_right_middle
+spr_viktor_walk_back
+spr_viktor_walk_front
+spr_viktor_walk_front_angry
+spr_viktor_walk_left
+spr_viktor_walk_left_angry
+spr_viktor_walk_right
+spr_viktor_walk_right_angry
+spr_viktor_whee
+spr_water
+spr_water_long
+spr_water_top
+spr_wolf
+spr_wolf_idle
+spr_wolf_idle2
+spr_wolf_no
+spr_wolf_smoke
+spr_wolf_smoke_end
+
+----------
+4. Contact
+----------
+
+The obvious first choice for contacting us is info@studiospektar.hr
+If that fails, try the programmer at aleksandar.gavrilovich@gmail.com
+Have fun!
