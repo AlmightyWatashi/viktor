@@ -1,6 +1,6 @@
 === version ===
 
-21.2.2017.
+2.3.2017.
 
 === crow ===
 
@@ -84,7 +84,7 @@ end
 == moar ==
 
 [if crowmoar_flag = 0] This conversation tires me.
-Prepare to die.	
+Prepare to die.
 	+[if crowfunder_flag = 0] Well, I have another option. See, there's people who might want to fund me.
 		What the hell are you talking about, pig?
 		[set crowmoar_flag 1]
@@ -332,7 +332,7 @@ You have reached Martin, the three eyed owl.
 			+ Your 'cold reading' is really improving, psychic man.
 				Do not be cheeky Viktor. Try focusing on your goal.
 					[section hello]
-	- Martin, it's me, Viktor. I need your psychic services.
+	-[if already_called_station = 0] Martin, it's me, Viktor. I need your psychic services.
 		Of course Viktor. Just ask away.
 		[set already_called_station 1]
 			[section psychic]
@@ -505,7 +505,6 @@ You have reached MARVIN THE MARVELLOUS!
 No relation to Martin the magnificent.
 Stroke your telephone gently and tell me your psychic concerns in a seductive voice.
 == in_tavern ==
-
 	-[if talkedprague = 0] Martin, it's me, Viktor. I'm in Prague!
 		[section prague]
 	+ No time for stroking, Martin. I need psychic advice.
@@ -521,6 +520,8 @@ Stroke your telephone gently and tell me your psychic concerns in a seductive vo
 					+ Please, let's get to some psychic advice, then.
 						Oh, Viktor, it's you.
 						Ask away, friend
+							[if talkedprague = 1] I need psychic advice!
+							[if talkedprague = 1][section psychic_tavern]
 						[section psychic_tavern]					
 			+ Oh, I'm wearing a leather trenchcoat and practically nothing underneath.
 				Wait a minute...
@@ -531,6 +532,8 @@ Stroke your telephone gently and tell me your psychic concerns in a seductive vo
 							+ My voice sounds nothing like your mother.
 								No, of course not.
 								Now, let's change the subject. You probably have questions.
+									[if talkedprague = 1] I need psychic advice!
+									[if talkedprague = 1][section psychic_tavern]
 								[section psychic_tavern]
 					+ Yes, this is mother. How did your Latin test go, little hoot?
 						Wait a minute, how did you know about...
@@ -541,7 +544,9 @@ Stroke your telephone gently and tell me your psychic concerns in a seductive vo
 									+[if talkedprague = 0] I'm in Prague.
 										[section prague]
 									+ I need psychic advice.
-										Ask away, friend
+										Ask away, friend.
+											[if talkedprague = 1] I need psychic advice!
+											[if talkedprague = 1][section psychic_tavern]
 										[section psychic_tavern]
 							+ Yep. And I'm calling from the lovely, yet incredibly polluted Prague.
 								[section prague]
@@ -667,19 +672,238 @@ end
 
 end
 
-end
+== frankenstein ==
+
+Hey, yo yo yo.
+You have reached Martin's magnificent audio training gym.
+I just did one hundred push-ups and I'm ready to do one hundred more!
+Get on the floor and join me, maggot!
+== martin_franktalk ==
+	-[not martinpush = 1] Can we do pull-ups instead?
+		[set martinpush 1]
+		Of course we can, rookie.
+		Let me just prepare my pulling pole thing!
+		[animation martinsRoom_martin spr_martinsRoom_martin][time 35]
+		[imagespeed martinsRoom_martin 0.3]
+		There we go, I'm ready to do pull ups.
+			[section martin_franktalk]
+	-[if martinpush = 1] Actually, my pole thing broke. Can we do jumping jacks?
+		[set martinpush 2]
+		Of course, of course.
+		We wouldn't want you grabing onto your broken pole, that's dangerous.
+		Let's get ready for some jumping joes!
+			Jacks.
+				Hey, I'm the gym leader around here!
+				Now, let's hear you count, maggot!
+					[section martin_franktalk]
+	-[if martinpush = 2] Actually, I don't feel like jumping joes. Let's do push-ups.
+		[set martinpush 3]
+		Yes, we could...		
+		[animation martinsRoom_martin spr_martinsRoom_martin][time 35]
+		[imagespeed martinsRoom_martin 0.3]
+		Oh, it's you.
+		What's the psychinc emergency this time, Viktor?
+			[section martin_frank_psychic]
+	- Martin, I can hear your bath water, you aren't working out.
+		I might be doing push-ups in my bathroom, how could you tell?
+		Anyway, what do you need?
+			[section martin_frank_psychic]
+	- Martin, it's me! I finally got a girlfriend that understands me!
+		If she messes up our board game nights, Viktor, I am going to put a curse on her.
+		Other than that, I'm really happy for you and her.
+		Don't tell her I said the last bit, she might get too relaxed around me.
+		It would ruin my mystical aura.
+		And diminish the curse, if it would come to that.
+		So, what do you need?
+			[section martin_frank_psychic]
+	+ That's very nice, Martin, but I need psychic advice right now.
+		Oh, hello Viktor. State your issues.
+			[section martin_frank_psychic]
+	- Never mind, I can't train right now, I pulled a ligament.
+		Stay healthy until next time, rookie.
+			[end]
+
+== martin_frank_psychic ==
+	- What can you tell me about a Gustav Klimt.
+		I read somewhere that he has a thing for girls.
+			+ Don't we all?
+				His thing is a lot bigger.
+					+ What kind of thing are we talking about now?
+						Good question. I, myself, have become confused.
+						Anything else?
+						[section martin_frank_psychic]
+	-[if beentotower = 1] I met Dr. Frankenstein.
+		Wow, my psychic feeling was way off.
+		I thought you would say Nikola Tesla for some reason.
+		Must be from reading the latest issue of Electro Shocker.
+			Anyway, how do I appease Dr. Frankenstein?
+				By praising his genius.
+					I don't want to do that.
+						Try confusing him, then.
+							[section martin_frank_psychic]
+	-[if beentotower = 1] Do you know anything about Frankenstein's monster?
+		Just don't touch his ''monster'' and everything will be all right.
+					[section martin_frank_psychic]
+	-[if beentotower = 1] I'm in a same building as the great Dr. Sigmund Freud.
+		Viktor, are you at an orgy?
+			No, I'm in a middle of a weird family dispute.
+				Then just steal what you need and get the hell out.
+				Family disputes are a terrible thing.
+				Especially during orgies.
+					I'm not at... oh, never mind.
+						[section martin_frank_psychic]
+	-[if beentotower = 1] Small dog called Igor, what can you tell me about him?
+		Is he a good boy?
+			Depends on who you ask.
+				Pet him on the head for me.
+					What, that's it?
+						No, tell him also that he's a good boy.
+							I'm not going to do that, Martin.
+								Then just pet his owner, or something.
+									[section martin_frank_psychic]
+	+ It was good hearing your lovely soothing voice, Martin.
+		Good hearing you too, Viktor. Call whenever.
+			[end]
 
 == shrooms ==
 
-Shrooms.
-	Shrooms.
-		Shroomees.
+[not already_shrooms_call = 1] Are you more comfortable talking to me over the phone?
+[set already_shrooms_call 1]
+Don't worry, Viktor. We will get through this.
+	- I don't really understand what's going on
+		How can you not remember?
+		You used corosive mushrooms to unclog a fountain and accidentally inhaled some spores.
+		You are lucky to be alive.
+			+ But I'm too fat to get poisoned!
+				I know.
+				I'm just saying that because life is wonderful.					
+						[section advice]
+			+ Where the hell is the elephant?
+				He's not a part of this.
+				Just remember one thing.
+				It's not stealing if it's borrowing.
+					[section advice]
+			And now what?
+				You want me to try and guide you or do you want to do this on your own?
+					[section advice]
+	+ Dammit, look at me, Martin. I can't oust the emperor in this condition!
+		Not much you can do about that.
+		But while you're out there,
+		Try to sort some things out.
+		Do you need any help about that?
+			[section advice]
+	+ Actually, I'm just gonna go poke about. Sorry to bother you.
+		Any time, friend.
 			[end]
 
+end
+== advice ==
+	+ Actually, I'm just gonna go poke about. Thanks for the kind words, Martin.
+		You have all the time in the world there, Viktor.
+		But don't waste it too much.
+			[end]
+	+ Help me out here, I have no idea what I'm doing!
+		This is what you have to do.
+		[if talkedalready = 1] I can repeat this as many times as necessary.
+		The devil tells the truth in a false way.
+		Water is a way to move about.
+		Time travel is the same thing.
+		Grab everything.
+		Grow and shrink.
+		Be an engineer.
+		And a musician.
+			+ What?
+				Good luck, Viktor.
+					[end]
+
+end
+
+== botanical ==
+
+[not already_botanical_call = 1] Wait, don't tell me!
+[not already_botanical_call = 1] You have knee problems!
+[not already_botanical_call = 1] I can help with that!
+[set already_botanical_call 1]
+Just sing to me...
+	+ You want me to sing? Okay!
+		Viktor, please do not sing.
+			[blocksound snd_vase_sing] My little Mei-Din girl... 
+			[blocksound snd_vase_sing] Something something mess with me...
+				Not the vase song again.
+					[blocksound snd_vase_sing2] Oh oh oh ooooh.
+						What do you need, Viktor?
+							[section botanical_psychic]
+	-[if kneeproblems = 0] How did you know I have knee problems?
+		[set kneeproblems 1]
+		I'm psychic, you know.
+		That's why you called.
+			+ Why not.
+			+ I can't believe that you still can't recognize my voice after all this time.
+				I'm sorry, mother.
+					It's me, Viktor.
+						Do you understand how many calls I get throughout a day?
+							I had one this morning.
+								That was me, Martin, I called you this morning.
+									It could have been anyone.
+									That's how destiny works.
+									Anyway, what do you need?
+										[section botanical_psychic]
+			+ Martin, it's me, Viktor. I need your advice.
+				Of course, you do.
+				What do you see?
+					[section botanical_psychic]
+	+ No singing now, Martin, I'm in the palace right now!
+		[section botanical_psychic]
+	-[if backfromshrooms = 1] It's me, Martin. I just wanted to thank you for all your help.
+		[set beautifulgoodbye 1]
+		Thank you for being a good friend.
+		Just remember me once you become emperor.
+		Or if you die and go to hell...
+		Put in a good word with Satan for me, will you?
+			[if beentohell = 1] In a way, I already did.
+			Good bye, Martin.
+				Bye bye.
+					[end]
+			
+			
+== botanical_psychic ==
+
+	-[if eleroom = 0] We have to discuss the elephant in the room.
+		[set eleroom 1] Kill him and eat his heart
+			He looks really big, I might get too much cholesterol.
+				Oh, now you're worried about that.
+					[section botanical_psychic]
+	-[if elecam = 0] There's an automated security system at the door.
+		[set elecam 1] I see...
+		An explosion!
+		I think it's armed with explosives!
+			Lovely. But how do I get around it?
+				Try seduction!
+					On an automated system?
+						Of course!
+						They like a hard drive.
+						And explosions!
+							Okay.
+								[section botanical_psychic]
+	- Any general advice?
+		Stay away from the poisonous mushrooms.
+		And wash your hands before killing the emperor.
+			Why not...
+			[section botanical_psychic]
+				[section botanical_psychic]					
+	+ Actually, I think I can figure this out on my own.
+		Good luck, Viktor, you'll need it.
+			[end]
+
+end
 
 === noam ===
 
 Shalom, me lad.
+[if item ticket] I see you're ready to go aboard?
+	[if item ticket] As ready as I'll ever be!
+		[if item ticket] Best of luck to ya, then!
+		[if item ticket][end]
 [set talked_to_dog 1]
 	[section hello]
 
@@ -698,7 +922,7 @@ Shalom, me lad.
 		[set noam1 1] Ach feh! I cannae go there yet. > Walking around just wears out meh shoes.
 		[section hello]
 	-[if noam2 = 1][if noam3 = 0] Hey, Noam! Where do you plan on traveling?
-		[section travelling]
+		[section travelling2]
 	-[if noam2 = 0][if noam3 = 0] Hey, mr. traveler. Where do you plan on traveling?
 		== travelling2 ==
 		I just be travelin' to Vienna.
@@ -797,7 +1021,7 @@ Aye, a kilt and a payot, that's the ticket, laddy!
 				Ten crowns, please
 					But the ticket is worth five crowns!
 						I just be teachin' ya how a Jewish Scottsman thinks, lad.
-						[take ticket]
+						[take ticket][add tickets 1]
 						Off ye go.
 						[end]
 
@@ -832,7 +1056,7 @@ end
 		[set philo_flag 1]
 			+ You know, line! Queue! Row! What would you call it?
 				Please sir, leave me in peace.
-				[mood frog smart] Your banality makes me more sober then a philosopher is supposed to be!
+				[mood frog smart] Your banality makes me more sober than a philosopher is supposed to be!
 					[section excuse]
 			+ Let me rephrase that. Are you standing in the line to enter the dirigible?
 				[mood frog smart] An anecdote.
@@ -1252,7 +1476,7 @@ end
 			+[not item ticket] Can't we take care of this some other way?
 				No.
 					[end]
-	+ My name is Viktor. I'm the next emperor of Austria Hungary. Let me aboard.
+	+ My name is Viktor. I'm the next emperor of Austria-Hungary. Let me aboard.
 		Did you smoke some weird shit man?
 		[mood donkey angry] What are you bullshitting around here?
 		[mood donkey angry] You lasagna eater, go suck your lasagnas.
@@ -1313,6 +1537,9 @@ end
 	[mood angry] Let me in the dirigible you dumb-ass!
 		No.
 		[set racenow 0][end]
+	++[if raced = 1] Let's race again!
+	[mood angry] Let's race again!
+			[set racenow 1][end]
 
 end
 
@@ -1321,7 +1548,7 @@ end
 [set raced 1]
 [set mood angry]
 If you win, what will not happened, because you looks like lost case, I will let you fly without ticket.
-[talk frog] Can I try it also?
+[talk frog] Can I try it as well?
 [mood donkey angry] Shut up you drunky, blabbing smag, you already have a ticket...
 Aha and if I win, I will, I will hmm ... have right to kick you in the butt!?
 Is that a deal, mushroom eater?  
@@ -1344,11 +1571,11 @@ Is that a deal, mushroom eater?
 						You see, I'm smarter than you.
 						I know what I tried to say with that and you do not.
 							Let's just race, ass.
-							[set mood][set racenow 1][end]
+							[set mood][set racenow 1][set piloted 1][end]
 			+ Shut up and drive!
-				[set mood][set racenow 1][end]
+				[set mood][set racenow 1][set piloted 1][end]
 	+ Shut up and drive!
-		[set mood][set racenow 1][end]
+		[set mood][set racenow 1][set piloted 1][end]
 
 
 end	
@@ -1388,10 +1615,10 @@ end
 
 	+ So, I get to drive for free now?
 		If you this good, you are even free to pilot.
-		[take ticket] Here, have a ticket.
-			+ No need, I'll just get a nice coupe.
+		[take ticket][add tickets 1] Here, have a ticket.
+			+ No need, I'll just get a nice compartment.
 			[direction front] Well, this really, really made me happy.
-			[direction front] My plan is going perfectly!		
+			[direction front] My plan is going perfectly!
 			[set ticketgood 1]
 				[set mood]
 				[end]
@@ -1404,10 +1631,9 @@ Is that 5 coins?
 	+[if coins = 5] Yes, I would like to buy a ticket.
 		Enjoy your trip, sir.
 		I hope you die in a crash.
-		[give coin][give coin][give coin][give coin][give coin]
-		[take ticket][set coins 0][give coin]
+		[take ticket][add tickets 1][set coins 1][give coin][set coins 0]
 			[direction front] Well, this really, really made me happy.
-			[direction front] My plan is going perfectly!			
+			[direction front] My plan is going perfectly!
 			[set ticketgood 1][end]
 	+ Never mind
 		[end]
@@ -1421,7 +1647,7 @@ end
 [set talked_to_rabbit 1]
 	+[if rabbitrobot = 0] What an awesome automaton. Where is it from?
 		[set rabbitrobot 1][section robot]
-	+[if rabbitname = 0] I am Viktor, a soon-to-be emperor of Austria Hungary.
+	+[if rabbitname = 0] I am Viktor, a soon-to-be emperor of Austria-Hungary.
 		[set rabbitname 1] Tee hee (⌒ω⌒)
 		I am Fuka Misaki, soon-to-be angry passenger (⌒_⌒;)
 		[description rabbit Ms. Misaki]
@@ -1433,7 +1659,7 @@ end
 			I already angry (｀ﾛ´) so now must become passenger (*^ω^)
 				[section letme]
 	+[if rabbitline = 0] Are you standing in a line for the airship?
-		[set rabbitline 1] Sadness no, desu (o︶︹︺) > I just wait here all worries!
+		[set rabbitline 1] Sadness no, desu (o￣ヘ￣) > I just wait here all worries!
 			[section letme]
 	-[if cleanup = 1][if cleanuptalk = 0] Is there something wrong with your automaton?
 		[set cleanuptalk 1] Slightly sadness, desu (´д｀)
@@ -1444,6 +1670,9 @@ end
 				It need me to show repairwomen many part.
 				If you is try to take part, I am defend ROBOTOTRON4ULTRA with ROBOTOTRON4ULTRA.
 					[section start]
+	+ Can I take some of your automatons parts?
+		Sadness no, desu (o￣ヘ￣) > I be needing all parts.
+		[section start]
 	+ I have to go. See you later.
 		Sayonara ^^
 			[end]
@@ -1601,7 +1830,7 @@ What?
 							+ Then I would like a ticket to Vienna.
 								[section price]
 					+ I would like a ticket to Vienna.
-						Why would you want a ticket to Vienna?						
+						Why would you want a ticket to Vienna?
 						[set mood angry] Better spend that money on a new coat.
 							++ Don't tell me how to spend my money.
 							Don't tell me how to spend my money.
@@ -1655,7 +1884,7 @@ Do you even have that much? I believe not.
 					[set mood]
 					[end]
 			+ Yes, I want the ticket.
-				[give coin][take ticket][set coins 0]
+				[give coin][take ticket][add tickets 1][set coins 0]
 				[end]
 
 end		
@@ -1810,10 +2039,10 @@ How is life faring for you, Viktor?
 			+ Okay, then I'll sell it to someone else.
 				Good luck with that.
 					[section hello]
-	+[if item coin][if sold_cell_flag = 1][not item cell] Enjoying your new battery cell?
+	+[if sold_cell_flag = 1][not item cell] Enjoying your new battery cell?
 		Yes and no.
 		I'm still not sure that buying it was a good idea.
-			+ Want to sell it back to me for the same price?
+			+[if item coin] Want to sell it back to me for the same price?
 				I actually do.
 				Here you go.
 				[set toys_flag 0][set sold_cell_flag 0][set bought_cell_flag 1]
@@ -1832,8 +2061,8 @@ How is life faring for you, Viktor?
 			+ For a coin, I don't want it.
 				Done.
 				[set bought_cell_flag 0][set sold_cell_flag 1]
-				[animation player spr_viktor_use_right_middle][add coins -1][take cell]
-				[if coins = 0][give coin]
+				[animation player spr_viktor_use_right_middle][give cell]
+				[take coin]
 					[section hello]	
 	+ See you, Attar
 		[section goodbye]
@@ -2012,9 +2241,10 @@ end
 == falling_dirigible ==
 
 	+ Manouvering this blimp around so many clouds might become really hard for the pilot.
-		[animation player spr_viktor_talk_left_coupe 5]Oh, you are also familiar with dirigible piloting?
-		[animation player spr_viktor_talk_left_coupe 5]You are truly a multi-talented person.
-			+ I recently had the opportunity to try piloting a personal blimp.
+		[animation player spr_viktor_talk_left_coupe 5] Oh, you are also familiar with dirigible piloting?
+		[animation player spr_viktor_talk_left_coupe 5] You are truly a multi-talented person.
+			[if piloted = 0] I read about it in the latest edition of Dirigible Boy.
+			[if piloted = 1] I recently had the opportunity to try piloting a personal blimp.
 				[animation player spr_viktor_talk_left_coupe 5]Then you know that it is perfectly safe in the hands of a professional.
 				I mean, what's the worst that can happen?
 				[cloud phone][cloud 580 200][animation player spr_viktor_talk_left_coupe 5][talk coupe_megaphone][blocksound snd_donkey_talk_muffled] Dearest passangers, your pilot is talking to you, we are losing height.
@@ -2222,7 +2452,7 @@ We plan on smashing them, crushing them and showing them their place in this geo
 				[time 160][move palace_curtain_left 90 3][move palace_curtain_right 90 3][sound snd_lift_leave]
 				[move palace_curtain_left 90 0][move palace_curtain_right 90 0]
 				[imagespeed palace_automaton_bear_open 1][imagespeed palace_automaton_bull_open 1][time 44]
-				[animations palace_automaton_bear_open spr_palace_automaton_bear][animations palace_automaton_bull_open spr_palace_automaton_bull]
+				[sound snd_automaton][animations palace_automaton_bear_open spr_palace_automaton_bear][animations palace_automaton_bull_open spr_palace_automaton_bull][time 0]
 				Are you aware that I'm protected with the finest automatons in this part of the world?
 					+ I was, in fact, not aware of that, you pompous mutt.
 						[mood emperor laugh] Ha ha ha ha ha!
@@ -2282,7 +2512,7 @@ I respect that in an agent.
 	+ Well, I was in a hurry to overthrow the empire and all that.
 		Here's your message.
 		[animation vida spr_vida_give][time 45]
-		[animation player spr_viktor_use_right_middle][animation vida spr_vida_give][imageindex vida 12]
+		[animation vida spr_vida_give][imageindex vida 12][animation player spr_viktor_use_right_middle]
 		Read and destroy.
 		You know the watchword.
 			+ Wait! what?
@@ -2393,58 +2623,58 @@ end
 end				
 == order ==
 
-	- Do you have any Black African?
-		[section some_excuse]
-	- How about pouring me a bottle of Naughty Horn?
-		[section some_excuse]
-	- I could really do with a Happy Viking.
-		[section some_excuse]
-	-[not beer_flag < 1]  Do you serve absinthe?
+	-[if drink1 = 0] Do you have any Black African?
+		[set drink1 1][section some_excuse]
+	-[if drink2 = 0] How about pouring me a bottle of Naughty Horn?
+		[set drink2 1][section some_excuse]
+	-[if drink3 = 0] I could really do with a Happy Viking.
+		[set drink3 1][section some_excuse]
+	-[if drink4 = 0][not beer_flag < 1]  Do you serve absinthe?
 		I'm sorry sir, it's probably the only drink we do not serve.
-		[set absintheknows 1]
+		[set drink4 1][set absintheknows 1]
 		[add beer_flag 1]
 		[section order]
-	-[not beer_flag < 1] How about a nice cup of tea?
-		Sorry, sir. Alcohol only after sundown.
+	-[if drink5 = 0][not beer_flag < 1] How about a nice cup of tea?
+		[set drink5 1] Sorry, sir. Alcohol only after sundown.
 		[add beer_flag 1]
 		[section order]
-	-[not beer_flag < 2] Any Terrahawk Ale?
-		[section some_excuse]
-	-[not beer_flag < 3] I want a glass of Room Wiseau.
-		[section some_excuse]
-	-[not beer_flag < 4] Do you at least have some Turquoise Russian?
-		[section some_excuse]
-	-[if absintheknows = 1] How about some Hex On The Beach?
-		I told you, sir. No Absinthe or Absinthe-based drinks.
+	-[if drink6 = 0][not beer_flag < 2] Any Terrahawk Ale?
+		[set drink6 1][section some_excuse]
+	-[if drink7 = 0][not beer_flag < 3] I want a glass of Room Wiseau.
+		[set drink7 1][section some_excuse]
+	-[if drink8 = 0][not beer_flag < 4] Do you at least have some Turquoise Russian?
+		[set drink8 1][section some_excuse]
+	-[if drink9 = 0][if absintheknows = 1] How about some Hex On The Beach?
+		[set drink9 1] I told you, sir. No Absinthe or Absinthe-based drinks.
 		[add beer_flag 1]
 		[section order]
-	+ Do you have anything to eat?
+	+[if (drink10 = 0) or (drink11 = 0)] Do you have anything to eat?
 		Of course we do, sir.
 		Our cook is the finest cook in the building.
-			+ Do you have anything with noodles?
-				Yes, of course.
+			+[if drink10 = 0] Do you have anything with noodles?
+				[set drink10 1] Yes, of course.
 					+ Like what?
 						Was that a question?
 							+ What would you recommend?
 								Oh, believe me, everything on the menu is fresh and of highest quality.
-									+Too bad. I was hoping for something fermented.
+									+ Too bad. I was hoping for something fermented.
 										A beer, perhaps?
 											[add beer_flag 1]
 											[section order]
-			+ Do you have any Screaming Peanut Butter(tm)?
-				Of course we do.
+			+[if drink11 = 0] Do you have any Screaming Peanut Butter(tm)?
+				[set drink11 1] Of course we do.
 				Screaming Peanut Butter(tm) is the finest screaming butter you can find.
 				But you cannot order it alone. You can get it as a side dish.
 				Or as a free canape when you order more than three glasses of beer.
 					[section order]
-	-[not beer_flag < 2] Can I see the menu?
-		No.
+	-[if drink12 = 0][not beer_flag < 2] Can I see the menu?
+		[set drink12 1] No.
 			[section order]
-	-[not beer_flag < 3] Are you screwing with me?
-		I do not believe I had the pleasure, sir.
+	-[if drink13 = 0][not beer_flag < 3] Are you screwing with me?
+		[set drink13 1] I do not believe I had the pleasure, sir.
 			[section order]
-	-[not beer_flag < 2] Do you have any beer other than those?
-		Yes.
+	-[if drink14 = 0][not beer_flag < 2] Do you have any beer other than those?
+		[set drink14 1] Yes.
 		[add beer_flag 1]
 			[section order]
 	+[if beer_flag < 3] Actually, I don't need anything right now.
@@ -2477,7 +2707,7 @@ end
 == kafka_excuse ==
 
 Mr. Kafka is drinking the last one right now.
-[talk kafka] I hate beer from the bottom of the barrel.
+[if available kafka][talk kafka] I hate beer from the bottom of the barrel.
 [add beer_flag 1]
 [section order]
 
@@ -2490,20 +2720,20 @@ end
 		He has a condition.
 		Don't ask.
 			[section talkabout]
-	- What's with the change of rhetoric all of the sudden?
+	- What's with the change of rhetoric all of a sudden?
 		You know the watchword.
 		Took you long enough to remember it.
 		But we had even dumber people join us, so why not.
 			[section anarchy_hello]
 	+ Don't mind if I do. What do you have?
-		[animation anteater spr_anteater_use_left_high]
+		[animation player spr_viktor_listen_back][animation anteater spr_anteater_use_left_high]
 		[animation anteater spr_anteater_use_left_middle][animation player spr_viktor_use_back_middle]
 		Try this. It's on the house.
 		== tryit ==
 			- What is it?
 				It's my personal brew made of fermented honey mixed with coffee...
 				Five different kinds of fruit...
-				And a pinch of pure hatered.
+				And a pinch of pure hatred.
 					+ Maybe later.
 							[animation anteater spr_anteater_use_left_middle][animation player spr_viktor_use_back_middle]
 							[animation anteater spr_anteater_use_left_high]
@@ -2514,8 +2744,9 @@ end
 			+ Wow, thank you.
 				No problem.
 					== drink ==
-					[animation player spr_viktor_drink]
-					[noitamina player spr_viktor_drink][time 88]
+					[animation player spr_viktor_drink][imageindex player 15][time 32]
+					[noitamina player spr_viktor_drink][time 88][time 32]
+					[animation player spr_viktor_use_back_middle]
 					[set potion 1]
 					That really hit the spot.
 					It makes me feel great! Smarter! More aggressive!
@@ -2599,7 +2830,7 @@ end
 		[description kafka Franz Kafka][set knowskafkasname 1]
 		[animation kafka spr_kafka_greetings]
 		Remember that name, it might be famous some day.
-			+ You should remember mine as well. You might be looking at the next emperor of Austria Hungary.
+			+ You should remember mine as well. You might be looking at the next emperor of Austria-Hungary.
 				I'll do my best.
 					[section hello]
 			+ Do you plan on blowing something up?
@@ -2688,7 +2919,7 @@ end
 end
 == sojew ==
 
-	- You probably know all the Jews in Austria Hungary! Did you ever meet Sigmund Freud?
+	- You probably know all the other Jews in Austria-Hungary! Did you ever meet Sigmund Freud?
 		Is this one of those silly stereotypes that all Jews know each other?
 		You know, it's not as if you just go around and suddenly you meet Sigmund Freud.
 		Oh all right, I may have talked to Mr. Freud a few times.
@@ -2787,7 +3018,7 @@ end
 		[talk mole] Long live the emperor!
 		[talk matilda_tavern] I'm not an anarchist either.
 		[talk mole] Fuj anarchists.
-		[talk kafka] Long live wossizname.
+		[if available kafka][talk kafka] Long live wossizname.
 			Then you must be communists.
 				[talk horse2] nope
 					[end]
@@ -2873,7 +3104,7 @@ end
 end
 == toiletpass_2 ==
 
-	+ ...eating...
+	+[if nevertrue = 1] ...eating...
 		[section toiletpass_3]
 	+ ...kissing...
 		[section toiletpass_3]
@@ -3213,7 +3444,7 @@ Better talk with Krtek, he's better at organizing.
 								[not available jekyll][end]
 								[talk jekyll] Oh god, not this again! 
 								[talk jekyll] I think I'm gonna throw up!
-								[imagespeeds jekyll 0.6][animations jekyll spr_jekyll_walk][move jekyll 359 5][time 180]
+								[active jekyll][imagespeeds jekyll 0.6][animations jekyll spr_jekyll_walk][move jekyll 359 5][time 180]
 								[destroy jekyll]
 								[set jekyll_toilet 1]
 								[end]
@@ -3259,7 +3490,7 @@ Better talk with Krtek, he's better at organizing.
 		But we only have one gun.
 		And even that one is out of bullets.
 		[talk matilda] Could you say that a bit louder, I don't think the *ENTIRE tavern* heard you...
-		[talk kafka] As if we care...
+		[if available kafka][talk kafka] As if we care...
 			So... can you raise me an army?
 				If we had enough cash, sure.
 					[section hello]
@@ -3324,7 +3555,8 @@ End.
 					[section hyde_matilda]
 			+ Stop making trouble, we wouldn't want to call the police.
 				[talk anteater] I, in fact, wouldn't want to call the police.
-				[talk kafka] How about we take a vote?
+				[if available kafka][talk kafka] How about we take a vote?
+				[not available kafka][talk horse2] How about we take a vote?
 					[section hyde_matilda]
 			+ Umm... I'll just leave quietly then...
 				Yeah, bugger off!
@@ -3342,7 +3574,8 @@ end
 	- I'm just gonna ask you once, leave now!
 		Then I'm just gonna answer once - bugger off!
 		[section hyde_matilda]
-	+ Dude, please don't make me rage when there's girls around...
+	++ Dude, please don't make me rage when there's girls around...
+	[blocksound snd_viktor_talk_whisper] Dude, please don't make me rage when there's girls around...
 		[section hyde_matilda2]
 	+ Umm... I'll just leave quietly then...
 		Yeah, bugger off!
@@ -3376,7 +3609,8 @@ end
 				[destroy matilda_gun][create matilda_tavern_scared]
 				[talk matilda_tavern_scared] Dammit, I'll have to get some bullets eventually.
 				[destroy hyde2][create hyde][set mood angry]
-					+ I've had enough! Get over here, so I can smash your face in!
+					== enoughisenough ==
+					+ I've had enough of you! Get over here, so I can smash your face in!
 						You don't know who you're dealing with, pig!
 							+ I can't wait to find out.
 							[set mood]
@@ -3389,7 +3623,7 @@ end
 									That's... also imposing, I guess.
 										[talk anteater] Please do not kill each other in the middle of the tavern.
 										[talk anteater] We have a guest here.
-										[talk kafka] You sure do.
+										[if available kafka][talk kafka] You sure do.
 										[talk lake] And a musician.
 										Well, we can't go outside.
 											+ Yeah, I don't want to get arrested again.
@@ -3401,7 +3635,7 @@ end
 														It's a good idea actually
 															+ Let's go.
 																== bothgototoilet ==
-																[animations player spr_viktor_walk_right][move player 8 6][animations hyde spr_hyde_walk][move hyde 17 8][fade in 0.03][time 150]
+																[animations player spr_viktor_walk_right_angry][move player 8 6][animations hyde spr_hyde_walk][move hyde 17 8][fade in 0.03][time 150]
 																[set gototoiletandfight 1]
 																	[end]
 end
@@ -3435,7 +3669,7 @@ Finally!
 	If you want paper, go to the toilet and ask Dr. Jekyll to get it for you
 	[set mood]
 	[talk horse1] Fair enough. This one will be off the record.
-	[talk kafka] Oh no. Whatever shall you do?
+	[if available kafka][talk kafka] Oh no. Whatever shall you do?
 	Anyway... 
 	
 	== plan ==
@@ -3457,14 +3691,15 @@ Finally!
 	[set mood]
 	All right. Who wants me to lead you into victory instead of bureaucracy?
 	[talk matilda_tavern] Agreed.
-	[talk horse1] Souds reasonable
+	[talk horse1] Sounds reasonable
 	[set mood angry]
 	[talk horse2] I need some time to think.
-	[animation horse2 spr_horse2][time 55] > [imagespeed horse2 0.4]
+	[animation horse2 spr_horse2][time 55]
+	[imagespeed horse2 0.4][imagespeeds horse2 0.4]
 	[talk horse2] Fine, I agree.
 	[set mood]
 	[talk mole] Agreed.
-	[talk kafka] Abstain.
+	[if available kafka][talk kafka] Abstain.
 	[mute]
 	[talk lake] I wasn't paying attention, what was the vote about?
 	[animations lake spr_lake_listen][talk anteater] Just play your little song, Lake.
@@ -3500,7 +3735,7 @@ end
 			What?
 				Don't ask.
 					[section hello]
-	+[if priest_moved = 1] I see you finished your drink. Ready for another one?
+	+[if priest_moved = 1][if nevertrue = 1] I see you finished your drink. Ready for another one?
 		Oh no no. I think I had too much.
 		I even feel a slight illness taking over me.
 			Yeah, I wouldn't recommend the toilets around here.
@@ -3572,7 +3807,6 @@ end
 		Marvelous choice of colors.
 			[section hello]
 	+[if absintheknows = 1][if priest_moved = 0] Is that absinthe you're drinking?
-	Is that absinthe you're drinking?
 			I didn't know this bar serves absinthe!
 				It does not.
 				I brought my own and paid the waiter as if I ordered it from him.
@@ -3584,21 +3818,21 @@ end
 == toilet ==
 
 	+[if jekyll_toilet_first = 0] Are you doing all right?
-		Not quite.
+		[blocksound snd_jekyllsick_talk2] Not quite.
 		[set jekyll_toilet_first 1]
-		I lost the taste of absinthe and am starting to feel the smells around here.
-		Please bring me more of my absinthe as soon as possible!
-		The bottle is in my bag behind the barrel.
+		[blocksound snd_jekyllsick_talk] I lost the taste of absinthe and am starting to feel the smells around here.
+		[blocksound snd_jekyllsick_talk2] Please bring me more of my absinthe as soon as possible!
+		[blocksound snd_jekyllsick_talk3] The bottle is in my bag behind the barrel.
 			Could you just give me the toilet paper that dropped in there?
-				I can't feel my arms!
+				[blocksound snd_jekyllsick_talk] I can't feel my arms!
 					[end]
 	+[if jekyll_toilet_first = 1] Where did you say what was how?
-		My bag!
-		Bottle behind the barrel where I was sitting!
-		Green drink!
-		It smells awful in here and I might keep vomiting for the rest of the night.
-		Hurry!
-		Please!
+		[blocksound snd_jekyllsick_talk2] My bag!
+		[blocksound snd_jekyllsick_talk3] Bottle behind the barrel where I was sitting!
+		[blocksound snd_jekyllsick_talk2] Green drink!
+		[blocksound snd_jekyllsick_talk] It smells awful in here and I might keep vomiting for the rest of the night.
+		[blocksound snd_jekyllsick_talk2] Hurry!
+		[blocksound snd_jekyllsick_talk3] Please!
 			Yeah, yeah.
 				[end]
 
@@ -3701,7 +3935,7 @@ end
 							[section hello]
 					+ I don't think anything can help you.
 						[section hello]
-			+ So, how do you like Austria Hungary?
+			+ So, how do you like Austria-Hungary?
 				Very pretty. > Except a couple of times when the police tried to arrest me. > First for mispronouncing the emperor's name. > I still have no idea how it's pronounced > [talk player] Me neither. > And once I tried looking at his picture from a wrong angle. > Luckily, one of them got cut on my quills while arresting me. > He started bleeding all over the floor and the other one fainted from seeing the blood. > So I just left.
 					[section hello]
 
@@ -3821,15 +4055,17 @@ end
 					+ I'll give him some god's will, right in his good eye!
 						[section needhelp]
 	+[if priest_moved = 0] Could you please move to some other stall? I need to see something behind you.
-		[if priest_booths = 0][set priest_booths 1] I would use a more private booth.
-		[if priest_booths = 0] But the door on the one on the right was stuck.
+		[if priest_booths = 1] I already told you, the booth next door is stuck shut...
+		[if priest_booths = 0] I would use a more private booth...
+		[if priest_booths = 0] But the door to the right is stuck.
 		[if priest_booths = 0] If you manage to open it, I'll move eventually.
-		[if priest_booths = 0] But right now, I need to pray some more.
-		[if priest_booths = 1] I told you already, the booth next door is stuck shut...
-			[if toilet_is_opened = 1][mood angry] No it's not, I just opened it!
+		[if priest_booths = 0][if toilet_is_opened = 0][set priest_booths 1] But right now, I need to pray some more.
+		[if priest_booths = 0][set priest_booths 1]
+			[if toilet_is_opened = 1][mood angry] I just opened them!
 				[if toilet_is_opened = 1] Oh...
 				[if toilet_is_opened = 1] Well, I'll move later.
 				[if toilet_is_opened = 1] Go away, give me some privacy!
+				[if toilet_is_opened = 1][end]
 		Go in peace, my son.
 			[end]
 	+ Do you need help?
@@ -4060,7 +4296,7 @@ Isn't that a great offer, my friend?
 					Gimmie your place.
 						You can't replace me, little piggy.
 						I am THE devil, after all.
-							+ I can do the second best thing, than.
+							+ I can do the second best thing, then.
 								Listen to me without question?
 									+ Nah.
 										[section fight]
@@ -4096,7 +4332,7 @@ Now, how can I help you?
 		Then step up on the platform to get your electrons polarized.
 			And that will make me impervious to the emperor's electric field?
 				Let's say yes... The Kirilian should have enough power to polarize one person.
-				Anyway, good luck! I have to go to America now. 
+				Anyway, good luck! I have to go to Texas now. 
 				Remember me when you become Emperor!
 				[animations tesla spr_tesla_walk_left][move tesla 320 5][time 90][imagespeed tesla 0.6]
 				[destroy tesla]
@@ -4152,7 +4388,7 @@ That's not an issue for me. I discovered the secret of infinite electricity!
 	+ Are you saying that the world is soon going to have free electricity?
 		Probably not.
 		Political problems, long story.
-			+ Political problems can be solved. I'm working on becoming the new emperor of Austria Hungary!
+			+ Political problems can be solved. I'm working on becoming the new emperor of Austria-Hungary!
 				You seem crude, but trustworthy.
 				You might make a good emperor.
 				But hereditary rules state otherwise.
@@ -4337,23 +4573,23 @@ end
 				[if klimtmatildaname = 1] Oh, don't worry, Matilda. This is not my house. I'm just painting for the owner of this dungeon.
 				[if klimtmatildaname = 0] Oh, don't worry, young lady. This is not my house. I'm just painting for the owner of this dungeon.
 					+ And who is the owner?
-							The dreaded Dr. Frankenstein.
-							He's upstairs, observing his biggest creation's psychotherapy.
-								Thank you.
-									[section matilda2]
+						The dreaded Dr. Frankenstein.
+						He's upstairs, observing his biggest creation's psychotherapy.
+							Thank you.
+							[section matilda2]
 	+[if available dungeon_painting1] I'm glad you decided to bring some colors into your house, because it looks like a bloody dungeon...
 	It is kinda...
 	Moist.
 	But in a bad way.
 	And that skeleton, so tacky.
 		Luckily, it's not my house. It's Dr. Frankenstein's dungeon.
-		[set skeletonask 1]And the skeleton is not decoration, it's a warning.
+		[set skeletonask 1] And the skeleton is not decoration, it's a warning.
 			+ Oh.
 				[section matilda2]
 	-[if skeletonask = 1] Who was the skeleton, if I may ask?
 		Just some router maintenance technician for Frankenstein's router upstairs.
-	- My name is Matilda, what is yours?
-	[set klimtmatildaname 1]
+	-[if klimtmatildaname = 0] My name is Matilda, what is yours?
+	[set klimtmatildaname 1][description klimt Klimt][set knowsklimtsname 1]
 		I'm Gustav Klimt. I'm a painter, and you?
 			+ An anarchist.
 				That's cute.
@@ -4404,6 +4640,7 @@ end
 
 == first_entry ==
 [set first_entry 1]
+[animations matilda spr_matilda_listen_right]
 Ah, wilkommen to mein laboratory!
 Everyone ist wilkommen in ze laboratory!
 Ich bin Dr. Frankenstein.
@@ -4412,6 +4649,7 @@ Und das ist mein greatest creation!
 == questions ==
 	- The vulture?
 		Nein, das iz ze psychiatrist, dr. Sigmund Freud!
+		[description freud Sigmund Freud][set knowsfreudsname 1][set freudviktor 1]
 		[decription freud Sigmund Freud]
 		[talk freud] Pleased to meet you, mister...
 			[set frankenstein_introduced 1] Viktor.
@@ -4459,11 +4697,11 @@ Then, ich make thousands of super-soldiers fur mein beloved fuhrer.
 == tantrum ==
 [mood frankenstein crazy] Nein nein nein, enough of zis schmetterling geschaft!
 [position frankenstein 9000 9000]
-[draw spr_frankenstein_throw_chair 885 808 57 -1000 0.7][destroy tower_stool 10][time 40]
+[draw spr_frankenstein_throw_chair 885 808 57 -1000 0.7][destroy tower_stool 10][time 40][sound snd_vase_break 10]
 [draw spr_tower_stool 836 508 17 -900 0.7 1 120 35 150][time 17]
 [draw spr_cloud_small 375 230 10 -1000 0.3 1 0 15 45 0 0 0 -0.01][draw spr_cloud_small 375 230 10 -1000 0.3 1 0 15 135 0 0 0 -0.01][draw spr_cloud_small 375 230 10 -1000 0.3 1 0 15 215 0 0 0 -0.01]
 [position frankenstein 885 808]
-[move tower_machine_blade4 270 30][move tower_machine_blade3 270 30][move tower_machine_blade2 270 30][move tower_machine_blade1 270 30][move tower_machine_nozzle 270 30][move tower_machine_cable 270 30][move tower_machine_body 270 30][move tower_machine_ball1 270 30][move tower_machine_ball2 270 30][time 20]
+[sound snd_vase_break 10][move tower_machine_blade4 270 30][move tower_machine_blade3 270 30][move tower_machine_blade2 270 30][move tower_machine_blade1 270 30][move tower_machine_nozzle 270 30][move tower_machine_cable 270 30][move tower_machine_body 270 30][move tower_machine_ball1 270 30][move tower_machine_ball2 270 30][time 20]
 [draw spr_cloud_large 290 750 10 -1000 0.3 1 0 15 45 0 0 0 -0.01][draw spr_cloud_large 290 750 10 -1000 0.3 1 0 15 135 0 0 0 -0.01][draw spr_cloud_large 290 750 10 -1000 0.3 1 0 15 215 0 0 0 -0.01]
 [destroy tower_machine_blade4][destroy tower_machine_blade3][destroy tower_machine_blade2][destroy tower_machine_blade1][destroy tower_machine_nozzle][destroy tower_machine_cable][destroy tower_machine_body][destroy tower_machine_ball1][destroy tower_machine_ball2]
 [create tower_machine_broken]
@@ -4502,18 +4740,18 @@ end
 		Sehr dangerous!!!
 			[not available tower_bzz] It doesn't look electric....
 			[if available tower_bzz] It doesn't look dangerous...
-			[if deviceshocked = 1] But du rememberst was happened when du touch? He hee!
-			[if deviceshocked = 1][section viktor]
-			[if available tower_bzz][if deviceshocked = 0] He he, really? Try touching it then!
-			[if available tower_bzz][if deviceshocked = 0][section viktor]
-			[not available tower_bzz][if deviceshocked = 0] Du should touch it when it's worken.
-				[not available tower_bzz][if deviceshocked = 0] Why is it not worken? Umm, working?
-					[not available tower_bzz][if deviceshocked = 0] It ist hooked to zer machine over there, and ich kann nichts get zer lichts to work!
-						[not available tower_bzz][if deviceshocked = 0] Mind if I try?
-							[not available tower_bzz][if deviceshocked = 0] Nein, deine kleine braine ist too small for such complexity!
-								[not available tower_bzz][if deviceshocked = 0] But it's just two levers?
-									[not available tower_bzz][if deviceshocked = 0][mood crazy] Ahahahahahahaha! Just two levers! Ahahahahahaha!
-									[not available tower_bzz][if deviceshocked = 0][section viktor]
+				[if deviceshocked = 1] But du rememberst was happened when du touch? He hee!
+				[if deviceshocked = 1][section viktor]
+				[if available tower_bzz][if deviceshocked = 0] He he, really? Try touching it then!
+				[if available tower_bzz][if deviceshocked = 0][section viktor]
+				[not available tower_bzz][if deviceshocked = 0] Du should touch it when it's worken.
+					[not available tower_bzz][if deviceshocked = 0] Why is it not worken? Umm, working?
+						[not available tower_bzz][if deviceshocked = 0] It ist hooked to zer machine over there, and ich kann nichts get zer lichts to work!
+							[not available tower_bzz][if deviceshocked = 0] Mind if I try?
+								[not available tower_bzz][if deviceshocked = 0] Nein, deine kleine braine ist too small for such complexity!
+									[not available tower_bzz][if deviceshocked = 0] But it's just two levers?
+										[not available tower_bzz][if deviceshocked = 0][mood crazy] Ahahahahahahaha! Just two levers! Ahahahahahaha!
+										[not available tower_bzz][if deviceshocked = 0][section viktor]
 	+[if frankenstein_thankful = 1] Can we get Tesla's machine now?
 		Nein.
 		Without it, mein creation will die!
@@ -4615,8 +4853,8 @@ end
 		Ach, he wants ze Frequency Ultra Conversion Kirlian.
 		Well, he can't have it. Ich bin sorry.
 		Du must first save mein creation und fix ze machine that sustains its life...
-		[talk freud] I'm sorry, sir, but we agreed that you will not refer to her as "it".
-		[talk monster] I want to be a "she" now.
+		[talk freud] I'm sorry, sir, but we agreed that you will not refer to her as 'it'.
+		[talk monster] I want to be a 'she' now.
 		[set hesheit 1] Never!
 		[talk monster] I'm a she! I must be a she! I'm so delicate, as Dr. Freud said!
 		[talk monster] Let me be a she!
@@ -4634,8 +4872,8 @@ end
 			+ Some parts don't seem to fit.
 				You made me break ze machine, you fix ze machine.
 					[section matilda]
-	+[if hesheit = 1] Why wouldn't it be a "her"? You just replace some parts.
-		[talk igor] Hjee, hjeee, hjee, "parts".
+	+[if hesheit = 1] Why wouldn't it be a 'her'? You just replace some parts.
+		[talk igor] Hjee, hjeee, hjee, 'parts'.
 		Out of ze question.
 		Do you know how much digging Igor had to do to find acceptable boy parts?
 			[talk igor] A lot.
@@ -4675,6 +4913,10 @@ Hurr durr!
 	+ Hurr dee durr?
 		Dee! Durrrr!
 		[section start]
+	+[if herehre = 0] Here here?
+		[set herehere 1] Here!
+		[record brahms][time 30]
+		Wow, thanks!
 	+ Hodor?
 		Ho dooooor!
 		[section start]
@@ -4695,7 +4937,7 @@ end.
 				[set hesheit 1] Her father, on the other hand...
 				[talk frankenstein][mood frankenstein crazy] HIS father!
 				[talk frankenstein][mood frankenstein crazy] Das ist eine he!
-				[talk frankenstein][mood frankenstein crazy] Hurry up und fix that, you so called "psychotherapist"!
+				[talk frankenstein][mood frankenstein crazy] Hurry up und fix that, you so called 'psychotherapist'!
 					[end]
 	+[if freudviktor = 0] My name is Viktor.
 		[set freudviktor 1] Oh lovely, another one.
@@ -4705,7 +4947,7 @@ end.
 				There are fake ones?
 					+ Good point.
 						[end]
-			+ Oh, you're the "everything is about sex" guy?
+			+ Oh, you're the 'everything is about sex' guy?
 				I prefer the term psychoanalyst.
 					[end]
 	+ I'll let you get back to your psychoanalysis.
@@ -4731,21 +4973,20 @@ end
 == start ==
 
 Sir, How dare you come uninvited?
-	[if version debug] THIS IS THE DEBUG VERSION - SKIP TO THE FIGHT...
-	[if version debug][section fight]
 	[section viktor]
 	
 == matilda ==
 
-More rebel scum!?
-[mood general explain] You will be dealt with as well!
+	That's the way I say hello!
+		More rebel scum!?
+		[mood general explain] You will be dealt with as well!
 		[section fight]
 
 == viktor ==
 	+ My throne is waiting there for me
 	I can hear it call me...
-	[blocksound snd_vase_sing] "Come, come my lover!"
-	[blocksound snd_vase_sing] "Sit on my face"
+	[blocksound snd_vase_sing] 'Come, come my lover!'
+	[blocksound snd_vase_sing] 'Sit on my face'
 		I'm not as amused by your humor as you would hope.
 		You talk directly against my Emperor.
 		And yours too, slavic scoundrel!
@@ -4781,7 +5022,7 @@ More rebel scum!?
 						[section fight]
 	- But I was invited, did nobody tell you?
 		My apologies, good sir.
-		I did not notice your "Come through the roof of the emperor's botanical garden" invitation.
+		I did not notice your 'Come through the roof of the emperor's botanical garden' invitation.
 		[section viktor]
 		
 
@@ -4900,7 +5141,7 @@ end
 				[set elepsmart 1] I really am not.
 				I was never very smart.
 				I had a very sad childhood.
-				People would say "Oh, look at that elephant. He doesn't seem smart at all".
+				People would say 'Oh, look at that elephant. He doesn't seem smart at all'.
 					+ Ok, stop it, stop it.
 						So, you are not going to kill me?
 							+ Nah, I lost interest.
@@ -4915,7 +5156,7 @@ end
 									[section matilda]
 			+ Ok, forget it...
 				[section matilda]
-	+[if frapelep = 0] We will make a Frappe out of your ugly emperor.
+	+[if nevertrue = 1] We will make a Frappe out of your ugly emperor!
 		[set frapelep 1] A Frappe? What is that?
 			+ It's a kind of milk shake, but with coffee.
 				I don't think anyone would like to shake milk.
@@ -4991,7 +5232,7 @@ end
 
 Enough of these charades!
 [animation automaton_bull spr_palace_automaton_bull_open][animation automaton_bear spr_palace_automaton_bear_open]
-Automatons, attack the intruders!
+Automatons, assemble!
 [end]
 
 === 
@@ -5001,96 +5242,88 @@ Automatons, attack the intruders!
 == start ==
 
 	Umm... Hello?
-		You have reached the Automated Palace Response Door.
+		[cloud phone] You have reached the Automated Palace Response Door.
 		== enter ==
-		Would you like to enter this door?
+		[cloud phone] Would you like to enter this door?
 	== enter2 ==
 	+[if beentoemperor = 1][if dothiscamera = 0] Didn't we do this already?
-		[set dothiscamera 1] No, I would have remembered.
-		The only person I let in today was Karl Zezil.
-		And you definitely don't look like him.
-		Would you like to enter?
+		[cloud phone][set dothiscamera 1] No, I would have remembered.
+		[cloud phone] The only person I let in today was Karl Zezil.
+		[cloud phone] And you definitely don't look like him.
+		[cloud phone] Would you like to enter?
 		[section enter2]
 	+[if behinddoor = 0][if beentoemperor = 0] What is behind this door?
-		[set behinddoor 1] The Emperor's Inner Sanctum.
+		[cloud phone][set behinddoor 1] The Emperor's Inner Sanctum.
 		[section enter]
 	+ I would like to enter, yes.
 		== enter3 ==
-		Please wait while we ascertain your identity.
 		[not available hallway_pipe_animated][not available powder][create powder 100][create hallway_pipe_animated][imageindex hallway_pipe_animated 0][destroy hallway_pipe_animated 150]
-		Ready for the picture?
-			+ Yes!
-				[section enter4]
-			+ On second thought, I changed my mind.
-				[section toobad]
-		== enter4 ==
-		Are you sure?
+		[cloud phone] Please wait while we ascertain your identity.
+		[cloud phone] Ready for the picture?
 			+ Yes!
 				[section enter5]
 			+ On second thought, I changed my mind.
 				[section toobad]
 		== enter5 ==
-		Well, ready or not, here it comes!
-		[create powder -1][destroy powder][fade in 0.3 -9999 spr_various_white][time 3] > [if available hallway_pipe_animated][imageindex hallway_pipe_animated 33] > [fade out 0.3 -9999 spr_various_white][time 3] > [fade] > [time 15]
-		[if alias viktor] You have been identified as the traitor Viktor.
-		[if alias matilda] You have been identified as the traitor Matilda.
-		Please wait while we dispatch assassins to your location.
+		[not available hallway_pipe_animated][not available powder][create powder 150][create hallway_pipe_animated][destroy hallway_pipe_animated 150][time 150] > [time 15] > [destroy powder][destroy powder2][fade in 0.3 -9999 spr_various_white][time 3][sound snd_camera] > [fade out 0.3 -9999 spr_various_white][time 3] > [fade] > [time 15]
+		[if alias viktor][cloud phone] You have been identified as the traitor Viktor.
+		[if alias matilda][cloud phone] You have been identified as the traitor Matilda.
+		[cloud phone] Please wait while we dispatch assassins to your location.
 		[set assassins 1]
 			[direction front] Whoops.
 			[end]
 		== toobad ==
-		Okay, be sure to tell me when you change your mind!
+		[cloud phone] Okay, be sure to tell me when you change your mind!
 		[end]
 	+[if camerabad = 0] If I say yes, will something bad happen?
-		[set camerabad 1] No, you will just be visually scanned and identified.
-		If you are a known traitor of the Empire, we will dispatch assassins to your location.
-		So unless you are an anarchist bent on overthrowing the Emperor, you are safe.
+		[cloud phone][set camerabad 1] No, you will just be visually scanned and identified.
+		[cloud phone] If you are a known traitor of the Empire, we will dispatch assassins to your location.
+		[cloud phone] So unless you are an anarchist bent on overthrowing the Emperor, you are safe.
 		[section enter]
 	+[if assassins = 1][if camerabored = 0] So, where are those assassins you dispatched?
-		Unfortunately, all assassins are busy at the present time.
-		In the meantime, you can chat with me.
+		[cloud phone] Unfortunately, all assassins are busy at the present time.
+		[cloud phone] In the meantime, you can chat with me.
 			No, thank you.
-				Please? It's terribly lonely being a camera automaton...
+				[cloud phone] Please? It's terribly lonely being a camera automaton...
 					OK, OK, what can you talk about?
-						Well...
-						I can take pictures of people... and open the door if they are invited.
+						[cloud phone] Well...
+						[cloud phone] I can take pictures of people... and open the door if they are invited.
 						[set takesphotos 1][set camerabored 1]
 						[section enter]
 	+[if camerainvited = 1] So... Who is invited inside?
 		[set camerainvited 2] Sorry, that information is classified.
 				[section enter2]
 	+[if takesphotos = 0] Can you do something other than opening doors?
-		[set takesphotos 1] Of course!
-		[set camerainvited 1] I can also take pictures of people and open the door if they are invited.
+		[cloud phone][set takesphotos 1] Of course!
+		[cloud phone][set camerainvited 1] I can also take pictures of people and open the door if they are invited.
 			+ So... Who is invited inside?
-				[set camerainvited 2] Sorry, that information is classified.
+				[cloud phone][set camerainvited 2] Sorry, that information is classified.
 				[section enter2]
 			+ Could you take my picture for fun?
 				[section takephoto]
 			+ Nooooo, just send those assassins!!!
-				How about you try entering the door again?
+				[cloud phone] How about you try entering the door again?
 				[section enter2]
 	+[if takesphotos = 1] Could you take my picture for fun?
 		== takephoto ==
-		[if alias viktor][if givenviktorpic = 0] Sure!
-		[if alias matilda][if givenmatildapic = 0] Sure!
-		[if alias viktor][if givenviktorpic = 1] I already made you a picture!
-		[if alias matilda][if givenmatildapic = 1] I already made you a picture!
+		[if alias viktor][if givenviktorpic = 0][cloud phone] Sure!
+		[if alias matilda][if givenmatildapic = 0][cloud phone] Sure!
+		[if alias viktor][if givenviktorpic = 1][cloud phone] I already made you a picture!
+		[if alias matilda][if givenmatildapic = 1][cloud phone] I already made you a picture!
 			[if alias matilda][if givenmatildapic = 1] But I don't like how I turned out!
 			[if alias viktor][if givenviktorpic = 1] But I don't like how I turned out!
-				[if alias matilda][if givenmatildapic = 1] I'm sorry, but I have to conserve paper.
-				[if alias viktor][if givenviktorpic = 1] I'm sorry, but I have to conserve paper.
+				[if alias matilda][if givenmatildapic = 1][cloud phone] I'm sorry, but I have to conserve paper.
+				[if alias viktor][if givenviktorpic = 1][cloud phone] I'm sorry, but I have to conserve paper.
 				[if alias matilda][if givenmatildapic = 1][section enter2]
 				[if alias viktor][if givenviktorpic = 1][section enter2]
-		[not available hallway_pipe_animated][not available powder][create powder 100][create hallway_pipe_animated][imageindex hallway_pipe_animated 0][destroy hallway_pipe_animated 150][time 100]
-		[time 15] > [destroy powder][fade in 0.3 -9999 spr_various_white][time 3] > [fade out 0.3 -9999 spr_various_white][time 3] > [fade] > [time 15]
+		[not available hallway_pipe_animated][not available powder][create powder 150][create hallway_pipe_animated][imageindex hallway_pipe_animated 0][destroy hallway_pipe_animated 150][time 150] > [time 15] > [destroy powder][destroy powder2][fade in 0.3 -9999 spr_various_white][time 3][sound snd_camera] > [fade out 0.3 -9999 spr_various_white][time 3] > [fade] > [time 15]
 		[if alias viktor][set givenviktorpic 1][take viktorspic][draw spr_hallway_viktor 31 403 30 -402 1 1 0 0 0 0 0 1][animation player spr_viktor_use_left_middle][time 31]
 		[if alias matilda][set givenmatildapic 1][take matildaspic][draw spr_hallway_matilda 31 403 30 -402 1 1 0 0 0 0 0 1][animation player spr_matilda_use_left_middle][time 31]
 			Wow, that's great, thanks!
-				A pleasure. Now... Would you like to enter this door?
+				[cloud phone] A pleasure. Now... Would you like to enter this door?
 				[section enter2]
 	+ No, not just yet.
-		Thank you.
+		[cloud phone] Thank you.
 		[end]
 
 end
@@ -5259,40 +5492,40 @@ Are we done talking? Can I kill you now?
 
 == start ==
 	My dear subjects...
-	I will bring a few new laws right now to improve the lives of people in all of the Empire!
-	First, the maximum working hour for street sweepers instead of 9 hours a day will be 7 hours a day.
-		[talk rhino_broom_listen][animations rhino_broom_listen spr_rhino_broom_talk][blocksound snd_rhino_talk] Yaaaaaaaaay!
-		[animations rhino_broom_listen spr_rhino_broom_listen]
+	I will make a few new laws right now to improve the lives of people in all of the Empire!
+	First, the maximum working hours for street sweepers will be 7 hours a day instead of 9.
+		[sound snd_cheer_end][animation rhino_broom_listen spr_rhino_broom_yes][animation tesla_back spr_tesla_back_wave][animation kafka_back spr_kafka_back_wave][time 100]
+		[animation tesla_back spr_tesla_back][animation kafka_back spr_kafka_back][animation rhino_broom_listen spr_rhino_broom_listen][time 1]
 		[talk tesla_back] Maybe I should change my job.
-	Oscar, we will oppose all war invasion plans concerning the Republic of Macedonia. Now!
+	Oskar, we will oppose all war invasion plans concerning the Republic of Macedonia. Now!
 	[talk general] At once, your majesty!
 	[animation general spr_general_bow]
 	[animations general spr_general_walk][move general 0 5][time 180]
 	[move general 0 0]
 	And we will rename the country to Viktor's Empire!
-	It will be a kingdom of Austria, Hungary, Slavs and all others. All nations will enjoy same rights as Austrians and Hungarians!
+	It will be a kingdom of Austrians, Hungarians, Slavs and all others. All nations under the Empire will enjoy the same rights as Austrians and Hungarians!
 	Any other great ideas?
 
 == religion ==
 [talk freud] I believe every person should have his own psychiatrist to clear his mind of religious nonsense!
-	+ Well I cannot make 50% of population to be psychiatrist, it would be a mad house.
+	+ Well I cannot make 50% of population psychiatrists, it would be a mad house.
 			A mad house!!!
-				[talk rhino_broom_listen][animations rhino_broom_listen spr_rhino_broom_talk][blocksound snd_rhino_talk] Yaaaaaaaaay!
-				[animations rhino_broom_listen spr_rhino_broom_listen]
+				[sound snd_cheer_end][animation rhino_broom_listen spr_rhino_broom_yes][animation tesla_back spr_tesla_back_wave][animation kafka_back spr_kafka_back_wave][time 100]
+				[animation tesla_back spr_tesla_back][animation kafka_back spr_kafka_back][animation rhino_broom_listen spr_rhino_broom_listen][time 1]
 				[section women]
-	+ How about secularization of country for a start and other mumbo-jumbos later to discuss?
-		[talk rhino_broom_listen][animations rhino_broom_listen spr_rhino_broom_talk][blocksound snd_rhino_talk] Yaaaaaaaaay!
-		[animations rhino_broom_listen spr_rhino_broom_listen]
+	+ How about secularization of the country for a start, and we'll discuss other mumbo-jumbo later?
+		[sound snd_cheer_end][animation tesla_back spr_tesla_back_wave][animation kafka_back spr_kafka_back_wave][time 100]
+		[animation tesla_back spr_tesla_back][animation kafka_back spr_kafka_back][time 1]
 		[section women]
 	+ No, it is our right to hold in our heads whatever we wish! 
-			And to believe in Santa Claus, Tooth Fairy, David Bowie, Dionysius, Liza Minnelli, Confucius, Maradona or whatever I want to believe in. 
+			And to believe in Santa Claus, Tooth Fairy, Jareth the Goblin King, Dionysius, Liza Minnelli, Confucius, Maradona, or whatever I want to believe in.
 			So bugger off from my heroes!
-				[talk rhino_broom_listen][animations rhino_broom_listen spr_rhino_broom_talk][blocksound snd_rhino_talk] Yaaaaaaaaay!
-				[animations rhino_broom_listen spr_rhino_broom_listen]
+				[sound snd_cheer_end][animation rhino_broom_listen spr_rhino_broom_yes][animation tesla_back spr_tesla_back_wave][animation kafka_back spr_kafka_back_wave][time 100]
+				[animation tesla_back spr_tesla_back][animation kafka_back spr_kafka_back][animation rhino_broom_listen spr_rhino_broom_listen][time 1]
 				[section women]
 	+ OK, whatever.
-		[talk rhino_broom_listen][animations rhino_broom_listen spr_rhino_broom_talk][blocksound snd_rhino_talk] Yaaaaaaaaay!
-		[animations rhino_broom_listen spr_rhino_broom_listen]
+		[sound snd_cheer_end][animation rhino_broom_listen spr_rhino_broom_yes][animation tesla_back spr_tesla_back_wave][animation kafka_back spr_kafka_back_wave][time 100]
+		[animation tesla_back spr_tesla_back][animation kafka_back spr_kafka_back][animation rhino_broom_listen spr_rhino_broom_listen][time 1]
 		[section women]
 
 == women ==
@@ -5300,16 +5533,16 @@ Are we done talking? Can I kill you now?
 [talk matilda_chalk][direction front][animations matilda_chalk spr_matilda_talk_back] Will women have a right to vote?
 [animations matilda_chalk spr_matilda_listen_back][time 0]
 	+ Yes, darling.
-		[talk rhino_broom_listen][animations rhino_broom_listen spr_rhino_broom_talk][blocksound snd_rhino_talk] Yaaaaaaaaay!
-		[animations rhino_broom_listen spr_rhino_broom_listen]
+		[sound snd_cheer_end][animation tesla_back spr_tesla_back_wave][animation kafka_back spr_kafka_back_wave][time 100]
+		[animation tesla_back spr_tesla_back][animation kafka_back spr_kafka_back][time 1]
 		[section waiters]
 	+ I have an even better equality - no one has right to vote!
-		[talk rhino_broom_listen][animations rhino_broom_listen spr_rhino_broom_talk][blocksound snd_rhino_talk] Yaaaaaaaaay!
-		[animations rhino_broom_listen spr_rhino_broom_listen]
+		[sound snd_cheer_end][animation tesla_back spr_tesla_back_wave][animation kafka_back spr_kafka_back_wave][time 100]
+		[animation tesla_back spr_tesla_back][animation kafka_back spr_kafka_back][time 1]
 		[section waiters]
 	+ Voting? Voting for what? Darling, now we rule, not the plebs.
-		[talk rhino_broom_listen][animations rhino_broom_listen spr_rhino_broom_talk][blocksound snd_rhino_talk] Yaaaaaaaaay!
-		[animations rhino_broom_listen spr_rhino_broom_listen]
+		[sound snd_cheer_end][animation tesla_back spr_tesla_back_wave][animation kafka_back spr_kafka_back_wave][time 100]
+		[animation tesla_back spr_tesla_back][animation kafka_back spr_kafka_back][time 1]
 		[section waiters]
 
 == waiters ==
@@ -5317,27 +5550,27 @@ Are we done talking? Can I kill you now?
 [talk lake] Can we finally live in peace, free from all obscenity and indecency laws?
 	+ No.
 		[section solo]
-	+ Sorry, but no...
+	+ Okay, but only on Saturdays.
 		[section solo]
 	+ Absolutely not!
 		[section solo]
 	== solo ==
-	//[talk lake] Oh. Ok then... How about a solo then?
+	[talk lake] Oh. Ok then... How about a solo then?
 [animation lake spr_lake][sound snd_solo]
 [animation lake spr_lake_listen]
 [talk anteater] I have an idea! A great one! 
-[talk anteater] It is required to tip the waiter and waitress!!!
+[talk anteater] There should be a law that you must tip your waiter and waitress!!!
 	+ Ok, but only if you are served in under one hour.
-		[talk rhino_broom_listen][animations rhino_broom_listen spr_rhino_broom_talk][blocksound snd_rhino_talk] Yaaaaaaaaay!
-		[animations rhino_broom_listen spr_rhino_broom_listen]
+		[sound snd_cheer_end][animation rhino_broom_listen spr_rhino_broom_yes][animation tesla_back spr_tesla_back_wave][animation kafka_back spr_kafka_back_wave][time 100]
+		[animation tesla_back spr_tesla_back][animation kafka_back spr_kafka_back][animation rhino_broom_listen spr_rhino_broom_listen][time 1]
 		[section censorship]
 	+ No, that way people would not have enough money to get drunk.
-		[talk rhino_broom_listen][animations rhino_broom_listen spr_rhino_broom_talk][blocksound snd_rhino_talk] Yaaaaaaaaay!
-		[animations rhino_broom_listen spr_rhino_broom_listen]
+		[sound snd_cheer_end][animation rhino_broom_listen spr_rhino_broom_yes][animation tesla_back spr_tesla_back_wave][animation kafka_back spr_kafka_back_wave][time 100]
+		[animation tesla_back spr_tesla_back][animation kafka_back spr_kafka_back][animation rhino_broom_listen spr_rhino_broom_listen][time 1]
 		[section censorship]
 	+ Very well.
-		[talk rhino_broom_listen][animations rhino_broom_listen spr_rhino_broom_talk][blocksound snd_rhino_talk] Yaaaaaaaaay!
-		[animations rhino_broom_listen spr_rhino_broom_listen]
+		[sound snd_cheer_end][animation rhino_broom_listen spr_rhino_broom_yes][animation tesla_back spr_tesla_back_wave][animation kafka_back spr_kafka_back_wave][time 100]
+		[animation tesla_back spr_tesla_back][animation kafka_back spr_kafka_back][animation rhino_broom_listen spr_rhino_broom_listen][time 1]
 		[section censorship]
 
 == censorship ==
@@ -5346,18 +5579,18 @@ Are we done talking? Can I kill you now?
 [talk tesla_back] Or how about more money for science? 
 [talk tesla_back] Electricity should replace coal energy and be free for everyone!
 	+ Fine, free electroshocks for everyone!
-		[talk rhino_broom_listen][animations rhino_broom_listen spr_rhino_broom_talk][blocksound snd_rhino_talk] Yaaaaaaaaay!
-		[animations rhino_broom_listen spr_rhino_broom_listen]
+		[sound snd_cheer_end][animation rhino_broom_listen spr_rhino_broom_yes][animation tesla_back spr_tesla_back_wave][animation kafka_back spr_kafka_back_wave][time 100]
+		[animation tesla_back spr_tesla_back][animation kafka_back spr_kafka_back][animation rhino_broom_listen spr_rhino_broom_listen][time 1]
 		[section weed]
 	+ Sorry, but then this would be an electro-punk empire? I cannot allow that.
-		[talk rhino_broom_listen][animations rhino_broom_listen spr_rhino_broom_talk][blocksound snd_rhino_talk] Yaaaaaaaaay!
-		[animations rhino_broom_listen spr_rhino_broom_listen]
+		[sound snd_cheer_end][animation rhino_broom_listen spr_rhino_broom_yes][animation tesla_back spr_tesla_back_wave][animation kafka_back spr_kafka_back_wave][time 100]
+		[animation tesla_back spr_tesla_back][animation kafka_back spr_kafka_back][animation rhino_broom_listen spr_rhino_broom_listen][time 1]
 		[section weed]
 	+ Ok 3500% more money for science!
 			But no free electricity. 
 			I'm afraid people will massively start dying while making toast in their bath tubs.
-				[talk rhino_broom_listen][animations rhino_broom_listen spr_rhino_broom_talk][blocksound snd_rhino_talk] Yaaaaaaaaay!
-				[animations rhino_broom_listen spr_rhino_broom_listen]
+				[sound snd_cheer_end][animation rhino_broom_listen spr_rhino_broom_yes][animation tesla_back spr_tesla_back_wave][animation kafka_back spr_kafka_back_wave][time 100]
+				[animation tesla_back spr_tesla_back][animation kafka_back spr_kafka_back][animation rhino_broom_listen spr_rhino_broom_listen][time 1]
 				[section weed]
 
 == weed ==
@@ -5366,16 +5599,16 @@ Are we done talking? Can I kill you now?
 	Yes, what about it?
 		[talk martin] Will you make it legal?
 		+ I will appoint you Minister of Mushrooms and Grass!
-			[talk rhino_broom_listen][animations rhino_broom_listen spr_rhino_broom_talk][blocksound snd_rhino_talk] Yaaaaaaaaay!
-			[animations rhino_broom_listen spr_rhino_broom_listen]
+			[sound snd_cheer_end][animation rhino_broom_listen spr_rhino_broom_yes][animation tesla_back spr_tesla_back_wave][animation kafka_back spr_kafka_back_wave][time 100]
+			[animation tesla_back spr_tesla_back][animation kafka_back spr_kafka_back][animation rhino_broom_listen spr_rhino_broom_listen][time 1]
 			[section interruption]
 		+ No, that way it will lose the flavor.
-			[talk rhino_broom_listen][animations rhino_broom_listen spr_rhino_broom_talk][blocksound snd_rhino_talk] Yaaaaaaaaay!
-			[animations rhino_broom_listen spr_rhino_broom_listen]
+			[sound snd_cheer_end][animation rhino_broom_listen spr_rhino_broom_yes][animation tesla_back spr_tesla_back_wave][animation kafka_back spr_kafka_back_wave][time 100]
+			[animation tesla_back spr_tesla_back][animation kafka_back spr_kafka_back][animation rhino_broom_listen spr_rhino_broom_listen][time 1]
 			[section interruption]
 		+ Ok, whatever.
-			[talk rhino_broom_listen][animations rhino_broom_listen spr_rhino_broom_talk][blocksound snd_rhino_talk] Yaaaaaaaaay!
-			[animations rhino_broom_listen spr_rhino_broom_listen]
+			[sound snd_cheer_end][animation rhino_broom_listen spr_rhino_broom_yes][animation tesla_back spr_tesla_back_wave][animation kafka_back spr_kafka_back_wave][time 100]
+			[animation tesla_back spr_tesla_back][animation kafka_back spr_kafka_back][animation rhino_broom_listen spr_rhino_broom_listen][time 1]
 			[section interruption]
 
 == interruption ==
@@ -5392,7 +5625,7 @@ Are we done talking? Can I kill you now?
 	So I take care of this myself. 
 	And with a little help from friends...
 	== theend ==
-	[animation player spr_viktor_crown][animation matilda_chalk spr_matilda_use_right_high]
+	[animations matilda_chalk spr_matilda_use_left_high][imagespeed matilda_chalk 0.25][animation player spr_viktor_crown][time 60]
 	[animation player spr_viktor_fly][animation matilda_chalk spr_matilda_listen_left]
 	[animation player spr_viktor_fly_talk][create viktor_fly_smoke] Rome, tremble! Here comes Viktor!
 	[animation player spr_viktor_fly2][move player 90 40][time 22]
@@ -5495,8 +5728,8 @@ end
 
 ++ Delibes
 	[record delibes][section records2]
-++ Dvorak
-	[record dvorak][section records2]
+++ Another Pobran
+	[record pobran2][section records2]
 ++ Another Strauss
 	[record strauss][section records2]
 ++ Another Dvorak
@@ -5564,7 +5797,7 @@ end
 	[take cake]
 	[section items2]
 ++[not item ticket] A dirigible ticket
-	[take ticket]
+	[take ticket][add tickets 1]
 	[section items2]
 ++[not item wig] A wig
 	[take wig]
@@ -5652,8 +5885,23 @@ end
 ++[not item mushrooms] Mushrooms
 	[take mushrooms]
 	[section items5]
-++[not item powder] Camera powder
-	[take powder]
+++[not item gunpowder] Camera powder
+	[take gunpowder]
+	[section items5]
+++[not item cog] Cog
+	[take cog]
+	[section items5]
+++[not item bullet] Bullet
+	[take bullet]
+	[section items5]
+++[not item viktorspic] Viktor's Pic
+	[take viktorspic]
+	[section items5]
+++[not item matildaspic] Matilda's Pic
+	[take matildaspic]
+	[section items5]
+++[not item picture2] Charles' Pic
+	[take picture2]
 	[section items5]
 ++ Previous page
 	[section items4]
@@ -5685,6 +5933,10 @@ end
 	[room title_sebenico_again start]
 ++ The palace botanical garden
 	[room title_vienna_again start]
+++ The palace end fight 1
+	[room palace_fight start]
+++ The palace end fight 2
+	[room palace_fight test]
 ++ Back
 	[section cheat]
 end

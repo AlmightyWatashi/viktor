@@ -1,5 +1,5 @@
 {
-	"version": "21.2.",
+	"version": "2.3.",
 	"guis" : [
 		{
 			"comment" : "GUI with the options button for credits",
@@ -574,7 +574,7 @@
 				"visible" : 1,
 				"description" : "Switch Viktor / Matilda",
 				"name" : "Switch Viktor / Matilda",
-				"default" : "[if available automaton_emperor][talk matilda][animations matilda spr_matilda_gun_talk][blocksound snd_matilda_talk_whisper] Just get me some bullets, Viktor! > [if available automaton_emperor][animations matilda spr_matilda_gun][skip] > [if available viktor_hose_aim][cloud player 50 300][occupied nobody][movement 1][position player viktor_hose_aim][switch viktor matilda][destroy viktor_hose_aim][noitamina viktor spr_viktor_hose_aim][create garden_hose_top 34][create palace_hose_top 34][time 44][animation player spr_matilda][set resetvar 1] > [if available matilda_hose_aim][occupied nobody][movement 1][position player matilda_hose_aim][switch viktor matilda][destroy matilda_hose_aim][noitamina matilda spr_matilda_hose_aim][create garden_hose_top 34][create palace_hose_top 34][time 40][animation player spr_viktor][set resetvar 1] > [if resetvar = 1][animation viktor spr_viktor][animation matilda spr_matilda][set resetvar 0][skip] > [if (buzzed = 1) or (plant = 1)][sound snd_bank_wrong][skip] I don't think poor Viktor can help me now. > [if room tesla][if alias viktor][if available teslapoddown][destroy teslapoddown] > [if room tesla][if alias matilda][if occupied viktor][not available teslapoddown][create teslapoddown] > [if normalswitch = 0][if alias viktor][sound snd_woosh] > [if normalswitch = 0][if alias matilda][sound snd_woosh2] > [if normalswitch = 0][switch viktor matilda] > [if normalswitch = 0][skip] > [if hidinginbush = 1] Matilda, any ideas? > [if hidinginbush = 1][talk matilda_bush] Only one: keep your voice down!",
+				"default" : "[if available automaton_emperor][if hasbullets = 0][talk matilda][animations matilda spr_matilda_gun_talk][blocksound snd_matilda_talk_whisper] Just get me some bullets, Viktor! > [if available automaton_emperor][if hasbullets = 0][animations matilda spr_matilda_gun][skip] > [if available automaton_emperor][if haspowder = 0][talk matilda][animations matilda spr_matilda_gun_talk][blocksound snd_matilda_talk_whisper] I need some bulletpowder, quick! > [if available automaton_emperor][if haspowder = 0][animations matilda spr_matilda_gun][skip] > [if available viktor_hose_aim][cloud player 50 300][occupied nobody][movement 1][position player viktor_hose_aim][switch viktor matilda][destroy viktor_hose_aim][noitamina viktor spr_viktor_hose_aim][create garden_hose_top 34][create palace_hose_top 34][time 44][animation player spr_matilda][set resetvar 1] > [if available matilda_hose_aim][occupied nobody][movement 1][position player matilda_hose_aim][switch viktor matilda][destroy matilda_hose_aim][noitamina matilda spr_matilda_hose_aim][create garden_hose_top 34][create palace_hose_top 34][time 40][animation player spr_viktor][set resetvar 1] > [if resetvar = 1][animation viktor spr_viktor][animation matilda spr_matilda][set resetvar 0][skip] > [if (buzzed = 1) or (plant = 1)][sound snd_bank_wrong][skip] I don't think poor Viktor can help me now. > [if room tesla][if alias viktor][if available teslapoddown][destroy teslapoddown] > [if room tesla][if alias matilda][if occupied viktor][not available teslapoddown][create teslapoddown] > [if normalswitch = 0][if alias viktor][sound snd_woosh] > [if normalswitch = 0][if alias matilda][sound snd_woosh2] > [if normalswitch = 0][switch viktor matilda] > [if normalswitch = 0][skip] > [if hidinginbush = 1] Matilda, any ideas? > [if hidinginbush = 1][talk matilda_bush] Only one: keep your voice down!",
 				"picture" : "spr_action_switch",
 				"passive" : "spr_cursor_walk",
 				"active" : "spr_cursor_walk_active",
@@ -1144,7 +1144,7 @@
 				"visible" : 1,
 				"description" : "Back",
 				"name" : "Back",
-				"default" : "[room previous panel]",
+				"default" : "[not available panel_button][room previous panel] > [if available panel_button] I should press the reset button first.",
 				"picture" : "spr_menu_back",
 				"passive" : "spr_cursor_walk",
 				"active" : "spr_cursor_walk_active",

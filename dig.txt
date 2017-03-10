@@ -1,5 +1,5 @@
 
-21.2.
+2.3.
 S = START
 E = END
 X = rock
@@ -8,6 +8,7 @@ o = dirt
 v = devil
 c = coin
 r = record
+R = another record
 m = walrus
 n = walrus2
 k = dinosaur
@@ -21,20 +22,20 @@ a = animal, snake
 
 map:
 XXoSXXXXXXXXXXXXXXXXXXXXXXXXEXX 
-XoowoXXXXXXXXXXXXXXXXXXXXXXXoXX 
+XooooXXXXXXXXXXXXXXXXXXXXXXXoXX 
 XoXoooooooXooowXoooopqooXowXooX 
 XoXooowoooooXwaXooXXXXXoXoaXooX 
 XoXaoooXXXXXXXoXoboowwXoXoXXooX 
 XooooooXoooXmnoXXXXXaaXoooXoooX 
 XoXXoXXXoXoXXXXXooooooXXXoXoXXX 
-XoXoocXooXooooXwoooXXXooXoXoooX 
+XoXoocXooXooroXwoooXXXooXoXoooX 
 XoXoooXooXooooXooXoXooooXoXoooX 
 XoXXXXXoXXXooXXooXoookooXodoooX 
-XoooooooXroooooaoXooooooXoXXooX 
+XoooooooXooooooaoXooooooXoXXooX 
 XXXXXXXoXooXXXXXXXXXXXXXooXXXXX 
-XXXXXXXoXXXXXXXXXXXXXXXXooXXXXX 
+XXXXXXX-XXXXXXXXXXXXXXXXroXXXXX 
 XXXXXXXHXXXXXXXXXXXXXXXXXXXXXXX 
-XXXXXXXoXXXXXXXXXXXXXXXXXXXXXXX 
+XXXXXXX_XXXXXXXXXXXXXXXXXXXXXXX 
 XXXXXXXoXXXXXXXXXXXXXXXXXXXXXXX 
 XXXXXXXoXXXXXXXXXXXXXXXXXXXXXXX 
 XXXXXXXvXXXXXXXXXXXXXXXXXXXXXXX 
